@@ -18,115 +18,115 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateLandingZone" OutputProperty="*" Verb="New" Noun="LandingZone" ShouldProcessTarget="Version" PipelineParameter="Version" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateLandingZone" OutputProperty="*" Verb="New" Noun="LandingZone" ShouldProcessTarget="Version" PipelineParameter="Version" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLandingZone" OutputProperty="OperationIdentifier" Verb="Remove" Noun="LandingZone" ShouldProcessTarget="LandingZoneIdentifier" PipelineParameter="LandingZoneIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteLandingZone" OutputProperty="OperationIdentifier" Verb="Remove" Noun="LandingZone" ShouldProcessTarget="LandingZoneIdentifier" PipelineParameter="LandingZoneIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableBaseline" OutputProperty="OperationIdentifier" Verb="Disable" Noun="Baseline" ShouldProcessTarget="EnabledBaselineIdentifier" PipelineParameter="EnabledBaselineIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisableBaseline" OutputProperty="OperationIdentifier" Verb="Disable" Noun="Baseline" ShouldProcessTarget="EnabledBaselineIdentifier" PipelineParameter="EnabledBaselineIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableControl" OutputProperty="OperationIdentifier" Verb="Disable" Noun="Control" ShouldProcessTarget="TargetIdentifier" PipelineParameter="TargetIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisableControl" OutputProperty="OperationIdentifier" Verb="Disable" Noun="Control" ShouldProcessTarget="TargetIdentifier" PipelineParameter="TargetIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableBaseline" OutputProperty="*" Verb="Enable" Noun="Baseline" ShouldProcessTarget="TargetIdentifier" PipelineParameter="TargetIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="EnableBaseline" OutputProperty="*" Verb="Enable" Noun="Baseline" ShouldProcessTarget="TargetIdentifier" PipelineParameter="TargetIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableControl" OutputProperty="OperationIdentifier" Verb="Enable" Noun="Control" ShouldProcessTarget="TargetIdentifier" PipelineParameter="TargetIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="EnableControl" OutputProperty="OperationIdentifier" Verb="Enable" Noun="Control" ShouldProcessTarget="TargetIdentifier" PipelineParameter="TargetIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBaseline" OutputProperty="*" Verb="Get" Noun="Baseline" PipelineParameter="BaselineIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBaseline" OutputProperty="*" Verb="Get" Noun="Baseline" PipelineParameter="BaselineIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBaselineOperation" OutputProperty="BaselineOperation" Verb="Get" Noun="BaselineOperation" PipelineParameter="OperationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBaselineOperation" OutputProperty="BaselineOperation" Verb="Get" Noun="BaselineOperation" PipelineParameter="OperationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetControlOperation" OutputProperty="ControlOperation" Verb="Get" Noun="ControlOperation" PipelineParameter="OperationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetControlOperation" OutputProperty="ControlOperation" Verb="Get" Noun="ControlOperation" PipelineParameter="OperationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEnabledBaseline" OutputProperty="EnabledBaselineDetails" Verb="Get" Noun="EnabledBaseline" PipelineParameter="EnabledBaselineIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetEnabledBaseline" OutputProperty="EnabledBaselineDetails" Verb="Get" Noun="EnabledBaseline" PipelineParameter="EnabledBaselineIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEnabledControl" OutputProperty="EnabledControlDetails" Verb="Get" Noun="EnabledControl" PipelineParameter="EnabledControlIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetEnabledControl" OutputProperty="EnabledControlDetails" Verb="Get" Noun="EnabledControl" PipelineParameter="EnabledControlIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLandingZone" OutputProperty="LandingZone" Verb="Get" Noun="LandingZone" PipelineParameter="LandingZoneIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetLandingZone" OutputProperty="LandingZone" Verb="Get" Noun="LandingZone" PipelineParameter="LandingZoneIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLandingZoneOperation" OutputProperty="OperationDetails" Verb="Get" Noun="LandingZoneOperation" PipelineParameter="OperationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetLandingZoneOperation" OutputProperty="OperationDetails" Verb="Get" Noun="LandingZoneOperation" PipelineParameter="OperationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBaselines" OutputProperty="Baselines" Verb="Get" Noun="BaselineList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBaselines" OutputProperty="Baselines" Verb="Get" Noun="BaselineList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListControlOperations" OutputProperty="ControlOperations" Verb="Get" Noun="ControlOperationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListControlOperations" OutputProperty="ControlOperations" Verb="Get" Noun="ControlOperationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEnabledBaselines" OutputProperty="EnabledBaselines" Verb="Get" Noun="EnabledBaselineList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEnabledBaselines" OutputProperty="EnabledBaselines" Verb="Get" Noun="EnabledBaselineList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEnabledControls" OutputProperty="EnabledControls" Verb="Get" Noun="EnabledControlList" PipelineParameter="TargetIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEnabledControls" OutputProperty="EnabledControls" Verb="Get" Noun="EnabledControlList" PipelineParameter="TargetIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLandingZoneOperations" OutputProperty="LandingZoneOperations" Verb="Get" Noun="LandingZoneOperationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLandingZoneOperations" OutputProperty="LandingZoneOperations" Verb="Get" Noun="LandingZoneOperationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLandingZones" OutputProperty="LandingZones" Verb="Get" Noun="LandingZoneList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLandingZones" OutputProperty="LandingZones" Verb="Get" Noun="LandingZoneList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetEnabledBaseline" OutputProperty="OperationIdentifier" Verb="Reset" Noun="EnabledBaseline" ShouldProcessTarget="EnabledBaselineIdentifier" PipelineParameter="EnabledBaselineIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ResetEnabledBaseline" OutputProperty="OperationIdentifier" Verb="Reset" Noun="EnabledBaseline" ShouldProcessTarget="EnabledBaselineIdentifier" PipelineParameter="EnabledBaselineIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetEnabledControl" OutputProperty="OperationIdentifier" Verb="Reset" Noun="EnabledControl" ShouldProcessTarget="EnabledControlIdentifier" PipelineParameter="EnabledControlIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ResetEnabledControl" OutputProperty="OperationIdentifier" Verb="Reset" Noun="EnabledControl" ShouldProcessTarget="EnabledControlIdentifier" PipelineParameter="EnabledControlIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetLandingZone" OutputProperty="OperationIdentifier" Verb="Reset" Noun="LandingZone" ShouldProcessTarget="LandingZoneIdentifier" PipelineParameter="LandingZoneIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ResetLandingZone" OutputProperty="OperationIdentifier" Verb="Reset" Noun="LandingZone" ShouldProcessTarget="LandingZoneIdentifier" PipelineParameter="LandingZoneIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEnabledBaseline" OutputProperty="OperationIdentifier" Verb="Update" Noun="EnabledBaseline" ShouldProcessTarget="EnabledBaselineIdentifier" PipelineParameter="EnabledBaselineIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateEnabledBaseline" OutputProperty="OperationIdentifier" Verb="Update" Noun="EnabledBaseline" ShouldProcessTarget="EnabledBaselineIdentifier" PipelineParameter="EnabledBaselineIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEnabledControl" OutputProperty="OperationIdentifier" Verb="Update" Noun="EnabledControl" ShouldProcessTarget="EnabledControlIdentifier" PipelineParameter="EnabledControlIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateEnabledControl" OutputProperty="OperationIdentifier" Verb="Update" Noun="EnabledControl" ShouldProcessTarget="EnabledControlIdentifier" PipelineParameter="EnabledControlIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLandingZone" OutputProperty="OperationIdentifier" Verb="Update" Noun="LandingZone" ShouldProcessTarget="LandingZoneIdentifier" PipelineParameter="LandingZoneIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateLandingZone" OutputProperty="OperationIdentifier" Verb="Update" Noun="LandingZone" ShouldProcessTarget="LandingZoneIdentifier" PipelineParameter="LandingZoneIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

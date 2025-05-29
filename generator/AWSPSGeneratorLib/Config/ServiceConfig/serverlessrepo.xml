@@ -20,61 +20,61 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateApplication" OutputProperty="*" Verb="New" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateApplication" OutputProperty="*" Verb="New" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateApplicationVersion" OutputProperty="*" Verb="New" Noun="ApplicationVersion" ShouldProcessTarget="ApplicationId" PipelineParameter="SemanticVersion" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateApplicationVersion" OutputProperty="*" Verb="New" Noun="ApplicationVersion" ShouldProcessTarget="ApplicationId" PipelineParameter="SemanticVersion" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCloudFormationChangeSet" OutputProperty="*" Verb="New" Noun="CloudFormationChangeSet" ShouldProcessTarget="ApplicationId" PipelineParameter="SemanticVersion" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateCloudFormationChangeSet" OutputProperty="*" Verb="New" Noun="CloudFormationChangeSet" ShouldProcessTarget="ApplicationId" PipelineParameter="SemanticVersion" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCloudFormationTemplate" OutputProperty="*" Verb="New" Noun="CloudFormationTemplate" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateCloudFormationTemplate" OutputProperty="*" Verb="New" Noun="CloudFormationTemplate" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApplication" OutputProperty="*" Verb="Get" Noun="Application" PipelineParameter="SemanticVersion" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetApplication" OutputProperty="*" Verb="Get" Noun="Application" PipelineParameter="SemanticVersion" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApplicationPolicy" OutputProperty="Statements" Verb="Get" Noun="ApplicationPolicy" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetApplicationPolicy" OutputProperty="Statements" Verb="Get" Noun="ApplicationPolicy" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCloudFormationTemplate" OutputProperty="*" Verb="Get" Noun="CloudFormationTemplate" PipelineParameter="TemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetCloudFormationTemplate" OutputProperty="*" Verb="Get" Noun="CloudFormationTemplate" PipelineParameter="TemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplicationDependencies" OutputProperty="Dependencies" Verb="Get" Noun="ApplicationDependencyList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListApplicationDependencies" OutputProperty="Dependencies" Verb="Get" Noun="ApplicationDependencyList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplications" OutputProperty="Applications" Verb="Get" Noun="ApplicationList" PipelineParameter="MaxItems" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-            <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxItems" />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListApplicationVersions" OutputProperty="Versions" Verb="Get" Noun="ApplicationVersionList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListApplications" OutputProperty="Applications" Verb="Get" Noun="ApplicationList" PipelineParameter="MaxItems" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxItems" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutApplicationPolicy" OutputProperty="Statements" Verb="Set" Noun="ApplicationPolicy" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListApplicationVersions" OutputProperty="Versions" Verb="Get" Noun="ApplicationVersionList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxItems" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutApplicationPolicy" OutputProperty="Statements" Verb="Set" Noun="ApplicationPolicy" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UnshareApplication" Verb="Revoke" Noun="ApplicationSharing" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UnshareApplication" Verb="Revoke" Noun="ApplicationSharing" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApplication" OutputProperty="*" Verb="Update" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateApplication" OutputProperty="*" Verb="Update" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

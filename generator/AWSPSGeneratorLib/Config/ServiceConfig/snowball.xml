@@ -23,111 +23,111 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelCluster" Verb="Stop" Noun="Cluster" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelCluster" Verb="Stop" Noun="Cluster" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelJob" Verb="Stop" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelJob" Verb="Stop" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAddress" OutputProperty="AddressId" Verb="New" Noun="Address" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAddress" OutputProperty="AddressId" Verb="New" Noun="Address" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCluster" OutputProperty="ClusterId" Verb="New" Noun="Cluster" ShouldProcessTarget="AddressId" PipelineParameter="AddressId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateCluster" OutputProperty="ClusterId" Verb="New" Noun="Cluster" ShouldProcessTarget="AddressId" PipelineParameter="AddressId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateJob" OutputProperty="JobId" Verb="New" Noun="Job" ShouldProcessTarget="AddressId" PipelineParameter="AddressId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateJob" OutputProperty="JobId" Verb="New" Noun="Job" ShouldProcessTarget="AddressId" PipelineParameter="AddressId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLongTermPricing" OutputProperty="LongTermPricingId" Verb="New" Noun="LongTermPricing" ShouldProcessTarget="LongTermPricingType" PipelineParameter="LongTermPricingType" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateLongTermPricing" OutputProperty="LongTermPricingId" Verb="New" Noun="LongTermPricing" ShouldProcessTarget="LongTermPricingType" PipelineParameter="LongTermPricingType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateReturnShippingLabel" OutputProperty="Status" Verb="New" Noun="ReturnShippingLabel" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateReturnShippingLabel" OutputProperty="Status" Verb="New" Noun="ReturnShippingLabel" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAddress" OutputProperty="Address" Verb="Get" Noun="Address" PipelineParameter="AddressId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAddress" OutputProperty="Address" Verb="Get" Noun="Address" PipelineParameter="AddressId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAddresses" OutputProperty="Addresses" Verb="Get" Noun="AddressList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAddresses" OutputProperty="Addresses" Verb="Get" Noun="AddressList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCluster" OutputProperty="ClusterMetadata" Verb="Get" Noun="Cluster" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCluster" OutputProperty="ClusterMetadata" Verb="Get" Noun="Cluster" PipelineParameter="ClusterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeJob" OutputProperty="*" Verb="Get" Noun="Job" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeJob" OutputProperty="*" Verb="Get" Noun="Job" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReturnShippingLabel" OutputProperty="*" Verb="Get" Noun="ReturnShippingLabel" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeReturnShippingLabel" OutputProperty="*" Verb="Get" Noun="ReturnShippingLabel" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJobManifest" OutputProperty="ManifestURI" Verb="Get" Noun="JobManifest" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetJobManifest" OutputProperty="ManifestURI" Verb="Get" Noun="JobManifest" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJobUnlockCode" OutputProperty="UnlockCode" Verb="Get" Noun="JobUnlockCode" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetJobUnlockCode" OutputProperty="UnlockCode" Verb="Get" Noun="JobUnlockCode" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSnowballUsage" OutputProperty="*" Verb="Get" Noun="SnowballUsage" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSnowballUsage" OutputProperty="*" Verb="Get" Noun="SnowballUsage" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSoftwareUpdates" OutputProperty="UpdatesURI" Verb="Get" Noun="SoftwareUpdate" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSoftwareUpdates" OutputProperty="UpdatesURI" Verb="Get" Noun="SoftwareUpdate" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClusterJobs" OutputProperty="JobListEntries" Verb="Get" Noun="ClusterJobList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListClusterJobs" OutputProperty="JobListEntries" Verb="Get" Noun="ClusterJobList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClusters" OutputProperty="ClusterListEntries" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListClusters" OutputProperty="ClusterListEntries" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCompatibleImages" OutputProperty="CompatibleImages" Verb="Get" Noun="CompatibleImageList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCompatibleImages" OutputProperty="CompatibleImages" Verb="Get" Noun="CompatibleImageList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" OutputProperty="JobListEntries" Verb="Get" Noun="JobList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListJobs" OutputProperty="JobListEntries" Verb="Get" Noun="JobList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLongTermPricing" OutputProperty="LongTermPricingEntries" Verb="Get" Noun="LongTermPricing" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLongTermPricing" OutputProperty="LongTermPricingEntries" Verb="Get" Noun="LongTermPricing" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPickupLocations" OutputProperty="Addresses" Verb="Get" Noun="PickupLocation" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPickupLocations" OutputProperty="Addresses" Verb="Get" Noun="PickupLocation" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServiceVersions" OutputProperty="*" Verb="Get" Noun="ServiceVersion" PipelineParameter="ServiceName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListServiceVersions" OutputProperty="*" Verb="Get" Noun="ServiceVersion" PipelineParameter="ServiceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCluster" Verb="Update" Noun="Cluster" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateCluster" Verb="Update" Noun="Cluster" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateJob" Verb="Update" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateJob" Verb="Update" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateJobShipmentState" Verb="Update" Noun="JobShipmentState" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateJobShipmentState" Verb="Update" Noun="JobShipmentState" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLongTermPricing" Verb="Update" Noun="LongTermPricing" ShouldProcessTarget="LongTermPricingId" PipelineParameter="LongTermPricingId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateLongTermPricing" Verb="Update" Noun="LongTermPricing" ShouldProcessTarget="LongTermPricingId" PipelineParameter="LongTermPricingId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

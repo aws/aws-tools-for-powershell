@@ -18,77 +18,77 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CopyImageSet" OutputProperty="*" Verb="Copy" Noun="ImageSet" ShouldProcessTarget="DatastoreId" PipelineParameter="DatastoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CopyImageSet" OutputProperty="*" Verb="Copy" Noun="ImageSet" ShouldProcessTarget="DatastoreId" PipelineParameter="DatastoreId" NoPipelineParameter="false">
             <Params>
                 <Param Name="Force" NewName="ForceCopy" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDatastore" OutputProperty="*" Verb="New" Noun="Datastore" ShouldProcessTarget="DatastoreName" PipelineParameter="DatastoreName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDatastore" OutputProperty="*" Verb="New" Noun="Datastore" ShouldProcessTarget="DatastoreName" PipelineParameter="DatastoreName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDatastore" OutputProperty="*" Verb="Remove" Noun="Datastore" ShouldProcessTarget="DatastoreId" PipelineParameter="DatastoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDatastore" OutputProperty="*" Verb="Remove" Noun="Datastore" ShouldProcessTarget="DatastoreId" PipelineParameter="DatastoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteImageSet" OutputProperty="*" Verb="Remove" Noun="ImageSet" ShouldProcessTarget="ImageSetId" PipelineParameter="ImageSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteImageSet" OutputProperty="*" Verb="Remove" Noun="ImageSet" ShouldProcessTarget="ImageSetId" PipelineParameter="ImageSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDatastore" OutputProperty="DatastoreProperties" Verb="Get" Noun="Datastore" PipelineParameter="DatastoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDatastore" OutputProperty="DatastoreProperties" Verb="Get" Noun="Datastore" PipelineParameter="DatastoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDICOMImportJob" OutputProperty="JobProperties" Verb="Get" Noun="DICOMImportJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDICOMImportJob" OutputProperty="JobProperties" Verb="Get" Noun="DICOMImportJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetImageFrame" OutputProperty="*" Verb="Get" Noun="ImageFrame" PipelineParameter="DatastoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetImageFrame" OutputProperty="*" Verb="Get" Noun="ImageFrame" PipelineParameter="DatastoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetImageSet" OutputProperty="*" Verb="Get" Noun="ImageSet" PipelineParameter="ImageSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetImageSet" OutputProperty="*" Verb="Get" Noun="ImageSet" PipelineParameter="ImageSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetImageSetMetadata" OutputProperty="*" Verb="Get" Noun="ImageSetMetadata" PipelineParameter="ImageSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetImageSetMetadata" OutputProperty="*" Verb="Get" Noun="ImageSetMetadata" PipelineParameter="ImageSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatastores" OutputProperty="DatastoreSummaries" Verb="Get" Noun="DatastoreList" PipelineParameter="DatastoreStatus" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDatastores" OutputProperty="DatastoreSummaries" Verb="Get" Noun="DatastoreList" PipelineParameter="DatastoreStatus" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDICOMImportJobs" OutputProperty="JobSummaries" Verb="Get" Noun="DICOMImportJobList" PipelineParameter="DatastoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDICOMImportJobs" OutputProperty="JobSummaries" Verb="Get" Noun="DICOMImportJobList" PipelineParameter="DatastoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImageSetVersions" OutputProperty="ImageSetPropertiesList" Verb="Get" Noun="ImageSetVersionList" PipelineParameter="ImageSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListImageSetVersions" OutputProperty="ImageSetPropertiesList" Verb="Get" Noun="ImageSetVersionList" PipelineParameter="ImageSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchImageSets" OutputProperty="ImageSetsMetadataSummaries" Verb="Search" Noun="ImageSet" ShouldProcessTarget="DatastoreId" PipelineParameter="DatastoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchImageSets" OutputProperty="ImageSetsMetadataSummaries" Verb="Search" Noun="ImageSet" ShouldProcessTarget="DatastoreId" PipelineParameter="DatastoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDICOMImportJob" OutputProperty="*" Verb="Start" Noun="DICOMImportJob" ShouldProcessTarget="DatastoreId" PipelineParameter="DatastoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartDICOMImportJob" OutputProperty="*" Verb="Start" Noun="DICOMImportJob" ShouldProcessTarget="DatastoreId" PipelineParameter="DatastoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateImageSetMetadata" OutputProperty="*" Verb="Update" Noun="ImageSetMetadata" ShouldProcessTarget="ImageSetId" PipelineParameter="ImageSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateImageSetMetadata" OutputProperty="*" Verb="Update" Noun="ImageSetMetadata" ShouldProcessTarget="ImageSetId" PipelineParameter="ImageSetId" NoPipelineParameter="false">
             <Params>
                 <Param Name="Force" NewName="ForceUpdate" AutoApplyAlias="false" />
             </Params>

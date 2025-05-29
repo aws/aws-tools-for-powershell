@@ -26,371 +26,371 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptPortfolioShare" Verb="Receive" Noun="PortfolioShare" ShouldProcessTarget="PortfolioId" PipelineParameter="PortfolioId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AcceptPortfolioShare" Verb="Receive" Noun="PortfolioShare" ShouldProcessTarget="PortfolioId" PipelineParameter="PortfolioId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateBudgetWithResource" Verb="Register" Noun="BudgetWithResource" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateBudgetWithResource" Verb="Register" Noun="BudgetWithResource" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociatePrincipalWithPortfolio" Verb="Register" Noun="PrincipalWithPortfolio" ShouldProcessTarget="PortfolioId" PipelineParameter="PrincipalARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociatePrincipalWithPortfolio" Verb="Register" Noun="PrincipalWithPortfolio" ShouldProcessTarget="PortfolioId" PipelineParameter="PrincipalARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateProductWithPortfolio" Verb="Register" Noun="ProductWithPortfolio" ShouldProcessTarget="ProductId" PipelineParameter="ProductId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateProductWithPortfolio" Verb="Register" Noun="ProductWithPortfolio" ShouldProcessTarget="ProductId" PipelineParameter="ProductId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateServiceActionWithProvisioningArtifact" Verb="Add" Noun="ServiceActionAssociationWithProvisioningArtifact" ShouldProcessTarget="ServiceActionId" PipelineParameter="ServiceActionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateServiceActionWithProvisioningArtifact" Verb="Add" Noun="ServiceActionAssociationWithProvisioningArtifact" ShouldProcessTarget="ServiceActionId" PipelineParameter="ServiceActionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateTagOptionWithResource" Verb="Add" Noun="TagOptionToResource" ShouldProcessTarget="TagOptionId" PipelineParameter="TagOptionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateTagOptionWithResource" Verb="Add" Noun="TagOptionToResource" ShouldProcessTarget="TagOptionId" PipelineParameter="TagOptionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchAssociateServiceActionWithProvisioningArtifact" OutputProperty="FailedServiceActionAssociations" Verb="Add" Noun="ServiceActionAssociationWithProvisioningArtifactBatch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchAssociateServiceActionWithProvisioningArtifact" OutputProperty="FailedServiceActionAssociations" Verb="Add" Noun="ServiceActionAssociationWithProvisioningArtifactBatch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDisassociateServiceActionFromProvisioningArtifact" OutputProperty="FailedServiceActionAssociations" Verb="Remove" Noun="ServiceActionAssociationFromProvisioningArtifactBatch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchDisassociateServiceActionFromProvisioningArtifact" OutputProperty="FailedServiceActionAssociations" Verb="Remove" Noun="ServiceActionAssociationFromProvisioningArtifactBatch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopyProduct" OutputProperty="CopyProductToken" Verb="Copy" Noun="Product" ShouldProcessTarget="TargetProductName" PipelineParameter="IdempotencyToken" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CopyProduct" OutputProperty="CopyProductToken" Verb="Copy" Noun="Product" ShouldProcessTarget="TargetProductName" PipelineParameter="IdempotencyToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConstraint" OutputProperty="*" Verb="New" Noun="Constraint" ShouldProcessTarget="ProductId" PipelineParameter="ProductId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateConstraint" OutputProperty="*" Verb="New" Noun="Constraint" ShouldProcessTarget="ProductId" PipelineParameter="ProductId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePortfolio" OutputProperty="*" Verb="New" Noun="Portfolio" ShouldProcessTarget="DisplayName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreatePortfolio" OutputProperty="*" Verb="New" Noun="Portfolio" ShouldProcessTarget="DisplayName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePortfolioShare" OutputProperty="PortfolioShareToken" Verb="New" Noun="PortfolioShare" ShouldProcessTarget="AccountId" ShouldProcessMsgNoun="PortfolioId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreatePortfolioShare" OutputProperty="PortfolioShareToken" Verb="New" Noun="PortfolioShare" ShouldProcessTarget="AccountId" ShouldProcessMsgNoun="PortfolioId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProduct" OutputProperty="*" Verb="New" Noun="Product" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateProduct" OutputProperty="*" Verb="New" Noun="Product" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProvisionedProductPlan" OutputProperty="*" Verb="New" Noun="ProvisionedProductPlan" ShouldProcessTarget="PlanName" PipelineParameter="PlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateProvisionedProductPlan" OutputProperty="*" Verb="New" Noun="ProvisionedProductPlan" ShouldProcessTarget="PlanName" PipelineParameter="PlanName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProvisioningArtifact" OutputProperty="*" Verb="New" Noun="ProvisioningArtifact" ShouldProcessTarget="ProductId" PipelineParameter="ProductId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateProvisioningArtifact" OutputProperty="*" Verb="New" Noun="ProvisioningArtifact" ShouldProcessTarget="ProductId" PipelineParameter="ProductId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateServiceAction" OutputProperty="ServiceActionDetail" Verb="New" Noun="ServiceAction" ShouldProcessTarget="Name" PipelineParameter="IdempotencyToken" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateServiceAction" OutputProperty="ServiceActionDetail" Verb="New" Noun="ServiceAction" ShouldProcessTarget="Name" PipelineParameter="IdempotencyToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTagOption" OutputProperty="TagOptionDetail" Verb="New" Noun="TagOption" ShouldProcessTarget="Value" PipelineParameter="Value" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateTagOption" OutputProperty="TagOptionDetail" Verb="New" Noun="TagOption" ShouldProcessTarget="Value" PipelineParameter="Value" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConstraint" Verb="Remove" Noun="Constraint" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteConstraint" Verb="Remove" Noun="Constraint" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePortfolio" Verb="Remove" Noun="Portfolio" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeletePortfolio" Verb="Remove" Noun="Portfolio" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePortfolioShare" OutputProperty="PortfolioShareToken" Verb="Remove" Noun="PortfolioShare" ShouldProcessTarget="PortfolioId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeletePortfolioShare" OutputProperty="PortfolioShareToken" Verb="Remove" Noun="PortfolioShare" ShouldProcessTarget="PortfolioId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProduct" Verb="Remove" Noun="Product" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteProduct" Verb="Remove" Noun="Product" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProvisionedProductPlan" Verb="Remove" Noun="ProvisionedProductPlan" ShouldProcessTarget="PlanId" PipelineParameter="PlanId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteProvisionedProductPlan" Verb="Remove" Noun="ProvisionedProductPlan" ShouldProcessTarget="PlanId" PipelineParameter="PlanId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProvisioningArtifact" Verb="Remove" Noun="ProvisioningArtifact" ShouldProcessTarget="ProvisioningArtifactId" PipelineParameter="ProvisioningArtifactId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteProvisioningArtifact" Verb="Remove" Noun="ProvisioningArtifact" ShouldProcessTarget="ProvisioningArtifactId" PipelineParameter="ProvisioningArtifactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteServiceAction" Verb="Remove" Noun="ServiceAction" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteServiceAction" Verb="Remove" Noun="ServiceAction" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTagOption" Verb="Remove" Noun="TagOption" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteTagOption" Verb="Remove" Noun="TagOption" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConstraint" OutputProperty="*" Verb="Get" Noun="Constraint" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeConstraint" OutputProperty="*" Verb="Get" Noun="Constraint" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCopyProductStatus" OutputProperty="*" Verb="Get" Noun="CopyProductStatus" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCopyProductStatus" OutputProperty="*" Verb="Get" Noun="CopyProductStatus" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePortfolio" OutputProperty="*" Verb="Get" Noun="Portfolio" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribePortfolio" OutputProperty="*" Verb="Get" Noun="Portfolio" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePortfolioShares" OutputProperty="PortfolioShareDetails" Verb="Get" Noun="PortfolioShare" PipelineParameter="PortfolioId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribePortfolioShares" OutputProperty="PortfolioShareDetails" Verb="Get" Noun="PortfolioShare" PipelineParameter="PortfolioId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePortfolioShareStatus" OutputProperty="*" Verb="Get" Noun="PortfolioShareStatus" PipelineParameter="PortfolioShareToken" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribePortfolioShareStatus" OutputProperty="*" Verb="Get" Noun="PortfolioShareStatus" PipelineParameter="PortfolioShareToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProduct" OutputProperty="*" Verb="Get" Noun="Product" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeProduct" OutputProperty="*" Verb="Get" Noun="Product" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProductAsAdmin" OutputProperty="*" Verb="Get" Noun="ProductAsAdmin" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeProductAsAdmin" OutputProperty="*" Verb="Get" Noun="ProductAsAdmin" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProductView" OutputProperty="*" Verb="Get" Noun="ProductView" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeProductView" OutputProperty="*" Verb="Get" Noun="ProductView" PipelineParameter="Id" NoPipelineParameter="false">
             <Params>
                 <Param Name="Id" Alias="ProductId" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProvisionedProduct" OutputProperty="*" Verb="Get" Noun="ProvisionedProductDetail" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeProvisionedProduct" OutputProperty="*" Verb="Get" Noun="ProvisionedProductDetail" PipelineParameter="Id" NoPipelineParameter="false">
             <Params>
                 <Param Name="Id" Alias="ProductId" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProvisionedProductPlan" OutputProperty="*" Verb="Get" Noun="ProvisionedProductPlan" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeProvisionedProductPlan" OutputProperty="*" Verb="Get" Noun="ProvisionedProductPlan" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProvisioningArtifact" OutputProperty="*" Verb="Get" Noun="ProvisioningArtifact" PipelineParameter="ProvisioningArtifactId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeProvisioningArtifact" OutputProperty="*" Verb="Get" Noun="ProvisioningArtifact" PipelineParameter="ProvisioningArtifactId" NoPipelineParameter="false">
             <Params>
                 <Param Name="Verbose" NewName="ReturnCloudFormationTemplate" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProvisioningParameters" OutputProperty="*" Verb="Get" Noun="ProvisioningParameter" PipelineParameter="ProductId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeProvisioningParameters" OutputProperty="*" Verb="Get" Noun="ProvisioningParameter" PipelineParameter="ProductId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRecord" OutputProperty="*" Verb="Get" Noun="Record" PipelineParameter="Id" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeRecord" OutputProperty="*" Verb="Get" Noun="Record" PipelineParameter="Id" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeServiceAction" OutputProperty="ServiceActionDetail" Verb="Get" Noun="ServiceAction" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeServiceAction" OutputProperty="ServiceActionDetail" Verb="Get" Noun="ServiceAction" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeServiceActionExecutionParameters" OutputProperty="ServiceActionParameters" Verb="Get" Noun="ServiceActionExecutionParameter" PipelineParameter="ServiceActionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeServiceActionExecutionParameters" OutputProperty="ServiceActionParameters" Verb="Get" Noun="ServiceActionExecutionParameter" PipelineParameter="ServiceActionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTagOption" OutputProperty="TagOptionDetail" Verb="Get" Noun="TagOption" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTagOption" OutputProperty="TagOptionDetail" Verb="Get" Noun="TagOption" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableAWSOrganizationsAccess" Verb="Disable" Noun="AWSOrganizationsAccess" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisableAWSOrganizationsAccess" Verb="Disable" Noun="AWSOrganizationsAccess" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateBudgetFromResource" Verb="Unregister" Noun="BudgetFromResource" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateBudgetFromResource" Verb="Unregister" Noun="BudgetFromResource" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociatePrincipalFromPortfolio" Verb="Unregister" Noun="PrincipalFromPortfolio" ShouldProcessTarget="PortfolioId" PipelineParameter="PrincipalARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociatePrincipalFromPortfolio" Verb="Unregister" Noun="PrincipalFromPortfolio" ShouldProcessTarget="PortfolioId" PipelineParameter="PrincipalARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateProductFromPortfolio" Verb="Unregister" Noun="ProductFromPortfolio" ShouldProcessTarget="ProductId" PipelineParameter="ProductId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateProductFromPortfolio" Verb="Unregister" Noun="ProductFromPortfolio" ShouldProcessTarget="ProductId" PipelineParameter="ProductId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateServiceActionFromProvisioningArtifact" Verb="Remove" Noun="ServiceActionAssociationFromProvisioningArtifact" ShouldProcessTarget="ServiceActionId" PipelineParameter="ServiceActionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateServiceActionFromProvisioningArtifact" Verb="Remove" Noun="ServiceActionAssociationFromProvisioningArtifact" ShouldProcessTarget="ServiceActionId" PipelineParameter="ServiceActionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateTagOptionFromResource" Verb="Remove" Noun="TagOptionFromResource" ShouldProcessTarget="TagOptionId" PipelineParameter="TagOptionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateTagOptionFromResource" Verb="Remove" Noun="TagOptionFromResource" ShouldProcessTarget="TagOptionId" PipelineParameter="TagOptionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableAWSOrganizationsAccess" Verb="Enable" Noun="AWSOrganizationsAccess" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="EnableAWSOrganizationsAccess" Verb="Enable" Noun="AWSOrganizationsAccess" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteProvisionedProductPlan" OutputProperty="RecordDetail" Verb="Start" Noun="ProvisionedProductPlanExecution" ShouldProcessTarget="PlanId" PipelineParameter="IdempotencyToken" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ExecuteProvisionedProductPlan" OutputProperty="RecordDetail" Verb="Start" Noun="ProvisionedProductPlanExecution" ShouldProcessTarget="PlanId" PipelineParameter="IdempotencyToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteProvisionedProductServiceAction" OutputProperty="RecordDetail" Verb="Start" Noun="ProvisionedProductServiceActionExecution" ShouldProcessTarget="ServiceActionId" ShouldProcessMsgNoun="ServiceActionId" PipelineParameter="ServiceActionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ExecuteProvisionedProductServiceAction" OutputProperty="RecordDetail" Verb="Start" Noun="ProvisionedProductServiceActionExecution" ShouldProcessTarget="ServiceActionId" ShouldProcessMsgNoun="ServiceActionId" PipelineParameter="ServiceActionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAWSOrganizationsAccessStatus" OutputProperty="AccessStatus" Verb="Get" Noun="AWSOrganizationsAccessStatus" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAWSOrganizationsAccessStatus" OutputProperty="AccessStatus" Verb="Get" Noun="AWSOrganizationsAccessStatus" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProvisionedProductOutputs" OutputProperty="Outputs" Verb="Get" Noun="ProvisionedProductOutput" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetProvisionedProductOutputs" OutputProperty="Outputs" Verb="Get" Noun="ProvisionedProductOutput" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportAsProvisionedProduct" OutputProperty="RecordDetail" Verb="Import" Noun="AsProvisionedProduct" ShouldProcessTarget="PhysicalId" PipelineParameter="PhysicalId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportAsProvisionedProduct" OutputProperty="RecordDetail" Verb="Import" Noun="AsProvisionedProduct" ShouldProcessTarget="PhysicalId" PipelineParameter="PhysicalId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAcceptedPortfolioShares" OutputProperty="PortfolioDetails" Verb="Get" Noun="AcceptedPortfolioShareList" PipelineParameter="AcceptLanguage" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAcceptedPortfolioShares" OutputProperty="PortfolioDetails" Verb="Get" Noun="AcceptedPortfolioShareList" PipelineParameter="AcceptLanguage" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBudgetsForResource" OutputProperty="Budgets" Verb="Get" Noun="BudgetsForResource" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBudgetsForResource" OutputProperty="Budgets" Verb="Get" Noun="BudgetsForResource" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConstraintsForPortfolio" OutputProperty="ConstraintDetails" Verb="Get" Noun="ConstrainsForPortfolioList" PipelineParameter="PortfolioId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListConstraintsForPortfolio" OutputProperty="ConstraintDetails" Verb="Get" Noun="ConstrainsForPortfolioList" PipelineParameter="PortfolioId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLaunchPaths" OutputProperty="LaunchPathSummaries" Verb="Get" Noun="LaunchPath" PipelineParameter="ProductId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLaunchPaths" OutputProperty="LaunchPathSummaries" Verb="Get" Noun="LaunchPath" PipelineParameter="ProductId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOrganizationPortfolioAccess" OutputProperty="OrganizationNodes" Verb="Get" Noun="OrganizationPortfolioAccessList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListOrganizationPortfolioAccess" OutputProperty="OrganizationNodes" Verb="Get" Noun="OrganizationPortfolioAccessList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPortfolioAccess" OutputProperty="AccountIds" Verb="Get" Noun="PortfolioAccessList" PipelineParameter="PortfolioId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPortfolioAccess" OutputProperty="AccountIds" Verb="Get" Noun="PortfolioAccessList" PipelineParameter="PortfolioId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPortfolios" OutputProperty="PortfolioDetails" Verb="Get" Noun="PortfolioList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPortfolios" OutputProperty="PortfolioDetails" Verb="Get" Noun="PortfolioList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPortfoliosForProduct" OutputProperty="PortfolioDetails" Verb="Get" Noun="ProductPortfolioList" PipelineParameter="ProductId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPortfoliosForProduct" OutputProperty="PortfolioDetails" Verb="Get" Noun="ProductPortfolioList" PipelineParameter="ProductId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPrincipalsForPortfolio" OutputProperty="Principals" Verb="Get" Noun="PrincipalsForPortfolio" PipelineParameter="PortfolioId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPrincipalsForPortfolio" OutputProperty="Principals" Verb="Get" Noun="PrincipalsForPortfolio" PipelineParameter="PortfolioId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProvisionedProductPlans" OutputProperty="ProvisionedProductPlans" Verb="Get" Noun="ProvisionedProductPlanList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListProvisionedProductPlans" OutputProperty="ProvisionedProductPlans" Verb="Get" Noun="ProvisionedProductPlanList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProvisioningArtifacts" OutputProperty="ProvisioningArtifactDetails" Verb="Get" Noun="ProvisioningArtifactList" PipelineParameter="ProductId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListProvisioningArtifacts" OutputProperty="ProvisioningArtifactDetails" Verb="Get" Noun="ProvisioningArtifactList" PipelineParameter="ProductId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProvisioningArtifactsForServiceAction" OutputProperty="ProvisioningArtifactViews" Verb="Get" Noun="ProvisioningArtifactsForServiceActionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListProvisioningArtifactsForServiceAction" OutputProperty="ProvisioningArtifactViews" Verb="Get" Noun="ProvisioningArtifactsForServiceActionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecordHistory" OutputProperty="RecordDetails" Verb="Get" Noun="RecordHistory" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRecordHistory" OutputProperty="RecordDetails" Verb="Get" Noun="RecordHistory" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourcesForTagOption" OutputProperty="ResourceDetails" Verb="Get" Noun="ResourcesForTagOption" PipelineParameter="TagOptionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-            <Params />
-            <AutoIterate Start="PageToken" Next="PageToken" EmitLimit="PageSize" />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListServiceActions" OutputProperty="ServiceActionSummaries" Verb="Get" Noun="ServiceActionList" PipelineParameter="AcceptLanguage" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListServiceActionsForProvisioningArtifact" OutputProperty="ServiceActionSummaries" Verb="Get" Noun="ServiceActionsForProvisioningArtifactList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListStackInstancesForProvisionedProduct" OutputProperty="StackInstances" Verb="Get" Noun="StackInstancesForProvisionedProduct" PipelineParameter="ProvisionedProductId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListTagOptions" OutputProperty="TagOptionDetails" Verb="Get" Noun="TagOptionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResourcesForTagOption" OutputProperty="ResourceDetails" Verb="Get" Noun="ResourcesForTagOption" PipelineParameter="TagOptionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="PageToken" Next="PageToken" EmitLimit="PageSize" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="NotifyProvisionProductEngineWorkflowResult" Verb="Start" Noun="ProvisionProductEngineWorkflowResult" ShouldProcessTarget="RecordId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListServiceActions" OutputProperty="ServiceActionSummaries" Verb="Get" Noun="ServiceActionList" PipelineParameter="AcceptLanguage" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="NotifyTerminateProvisionedProductEngineWorkflowResult" Verb="Start" Noun="TerminateProvisionedProductEngineWorkflowResult" ShouldProcessTarget="RecordId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListServiceActionsForProvisioningArtifact" OutputProperty="ServiceActionSummaries" Verb="Get" Noun="ServiceActionsForProvisioningArtifactList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="NotifyUpdateProvisionedProductEngineWorkflowResult" Verb="Start" Noun="UpdateProvisionedProductEngineWorkflowResult" ShouldProcessTarget="RecordId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStackInstancesForProvisionedProduct" OutputProperty="StackInstances" Verb="Get" Noun="StackInstancesForProvisionedProduct" PipelineParameter="ProvisionedProductId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ProvisionProduct" OutputProperty="RecordDetail" Verb="New" Noun="ProvisionedProduct" ShouldProcessTarget="ProvisionedProductName" PipelineParameter="ProvisionedProductName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagOptions" OutputProperty="TagOptionDetails" Verb="Get" Noun="TagOptionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <AutoIterate Start="PageToken" Next="PageToken" EmitLimit="PageSize" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="NotifyProvisionProductEngineWorkflowResult" Verb="Start" Noun="ProvisionProductEngineWorkflowResult" ShouldProcessTarget="RecordId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RejectPortfolioShare" Verb="Deny" Noun="PortfolioShare" ShouldProcessTarget="PortfolioId" PipelineParameter="PortfolioId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="NotifyTerminateProvisionedProductEngineWorkflowResult" Verb="Start" Noun="TerminateProvisionedProductEngineWorkflowResult" ShouldProcessTarget="RecordId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ScanProvisionedProducts" OutputProperty="ProvisionedProducts" Verb="Get" Noun="ProvisionedProduct" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="NotifyUpdateProvisionedProductEngineWorkflowResult" Verb="Start" Noun="UpdateProvisionedProductEngineWorkflowResult" ShouldProcessTarget="RecordId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchProducts" OutputProperty="*" Verb="Find" Noun="Product" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ProvisionProduct" OutputProperty="RecordDetail" Verb="New" Noun="ProvisionedProduct" ShouldProcessTarget="ProvisionedProductName" PipelineParameter="ProvisionedProductName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchProductsAsAdmin" OutputProperty="ProductViewDetails" Verb="Find" Noun="ProductsAsAdmin" PipelineParameter="PortfolioId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RejectPortfolioShare" Verb="Deny" Noun="PortfolioShare" ShouldProcessTarget="PortfolioId" PipelineParameter="PortfolioId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchProvisionedProducts" OutputProperty="ProvisionedProducts" Verb="Find" Noun="ProvisionedProduct" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ScanProvisionedProducts" OutputProperty="ProvisionedProducts" Verb="Get" Noun="ProvisionedProduct" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TerminateProvisionedProduct" OutputProperty="RecordDetail" Verb="Remove" Noun="ProvisionedProduct" ShouldProcessTarget="ProvisionedProductId" PipelineParameter="ProvisionedProductId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchProducts" OutputProperty="*" Verb="Find" Noun="Product" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConstraint" OutputProperty="*" Verb="Update" Noun="Constraint" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchProductsAsAdmin" OutputProperty="ProductViewDetails" Verb="Find" Noun="ProductsAsAdmin" PipelineParameter="PortfolioId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePortfolio" OutputProperty="*" Verb="Update" Noun="Portfolio" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchProvisionedProducts" OutputProperty="ProvisionedProducts" Verb="Find" Noun="ProvisionedProduct" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePortfolioShare" OutputProperty="*" Verb="Update" Noun="PortfolioShare" ShouldProcessTarget="PortfolioId" PipelineParameter="PortfolioId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TerminateProvisionedProduct" OutputProperty="RecordDetail" Verb="Remove" Noun="ProvisionedProduct" ShouldProcessTarget="ProvisionedProductId" PipelineParameter="ProvisionedProductId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProduct" OutputProperty="*" Verb="Update" Noun="Product" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateConstraint" OutputProperty="*" Verb="Update" Noun="Constraint" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProvisionedProduct" OutputProperty="RecordDetail" Verb="Update" Noun="ProvisionedProduct" ShouldProcessTarget="ProvisionedProductId" PipelineParameter="ProvisionedProductId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdatePortfolio" OutputProperty="*" Verb="Update" Noun="Portfolio" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProvisionedProductProperties" OutputProperty="*" Verb="Update" Noun="ProvisionedProductProperty" ShouldProcessTarget="ProvisionedProductId" PipelineParameter="ProvisionedProductId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdatePortfolioShare" OutputProperty="*" Verb="Update" Noun="PortfolioShare" ShouldProcessTarget="PortfolioId" PipelineParameter="PortfolioId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProvisioningArtifact" OutputProperty="*" Verb="Update" Noun="ProvisioningArtifact" ShouldProcessTarget="ProvisioningArtifactId" PipelineParameter="ProvisioningArtifactId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateProduct" OutputProperty="*" Verb="Update" Noun="Product" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateServiceAction" OutputProperty="ServiceActionDetail" Verb="Update" Noun="ServiceAction" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateProvisionedProduct" OutputProperty="RecordDetail" Verb="Update" Noun="ProvisionedProduct" ShouldProcessTarget="ProvisionedProductId" PipelineParameter="ProvisionedProductId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTagOption" OutputProperty="TagOptionDetail" Verb="Update" Noun="TagOption" ShouldProcessTarget="Id" PipelineParameter="Value" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateProvisionedProductProperties" OutputProperty="*" Verb="Update" Noun="ProvisionedProductProperty" ShouldProcessTarget="ProvisionedProductId" PipelineParameter="ProvisionedProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProvisioningArtifact" OutputProperty="*" Verb="Update" Noun="ProvisioningArtifact" ShouldProcessTarget="ProvisioningArtifactId" PipelineParameter="ProvisioningArtifactId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateServiceAction" OutputProperty="ServiceActionDetail" Verb="Update" Noun="ServiceAction" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTagOption" OutputProperty="TagOptionDetail" Verb="Update" Noun="TagOption" ShouldProcessTarget="Id" PipelineParameter="Value" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

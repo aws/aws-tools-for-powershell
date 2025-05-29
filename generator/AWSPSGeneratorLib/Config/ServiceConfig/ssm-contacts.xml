@@ -18,159 +18,159 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptPage" Verb="Confirm" Noun="Page" ShouldProcessTarget="PageId" PipelineParameter="PageId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AcceptPage" Verb="Confirm" Noun="Page" ShouldProcessTarget="PageId" PipelineParameter="PageId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ActivateContactChannel" Verb="Enable" Noun="ContactChannel" ShouldProcessTarget="ContactChannelId" PipelineParameter="ContactChannelId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ActivateContactChannel" Verb="Enable" Noun="ContactChannel" ShouldProcessTarget="ContactChannelId" PipelineParameter="ContactChannelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateContact" OutputProperty="ContactArn" Verb="New" Noun="Contact" ShouldProcessTarget="Alias" PipelineParameter="Alias" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateContact" OutputProperty="ContactArn" Verb="New" Noun="Contact" ShouldProcessTarget="Alias" PipelineParameter="Alias" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateContactChannel" OutputProperty="ContactChannelArn" Verb="New" Noun="ContactChannel" ShouldProcessTarget="Name" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateContactChannel" OutputProperty="ContactChannelArn" Verb="New" Noun="ContactChannel" ShouldProcessTarget="Name" PipelineParameter="ContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRotation" OutputProperty="RotationArn" Verb="New" Noun="Rotation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateRotation" OutputProperty="RotationArn" Verb="New" Noun="Rotation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRotationOverride" OutputProperty="RotationOverrideId" Verb="New" Noun="RotationOverride" ShouldProcessTarget="RotationId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateRotationOverride" OutputProperty="RotationOverrideId" Verb="New" Noun="RotationOverride" ShouldProcessTarget="RotationId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeactivateContactChannel" Verb="Disable" Noun="ContactChannel" ShouldProcessTarget="ContactChannelId" PipelineParameter="ContactChannelId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeactivateContactChannel" Verb="Disable" Noun="ContactChannel" ShouldProcessTarget="ContactChannelId" PipelineParameter="ContactChannelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteContact" Verb="Remove" Noun="Contact" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteContact" Verb="Remove" Noun="Contact" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteContactChannel" Verb="Remove" Noun="ContactChannel" ShouldProcessTarget="ContactChannelId" PipelineParameter="ContactChannelId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteContactChannel" Verb="Remove" Noun="ContactChannel" ShouldProcessTarget="ContactChannelId" PipelineParameter="ContactChannelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRotation" Verb="Remove" Noun="Rotation" ShouldProcessTarget="RotationId" PipelineParameter="RotationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteRotation" Verb="Remove" Noun="Rotation" ShouldProcessTarget="RotationId" PipelineParameter="RotationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRotationOverride" Verb="Remove" Noun="RotationOverride" ShouldProcessTarget="RotationOverrideId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteRotationOverride" Verb="Remove" Noun="RotationOverride" ShouldProcessTarget="RotationOverrideId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEngagement" OutputProperty="*" Verb="Get" Noun="Engagement" PipelineParameter="EngagementId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeEngagement" OutputProperty="*" Verb="Get" Noun="Engagement" PipelineParameter="EngagementId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePage" OutputProperty="*" Verb="Get" Noun="Page" PipelineParameter="PageId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribePage" OutputProperty="*" Verb="Get" Noun="Page" PipelineParameter="PageId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetContact" OutputProperty="*" Verb="Get" Noun="Contact" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetContact" OutputProperty="*" Verb="Get" Noun="Contact" PipelineParameter="ContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetContactChannel" OutputProperty="*" Verb="Get" Noun="ContactChannel" PipelineParameter="ContactChannelId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetContactChannel" OutputProperty="*" Verb="Get" Noun="ContactChannel" PipelineParameter="ContactChannelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetContactPolicy" OutputProperty="*" Verb="Get" Noun="ContactPolicy" PipelineParameter="ContactArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetContactPolicy" OutputProperty="*" Verb="Get" Noun="ContactPolicy" PipelineParameter="ContactArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRotation" OutputProperty="*" Verb="Get" Noun="Rotation" PipelineParameter="RotationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetRotation" OutputProperty="*" Verb="Get" Noun="Rotation" PipelineParameter="RotationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRotationOverride" OutputProperty="*" Verb="Get" Noun="RotationOverride" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetRotationOverride" OutputProperty="*" Verb="Get" Noun="RotationOverride" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListContactChannels" OutputProperty="ContactChannels" Verb="Get" Noun="ContactChannelList" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListContactChannels" OutputProperty="ContactChannels" Verb="Get" Noun="ContactChannelList" PipelineParameter="ContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListContacts" OutputProperty="Contacts" Verb="Get" Noun="ContactList" PipelineParameter="Type" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListContacts" OutputProperty="Contacts" Verb="Get" Noun="ContactList" PipelineParameter="Type" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEngagements" OutputProperty="Engagements" Verb="Get" Noun="EngagementList" PipelineParameter="IncidentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEngagements" OutputProperty="Engagements" Verb="Get" Noun="EngagementList" PipelineParameter="IncidentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPageReceipts" OutputProperty="Receipts" Verb="Get" Noun="PageReceiptList" PipelineParameter="PageId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPageReceipts" OutputProperty="Receipts" Verb="Get" Noun="PageReceiptList" PipelineParameter="PageId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPageResolutions" OutputProperty="PageResolutions" Verb="Get" Noun="PageResolutionList" PipelineParameter="PageId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPageResolutions" OutputProperty="PageResolutions" Verb="Get" Noun="PageResolutionList" PipelineParameter="PageId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPagesByContact" OutputProperty="Pages" Verb="Get" Noun="PagesByContactList" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPagesByContact" OutputProperty="Pages" Verb="Get" Noun="PagesByContactList" PipelineParameter="ContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPagesByEngagement" OutputProperty="Pages" Verb="Get" Noun="PagesByEngagementList" PipelineParameter="EngagementId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPagesByEngagement" OutputProperty="Pages" Verb="Get" Noun="PagesByEngagementList" PipelineParameter="EngagementId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPreviewRotationShifts" OutputProperty="RotationShifts" Verb="Get" Noun="PreviewRotationShiftList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPreviewRotationShifts" OutputProperty="RotationShifts" Verb="Get" Noun="PreviewRotationShiftList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRotationOverrides" OutputProperty="RotationOverrides" Verb="Get" Noun="RotationOverrideList" PipelineParameter="RotationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRotationOverrides" OutputProperty="RotationOverrides" Verb="Get" Noun="RotationOverrideList" PipelineParameter="RotationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRotations" OutputProperty="Rotations" Verb="Get" Noun="RotationList" PipelineParameter="RotationNamePrefix" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRotations" OutputProperty="Rotations" Verb="Get" Noun="RotationList" PipelineParameter="RotationNamePrefix" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRotationShifts" OutputProperty="RotationShifts" Verb="Get" Noun="RotationShiftList" PipelineParameter="RotationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRotationShifts" OutputProperty="RotationShifts" Verb="Get" Noun="RotationShiftList" PipelineParameter="RotationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutContactPolicy" Verb="Write" Noun="ContactPolicy" ShouldProcessTarget="ContactArn" PipelineParameter="ContactArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutContactPolicy" Verb="Write" Noun="ContactPolicy" ShouldProcessTarget="ContactArn" PipelineParameter="ContactArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendActivationCode" Verb="Send" Noun="ActivationCode" ShouldProcessTarget="ContactChannelId" PipelineParameter="ContactChannelId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SendActivationCode" Verb="Send" Noun="ActivationCode" ShouldProcessTarget="ContactChannelId" PipelineParameter="ContactChannelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartEngagement" OutputProperty="EngagementArn" Verb="Start" Noun="Engagement" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartEngagement" OutputProperty="EngagementArn" Verb="Start" Noun="Engagement" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopEngagement" Verb="Stop" Noun="Engagement" ShouldProcessTarget="EngagementId" PipelineParameter="EngagementId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopEngagement" Verb="Stop" Noun="Engagement" ShouldProcessTarget="EngagementId" PipelineParameter="EngagementId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateContact" Verb="Update" Noun="Contact" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateContact" Verb="Update" Noun="Contact" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateContactChannel" Verb="Update" Noun="ContactChannel" ShouldProcessTarget="ContactChannelId" PipelineParameter="ContactChannelId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateContactChannel" Verb="Update" Noun="ContactChannel" ShouldProcessTarget="ContactChannelId" PipelineParameter="ContactChannelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRotation" Verb="Update" Noun="Rotation" ShouldProcessTarget="RotationId" PipelineParameter="RotationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateRotation" Verb="Update" Noun="Rotation" ShouldProcessTarget="RotationId" PipelineParameter="RotationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

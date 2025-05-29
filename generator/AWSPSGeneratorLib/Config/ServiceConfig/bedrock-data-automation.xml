@@ -19,15 +19,15 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateBlueprint" OutputProperty="Blueprint" Verb="New" Noun="Blueprint" ShouldProcessTarget="BlueprintName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateBlueprint" OutputProperty="Blueprint" Verb="New" Noun="Blueprint" ShouldProcessTarget="BlueprintName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBlueprintVersion" OutputProperty="Blueprint" Verb="New" Noun="BlueprintVersion" ShouldProcessTarget="BlueprintArn" PipelineParameter="BlueprintArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateBlueprintVersion" OutputProperty="Blueprint" Verb="New" Noun="BlueprintVersion" ShouldProcessTarget="BlueprintArn" PipelineParameter="BlueprintArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataAutomationProject" OutputProperty="*" Verb="New" Noun="DataAutomationProject" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDataAutomationProject" OutputProperty="*" Verb="New" Noun="DataAutomationProject" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
             <Params>
                 <Param Name="StandardOutputConfiguration_Audio_Extraction_Category_State" NewName="StandardOutputConfiguration_Audio_Extraction_Category_State" />
                 <Param Name="StandardOutputConfiguration_Image_Extraction_Category_State" NewName="StandardOutputConfiguration_Image_Extraction_Category_State" />
@@ -52,47 +52,47 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBlueprint" Verb="Remove" Noun="Blueprint" ShouldProcessTarget="BlueprintArn" PipelineParameter="BlueprintArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBlueprint" Verb="Remove" Noun="Blueprint" ShouldProcessTarget="BlueprintArn" PipelineParameter="BlueprintArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataAutomationProject" OutputProperty="*" Verb="Remove" Noun="DataAutomationProject" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDataAutomationProject" OutputProperty="*" Verb="Remove" Noun="DataAutomationProject" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBlueprint" OutputProperty="Blueprint" Verb="Get" Noun="Blueprint" PipelineParameter="BlueprintArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBlueprint" OutputProperty="Blueprint" Verb="Get" Noun="Blueprint" PipelineParameter="BlueprintArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataAutomationProject" OutputProperty="Project" Verb="Get" Noun="DataAutomationProject" PipelineParameter="ProjectArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDataAutomationProject" OutputProperty="Project" Verb="Get" Noun="DataAutomationProject" PipelineParameter="ProjectArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBlueprints" OutputProperty="Blueprints" Verb="Get" Noun="BlueprintList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBlueprints" OutputProperty="Blueprints" Verb="Get" Noun="BlueprintList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataAutomationProjects" OutputProperty="Projects" Verb="Get" Noun="DataAutomationProjectList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDataAutomationProjects" OutputProperty="Projects" Verb="Get" Noun="DataAutomationProjectList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBlueprint" OutputProperty="Blueprint" Verb="Update" Noun="Blueprint" ShouldProcessTarget="BlueprintArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateBlueprint" OutputProperty="Blueprint" Verb="Update" Noun="Blueprint" ShouldProcessTarget="BlueprintArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataAutomationProject" OutputProperty="*" Verb="Update" Noun="DataAutomationProject" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDataAutomationProject" OutputProperty="*" Verb="Update" Noun="DataAutomationProject" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false">
             <Params>
                 <Param Name="StandardOutputConfiguration_Audio_Extraction_Category_State" NewName="StandardOutputConfiguration_Audio_Extraction_Category_State" />
                 <Param Name="StandardOutputConfiguration_Image_Extraction_Category_State" NewName="StandardOutputConfiguration_Image_Extraction_Category_State" />

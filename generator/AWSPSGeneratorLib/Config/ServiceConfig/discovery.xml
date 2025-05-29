@@ -23,115 +23,115 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateConfigurationItemsToApplication" Verb="Add" Noun="ConfigurationItemsToApplication" ShouldProcessTarget="ApplicationConfigurationId" PipelineParameter="ApplicationConfigurationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateConfigurationItemsToApplication" Verb="Add" Noun="ConfigurationItemsToApplication" ShouldProcessTarget="ApplicationConfigurationId" PipelineParameter="ApplicationConfigurationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDeleteAgents" OutputProperty="Errors" Verb="Remove" Noun="BatchAgent" ShouldProcessTarget="DeleteAgents" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchDeleteAgents" OutputProperty="Errors" Verb="Remove" Noun="BatchAgent" ShouldProcessTarget="DeleteAgents" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDeleteImportData" OutputProperty="Errors" Verb="Remove" Noun="ImportDataBatch" ShouldProcessTarget="ImportTaskIds" PipelineParameter="ImportTaskIds" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchDeleteImportData" OutputProperty="Errors" Verb="Remove" Noun="ImportDataBatch" ShouldProcessTarget="ImportTaskIds" PipelineParameter="ImportTaskIds" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateApplication" OutputProperty="ConfigurationId" Verb="New" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateApplication" OutputProperty="ConfigurationId" Verb="New" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTags" Verb="New" Noun="Tag" ShouldProcessTarget="ConfigurationIds" PipelineParameter="ConfigurationIds" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateTags" Verb="New" Noun="Tag" ShouldProcessTarget="ConfigurationIds" PipelineParameter="ConfigurationIds" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplications" Verb="Remove" Noun="Application" ShouldProcessTarget="ConfigurationIds" PipelineParameter="ConfigurationIds" NoPipelineParameter="false" LegacyAlias="Remove-ADSApplications" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteApplications" Verb="Remove" Noun="Application" ShouldProcessTarget="ConfigurationIds" PipelineParameter="ConfigurationIds" NoPipelineParameter="false" LegacyAlias="Remove-ADSApplications">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTags" Verb="Remove" Noun="Tag" ShouldProcessTarget="ConfigurationIds" PipelineParameter="ConfigurationIds" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteTags" Verb="Remove" Noun="Tag" ShouldProcessTarget="ConfigurationIds" PipelineParameter="ConfigurationIds" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAgents" OutputProperty="AgentsInfo" Verb="Get" Noun="Agent" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAgents" OutputProperty="AgentsInfo" Verb="Get" Noun="Agent" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBatchDeleteConfigurationTask" OutputProperty="Task" Verb="Get" Noun="BatchDeleteConfigurationTask" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBatchDeleteConfigurationTask" OutputProperty="Task" Verb="Get" Noun="BatchDeleteConfigurationTask" PipelineParameter="TaskId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConfigurations" OutputProperty="Configurations" Verb="Get" Noun="Configuration" PipelineParameter="ConfigurationIds" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeConfigurations" OutputProperty="Configurations" Verb="Get" Noun="Configuration" PipelineParameter="ConfigurationIds" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeContinuousExports" OutputProperty="Descriptions" Verb="Get" Noun="ContinuousExport" PipelineParameter="ExportIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeContinuousExports" OutputProperty="Descriptions" Verb="Get" Noun="ContinuousExport" PipelineParameter="ExportIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeExportConfigurations" OutputProperty="ExportsInfo" Verb="Get" Noun="ExportConfiguration" PipelineParameter="ExportIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeExportConfigurations" OutputProperty="ExportsInfo" Verb="Get" Noun="ExportConfiguration" PipelineParameter="ExportIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeExportTasks" OutputProperty="ExportsInfo" Verb="Get" Noun="ExportTask" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeExportTasks" OutputProperty="ExportsInfo" Verb="Get" Noun="ExportTask" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImportTasks" OutputProperty="Tasks" Verb="Get" Noun="ImportTask" PipelineParameter="Filters" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeImportTasks" OutputProperty="Tasks" Verb="Get" Noun="ImportTask" PipelineParameter="Filters" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateConfigurationItemsFromApplication" Verb="Remove" Noun="ConfigurationItemsFromApplication" ShouldProcessTarget="ApplicationConfigurationId" PipelineParameter="ApplicationConfigurationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateConfigurationItemsFromApplication" Verb="Remove" Noun="ConfigurationItemsFromApplication" ShouldProcessTarget="ApplicationConfigurationId" PipelineParameter="ApplicationConfigurationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExportConfigurations" OutputProperty="ExportId" Verb="Get" Noun="ExportConfigurationsId" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ExportConfigurations" OutputProperty="ExportId" Verb="Get" Noun="ExportConfigurationsId" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDiscoverySummary" OutputProperty="*" Verb="Get" Noun="DiscoverySummary" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDiscoverySummary" OutputProperty="*" Verb="Get" Noun="DiscoverySummary" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurations" OutputProperty="Configurations" Verb="Get" Noun="ConfigurationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListConfigurations" OutputProperty="Configurations" Verb="Get" Noun="ConfigurationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServerNeighbors" OutputProperty="*" Verb="Get" Noun="ServerNeighborList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListServerNeighbors" OutputProperty="*" Verb="Get" Noun="ServerNeighborList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartBatchDeleteConfigurationTask" OutputProperty="TaskId" Verb="Start" Noun="BatchDeleteConfigurationTask" ShouldProcessTarget="ConfigurationIds" PipelineParameter="ConfigurationIds" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartBatchDeleteConfigurationTask" OutputProperty="TaskId" Verb="Start" Noun="BatchDeleteConfigurationTask" ShouldProcessTarget="ConfigurationIds" PipelineParameter="ConfigurationIds" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartContinuousExport" OutputProperty="*" Verb="Start" Noun="ContinuousExport" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartContinuousExport" OutputProperty="*" Verb="Start" Noun="ContinuousExport" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDataCollectionByAgentIds" OutputProperty="AgentsConfigurationStatus" Verb="Start" Noun="DataCollectionByAgentId" ShouldProcessTarget="AgentIds" PipelineParameter="AgentIds" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartDataCollectionByAgentIds" OutputProperty="AgentsConfigurationStatus" Verb="Start" Noun="DataCollectionByAgentId" ShouldProcessTarget="AgentIds" PipelineParameter="AgentIds" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartExportTask" OutputProperty="ExportId" Verb="Start" Noun="ExportTask" AnonymousShouldProcessTarget="true" PipelineParameter="ExportDataFormat" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartExportTask" OutputProperty="ExportId" Verb="Start" Noun="ExportTask" AnonymousShouldProcessTarget="true" PipelineParameter="ExportDataFormat" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartImportTask" OutputProperty="Task" Verb="Start" Noun="ImportTask" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartImportTask" OutputProperty="Task" Verb="Start" Noun="ImportTask" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopContinuousExport" OutputProperty="*" Verb="Stop" Noun="ContinuousExport" ShouldProcessTarget="ExportId" PipelineParameter="ExportId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopContinuousExport" OutputProperty="*" Verb="Stop" Noun="ContinuousExport" ShouldProcessTarget="ExportId" PipelineParameter="ExportId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopDataCollectionByAgentIds" OutputProperty="AgentsConfigurationStatus" Verb="Stop" Noun="DataCollectionByAgentId" ShouldProcessTarget="AgentIds" PipelineParameter="AgentIds" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopDataCollectionByAgentIds" OutputProperty="AgentsConfigurationStatus" Verb="Stop" Noun="DataCollectionByAgentId" ShouldProcessTarget="AgentIds" PipelineParameter="AgentIds" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApplication" Verb="Update" Noun="Application" ShouldProcessTarget="ConfigurationId" PipelineParameter="ConfigurationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateApplication" Verb="Update" Noun="Application" ShouldProcessTarget="ConfigurationId" PipelineParameter="ConfigurationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

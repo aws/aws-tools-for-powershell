@@ -18,11 +18,11 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="GenerateDataSet" OutputProperty="DataSetRequestId" Verb="New" Noun="DataSet" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PositionalParameters="DestinationS3BucketName;RoleNameArn;SnsTopicArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GenerateDataSet" OutputProperty="DataSetRequestId" Verb="New" Noun="DataSet" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PositionalParameters="DestinationS3BucketName;RoleNameArn;SnsTopicArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSupportDataExport" OutputProperty="DataSetRequestId" Verb="Start" Noun="SupportDataExport" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartSupportDataExport" OutputProperty="DataSetRequestId" Verb="Start" Noun="SupportDataExport" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

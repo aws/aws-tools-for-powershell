@@ -18,55 +18,55 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchAddRole" OutputProperty="*" Verb="Add" Noun="BatchRole" ShouldProcessTarget="SpaceId" PipelineParameter="SpaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchAddRole" OutputProperty="*" Verb="Add" Noun="BatchRole" ShouldProcessTarget="SpaceId" PipelineParameter="SpaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchRemoveRole" OutputProperty="*" Verb="Remove" Noun="BatchRole" ShouldProcessTarget="SpaceId" PipelineParameter="SpaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchRemoveRole" OutputProperty="*" Verb="Remove" Noun="BatchRole" ShouldProcessTarget="SpaceId" PipelineParameter="SpaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSpace" OutputProperty="SpaceId" Verb="New" Noun="Space" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateSpace" OutputProperty="SpaceId" Verb="New" Noun="Space" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSpace" Verb="Remove" Noun="Space" ShouldProcessTarget="SpaceId" PipelineParameter="SpaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteSpace" Verb="Remove" Noun="Space" ShouldProcessTarget="SpaceId" PipelineParameter="SpaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterAdmin" Verb="Unregister" Noun="Admin" ShouldProcessTarget="AdminId" PipelineParameter="AdminId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeregisterAdmin" Verb="Unregister" Noun="Admin" ShouldProcessTarget="AdminId" PipelineParameter="AdminId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSpace" OutputProperty="*" Verb="Get" Noun="Space" PipelineParameter="SpaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSpace" OutputProperty="*" Verb="Get" Noun="Space" PipelineParameter="SpaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSpaces" OutputProperty="Spaces" Verb="Get" Noun="SpaceList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSpaces" OutputProperty="Spaces" Verb="Get" Noun="SpaceList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterAdmin" Verb="Register" Noun="Admin" ShouldProcessTarget="AdminId" PipelineParameter="AdminId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RegisterAdmin" Verb="Register" Noun="Admin" ShouldProcessTarget="AdminId" PipelineParameter="AdminId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendInvites" Verb="Send" Noun="Invite" ShouldProcessTarget="SpaceId" PipelineParameter="SpaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SendInvites" Verb="Send" Noun="Invite" ShouldProcessTarget="SpaceId" PipelineParameter="SpaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSpace" Verb="Update" Noun="Space" ShouldProcessTarget="SpaceId" PipelineParameter="SpaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateSpace" Verb="Update" Noun="Space" ShouldProcessTarget="SpaceId" PipelineParameter="SpaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

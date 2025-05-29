@@ -18,7 +18,7 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CalculateIsolines" OutputProperty="*" Verb="Get" Noun="Isoline" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CalculateIsolines" OutputProperty="*" Verb="Get" Noun="Isoline" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="DestinationOptions_Matching_NameHint" NewName="DestinationOptions_Matching_NameHint" />
                 <Param Name="OriginOptions_Matching_NameHint" NewName="OriginOptions_Matching_NameHint" />
@@ -38,7 +38,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CalculateRouteMatrix" OutputProperty="*" Verb="Get" Noun="RouteMatrix" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CalculateRouteMatrix" OutputProperty="*" Verb="Get" Noun="RouteMatrix" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="TravelModeOptions_Car_LicensePlate_LastCharacter" NewName="TravelModeOptions_Car_LicensePlate_LastCharacter" />
                 <Param Name="TravelModeOptions_Scooter_LicensePlate_LastCharacter" NewName="TravelModeOptions_Scooter_LicensePlate_LastCharacter" />
@@ -46,7 +46,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CalculateRoutes" OutputProperty="*" Verb="Get" Noun="Route" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CalculateRoutes" OutputProperty="*" Verb="Get" Noun="Route" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="DestinationOptions_Matching_NameHint" NewName="DestinationOptions_Matching_NameHint" />
                 <Param Name="OriginOptions_Matching_NameHint" NewName="OriginOptions_Matching_NameHint" />
@@ -66,11 +66,11 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="OptimizeWaypoints" OutputProperty="*" Verb="Get" Noun="OptimizedWaypoint" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="OptimizeWaypoints" OutputProperty="*" Verb="Get" Noun="OptimizedWaypoint" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SnapToRoads" OutputProperty="*" Verb="Get" Noun="SnappedRoad" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SnapToRoads" OutputProperty="*" Verb="Get" Noun="SnappedRoad" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

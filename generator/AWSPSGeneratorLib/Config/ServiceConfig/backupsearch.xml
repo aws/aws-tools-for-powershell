@@ -19,51 +19,51 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="GetSearchJob" OutputProperty="*" Verb="Get" Noun="SearchJob" PipelineParameter="SearchJobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSearchJob" OutputProperty="*" Verb="Get" Noun="SearchJob" PipelineParameter="SearchJobIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSearchResultExportJob" OutputProperty="*" Verb="Get" Noun="SearchResultExportJob" PipelineParameter="ExportJobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSearchResultExportJob" OutputProperty="*" Verb="Get" Noun="SearchResultExportJob" PipelineParameter="ExportJobIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSearchJobBackups" OutputProperty="*" Verb="Get" Noun="SearchJobBackupList" PipelineParameter="SearchJobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSearchJobBackups" OutputProperty="*" Verb="Get" Noun="SearchJobBackupList" PipelineParameter="SearchJobIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSearchJobResults" OutputProperty="*" Verb="Get" Noun="SearchJobResultList" PipelineParameter="SearchJobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSearchJobResults" OutputProperty="*" Verb="Get" Noun="SearchJobResultList" PipelineParameter="SearchJobIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSearchJobs" OutputProperty="SearchJobs" Verb="Get" Noun="SearchJobList" PipelineParameter="ByStatus" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSearchJobs" OutputProperty="SearchJobs" Verb="Get" Noun="SearchJobList" PipelineParameter="ByStatus" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSearchResultExportJobs" OutputProperty="ExportJobs" Verb="Get" Noun="SearchResultExportJobList" PipelineParameter="SearchJobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSearchResultExportJobs" OutputProperty="ExportJobs" Verb="Get" Noun="SearchResultExportJobList" PipelineParameter="SearchJobIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSearchJob" OutputProperty="*" Verb="Start" Noun="SearchJob" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartSearchJob" OutputProperty="*" Verb="Start" Noun="SearchJob" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSearchResultExportJob" OutputProperty="*" Verb="Start" Noun="SearchResultExportJob" ShouldProcessTarget="SearchJobIdentifier" PipelineParameter="SearchJobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartSearchResultExportJob" OutputProperty="*" Verb="Start" Noun="SearchResultExportJob" ShouldProcessTarget="SearchJobIdentifier" PipelineParameter="SearchJobIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopSearchJob" Verb="Stop" Noun="SearchJob" ShouldProcessTarget="SearchJobIdentifier" PipelineParameter="SearchJobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopSearchJob" Verb="Stop" Noun="SearchJob" ShouldProcessTarget="SearchJobIdentifier" PipelineParameter="SearchJobIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

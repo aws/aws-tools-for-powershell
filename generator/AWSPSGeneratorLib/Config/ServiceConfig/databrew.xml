@@ -18,11 +18,11 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchDeleteRecipeVersion" OutputProperty="*" Verb="Remove" Noun="RecipeVersionBatch" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchDeleteRecipeVersion" OutputProperty="*" Verb="Remove" Noun="RecipeVersionBatch" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataset" OutputProperty="Name" Verb="New" Noun="Dataset" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDataset" OutputProperty="Name" Verb="New" Noun="Dataset" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="Input_DatabaseInputDefinition_TempDirectory_Bucket" NewName="DatabaseInputDefinition_TempDirectory_Bucket" />
                 <Param Name="Input_DatabaseInputDefinition_TempDirectory_Key" NewName="DatabaseInputDefinition_TempDirectory_Key" />
@@ -33,147 +33,147 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProfileJob" OutputProperty="Name" Verb="New" Noun="ProfileJob" ShouldProcessTarget="DatasetName" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateProfileJob" OutputProperty="Name" Verb="New" Noun="ProfileJob" ShouldProcessTarget="DatasetName" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProject" OutputProperty="Name" Verb="New" Noun="Project" ShouldProcessTarget="DatasetName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateProject" OutputProperty="Name" Verb="New" Noun="Project" ShouldProcessTarget="DatasetName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRecipe" OutputProperty="Name" Verb="New" Noun="Recipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateRecipe" OutputProperty="Name" Verb="New" Noun="Recipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRecipeJob" OutputProperty="Name" Verb="New" Noun="RecipeJob" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateRecipeJob" OutputProperty="Name" Verb="New" Noun="RecipeJob" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRuleset" OutputProperty="Name" Verb="New" Noun="Ruleset" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateRuleset" OutputProperty="Name" Verb="New" Noun="Ruleset" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSchedule" OutputProperty="Name" Verb="New" Noun="Schedule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateSchedule" OutputProperty="Name" Verb="New" Noun="Schedule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataset" OutputProperty="Name" Verb="Remove" Noun="Dataset" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDataset" OutputProperty="Name" Verb="Remove" Noun="Dataset" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteJob" OutputProperty="Name" Verb="Remove" Noun="Job" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteJob" OutputProperty="Name" Verb="Remove" Noun="Job" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProject" OutputProperty="Name" Verb="Remove" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteProject" OutputProperty="Name" Verb="Remove" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRecipeVersion" OutputProperty="*" Verb="Remove" Noun="RecipeVersion" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteRecipeVersion" OutputProperty="*" Verb="Remove" Noun="RecipeVersion" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRuleset" OutputProperty="Name" Verb="Remove" Noun="Ruleset" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteRuleset" OutputProperty="Name" Verb="Remove" Noun="Ruleset" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSchedule" OutputProperty="Name" Verb="Remove" Noun="Schedule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteSchedule" OutputProperty="Name" Verb="Remove" Noun="Schedule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDataset" OutputProperty="*" Verb="Get" Noun="Dataset" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDataset" OutputProperty="*" Verb="Get" Noun="Dataset" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeJob" OutputProperty="*" Verb="Get" Noun="Job" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeJob" OutputProperty="*" Verb="Get" Noun="Job" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeJobRun" OutputProperty="*" Verb="Get" Noun="JobRun" PipelineParameter="RunId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeJobRun" OutputProperty="*" Verb="Get" Noun="JobRun" PipelineParameter="RunId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProject" OutputProperty="*" Verb="Get" Noun="Project" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeProject" OutputProperty="*" Verb="Get" Noun="Project" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRecipe" OutputProperty="*" Verb="Get" Noun="Recipe" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeRecipe" OutputProperty="*" Verb="Get" Noun="Recipe" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRuleset" OutputProperty="*" Verb="Get" Noun="Ruleset" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeRuleset" OutputProperty="*" Verb="Get" Noun="Ruleset" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSchedule" OutputProperty="*" Verb="Get" Noun="Schedule" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSchedule" OutputProperty="*" Verb="Get" Noun="Schedule" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasets" OutputProperty="Datasets" Verb="Get" Noun="DatasetList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDatasets" OutputProperty="Datasets" Verb="Get" Noun="DatasetList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobRuns" OutputProperty="JobRuns" Verb="Get" Noun="JobRunList" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListJobRuns" OutputProperty="JobRuns" Verb="Get" Noun="JobRunList" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="ProjectName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProjects" OutputProperty="Projects" Verb="Get" Noun="ProjectList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListProjects" OutputProperty="Projects" Verb="Get" Noun="ProjectList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecipes" OutputProperty="Recipes" Verb="Get" Noun="RecipeList" PipelineParameter="RecipeVersion" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRecipes" OutputProperty="Recipes" Verb="Get" Noun="RecipeList" PipelineParameter="RecipeVersion" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecipeVersions" OutputProperty="*" Verb="Get" Noun="RecipeVersionList" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRecipeVersions" OutputProperty="*" Verb="Get" Noun="RecipeVersionList" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRulesets" OutputProperty="Rulesets" Verb="Get" Noun="RulesetList" PipelineParameter="TargetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRulesets" OutputProperty="Rulesets" Verb="Get" Noun="RulesetList" PipelineParameter="TargetArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSchedules" OutputProperty="Schedules" Verb="Get" Noun="ScheduleList" PipelineParameter="JobName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSchedules" OutputProperty="Schedules" Verb="Get" Noun="ScheduleList" PipelineParameter="JobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PublishRecipe" OutputProperty="Name" Verb="Publish" Noun="Recipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PublishRecipe" OutputProperty="Name" Verb="Publish" Noun="Recipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendProjectSessionAction" OutputProperty="*" Verb="Send" Noun="ProjectSessionAction" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SendProjectSessionAction" OutputProperty="*" Verb="Send" Noun="ProjectSessionAction" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartJobRun" OutputProperty="RunId" Verb="Start" Noun="JobRun" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartJobRun" OutputProperty="RunId" Verb="Start" Noun="JobRun" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartProjectSession" OutputProperty="*" Verb="Start" Noun="ProjectSession" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartProjectSession" OutputProperty="*" Verb="Start" Noun="ProjectSession" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopJobRun" OutputProperty="RunId" Verb="Stop" Noun="JobRun" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopJobRun" OutputProperty="RunId" Verb="Stop" Noun="JobRun" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataset" OutputProperty="Name" Verb="Update" Noun="Dataset" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDataset" OutputProperty="Name" Verb="Update" Noun="Dataset" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params>
                 <Param Name="Input_DatabaseInputDefinition_TempDirectory_Bucket" NewName="DatabaseInputDefinition_TempDirectory_Bucket" />
                 <Param Name="Input_DatabaseInputDefinition_TempDirectory_Key" NewName="DatabaseInputDefinition_TempDirectory_Key" />
@@ -184,27 +184,27 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProfileJob" OutputProperty="Name" Verb="Update" Noun="ProfileJob" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateProfileJob" OutputProperty="Name" Verb="Update" Noun="ProfileJob" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProject" OutputProperty="*" Verb="Update" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateProject" OutputProperty="*" Verb="Update" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRecipe" OutputProperty="Name" Verb="Update" Noun="Recipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateRecipe" OutputProperty="Name" Verb="Update" Noun="Recipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRecipeJob" OutputProperty="Name" Verb="Update" Noun="RecipeJob" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateRecipeJob" OutputProperty="Name" Verb="Update" Noun="RecipeJob" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRuleset" OutputProperty="Name" Verb="Update" Noun="Ruleset" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateRuleset" OutputProperty="Name" Verb="Update" Noun="Ruleset" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSchedule" OutputProperty="Name" Verb="Update" Noun="Schedule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateSchedule" OutputProperty="Name" Verb="Update" Noun="Schedule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

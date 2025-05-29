@@ -18,7 +18,7 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="GetMedia" OutputProperty="*" Verb="Get" Noun="Media" PipelineParameter="StartSelector" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMedia" OutputProperty="*" Verb="Get" Noun="Media" PipelineParameter="StartSelector" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -19,153 +19,153 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateDRTLogBucket" Verb="Grant" Noun="DRTLogBucketAssociation" ShouldProcessTarget="LogBucket" PipelineParameter="LogBucket" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateDRTLogBucket" Verb="Grant" Noun="DRTLogBucketAssociation" ShouldProcessTarget="LogBucket" PipelineParameter="LogBucket" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateDRTRole" Verb="Grant" Noun="DRTRoleAssociation" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateDRTRole" Verb="Grant" Noun="DRTRoleAssociation" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateHealthCheck" Verb="Add" Noun="HealthCheck" ShouldProcessTarget="HealthCheckArn" PipelineParameter="HealthCheckArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateHealthCheck" Verb="Add" Noun="HealthCheck" ShouldProcessTarget="HealthCheckArn" PipelineParameter="HealthCheckArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateProactiveEngagementDetails" Verb="Add" Noun="ProactiveEngagementDetail" ShouldProcessTarget="EmergencyContactList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateProactiveEngagementDetails" Verb="Add" Noun="ProactiveEngagementDetail" ShouldProcessTarget="EmergencyContactList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProtection" OutputProperty="ProtectionId" Verb="New" Noun="Protection" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateProtection" OutputProperty="ProtectionId" Verb="New" Noun="Protection" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProtectionGroup" Verb="New" Noun="ProtectionGroup" ShouldProcessTarget="ProtectionGroupId" PipelineParameter="ProtectionGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateProtectionGroup" Verb="New" Noun="ProtectionGroup" ShouldProcessTarget="ProtectionGroupId" PipelineParameter="ProtectionGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSubscription" Verb="New" Noun="Subscription" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateSubscription" Verb="New" Noun="Subscription" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProtection" Verb="Remove" Noun="Protection" ShouldProcessTarget="ProtectionId" PipelineParameter="ProtectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteProtection" Verb="Remove" Noun="Protection" ShouldProcessTarget="ProtectionId" PipelineParameter="ProtectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProtectionGroup" Verb="Remove" Noun="ProtectionGroup" ShouldProcessTarget="ProtectionGroupId" PipelineParameter="ProtectionGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteProtectionGroup" Verb="Remove" Noun="ProtectionGroup" ShouldProcessTarget="ProtectionGroupId" PipelineParameter="ProtectionGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSubscription" Verb="Remove" Noun="Subscription" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteSubscription" Verb="Remove" Noun="Subscription" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAttack" OutputProperty="Attack" Verb="Get" Noun="Attack" PipelineParameter="AttackId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAttack" OutputProperty="Attack" Verb="Get" Noun="Attack" PipelineParameter="AttackId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAttackStatistics" OutputProperty="*" Verb="Get" Noun="AttackStatistic" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAttackStatistics" OutputProperty="*" Verb="Get" Noun="AttackStatistic" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDRTAccess" OutputProperty="*" Verb="Get" Noun="DRTAccess" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDRTAccess" OutputProperty="*" Verb="Get" Noun="DRTAccess" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEmergencyContactSettings" OutputProperty="EmergencyContactList" Verb="Get" Noun="EmergencyContactSetting" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeEmergencyContactSettings" OutputProperty="EmergencyContactList" Verb="Get" Noun="EmergencyContactSetting" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProtection" OutputProperty="Protection" Verb="Get" Noun="Protection" PipelineParameter="ProtectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeProtection" OutputProperty="Protection" Verb="Get" Noun="Protection" PipelineParameter="ProtectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProtectionGroup" OutputProperty="ProtectionGroup" Verb="Get" Noun="ProtectionGroup" PipelineParameter="ProtectionGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeProtectionGroup" OutputProperty="ProtectionGroup" Verb="Get" Noun="ProtectionGroup" PipelineParameter="ProtectionGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSubscription" OutputProperty="Subscription" Verb="Get" Noun="Subscription" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSubscription" OutputProperty="Subscription" Verb="Get" Noun="Subscription" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableApplicationLayerAutomaticResponse" Verb="Disable" Noun="ApplicationLayerAutomaticResponse" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisableApplicationLayerAutomaticResponse" Verb="Disable" Noun="ApplicationLayerAutomaticResponse" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableProactiveEngagement" Verb="Disable" Noun="ProactiveEngagement" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisableProactiveEngagement" Verb="Disable" Noun="ProactiveEngagement" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateDRTLogBucket" Verb="Revoke" Noun="DRTLogBucketAssociation" ShouldProcessTarget="LogBucket" PipelineParameter="LogBucket" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateDRTLogBucket" Verb="Revoke" Noun="DRTLogBucketAssociation" ShouldProcessTarget="LogBucket" PipelineParameter="LogBucket" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateDRTRole" Verb="Revoke" Noun="DRTRoleAssociation" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateDRTRole" Verb="Revoke" Noun="DRTRoleAssociation" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateHealthCheck" Verb="Remove" Noun="HealthCheck" ShouldProcessTarget="HealthCheckArn" PipelineParameter="HealthCheckArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateHealthCheck" Verb="Remove" Noun="HealthCheck" ShouldProcessTarget="HealthCheckArn" PipelineParameter="HealthCheckArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableApplicationLayerAutomaticResponse" Verb="Enable" Noun="ApplicationLayerAutomaticResponse" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="EnableApplicationLayerAutomaticResponse" Verb="Enable" Noun="ApplicationLayerAutomaticResponse" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten>
                 <Type>Amazon.Shield.Model.BlockAction</Type>
                 <Type>Amazon.Shield.Model.CountAction</Type>
             </TypesNotToFlatten>
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableProactiveEngagement" Verb="Enable" Noun="ProactiveEngagement" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="EnableProactiveEngagement" Verb="Enable" Noun="ProactiveEngagement" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSubscriptionState" OutputProperty="SubscriptionState" Verb="Get" Noun="SubscriptionState" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSubscriptionState" OutputProperty="SubscriptionState" Verb="Get" Noun="SubscriptionState" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAttacks" OutputProperty="AttackSummaries" Verb="Get" Noun="AttackList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAttacks" OutputProperty="AttackSummaries" Verb="Get" Noun="AttackList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProtectionGroups" OutputProperty="ProtectionGroups" Verb="Get" Noun="ProtectionGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListProtectionGroups" OutputProperty="ProtectionGroups" Verb="Get" Noun="ProtectionGroupList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProtections" OutputProperty="Protections" Verb="Get" Noun="ProtectionList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListProtections" OutputProperty="Protections" Verb="Get" Noun="ProtectionList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourcesInProtectionGroup" OutputProperty="ResourceArns" Verb="Get" Noun="ResourcesInProtectionGroupList" PipelineParameter="ProtectionGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResourcesInProtectionGroup" OutputProperty="ResourceArns" Verb="Get" Noun="ResourcesInProtectionGroupList" PipelineParameter="ProtectionGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApplicationLayerAutomaticResponse" Verb="Update" Noun="ApplicationLayerAutomaticResponse" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateApplicationLayerAutomaticResponse" Verb="Update" Noun="ApplicationLayerAutomaticResponse" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten>
                 <Type>Amazon.Shield.Model.BlockAction</Type>
                 <Type>Amazon.Shield.Model.CountAction</Type>
             </TypesNotToFlatten>
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEmergencyContactSettings" Verb="Update" Noun="EmergencyContactSetting" ShouldProcessTarget="EmergencyContactList" PipelineParameter="EmergencyContactList" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateEmergencyContactSettings" Verb="Update" Noun="EmergencyContactSetting" ShouldProcessTarget="EmergencyContactList" PipelineParameter="EmergencyContactList" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProtectionGroup" Verb="Update" Noun="ProtectionGroup" ShouldProcessTarget="ProtectionGroupId" PipelineParameter="ProtectionGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateProtectionGroup" Verb="Update" Noun="ProtectionGroup" ShouldProcessTarget="ProtectionGroupId" PipelineParameter="ProtectionGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSubscription" Verb="Update" Noun="Subscription" ShouldProcessTarget="AutoRenew" PipelineParameter="AutoRenew" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateSubscription" Verb="Update" Noun="Subscription" ShouldProcessTarget="AutoRenew" PipelineParameter="AutoRenew" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -18,71 +18,71 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateChatToken" OutputProperty="*" Verb="New" Noun="ChatToken" ShouldProcessTarget="RoomIdentifier" PipelineParameter="RoomIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateChatToken" OutputProperty="*" Verb="New" Noun="ChatToken" ShouldProcessTarget="RoomIdentifier" PipelineParameter="RoomIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLoggingConfiguration" OutputProperty="*" Verb="New" Noun="LoggingConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateLoggingConfiguration" OutputProperty="*" Verb="New" Noun="LoggingConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRoom" OutputProperty="*" Verb="New" Noun="Room" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateRoom" OutputProperty="*" Verb="New" Noun="Room" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLoggingConfiguration" Verb="Remove" Noun="LoggingConfiguration" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteLoggingConfiguration" Verb="Remove" Noun="LoggingConfiguration" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMessage" OutputProperty="Id" Verb="Remove" Noun="Message" ShouldProcessTarget="RoomIdentifier" PipelineParameter="RoomIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteMessage" OutputProperty="Id" Verb="Remove" Noun="Message" ShouldProcessTarget="RoomIdentifier" PipelineParameter="RoomIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRoom" Verb="Remove" Noun="Room" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteRoom" Verb="Remove" Noun="Room" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisconnectUser" Verb="Disconnect" Noun="User" ShouldProcessTarget="RoomIdentifier" PipelineParameter="RoomIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisconnectUser" Verb="Disconnect" Noun="User" ShouldProcessTarget="RoomIdentifier" PipelineParameter="RoomIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLoggingConfiguration" OutputProperty="*" Verb="Get" Noun="LoggingConfiguration" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetLoggingConfiguration" OutputProperty="*" Verb="Get" Noun="LoggingConfiguration" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRoom" OutputProperty="*" Verb="Get" Noun="Room" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetRoom" OutputProperty="*" Verb="Get" Noun="Room" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLoggingConfigurations" OutputProperty="LoggingConfigurations" Verb="Get" Noun="LoggingConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLoggingConfigurations" OutputProperty="LoggingConfigurations" Verb="Get" Noun="LoggingConfigurationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRooms" OutputProperty="Rooms" Verb="Get" Noun="RoomList" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRooms" OutputProperty="Rooms" Verb="Get" Noun="RoomList" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendEvent" OutputProperty="Id" Verb="Send" Noun="Event" ShouldProcessTarget="RoomIdentifier" PipelineParameter="RoomIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SendEvent" OutputProperty="Id" Verb="Send" Noun="Event" ShouldProcessTarget="RoomIdentifier" PipelineParameter="RoomIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLoggingConfiguration" OutputProperty="*" Verb="Update" Noun="LoggingConfiguration" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateLoggingConfiguration" OutputProperty="*" Verb="Update" Noun="LoggingConfiguration" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRoom" OutputProperty="*" Verb="Update" Noun="Room" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateRoom" OutputProperty="*" Verb="Update" Noun="Room" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

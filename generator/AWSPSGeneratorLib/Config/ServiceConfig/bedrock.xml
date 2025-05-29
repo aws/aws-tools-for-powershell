@@ -19,241 +19,241 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchDeleteEvaluationJob" OutputProperty="*" Verb="Set" Noun="BatchDeleteEvaluationJob" ShouldProcessTarget="JobIdentifiers" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchDeleteEvaluationJob" OutputProperty="*" Verb="Set" Noun="BatchDeleteEvaluationJob" ShouldProcessTarget="JobIdentifiers" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEvaluationJob" OutputProperty="JobArn" Verb="New" Noun="EvaluationJob" ShouldProcessTarget="JobName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateEvaluationJob" OutputProperty="JobArn" Verb="New" Noun="EvaluationJob" ShouldProcessTarget="JobName" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="EvaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_BedrockEvaluatorModels" NewName="EvaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_BedrockEvaluatorModels" Alias="EvaluatorModelConfig_CustomMetricConfig_BedrockEvaluatorModel" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGuardrail" OutputProperty="*" Verb="New" Noun="Guardrail" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateGuardrail" OutputProperty="*" Verb="New" Noun="Guardrail" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGuardrailVersion" OutputProperty="*" Verb="New" Noun="GuardrailVersion" ShouldProcessTarget="GuardrailIdentifier" PipelineParameter="GuardrailIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateGuardrailVersion" OutputProperty="*" Verb="New" Noun="GuardrailVersion" ShouldProcessTarget="GuardrailIdentifier" PipelineParameter="GuardrailIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInferenceProfile" OutputProperty="*" Verb="New" Noun="InferenceProfile" ShouldProcessTarget="InferenceProfileName" PipelineParameter="InferenceProfileName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateInferenceProfile" OutputProperty="*" Verb="New" Noun="InferenceProfile" ShouldProcessTarget="InferenceProfileName" PipelineParameter="InferenceProfileName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMarketplaceModelEndpoint" OutputProperty="MarketplaceModelEndpoint" Verb="New" Noun="MarketplaceModelEndpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateMarketplaceModelEndpoint" OutputProperty="MarketplaceModelEndpoint" Verb="New" Noun="MarketplaceModelEndpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateModelCopyJob" OutputProperty="JobArn" Verb="New" Noun="ModelCopyJob" ShouldProcessTarget="SourceModelArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateModelCopyJob" OutputProperty="JobArn" Verb="New" Noun="ModelCopyJob" ShouldProcessTarget="SourceModelArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateModelCustomizationJob" OutputProperty="JobArn" Verb="New" Noun="ModelCustomizationJob" ShouldProcessTarget="JobName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateModelCustomizationJob" OutputProperty="JobArn" Verb="New" Noun="ModelCustomizationJob" ShouldProcessTarget="JobName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateModelImportJob" OutputProperty="JobArn" Verb="New" Noun="ModelImportJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateModelImportJob" OutputProperty="JobArn" Verb="New" Noun="ModelImportJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateModelInvocationJob" OutputProperty="JobArn" Verb="New" Noun="ModelInvocationJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateModelInvocationJob" OutputProperty="JobArn" Verb="New" Noun="ModelInvocationJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePromptRouter" OutputProperty="PromptRouterArn" Verb="New" Noun="PromptRouter" ShouldProcessTarget="PromptRouterName" PipelineParameter="PromptRouterName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreatePromptRouter" OutputProperty="PromptRouterArn" Verb="New" Noun="PromptRouter" ShouldProcessTarget="PromptRouterName" PipelineParameter="PromptRouterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProvisionedModelThroughput" OutputProperty="ProvisionedModelArn" Verb="New" Noun="ProvisionedModelThroughput" ShouldProcessTarget="ModelId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateProvisionedModelThroughput" OutputProperty="ProvisionedModelArn" Verb="New" Noun="ProvisionedModelThroughput" ShouldProcessTarget="ModelId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCustomModel" Verb="Remove" Noun="CustomModel" ShouldProcessTarget="ModelIdentifier" PipelineParameter="ModelIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteCustomModel" Verb="Remove" Noun="CustomModel" ShouldProcessTarget="ModelIdentifier" PipelineParameter="ModelIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGuardrail" Verb="Remove" Noun="Guardrail" ShouldProcessTarget="GuardrailIdentifier" PipelineParameter="GuardrailIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteGuardrail" Verb="Remove" Noun="Guardrail" ShouldProcessTarget="GuardrailIdentifier" PipelineParameter="GuardrailIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteImportedModel" Verb="Remove" Noun="ImportedModel" ShouldProcessTarget="ModelIdentifier" PipelineParameter="ModelIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteImportedModel" Verb="Remove" Noun="ImportedModel" ShouldProcessTarget="ModelIdentifier" PipelineParameter="ModelIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInferenceProfile" Verb="Remove" Noun="InferenceProfile" ShouldProcessTarget="InferenceProfileIdentifier" PipelineParameter="InferenceProfileIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteInferenceProfile" Verb="Remove" Noun="InferenceProfile" ShouldProcessTarget="InferenceProfileIdentifier" PipelineParameter="InferenceProfileIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMarketplaceModelEndpoint" Verb="Remove" Noun="MarketplaceModelEndpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteMarketplaceModelEndpoint" Verb="Remove" Noun="MarketplaceModelEndpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteModelInvocationLoggingConfiguration" Verb="Remove" Noun="ModelInvocationLoggingConfiguration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteModelInvocationLoggingConfiguration" Verb="Remove" Noun="ModelInvocationLoggingConfiguration" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePromptRouter" Verb="Remove" Noun="PromptRouter" ShouldProcessTarget="PromptRouterArn" PipelineParameter="PromptRouterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeletePromptRouter" Verb="Remove" Noun="PromptRouter" ShouldProcessTarget="PromptRouterArn" PipelineParameter="PromptRouterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProvisionedModelThroughput" Verb="Remove" Noun="ProvisionedModelThroughput" ShouldProcessTarget="ProvisionedModelId" PipelineParameter="ProvisionedModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteProvisionedModelThroughput" Verb="Remove" Noun="ProvisionedModelThroughput" ShouldProcessTarget="ProvisionedModelId" PipelineParameter="ProvisionedModelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterMarketplaceModelEndpoint" Verb="Unregister" Noun="MarketplaceModelEndpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeregisterMarketplaceModelEndpoint" Verb="Unregister" Noun="MarketplaceModelEndpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCustomModel" OutputProperty="*" Verb="Get" Noun="CustomModel" PipelineParameter="ModelIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetCustomModel" OutputProperty="*" Verb="Get" Noun="CustomModel" PipelineParameter="ModelIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEvaluationJob" OutputProperty="*" Verb="Get" Noun="EvaluationJob" PipelineParameter="JobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetEvaluationJob" OutputProperty="*" Verb="Get" Noun="EvaluationJob" PipelineParameter="JobIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFoundationModel" OutputProperty="ModelDetails" Verb="Get" Noun="FoundationModel" PipelineParameter="ModelIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFoundationModel" OutputProperty="ModelDetails" Verb="Get" Noun="FoundationModel" PipelineParameter="ModelIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGuardrail" OutputProperty="*" Verb="Get" Noun="Guardrail" PipelineParameter="GuardrailIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetGuardrail" OutputProperty="*" Verb="Get" Noun="Guardrail" PipelineParameter="GuardrailIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetImportedModel" OutputProperty="*" Verb="Get" Noun="ImportedModel" PipelineParameter="ModelIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetImportedModel" OutputProperty="*" Verb="Get" Noun="ImportedModel" PipelineParameter="ModelIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInferenceProfile" OutputProperty="*" Verb="Get" Noun="InferenceProfile" PipelineParameter="InferenceProfileIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetInferenceProfile" OutputProperty="*" Verb="Get" Noun="InferenceProfile" PipelineParameter="InferenceProfileIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMarketplaceModelEndpoint" OutputProperty="MarketplaceModelEndpoint" Verb="Get" Noun="MarketplaceModelEndpoint" PipelineParameter="EndpointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMarketplaceModelEndpoint" OutputProperty="MarketplaceModelEndpoint" Verb="Get" Noun="MarketplaceModelEndpoint" PipelineParameter="EndpointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetModelCopyJob" OutputProperty="*" Verb="Get" Noun="ModelCopyJob" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetModelCopyJob" OutputProperty="*" Verb="Get" Noun="ModelCopyJob" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetModelCustomizationJob" OutputProperty="*" Verb="Get" Noun="ModelCustomizationJob" PipelineParameter="JobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetModelCustomizationJob" OutputProperty="*" Verb="Get" Noun="ModelCustomizationJob" PipelineParameter="JobIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetModelImportJob" OutputProperty="*" Verb="Get" Noun="ModelImportJob" PipelineParameter="JobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetModelImportJob" OutputProperty="*" Verb="Get" Noun="ModelImportJob" PipelineParameter="JobIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetModelInvocationJob" OutputProperty="*" Verb="Get" Noun="ModelInvocationJob" PipelineParameter="JobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetModelInvocationJob" OutputProperty="*" Verb="Get" Noun="ModelInvocationJob" PipelineParameter="JobIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetModelInvocationLoggingConfiguration" OutputProperty="LoggingConfig" Verb="Get" Noun="ModelInvocationLoggingConfiguration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetModelInvocationLoggingConfiguration" OutputProperty="LoggingConfig" Verb="Get" Noun="ModelInvocationLoggingConfiguration" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPromptRouter" OutputProperty="*" Verb="Get" Noun="PromptRouter" PipelineParameter="PromptRouterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPromptRouter" OutputProperty="*" Verb="Get" Noun="PromptRouter" PipelineParameter="PromptRouterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProvisionedModelThroughput" OutputProperty="*" Verb="Get" Noun="ProvisionedModelThroughput" PipelineParameter="ProvisionedModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetProvisionedModelThroughput" OutputProperty="*" Verb="Get" Noun="ProvisionedModelThroughput" PipelineParameter="ProvisionedModelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCustomModels" OutputProperty="ModelSummaries" Verb="Get" Noun="CustomModelList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCustomModels" OutputProperty="ModelSummaries" Verb="Get" Noun="CustomModelList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEvaluationJobs" OutputProperty="JobSummaries" Verb="Get" Noun="EvaluationJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEvaluationJobs" OutputProperty="JobSummaries" Verb="Get" Noun="EvaluationJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFoundationModels" OutputProperty="ModelSummaries" Verb="Get" Noun="FoundationModelList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFoundationModels" OutputProperty="ModelSummaries" Verb="Get" Noun="FoundationModelList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGuardrails" OutputProperty="Guardrails" Verb="Get" Noun="GuardrailList" PipelineParameter="GuardrailIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListGuardrails" OutputProperty="Guardrails" Verb="Get" Noun="GuardrailList" PipelineParameter="GuardrailIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImportedModels" OutputProperty="ModelSummaries" Verb="Get" Noun="ImportedModelList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListImportedModels" OutputProperty="ModelSummaries" Verb="Get" Noun="ImportedModelList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInferenceProfiles" OutputProperty="InferenceProfileSummaries" Verb="Get" Noun="InferenceProfileList" PipelineParameter="TypeEquals" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListInferenceProfiles" OutputProperty="InferenceProfileSummaries" Verb="Get" Noun="InferenceProfileList" PipelineParameter="TypeEquals" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMarketplaceModelEndpoints" OutputProperty="MarketplaceModelEndpoints" Verb="Get" Noun="MarketplaceModelEndpointList" PipelineParameter="ModelSourceEquals" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMarketplaceModelEndpoints" OutputProperty="MarketplaceModelEndpoints" Verb="Get" Noun="MarketplaceModelEndpointList" PipelineParameter="ModelSourceEquals" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListModelCopyJobs" OutputProperty="ModelCopyJobSummaries" Verb="Get" Noun="ModelCopyJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListModelCopyJobs" OutputProperty="ModelCopyJobSummaries" Verb="Get" Noun="ModelCopyJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListModelCustomizationJobs" OutputProperty="ModelCustomizationJobSummaries" Verb="Get" Noun="ModelCustomizationJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListModelCustomizationJobs" OutputProperty="ModelCustomizationJobSummaries" Verb="Get" Noun="ModelCustomizationJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListModelImportJobs" OutputProperty="ModelImportJobSummaries" Verb="Get" Noun="ModelImportJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListModelImportJobs" OutputProperty="ModelImportJobSummaries" Verb="Get" Noun="ModelImportJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListModelInvocationJobs" OutputProperty="InvocationJobSummaries" Verb="Get" Noun="ModelInvocationJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListModelInvocationJobs" OutputProperty="InvocationJobSummaries" Verb="Get" Noun="ModelInvocationJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPromptRouters" OutputProperty="PromptRouterSummaries" Verb="Get" Noun="PromptRouterList" PipelineParameter="Type" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPromptRouters" OutputProperty="PromptRouterSummaries" Verb="Get" Noun="PromptRouterList" PipelineParameter="Type" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProvisionedModelThroughputs" OutputProperty="ProvisionedModelSummaries" Verb="Get" Noun="ProvisionedModelThroughputList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListProvisionedModelThroughputs" OutputProperty="ProvisionedModelSummaries" Verb="Get" Noun="ProvisionedModelThroughputList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutModelInvocationLoggingConfiguration" Verb="Write" Noun="ModelInvocationLoggingConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutModelInvocationLoggingConfiguration" Verb="Write" Noun="ModelInvocationLoggingConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterMarketplaceModelEndpoint" OutputProperty="MarketplaceModelEndpoint" Verb="Register" Noun="MarketplaceModelEndpoint" ShouldProcessTarget="EndpointIdentifier" PipelineParameter="EndpointIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RegisterMarketplaceModelEndpoint" OutputProperty="MarketplaceModelEndpoint" Verb="Register" Noun="MarketplaceModelEndpoint" ShouldProcessTarget="EndpointIdentifier" PipelineParameter="EndpointIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopEvaluationJob" Verb="Stop" Noun="EvaluationJob" ShouldProcessTarget="JobIdentifier" PipelineParameter="JobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopEvaluationJob" Verb="Stop" Noun="EvaluationJob" ShouldProcessTarget="JobIdentifier" PipelineParameter="JobIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopModelCustomizationJob" Verb="Stop" Noun="ModelCustomizationJob" ShouldProcessTarget="JobIdentifier" PipelineParameter="JobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopModelCustomizationJob" Verb="Stop" Noun="ModelCustomizationJob" ShouldProcessTarget="JobIdentifier" PipelineParameter="JobIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopModelInvocationJob" Verb="Stop" Noun="ModelInvocationJob" ShouldProcessTarget="JobIdentifier" PipelineParameter="JobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopModelInvocationJob" Verb="Stop" Noun="ModelInvocationJob" ShouldProcessTarget="JobIdentifier" PipelineParameter="JobIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGuardrail" OutputProperty="*" Verb="Update" Noun="Guardrail" ShouldProcessTarget="GuardrailIdentifier" PipelineParameter="GuardrailIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateGuardrail" OutputProperty="*" Verb="Update" Noun="Guardrail" ShouldProcessTarget="GuardrailIdentifier" PipelineParameter="GuardrailIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMarketplaceModelEndpoint" OutputProperty="MarketplaceModelEndpoint" Verb="Update" Noun="MarketplaceModelEndpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateMarketplaceModelEndpoint" OutputProperty="MarketplaceModelEndpoint" Verb="Update" Noun="MarketplaceModelEndpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProvisionedModelThroughput" Verb="Update" Noun="ProvisionedModelThroughput" ShouldProcessTarget="ProvisionedModelId" PipelineParameter="ProvisionedModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateProvisionedModelThroughput" Verb="Update" Noun="ProvisionedModelThroughput" ShouldProcessTarget="ProvisionedModelId" PipelineParameter="ProvisionedModelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

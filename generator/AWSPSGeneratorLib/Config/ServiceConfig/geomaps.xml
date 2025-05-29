@@ -18,23 +18,23 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="GetGlyphs" OutputProperty="*" Verb="Get" Noun="Glyph" PipelineParameter="FontStack" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetGlyphs" OutputProperty="*" Verb="Get" Noun="Glyph" PipelineParameter="FontStack" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSprites" OutputProperty="*" Verb="Get" Noun="Sprite" PipelineParameter="Style" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSprites" OutputProperty="*" Verb="Get" Noun="Sprite" PipelineParameter="Style" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStaticMap" OutputProperty="*" Verb="Get" Noun="StaticMap" PipelineParameter="FileName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetStaticMap" OutputProperty="*" Verb="Get" Noun="StaticMap" PipelineParameter="FileName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStyleDescriptor" OutputProperty="*" Verb="Get" Noun="StyleDescriptor" PipelineParameter="Style" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetStyleDescriptor" OutputProperty="*" Verb="Get" Noun="StyleDescriptor" PipelineParameter="Style" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTile" OutputProperty="*" Verb="Get" Noun="Tile" PipelineParameter="Tileset" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTile" OutputProperty="*" Verb="Get" Noun="Tile" PipelineParameter="Tileset" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

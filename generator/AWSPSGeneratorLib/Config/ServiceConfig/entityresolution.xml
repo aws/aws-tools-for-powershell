@@ -18,151 +18,151 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddPolicyStatement" OutputProperty="*" Verb="Add" Noun="PolicyStatement" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AddPolicyStatement" OutputProperty="*" Verb="Add" Noun="PolicyStatement" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDeleteUniqueId" OutputProperty="*" Verb="Remove" Noun="DeleteUniqueId" ShouldProcessTarget="WorkflowName" PipelineParameter="WorkflowName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchDeleteUniqueId" OutputProperty="*" Verb="Remove" Noun="DeleteUniqueId" ShouldProcessTarget="WorkflowName" PipelineParameter="WorkflowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIdMappingWorkflow" OutputProperty="*" Verb="New" Noun="IdMappingWorkflow" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateIdMappingWorkflow" OutputProperty="*" Verb="New" Noun="IdMappingWorkflow" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIdNamespace" OutputProperty="*" Verb="New" Noun="IdNamespace" ShouldProcessTarget="IdNamespaceName" PipelineParameter="IdNamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateIdNamespace" OutputProperty="*" Verb="New" Noun="IdNamespace" ShouldProcessTarget="IdNamespaceName" PipelineParameter="IdNamespaceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMatchingWorkflow" OutputProperty="*" Verb="New" Noun="MatchingWorkflow" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateMatchingWorkflow" OutputProperty="*" Verb="New" Noun="MatchingWorkflow" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSchemaMapping" OutputProperty="*" Verb="New" Noun="SchemaMapping" ShouldProcessTarget="SchemaName" PipelineParameter="SchemaName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateSchemaMapping" OutputProperty="*" Verb="New" Noun="SchemaMapping" ShouldProcessTarget="SchemaName" PipelineParameter="SchemaName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIdMappingWorkflow" OutputProperty="Message" Verb="Remove" Noun="IdMappingWorkflow" ShouldProcessTarget="WorkflowName" PipelineParameter="WorkflowName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteIdMappingWorkflow" OutputProperty="Message" Verb="Remove" Noun="IdMappingWorkflow" ShouldProcessTarget="WorkflowName" PipelineParameter="WorkflowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIdNamespace" OutputProperty="Message" Verb="Remove" Noun="IdNamespace" ShouldProcessTarget="IdNamespaceName" PipelineParameter="IdNamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteIdNamespace" OutputProperty="Message" Verb="Remove" Noun="IdNamespace" ShouldProcessTarget="IdNamespaceName" PipelineParameter="IdNamespaceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMatchingWorkflow" OutputProperty="Message" Verb="Remove" Noun="MatchingWorkflow" ShouldProcessTarget="WorkflowName" PipelineParameter="WorkflowName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteMatchingWorkflow" OutputProperty="Message" Verb="Remove" Noun="MatchingWorkflow" ShouldProcessTarget="WorkflowName" PipelineParameter="WorkflowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePolicyStatement" OutputProperty="*" Verb="Remove" Noun="PolicyStatement" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeletePolicyStatement" OutputProperty="*" Verb="Remove" Noun="PolicyStatement" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSchemaMapping" OutputProperty="Message" Verb="Remove" Noun="SchemaMapping" ShouldProcessTarget="SchemaName" PipelineParameter="SchemaName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteSchemaMapping" OutputProperty="Message" Verb="Remove" Noun="SchemaMapping" ShouldProcessTarget="SchemaName" PipelineParameter="SchemaName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIdMappingJob" OutputProperty="*" Verb="Get" Noun="IdMappingJob" PipelineParameter="WorkflowName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetIdMappingJob" OutputProperty="*" Verb="Get" Noun="IdMappingJob" PipelineParameter="WorkflowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIdMappingWorkflow" OutputProperty="*" Verb="Get" Noun="IdMappingWorkflow" PipelineParameter="WorkflowName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetIdMappingWorkflow" OutputProperty="*" Verb="Get" Noun="IdMappingWorkflow" PipelineParameter="WorkflowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIdNamespace" OutputProperty="*" Verb="Get" Noun="IdNamespace" PipelineParameter="IdNamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetIdNamespace" OutputProperty="*" Verb="Get" Noun="IdNamespace" PipelineParameter="IdNamespaceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMatchId" OutputProperty="MatchId" Verb="Get" Noun="MatchId" PipelineParameter="WorkflowName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMatchId" OutputProperty="MatchId" Verb="Get" Noun="MatchId" PipelineParameter="WorkflowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMatchingJob" OutputProperty="*" Verb="Get" Noun="MatchingJob" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMatchingJob" OutputProperty="*" Verb="Get" Noun="MatchingJob" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMatchingWorkflow" OutputProperty="*" Verb="Get" Noun="MatchingWorkflow" PipelineParameter="WorkflowName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMatchingWorkflow" OutputProperty="*" Verb="Get" Noun="MatchingWorkflow" PipelineParameter="WorkflowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPolicy" OutputProperty="*" Verb="Get" Noun="Policy" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPolicy" OutputProperty="*" Verb="Get" Noun="Policy" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProviderService" OutputProperty="*" Verb="Get" Noun="ProviderService" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetProviderService" OutputProperty="*" Verb="Get" Noun="ProviderService" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSchemaMapping" OutputProperty="*" Verb="Get" Noun="SchemaMapping" PipelineParameter="SchemaName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSchemaMapping" OutputProperty="*" Verb="Get" Noun="SchemaMapping" PipelineParameter="SchemaName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIdMappingJobs" OutputProperty="Jobs" Verb="Get" Noun="IdMappingJobList" PipelineParameter="WorkflowName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListIdMappingJobs" OutputProperty="Jobs" Verb="Get" Noun="IdMappingJobList" PipelineParameter="WorkflowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIdMappingWorkflows" OutputProperty="WorkflowSummaries" Verb="Get" Noun="IdMappingWorkflowList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListIdMappingWorkflows" OutputProperty="WorkflowSummaries" Verb="Get" Noun="IdMappingWorkflowList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIdNamespaces" OutputProperty="IdNamespaceSummaries" Verb="Get" Noun="IdNamespaceList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListIdNamespaces" OutputProperty="IdNamespaceSummaries" Verb="Get" Noun="IdNamespaceList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMatchingJobs" OutputProperty="Jobs" Verb="Get" Noun="MatchingJobList" PipelineParameter="WorkflowName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMatchingJobs" OutputProperty="Jobs" Verb="Get" Noun="MatchingJobList" PipelineParameter="WorkflowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMatchingWorkflows" OutputProperty="WorkflowSummaries" Verb="Get" Noun="MatchingWorkflowList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMatchingWorkflows" OutputProperty="WorkflowSummaries" Verb="Get" Noun="MatchingWorkflowList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProviderServices" OutputProperty="ProviderServiceSummaries" Verb="Get" Noun="ProviderServiceList" PipelineParameter="ProviderName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListProviderServices" OutputProperty="ProviderServiceSummaries" Verb="Get" Noun="ProviderServiceList" PipelineParameter="ProviderName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSchemaMappings" OutputProperty="SchemaList" Verb="Get" Noun="SchemaMappingList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSchemaMappings" OutputProperty="SchemaList" Verb="Get" Noun="SchemaMappingList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutPolicy" OutputProperty="*" Verb="Write" Noun="Policy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutPolicy" OutputProperty="*" Verb="Write" Noun="Policy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartIdMappingJob" OutputProperty="JobId" Verb="Start" Noun="IdMappingJob" ShouldProcessTarget="WorkflowName" PipelineParameter="WorkflowName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartIdMappingJob" OutputProperty="JobId" Verb="Start" Noun="IdMappingJob" ShouldProcessTarget="WorkflowName" PipelineParameter="WorkflowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMatchingJob" OutputProperty="JobId" Verb="Start" Noun="MatchingJob" ShouldProcessTarget="WorkflowName" PipelineParameter="WorkflowName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartMatchingJob" OutputProperty="JobId" Verb="Start" Noun="MatchingJob" ShouldProcessTarget="WorkflowName" PipelineParameter="WorkflowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIdMappingWorkflow" OutputProperty="*" Verb="Update" Noun="IdMappingWorkflow" ShouldProcessTarget="WorkflowName" PipelineParameter="WorkflowName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateIdMappingWorkflow" OutputProperty="*" Verb="Update" Noun="IdMappingWorkflow" ShouldProcessTarget="WorkflowName" PipelineParameter="WorkflowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIdNamespace" OutputProperty="*" Verb="Update" Noun="IdNamespace" ShouldProcessTarget="IdNamespaceName" PipelineParameter="IdNamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateIdNamespace" OutputProperty="*" Verb="Update" Noun="IdNamespace" ShouldProcessTarget="IdNamespaceName" PipelineParameter="IdNamespaceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMatchingWorkflow" OutputProperty="*" Verb="Update" Noun="MatchingWorkflow" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateMatchingWorkflow" OutputProperty="*" Verb="Update" Noun="MatchingWorkflow" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSchemaMapping" OutputProperty="*" Verb="Update" Noun="SchemaMapping" ShouldProcessTarget="SchemaName" PipelineParameter="SchemaName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateSchemaMapping" OutputProperty="*" Verb="Update" Noun="SchemaMapping" ShouldProcessTarget="SchemaName" PipelineParameter="SchemaName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

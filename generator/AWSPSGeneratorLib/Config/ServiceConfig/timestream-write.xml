@@ -19,79 +19,79 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateBatchLoadTask" OutputProperty="TaskId" Verb="New" Noun="BatchLoadTask" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateBatchLoadTask" OutputProperty="TaskId" Verb="New" Noun="BatchLoadTask" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDatabase" OutputProperty="Database" Verb="New" Noun="Database" ShouldProcessTarget="DatabaseName" PipelineParameter="DatabaseName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDatabase" OutputProperty="Database" Verb="New" Noun="Database" ShouldProcessTarget="DatabaseName" PipelineParameter="DatabaseName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTable" OutputProperty="Table" Verb="New" Noun="Table" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateTable" OutputProperty="Table" Verb="New" Noun="Table" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDatabase" Verb="Remove" Noun="Database" ShouldProcessTarget="DatabaseName" PipelineParameter="DatabaseName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDatabase" Verb="Remove" Noun="Database" ShouldProcessTarget="DatabaseName" PipelineParameter="DatabaseName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTable" Verb="Remove" Noun="Table" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteTable" Verb="Remove" Noun="Table" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBatchLoadTask" OutputProperty="BatchLoadTaskDescription" Verb="Get" Noun="BatchLoadTask" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBatchLoadTask" OutputProperty="BatchLoadTaskDescription" Verb="Get" Noun="BatchLoadTask" PipelineParameter="TaskId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDatabase" OutputProperty="Database" Verb="Get" Noun="Database" PipelineParameter="DatabaseName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDatabase" OutputProperty="Database" Verb="Get" Noun="Database" PipelineParameter="DatabaseName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="EndpointList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="EndpointList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTable" OutputProperty="Table" Verb="Get" Noun="Table" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTable" OutputProperty="Table" Verb="Get" Noun="Table" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBatchLoadTasks" OutputProperty="BatchLoadTasks" Verb="Get" Noun="BatchLoadTaskList" PipelineParameter="TaskStatus" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBatchLoadTasks" OutputProperty="BatchLoadTasks" Verb="Get" Noun="BatchLoadTaskList" PipelineParameter="TaskStatus" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatabases" OutputProperty="Databases" Verb="Get" Noun="DatabaseList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDatabases" OutputProperty="Databases" Verb="Get" Noun="DatabaseList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTables" OutputProperty="Tables" Verb="Get" Noun="TableList" PipelineParameter="DatabaseName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTables" OutputProperty="Tables" Verb="Get" Noun="TableList" PipelineParameter="DatabaseName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResumeBatchLoadTask" Verb="Resume" Noun="BatchLoadTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ResumeBatchLoadTask" Verb="Resume" Noun="BatchLoadTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDatabase" OutputProperty="Database" Verb="Update" Noun="Database" ShouldProcessTarget="DatabaseName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDatabase" OutputProperty="Database" Verb="Update" Noun="Database" ShouldProcessTarget="DatabaseName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTable" OutputProperty="Table" Verb="Update" Noun="Table" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateTable" OutputProperty="Table" Verb="Update" Noun="Table" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="WriteRecords" OutputProperty="*" Verb="Write" Noun="Record" ShouldProcessTarget="TableName" PipelineParameter="Records" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="WriteRecords" OutputProperty="*" Verb="Write" Noun="Record" ShouldProcessTarget="TableName" PipelineParameter="Records" NoPipelineParameter="false">
             <Params>
                 <Param Name="CommonAttributes_MeasureValues" NewName="CommonAttributes_MeasureValueList" AutoApplyAlias="false" />
             </Params>

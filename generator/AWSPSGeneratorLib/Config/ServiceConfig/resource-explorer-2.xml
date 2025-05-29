@@ -18,101 +18,101 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateDefaultView" OutputProperty="ViewArn" Verb="Register" Noun="DefaultView" ShouldProcessTarget="ViewArn" PipelineParameter="ViewArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateDefaultView" OutputProperty="ViewArn" Verb="Register" Noun="DefaultView" ShouldProcessTarget="ViewArn" PipelineParameter="ViewArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetView" OutputProperty="*" Verb="Get" Noun="ViewBatch" PipelineParameter="ViewArns" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchGetView" OutputProperty="*" Verb="Get" Noun="ViewBatch" PipelineParameter="ViewArns" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIndex" OutputProperty="*" Verb="New" Noun="Index" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateIndex" OutputProperty="*" Verb="New" Noun="Index" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateView" OutputProperty="View" Verb="New" Noun="View" ShouldProcessTarget="ViewName" PipelineParameter="ViewName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateView" OutputProperty="View" Verb="New" Noun="View" ShouldProcessTarget="ViewName" PipelineParameter="ViewName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIndex" OutputProperty="*" Verb="Remove" Noun="Index" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteIndex" OutputProperty="*" Verb="Remove" Noun="Index" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteView" OutputProperty="ViewArn" Verb="Remove" Noun="View" ShouldProcessTarget="ViewArn" PipelineParameter="ViewArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteView" OutputProperty="ViewArn" Verb="Remove" Noun="View" ShouldProcessTarget="ViewArn" PipelineParameter="ViewArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateDefaultView" Verb="Unregister" Noun="DefaultView" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateDefaultView" Verb="Unregister" Noun="DefaultView" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccountLevelServiceConfiguration" OutputProperty="OrgConfiguration" Verb="Get" Noun="AccountLevelServiceConfiguration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAccountLevelServiceConfiguration" OutputProperty="OrgConfiguration" Verb="Get" Noun="AccountLevelServiceConfiguration" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDefaultView" OutputProperty="ViewArn" Verb="Get" Noun="DefaultView" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDefaultView" OutputProperty="ViewArn" Verb="Get" Noun="DefaultView" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIndex" OutputProperty="*" Verb="Get" Noun="Index" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetIndex" OutputProperty="*" Verb="Get" Noun="Index" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetManagedView" OutputProperty="ManagedView" Verb="Get" Noun="ManagedView" PipelineParameter="ManagedViewArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetManagedView" OutputProperty="ManagedView" Verb="Get" Noun="ManagedView" PipelineParameter="ManagedViewArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetView" OutputProperty="*" Verb="Get" Noun="View" PipelineParameter="ViewArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetView" OutputProperty="*" Verb="Get" Noun="View" PipelineParameter="ViewArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIndexes" OutputProperty="Indexes" Verb="Get" Noun="IndexList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListIndexes" OutputProperty="Indexes" Verb="Get" Noun="IndexList" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="Regions" NewName="RegionList" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIndexesForMembers" OutputProperty="Indexes" Verb="Get" Noun="IndexesForMemberList" PipelineParameter="AccountIdList" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListIndexesForMembers" OutputProperty="Indexes" Verb="Get" Noun="IndexesForMemberList" PipelineParameter="AccountIdList" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListManagedViews" OutputProperty="ManagedViews" Verb="Get" Noun="ManagedViewList" PipelineParameter="ServicePrincipal" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListManagedViews" OutputProperty="ManagedViews" Verb="Get" Noun="ManagedViewList" PipelineParameter="ServicePrincipal" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResources" OutputProperty="*" Verb="Get" Noun="ResourceList" PipelineParameter="ViewArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResources" OutputProperty="*" Verb="Get" Noun="ResourceList" PipelineParameter="ViewArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSupportedResourceTypes" OutputProperty="ResourceTypes" Verb="Get" Noun="SupportedResourceTypeList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSupportedResourceTypes" OutputProperty="ResourceTypes" Verb="Get" Noun="SupportedResourceTypeList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListViews" OutputProperty="Views" Verb="Get" Noun="ViewArnList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListViews" OutputProperty="Views" Verb="Get" Noun="ViewArnList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Search" OutputProperty="*" Verb="Search" Noun="Resource" IgnoreSupportsShouldProcess="true" PipelineParameter="QueryString" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="Search" OutputProperty="*" Verb="Search" Noun="Resource" IgnoreSupportsShouldProcess="true" PipelineParameter="QueryString" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIndexType" OutputProperty="*" Verb="Update" Noun="IndexType" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateIndexType" OutputProperty="*" Verb="Update" Noun="IndexType" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateView" OutputProperty="View" Verb="Update" Noun="View" ShouldProcessTarget="ViewArn" PipelineParameter="ViewArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateView" OutputProperty="View" Verb="Update" Noun="View" ShouldProcessTarget="ViewArn" PipelineParameter="ViewArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

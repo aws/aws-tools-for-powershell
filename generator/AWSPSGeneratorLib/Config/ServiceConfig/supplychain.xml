@@ -18,87 +18,87 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateBillOfMaterialsImportJob" OutputProperty="JobId" Verb="New" Noun="BillOfMaterialsImportJob" ShouldProcessTarget="InstanceId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateBillOfMaterialsImportJob" OutputProperty="JobId" Verb="New" Noun="BillOfMaterialsImportJob" ShouldProcessTarget="InstanceId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataIntegrationFlow" OutputProperty="*" Verb="New" Noun="DataIntegrationFlow" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDataIntegrationFlow" OutputProperty="*" Verb="New" Noun="DataIntegrationFlow" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataLakeDataset" OutputProperty="Dataset" Verb="New" Noun="DataLakeDataset" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDataLakeDataset" OutputProperty="Dataset" Verb="New" Noun="DataLakeDataset" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInstance" OutputProperty="Instance" Verb="New" Noun="Instance" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateInstance" OutputProperty="Instance" Verb="New" Noun="Instance" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataIntegrationFlow" OutputProperty="*" Verb="Remove" Noun="DataIntegrationFlow" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDataIntegrationFlow" OutputProperty="*" Verb="Remove" Noun="DataIntegrationFlow" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataLakeDataset" OutputProperty="*" Verb="Remove" Noun="DataLakeDataset" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDataLakeDataset" OutputProperty="*" Verb="Remove" Noun="DataLakeDataset" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInstance" OutputProperty="Instance" Verb="Remove" Noun="Instance" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteInstance" OutputProperty="Instance" Verb="Remove" Noun="Instance" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBillOfMaterialsImportJob" OutputProperty="Job" Verb="Get" Noun="BillOfMaterialsImportJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBillOfMaterialsImportJob" OutputProperty="Job" Verb="Get" Noun="BillOfMaterialsImportJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataIntegrationFlow" OutputProperty="Flow" Verb="Get" Noun="DataIntegrationFlow" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDataIntegrationFlow" OutputProperty="Flow" Verb="Get" Noun="DataIntegrationFlow" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataLakeDataset" OutputProperty="Dataset" Verb="Get" Noun="DataLakeDataset" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDataLakeDataset" OutputProperty="Dataset" Verb="Get" Noun="DataLakeDataset" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInstance" OutputProperty="Instance" Verb="Get" Noun="Instance" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetInstance" OutputProperty="Instance" Verb="Get" Noun="Instance" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataIntegrationFlows" OutputProperty="Flows" Verb="Get" Noun="DataIntegrationFlowList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDataIntegrationFlows" OutputProperty="Flows" Verb="Get" Noun="DataIntegrationFlowList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataLakeDatasets" OutputProperty="Datasets" Verb="Get" Noun="DataLakeDatasetList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDataLakeDatasets" OutputProperty="Datasets" Verb="Get" Noun="DataLakeDatasetList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInstances" OutputProperty="Instances" Verb="Get" Noun="InstanceList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListInstances" OutputProperty="Instances" Verb="Get" Noun="InstanceList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendDataIntegrationEvent" OutputProperty="EventId" Verb="Send" Noun="DataIntegrationEvent" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SendDataIntegrationEvent" OutputProperty="EventId" Verb="Send" Noun="DataIntegrationEvent" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataIntegrationFlow" OutputProperty="Flow" Verb="Update" Noun="DataIntegrationFlow" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDataIntegrationFlow" OutputProperty="Flow" Verb="Update" Noun="DataIntegrationFlow" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataLakeDataset" OutputProperty="Dataset" Verb="Update" Noun="DataLakeDataset" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDataLakeDataset" OutputProperty="Dataset" Verb="Update" Noun="DataLakeDataset" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateInstance" OutputProperty="Instance" Verb="Update" Noun="Instance" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateInstance" OutputProperty="Instance" Verb="Update" Noun="Instance" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

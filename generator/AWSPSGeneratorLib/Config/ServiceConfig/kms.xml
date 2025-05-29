@@ -25,221 +25,221 @@
         <Property>Truncated</Property>
     </MetadataProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelKeyDeletion" OutputProperty="KeyId" Verb="Stop" Noun="KeyDeletion" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelKeyDeletion" OutputProperty="KeyId" Verb="Stop" Noun="KeyDeletion" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ConnectCustomKeyStore" Verb="Connect" Noun="CustomKeyStore" ShouldProcessTarget="CustomKeyStoreId" PipelineParameter="CustomKeyStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ConnectCustomKeyStore" Verb="Connect" Noun="CustomKeyStore" ShouldProcessTarget="CustomKeyStoreId" PipelineParameter="CustomKeyStoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAlias" Verb="New" Noun="Alias" ShouldProcessTarget="TargetKeyId" PipelineParameter="TargetKeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAlias" Verb="New" Noun="Alias" ShouldProcessTarget="TargetKeyId" PipelineParameter="TargetKeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCustomKeyStore" OutputProperty="CustomKeyStoreId" Verb="New" Noun="CustomKeyStore" ShouldProcessTarget="CustomKeyStoreName" PipelineParameter="CustomKeyStoreName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateCustomKeyStore" OutputProperty="CustomKeyStoreId" Verb="New" Noun="CustomKeyStore" ShouldProcessTarget="CustomKeyStoreName" PipelineParameter="CustomKeyStoreName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGrant" OutputProperty="*" Verb="New" Noun="Grant" ShouldProcessTarget="KeyId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateGrant" OutputProperty="*" Verb="New" Noun="Grant" ShouldProcessTarget="KeyId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateKey" OutputProperty="KeyMetadata" Verb="New" Noun="Key" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateKey" OutputProperty="KeyMetadata" Verb="New" Noun="Key" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Decrypt" OutputProperty="*" Verb="Invoke" Noun="Decrypt" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="Decrypt" OutputProperty="*" Verb="Invoke" Noun="Decrypt" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAlias" Verb="Remove" Noun="Alias" ShouldProcessTarget="AliasName" PipelineParameter="AliasName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAlias" Verb="Remove" Noun="Alias" ShouldProcessTarget="AliasName" PipelineParameter="AliasName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCustomKeyStore" Verb="Remove" Noun="CustomKeyStore" ShouldProcessTarget="CustomKeyStoreId" PipelineParameter="CustomKeyStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteCustomKeyStore" Verb="Remove" Noun="CustomKeyStore" ShouldProcessTarget="CustomKeyStoreId" PipelineParameter="CustomKeyStoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteImportedKeyMaterial" Verb="Remove" Noun="ImportedKeyMaterial" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteImportedKeyMaterial" Verb="Remove" Noun="ImportedKeyMaterial" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeriveSharedSecret" OutputProperty="*" Verb="Get" Noun="SharedSecret" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeriveSharedSecret" OutputProperty="*" Verb="Get" Noun="SharedSecret" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCustomKeyStores" OutputProperty="CustomKeyStores" Verb="Get" Noun="CustomKeyStore" PipelineParameter="CustomKeyStoreId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCustomKeyStores" OutputProperty="CustomKeyStores" Verb="Get" Noun="CustomKeyStore" PipelineParameter="CustomKeyStoreId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeKey" OutputProperty="KeyMetadata" Verb="Get" Noun="Key" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeKey" OutputProperty="KeyMetadata" Verb="Get" Noun="Key" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableKey" Verb="Disable" Noun="Key" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisableKey" Verb="Disable" Noun="Key" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableKeyRotation" Verb="Disable" Noun="KeyRotation" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisableKeyRotation" Verb="Disable" Noun="KeyRotation" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisconnectCustomKeyStore" Verb="Disconnect" Noun="CustomKeyStore" ShouldProcessTarget="CustomKeyStoreId" PipelineParameter="CustomKeyStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisconnectCustomKeyStore" Verb="Disconnect" Noun="CustomKeyStore" ShouldProcessTarget="CustomKeyStoreId" PipelineParameter="CustomKeyStoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableKey" Verb="Enable" Noun="Key" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="EnableKey" Verb="Enable" Noun="Key" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableKeyRotation" Verb="Enable" Noun="KeyRotation" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="EnableKeyRotation" Verb="Enable" Noun="KeyRotation" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Encrypt" OutputProperty="*" Verb="Invoke" Noun="Encrypt" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="Encrypt" OutputProperty="*" Verb="Invoke" Noun="Encrypt" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateDataKey" OutputProperty="*" Verb="New" Noun="DataKey" AnonymousShouldProcessTarget="true" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GenerateDataKey" OutputProperty="*" Verb="New" Noun="DataKey" AnonymousShouldProcessTarget="true" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params>
                 <Param Name="NumberOfBytes" AutoRename="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateDataKeyPair" OutputProperty="*" Verb="New" Noun="DataKeyPair" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GenerateDataKeyPair" OutputProperty="*" Verb="New" Noun="DataKeyPair" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateDataKeyPairWithoutPlaintext" OutputProperty="*" Verb="New" Noun="DataKeyPairWithoutPlaintext" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GenerateDataKeyPairWithoutPlaintext" OutputProperty="*" Verb="New" Noun="DataKeyPairWithoutPlaintext" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateDataKeyWithoutPlaintext" OutputProperty="*" Verb="New" Noun="DataKeyWithoutPlaintext" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GenerateDataKeyWithoutPlaintext" OutputProperty="*" Verb="New" Noun="DataKeyWithoutPlaintext" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params>
                 <Param Name="NumberOfBytes" AutoRename="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateMac" OutputProperty="*" Verb="New" Noun="Mac" ShouldProcessTarget="KeyId" PipelineParameter="Message" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GenerateMac" OutputProperty="*" Verb="New" Noun="Mac" ShouldProcessTarget="KeyId" PipelineParameter="Message" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateRandom" OutputProperty="Plaintext" Verb="New" Noun="Random" AnonymousShouldProcessTarget="true" PipelineParameter="NumberOfBytes" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GenerateRandom" OutputProperty="Plaintext" Verb="New" Noun="Random" AnonymousShouldProcessTarget="true" PipelineParameter="NumberOfBytes" NoPipelineParameter="false">
             <Params>
                 <Param Name="NumberOfBytes" AutoRename="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetKeyPolicy" OutputProperty="Policy" Verb="Get" Noun="KeyPolicy" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetKeyPolicy" OutputProperty="Policy" Verb="Get" Noun="KeyPolicy" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetKeyRotationStatus" OutputProperty="KeyRotationEnabled" Verb="Get" Noun="KeyRotationStatus" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetKeyRotationStatus" OutputProperty="KeyRotationEnabled" Verb="Get" Noun="KeyRotationStatus" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetParametersForImport" OutputProperty="*" Verb="Get" Noun="ParametersForImport" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetParametersForImport" OutputProperty="*" Verb="Get" Noun="ParametersForImport" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPublicKey" OutputProperty="*" Verb="Get" Noun="PublicKey" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPublicKey" OutputProperty="*" Verb="Get" Noun="PublicKey" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportKeyMaterial" Verb="Import" Noun="KeyMaterial" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportKeyMaterial" Verb="Import" Noun="KeyMaterial" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAliases" OutputProperty="Aliases" Verb="Get" Noun="AliasList" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-KMSAliases" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAliases" OutputProperty="Aliases" Verb="Get" Noun="AliasList" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-KMSAliases">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGrants" OutputProperty="Grants" Verb="Get" Noun="GrantList" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-KMSGrants" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListGrants" OutputProperty="Grants" Verb="Get" Noun="GrantList" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-KMSGrants">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKeyPolicies" OutputProperty="PolicyNames" Verb="Get" Noun="KeyPolicyList" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-KMSKeyPolicies" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListKeyPolicies" OutputProperty="PolicyNames" Verb="Get" Noun="KeyPolicyList" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-KMSKeyPolicies">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKeyRotations" OutputProperty="Rotations" Verb="Get" Noun="KeyRotation" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListKeyRotations" OutputProperty="Rotations" Verb="Get" Noun="KeyRotation" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKeys" OutputProperty="Keys" Verb="Get" Noun="KeyList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-KMSKeys" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListKeys" OutputProperty="Keys" Verb="Get" Noun="KeyList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-KMSKeys">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResourceTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRetirableGrants" OutputProperty="Grants" Verb="Get" Noun="RetirableGrant" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRetirableGrants" OutputProperty="Grants" Verb="Get" Noun="RetirableGrant" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutKeyPolicy" Verb="Write" Noun="KeyPolicy" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutKeyPolicy" Verb="Write" Noun="KeyPolicy" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReEncrypt" OutputProperty="*" Verb="Invoke" Noun="ReEncrypt" ShouldProcessTarget="DestinationKeyId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ReEncrypt" OutputProperty="*" Verb="Invoke" Noun="ReEncrypt" ShouldProcessTarget="DestinationKeyId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReplicateKey" OutputProperty="*" Verb="New" Noun="ReplicaKey" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ReplicateKey" OutputProperty="*" Verb="New" Noun="ReplicaKey" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RetireGrant" Verb="Disable" Noun="Grant" ShouldProcessTarget="GrantToken" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RetireGrant" Verb="Disable" Noun="Grant" ShouldProcessTarget="GrantToken" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RevokeGrant" Verb="Revoke" Noun="Grant" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RevokeGrant" Verb="Revoke" Noun="Grant" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RotateKeyOnDemand" OutputProperty="KeyId" Verb="Start" Noun="RotateKeyOnDemand" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RotateKeyOnDemand" OutputProperty="KeyId" Verb="Start" Noun="RotateKeyOnDemand" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ScheduleKeyDeletion" OutputProperty="*" Verb="Request" Noun="KeyDeletion" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ScheduleKeyDeletion" OutputProperty="*" Verb="Request" Noun="KeyDeletion" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Sign" OutputProperty="Signature" Verb="Invoke" Noun="Signing" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Message" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="Sign" OutputProperty="Signature" Verb="Invoke" Noun="Signing" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Message" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAlias" Verb="Update" Noun="Alias" ShouldProcessTarget="TargetKeyId" PipelineParameter="TargetKeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateAlias" Verb="Update" Noun="Alias" ShouldProcessTarget="TargetKeyId" PipelineParameter="TargetKeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCustomKeyStore" Verb="Update" Noun="CustomKeyStore" ShouldProcessTarget="CustomKeyStoreId" PipelineParameter="CustomKeyStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateCustomKeyStore" Verb="Update" Noun="CustomKeyStore" ShouldProcessTarget="CustomKeyStoreId" PipelineParameter="CustomKeyStoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateKeyDescription" Verb="Update" Noun="KeyDescription" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateKeyDescription" Verb="Update" Noun="KeyDescription" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePrimaryRegion" Verb="Update" Noun="PrimaryRegion" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdatePrimaryRegion" Verb="Update" Noun="PrimaryRegion" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Verify" OutputProperty="SignatureValid" Verb="Test" Noun="Signature" PipelineParameter="Message" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="Verify" OutputProperty="SignatureValid" Verb="Test" Noun="Signature" PipelineParameter="Message" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="VerifyMac" OutputProperty="*" Verb="Test" Noun="Mac" PipelineParameter="Message" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="VerifyMac" OutputProperty="*" Verb="Test" Noun="Mac" PipelineParameter="Message" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

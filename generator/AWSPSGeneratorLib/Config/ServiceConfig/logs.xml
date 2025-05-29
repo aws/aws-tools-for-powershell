@@ -21,365 +21,365 @@
         <Property>RejectedLogEventsInfo</Property>
     </MetadataProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateKmsKey" Verb="Register" Noun="KmsKey" ShouldProcessTarget="KmsKeyId" PipelineParameter="KmsKeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateKmsKey" Verb="Register" Noun="KmsKey" ShouldProcessTarget="KmsKeyId" PipelineParameter="KmsKeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelExportTask" Verb="Stop" Noun="ExportTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelExportTask" Verb="Stop" Noun="ExportTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDelivery" OutputProperty="Delivery" Verb="New" Noun="Delivery" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDelivery" OutputProperty="Delivery" Verb="New" Noun="Delivery" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateExportTask" OutputProperty="TaskId" Verb="New" Noun="ExportTask" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateExportTask" OutputProperty="TaskId" Verb="New" Noun="ExportTask" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLogAnomalyDetector" OutputProperty="AnomalyDetectorArn" Verb="New" Noun="LogAnomalyDetector" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateLogAnomalyDetector" OutputProperty="AnomalyDetectorArn" Verb="New" Noun="LogAnomalyDetector" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLogGroup" Verb="New" Noun="LogGroup" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateLogGroup" Verb="New" Noun="LogGroup" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLogStream" Verb="New" Noun="LogStream" ShouldProcessTarget="LogStreamName" PositionalParameters="LogStreamName" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateLogStream" Verb="New" Noun="LogStream" ShouldProcessTarget="LogStreamName" PositionalParameters="LogStreamName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccountPolicy" Verb="Remove" Noun="AccountPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAccountPolicy" Verb="Remove" Noun="AccountPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataProtectionPolicy" Verb="Remove" Noun="DataProtectionPolicy" ShouldProcessTarget="LogGroupIdentifier" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDataProtectionPolicy" Verb="Remove" Noun="DataProtectionPolicy" ShouldProcessTarget="LogGroupIdentifier" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDelivery" Verb="Remove" Noun="Delivery" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDelivery" Verb="Remove" Noun="Delivery" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDeliveryDestination" Verb="Remove" Noun="DeliveryDestination" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDeliveryDestination" Verb="Remove" Noun="DeliveryDestination" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDeliveryDestinationPolicy" Verb="Remove" Noun="DeliveryDestinationPolicy" ShouldProcessTarget="DeliveryDestinationName" PipelineParameter="DeliveryDestinationName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDeliveryDestinationPolicy" Verb="Remove" Noun="DeliveryDestinationPolicy" ShouldProcessTarget="DeliveryDestinationName" PipelineParameter="DeliveryDestinationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDeliverySource" Verb="Remove" Noun="DeliverySource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDeliverySource" Verb="Remove" Noun="DeliverySource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDestination" Verb="Remove" Noun="Destination" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDestination" Verb="Remove" Noun="Destination" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIndexPolicy" Verb="Remove" Noun="IndexPolicy" ShouldProcessTarget="LogGroupIdentifier" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteIndexPolicy" Verb="Remove" Noun="IndexPolicy" ShouldProcessTarget="LogGroupIdentifier" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIntegration" Verb="Remove" Noun="Integration" ShouldProcessTarget="IntegrationName" PipelineParameter="IntegrationName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteIntegration" Verb="Remove" Noun="Integration" ShouldProcessTarget="IntegrationName" PipelineParameter="IntegrationName" NoPipelineParameter="false">
             <Params>
                 <Param Name="Force" NewName="ForceDelete" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLogAnomalyDetector" Verb="Remove" Noun="LogAnomalyDetector" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteLogAnomalyDetector" Verb="Remove" Noun="LogAnomalyDetector" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLogGroup" Verb="Remove" Noun="LogGroup" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteLogGroup" Verb="Remove" Noun="LogGroup" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLogStream" Verb="Remove" Noun="LogStream" ShouldProcessTarget="LogStreamName" PositionalParameters="LogGroupName" PipelineParameter="LogStreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteLogStream" Verb="Remove" Noun="LogStream" ShouldProcessTarget="LogStreamName" PositionalParameters="LogGroupName" PipelineParameter="LogStreamName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMetricFilter" Verb="Remove" Noun="MetricFilter" ShouldProcessTarget="FilterName" PositionalParameters="LogGroupName" PipelineParameter="FilterName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteMetricFilter" Verb="Remove" Noun="MetricFilter" ShouldProcessTarget="FilterName" PositionalParameters="LogGroupName" PipelineParameter="FilterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteQueryDefinition" OutputProperty="Success" Verb="Remove" Noun="QueryDefinition" ShouldProcessTarget="QueryDefinitionId" PipelineParameter="QueryDefinitionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteQueryDefinition" OutputProperty="Success" Verb="Remove" Noun="QueryDefinition" ShouldProcessTarget="QueryDefinitionId" PipelineParameter="QueryDefinitionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRetentionPolicy" Verb="Remove" Noun="RetentionPolicy" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteRetentionPolicy" Verb="Remove" Noun="RetentionPolicy" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSubscriptionFilter" Verb="Remove" Noun="SubscriptionFilter" ShouldProcessTarget="FilterName" PositionalParameters="LogGroupName" PipelineParameter="FilterName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteSubscriptionFilter" Verb="Remove" Noun="SubscriptionFilter" ShouldProcessTarget="FilterName" PositionalParameters="LogGroupName" PipelineParameter="FilterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTransformer" Verb="Remove" Noun="Transformer" ShouldProcessTarget="LogGroupIdentifier" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteTransformer" Verb="Remove" Noun="Transformer" ShouldProcessTarget="LogGroupIdentifier" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountPolicies" OutputProperty="AccountPolicies" Verb="Get" Noun="AccountPolicy" PipelineParameter="PolicyType" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAccountPolicies" OutputProperty="AccountPolicies" Verb="Get" Noun="AccountPolicy" PipelineParameter="PolicyType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConfigurationTemplates" OutputProperty="ConfigurationTemplates" Verb="Find" Noun="ConfigurationTemplate" PipelineParameter="Service" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeConfigurationTemplates" OutputProperty="ConfigurationTemplates" Verb="Find" Noun="ConfigurationTemplate" PipelineParameter="Service" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDeliveries" OutputProperty="Deliveries" Verb="Find" Noun="Delivery" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDeliveries" OutputProperty="Deliveries" Verb="Find" Noun="Delivery" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDeliveryDestinations" OutputProperty="DeliveryDestinations" Verb="Find" Noun="DeliveryDestination" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDeliveryDestinations" OutputProperty="DeliveryDestinations" Verb="Find" Noun="DeliveryDestination" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDeliverySources" OutputProperty="DeliverySources" Verb="Find" Noun="DeliverySource" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDeliverySources" OutputProperty="DeliverySources" Verb="Find" Noun="DeliverySource" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDestinations" OutputProperty="Destinations" Verb="Get" Noun="Destination" PipelineParameter="DestinationNamePrefix" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDestinations" OutputProperty="Destinations" Verb="Get" Noun="Destination" PipelineParameter="DestinationNamePrefix" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeExportTasks" OutputProperty="ExportTasks" Verb="Get" Noun="ExportTask" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CWLExportTasks" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeExportTasks" OutputProperty="ExportTasks" Verb="Get" Noun="ExportTask" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CWLExportTasks">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFieldIndexes" OutputProperty="FieldIndexes" Verb="Get" Noun="FieldIndex" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeFieldIndexes" OutputProperty="FieldIndexes" Verb="Get" Noun="FieldIndex" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIndexPolicies" OutputProperty="IndexPolicies" Verb="Get" Noun="IndexPolicy" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeIndexPolicies" OutputProperty="IndexPolicies" Verb="Get" Noun="IndexPolicy" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLogGroups" OutputProperty="LogGroups" Verb="Get" Noun="LogGroup" PipelineParameter="LogGroupNamePrefix" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CWLLogGroups" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLogGroups" OutputProperty="LogGroups" Verb="Get" Noun="LogGroup" PipelineParameter="LogGroupNamePrefix" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CWLLogGroups">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLogStreams" OutputProperty="LogStreams" Verb="Get" Noun="LogStream" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CWLLogStreams" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLogStreams" OutputProperty="LogStreams" Verb="Get" Noun="LogStream" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CWLLogStreams">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMetricFilters" OutputProperty="MetricFilters" Verb="Get" Noun="MetricFilter" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CWLMetricFilters" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeMetricFilters" OutputProperty="MetricFilters" Verb="Get" Noun="MetricFilter" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CWLMetricFilters">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeQueries" OutputProperty="Queries" Verb="Get" Noun="Query" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeQueries" OutputProperty="Queries" Verb="Get" Noun="Query" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeQueryDefinitions" OutputProperty="QueryDefinitions" Verb="Get" Noun="QueryDefinition" PipelineParameter="QueryDefinitionNamePrefix" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeQueryDefinitions" OutputProperty="QueryDefinitions" Verb="Get" Noun="QueryDefinition" PipelineParameter="QueryDefinitionNamePrefix" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeResourcePolicies" OutputProperty="ResourcePolicies" Verb="Get" Noun="ResourcePolicy" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeResourcePolicies" OutputProperty="ResourcePolicies" Verb="Get" Noun="ResourcePolicy" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSubscriptionFilters" OutputProperty="SubscriptionFilters" Verb="Get" Noun="SubscriptionFilter" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CWLSubscriptionFilters" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSubscriptionFilters" OutputProperty="SubscriptionFilters" Verb="Get" Noun="SubscriptionFilter" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CWLSubscriptionFilters">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateKmsKey" Verb="Unregister" Noun="KmsKey" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateKmsKey" Verb="Unregister" Noun="KmsKey" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="FilterLogEvents" OutputProperty="*" Verb="Get" Noun="FilteredLogEvent" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="FilterLogEvents" OutputProperty="*" Verb="Get" Noun="FilteredLogEvent" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataProtectionPolicy" OutputProperty="*" Verb="Get" Noun="DataProtectionPolicy" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDataProtectionPolicy" OutputProperty="*" Verb="Get" Noun="DataProtectionPolicy" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDelivery" OutputProperty="Delivery" Verb="Get" Noun="Delivery" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDelivery" OutputProperty="Delivery" Verb="Get" Noun="Delivery" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDeliveryDestination" OutputProperty="DeliveryDestination" Verb="Get" Noun="DeliveryDestination" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDeliveryDestination" OutputProperty="DeliveryDestination" Verb="Get" Noun="DeliveryDestination" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDeliveryDestinationPolicy" OutputProperty="Policy" Verb="Get" Noun="DeliveryDestinationPolicy" PipelineParameter="DeliveryDestinationName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDeliveryDestinationPolicy" OutputProperty="Policy" Verb="Get" Noun="DeliveryDestinationPolicy" PipelineParameter="DeliveryDestinationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDeliverySource" OutputProperty="DeliverySource" Verb="Get" Noun="DeliverySource" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDeliverySource" OutputProperty="DeliverySource" Verb="Get" Noun="DeliverySource" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIntegration" OutputProperty="*" Verb="Get" Noun="Integration" PipelineParameter="IntegrationName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetIntegration" OutputProperty="*" Verb="Get" Noun="Integration" PipelineParameter="IntegrationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLogAnomalyDetector" OutputProperty="*" Verb="Get" Noun="LogAnomalyDetector" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetLogAnomalyDetector" OutputProperty="*" Verb="Get" Noun="LogAnomalyDetector" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLogEvents" OutputProperty="*" Verb="Get" Noun="LogEvent" PositionalParameters="LogGroupName" PipelineParameter="LogStreamName" NoPipelineParameter="false" LegacyAlias="Get-CWLLogEvents" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetLogEvents" OutputProperty="*" Verb="Get" Noun="LogEvent" PositionalParameters="LogGroupName" PipelineParameter="LogStreamName" NoPipelineParameter="false" LegacyAlias="Get-CWLLogEvents">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLogGroupFields" OutputProperty="LogGroupFields" Verb="Get" Noun="LogGroupField" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetLogGroupFields" OutputProperty="LogGroupFields" Verb="Get" Noun="LogGroupField" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLogRecord" OutputProperty="LogRecord" Verb="Get" Noun="LogRecord" PipelineParameter="LogRecordPointer" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetLogRecord" OutputProperty="LogRecord" Verb="Get" Noun="LogRecord" PipelineParameter="LogRecordPointer" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQueryResults" OutputProperty="*" Verb="Get" Noun="QueryResult" PipelineParameter="QueryId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetQueryResults" OutputProperty="*" Verb="Get" Noun="QueryResult" PipelineParameter="QueryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTransformer" OutputProperty="*" Verb="Get" Noun="Transformer" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTransformer" OutputProperty="*" Verb="Get" Noun="Transformer" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAnomalies" OutputProperty="Anomalies" Verb="Get" Noun="AnomalyList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAnomalies" OutputProperty="Anomalies" Verb="Get" Noun="AnomalyList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIntegrations" OutputProperty="IntegrationSummaries" Verb="Get" Noun="IntegrationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListIntegrations" OutputProperty="IntegrationSummaries" Verb="Get" Noun="IntegrationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLogAnomalyDetectors" OutputProperty="AnomalyDetectors" Verb="Get" Noun="LogAnomalyDetectorList" PipelineParameter="FilterLogGroupArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLogAnomalyDetectors" OutputProperty="AnomalyDetectors" Verb="Get" Noun="LogAnomalyDetectorList" PipelineParameter="FilterLogGroupArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLogGroupsForQuery" OutputProperty="LogGroupIdentifiers" Verb="Get" Noun="LogGroupsForQueryList" PipelineParameter="QueryId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLogGroupsForQuery" OutputProperty="LogGroupIdentifiers" Verb="Get" Noun="LogGroupsForQueryList" PipelineParameter="QueryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsLogGroup" OutputProperty="Tags" Verb="Get" Noun="LogGroupTag" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsLogGroup" OutputProperty="Tags" Verb="Get" Noun="LogGroupTag" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAccountPolicy" OutputProperty="AccountPolicy" Verb="Write" Noun="AccountPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutAccountPolicy" OutputProperty="AccountPolicy" Verb="Write" Noun="AccountPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutDataProtectionPolicy" OutputProperty="*" Verb="Write" Noun="DataProtectionPolicy" ShouldProcessTarget="LogGroupIdentifier" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutDataProtectionPolicy" OutputProperty="*" Verb="Write" Noun="DataProtectionPolicy" ShouldProcessTarget="LogGroupIdentifier" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutDeliveryDestination" OutputProperty="DeliveryDestination" Verb="Write" Noun="DeliveryDestination" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutDeliveryDestination" OutputProperty="DeliveryDestination" Verb="Write" Noun="DeliveryDestination" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutDeliveryDestinationPolicy" OutputProperty="Policy" Verb="Write" Noun="DeliveryDestinationPolicy" ShouldProcessTarget="DeliveryDestinationName" PipelineParameter="DeliveryDestinationName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutDeliveryDestinationPolicy" OutputProperty="Policy" Verb="Write" Noun="DeliveryDestinationPolicy" ShouldProcessTarget="DeliveryDestinationName" PipelineParameter="DeliveryDestinationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutDeliverySource" OutputProperty="DeliverySource" Verb="Write" Noun="DeliverySource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutDeliverySource" OutputProperty="DeliverySource" Verb="Write" Noun="DeliverySource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutDestination" OutputProperty="Destination" Verb="Write" Noun="Destination" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutDestination" OutputProperty="Destination" Verb="Write" Noun="Destination" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutDestinationPolicy" Verb="Write" Noun="DestinationPolicy" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutDestinationPolicy" Verb="Write" Noun="DestinationPolicy" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutIndexPolicy" OutputProperty="IndexPolicy" Verb="Write" Noun="IndexPolicy" ShouldProcessTarget="LogGroupIdentifier" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutIndexPolicy" OutputProperty="IndexPolicy" Verb="Write" Noun="IndexPolicy" ShouldProcessTarget="LogGroupIdentifier" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutIntegration" OutputProperty="*" Verb="Write" Noun="Integration" ShouldProcessTarget="IntegrationName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutIntegration" OutputProperty="*" Verb="Write" Noun="Integration" ShouldProcessTarget="IntegrationName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutLogEvents" OutputProperty="NextSequenceToken" Verb="Write" Noun="LogEvent" ShouldProcessTarget="LogStreamName" PositionalParameters="LogGroupName;LogStreamName" PipelineParameter="SequenceToken" NoPipelineParameter="false" LegacyAlias="Write-CWLLogEvents" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutLogEvents" OutputProperty="NextSequenceToken" Verb="Write" Noun="LogEvent" ShouldProcessTarget="LogStreamName" PositionalParameters="LogGroupName;LogStreamName" PipelineParameter="SequenceToken" NoPipelineParameter="false" LegacyAlias="Write-CWLLogEvents">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutMetricFilter" Verb="Write" Noun="MetricFilter" ShouldProcessTarget="LogGroupName" PositionalParameters="FilterName;FilterPattern" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutMetricFilter" Verb="Write" Noun="MetricFilter" ShouldProcessTarget="LogGroupName" PositionalParameters="FilterName;FilterPattern" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutQueryDefinition" OutputProperty="QueryDefinitionId" Verb="Write" Noun="QueryDefinition" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutQueryDefinition" OutputProperty="QueryDefinitionId" Verb="Write" Noun="QueryDefinition" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="ResourcePolicy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="ResourcePolicy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRetentionPolicy" Verb="Write" Noun="RetentionPolicy" ShouldProcessTarget="LogGroupName" PositionalParameters="RetentionInDays" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutRetentionPolicy" Verb="Write" Noun="RetentionPolicy" ShouldProcessTarget="LogGroupName" PositionalParameters="RetentionInDays" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params>
                 <Param Name="RetentionInDays" AutoRename="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutSubscriptionFilter" Verb="Write" Noun="SubscriptionFilter" ShouldProcessTarget="LogGroupName" PositionalParameters="FilterName;FilterPattern" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutSubscriptionFilter" Verb="Write" Noun="SubscriptionFilter" ShouldProcessTarget="LogGroupName" PositionalParameters="FilterName;FilterPattern" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutTransformer" Verb="Write" Noun="Transformer" ShouldProcessTarget="LogGroupIdentifier" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutTransformer" Verb="Write" Noun="Transformer" ShouldProcessTarget="LogGroupIdentifier" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartLiveTail" OutputProperty="ResponseStream" Verb="Start" Noun="LiveTail" ShouldProcessTarget="LogEventFilterPattern" PipelineParameter="LogEventFilterPattern" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartLiveTail" OutputProperty="ResponseStream" Verb="Start" Noun="LiveTail" ShouldProcessTarget="LogEventFilterPattern" PipelineParameter="LogEventFilterPattern" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartQuery" OutputProperty="QueryId" Verb="Start" Noun="Query" ShouldProcessTarget="LogGroupName" PipelineParameter="QueryString" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartQuery" OutputProperty="QueryId" Verb="Start" Noun="Query" ShouldProcessTarget="LogGroupName" PipelineParameter="QueryString" NoPipelineParameter="false">
             <Params>
                 <Param Name="LogGroupNames" NewName="LogGroupNameList" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopQuery" OutputProperty="Success" Verb="Stop" Noun="Query" ShouldProcessTarget="QueryId" PipelineParameter="QueryId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopQuery" OutputProperty="Success" Verb="Stop" Noun="Query" ShouldProcessTarget="QueryId" PipelineParameter="QueryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagLogGroup" Verb="Add" Noun="LogGroupTag" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagLogGroup" Verb="Add" Noun="LogGroupTag" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestMetricFilter" OutputProperty="Matches" Verb="Test" Noun="MetricFilter" PositionalParameters="LogEventMessages" PipelineParameter="FilterPattern" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TestMetricFilter" OutputProperty="Matches" Verb="Test" Noun="MetricFilter" PositionalParameters="LogEventMessages" PipelineParameter="FilterPattern" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestTransformer" OutputProperty="TransformedLogs" Verb="Test" Noun="Transformer" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TestTransformer" OutputProperty="TransformedLogs" Verb="Test" Noun="Transformer" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagLogGroup" Verb="Remove" Noun="LogGroupTag" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagLogGroup" Verb="Remove" Noun="LogGroupTag" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAnomaly" Verb="Update" Noun="Anomaly" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateAnomaly" Verb="Update" Noun="Anomaly" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDeliveryConfiguration" Verb="Update" Noun="DeliveryConfiguration" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDeliveryConfiguration" Verb="Update" Noun="DeliveryConfiguration" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLogAnomalyDetector" Verb="Update" Noun="LogAnomalyDetector" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateLogAnomalyDetector" Verb="Update" Noun="LogAnomalyDetector" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

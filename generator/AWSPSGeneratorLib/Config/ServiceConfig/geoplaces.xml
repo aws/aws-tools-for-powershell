@@ -18,31 +18,31 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="Autocomplete" OutputProperty="*" Verb="Invoke" Noun="Autocomplete" ShouldProcessTarget="QueryText" PipelineParameter="QueryText" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="Autocomplete" OutputProperty="*" Verb="Invoke" Noun="Autocomplete" ShouldProcessTarget="QueryText" PipelineParameter="QueryText" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Geocode" OutputProperty="*" Verb="Invoke" Noun="Geocode" ShouldProcessTarget="QueryText" PipelineParameter="QueryText" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="Geocode" OutputProperty="*" Verb="Invoke" Noun="Geocode" ShouldProcessTarget="QueryText" PipelineParameter="QueryText" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPlace" OutputProperty="*" Verb="Get" Noun="Place" PipelineParameter="PlaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPlace" OutputProperty="*" Verb="Get" Noun="Place" PipelineParameter="PlaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReverseGeocode" OutputProperty="*" Verb="Invoke" Noun="ReverseGeocode" ShouldProcessTarget="QueryPosition" PipelineParameter="QueryPosition" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ReverseGeocode" OutputProperty="*" Verb="Invoke" Noun="ReverseGeocode" ShouldProcessTarget="QueryPosition" PipelineParameter="QueryPosition" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchNearby" OutputProperty="*" Verb="Search" Noun="Nearby" ShouldProcessTarget="QueryPosition" PipelineParameter="QueryPosition" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchNearby" OutputProperty="*" Verb="Search" Noun="Nearby" ShouldProcessTarget="QueryPosition" PipelineParameter="QueryPosition" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchText" OutputProperty="*" Verb="Search" Noun="Text" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchText" OutputProperty="*" Verb="Search" Noun="Text" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Suggest" OutputProperty="*" Verb="Invoke" Noun="Suggest" ShouldProcessTarget="QueryText" PipelineParameter="QueryText" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="Suggest" OutputProperty="*" Verb="Invoke" Noun="Suggest" ShouldProcessTarget="QueryText" PipelineParameter="QueryText" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

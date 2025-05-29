@@ -18,7 +18,7 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="ScanSbom" OutputProperty="Sbom" Verb="Invoke" Noun="SbomScan" ShouldProcessTarget="OutputFormat" PipelineParameter="OutputFormat" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ScanSbom" OutputProperty="Sbom" Verb="Invoke" Noun="SbomScan" ShouldProcessTarget="OutputFormat" PipelineParameter="OutputFormat" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

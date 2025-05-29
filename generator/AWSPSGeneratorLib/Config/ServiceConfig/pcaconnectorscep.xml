@@ -19,51 +19,51 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateChallenge" OutputProperty="Challenge" Verb="New" Noun="Challenge" ShouldProcessTarget="ConnectorArn" PipelineParameter="ConnectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateChallenge" OutputProperty="Challenge" Verb="New" Noun="Challenge" ShouldProcessTarget="ConnectorArn" PipelineParameter="ConnectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConnector" OutputProperty="ConnectorArn" Verb="New" Noun="Connector" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateConnector" OutputProperty="ConnectorArn" Verb="New" Noun="Connector" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteChallenge" Verb="Remove" Noun="Challenge" ShouldProcessTarget="ChallengeArn" PipelineParameter="ChallengeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteChallenge" Verb="Remove" Noun="Challenge" ShouldProcessTarget="ChallengeArn" PipelineParameter="ChallengeArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConnector" Verb="Remove" Noun="Connector" ShouldProcessTarget="ConnectorArn" PipelineParameter="ConnectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteConnector" Verb="Remove" Noun="Connector" ShouldProcessTarget="ConnectorArn" PipelineParameter="ConnectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetChallengeMetadata" OutputProperty="ChallengeMetadata" Verb="Get" Noun="ChallengeMetadata" PipelineParameter="ChallengeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetChallengeMetadata" OutputProperty="ChallengeMetadata" Verb="Get" Noun="ChallengeMetadata" PipelineParameter="ChallengeArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetChallengePassword" OutputProperty="Password" Verb="Get" Noun="ChallengePassword" PipelineParameter="ChallengeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetChallengePassword" OutputProperty="Password" Verb="Get" Noun="ChallengePassword" PipelineParameter="ChallengeArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConnector" OutputProperty="Connector" Verb="Get" Noun="Connector" PipelineParameter="ConnectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetConnector" OutputProperty="Connector" Verb="Get" Noun="Connector" PipelineParameter="ConnectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListChallengeMetadata" OutputProperty="Challenges" Verb="Get" Noun="ChallengeMetadataList" PipelineParameter="ConnectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListChallengeMetadata" OutputProperty="Challenges" Verb="Get" Noun="ChallengeMetadataList" PipelineParameter="ConnectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConnectors" OutputProperty="Connectors" Verb="Get" Noun="ConnectorList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListConnectors" OutputProperty="Connectors" Verb="Get" Noun="ConnectorList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

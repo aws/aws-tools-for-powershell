@@ -19,113 +19,113 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateExperimentTemplate" OutputProperty="ExperimentTemplate" Verb="New" Noun="ExperimentTemplate" ShouldProcessTarget="RoleArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateExperimentTemplate" OutputProperty="ExperimentTemplate" Verb="New" Noun="ExperimentTemplate" ShouldProcessTarget="RoleArn" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="ExperimentReportConfiguration_Outputs_S3Configuration_BucketName" NewName="ExperimentReportConfiguration_Outputs_S3Configuration_BucketName" />
                 <Param Name="ExperimentReportConfiguration_Outputs_S3Configuration_Prefix" NewName="ExperimentReportConfiguration_Outputs_S3Configuration_Prefix" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTargetAccountConfiguration" OutputProperty="TargetAccountConfiguration" Verb="New" Noun="TargetAccountConfiguration" ShouldProcessTarget="ExperimentTemplateId" PipelineParameter="ExperimentTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateTargetAccountConfiguration" OutputProperty="TargetAccountConfiguration" Verb="New" Noun="TargetAccountConfiguration" ShouldProcessTarget="ExperimentTemplateId" PipelineParameter="ExperimentTemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteExperimentTemplate" OutputProperty="ExperimentTemplate" Verb="Remove" Noun="ExperimentTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteExperimentTemplate" OutputProperty="ExperimentTemplate" Verb="Remove" Noun="ExperimentTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTargetAccountConfiguration" OutputProperty="TargetAccountConfiguration" Verb="Remove" Noun="TargetAccountConfiguration" ShouldProcessTarget="ExperimentTemplateId" PipelineParameter="ExperimentTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteTargetAccountConfiguration" OutputProperty="TargetAccountConfiguration" Verb="Remove" Noun="TargetAccountConfiguration" ShouldProcessTarget="ExperimentTemplateId" PipelineParameter="ExperimentTemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAction" OutputProperty="Action" Verb="Get" Noun="Action" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAction" OutputProperty="Action" Verb="Get" Noun="Action" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetExperiment" OutputProperty="Experiment" Verb="Get" Noun="Experiment" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetExperiment" OutputProperty="Experiment" Verb="Get" Noun="Experiment" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetExperimentTargetAccountConfiguration" OutputProperty="TargetAccountConfiguration" Verb="Get" Noun="ExperimentTargetAccountConfiguration" PipelineParameter="ExperimentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetExperimentTargetAccountConfiguration" OutputProperty="TargetAccountConfiguration" Verb="Get" Noun="ExperimentTargetAccountConfiguration" PipelineParameter="ExperimentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetExperimentTemplate" OutputProperty="ExperimentTemplate" Verb="Get" Noun="ExperimentTemplate" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetExperimentTemplate" OutputProperty="ExperimentTemplate" Verb="Get" Noun="ExperimentTemplate" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSafetyLever" OutputProperty="SafetyLever" Verb="Get" Noun="SafetyLever" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSafetyLever" OutputProperty="SafetyLever" Verb="Get" Noun="SafetyLever" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTargetAccountConfiguration" OutputProperty="TargetAccountConfiguration" Verb="Get" Noun="TargetAccountConfiguration" PipelineParameter="ExperimentTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTargetAccountConfiguration" OutputProperty="TargetAccountConfiguration" Verb="Get" Noun="TargetAccountConfiguration" PipelineParameter="ExperimentTemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTargetResourceType" OutputProperty="TargetResourceType" Verb="Get" Noun="TargetResourceType" PipelineParameter="ResourceType" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTargetResourceType" OutputProperty="TargetResourceType" Verb="Get" Noun="TargetResourceType" PipelineParameter="ResourceType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListActions" OutputProperty="Actions" Verb="Get" Noun="ActionList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListActions" OutputProperty="Actions" Verb="Get" Noun="ActionList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExperimentResolvedTargets" OutputProperty="ResolvedTargets" Verb="Get" Noun="ExperimentResolvedTargetList" PipelineParameter="ExperimentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListExperimentResolvedTargets" OutputProperty="ResolvedTargets" Verb="Get" Noun="ExperimentResolvedTargetList" PipelineParameter="ExperimentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExperiments" OutputProperty="Experiments" Verb="Get" Noun="ExperimentList" PipelineParameter="ExperimentTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListExperiments" OutputProperty="Experiments" Verb="Get" Noun="ExperimentList" PipelineParameter="ExperimentTemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExperimentTargetAccountConfigurations" OutputProperty="TargetAccountConfigurations" Verb="Get" Noun="ExperimentTargetAccountConfigurationList" PipelineParameter="ExperimentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListExperimentTargetAccountConfigurations" OutputProperty="TargetAccountConfigurations" Verb="Get" Noun="ExperimentTargetAccountConfigurationList" PipelineParameter="ExperimentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExperimentTemplates" OutputProperty="ExperimentTemplates" Verb="Get" Noun="ExperimentTemplateList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListExperimentTemplates" OutputProperty="ExperimentTemplates" Verb="Get" Noun="ExperimentTemplateList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTargetAccountConfigurations" OutputProperty="TargetAccountConfigurations" Verb="Get" Noun="TargetAccountConfigurationList" PipelineParameter="ExperimentTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTargetAccountConfigurations" OutputProperty="TargetAccountConfigurations" Verb="Get" Noun="TargetAccountConfigurationList" PipelineParameter="ExperimentTemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTargetResourceTypes" OutputProperty="TargetResourceTypes" Verb="Get" Noun="TargetResourceTypeList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTargetResourceTypes" OutputProperty="TargetResourceTypes" Verb="Get" Noun="TargetResourceTypeList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartExperiment" OutputProperty="Experiment" Verb="Start" Noun="Experiment" ShouldProcessTarget="ExperimentTemplateId" PipelineParameter="ExperimentTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartExperiment" OutputProperty="Experiment" Verb="Start" Noun="Experiment" ShouldProcessTarget="ExperimentTemplateId" PipelineParameter="ExperimentTemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopExperiment" OutputProperty="Experiment" Verb="Stop" Noun="Experiment" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopExperiment" OutputProperty="Experiment" Verb="Stop" Noun="Experiment" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateExperimentTemplate" OutputProperty="ExperimentTemplate" Verb="Update" Noun="ExperimentTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateExperimentTemplate" OutputProperty="ExperimentTemplate" Verb="Update" Noun="ExperimentTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params>
                 <Param Name="ExperimentReportConfiguration_Outputs_S3Configuration_BucketName" NewName="ExperimentReportConfiguration_Outputs_S3Configuration_BucketName" />
                 <Param Name="ExperimentReportConfiguration_Outputs_S3Configuration_Prefix" NewName="ExperimentReportConfiguration_Outputs_S3Configuration_Prefix" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSafetyLeverState" OutputProperty="SafetyLever" Verb="Update" Noun="SafetyLeverState" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateSafetyLeverState" OutputProperty="SafetyLever" Verb="Update" Noun="SafetyLeverState" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTargetAccountConfiguration" OutputProperty="TargetAccountConfiguration" Verb="Update" Noun="TargetAccountConfiguration" ShouldProcessTarget="ExperimentTemplateId" PipelineParameter="ExperimentTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateTargetAccountConfiguration" OutputProperty="TargetAccountConfiguration" Verb="Update" Noun="TargetAccountConfiguration" ShouldProcessTarget="ExperimentTemplateId" PipelineParameter="ExperimentTemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

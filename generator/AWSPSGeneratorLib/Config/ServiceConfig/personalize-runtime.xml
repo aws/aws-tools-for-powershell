@@ -19,15 +19,15 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="GetActionRecommendations" OutputProperty="*" Verb="Get" Noun="ActionRecommendation" PipelineParameter="CampaignArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetActionRecommendations" OutputProperty="*" Verb="Get" Noun="ActionRecommendation" PipelineParameter="CampaignArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPersonalizedRanking" OutputProperty="PersonalizedRanking" Verb="Get" Noun="PersonalizedRanking" PipelineParameter="CampaignArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPersonalizedRanking" OutputProperty="PersonalizedRanking" Verb="Get" Noun="PersonalizedRanking" PipelineParameter="CampaignArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRecommendations" OutputProperty="ItemList" Verb="Get" Noun="Recommendation" PipelineParameter="CampaignArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetRecommendations" OutputProperty="ItemList" Verb="Get" Noun="Recommendation" PipelineParameter="CampaignArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

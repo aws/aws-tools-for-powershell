@@ -18,143 +18,143 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateLibraryItemReview" Verb="Register" Noun="LibraryItemReview" ShouldProcessTarget="LibraryItemId" PipelineParameter="LibraryItemId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateLibraryItemReview" Verb="Register" Noun="LibraryItemReview" ShouldProcessTarget="LibraryItemId" PipelineParameter="LibraryItemId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateQAppWithUser" Verb="Register" Noun="QAppWithUser" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateQAppWithUser" Verb="Register" Noun="QAppWithUser" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchCreateCategory" Verb="New" Noun="CreateCategory" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchCreateCategory" Verb="New" Noun="CreateCategory" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDeleteCategory" Verb="Remove" Noun="DeleteCategory" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchDeleteCategory" Verb="Remove" Noun="DeleteCategory" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchUpdateCategory" Verb="Set" Noun="UpdateCategory" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchUpdateCategory" Verb="Set" Noun="UpdateCategory" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLibraryItem" OutputProperty="*" Verb="New" Noun="LibraryItem" ShouldProcessTarget="AppId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateLibraryItem" OutputProperty="*" Verb="New" Noun="LibraryItem" ShouldProcessTarget="AppId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePresignedUrl" OutputProperty="*" Verb="New" Noun="PresignedUrl" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreatePresignedUrl" OutputProperty="*" Verb="New" Noun="PresignedUrl" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateQApp" OutputProperty="*" Verb="New" Noun="QApp" ShouldProcessTarget="InstanceId" PipelineParameter="Title" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateQApp" OutputProperty="*" Verb="New" Noun="QApp" ShouldProcessTarget="InstanceId" PipelineParameter="Title" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLibraryItem" Verb="Remove" Noun="LibraryItem" ShouldProcessTarget="LibraryItemId" PipelineParameter="LibraryItemId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteLibraryItem" Verb="Remove" Noun="LibraryItem" ShouldProcessTarget="LibraryItemId" PipelineParameter="LibraryItemId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteQApp" Verb="Remove" Noun="QApp" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteQApp" Verb="Remove" Noun="QApp" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeQAppPermissions" OutputProperty="*" Verb="Get" Noun="QAppPermission" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeQAppPermissions" OutputProperty="*" Verb="Get" Noun="QAppPermission" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateLibraryItemReview" Verb="Unregister" Noun="LibraryItemReview" ShouldProcessTarget="LibraryItemId" PipelineParameter="LibraryItemId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateLibraryItemReview" Verb="Unregister" Noun="LibraryItemReview" ShouldProcessTarget="LibraryItemId" PipelineParameter="LibraryItemId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateQAppFromUser" Verb="Unregister" Noun="QAppFromUser" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateQAppFromUser" Verb="Unregister" Noun="QAppFromUser" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExportQAppSessionData" OutputProperty="*" Verb="Export" Noun="QAppSessionData" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ExportQAppSessionData" OutputProperty="*" Verb="Export" Noun="QAppSessionData" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLibraryItem" OutputProperty="*" Verb="Get" Noun="LibraryItem" PipelineParameter="LibraryItemId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetLibraryItem" OutputProperty="*" Verb="Get" Noun="LibraryItem" PipelineParameter="LibraryItemId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQApp" OutputProperty="*" Verb="Get" Noun="QApp" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetQApp" OutputProperty="*" Verb="Get" Noun="QApp" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQAppSession" OutputProperty="*" Verb="Get" Noun="QAppSession" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetQAppSession" OutputProperty="*" Verb="Get" Noun="QAppSession" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQAppSessionMetadata" OutputProperty="*" Verb="Get" Noun="QAppSessionMetadata" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetQAppSessionMetadata" OutputProperty="*" Verb="Get" Noun="QAppSessionMetadata" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportDocument" OutputProperty="FileId" Verb="Import" Noun="Document" AnonymousShouldProcessTarget="true" PipelineParameter="FileName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportDocument" OutputProperty="FileId" Verb="Import" Noun="Document" AnonymousShouldProcessTarget="true" PipelineParameter="FileName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCategories" OutputProperty="Categories" Verb="Get" Noun="CategoryList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCategories" OutputProperty="Categories" Verb="Get" Noun="CategoryList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLibraryItems" OutputProperty="LibraryItems" Verb="Get" Noun="LibraryItemList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLibraryItems" OutputProperty="LibraryItems" Verb="Get" Noun="LibraryItemList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQApps" OutputProperty="Apps" Verb="Get" Noun="QAppList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListQApps" OutputProperty="Apps" Verb="Get" Noun="QAppList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQAppSessionData" OutputProperty="*" Verb="Get" Noun="QAppSessionDataList" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListQAppSessionData" OutputProperty="*" Verb="Get" Noun="QAppSessionDataList" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PredictQApp" OutputProperty="*" Verb="ConvertFrom" Noun="QApp" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PredictQApp" OutputProperty="*" Verb="ConvertFrom" Noun="QApp" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartQAppSession" OutputProperty="*" Verb="Start" Noun="QAppSession" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartQAppSession" OutputProperty="*" Verb="Start" Noun="QAppSession" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopQAppSession" Verb="Stop" Noun="QAppSession" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopQAppSession" Verb="Stop" Noun="QAppSession" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLibraryItem" OutputProperty="*" Verb="Update" Noun="LibraryItem" ShouldProcessTarget="LibraryItemId" PipelineParameter="LibraryItemId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateLibraryItem" OutputProperty="*" Verb="Update" Noun="LibraryItem" ShouldProcessTarget="LibraryItemId" PipelineParameter="LibraryItemId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLibraryItemMetadata" Verb="Update" Noun="LibraryItemMetadata" ShouldProcessTarget="LibraryItemId" PipelineParameter="LibraryItemId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateLibraryItemMetadata" Verb="Update" Noun="LibraryItemMetadata" ShouldProcessTarget="LibraryItemId" PipelineParameter="LibraryItemId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateQApp" OutputProperty="*" Verb="Update" Noun="QApp" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateQApp" OutputProperty="*" Verb="Update" Noun="QApp" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateQAppPermissions" OutputProperty="*" Verb="Update" Noun="QAppPermission" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateQAppPermissions" OutputProperty="*" Verb="Update" Noun="QAppPermission" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateQAppSession" OutputProperty="*" Verb="Update" Noun="QAppSession" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateQAppSession" OutputProperty="*" Verb="Update" Noun="QAppSession" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateQAppSessionMetadata" OutputProperty="*" Verb="Update" Noun="QAppSessionMetadata" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateQAppSessionMetadata" OutputProperty="*" Verb="Update" Noun="QAppSessionMetadata" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

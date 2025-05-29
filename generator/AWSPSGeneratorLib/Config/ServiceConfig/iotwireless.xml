@@ -18,63 +18,63 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateAwsAccountWithPartnerAccount" OutputProperty="Sidewalk" Verb="Join" Noun="AwsAccountWithPartnerAccount" ShouldProcessTarget="Sidewalk_AmazonId" PipelineParameter="ClientRequestToken" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateAwsAccountWithPartnerAccount" OutputProperty="Sidewalk" Verb="Join" Noun="AwsAccountWithPartnerAccount" ShouldProcessTarget="Sidewalk_AmazonId" PipelineParameter="ClientRequestToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateMulticastGroupWithFuotaTask" Verb="Join" Noun="MulticastGroupWithFuotaTask" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateMulticastGroupWithFuotaTask" Verb="Join" Noun="MulticastGroupWithFuotaTask" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateWirelessDeviceWithFuotaTask" Verb="Join" Noun="WirelessDeviceWithFuotaTask" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateWirelessDeviceWithFuotaTask" Verb="Join" Noun="WirelessDeviceWithFuotaTask" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateWirelessDeviceWithMulticastGroup" Verb="Join" Noun="WirelessDeviceWithMulticastGroup" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateWirelessDeviceWithMulticastGroup" Verb="Join" Noun="WirelessDeviceWithMulticastGroup" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateWirelessDeviceWithThing" Verb="Join" Noun="WirelessDeviceWithThing" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateWirelessDeviceWithThing" Verb="Join" Noun="WirelessDeviceWithThing" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateWirelessGatewayWithCertificate" OutputProperty="IotCertificateId" Verb="Join" Noun="WirelessGatewayWithCertificate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateWirelessGatewayWithCertificate" OutputProperty="IotCertificateId" Verb="Join" Noun="WirelessGatewayWithCertificate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateWirelessGatewayWithThing" Verb="Join" Noun="WirelessGatewayWithThing" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateWirelessGatewayWithThing" Verb="Join" Noun="WirelessGatewayWithThing" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelMulticastGroupSession" Verb="Stop" Noun="MulticastGroupSession" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelMulticastGroupSession" Verb="Stop" Noun="MulticastGroupSession" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDestination" OutputProperty="*" Verb="New" Noun="Destination" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDestination" OutputProperty="*" Verb="New" Noun="Destination" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDeviceProfile" OutputProperty="*" Verb="New" Noun="DeviceProfile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDeviceProfile" OutputProperty="*" Verb="New" Noun="DeviceProfile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFuotaTask" OutputProperty="*" Verb="New" Noun="FuotaTask" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateFuotaTask" OutputProperty="*" Verb="New" Noun="FuotaTask" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMulticastGroup" OutputProperty="*" Verb="New" Noun="MulticastGroup" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateMulticastGroup" OutputProperty="*" Verb="New" Noun="MulticastGroup" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateNetworkAnalyzerConfiguration" OutputProperty="*" Verb="New" Noun="NetworkAnalyzerConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateNetworkAnalyzerConfiguration" OutputProperty="*" Verb="New" Noun="NetworkAnalyzerConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateServiceProfile" OutputProperty="*" Verb="New" Noun="ServiceProfile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateServiceProfile" OutputProperty="*" Verb="New" Noun="ServiceProfile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWirelessDevice" OutputProperty="*" Verb="New" Noun="WirelessDevice" ShouldProcessTarget="DestinationName" PipelineParameter="Type" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateWirelessDevice" OutputProperty="*" Verb="New" Noun="WirelessDevice" ShouldProcessTarget="DestinationName" PipelineParameter="Type" NoPipelineParameter="false">
             <Params>
                 <Param Name="LoRaWAN_AbpV1_0_x_DevAddr" NewName="LoRaWAN_AbpV1_0_x_DevAddr" AutoApplyAlias="false" />
                 <Param Name="LoRaWAN_AbpV1_0_x_SessionKeys_AppSKey" NewName="LoRaWAN_AbpV1_0_x_SessionKeys_AppSKey" AutoApplyAlias="false" />
@@ -100,378 +100,378 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWirelessGateway" OutputProperty="*" Verb="New" Noun="WirelessGateway" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateWirelessGateway" OutputProperty="*" Verb="New" Noun="WirelessGateway" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWirelessGatewayTask" OutputProperty="*" Verb="New" Noun="WirelessGatewayTask" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateWirelessGatewayTask" OutputProperty="*" Verb="New" Noun="WirelessGatewayTask" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWirelessGatewayTaskDefinition" OutputProperty="Id" Verb="New" Noun="WirelessGatewayTaskDefinition" ShouldProcessTarget="Name" PipelineParameter="AutoCreateTasks" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateWirelessGatewayTaskDefinition" OutputProperty="Id" Verb="New" Noun="WirelessGatewayTaskDefinition" ShouldProcessTarget="Name" PipelineParameter="AutoCreateTasks" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDestination" Verb="Remove" Noun="Destination" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDestination" Verb="Remove" Noun="Destination" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDeviceProfile" Verb="Remove" Noun="DeviceProfile" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDeviceProfile" Verb="Remove" Noun="DeviceProfile" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFuotaTask" Verb="Remove" Noun="FuotaTask" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteFuotaTask" Verb="Remove" Noun="FuotaTask" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMulticastGroup" Verb="Remove" Noun="MulticastGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteMulticastGroup" Verb="Remove" Noun="MulticastGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteNetworkAnalyzerConfiguration" Verb="Remove" Noun="NetworkAnalyzerConfiguration" ShouldProcessTarget="ConfigurationName" PipelineParameter="ConfigurationName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteNetworkAnalyzerConfiguration" Verb="Remove" Noun="NetworkAnalyzerConfiguration" ShouldProcessTarget="ConfigurationName" PipelineParameter="ConfigurationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteQueuedMessages" Verb="Remove" Noun="QueuedMessage" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteQueuedMessages" Verb="Remove" Noun="QueuedMessage" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteServiceProfile" Verb="Remove" Noun="ServiceProfile" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteServiceProfile" Verb="Remove" Noun="ServiceProfile" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWirelessDevice" Verb="Remove" Noun="WirelessDevice" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteWirelessDevice" Verb="Remove" Noun="WirelessDevice" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWirelessDeviceImportTask" Verb="Remove" Noun="WirelessDeviceImportTask" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteWirelessDeviceImportTask" Verb="Remove" Noun="WirelessDeviceImportTask" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWirelessGateway" Verb="Remove" Noun="WirelessGateway" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteWirelessGateway" Verb="Remove" Noun="WirelessGateway" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWirelessGatewayTask" Verb="Remove" Noun="WirelessGatewayTask" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteWirelessGatewayTask" Verb="Remove" Noun="WirelessGatewayTask" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWirelessGatewayTaskDefinition" Verb="Remove" Noun="WirelessGatewayTaskDefinition" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteWirelessGatewayTaskDefinition" Verb="Remove" Noun="WirelessGatewayTaskDefinition" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterWirelessDevice" Verb="Unregister" Noun="WirelessDevice" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeregisterWirelessDevice" Verb="Unregister" Noun="WirelessDevice" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateAwsAccountFromPartnerAccount" Verb="Split" Noun="AwsAccountFromPartnerAccount" ShouldProcessTarget="PartnerAccountId" PipelineParameter="PartnerAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateAwsAccountFromPartnerAccount" Verb="Split" Noun="AwsAccountFromPartnerAccount" ShouldProcessTarget="PartnerAccountId" PipelineParameter="PartnerAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateMulticastGroupFromFuotaTask" Verb="Split" Noun="MulticastGroupFromFuotaTask" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateMulticastGroupFromFuotaTask" Verb="Split" Noun="MulticastGroupFromFuotaTask" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateWirelessDeviceFromFuotaTask" Verb="Split" Noun="WirelessDeviceFromFuotaTask" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateWirelessDeviceFromFuotaTask" Verb="Split" Noun="WirelessDeviceFromFuotaTask" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateWirelessDeviceFromMulticastGroup" Verb="Split" Noun="WirelessDeviceFromMulticastGroup" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateWirelessDeviceFromMulticastGroup" Verb="Split" Noun="WirelessDeviceFromMulticastGroup" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateWirelessDeviceFromThing" Verb="Split" Noun="WirelessDeviceFromThing" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateWirelessDeviceFromThing" Verb="Split" Noun="WirelessDeviceFromThing" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateWirelessGatewayFromCertificate" Verb="Split" Noun="WirelessGatewayFromCertificate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateWirelessGatewayFromCertificate" Verb="Split" Noun="WirelessGatewayFromCertificate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateWirelessGatewayFromThing" Verb="Split" Noun="WirelessGatewayFromThing" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateWirelessGatewayFromThing" Verb="Split" Noun="WirelessGatewayFromThing" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDestination" OutputProperty="*" Verb="Get" Noun="Destination" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDestination" OutputProperty="*" Verb="Get" Noun="Destination" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDeviceProfile" OutputProperty="*" Verb="Get" Noun="DeviceProfile" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDeviceProfile" OutputProperty="*" Verb="Get" Noun="DeviceProfile" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEventConfigurationByResourceTypes" OutputProperty="*" Verb="Get" Noun="EventConfigurationByResourceType" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetEventConfigurationByResourceTypes" OutputProperty="*" Verb="Get" Noun="EventConfigurationByResourceType" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFuotaTask" OutputProperty="*" Verb="Get" Noun="FuotaTask" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFuotaTask" OutputProperty="*" Verb="Get" Noun="FuotaTask" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLogLevelsByResourceTypes" OutputProperty="*" Verb="Get" Noun="LogLevelsByResourceType" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetLogLevelsByResourceTypes" OutputProperty="*" Verb="Get" Noun="LogLevelsByResourceType" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMetricConfiguration" OutputProperty="SummaryMetric" Verb="Get" Noun="MetricConfiguration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMetricConfiguration" OutputProperty="SummaryMetric" Verb="Get" Noun="MetricConfiguration" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMetrics" OutputProperty="SummaryMetricQueryResults" Verb="Get" Noun="Metric" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMetrics" OutputProperty="SummaryMetricQueryResults" Verb="Get" Noun="Metric" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMulticastGroup" OutputProperty="*" Verb="Get" Noun="MulticastGroup" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMulticastGroup" OutputProperty="*" Verb="Get" Noun="MulticastGroup" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMulticastGroupSession" OutputProperty="LoRaWAN" Verb="Get" Noun="MulticastGroupSession" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMulticastGroupSession" OutputProperty="LoRaWAN" Verb="Get" Noun="MulticastGroupSession" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetNetworkAnalyzerConfiguration" OutputProperty="*" Verb="Get" Noun="NetworkAnalyzerConfiguration" PipelineParameter="ConfigurationName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetNetworkAnalyzerConfiguration" OutputProperty="*" Verb="Get" Noun="NetworkAnalyzerConfiguration" PipelineParameter="ConfigurationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPartnerAccount" OutputProperty="*" Verb="Get" Noun="PartnerAccount" PipelineParameter="PartnerAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPartnerAccount" OutputProperty="*" Verb="Get" Noun="PartnerAccount" PipelineParameter="PartnerAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPosition" OutputProperty="*" Verb="Get" Noun="Position" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPosition" OutputProperty="*" Verb="Get" Noun="Position" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPositionConfiguration" OutputProperty="*" Verb="Get" Noun="PositionConfiguration" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPositionConfiguration" OutputProperty="*" Verb="Get" Noun="PositionConfiguration" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPositionEstimate" OutputProperty="GeoJsonPayload" Verb="Get" Noun="PositionEstimate" PipelineParameter="Timestamp" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPositionEstimate" OutputProperty="GeoJsonPayload" Verb="Get" Noun="PositionEstimate" PipelineParameter="Timestamp" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourceEventConfiguration" OutputProperty="*" Verb="Get" Noun="ResourceEventConfiguration" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetResourceEventConfiguration" OutputProperty="*" Verb="Get" Noun="ResourceEventConfiguration" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourceLogLevel" OutputProperty="LogLevel" Verb="Get" Noun="ResourceLogLevel" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetResourceLogLevel" OutputProperty="LogLevel" Verb="Get" Noun="ResourceLogLevel" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourcePosition" OutputProperty="GeoJsonPayload" Verb="Get" Noun="ResourcePosition" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetResourcePosition" OutputProperty="GeoJsonPayload" Verb="Get" Noun="ResourcePosition" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetServiceEndpoint" OutputProperty="*" Verb="Get" Noun="ServiceEndpoint" PipelineParameter="ServiceType" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetServiceEndpoint" OutputProperty="*" Verb="Get" Noun="ServiceEndpoint" PipelineParameter="ServiceType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetServiceProfile" OutputProperty="*" Verb="Get" Noun="ServiceProfile" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetServiceProfile" OutputProperty="*" Verb="Get" Noun="ServiceProfile" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWirelessDevice" OutputProperty="*" Verb="Get" Noun="WirelessDevice" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetWirelessDevice" OutputProperty="*" Verb="Get" Noun="WirelessDevice" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWirelessDeviceImportTask" OutputProperty="*" Verb="Get" Noun="WirelessDeviceImportTask" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetWirelessDeviceImportTask" OutputProperty="*" Verb="Get" Noun="WirelessDeviceImportTask" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWirelessDeviceStatistics" OutputProperty="*" Verb="Get" Noun="WirelessDeviceStatistic" PipelineParameter="WirelessDeviceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetWirelessDeviceStatistics" OutputProperty="*" Verb="Get" Noun="WirelessDeviceStatistic" PipelineParameter="WirelessDeviceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWirelessGateway" OutputProperty="*" Verb="Get" Noun="WirelessGateway" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetWirelessGateway" OutputProperty="*" Verb="Get" Noun="WirelessGateway" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWirelessGatewayCertificate" OutputProperty="IotCertificateId" Verb="Get" Noun="WirelessGatewayCertificate" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetWirelessGatewayCertificate" OutputProperty="IotCertificateId" Verb="Get" Noun="WirelessGatewayCertificate" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWirelessGatewayFirmwareInformation" OutputProperty="LoRaWAN" Verb="Get" Noun="WirelessGatewayFirmwareInformation" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetWirelessGatewayFirmwareInformation" OutputProperty="LoRaWAN" Verb="Get" Noun="WirelessGatewayFirmwareInformation" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWirelessGatewayStatistics" OutputProperty="*" Verb="Get" Noun="WirelessGatewayStatistic" PipelineParameter="WirelessGatewayId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetWirelessGatewayStatistics" OutputProperty="*" Verb="Get" Noun="WirelessGatewayStatistic" PipelineParameter="WirelessGatewayId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWirelessGatewayTask" OutputProperty="*" Verb="Get" Noun="WirelessGatewayTask" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetWirelessGatewayTask" OutputProperty="*" Verb="Get" Noun="WirelessGatewayTask" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWirelessGatewayTaskDefinition" OutputProperty="*" Verb="Get" Noun="WirelessGatewayTaskDefinition" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetWirelessGatewayTaskDefinition" OutputProperty="*" Verb="Get" Noun="WirelessGatewayTaskDefinition" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDestinations" OutputProperty="DestinationList" Verb="Get" Noun="DestinationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDestinations" OutputProperty="DestinationList" Verb="Get" Noun="DestinationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeviceProfiles" OutputProperty="DeviceProfileList" Verb="Get" Noun="DeviceProfileList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDeviceProfiles" OutputProperty="DeviceProfileList" Verb="Get" Noun="DeviceProfileList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDevicesForWirelessDeviceImportTask" OutputProperty="*" Verb="Get" Noun="DevicesForWirelessDeviceImportTaskList" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDevicesForWirelessDeviceImportTask" OutputProperty="*" Verb="Get" Noun="DevicesForWirelessDeviceImportTaskList" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEventConfigurations" OutputProperty="EventConfigurationsList" Verb="Get" Noun="EventConfigurationList" PipelineParameter="ResourceType" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEventConfigurations" OutputProperty="EventConfigurationsList" Verb="Get" Noun="EventConfigurationList" PipelineParameter="ResourceType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFuotaTasks" OutputProperty="FuotaTaskList" Verb="Get" Noun="FuotaTaskList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFuotaTasks" OutputProperty="FuotaTaskList" Verb="Get" Noun="FuotaTaskList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMulticastGroups" OutputProperty="MulticastGroupList" Verb="Get" Noun="MulticastGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMulticastGroups" OutputProperty="MulticastGroupList" Verb="Get" Noun="MulticastGroupList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMulticastGroupsByFuotaTask" OutputProperty="MulticastGroupList" Verb="Get" Noun="MulticastGroupsByFuotaTaskList" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMulticastGroupsByFuotaTask" OutputProperty="MulticastGroupList" Verb="Get" Noun="MulticastGroupsByFuotaTaskList" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNetworkAnalyzerConfigurations" OutputProperty="NetworkAnalyzerConfigurationList" Verb="Get" Noun="NetworkAnalyzerConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListNetworkAnalyzerConfigurations" OutputProperty="NetworkAnalyzerConfigurationList" Verb="Get" Noun="NetworkAnalyzerConfigurationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPartnerAccounts" OutputProperty="Sidewalk" Verb="Get" Noun="PartnerAccountList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPartnerAccounts" OutputProperty="Sidewalk" Verb="Get" Noun="PartnerAccountList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPositionConfigurations" OutputProperty="PositionConfigurationList" Verb="Get" Noun="PositionConfigurationList" PipelineParameter="ResourceType" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPositionConfigurations" OutputProperty="PositionConfigurationList" Verb="Get" Noun="PositionConfigurationList" PipelineParameter="ResourceType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQueuedMessages" OutputProperty="DownlinkQueueMessagesList" Verb="Get" Noun="QueuedMessageList" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListQueuedMessages" OutputProperty="DownlinkQueueMessagesList" Verb="Get" Noun="QueuedMessageList" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServiceProfiles" OutputProperty="ServiceProfileList" Verb="Get" Noun="ServiceProfileList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListServiceProfiles" OutputProperty="ServiceProfileList" Verb="Get" Noun="ServiceProfileList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWirelessDeviceImportTasks" OutputProperty="WirelessDeviceImportTaskList" Verb="Get" Noun="WirelessDeviceImportTaskList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListWirelessDeviceImportTasks" OutputProperty="WirelessDeviceImportTaskList" Verb="Get" Noun="WirelessDeviceImportTaskList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWirelessDevices" OutputProperty="WirelessDeviceList" Verb="Get" Noun="WirelessDeviceList" PipelineParameter="DestinationName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListWirelessDevices" OutputProperty="WirelessDeviceList" Verb="Get" Noun="WirelessDeviceList" PipelineParameter="DestinationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWirelessGateways" OutputProperty="WirelessGatewayList" Verb="Get" Noun="WirelessGatewayList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListWirelessGateways" OutputProperty="WirelessGatewayList" Verb="Get" Noun="WirelessGatewayList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWirelessGatewayTaskDefinitions" OutputProperty="TaskDefinitions" Verb="Get" Noun="WirelessGatewayTaskDefinitionList" PipelineParameter="TaskDefinitionType" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListWirelessGatewayTaskDefinitions" OutputProperty="TaskDefinitions" Verb="Get" Noun="WirelessGatewayTaskDefinitionList" PipelineParameter="TaskDefinitionType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutPositionConfiguration" Verb="Write" Noun="PositionConfiguration" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutPositionConfiguration" Verb="Write" Noun="PositionConfiguration" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutResourceLogLevel" Verb="Write" Noun="ResourceLogLevel" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutResourceLogLevel" Verb="Write" Noun="ResourceLogLevel" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetAllResourceLogLevels" Verb="Reset" Noun="AllResourceLogLevel" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ResetAllResourceLogLevels" Verb="Reset" Noun="AllResourceLogLevel" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetResourceLogLevel" Verb="Reset" Noun="ResourceLogLevel" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ResetResourceLogLevel" Verb="Reset" Noun="ResourceLogLevel" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendDataToMulticastGroup" OutputProperty="MessageId" Verb="Send" Noun="DataToMulticastGroup" ShouldProcessTarget="Id" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SendDataToMulticastGroup" OutputProperty="MessageId" Verb="Send" Noun="DataToMulticastGroup" ShouldProcessTarget="Id" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendDataToWirelessDevice" OutputProperty="MessageId" Verb="Send" Noun="DataToWirelessDevice" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SendDataToWirelessDevice" OutputProperty="MessageId" Verb="Send" Noun="DataToWirelessDevice" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartBulkAssociateWirelessDeviceWithMulticastGroup" Verb="Start" Noun="BulkAssociateWirelessDeviceWithMulticastGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartBulkAssociateWirelessDeviceWithMulticastGroup" Verb="Start" Noun="BulkAssociateWirelessDeviceWithMulticastGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartBulkDisassociateWirelessDeviceFromMulticastGroup" Verb="Start" Noun="BulkDisassociateWirelessDeviceFromMulticastGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartBulkDisassociateWirelessDeviceFromMulticastGroup" Verb="Start" Noun="BulkDisassociateWirelessDeviceFromMulticastGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartFuotaTask" Verb="Start" Noun="FuotaTask" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartFuotaTask" Verb="Start" Noun="FuotaTask" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMulticastGroupSession" Verb="Start" Noun="MulticastGroupSession" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartMulticastGroupSession" Verb="Start" Noun="MulticastGroupSession" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSingleWirelessDeviceImportTask" OutputProperty="*" Verb="Start" Noun="SingleWirelessDeviceImportTask" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartSingleWirelessDeviceImportTask" OutputProperty="*" Verb="Start" Noun="SingleWirelessDeviceImportTask" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartWirelessDeviceImportTask" OutputProperty="*" Verb="Start" Noun="WirelessDeviceImportTask" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartWirelessDeviceImportTask" OutputProperty="*" Verb="Start" Noun="WirelessDeviceImportTask" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestWirelessDevice" OutputProperty="Result" Verb="Test" Noun="WirelessDevice" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TestWirelessDevice" OutputProperty="Result" Verb="Test" Noun="WirelessDevice" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDestination" Verb="Update" Noun="Destination" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDestination" Verb="Update" Noun="Destination" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEventConfigurationByResourceTypes" Verb="Update" Noun="EventConfigurationByResourceType" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateEventConfigurationByResourceTypes" Verb="Update" Noun="EventConfigurationByResourceType" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="DeviceRegistrationState_Sidewalk_WirelessDeviceEventTopic" NewName="DeviceRegistrationState_Sidewalk_WirelessDeviceEventTopic" Alias="SidewalkDeviceRegistrationState_WirelessDeviceEventTopic" />
                 <Param Name="Proximity_Sidewalk_WirelessDeviceEventTopic" NewName="Proximity_Sidewalk_WirelessDeviceEventTopic" Alias="SidewalkProximity_WirelessDeviceEventTopic" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFuotaTask" Verb="Update" Noun="FuotaTask" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateFuotaTask" Verb="Update" Noun="FuotaTask" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLogLevelsByResourceTypes" Verb="Update" Noun="LogLevelsByResourceType" ShouldProcessTarget="DefaultLogLevel" PipelineParameter="DefaultLogLevel" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateLogLevelsByResourceTypes" Verb="Update" Noun="LogLevelsByResourceType" ShouldProcessTarget="DefaultLogLevel" PipelineParameter="DefaultLogLevel" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMetricConfiguration" Verb="Update" Noun="MetricConfiguration" ShouldProcessTarget="SummaryMetric_Status" PipelineParameter="SummaryMetric_Status" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateMetricConfiguration" Verb="Update" Noun="MetricConfiguration" ShouldProcessTarget="SummaryMetric_Status" PipelineParameter="SummaryMetric_Status" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMulticastGroup" Verb="Update" Noun="MulticastGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateMulticastGroup" Verb="Update" Noun="MulticastGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateNetworkAnalyzerConfiguration" Verb="Update" Noun="NetworkAnalyzerConfiguration" ShouldProcessTarget="ConfigurationName" PipelineParameter="ConfigurationName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateNetworkAnalyzerConfiguration" Verb="Update" Noun="NetworkAnalyzerConfiguration" ShouldProcessTarget="ConfigurationName" PipelineParameter="ConfigurationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePartnerAccount" Verb="Update" Noun="PartnerAccount" ShouldProcessTarget="PartnerAccountId" PipelineParameter="PartnerAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdatePartnerAccount" Verb="Update" Noun="PartnerAccount" ShouldProcessTarget="PartnerAccountId" PipelineParameter="PartnerAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePosition" Verb="Update" Noun="Position" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdatePosition" Verb="Update" Noun="Position" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateResourceEventConfiguration" Verb="Update" Noun="ResourceEventConfiguration" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateResourceEventConfiguration" Verb="Update" Noun="ResourceEventConfiguration" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="PROXIMITY_Sidewalk_AmazonIdEventTopic" NewName="Sidewalk_PROXIMITY_AmazonIdEventTopic" Alias="PROXIMITY_AmazonIdEventTopic" />
                 <Param Name="DeviceRegistrationState_Sidewalk_AmazonIdEventTopic" NewName="Sidewalk_DeviceRegistrationState_AmazonIdEventTopic" Alias="DeviceRegistrationState_AmazonIdEventTopic" />
@@ -479,22 +479,22 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateResourcePosition" Verb="Update" Noun="ResourcePosition" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateResourcePosition" Verb="Update" Noun="ResourcePosition" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWirelessDevice" Verb="Update" Noun="WirelessDevice" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateWirelessDevice" Verb="Update" Noun="WirelessDevice" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params>
                 <Param Name="LoRaWAN_AbpV1_0_x_FCntStart" NewName="LoRaWAN_AbpV1_0_x_FCntStart" AutoApplyAlias="false" />
                 <Param Name="LoRaWAN_AbpV1_1_FCntStart" NewName="LoRaWAN_AbpV1_1_FCntStart" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWirelessDeviceImportTask" Verb="Update" Noun="WirelessDeviceImportTask" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateWirelessDeviceImportTask" Verb="Update" Noun="WirelessDeviceImportTask" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWirelessGateway" Verb="Update" Noun="WirelessGateway" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateWirelessGateway" Verb="Update" Noun="WirelessGateway" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

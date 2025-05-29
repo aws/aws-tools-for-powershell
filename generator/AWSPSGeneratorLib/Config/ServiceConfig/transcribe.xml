@@ -21,175 +21,175 @@
         <Property>Status</Property>
     </MetadataProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateCallAnalyticsCategory" OutputProperty="CategoryProperties" Verb="New" Noun="CallAnalyticsCategory" ShouldProcessTarget="CategoryName" PipelineParameter="CategoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateCallAnalyticsCategory" OutputProperty="CategoryProperties" Verb="New" Noun="CallAnalyticsCategory" ShouldProcessTarget="CategoryName" PipelineParameter="CategoryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLanguageModel" OutputProperty="*" Verb="New" Noun="LanguageModel" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateLanguageModel" OutputProperty="*" Verb="New" Noun="LanguageModel" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMedicalVocabulary" OutputProperty="*" Verb="New" Noun="MedicalVocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateMedicalVocabulary" OutputProperty="*" Verb="New" Noun="MedicalVocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVocabulary" OutputProperty="*" Verb="New" Noun="Vocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="VocabularyName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateVocabulary" OutputProperty="*" Verb="New" Noun="Vocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="VocabularyName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVocabularyFilter" OutputProperty="*" Verb="New" Noun="VocabularyFilter" ShouldProcessTarget="VocabularyFilterName" PipelineParameter="VocabularyFilterName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateVocabularyFilter" OutputProperty="*" Verb="New" Noun="VocabularyFilter" ShouldProcessTarget="VocabularyFilterName" PipelineParameter="VocabularyFilterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCallAnalyticsCategory" Verb="Remove" Noun="CallAnalyticsCategory" ShouldProcessTarget="CategoryName" PipelineParameter="CategoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteCallAnalyticsCategory" Verb="Remove" Noun="CallAnalyticsCategory" ShouldProcessTarget="CategoryName" PipelineParameter="CategoryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCallAnalyticsJob" Verb="Remove" Noun="CallAnalyticsJob" ShouldProcessTarget="CallAnalyticsJobName" PipelineParameter="CallAnalyticsJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteCallAnalyticsJob" Verb="Remove" Noun="CallAnalyticsJob" ShouldProcessTarget="CallAnalyticsJobName" PipelineParameter="CallAnalyticsJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLanguageModel" Verb="Remove" Noun="LanguageModel" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteLanguageModel" Verb="Remove" Noun="LanguageModel" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMedicalScribeJob" Verb="Remove" Noun="MedicalScribeJob" ShouldProcessTarget="MedicalScribeJobName" PipelineParameter="MedicalScribeJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteMedicalScribeJob" Verb="Remove" Noun="MedicalScribeJob" ShouldProcessTarget="MedicalScribeJobName" PipelineParameter="MedicalScribeJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMedicalTranscriptionJob" Verb="Remove" Noun="MedicalTranscriptionJob" ShouldProcessTarget="MedicalTranscriptionJobName" PipelineParameter="MedicalTranscriptionJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteMedicalTranscriptionJob" Verb="Remove" Noun="MedicalTranscriptionJob" ShouldProcessTarget="MedicalTranscriptionJobName" PipelineParameter="MedicalTranscriptionJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMedicalVocabulary" Verb="Remove" Noun="MedicalVocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="VocabularyName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteMedicalVocabulary" Verb="Remove" Noun="MedicalVocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="VocabularyName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTranscriptionJob" Verb="Remove" Noun="TranscriptionJob" ShouldProcessTarget="TranscriptionJobName" PipelineParameter="TranscriptionJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteTranscriptionJob" Verb="Remove" Noun="TranscriptionJob" ShouldProcessTarget="TranscriptionJobName" PipelineParameter="TranscriptionJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVocabulary" Verb="Remove" Noun="Vocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="VocabularyName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteVocabulary" Verb="Remove" Noun="Vocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="VocabularyName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVocabularyFilter" Verb="Remove" Noun="VocabularyFilter" ShouldProcessTarget="VocabularyFilterName" PipelineParameter="VocabularyFilterName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteVocabularyFilter" Verb="Remove" Noun="VocabularyFilter" ShouldProcessTarget="VocabularyFilterName" PipelineParameter="VocabularyFilterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLanguageModel" OutputProperty="LanguageModel" Verb="Get" Noun="LanguageModel" PipelineParameter="ModelName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLanguageModel" OutputProperty="LanguageModel" Verb="Get" Noun="LanguageModel" PipelineParameter="ModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCallAnalyticsCategory" OutputProperty="CategoryProperties" Verb="Get" Noun="CallAnalyticsCategory" PipelineParameter="CategoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetCallAnalyticsCategory" OutputProperty="CategoryProperties" Verb="Get" Noun="CallAnalyticsCategory" PipelineParameter="CategoryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCallAnalyticsJob" OutputProperty="CallAnalyticsJob" Verb="Get" Noun="CallAnalyticsJob" PipelineParameter="CallAnalyticsJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetCallAnalyticsJob" OutputProperty="CallAnalyticsJob" Verb="Get" Noun="CallAnalyticsJob" PipelineParameter="CallAnalyticsJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMedicalScribeJob" OutputProperty="MedicalScribeJob" Verb="Get" Noun="MedicalScribeJob" PipelineParameter="MedicalScribeJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMedicalScribeJob" OutputProperty="MedicalScribeJob" Verb="Get" Noun="MedicalScribeJob" PipelineParameter="MedicalScribeJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMedicalTranscriptionJob" OutputProperty="MedicalTranscriptionJob" Verb="Get" Noun="MedicalTranscriptionJob" PipelineParameter="MedicalTranscriptionJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMedicalTranscriptionJob" OutputProperty="MedicalTranscriptionJob" Verb="Get" Noun="MedicalTranscriptionJob" PipelineParameter="MedicalTranscriptionJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMedicalVocabulary" OutputProperty="*" Verb="Get" Noun="MedicalVocabulary" PipelineParameter="VocabularyName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMedicalVocabulary" OutputProperty="*" Verb="Get" Noun="MedicalVocabulary" PipelineParameter="VocabularyName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTranscriptionJob" OutputProperty="TranscriptionJob" Verb="Get" Noun="TranscriptionJob" PipelineParameter="TranscriptionJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTranscriptionJob" OutputProperty="TranscriptionJob" Verb="Get" Noun="TranscriptionJob" PipelineParameter="TranscriptionJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVocabulary" OutputProperty="*" Verb="Get" Noun="Vocabulary" PipelineParameter="VocabularyName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetVocabulary" OutputProperty="*" Verb="Get" Noun="Vocabulary" PipelineParameter="VocabularyName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVocabularyFilter" OutputProperty="*" Verb="Get" Noun="VocabularyFilter" PipelineParameter="VocabularyFilterName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetVocabularyFilter" OutputProperty="*" Verb="Get" Noun="VocabularyFilter" PipelineParameter="VocabularyFilterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCallAnalyticsCategories" OutputProperty="Categories" Verb="Get" Noun="CallAnalyticsCategoryList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCallAnalyticsCategories" OutputProperty="Categories" Verb="Get" Noun="CallAnalyticsCategoryList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCallAnalyticsJobs" OutputProperty="CallAnalyticsJobSummaries" Verb="Get" Noun="CallAnalyticsJobList" PipelineParameter="JobNameContains" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCallAnalyticsJobs" OutputProperty="CallAnalyticsJobSummaries" Verb="Get" Noun="CallAnalyticsJobList" PipelineParameter="JobNameContains" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLanguageModels" OutputProperty="Models" Verb="Get" Noun="LanguageModelList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLanguageModels" OutputProperty="Models" Verb="Get" Noun="LanguageModelList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMedicalScribeJobs" OutputProperty="MedicalScribeJobSummaries" Verb="Get" Noun="MedicalScribeJobList" PipelineParameter="JobNameContains" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMedicalScribeJobs" OutputProperty="MedicalScribeJobSummaries" Verb="Get" Noun="MedicalScribeJobList" PipelineParameter="JobNameContains" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMedicalTranscriptionJobs" OutputProperty="MedicalTranscriptionJobSummaries" Verb="Get" Noun="MedicalTranscriptionJobList" PipelineParameter="JobNameContains" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMedicalTranscriptionJobs" OutputProperty="MedicalTranscriptionJobSummaries" Verb="Get" Noun="MedicalTranscriptionJobList" PipelineParameter="JobNameContains" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMedicalVocabularies" OutputProperty="Vocabularies" Verb="Get" Noun="MedicalVocabularyList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMedicalVocabularies" OutputProperty="Vocabularies" Verb="Get" Noun="MedicalVocabularyList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTranscriptionJobs" OutputProperty="TranscriptionJobSummaries" Verb="Get" Noun="TranscriptionJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTranscriptionJobs" OutputProperty="TranscriptionJobSummaries" Verb="Get" Noun="TranscriptionJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVocabularies" OutputProperty="Vocabularies" Verb="Get" Noun="VocabularyList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListVocabularies" OutputProperty="Vocabularies" Verb="Get" Noun="VocabularyList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVocabularyFilters" OutputProperty="VocabularyFilters" Verb="Get" Noun="VocabularyFilterList" PipelineParameter="NameContains" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListVocabularyFilters" OutputProperty="VocabularyFilters" Verb="Get" Noun="VocabularyFilterList" PipelineParameter="NameContains" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartCallAnalyticsJob" OutputProperty="CallAnalyticsJob" Verb="Start" Noun="CallAnalyticsJob" ShouldProcessTarget="CallAnalyticsJobName" PipelineParameter="CallAnalyticsJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartCallAnalyticsJob" OutputProperty="CallAnalyticsJob" Verb="Start" Noun="CallAnalyticsJob" ShouldProcessTarget="CallAnalyticsJobName" PipelineParameter="CallAnalyticsJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMedicalScribeJob" OutputProperty="MedicalScribeJob" Verb="Start" Noun="MedicalScribeJob" ShouldProcessTarget="MedicalScribeJobName" PipelineParameter="MedicalScribeJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartMedicalScribeJob" OutputProperty="MedicalScribeJob" Verb="Start" Noun="MedicalScribeJob" ShouldProcessTarget="MedicalScribeJobName" PipelineParameter="MedicalScribeJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMedicalTranscriptionJob" OutputProperty="MedicalTranscriptionJob" Verb="Start" Noun="MedicalTranscriptionJob" AnonymousShouldProcessTarget="true" PipelineParameter="MedicalTranscriptionJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartMedicalTranscriptionJob" OutputProperty="MedicalTranscriptionJob" Verb="Start" Noun="MedicalTranscriptionJob" AnonymousShouldProcessTarget="true" PipelineParameter="MedicalTranscriptionJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartTranscriptionJob" OutputProperty="TranscriptionJob" Verb="Start" Noun="TranscriptionJob" ShouldProcessTarget="TranscriptionJobName" PipelineParameter="TranscriptionJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartTranscriptionJob" OutputProperty="TranscriptionJob" Verb="Start" Noun="TranscriptionJob" ShouldProcessTarget="TranscriptionJobName" PipelineParameter="TranscriptionJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCallAnalyticsCategory" OutputProperty="CategoryProperties" Verb="Update" Noun="CallAnalyticsCategory" ShouldProcessTarget="CategoryName" PipelineParameter="CategoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateCallAnalyticsCategory" OutputProperty="CategoryProperties" Verb="Update" Noun="CallAnalyticsCategory" ShouldProcessTarget="CategoryName" PipelineParameter="CategoryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMedicalVocabulary" OutputProperty="*" Verb="Update" Noun="MedicalVocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateMedicalVocabulary" OutputProperty="*" Verb="Update" Noun="MedicalVocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateVocabulary" OutputProperty="*" Verb="Update" Noun="Vocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="VocabularyName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateVocabulary" OutputProperty="*" Verb="Update" Noun="Vocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="VocabularyName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateVocabularyFilter" OutputProperty="*" Verb="Update" Noun="VocabularyFilter" ShouldProcessTarget="VocabularyFilterName" PipelineParameter="VocabularyFilterName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateVocabularyFilter" OutputProperty="*" Verb="Update" Noun="VocabularyFilter" ShouldProcessTarget="VocabularyFilterName" PipelineParameter="VocabularyFilterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

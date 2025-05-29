@@ -19,151 +19,151 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateCustomDomain" OutputProperty="*" Verb="Add" Noun="CustomDomain" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateCustomDomain" OutputProperty="*" Verb="Add" Noun="CustomDomain" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAutoScalingConfiguration" OutputProperty="AutoScalingConfiguration" Verb="New" Noun="AutoScalingConfiguration" ShouldProcessTarget="AutoScalingConfigurationName" PipelineParameter="AutoScalingConfigurationName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAutoScalingConfiguration" OutputProperty="AutoScalingConfiguration" Verb="New" Noun="AutoScalingConfiguration" ShouldProcessTarget="AutoScalingConfigurationName" PipelineParameter="AutoScalingConfigurationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConnection" OutputProperty="Connection" Verb="New" Noun="Connection" ShouldProcessTarget="ConnectionName" PipelineParameter="ConnectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateConnection" OutputProperty="Connection" Verb="New" Noun="Connection" ShouldProcessTarget="ConnectionName" PipelineParameter="ConnectionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateObservabilityConfiguration" OutputProperty="ObservabilityConfiguration" Verb="New" Noun="ObservabilityConfiguration" ShouldProcessTarget="ObservabilityConfigurationName" PipelineParameter="ObservabilityConfigurationName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateObservabilityConfiguration" OutputProperty="ObservabilityConfiguration" Verb="New" Noun="ObservabilityConfiguration" ShouldProcessTarget="ObservabilityConfigurationName" PipelineParameter="ObservabilityConfigurationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateService" OutputProperty="*" Verb="New" Noun="Service" ShouldProcessTarget="ServiceName" PipelineParameter="ServiceName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateService" OutputProperty="*" Verb="New" Noun="Service" ShouldProcessTarget="ServiceName" PipelineParameter="ServiceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVpcConnector" OutputProperty="VpcConnector" Verb="New" Noun="VpcConnector" ShouldProcessTarget="VpcConnectorName" PipelineParameter="VpcConnectorName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateVpcConnector" OutputProperty="VpcConnector" Verb="New" Noun="VpcConnector" ShouldProcessTarget="VpcConnectorName" PipelineParameter="VpcConnectorName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVpcIngressConnection" OutputProperty="VpcIngressConnection" Verb="New" Noun="VpcIngressConnection" ShouldProcessTarget="VpcIngressConnectionName" PipelineParameter="VpcIngressConnectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateVpcIngressConnection" OutputProperty="VpcIngressConnection" Verb="New" Noun="VpcIngressConnection" ShouldProcessTarget="VpcIngressConnectionName" PipelineParameter="VpcIngressConnectionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAutoScalingConfiguration" OutputProperty="AutoScalingConfiguration" Verb="Remove" Noun="AutoScalingConfiguration" ShouldProcessTarget="AutoScalingConfigurationArn" PipelineParameter="AutoScalingConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAutoScalingConfiguration" OutputProperty="AutoScalingConfiguration" Verb="Remove" Noun="AutoScalingConfiguration" ShouldProcessTarget="AutoScalingConfigurationArn" PipelineParameter="AutoScalingConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConnection" OutputProperty="Connection" Verb="Remove" Noun="Connection" ShouldProcessTarget="ConnectionArn" PipelineParameter="ConnectionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteConnection" OutputProperty="Connection" Verb="Remove" Noun="Connection" ShouldProcessTarget="ConnectionArn" PipelineParameter="ConnectionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteObservabilityConfiguration" OutputProperty="ObservabilityConfiguration" Verb="Remove" Noun="ObservabilityConfiguration" ShouldProcessTarget="ObservabilityConfigurationArn" PipelineParameter="ObservabilityConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteObservabilityConfiguration" OutputProperty="ObservabilityConfiguration" Verb="Remove" Noun="ObservabilityConfiguration" ShouldProcessTarget="ObservabilityConfigurationArn" PipelineParameter="ObservabilityConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteService" OutputProperty="*" Verb="Remove" Noun="Service" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteService" OutputProperty="*" Verb="Remove" Noun="Service" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVpcConnector" OutputProperty="VpcConnector" Verb="Remove" Noun="VpcConnector" ShouldProcessTarget="VpcConnectorArn" PipelineParameter="VpcConnectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteVpcConnector" OutputProperty="VpcConnector" Verb="Remove" Noun="VpcConnector" ShouldProcessTarget="VpcConnectorArn" PipelineParameter="VpcConnectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVpcIngressConnection" OutputProperty="VpcIngressConnection" Verb="Remove" Noun="VpcIngressConnection" ShouldProcessTarget="VpcIngressConnectionArn" PipelineParameter="VpcIngressConnectionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteVpcIngressConnection" OutputProperty="VpcIngressConnection" Verb="Remove" Noun="VpcIngressConnection" ShouldProcessTarget="VpcIngressConnectionArn" PipelineParameter="VpcIngressConnectionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAutoScalingConfiguration" OutputProperty="AutoScalingConfiguration" Verb="Get" Noun="AutoScalingConfiguration" PipelineParameter="AutoScalingConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAutoScalingConfiguration" OutputProperty="AutoScalingConfiguration" Verb="Get" Noun="AutoScalingConfiguration" PipelineParameter="AutoScalingConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCustomDomains" OutputProperty="*" Verb="Get" Noun="CustomDomain" PipelineParameter="ServiceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCustomDomains" OutputProperty="*" Verb="Get" Noun="CustomDomain" PipelineParameter="ServiceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeObservabilityConfiguration" OutputProperty="ObservabilityConfiguration" Verb="Get" Noun="ObservabilityConfiguration" PipelineParameter="ObservabilityConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeObservabilityConfiguration" OutputProperty="ObservabilityConfiguration" Verb="Get" Noun="ObservabilityConfiguration" PipelineParameter="ObservabilityConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeService" OutputProperty="Service" Verb="Get" Noun="Service" PipelineParameter="ServiceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeService" OutputProperty="Service" Verb="Get" Noun="Service" PipelineParameter="ServiceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcConnector" OutputProperty="VpcConnector" Verb="Get" Noun="VpcConnector" PipelineParameter="VpcConnectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVpcConnector" OutputProperty="VpcConnector" Verb="Get" Noun="VpcConnector" PipelineParameter="VpcConnectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcIngressConnection" OutputProperty="VpcIngressConnection" Verb="Get" Noun="VpcIngressConnection" PipelineParameter="VpcIngressConnectionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVpcIngressConnection" OutputProperty="VpcIngressConnection" Verb="Get" Noun="VpcIngressConnection" PipelineParameter="VpcIngressConnectionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateCustomDomain" OutputProperty="*" Verb="Remove" Noun="CustomDomain" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateCustomDomain" OutputProperty="*" Verb="Remove" Noun="CustomDomain" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAutoScalingConfigurations" OutputProperty="AutoScalingConfigurationSummaryList" Verb="Get" Noun="AutoScalingConfigurationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAutoScalingConfigurations" OutputProperty="AutoScalingConfigurationSummaryList" Verb="Get" Noun="AutoScalingConfigurationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConnections" OutputProperty="ConnectionSummaryList" Verb="Get" Noun="ConnectionList" PipelineParameter="ConnectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListConnections" OutputProperty="ConnectionSummaryList" Verb="Get" Noun="ConnectionList" PipelineParameter="ConnectionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListObservabilityConfigurations" OutputProperty="ObservabilityConfigurationSummaryList" Verb="Get" Noun="ObservabilityConfigurationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListObservabilityConfigurations" OutputProperty="ObservabilityConfigurationSummaryList" Verb="Get" Noun="ObservabilityConfigurationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOperations" OutputProperty="OperationSummaryList" Verb="Get" Noun="OperationList" PipelineParameter="ServiceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListOperations" OutputProperty="OperationSummaryList" Verb="Get" Noun="OperationList" PipelineParameter="ServiceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServices" OutputProperty="ServiceSummaryList" Verb="Get" Noun="ServiceList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListServices" OutputProperty="ServiceSummaryList" Verb="Get" Noun="ServiceList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServicesForAutoScalingConfiguration" OutputProperty="ServiceArnList" Verb="Get" Noun="ServicesForAutoScalingConfigurationList" PipelineParameter="AutoScalingConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListServicesForAutoScalingConfiguration" OutputProperty="ServiceArnList" Verb="Get" Noun="ServicesForAutoScalingConfigurationList" PipelineParameter="AutoScalingConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVpcConnectors" OutputProperty="VpcConnectors" Verb="Get" Noun="VpcConnectorList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListVpcConnectors" OutputProperty="VpcConnectors" Verb="Get" Noun="VpcConnectorList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVpcIngressConnections" OutputProperty="VpcIngressConnectionSummaryList" Verb="Get" Noun="VpcIngressConnectionList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListVpcIngressConnections" OutputProperty="VpcIngressConnectionSummaryList" Verb="Get" Noun="VpcIngressConnectionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PauseService" OutputProperty="*" Verb="Suspend" Noun="Service" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PauseService" OutputProperty="*" Verb="Suspend" Noun="Service" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResumeService" OutputProperty="*" Verb="Resume" Noun="Service" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ResumeService" OutputProperty="*" Verb="Resume" Noun="Service" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDeployment" OutputProperty="OperationId" Verb="Start" Noun="Deployment" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartDeployment" OutputProperty="OperationId" Verb="Start" Noun="Deployment" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDefaultAutoScalingConfiguration" OutputProperty="AutoScalingConfiguration" Verb="Update" Noun="DefaultAutoScalingConfiguration" ShouldProcessTarget="AutoScalingConfigurationArn" PipelineParameter="AutoScalingConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDefaultAutoScalingConfiguration" OutputProperty="AutoScalingConfiguration" Verb="Update" Noun="DefaultAutoScalingConfiguration" ShouldProcessTarget="AutoScalingConfigurationArn" PipelineParameter="AutoScalingConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateService" OutputProperty="*" Verb="Update" Noun="Service" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateService" OutputProperty="*" Verb="Update" Noun="Service" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateVpcIngressConnection" OutputProperty="VpcIngressConnection" Verb="Update" Noun="VpcIngressConnection" ShouldProcessTarget="VpcIngressConnectionArn" PipelineParameter="VpcIngressConnectionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateVpcIngressConnection" OutputProperty="VpcIngressConnection" Verb="Update" Noun="VpcIngressConnection" ShouldProcessTarget="VpcIngressConnectionArn" PipelineParameter="VpcIngressConnectionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

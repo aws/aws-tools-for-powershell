@@ -27,190 +27,190 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddPermission" Verb="Add" Noun="Permission" ShouldProcessTarget="TopicArn" PositionalParameters="Label;AWSAccountId;ActionName" PipelineParameter="TopicArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AddPermission" Verb="Add" Noun="Permission" ShouldProcessTarget="TopicArn" PositionalParameters="Label;AWSAccountId;ActionName" PipelineParameter="TopicArn" NoPipelineParameter="false">
             <Params>
                 <Param Name="AWSAccountId" Alias="AWSAccountIds" />
                 <Param Name="ActionName" Alias="ActionNames" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AuthorizeS3ToPublish" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AuthorizeS3ToPublish" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CheckIfPhoneNumberIsOptedOut" OutputProperty="IsOptedOut" Verb="Test" Noun="IfPhoneNumberIsOptedOut" PipelineParameter="PhoneNumber" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CheckIfPhoneNumberIsOptedOut" OutputProperty="IsOptedOut" Verb="Test" Noun="IfPhoneNumberIsOptedOut" PipelineParameter="PhoneNumber" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ConfirmSubscription" OutputProperty="SubscriptionArn" Verb="Confirm" Noun="Subscription" ShouldProcessTarget="TopicArn" PositionalParameters="Token;AuthenticateOnUnsubscribe" PipelineParameter="TopicArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ConfirmSubscription" OutputProperty="SubscriptionArn" Verb="Confirm" Noun="Subscription" ShouldProcessTarget="TopicArn" PositionalParameters="Token;AuthenticateOnUnsubscribe" PipelineParameter="TopicArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePlatformApplication" OutputProperty="PlatformApplicationArn" Verb="New" Noun="PlatformApplication" ShouldProcessTarget="Name" PositionalParameters="Platform;Attributes" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreatePlatformApplication" OutputProperty="PlatformApplicationArn" Verb="New" Noun="PlatformApplication" ShouldProcessTarget="Name" PositionalParameters="Platform;Attributes" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePlatformEndpoint" OutputProperty="EndpointArn" Verb="New" Noun="PlatformEndpoint" ShouldProcessTarget="PlatformApplicationArn" PositionalParameters="Token;Attributes;CustomUserData" PipelineParameter="PlatformApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreatePlatformEndpoint" OutputProperty="EndpointArn" Verb="New" Noun="PlatformEndpoint" ShouldProcessTarget="PlatformApplicationArn" PositionalParameters="Token;Attributes;CustomUserData" PipelineParameter="PlatformApplicationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSMSSandboxPhoneNumber" Verb="New" Noun="SMSSandboxPhoneNumber" ShouldProcessTarget="PhoneNumber" PipelineParameter="PhoneNumber" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateSMSSandboxPhoneNumber" Verb="New" Noun="SMSSandboxPhoneNumber" ShouldProcessTarget="PhoneNumber" PipelineParameter="PhoneNumber" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTopic" OutputProperty="TopicArn" Verb="New" Noun="Topic" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateTopic" OutputProperty="TopicArn" Verb="New" Noun="Topic" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEndpoint" Verb="Remove" Noun="Endpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteEndpoint" Verb="Remove" Noun="Endpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePlatformApplication" Verb="Remove" Noun="PlatformApplication" ShouldProcessTarget="PlatformApplicationArn" PipelineParameter="PlatformApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeletePlatformApplication" Verb="Remove" Noun="PlatformApplication" ShouldProcessTarget="PlatformApplicationArn" PipelineParameter="PlatformApplicationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSMSSandboxPhoneNumber" Verb="Remove" Noun="SMSSandboxPhoneNumber" ShouldProcessTarget="PhoneNumber" PipelineParameter="PhoneNumber" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteSMSSandboxPhoneNumber" Verb="Remove" Noun="SMSSandboxPhoneNumber" ShouldProcessTarget="PhoneNumber" PipelineParameter="PhoneNumber" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTopic" Verb="Remove" Noun="Topic" ShouldProcessTarget="TopicArn" PipelineParameter="TopicArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteTopic" Verb="Remove" Noun="Topic" ShouldProcessTarget="TopicArn" PipelineParameter="TopicArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="FindTopic" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="FindTopic" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataProtectionPolicy" OutputProperty="DataProtectionPolicy" Verb="Get" Noun="DataProtectionPolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDataProtectionPolicy" OutputProperty="DataProtectionPolicy" Verb="Get" Noun="DataProtectionPolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEndpointAttributes" OutputProperty="Attributes" Verb="Get" Noun="EndpointAttribute" PipelineParameter="EndpointArn" NoPipelineParameter="false" LegacyAlias="Get-SNSEndpointAttributes" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetEndpointAttributes" OutputProperty="Attributes" Verb="Get" Noun="EndpointAttribute" PipelineParameter="EndpointArn" NoPipelineParameter="false" LegacyAlias="Get-SNSEndpointAttributes">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPlatformApplicationAttributes" OutputProperty="Attributes" Verb="Get" Noun="PlatformApplicationAttribute" PipelineParameter="PlatformApplicationArn" NoPipelineParameter="false" LegacyAlias="Get-SNSPlatformApplicationAttributes" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPlatformApplicationAttributes" OutputProperty="Attributes" Verb="Get" Noun="PlatformApplicationAttribute" PipelineParameter="PlatformApplicationArn" NoPipelineParameter="false" LegacyAlias="Get-SNSPlatformApplicationAttributes">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSMSAttributes" OutputProperty="Attributes" Verb="Get" Noun="SMSAttribute" PipelineParameter="Attributes" NoPipelineParameter="false" LegacyAlias="Get-SNSSMSAttributes" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSMSAttributes" OutputProperty="Attributes" Verb="Get" Noun="SMSAttribute" PipelineParameter="Attributes" NoPipelineParameter="false" LegacyAlias="Get-SNSSMSAttributes">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSMSSandboxAccountStatus" OutputProperty="IsInSandbox" Verb="Get" Noun="SMSSandboxAccountStatus" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSMSSandboxAccountStatus" OutputProperty="IsInSandbox" Verb="Get" Noun="SMSSandboxAccountStatus" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSubscriptionAttributes" OutputProperty="Attributes" Verb="Get" Noun="SubscriptionAttribute" PipelineParameter="SubscriptionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSubscriptionAttributes" OutputProperty="Attributes" Verb="Get" Noun="SubscriptionAttribute" PipelineParameter="SubscriptionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTopicAttributes" OutputProperty="Attributes" Verb="Get" Noun="TopicAttribute" PipelineParameter="TopicArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTopicAttributes" OutputProperty="Attributes" Verb="Get" Noun="TopicAttribute" PipelineParameter="TopicArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEndpointsByPlatformApplication" OutputProperty="Endpoints" Verb="Get" Noun="EndpointsByPlatformApplication" PipelineParameter="PlatformApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEndpointsByPlatformApplication" OutputProperty="Endpoints" Verb="Get" Noun="EndpointsByPlatformApplication" PipelineParameter="PlatformApplicationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOriginationNumbers" OutputProperty="PhoneNumbers" Verb="Get" Noun="OriginationNumber" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListOriginationNumbers" OutputProperty="PhoneNumbers" Verb="Get" Noun="OriginationNumber" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPhoneNumbersOptedOut" OutputProperty="PhoneNumbers" Verb="Get" Noun="PhoneNumbersOptedOut" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPhoneNumbersOptedOut" OutputProperty="PhoneNumbers" Verb="Get" Noun="PhoneNumbersOptedOut" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPlatformApplications" OutputProperty="PlatformApplications" Verb="Get" Noun="PlatformApplicationList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-SNSPlatformApplications" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPlatformApplications" OutputProperty="PlatformApplications" Verb="Get" Noun="PlatformApplicationList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-SNSPlatformApplications">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSMSSandboxPhoneNumbers" OutputProperty="PhoneNumbers" Verb="Get" Noun="SMSSandboxPhoneNumber" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSMSSandboxPhoneNumbers" OutputProperty="PhoneNumbers" Verb="Get" Noun="SMSSandboxPhoneNumber" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSubscriptions" OutputProperty="Subscriptions" Verb="Get" Noun="Subscription" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSubscriptions" OutputProperty="Subscriptions" Verb="Get" Noun="Subscription" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSubscriptionsByTopic" OutputProperty="Subscriptions" Verb="Get" Noun="SubscriptionByTopic" PipelineParameter="TopicArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSubscriptionsByTopic" OutputProperty="Subscriptions" Verb="Get" Noun="SubscriptionByTopic" PipelineParameter="TopicArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTopics" OutputProperty="Topics" Verb="Get" Noun="Topic" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTopics" OutputProperty="Topics" Verb="Get" Noun="Topic" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="OptInPhoneNumber" Verb="Enable" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumber" PipelineParameter="PhoneNumber" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="OptInPhoneNumber" Verb="Enable" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumber" PipelineParameter="PhoneNumber" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Publish" OutputProperty="MessageId" Verb="Publish" Noun="Message" ShouldProcessTarget="TopicArn" PositionalParameters="Message;MessageStructure;Subject" PipelineParameter="TopicArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="Publish" OutputProperty="MessageId" Verb="Publish" Noun="Message" ShouldProcessTarget="TopicArn" PositionalParameters="Message;MessageStructure;Subject" PipelineParameter="TopicArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PublishBatch" OutputProperty="*" Verb="Publish" Noun="Batch" ShouldProcessTarget="TopicArn" PipelineParameter="TopicArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PublishBatch" OutputProperty="*" Verb="Publish" Noun="Batch" ShouldProcessTarget="TopicArn" PipelineParameter="TopicArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutDataProtectionPolicy" Verb="Set" Noun="DataProtectionPolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutDataProtectionPolicy" Verb="Set" Noun="DataProtectionPolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemovePermission" Verb="Remove" Noun="Permission" ShouldProcessTarget="Label" PositionalParameters="Label" PipelineParameter="TopicArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RemovePermission" Verb="Remove" Noun="Permission" ShouldProcessTarget="Label" PositionalParameters="Label" PipelineParameter="TopicArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetEndpointAttributes" Verb="Set" Noun="EndpointAttribute" ShouldProcessTarget="EndpointArn" PositionalParameters="Attributes" PipelineParameter="EndpointArn" NoPipelineParameter="false" LegacyAlias="Set-SNSEndpointAttributes" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SetEndpointAttributes" Verb="Set" Noun="EndpointAttribute" ShouldProcessTarget="EndpointArn" PositionalParameters="Attributes" PipelineParameter="EndpointArn" NoPipelineParameter="false" LegacyAlias="Set-SNSEndpointAttributes">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetPlatformApplicationAttributes" Verb="Set" Noun="PlatformApplicationAttribute" ShouldProcessTarget="PlatformApplicationArn" PositionalParameters="Attributes" PipelineParameter="PlatformApplicationArn" NoPipelineParameter="false" LegacyAlias="Set-SNSPlatformApplicationAttributes" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SetPlatformApplicationAttributes" Verb="Set" Noun="PlatformApplicationAttribute" ShouldProcessTarget="PlatformApplicationArn" PositionalParameters="Attributes" PipelineParameter="PlatformApplicationArn" NoPipelineParameter="false" LegacyAlias="Set-SNSPlatformApplicationAttributes">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetSMSAttributes" Verb="Set" Noun="SMSAttribute" ShouldProcessTarget="Attributes" PipelineParameter="Attributes" NoPipelineParameter="false" LegacyAlias="Set-SNSSMSAttributes" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SetSMSAttributes" Verb="Set" Noun="SMSAttribute" ShouldProcessTarget="Attributes" PipelineParameter="Attributes" NoPipelineParameter="false" LegacyAlias="Set-SNSSMSAttributes">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetSubscriptionAttributes" Verb="Set" Noun="SubscriptionAttribute" ShouldProcessTarget="SubscriptionArn" PositionalParameters="AttributeName;AttributeValue" PipelineParameter="SubscriptionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SetSubscriptionAttributes" Verb="Set" Noun="SubscriptionAttribute" ShouldProcessTarget="SubscriptionArn" PositionalParameters="AttributeName;AttributeValue" PipelineParameter="SubscriptionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetTopicAttributes" Verb="Set" Noun="TopicAttribute" ShouldProcessTarget="TopicArn" PositionalParameters="AttributeName;AttributeValue" PipelineParameter="TopicArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SetTopicAttributes" Verb="Set" Noun="TopicAttribute" ShouldProcessTarget="TopicArn" PositionalParameters="AttributeName;AttributeValue" PipelineParameter="TopicArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Subscribe" OutputProperty="SubscriptionArn" Verb="Connect" Noun="Notification" ShouldProcessTarget="TopicArn" PositionalParameters="Protocol;Endpoint" PipelineParameter="TopicArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="Subscribe" OutputProperty="SubscriptionArn" Verb="Connect" Noun="Notification" ShouldProcessTarget="TopicArn" PositionalParameters="Protocol;Endpoint" PipelineParameter="TopicArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SubscribeQueue" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SubscribeQueue" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SubscribeQueueToTopics" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SubscribeQueueToTopics" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Unsubscribe" Verb="Disconnect" Noun="Notification" ShouldProcessTarget="SubscriptionArn" PipelineParameter="SubscriptionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="Unsubscribe" Verb="Disconnect" Noun="Notification" ShouldProcessTarget="SubscriptionArn" PipelineParameter="SubscriptionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="VerifySMSSandboxPhoneNumber" Verb="Confirm" Noun="SMSSandboxPhoneNumber" ShouldProcessTarget="PhoneNumber" PipelineParameter="PhoneNumber" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="VerifySMSSandboxPhoneNumber" Verb="Confirm" Noun="SMSSandboxPhoneNumber" ShouldProcessTarget="PhoneNumber" PipelineParameter="PhoneNumber" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -18,19 +18,19 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchGetRecord" OutputProperty="*" Verb="Get" Noun="RecordBatch" PipelineParameter="ExpirationTimeResponse" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchGetRecord" OutputProperty="*" Verb="Get" Noun="RecordBatch" PipelineParameter="ExpirationTimeResponse" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRecord" Verb="Remove" Noun="Record" ShouldProcessTarget="FeatureGroupName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteRecord" Verb="Remove" Noun="Record" ShouldProcessTarget="FeatureGroupName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRecord" OutputProperty="Record" Verb="Get" Noun="Record" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetRecord" OutputProperty="Record" Verb="Get" Noun="Record" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRecord" Verb="Write" Noun="Record" ShouldProcessTarget="FeatureGroupName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutRecord" Verb="Write" Noun="Record" ShouldProcessTarget="FeatureGroupName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

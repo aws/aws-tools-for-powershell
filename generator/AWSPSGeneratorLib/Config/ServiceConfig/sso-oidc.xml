@@ -18,19 +18,19 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateToken" OutputProperty="*" Verb="New" Noun="Token" ShouldProcessTarget="ClientId" PipelineParameter="ClientId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateToken" OutputProperty="*" Verb="New" Noun="Token" ShouldProcessTarget="ClientId" PipelineParameter="ClientId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTokenWithIAM" OutputProperty="*" Verb="New" Noun="TokenWithIAM" ShouldProcessTarget="ClientId" PipelineParameter="ClientId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateTokenWithIAM" OutputProperty="*" Verb="New" Noun="TokenWithIAM" ShouldProcessTarget="ClientId" PipelineParameter="ClientId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterClient" OutputProperty="*" Verb="Register" Noun="Client" ShouldProcessTarget="ClientName" PipelineParameter="ClientName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RegisterClient" OutputProperty="*" Verb="Register" Noun="Client" ShouldProcessTarget="ClientName" PipelineParameter="ClientName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDeviceAuthorization" OutputProperty="*" Verb="Start" Noun="DeviceAuthorization" ShouldProcessTarget="ClientId" PipelineParameter="ClientId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartDeviceAuthorization" OutputProperty="*" Verb="Start" Noun="DeviceAuthorization" ShouldProcessTarget="ClientId" PipelineParameter="ClientId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

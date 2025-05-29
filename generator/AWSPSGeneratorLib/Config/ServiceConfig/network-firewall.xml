@@ -18,183 +18,183 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateFirewallPolicy" OutputProperty="*" Verb="Register" Noun="FirewallPolicy" ShouldProcessTarget="FirewallPolicyArn" PipelineParameter="FirewallPolicyArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateFirewallPolicy" OutputProperty="*" Verb="Register" Noun="FirewallPolicy" ShouldProcessTarget="FirewallPolicyArn" PipelineParameter="FirewallPolicyArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateSubnets" OutputProperty="*" Verb="Register" Noun="Subnet" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateSubnets" OutputProperty="*" Verb="Register" Noun="Subnet" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFirewall" OutputProperty="*" Verb="New" Noun="Firewall" ShouldProcessTarget="FirewallName" PipelineParameter="FirewallPolicyArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateFirewall" OutputProperty="*" Verb="New" Noun="Firewall" ShouldProcessTarget="FirewallName" PipelineParameter="FirewallPolicyArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFirewallPolicy" OutputProperty="*" Verb="New" Noun="FirewallPolicy" ShouldProcessTarget="FirewallPolicyName" PipelineParameter="FirewallPolicyName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateFirewallPolicy" OutputProperty="*" Verb="New" Noun="FirewallPolicy" ShouldProcessTarget="FirewallPolicyName" PipelineParameter="FirewallPolicyName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRuleGroup" OutputProperty="*" Verb="New" Noun="RuleGroup" ShouldProcessTarget="RuleGroupName" PipelineParameter="RuleGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateRuleGroup" OutputProperty="*" Verb="New" Noun="RuleGroup" ShouldProcessTarget="RuleGroupName" PipelineParameter="RuleGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTLSInspectionConfiguration" OutputProperty="*" Verb="New" Noun="TLSInspectionConfiguration" ShouldProcessTarget="TLSInspectionConfigurationName" PipelineParameter="TLSInspectionConfigurationName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateTLSInspectionConfiguration" OutputProperty="*" Verb="New" Noun="TLSInspectionConfiguration" ShouldProcessTarget="TLSInspectionConfigurationName" PipelineParameter="TLSInspectionConfigurationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFirewall" OutputProperty="*" Verb="Remove" Noun="Firewall" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteFirewall" OutputProperty="*" Verb="Remove" Noun="Firewall" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFirewallPolicy" OutputProperty="FirewallPolicyResponse" Verb="Remove" Noun="FirewallPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallPolicyArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteFirewallPolicy" OutputProperty="FirewallPolicyResponse" Verb="Remove" Noun="FirewallPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallPolicyArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRuleGroup" OutputProperty="RuleGroupResponse" Verb="Remove" Noun="RuleGroup" AnonymousShouldProcessTarget="true" PipelineParameter="RuleGroupArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteRuleGroup" OutputProperty="RuleGroupResponse" Verb="Remove" Noun="RuleGroup" AnonymousShouldProcessTarget="true" PipelineParameter="RuleGroupArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTLSInspectionConfiguration" OutputProperty="TLSInspectionConfigurationResponse" Verb="Remove" Noun="TLSInspectionConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="TLSInspectionConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteTLSInspectionConfiguration" OutputProperty="TLSInspectionConfigurationResponse" Verb="Remove" Noun="TLSInspectionConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="TLSInspectionConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFirewall" OutputProperty="*" Verb="Get" Noun="Firewall" PipelineParameter="FirewallArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeFirewall" OutputProperty="*" Verb="Get" Noun="Firewall" PipelineParameter="FirewallArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFirewallPolicy" OutputProperty="*" Verb="Get" Noun="FirewallPolicy" PipelineParameter="FirewallPolicyArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeFirewallPolicy" OutputProperty="*" Verb="Get" Noun="FirewallPolicy" PipelineParameter="FirewallPolicyArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFlowOperation" OutputProperty="*" Verb="Get" Noun="FlowOperation" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeFlowOperation" OutputProperty="*" Verb="Get" Noun="FlowOperation" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLoggingConfiguration" OutputProperty="*" Verb="Get" Noun="LoggingConfiguration" PipelineParameter="FirewallArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLoggingConfiguration" OutputProperty="*" Verb="Get" Noun="LoggingConfiguration" PipelineParameter="FirewallArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRuleGroup" OutputProperty="*" Verb="Get" Noun="RuleGroup" PipelineParameter="RuleGroupArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeRuleGroup" OutputProperty="*" Verb="Get" Noun="RuleGroup" PipelineParameter="RuleGroupArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRuleGroupMetadata" OutputProperty="*" Verb="Get" Noun="RuleGroupMetadata" PipelineParameter="RuleGroupArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeRuleGroupMetadata" OutputProperty="*" Verb="Get" Noun="RuleGroupMetadata" PipelineParameter="RuleGroupArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTLSInspectionConfiguration" OutputProperty="*" Verb="Get" Noun="TLSInspectionConfiguration" PipelineParameter="TLSInspectionConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTLSInspectionConfiguration" OutputProperty="*" Verb="Get" Noun="TLSInspectionConfiguration" PipelineParameter="TLSInspectionConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateSubnets" OutputProperty="*" Verb="Unregister" Noun="Subnet" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateSubnets" OutputProperty="*" Verb="Unregister" Noun="Subnet" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAnalysisReportResults" OutputProperty="*" Verb="Get" Noun="AnalysisReportResult" PipelineParameter="AnalysisReportId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAnalysisReportResults" OutputProperty="*" Verb="Get" Noun="AnalysisReportResult" PipelineParameter="AnalysisReportId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAnalysisReports" OutputProperty="AnalysisReports" Verb="Get" Noun="AnalysisReportList" PipelineParameter="FirewallArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAnalysisReports" OutputProperty="AnalysisReports" Verb="Get" Noun="AnalysisReportList" PipelineParameter="FirewallArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFirewallPolicies" OutputProperty="FirewallPolicies" Verb="Get" Noun="FirewallPolicyList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFirewallPolicies" OutputProperty="FirewallPolicies" Verb="Get" Noun="FirewallPolicyList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFirewalls" OutputProperty="Firewalls" Verb="Get" Noun="FirewallList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFirewalls" OutputProperty="Firewalls" Verb="Get" Noun="FirewallList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFlowOperationResults" OutputProperty="*" Verb="Get" Noun="FlowOperationResultList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFlowOperationResults" OutputProperty="*" Verb="Get" Noun="FlowOperationResultList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFlowOperations" OutputProperty="FlowOperations" Verb="Get" Noun="FlowOperationList" PipelineParameter="FirewallArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFlowOperations" OutputProperty="FlowOperations" Verb="Get" Noun="FlowOperationList" PipelineParameter="FirewallArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRuleGroups" OutputProperty="RuleGroups" Verb="Get" Noun="RuleGroupList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRuleGroups" OutputProperty="RuleGroups" Verb="Get" Noun="RuleGroupList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTLSInspectionConfigurations" OutputProperty="TLSInspectionConfigurations" Verb="Get" Noun="TLSInspectionConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTLSInspectionConfigurations" OutputProperty="TLSInspectionConfigurations" Verb="Get" Noun="TLSInspectionConfigurationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutResourcePolicy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutResourcePolicy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartAnalysisReport" OutputProperty="AnalysisReportId" Verb="Start" Noun="AnalysisReport" ShouldProcessTarget="" PipelineParameter="AnalysisType" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartAnalysisReport" OutputProperty="AnalysisReportId" Verb="Start" Noun="AnalysisReport" ShouldProcessTarget="" PipelineParameter="AnalysisType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartFlowCapture" OutputProperty="*" Verb="Start" Noun="FlowCapture" ShouldProcessTarget="FirewallArn" PipelineParameter="FirewallArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartFlowCapture" OutputProperty="*" Verb="Start" Noun="FlowCapture" ShouldProcessTarget="FirewallArn" PipelineParameter="FirewallArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartFlowFlush" OutputProperty="*" Verb="Start" Noun="FlowFlush" ShouldProcessTarget="FirewallArn" PipelineParameter="FirewallArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartFlowFlush" OutputProperty="*" Verb="Start" Noun="FlowFlush" ShouldProcessTarget="FirewallArn" PipelineParameter="FirewallArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFirewallAnalysisSettings" OutputProperty="*" Verb="Update" Noun="FirewallAnalysisSetting" ShouldProcessTarget="FirewallArn" PipelineParameter="FirewallArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateFirewallAnalysisSettings" OutputProperty="*" Verb="Update" Noun="FirewallAnalysisSetting" ShouldProcessTarget="FirewallArn" PipelineParameter="FirewallArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFirewallDeleteProtection" OutputProperty="*" Verb="Update" Noun="FirewallDeleteProtection" ShouldProcessTarget="" PipelineParameter="DeleteProtection" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateFirewallDeleteProtection" OutputProperty="*" Verb="Update" Noun="FirewallDeleteProtection" ShouldProcessTarget="" PipelineParameter="DeleteProtection" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFirewallDescription" OutputProperty="*" Verb="Update" Noun="FirewallDescription" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateFirewallDescription" OutputProperty="*" Verb="Update" Noun="FirewallDescription" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFirewallEncryptionConfiguration" OutputProperty="*" Verb="Update" Noun="FirewallEncryptionConfiguration" ShouldProcessTarget="FirewallArn" PipelineParameter="FirewallArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateFirewallEncryptionConfiguration" OutputProperty="*" Verb="Update" Noun="FirewallEncryptionConfiguration" ShouldProcessTarget="FirewallArn" PipelineParameter="FirewallArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFirewallPolicy" OutputProperty="*" Verb="Update" Noun="FirewallPolicy" ShouldProcessTarget="" PipelineParameter="UpdateToken" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateFirewallPolicy" OutputProperty="*" Verb="Update" Noun="FirewallPolicy" ShouldProcessTarget="" PipelineParameter="UpdateToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFirewallPolicyChangeProtection" OutputProperty="*" Verb="Update" Noun="FirewallPolicyChangeProtection" ShouldProcessTarget="" PipelineParameter="FirewallPolicyChangeProtection" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateFirewallPolicyChangeProtection" OutputProperty="*" Verb="Update" Noun="FirewallPolicyChangeProtection" ShouldProcessTarget="" PipelineParameter="FirewallPolicyChangeProtection" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLoggingConfiguration" OutputProperty="*" Verb="Update" Noun="LoggingConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateLoggingConfiguration" OutputProperty="*" Verb="Update" Noun="LoggingConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRuleGroup" OutputProperty="*" Verb="Update" Noun="RuleGroup" ShouldProcessTarget="" PipelineParameter="UpdateToken" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateRuleGroup" OutputProperty="*" Verb="Update" Noun="RuleGroup" ShouldProcessTarget="" PipelineParameter="UpdateToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSubnetChangeProtection" OutputProperty="*" Verb="Update" Noun="SubnetChangeProtection" ShouldProcessTarget="" PipelineParameter="SubnetChangeProtection" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateSubnetChangeProtection" OutputProperty="*" Verb="Update" Noun="SubnetChangeProtection" ShouldProcessTarget="" PipelineParameter="SubnetChangeProtection" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTLSInspectionConfiguration" OutputProperty="*" Verb="Update" Noun="TLSInspectionConfiguration" ShouldProcessTarget="" PipelineParameter="UpdateToken" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateTLSInspectionConfiguration" OutputProperty="*" Verb="Update" Noun="TLSInspectionConfiguration" ShouldProcessTarget="" PipelineParameter="UpdateToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

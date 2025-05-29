@@ -21,27 +21,27 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddLayerVersionPermission" OutputProperty="*" Verb="Add" Noun="LayerVersionPermission" ShouldProcessTarget="LayerName" PipelineParameter="LayerName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AddLayerVersionPermission" OutputProperty="*" Verb="Add" Noun="LayerVersionPermission" ShouldProcessTarget="LayerName" PipelineParameter="LayerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddPermission" OutputProperty="Statement" Verb="Add" Noun="Permission" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AddPermission" OutputProperty="Statement" Verb="Add" Noun="Permission" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAlias" OutputProperty="*" Verb="New" Noun="Alias" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAlias" OutputProperty="*" Verb="New" Noun="Alias" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCodeSigningConfig" OutputProperty="*" Verb="New" Noun="CodeSigningConfig" ShouldProcessTarget="Description" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateCodeSigningConfig" OutputProperty="*" Verb="New" Noun="CodeSigningConfig" ShouldProcessTarget="Description" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEventSourceMapping" OutputProperty="*" Verb="New" Noun="EventSourceMapping" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateEventSourceMapping" OutputProperty="*" Verb="New" Noun="EventSourceMapping" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFunction" OutputProperty="*" Verb="Publish" Noun="Function" ShouldProcessTarget="FunctionName" PositionalParameters="Code_ZipFile;Handler;Runtime;Role" PipelineParameter="FunctionName" NoPipelineParameter="false" DefaultParameterSet="FromMemoryStream" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateFunction" OutputProperty="*" Verb="Publish" Noun="Function" ShouldProcessTarget="FunctionName" PositionalParameters="Code_ZipFile;Handler;Runtime;Role" PipelineParameter="FunctionName" NoPipelineParameter="false" DefaultParameterSet="FromMemoryStream">
             <Params>
                 <Param Name="FunctionName" Mandatory="true" />
                 <Param Name="Code_S3Bucket" Alias="S3Bucket;FunctionCode_S3Bucket;BucketName" ParameterSetName="FromS3Object" Mandatory="true" />
@@ -55,119 +55,119 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFunctionUrlConfig" OutputProperty="*" Verb="New" Noun="FunctionUrlConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateFunctionUrlConfig" OutputProperty="*" Verb="New" Noun="FunctionUrlConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAlias" Verb="Remove" Noun="Alias" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAlias" Verb="Remove" Noun="Alias" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCodeSigningConfig" Verb="Remove" Noun="CodeSigningConfig" ShouldProcessTarget="CodeSigningConfigArn" PipelineParameter="CodeSigningConfigArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteCodeSigningConfig" Verb="Remove" Noun="CodeSigningConfig" ShouldProcessTarget="CodeSigningConfigArn" PipelineParameter="CodeSigningConfigArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEventSourceMapping" OutputProperty="*" Verb="Remove" Noun="EventSourceMapping" ShouldProcessTarget="UUID" PipelineParameter="UUID" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteEventSourceMapping" OutputProperty="*" Verb="Remove" Noun="EventSourceMapping" ShouldProcessTarget="UUID" PipelineParameter="UUID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFunction" Verb="Remove" Noun="Function" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteFunction" Verb="Remove" Noun="Function" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFunctionCodeSigningConfig" Verb="Remove" Noun="FunctionCodeSigningConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteFunctionCodeSigningConfig" Verb="Remove" Noun="FunctionCodeSigningConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFunctionConcurrency" Verb="Remove" Noun="FunctionConcurrency" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteFunctionConcurrency" Verb="Remove" Noun="FunctionConcurrency" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFunctionEventInvokeConfig" Verb="Remove" Noun="FunctionEventInvokeConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteFunctionEventInvokeConfig" Verb="Remove" Noun="FunctionEventInvokeConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFunctionUrlConfig" Verb="Remove" Noun="FunctionUrlConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteFunctionUrlConfig" Verb="Remove" Noun="FunctionUrlConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLayerVersion" Verb="Remove" Noun="LayerVersion" ShouldProcessTarget="LayerName" PipelineParameter="LayerName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteLayerVersion" Verb="Remove" Noun="LayerVersion" ShouldProcessTarget="LayerName" PipelineParameter="LayerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProvisionedConcurrencyConfig" Verb="Remove" Noun="ProvisionedConcurrencyConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteProvisionedConcurrencyConfig" Verb="Remove" Noun="ProvisionedConcurrencyConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccountSettings" OutputProperty="*" Verb="Get" Noun="AccountSetting" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAccountSettings" OutputProperty="*" Verb="Get" Noun="AccountSetting" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAlias" OutputProperty="*" Verb="Get" Noun="Alias" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAlias" OutputProperty="*" Verb="Get" Noun="Alias" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCodeSigningConfig" OutputProperty="*" Verb="Get" Noun="CodeSigningConfig" PipelineParameter="CodeSigningConfigArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetCodeSigningConfig" OutputProperty="*" Verb="Get" Noun="CodeSigningConfig" PipelineParameter="CodeSigningConfigArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEventSourceMapping" OutputProperty="*" Verb="Get" Noun="EventSourceMapping" PipelineParameter="UUID" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetEventSourceMapping" OutputProperty="*" Verb="Get" Noun="EventSourceMapping" PipelineParameter="UUID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFunction" OutputProperty="*" Verb="Get" Noun="Function" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFunction" OutputProperty="*" Verb="Get" Noun="Function" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFunctionCodeSigningConfig" OutputProperty="*" Verb="Get" Noun="FunctionCodeSigningConfig" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFunctionCodeSigningConfig" OutputProperty="*" Verb="Get" Noun="FunctionCodeSigningConfig" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFunctionConcurrency" OutputProperty="ReservedConcurrentExecutions" Verb="Get" Noun="FunctionConcurrency" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFunctionConcurrency" OutputProperty="ReservedConcurrentExecutions" Verb="Get" Noun="FunctionConcurrency" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFunctionConfiguration" OutputProperty="*" Verb="Get" Noun="FunctionConfiguration" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFunctionConfiguration" OutputProperty="*" Verb="Get" Noun="FunctionConfiguration" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFunctionEventInvokeConfig" OutputProperty="*" Verb="Get" Noun="FunctionEventInvokeConfig" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFunctionEventInvokeConfig" OutputProperty="*" Verb="Get" Noun="FunctionEventInvokeConfig" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFunctionRecursionConfig" OutputProperty="RecursiveLoop" Verb="Get" Noun="FunctionRecursionConfig" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFunctionRecursionConfig" OutputProperty="RecursiveLoop" Verb="Get" Noun="FunctionRecursionConfig" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFunctionUrlConfig" OutputProperty="*" Verb="Get" Noun="FunctionUrlConfig" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFunctionUrlConfig" OutputProperty="*" Verb="Get" Noun="FunctionUrlConfig" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLayerVersion" OutputProperty="*" Verb="Get" Noun="LayerVersion" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetLayerVersion" OutputProperty="*" Verb="Get" Noun="LayerVersion" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLayerVersionByArn" OutputProperty="*" Verb="Get" Noun="LayerVersionByArn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetLayerVersionByArn" OutputProperty="*" Verb="Get" Noun="LayerVersionByArn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLayerVersionPolicy" OutputProperty="*" Verb="Get" Noun="LayerVersionPolicy" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetLayerVersionPolicy" OutputProperty="*" Verb="Get" Noun="LayerVersionPolicy" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPolicy" OutputProperty="*" Verb="Get" Noun="Policy" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPolicy" OutputProperty="*" Verb="Get" Noun="Policy" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProvisionedConcurrencyConfig" OutputProperty="*" Verb="Get" Noun="ProvisionedConcurrencyConfig" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetProvisionedConcurrencyConfig" OutputProperty="*" Verb="Get" Noun="ProvisionedConcurrencyConfig" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRuntimeManagementConfig" OutputProperty="*" Verb="Get" Noun="RuntimeManagementConfig" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetRuntimeManagementConfig" OutputProperty="*" Verb="Get" Noun="RuntimeManagementConfig" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Invoke" OutputProperty="*" Verb="Invoke" Noun="Function" ShouldProcessTarget="FunctionName" PositionalParameters="Payload;ClientContext;InvocationType;LogType" PipelineParameter="FunctionName" NoPipelineParameter="false" ConfirmImpact="Low" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="Invoke" OutputProperty="*" Verb="Invoke" Noun="Function" ShouldProcessTarget="FunctionName" PositionalParameters="Payload;ClientContext;InvocationType;LogType" PipelineParameter="FunctionName" NoPipelineParameter="false" ConfirmImpact="Low">
             <Params>
                 <Param Name="Payload" DefaultValue="{}" />
                 <Param Name="ClientContext" DefaultValue="{}" />
@@ -175,119 +175,119 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InvokeWithResponseStream" OutputProperty="*" Verb="Invoke" Noun="WithResponseStream" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="InvokeWithResponseStream" OutputProperty="*" Verb="Invoke" Noun="WithResponseStream" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAliases" OutputProperty="Aliases" Verb="Get" Noun="AliasList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAliases" OutputProperty="Aliases" Verb="Get" Noun="AliasList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCodeSigningConfigs" OutputProperty="*" Verb="Get" Noun="CodeSigningConfigList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCodeSigningConfigs" OutputProperty="*" Verb="Get" Noun="CodeSigningConfigList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEventSourceMappings" OutputProperty="EventSourceMappings" Verb="Get" Noun="EventSourceMappingList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-LMEventSourceMappings" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEventSourceMappings" OutputProperty="EventSourceMappings" Verb="Get" Noun="EventSourceMappingList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-LMEventSourceMappings">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFunctionEventInvokeConfigs" OutputProperty="FunctionEventInvokeConfigs" Verb="Get" Noun="FunctionEventInvokeConfigList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFunctionEventInvokeConfigs" OutputProperty="FunctionEventInvokeConfigs" Verb="Get" Noun="FunctionEventInvokeConfigList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFunctions" OutputProperty="Functions" Verb="Get" Noun="FunctionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-LMFunctions" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFunctions" OutputProperty="Functions" Verb="Get" Noun="FunctionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-LMFunctions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFunctionsByCodeSigningConfig" OutputProperty="*" Verb="Get" Noun="FunctionsByCodeSigningConfigList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFunctionsByCodeSigningConfig" OutputProperty="*" Verb="Get" Noun="FunctionsByCodeSigningConfigList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFunctionUrlConfigs" OutputProperty="FunctionUrlConfigs" Verb="Get" Noun="FunctionUrlConfigList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFunctionUrlConfigs" OutputProperty="FunctionUrlConfigs" Verb="Get" Noun="FunctionUrlConfigList" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLayers" OutputProperty="Layers" Verb="Get" Noun="LayerList" PipelineParameter="CompatibleRuntime" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLayers" OutputProperty="Layers" Verb="Get" Noun="LayerList" PipelineParameter="CompatibleRuntime" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLayerVersions" OutputProperty="LayerVersions" Verb="Get" Noun="LayerVersionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLayerVersions" OutputProperty="LayerVersions" Verb="Get" Noun="LayerVersionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProvisionedConcurrencyConfigs" OutputProperty="ProvisionedConcurrencyConfigs" Verb="Get" Noun="ProvisionedConcurrencyConfigList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListProvisionedConcurrencyConfigs" OutputProperty="ProvisionedConcurrencyConfigs" Verb="Get" Noun="ProvisionedConcurrencyConfigList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="Resource" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="Resource" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVersionsByFunction" OutputProperty="Versions" Verb="Get" Noun="VersionsByFunction" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListVersionsByFunction" OutputProperty="Versions" Verb="Get" Noun="VersionsByFunction" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PublishLayerVersion" OutputProperty="*" Verb="Publish" Noun="LayerVersion" ShouldProcessTarget="LayerName" PipelineParameter="LayerName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PublishLayerVersion" OutputProperty="*" Verb="Publish" Noun="LayerVersion" ShouldProcessTarget="LayerName" PipelineParameter="LayerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PublishVersion" OutputProperty="*" Verb="Publish" Noun="Version" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PublishVersion" OutputProperty="*" Verb="Publish" Noun="Version" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutFunctionCodeSigningConfig" OutputProperty="*" Verb="Write" Noun="FunctionCodeSigningConfig" ShouldProcessTarget="FunctionName" PipelineParameter="CodeSigningConfigArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutFunctionCodeSigningConfig" OutputProperty="*" Verb="Write" Noun="FunctionCodeSigningConfig" ShouldProcessTarget="FunctionName" PipelineParameter="CodeSigningConfigArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutFunctionConcurrency" OutputProperty="ReservedConcurrentExecutions" Verb="Write" Noun="FunctionConcurrency" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutFunctionConcurrency" OutputProperty="ReservedConcurrentExecutions" Verb="Write" Noun="FunctionConcurrency" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutFunctionEventInvokeConfig" OutputProperty="*" Verb="Write" Noun="FunctionEventInvokeConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutFunctionEventInvokeConfig" OutputProperty="*" Verb="Write" Noun="FunctionEventInvokeConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutFunctionRecursionConfig" OutputProperty="RecursiveLoop" Verb="Write" Noun="FunctionRecursionConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutFunctionRecursionConfig" OutputProperty="RecursiveLoop" Verb="Write" Noun="FunctionRecursionConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutProvisionedConcurrencyConfig" OutputProperty="*" Verb="Write" Noun="ProvisionedConcurrencyConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutProvisionedConcurrencyConfig" OutputProperty="*" Verb="Write" Noun="ProvisionedConcurrencyConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRuntimeManagementConfig" OutputProperty="*" Verb="Write" Noun="RuntimeManagementConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutRuntimeManagementConfig" OutputProperty="*" Verb="Write" Noun="RuntimeManagementConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveLayerVersionPermission" Verb="Remove" Noun="LayerVersionPermission" ShouldProcessTarget="LayerName" PipelineParameter="LayerName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RemoveLayerVersionPermission" Verb="Remove" Noun="LayerVersionPermission" ShouldProcessTarget="LayerName" PipelineParameter="LayerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemovePermission" Verb="Remove" Noun="Permission" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RemovePermission" Verb="Remove" Noun="Permission" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Resource" PipelineParameter="Resource" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Resource" PipelineParameter="Resource" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Resource" PipelineParameter="TagKeys" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Resource" PipelineParameter="TagKeys" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAlias" OutputProperty="*" Verb="Update" Noun="Alias" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateAlias" OutputProperty="*" Verb="Update" Noun="Alias" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCodeSigningConfig" OutputProperty="*" Verb="Update" Noun="CodeSigningConfig" ShouldProcessTarget="CodeSigningConfigArn" PipelineParameter="CodeSigningConfigArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateCodeSigningConfig" OutputProperty="*" Verb="Update" Noun="CodeSigningConfig" ShouldProcessTarget="CodeSigningConfigArn" PipelineParameter="CodeSigningConfigArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEventSourceMapping" OutputProperty="*" Verb="Update" Noun="EventSourceMapping" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateEventSourceMapping" OutputProperty="*" Verb="Update" Noun="EventSourceMapping" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFunctionCode" OutputProperty="*" Verb="Update" Noun="FunctionCode" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" DefaultParameterSet="FromMemoryStream" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateFunctionCode" OutputProperty="*" Verb="Update" Noun="FunctionCode" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" DefaultParameterSet="FromMemoryStream">
             <Params>
                 <Param Name="FunctionName" Mandatory="true" />
                 <Param Name="S3Bucket" Alias="FunctionCode_S3Bucket;BucketName" ParameterSetName="FromS3Object" Mandatory="true" />
@@ -299,15 +299,15 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFunctionConfiguration" OutputProperty="*" Verb="Update" Noun="FunctionConfiguration" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateFunctionConfiguration" OutputProperty="*" Verb="Update" Noun="FunctionConfiguration" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFunctionEventInvokeConfig" OutputProperty="*" Verb="Update" Noun="FunctionEventInvokeConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateFunctionEventInvokeConfig" OutputProperty="*" Verb="Update" Noun="FunctionEventInvokeConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFunctionUrlConfig" OutputProperty="*" Verb="Update" Noun="FunctionUrlConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateFunctionUrlConfig" OutputProperty="*" Verb="Update" Noun="FunctionUrlConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

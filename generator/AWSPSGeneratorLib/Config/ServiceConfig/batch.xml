@@ -21,127 +21,127 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelJob" Verb="Stop" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelJob" Verb="Stop" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateComputeEnvironment" OutputProperty="*" Verb="New" Noun="ComputeEnvironment" ShouldProcessTarget="ComputeEnvironmentName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateComputeEnvironment" OutputProperty="*" Verb="New" Noun="ComputeEnvironment" ShouldProcessTarget="ComputeEnvironmentName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConsumableResource" OutputProperty="*" Verb="New" Noun="ConsumableResource" ShouldProcessTarget="ConsumableResourceName" PipelineParameter="ConsumableResourceName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateConsumableResource" OutputProperty="*" Verb="New" Noun="ConsumableResource" ShouldProcessTarget="ConsumableResourceName" PipelineParameter="ConsumableResourceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateJobQueue" OutputProperty="*" Verb="New" Noun="JobQueue" ShouldProcessTarget="JobQueueName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateJobQueue" OutputProperty="*" Verb="New" Noun="JobQueue" ShouldProcessTarget="JobQueueName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSchedulingPolicy" OutputProperty="*" Verb="New" Noun="SchedulingPolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateSchedulingPolicy" OutputProperty="*" Verb="New" Noun="SchedulingPolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteComputeEnvironment" Verb="Remove" Noun="ComputeEnvironment" ShouldProcessTarget="ComputeEnvironment" PipelineParameter="ComputeEnvironment" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteComputeEnvironment" Verb="Remove" Noun="ComputeEnvironment" ShouldProcessTarget="ComputeEnvironment" PipelineParameter="ComputeEnvironment" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConsumableResource" Verb="Remove" Noun="ConsumableResource" ShouldProcessTarget="ConsumableResource" PipelineParameter="ConsumableResource" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteConsumableResource" Verb="Remove" Noun="ConsumableResource" ShouldProcessTarget="ConsumableResource" PipelineParameter="ConsumableResource" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteJobQueue" Verb="Remove" Noun="JobQueue" ShouldProcessTarget="JobQueue" PipelineParameter="JobQueue" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteJobQueue" Verb="Remove" Noun="JobQueue" ShouldProcessTarget="JobQueue" PipelineParameter="JobQueue" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSchedulingPolicy" Verb="Remove" Noun="SchedulingPolicy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteSchedulingPolicy" Verb="Remove" Noun="SchedulingPolicy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterJobDefinition" Verb="Unregister" Noun="JobDefinition" ShouldProcessTarget="JobDefinition" PipelineParameter="JobDefinition" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeregisterJobDefinition" Verb="Unregister" Noun="JobDefinition" ShouldProcessTarget="JobDefinition" PipelineParameter="JobDefinition" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeComputeEnvironments" OutputProperty="ComputeEnvironments" Verb="Get" Noun="ComputeEnvironment" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeComputeEnvironments" OutputProperty="ComputeEnvironments" Verb="Get" Noun="ComputeEnvironment" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConsumableResource" OutputProperty="*" Verb="Get" Noun="ConsumableResource" PipelineParameter="ConsumableResource" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeConsumableResource" OutputProperty="*" Verb="Get" Noun="ConsumableResource" PipelineParameter="ConsumableResource" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeJobDefinitions" OutputProperty="JobDefinitions" Verb="Get" Noun="JobDefinition" PipelineParameter="JobDefinitionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeJobDefinitions" OutputProperty="JobDefinitions" Verb="Get" Noun="JobDefinition" PipelineParameter="JobDefinitionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeJobQueues" OutputProperty="JobQueues" Verb="Get" Noun="JobQueue" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeJobQueues" OutputProperty="JobQueues" Verb="Get" Noun="JobQueue" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeJobs" OutputProperty="Jobs" Verb="Get" Noun="JobDetail" PipelineParameter="Jobs" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeJobs" OutputProperty="Jobs" Verb="Get" Noun="JobDetail" PipelineParameter="Jobs" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSchedulingPolicies" OutputProperty="SchedulingPolicies" Verb="Get" Noun="SchedulingPolicy" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSchedulingPolicies" OutputProperty="SchedulingPolicies" Verb="Get" Noun="SchedulingPolicy" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJobQueueSnapshot" OutputProperty="FrontOfQueue" Verb="Get" Noun="JobQueueSnapshot" PipelineParameter="JobQueue" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetJobQueueSnapshot" OutputProperty="FrontOfQueue" Verb="Get" Noun="JobQueueSnapshot" PipelineParameter="JobQueue" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConsumableResources" OutputProperty="ConsumableResources" Verb="Get" Noun="ConsumableResourceList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListConsumableResources" OutputProperty="ConsumableResources" Verb="Get" Noun="ConsumableResourceList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" OutputProperty="JobSummaryList" Verb="Get" Noun="JobList" PipelineParameter="JobQueue" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListJobs" OutputProperty="JobSummaryList" Verb="Get" Noun="JobList" PipelineParameter="JobQueue" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobsByConsumableResource" OutputProperty="Jobs" Verb="Get" Noun="JobsByConsumableResourceList" PipelineParameter="ConsumableResource" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListJobsByConsumableResource" OutputProperty="Jobs" Verb="Get" Noun="JobsByConsumableResourceList" PipelineParameter="ConsumableResource" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSchedulingPolicies" OutputProperty="SchedulingPolicies" Verb="Get" Noun="SchedulingPolicyList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSchedulingPolicies" OutputProperty="SchedulingPolicies" Verb="Get" Noun="SchedulingPolicyList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterJobDefinition" OutputProperty="*" Verb="Register" Noun="JobDefinition" ShouldProcessTarget="JobDefinitionName" PipelineParameter="JobDefinitionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RegisterJobDefinition" OutputProperty="*" Verb="Register" Noun="JobDefinition" ShouldProcessTarget="JobDefinitionName" PipelineParameter="JobDefinitionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SubmitJob" OutputProperty="*" Verb="Submit" Noun="Job" ShouldProcessTarget="JobName" PipelineParameter="JobName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SubmitJob" OutputProperty="*" Verb="Submit" Noun="Job" ShouldProcessTarget="JobName" PipelineParameter="JobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TerminateJob" Verb="Remove" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TerminateJob" Verb="Remove" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateComputeEnvironment" OutputProperty="*" Verb="Update" Noun="ComputeEnvironment" ShouldProcessTarget="ComputeEnvironment" PipelineParameter="ComputeEnvironment" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateComputeEnvironment" OutputProperty="*" Verb="Update" Noun="ComputeEnvironment" ShouldProcessTarget="ComputeEnvironment" PipelineParameter="ComputeEnvironment" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConsumableResource" OutputProperty="*" Verb="Update" Noun="ConsumableResource" ShouldProcessTarget="ConsumableResource" PipelineParameter="ConsumableResource" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateConsumableResource" OutputProperty="*" Verb="Update" Noun="ConsumableResource" ShouldProcessTarget="ConsumableResource" PipelineParameter="ConsumableResource" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateJobQueue" OutputProperty="*" Verb="Update" Noun="JobQueue" ShouldProcessTarget="JobQueue" PipelineParameter="JobQueue" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateJobQueue" OutputProperty="*" Verb="Update" Noun="JobQueue" ShouldProcessTarget="JobQueue" PipelineParameter="JobQueue" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSchedulingPolicy" Verb="Update" Noun="SchedulingPolicy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateSchedulingPolicy" Verb="Update" Noun="SchedulingPolicy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -18,279 +18,279 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchUpdateRule" OutputProperty="*" Verb="Update" Noun="RuleList" ShouldProcessTarget="ListenerIdentifier" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchUpdateRule" OutputProperty="*" Verb="Update" Noun="RuleList" ShouldProcessTarget="ListenerIdentifier" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAccessLogSubscription" OutputProperty="*" Verb="New" Noun="AccessLogSubscription" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAccessLogSubscription" OutputProperty="*" Verb="New" Noun="AccessLogSubscription" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateListener" OutputProperty="*" Verb="New" Noun="Listener" ShouldProcessTarget="ServiceIdentifier" PipelineParameter="ServiceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateListener" OutputProperty="*" Verb="New" Noun="Listener" ShouldProcessTarget="ServiceIdentifier" PipelineParameter="ServiceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateResourceConfiguration" OutputProperty="*" Verb="New" Noun="ResourceConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateResourceConfiguration" OutputProperty="*" Verb="New" Noun="ResourceConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateResourceGateway" OutputProperty="*" Verb="New" Noun="ResourceGateway" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateResourceGateway" OutputProperty="*" Verb="New" Noun="ResourceGateway" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRule" OutputProperty="*" Verb="New" Noun="Rule" ShouldProcessTarget="ListenerIdentifier" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateRule" OutputProperty="*" Verb="New" Noun="Rule" ShouldProcessTarget="ListenerIdentifier" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateService" OutputProperty="*" Verb="New" Noun="Service" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateService" OutputProperty="*" Verb="New" Noun="Service" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateServiceNetwork" OutputProperty="*" Verb="New" Noun="ServiceNetwork" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateServiceNetwork" OutputProperty="*" Verb="New" Noun="ServiceNetwork" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateServiceNetworkResourceAssociation" OutputProperty="*" Verb="New" Noun="ServiceNetworkResourceAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateServiceNetworkResourceAssociation" OutputProperty="*" Verb="New" Noun="ServiceNetworkResourceAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateServiceNetworkServiceAssociation" OutputProperty="*" Verb="New" Noun="ServiceNetworkServiceAssociation" ShouldProcessTarget="ServiceIdentifier" PipelineParameter="ServiceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateServiceNetworkServiceAssociation" OutputProperty="*" Verb="New" Noun="ServiceNetworkServiceAssociation" ShouldProcessTarget="ServiceIdentifier" PipelineParameter="ServiceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateServiceNetworkVpcAssociation" OutputProperty="*" Verb="New" Noun="ServiceNetworkVpcAssociation" ShouldProcessTarget="ServiceNetworkIdentifier" PipelineParameter="ServiceNetworkIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateServiceNetworkVpcAssociation" OutputProperty="*" Verb="New" Noun="ServiceNetworkVpcAssociation" ShouldProcessTarget="ServiceNetworkIdentifier" PipelineParameter="ServiceNetworkIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTargetGroup" OutputProperty="*" Verb="New" Noun="TargetGroup" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateTargetGroup" OutputProperty="*" Verb="New" Noun="TargetGroup" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccessLogSubscription" Verb="Remove" Noun="AccessLogSubscription" ShouldProcessTarget="AccessLogSubscriptionIdentifier" PipelineParameter="AccessLogSubscriptionIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAccessLogSubscription" Verb="Remove" Noun="AccessLogSubscription" ShouldProcessTarget="AccessLogSubscriptionIdentifier" PipelineParameter="AccessLogSubscriptionIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAuthPolicy" Verb="Remove" Noun="AuthPolicy" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAuthPolicy" Verb="Remove" Noun="AuthPolicy" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteListener" Verb="Remove" Noun="Listener" ShouldProcessTarget="ListenerIdentifier" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteListener" Verb="Remove" Noun="Listener" ShouldProcessTarget="ListenerIdentifier" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourceConfiguration" Verb="Remove" Noun="ResourceConfiguration" ShouldProcessTarget="ResourceConfigurationIdentifier" PipelineParameter="ResourceConfigurationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteResourceConfiguration" Verb="Remove" Noun="ResourceConfiguration" ShouldProcessTarget="ResourceConfigurationIdentifier" PipelineParameter="ResourceConfigurationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourceEndpointAssociation" OutputProperty="*" Verb="Remove" Noun="ResourceEndpointAssociation" ShouldProcessTarget="ResourceEndpointAssociationIdentifier" PipelineParameter="ResourceEndpointAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteResourceEndpointAssociation" OutputProperty="*" Verb="Remove" Noun="ResourceEndpointAssociation" ShouldProcessTarget="ResourceEndpointAssociationIdentifier" PipelineParameter="ResourceEndpointAssociationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourceGateway" OutputProperty="*" Verb="Remove" Noun="ResourceGateway" ShouldProcessTarget="ResourceGatewayIdentifier" PipelineParameter="ResourceGatewayIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteResourceGateway" OutputProperty="*" Verb="Remove" Noun="ResourceGateway" ShouldProcessTarget="ResourceGatewayIdentifier" PipelineParameter="ResourceGatewayIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRule" Verb="Remove" Noun="Rule" ShouldProcessTarget="ListenerIdentifier" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteRule" Verb="Remove" Noun="Rule" ShouldProcessTarget="ListenerIdentifier" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteService" OutputProperty="*" Verb="Remove" Noun="Service" ShouldProcessTarget="ServiceIdentifier" PipelineParameter="ServiceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteService" OutputProperty="*" Verb="Remove" Noun="Service" ShouldProcessTarget="ServiceIdentifier" PipelineParameter="ServiceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteServiceNetwork" Verb="Remove" Noun="ServiceNetwork" ShouldProcessTarget="ServiceNetworkIdentifier" PipelineParameter="ServiceNetworkIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteServiceNetwork" Verb="Remove" Noun="ServiceNetwork" ShouldProcessTarget="ServiceNetworkIdentifier" PipelineParameter="ServiceNetworkIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteServiceNetworkResourceAssociation" OutputProperty="*" Verb="Remove" Noun="ServiceNetworkResourceAssociation" ShouldProcessTarget="ServiceNetworkResourceAssociationIdentifier" PipelineParameter="ServiceNetworkResourceAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteServiceNetworkResourceAssociation" OutputProperty="*" Verb="Remove" Noun="ServiceNetworkResourceAssociation" ShouldProcessTarget="ServiceNetworkResourceAssociationIdentifier" PipelineParameter="ServiceNetworkResourceAssociationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteServiceNetworkServiceAssociation" OutputProperty="*" Verb="Remove" Noun="ServiceNetworkServiceAssociation" ShouldProcessTarget="ServiceNetworkServiceAssociationIdentifier" PipelineParameter="ServiceNetworkServiceAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteServiceNetworkServiceAssociation" OutputProperty="*" Verb="Remove" Noun="ServiceNetworkServiceAssociation" ShouldProcessTarget="ServiceNetworkServiceAssociationIdentifier" PipelineParameter="ServiceNetworkServiceAssociationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteServiceNetworkVpcAssociation" OutputProperty="*" Verb="Remove" Noun="ServiceNetworkVpcAssociation" ShouldProcessTarget="ServiceNetworkVpcAssociationIdentifier" PipelineParameter="ServiceNetworkVpcAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteServiceNetworkVpcAssociation" OutputProperty="*" Verb="Remove" Noun="ServiceNetworkVpcAssociation" ShouldProcessTarget="ServiceNetworkVpcAssociationIdentifier" PipelineParameter="ServiceNetworkVpcAssociationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTargetGroup" OutputProperty="*" Verb="Remove" Noun="TargetGroup" ShouldProcessTarget="TargetGroupIdentifier" PipelineParameter="TargetGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteTargetGroup" OutputProperty="*" Verb="Remove" Noun="TargetGroup" ShouldProcessTarget="TargetGroupIdentifier" PipelineParameter="TargetGroupIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterTargets" OutputProperty="*" Verb="Unregister" Noun="Target" ShouldProcessTarget="TargetGroupIdentifier" PipelineParameter="TargetGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeregisterTargets" OutputProperty="*" Verb="Unregister" Noun="Target" ShouldProcessTarget="TargetGroupIdentifier" PipelineParameter="TargetGroupIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccessLogSubscription" OutputProperty="*" Verb="Get" Noun="AccessLogSubscription" PipelineParameter="AccessLogSubscriptionIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAccessLogSubscription" OutputProperty="*" Verb="Get" Noun="AccessLogSubscription" PipelineParameter="AccessLogSubscriptionIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAuthPolicy" OutputProperty="*" Verb="Get" Noun="AuthPolicy" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAuthPolicy" OutputProperty="*" Verb="Get" Noun="AuthPolicy" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetListener" OutputProperty="*" Verb="Get" Noun="Listener" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetListener" OutputProperty="*" Verb="Get" Noun="Listener" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourceConfiguration" OutputProperty="*" Verb="Get" Noun="ResourceConfiguration" PipelineParameter="ResourceConfigurationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetResourceConfiguration" OutputProperty="*" Verb="Get" Noun="ResourceConfiguration" PipelineParameter="ResourceConfigurationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourceGateway" OutputProperty="*" Verb="Get" Noun="ResourceGateway" PipelineParameter="ResourceGatewayIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetResourceGateway" OutputProperty="*" Verb="Get" Noun="ResourceGateway" PipelineParameter="ResourceGatewayIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRule" OutputProperty="*" Verb="Get" Noun="Rule" PipelineParameter="RuleIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetRule" OutputProperty="*" Verb="Get" Noun="Rule" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetService" OutputProperty="*" Verb="Get" Noun="Service" PipelineParameter="ServiceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetService" OutputProperty="*" Verb="Get" Noun="Service" PipelineParameter="ServiceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetServiceNetwork" OutputProperty="*" Verb="Get" Noun="ServiceNetwork" PipelineParameter="ServiceNetworkIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetServiceNetwork" OutputProperty="*" Verb="Get" Noun="ServiceNetwork" PipelineParameter="ServiceNetworkIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetServiceNetworkResourceAssociation" OutputProperty="*" Verb="Get" Noun="ServiceNetworkResourceAssociation" PipelineParameter="ServiceNetworkResourceAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetServiceNetworkResourceAssociation" OutputProperty="*" Verb="Get" Noun="ServiceNetworkResourceAssociation" PipelineParameter="ServiceNetworkResourceAssociationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetServiceNetworkServiceAssociation" OutputProperty="*" Verb="Get" Noun="ServiceNetworkServiceAssociation" PipelineParameter="ServiceNetworkServiceAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetServiceNetworkServiceAssociation" OutputProperty="*" Verb="Get" Noun="ServiceNetworkServiceAssociation" PipelineParameter="ServiceNetworkServiceAssociationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetServiceNetworkVpcAssociation" OutputProperty="*" Verb="Get" Noun="ServiceNetworkVpcAssociation" PipelineParameter="ServiceNetworkVpcAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetServiceNetworkVpcAssociation" OutputProperty="*" Verb="Get" Noun="ServiceNetworkVpcAssociation" PipelineParameter="ServiceNetworkVpcAssociationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTargetGroup" OutputProperty="*" Verb="Get" Noun="TargetGroup" PipelineParameter="TargetGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTargetGroup" OutputProperty="*" Verb="Get" Noun="TargetGroup" PipelineParameter="TargetGroupIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccessLogSubscriptions" OutputProperty="Items" Verb="Get" Noun="AccessLogSubscriptionList" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAccessLogSubscriptions" OutputProperty="Items" Verb="Get" Noun="AccessLogSubscriptionList" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListListeners" OutputProperty="Items" Verb="Get" Noun="ListenerList" PipelineParameter="ServiceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListListeners" OutputProperty="Items" Verb="Get" Noun="ListenerList" PipelineParameter="ServiceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceConfigurations" OutputProperty="Items" Verb="Get" Noun="ResourceConfigurationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResourceConfigurations" OutputProperty="Items" Verb="Get" Noun="ResourceConfigurationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceEndpointAssociations" OutputProperty="Items" Verb="Get" Noun="ResourceEndpointAssociationList" PipelineParameter="ResourceConfigurationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResourceEndpointAssociations" OutputProperty="Items" Verb="Get" Noun="ResourceEndpointAssociationList" PipelineParameter="ResourceConfigurationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceGateways" OutputProperty="Items" Verb="Get" Noun="ResourceGatewayList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResourceGateways" OutputProperty="Items" Verb="Get" Noun="ResourceGatewayList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRules" OutputProperty="Items" Verb="Get" Noun="RuleList" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRules" OutputProperty="Items" Verb="Get" Noun="RuleList" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServiceNetworkResourceAssociations" OutputProperty="Items" Verb="Get" Noun="ServiceNetworkResourceAssociationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListServiceNetworkResourceAssociations" OutputProperty="Items" Verb="Get" Noun="ServiceNetworkResourceAssociationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServiceNetworks" OutputProperty="Items" Verb="Get" Noun="ServiceNetworkList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListServiceNetworks" OutputProperty="Items" Verb="Get" Noun="ServiceNetworkList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServiceNetworkServiceAssociations" OutputProperty="Items" Verb="Get" Noun="ServiceNetworkServiceAssociationList" PipelineParameter="ServiceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListServiceNetworkServiceAssociations" OutputProperty="Items" Verb="Get" Noun="ServiceNetworkServiceAssociationList" PipelineParameter="ServiceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServiceNetworkVpcAssociations" OutputProperty="Items" Verb="Get" Noun="ServiceNetworkVpcAssociationList" PipelineParameter="ServiceNetworkIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListServiceNetworkVpcAssociations" OutputProperty="Items" Verb="Get" Noun="ServiceNetworkVpcAssociationList" PipelineParameter="ServiceNetworkIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServiceNetworkVpcEndpointAssociations" OutputProperty="Items" Verb="Get" Noun="ServiceNetworkVpcEndpointAssociationList" PipelineParameter="ServiceNetworkIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListServiceNetworkVpcEndpointAssociations" OutputProperty="Items" Verb="Get" Noun="ServiceNetworkVpcEndpointAssociationList" PipelineParameter="ServiceNetworkIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServices" OutputProperty="Items" Verb="Get" Noun="ServiceList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListServices" OutputProperty="Items" Verb="Get" Noun="ServiceList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTargetGroups" OutputProperty="Items" Verb="Get" Noun="TargetGroupList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTargetGroups" OutputProperty="Items" Verb="Get" Noun="TargetGroupList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTargets" OutputProperty="Items" Verb="Get" Noun="TargetList" PipelineParameter="TargetGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTargets" OutputProperty="Items" Verb="Get" Noun="TargetList" PipelineParameter="TargetGroupIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAuthPolicy" OutputProperty="*" Verb="Write" Noun="AuthPolicy" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutAuthPolicy" OutputProperty="*" Verb="Write" Noun="AuthPolicy" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutResourcePolicy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutResourcePolicy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterTargets" OutputProperty="*" Verb="Register" Noun="Target" ShouldProcessTarget="TargetGroupIdentifier" PipelineParameter="TargetGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RegisterTargets" OutputProperty="*" Verb="Register" Noun="Target" ShouldProcessTarget="TargetGroupIdentifier" PipelineParameter="TargetGroupIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAccessLogSubscription" OutputProperty="*" Verb="Update" Noun="AccessLogSubscription" ShouldProcessTarget="AccessLogSubscriptionIdentifier" PipelineParameter="AccessLogSubscriptionIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateAccessLogSubscription" OutputProperty="*" Verb="Update" Noun="AccessLogSubscription" ShouldProcessTarget="AccessLogSubscriptionIdentifier" PipelineParameter="AccessLogSubscriptionIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateListener" OutputProperty="*" Verb="Update" Noun="Listener" ShouldProcessTarget="ListenerIdentifier" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateListener" OutputProperty="*" Verb="Update" Noun="Listener" ShouldProcessTarget="ListenerIdentifier" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateResourceConfiguration" OutputProperty="*" Verb="Update" Noun="ResourceConfiguration" ShouldProcessTarget="ResourceConfigurationIdentifier" PipelineParameter="ResourceConfigurationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateResourceConfiguration" OutputProperty="*" Verb="Update" Noun="ResourceConfiguration" ShouldProcessTarget="ResourceConfigurationIdentifier" PipelineParameter="ResourceConfigurationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateResourceGateway" OutputProperty="*" Verb="Update" Noun="ResourceGateway" ShouldProcessTarget="ResourceGatewayIdentifier" PipelineParameter="ResourceGatewayIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateResourceGateway" OutputProperty="*" Verb="Update" Noun="ResourceGateway" ShouldProcessTarget="ResourceGatewayIdentifier" PipelineParameter="ResourceGatewayIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRule" OutputProperty="*" Verb="Update" Noun="Rule" ShouldProcessTarget="ListenerIdentifier" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateRule" OutputProperty="*" Verb="Update" Noun="Rule" ShouldProcessTarget="ListenerIdentifier" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateService" OutputProperty="*" Verb="Update" Noun="Service" ShouldProcessTarget="ServiceIdentifier" PipelineParameter="ServiceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateService" OutputProperty="*" Verb="Update" Noun="Service" ShouldProcessTarget="ServiceIdentifier" PipelineParameter="ServiceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateServiceNetwork" OutputProperty="*" Verb="Update" Noun="ServiceNetwork" ShouldProcessTarget="ServiceNetworkIdentifier" PipelineParameter="ServiceNetworkIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateServiceNetwork" OutputProperty="*" Verb="Update" Noun="ServiceNetwork" ShouldProcessTarget="ServiceNetworkIdentifier" PipelineParameter="ServiceNetworkIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateServiceNetworkVpcAssociation" OutputProperty="*" Verb="Update" Noun="ServiceNetworkVpcAssociation" ShouldProcessTarget="ServiceNetworkVpcAssociationIdentifier" PipelineParameter="ServiceNetworkVpcAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateServiceNetworkVpcAssociation" OutputProperty="*" Verb="Update" Noun="ServiceNetworkVpcAssociation" ShouldProcessTarget="ServiceNetworkVpcAssociationIdentifier" PipelineParameter="ServiceNetworkVpcAssociationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTargetGroup" OutputProperty="*" Verb="Update" Noun="TargetGroup" ShouldProcessTarget="TargetGroupIdentifier" PipelineParameter="TargetGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateTargetGroup" OutputProperty="*" Verb="Update" Noun="TargetGroup" ShouldProcessTarget="TargetGroupIdentifier" PipelineParameter="TargetGroupIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

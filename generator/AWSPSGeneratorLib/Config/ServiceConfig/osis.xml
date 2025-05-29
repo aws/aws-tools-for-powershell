@@ -18,59 +18,59 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreatePipeline" OutputProperty="Pipeline" Verb="New" Noun="Pipeline" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreatePipeline" OutputProperty="Pipeline" Verb="New" Noun="Pipeline" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePipeline" Verb="Remove" Noun="Pipeline" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeletePipeline" Verb="Remove" Noun="Pipeline" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPipeline" OutputProperty="Pipeline" Verb="Get" Noun="Pipeline" PipelineParameter="PipelineName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPipeline" OutputProperty="Pipeline" Verb="Get" Noun="Pipeline" PipelineParameter="PipelineName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPipelineBlueprint" OutputProperty="Blueprint" Verb="Get" Noun="PipelineBlueprint" PipelineParameter="BlueprintName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPipelineBlueprint" OutputProperty="Blueprint" Verb="Get" Noun="PipelineBlueprint" PipelineParameter="BlueprintName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPipelineChangeProgress" OutputProperty="ChangeProgressStatuses" Verb="Get" Noun="PipelineChangeProgress" PipelineParameter="PipelineName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPipelineChangeProgress" OutputProperty="ChangeProgressStatuses" Verb="Get" Noun="PipelineChangeProgress" PipelineParameter="PipelineName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPipelineBlueprints" OutputProperty="Blueprints" Verb="Get" Noun="PipelineBlueprintList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPipelineBlueprints" OutputProperty="Blueprints" Verb="Get" Noun="PipelineBlueprintList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPipelines" OutputProperty="Pipelines" Verb="Get" Noun="PipelineList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPipelines" OutputProperty="Pipelines" Verb="Get" Noun="PipelineList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartPipeline" OutputProperty="Pipeline" Verb="Start" Noun="Pipeline" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartPipeline" OutputProperty="Pipeline" Verb="Start" Noun="Pipeline" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopPipeline" OutputProperty="Pipeline" Verb="Stop" Noun="Pipeline" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopPipeline" OutputProperty="Pipeline" Verb="Stop" Noun="Pipeline" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePipeline" OutputProperty="Pipeline" Verb="Update" Noun="Pipeline" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdatePipeline" OutputProperty="Pipeline" Verb="Update" Noun="Pipeline" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ValidatePipeline" OutputProperty="*" Verb="Use" Noun="Pipeline" ShouldProcessTarget="PipelineConfigurationBody" PipelineParameter="PipelineConfigurationBody" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ValidatePipeline" OutputProperty="*" Verb="Use" Noun="Pipeline" ShouldProcessTarget="PipelineConfigurationBody" PipelineParameter="PipelineConfigurationBody" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

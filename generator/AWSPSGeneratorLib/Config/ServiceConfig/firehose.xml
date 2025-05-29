@@ -18,7 +18,7 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateDeliveryStream" OutputProperty="DeliveryStreamARN" Verb="New" Noun="DeliveryStream" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDeliveryStream" OutputProperty="DeliveryStreamARN" Verb="New" Noun="DeliveryStream" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="IcebergDestinationConfiguration_CloudWatchLoggingOptions_Enabled" NewName="IcebergDestinationConfiguration_CloudWatchLoggingOptions_Enabled" AutoApplyAlias="false" />
                 <Param Name="IcebergDestinationConfiguration_BufferingHints_IntervalInSeconds" NewName="IcebergDestinationConfiguration_BufferingHints_IntervalInSeconds" AutoApplyAlias="false" />
@@ -84,50 +84,50 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDeliveryStream" Verb="Remove" Noun="DeliveryStream" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDeliveryStream" Verb="Remove" Noun="DeliveryStream" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDeliveryStream" OutputProperty="DeliveryStreamDescription" Verb="Get" Noun="DeliveryStream" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDeliveryStream" OutputProperty="DeliveryStreamDescription" Verb="Get" Noun="DeliveryStream" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeliveryStreams" OutputProperty="*" Verb="Get" Noun="DeliveryStreamList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDeliveryStreams" OutputProperty="*" Verb="Get" Noun="DeliveryStreamList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForDeliveryStream" OutputProperty="*" Verb="Get" Noun="TagsForDeliveryStream" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForDeliveryStream" OutputProperty="*" Verb="Get" Noun="TagsForDeliveryStream" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRecord" OutputProperty="RecordId" Verb="Write" Noun="Record" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="" NoPipelineParameter="true" DefaultParameterSet="FromBlob" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutRecord" OutputProperty="RecordId" Verb="Write" Noun="Record" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="" NoPipelineParameter="true" DefaultParameterSet="FromBlob">
             <Params>
                 <Param Name="Record_Data" Alias="Blob" ParameterSetName="FromBlob" Mandatory="true" />
                 <Param Name="DeliveryStreamName" Mandatory="true" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRecordBatch" OutputProperty="*" Verb="Write" Noun="RecordBatch" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="Records" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutRecordBatch" OutputProperty="*" Verb="Write" Noun="RecordBatch" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="Records" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDeliveryStreamEncryption" Verb="Start" Noun="DeliveryStreamEncryption" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartDeliveryStreamEncryption" Verb="Start" Noun="DeliveryStreamEncryption" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopDeliveryStreamEncryption" Verb="Stop" Noun="DeliveryStreamEncryption" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopDeliveryStreamEncryption" Verb="Stop" Noun="DeliveryStreamEncryption" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagDeliveryStream" Verb="Add" Noun="DeliveryStreamTag" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagDeliveryStream" Verb="Add" Noun="DeliveryStreamTag" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagDeliveryStream" Verb="Remove" Noun="DeliveryStreamTag" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagDeliveryStream" Verb="Remove" Noun="DeliveryStreamTag" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDestination" Verb="Update" Noun="Destination" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDestination" Verb="Update" Noun="Destination" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="IcebergDestinationUpdate_CloudWatchLoggingOptions_Enabled" NewName="IcebergDestinationConfiguration_CloudWatchLoggingOptions_Enabled" />
                 <Param Name="IcebergDestinationUpdate_BufferingHints_IntervalInSeconds" NewName="IcebergDestinationConfiguration_BufferingHints_IntervalInSeconds" AutoApplyAlias="false" />

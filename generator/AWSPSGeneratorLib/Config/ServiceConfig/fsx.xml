@@ -19,39 +19,39 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateFileSystemAliases" OutputProperty="Aliases" Verb="Register" Noun="FileSystemAlias" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateFileSystemAliases" OutputProperty="Aliases" Verb="Register" Noun="FileSystemAlias" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelDataRepositoryTask" OutputProperty="*" Verb="Stop" Noun="DataRepositoryTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelDataRepositoryTask" OutputProperty="*" Verb="Stop" Noun="DataRepositoryTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopyBackup" OutputProperty="Backup" Verb="Copy" Noun="Backup" ShouldProcessTarget="SourceBackupId" PipelineParameter="SourceBackupId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CopyBackup" OutputProperty="Backup" Verb="Copy" Noun="Backup" ShouldProcessTarget="SourceBackupId" PipelineParameter="SourceBackupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopySnapshotAndUpdateVolume" OutputProperty="*" Verb="Copy" Noun="SnapshotAndUpdateVolume" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CopySnapshotAndUpdateVolume" OutputProperty="*" Verb="Copy" Noun="SnapshotAndUpdateVolume" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBackup" OutputProperty="Backup" Verb="New" Noun="Backup" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateBackup" OutputProperty="Backup" Verb="New" Noun="Backup" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataRepositoryAssociation" OutputProperty="Association" Verb="New" Noun="DataRepositoryAssociation" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDataRepositoryAssociation" OutputProperty="Association" Verb="New" Noun="DataRepositoryAssociation" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataRepositoryTask" OutputProperty="DataRepositoryTask" Verb="New" Noun="DataRepositoryTask" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDataRepositoryTask" OutputProperty="DataRepositoryTask" Verb="New" Noun="DataRepositoryTask" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFileCache" OutputProperty="FileCache" Verb="New" Noun="FileCache" ShouldProcessTarget="KmsKeyId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateFileCache" OutputProperty="FileCache" Verb="New" Noun="FileCache" ShouldProcessTarget="KmsKeyId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFileSystem" OutputProperty="FileSystem" Verb="New" Noun="FileSystem" ShouldProcessTarget="FileSystemType" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateFileSystem" OutputProperty="FileSystem" Verb="New" Noun="FileSystem" ShouldProcessTarget="FileSystemType" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="OntapConfiguration_DiskIopsConfiguration_Iops" NewName="OntapConfiguration_DiskIopsConfiguration_Iops" />
                 <Param Name="OpenZFSConfiguration_DiskIopsConfiguration_Iops" NewName="OpenZFSConfiguration_DiskIopsConfiguration_Iops" />
@@ -60,131 +60,131 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFileSystemFromBackup" OutputProperty="FileSystem" Verb="New" Noun="FileSystemFromBackup" ShouldProcessTarget="BackupId" PipelineParameter="BackupId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateFileSystemFromBackup" OutputProperty="FileSystem" Verb="New" Noun="FileSystemFromBackup" ShouldProcessTarget="BackupId" PipelineParameter="BackupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSnapshot" OutputProperty="Snapshot" Verb="New" Noun="Snapshot" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateSnapshot" OutputProperty="Snapshot" Verb="New" Noun="Snapshot" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStorageVirtualMachine" OutputProperty="StorageVirtualMachine" Verb="New" Noun="StorageVirtualMachine" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateStorageVirtualMachine" OutputProperty="StorageVirtualMachine" Verb="New" Noun="StorageVirtualMachine" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVolume" OutputProperty="Volume" Verb="New" Noun="Volume" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateVolume" OutputProperty="Volume" Verb="New" Noun="Volume" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVolumeFromBackup" OutputProperty="Volume" Verb="New" Noun="VolumeFromBackup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateVolumeFromBackup" OutputProperty="Volume" Verb="New" Noun="VolumeFromBackup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBackup" OutputProperty="*" Verb="Remove" Noun="Backup" ShouldProcessTarget="BackupId" PipelineParameter="BackupId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBackup" OutputProperty="*" Verb="Remove" Noun="Backup" ShouldProcessTarget="BackupId" PipelineParameter="BackupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataRepositoryAssociation" OutputProperty="*" Verb="Remove" Noun="DataRepositoryAssociation" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDataRepositoryAssociation" OutputProperty="*" Verb="Remove" Noun="DataRepositoryAssociation" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFileCache" OutputProperty="*" Verb="Remove" Noun="FileCache" ShouldProcessTarget="FileCacheId" PipelineParameter="FileCacheId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteFileCache" OutputProperty="*" Verb="Remove" Noun="FileCache" ShouldProcessTarget="FileCacheId" PipelineParameter="FileCacheId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFileSystem" OutputProperty="*" Verb="Remove" Noun="FileSystem" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteFileSystem" OutputProperty="*" Verb="Remove" Noun="FileSystem" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSnapshot" OutputProperty="*" Verb="Remove" Noun="Snapshot" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteSnapshot" OutputProperty="*" Verb="Remove" Noun="Snapshot" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStorageVirtualMachine" OutputProperty="*" Verb="Remove" Noun="StorageVirtualMachine" ShouldProcessTarget="StorageVirtualMachineId" PipelineParameter="StorageVirtualMachineId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteStorageVirtualMachine" OutputProperty="*" Verb="Remove" Noun="StorageVirtualMachine" ShouldProcessTarget="StorageVirtualMachineId" PipelineParameter="StorageVirtualMachineId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVolume" OutputProperty="*" Verb="Remove" Noun="Volume" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteVolume" OutputProperty="*" Verb="Remove" Noun="Volume" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBackups" OutputProperty="Backups" Verb="Get" Noun="Backup" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBackups" OutputProperty="Backups" Verb="Get" Noun="Backup" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDataRepositoryAssociations" OutputProperty="Associations" Verb="Get" Noun="DataRepositoryAssociation" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDataRepositoryAssociations" OutputProperty="Associations" Verb="Get" Noun="DataRepositoryAssociation" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDataRepositoryTasks" OutputProperty="DataRepositoryTasks" Verb="Get" Noun="DataRepositoryTask" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDataRepositoryTasks" OutputProperty="DataRepositoryTasks" Verb="Get" Noun="DataRepositoryTask" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFileCaches" OutputProperty="FileCaches" Verb="Get" Noun="FileCach" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeFileCaches" OutputProperty="FileCaches" Verb="Get" Noun="FileCach" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFileSystemAliases" OutputProperty="Aliases" Verb="Get" Noun="FileSystemAlias" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeFileSystemAliases" OutputProperty="Aliases" Verb="Get" Noun="FileSystemAlias" PipelineParameter="FileSystemId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFileSystems" OutputProperty="FileSystems" Verb="Get" Noun="FileSystem" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeFileSystems" OutputProperty="FileSystems" Verb="Get" Noun="FileSystem" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSharedVpcConfiguration" OutputProperty="EnableFsxRouteTableUpdatesFromParticipantAccounts" Verb="Get" Noun="SharedVpcConfiguration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSharedVpcConfiguration" OutputProperty="EnableFsxRouteTableUpdatesFromParticipantAccounts" Verb="Get" Noun="SharedVpcConfiguration" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="Snapshot" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="Snapshot" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStorageVirtualMachines" OutputProperty="StorageVirtualMachines" Verb="Get" Noun="StorageVirtualMachine" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeStorageVirtualMachines" OutputProperty="StorageVirtualMachines" Verb="Get" Noun="StorageVirtualMachine" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVolumes" OutputProperty="Volumes" Verb="Get" Noun="Volume" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVolumes" OutputProperty="Volumes" Verb="Get" Noun="Volume" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateFileSystemAliases" OutputProperty="Aliases" Verb="Unregister" Noun="FileSystemAlias" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateFileSystemAliases" OutputProperty="Aliases" Verb="Unregister" Noun="FileSystemAlias" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReleaseFileSystemNfsV3Locks" OutputProperty="FileSystem" Verb="Clear" Noun="FileSystemNfsV3Lock" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ReleaseFileSystemNfsV3Locks" OutputProperty="FileSystem" Verb="Clear" Noun="FileSystemNfsV3Lock" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreVolumeFromSnapshot" OutputProperty="*" Verb="Restore" Noun="VolumeFromSnapshot" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RestoreVolumeFromSnapshot" OutputProperty="*" Verb="Restore" Noun="VolumeFromSnapshot" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMisconfiguredStateRecovery" OutputProperty="FileSystem" Verb="Start" Noun="MisconfiguredStateRecovery" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartMisconfiguredStateRecovery" OutputProperty="FileSystem" Verb="Start" Noun="MisconfiguredStateRecovery" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataRepositoryAssociation" OutputProperty="Association" Verb="Update" Noun="DataRepositoryAssociation" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDataRepositoryAssociation" OutputProperty="Association" Verb="Update" Noun="DataRepositoryAssociation" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFileCache" OutputProperty="FileCache" Verb="Update" Noun="FileCache" ShouldProcessTarget="FileCacheId" PipelineParameter="FileCacheId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateFileCache" OutputProperty="FileCache" Verb="Update" Noun="FileCache" ShouldProcessTarget="FileCacheId" PipelineParameter="FileCacheId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFileSystem" OutputProperty="FileSystem" Verb="Update" Noun="FileSystem" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateFileSystem" OutputProperty="FileSystem" Verb="Update" Noun="FileSystem" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
             <Params>
                 <Param Name="OntapConfiguration_DiskIopsConfiguration_Iops" NewName="OntapConfiguration_DiskIopsConfiguration_Iops" />
                 <Param Name="OpenZFSConfiguration_DiskIopsConfiguration_Iops" NewName="OpenZFSConfiguration_DiskIopsConfiguration_Iops" />
@@ -193,19 +193,19 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSharedVpcConfiguration" OutputProperty="EnableFsxRouteTableUpdatesFromParticipantAccounts" Verb="Update" Noun="SharedVpcConfiguration" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateSharedVpcConfiguration" OutputProperty="EnableFsxRouteTableUpdatesFromParticipantAccounts" Verb="Update" Noun="SharedVpcConfiguration" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSnapshot" OutputProperty="Snapshot" Verb="Update" Noun="Snapshot" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateSnapshot" OutputProperty="Snapshot" Verb="Update" Noun="Snapshot" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStorageVirtualMachine" OutputProperty="StorageVirtualMachine" Verb="Update" Noun="StorageVirtualMachine" ShouldProcessTarget="StorageVirtualMachineId" PipelineParameter="StorageVirtualMachineId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateStorageVirtualMachine" OutputProperty="StorageVirtualMachine" Verb="Update" Noun="StorageVirtualMachine" ShouldProcessTarget="StorageVirtualMachineId" PipelineParameter="StorageVirtualMachineId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateVolume" OutputProperty="Volume" Verb="Update" Noun="Volume" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateVolume" OutputProperty="Volume" Verb="Update" Noun="Volume" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

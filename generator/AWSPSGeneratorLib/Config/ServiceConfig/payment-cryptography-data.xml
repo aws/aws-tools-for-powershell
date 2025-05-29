@@ -18,23 +18,23 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DecryptData" OutputProperty="*" Verb="Unprotect" Noun="Data" ShouldProcessTarget="KeyIdentifier" PipelineParameter="KeyIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DecryptData" OutputProperty="*" Verb="Unprotect" Noun="Data" ShouldProcessTarget="KeyIdentifier" PipelineParameter="KeyIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EncryptData" OutputProperty="*" Verb="Protect" Noun="Data" ShouldProcessTarget="KeyIdentifier" PipelineParameter="KeyIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="EncryptData" OutputProperty="*" Verb="Protect" Noun="Data" ShouldProcessTarget="KeyIdentifier" PipelineParameter="KeyIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateCardValidationData" OutputProperty="*" Verb="New" Noun="CardValidationData" ShouldProcessTarget="KeyIdentifier" PipelineParameter="KeyIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GenerateCardValidationData" OutputProperty="*" Verb="New" Noun="CardValidationData" ShouldProcessTarget="KeyIdentifier" PipelineParameter="KeyIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateMac" OutputProperty="*" Verb="New" Noun="Mac" ShouldProcessTarget="KeyIdentifier" PipelineParameter="KeyIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GenerateMac" OutputProperty="*" Verb="New" Noun="Mac" ShouldProcessTarget="KeyIdentifier" PipelineParameter="KeyIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateMacEmvPinChange" OutputProperty="*" Verb="New" Noun="MacEmvPinChange" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GenerateMacEmvPinChange" OutputProperty="*" Verb="New" Noun="MacEmvPinChange" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="DerivationMethodAttributes_Amex_CurrentPinAttributes_CurrentEncryptedPinBlock" NewName="DerivationMethodAttributes_Amex_CurrentPinAttributes_CurrentEncryptedPinBlock" />
                 <Param Name="DerivationMethodAttributes_Visa_CurrentPinAttributes_CurrentEncryptedPinBlock" NewName="DerivationMethodAttributes_Visa_CurrentPinAttributes_CurrentEncryptedPinBlock" />
@@ -43,11 +43,11 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GeneratePinData" OutputProperty="*" Verb="New" Noun="PinData" AnonymousShouldProcessTarget="true" PipelineParameter="GenerationKeyIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GeneratePinData" OutputProperty="*" Verb="New" Noun="PinData" AnonymousShouldProcessTarget="true" PipelineParameter="GenerationKeyIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReEncryptData" OutputProperty="*" Verb="Update" Noun="EncryptData" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ReEncryptData" OutputProperty="*" Verb="Update" Noun="EncryptData" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier" NewName="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier" />
                 <Param Name="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm" NewName="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm" />
@@ -82,7 +82,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TranslatePinData" OutputProperty="*" Verb="Convert" Noun="PinData" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TranslatePinData" OutputProperty="*" Verb="Convert" Noun="PinData" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier" NewName="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier" />
                 <Param Name="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm" NewName="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm" />
@@ -107,19 +107,19 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="VerifyAuthRequestCryptogram" OutputProperty="*" Verb="Test" Noun="AuthRequestCryptogram" ShouldProcessTarget="" PipelineParameter="KeyIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="VerifyAuthRequestCryptogram" OutputProperty="*" Verb="Test" Noun="AuthRequestCryptogram" ShouldProcessTarget="" PipelineParameter="KeyIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="VerifyCardValidationData" OutputProperty="*" Verb="Test" Noun="CardValidationData" ShouldProcessTarget="" PipelineParameter="KeyIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="VerifyCardValidationData" OutputProperty="*" Verb="Test" Noun="CardValidationData" ShouldProcessTarget="" PipelineParameter="KeyIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="VerifyMac" OutputProperty="*" Verb="Test" Noun="Mac" ShouldProcessTarget="" PipelineParameter="KeyIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="VerifyMac" OutputProperty="*" Verb="Test" Noun="Mac" ShouldProcessTarget="" PipelineParameter="KeyIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="VerifyPinData" OutputProperty="*" Verb="Test" Noun="PinData" AnonymousShouldProcessTarget="true" PipelineParameter="VerificationKeyIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="VerifyPinData" OutputProperty="*" Verb="Test" Noun="PinData" AnonymousShouldProcessTarget="true" PipelineParameter="VerificationKeyIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

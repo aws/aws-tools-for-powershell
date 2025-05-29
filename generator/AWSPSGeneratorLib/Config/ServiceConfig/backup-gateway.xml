@@ -18,107 +18,107 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateGatewayToServer" OutputProperty="GatewayArn" Verb="Add" Noun="GatewayToServer" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateGatewayToServer" OutputProperty="GatewayArn" Verb="Add" Noun="GatewayToServer" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGateway" OutputProperty="GatewayArn" Verb="New" Noun="Gateway" ShouldProcessTarget="GatewayDisplayName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateGateway" OutputProperty="GatewayArn" Verb="New" Noun="Gateway" ShouldProcessTarget="GatewayDisplayName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGateway" OutputProperty="GatewayArn" Verb="Remove" Noun="Gateway" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteGateway" OutputProperty="GatewayArn" Verb="Remove" Noun="Gateway" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteHypervisor" OutputProperty="HypervisorArn" Verb="Remove" Noun="Hypervisor" ShouldProcessTarget="HypervisorArn" PipelineParameter="HypervisorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteHypervisor" OutputProperty="HypervisorArn" Verb="Remove" Noun="Hypervisor" ShouldProcessTarget="HypervisorArn" PipelineParameter="HypervisorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateGatewayFromServer" OutputProperty="GatewayArn" Verb="Remove" Noun="GatewayFromServer" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateGatewayFromServer" OutputProperty="GatewayArn" Verb="Remove" Noun="GatewayFromServer" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBandwidthRateLimitSchedule" OutputProperty="*" Verb="Get" Noun="BandwidthRateLimitSchedule" PipelineParameter="GatewayArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBandwidthRateLimitSchedule" OutputProperty="*" Verb="Get" Noun="BandwidthRateLimitSchedule" PipelineParameter="GatewayArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGateway" OutputProperty="Gateway" Verb="Get" Noun="Gateway" PipelineParameter="GatewayArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetGateway" OutputProperty="Gateway" Verb="Get" Noun="Gateway" PipelineParameter="GatewayArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHypervisor" OutputProperty="Hypervisor" Verb="Get" Noun="Hypervisor" PipelineParameter="HypervisorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetHypervisor" OutputProperty="Hypervisor" Verb="Get" Noun="Hypervisor" PipelineParameter="HypervisorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHypervisorPropertyMappings" OutputProperty="*" Verb="Get" Noun="HypervisorPropertyMapping" PipelineParameter="HypervisorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetHypervisorPropertyMappings" OutputProperty="*" Verb="Get" Noun="HypervisorPropertyMapping" PipelineParameter="HypervisorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVirtualMachine" OutputProperty="VirtualMachine" Verb="Get" Noun="VirtualMachine" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetVirtualMachine" OutputProperty="VirtualMachine" Verb="Get" Noun="VirtualMachine" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportHypervisorConfiguration" OutputProperty="HypervisorArn" Verb="Import" Noun="HypervisorConfiguration" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportHypervisorConfiguration" OutputProperty="HypervisorArn" Verb="Import" Noun="HypervisorConfiguration" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="Host" NewName="HypervisorHost" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGateways" OutputProperty="Gateways" Verb="Get" Noun="GatewayList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListGateways" OutputProperty="Gateways" Verb="Get" Noun="GatewayList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHypervisors" OutputProperty="Hypervisors" Verb="Get" Noun="HypervisorList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListHypervisors" OutputProperty="Hypervisors" Verb="Get" Noun="HypervisorList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVirtualMachines" OutputProperty="VirtualMachines" Verb="Get" Noun="VirtualMachineList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListVirtualMachines" OutputProperty="VirtualMachines" Verb="Get" Noun="VirtualMachineList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBandwidthRateLimitSchedule" OutputProperty="GatewayArn" Verb="Write" Noun="BandwidthRateLimitSchedule" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBandwidthRateLimitSchedule" OutputProperty="GatewayArn" Verb="Write" Noun="BandwidthRateLimitSchedule" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutHypervisorPropertyMappings" OutputProperty="HypervisorArn" Verb="Write" Noun="HypervisorPropertyMapping" ShouldProcessTarget="HypervisorArn" PipelineParameter="HypervisorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutHypervisorPropertyMappings" OutputProperty="HypervisorArn" Verb="Write" Noun="HypervisorPropertyMapping" ShouldProcessTarget="HypervisorArn" PipelineParameter="HypervisorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutMaintenanceStartTime" OutputProperty="GatewayArn" Verb="Write" Noun="MaintenanceStartTime" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutMaintenanceStartTime" OutputProperty="GatewayArn" Verb="Write" Noun="MaintenanceStartTime" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartVirtualMachinesMetadataSync" OutputProperty="HypervisorArn" Verb="Start" Noun="VirtualMachinesMetadataSync" ShouldProcessTarget="HypervisorArn" PipelineParameter="HypervisorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartVirtualMachinesMetadataSync" OutputProperty="HypervisorArn" Verb="Start" Noun="VirtualMachinesMetadataSync" ShouldProcessTarget="HypervisorArn" PipelineParameter="HypervisorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" OutputProperty="ResourceARN" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" OutputProperty="ResourceARN" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestHypervisorConfiguration" Verb="Test" Noun="HypervisorConfiguration" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TestHypervisorConfiguration" Verb="Test" Noun="HypervisorConfiguration" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="Host" NewName="HypervisorHost" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" OutputProperty="ResourceARN" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" OutputProperty="ResourceARN" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGatewayInformation" OutputProperty="GatewayArn" Verb="Update" Noun="GatewayInformation" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateGatewayInformation" OutputProperty="GatewayArn" Verb="Update" Noun="GatewayInformation" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGatewaySoftwareNow" OutputProperty="GatewayArn" Verb="Update" Noun="GatewaySoftwareNow" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateGatewaySoftwareNow" OutputProperty="GatewayArn" Verb="Update" Noun="GatewaySoftwareNow" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateHypervisor" OutputProperty="HypervisorArn" Verb="Update" Noun="Hypervisor" ShouldProcessTarget="HypervisorArn" PipelineParameter="HypervisorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateHypervisor" OutputProperty="HypervisorArn" Verb="Update" Noun="Hypervisor" ShouldProcessTarget="HypervisorArn" PipelineParameter="HypervisorArn" NoPipelineParameter="false">
             <Params>
                 <Param Name="Host" NewName="HypervisorHost" />
             </Params>

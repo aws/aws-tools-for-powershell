@@ -19,7 +19,7 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="ListRealtimeContactAnalysisSegments" OutputProperty="Segments" Verb="Get" Noun="RealtimeContactAnalysisSegmentList" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRealtimeContactAnalysisSegments" OutputProperty="Segments" Verb="Get" Noun="RealtimeContactAnalysisSegmentList" PipelineParameter="ContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

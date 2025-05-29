@@ -18,55 +18,55 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelJob" OutputProperty="*" Verb="Stop" Noun="Job" ShouldProcessTarget="JobArn" PipelineParameter="JobArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelJob" OutputProperty="*" Verb="Stop" Noun="Job" ShouldProcessTarget="JobArn" PipelineParameter="JobArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelQuantumTask" OutputProperty="*" Verb="Stop" Noun="QuantumTask" ShouldProcessTarget="QuantumTaskArn" PipelineParameter="QuantumTaskArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelQuantumTask" OutputProperty="*" Verb="Stop" Noun="QuantumTask" ShouldProcessTarget="QuantumTaskArn" PipelineParameter="QuantumTaskArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateJob" OutputProperty="JobArn" Verb="New" Noun="Job" ShouldProcessTarget="JobName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateJob" OutputProperty="JobArn" Verb="New" Noun="Job" ShouldProcessTarget="JobName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateQuantumTask" OutputProperty="QuantumTaskArn" Verb="New" Noun="QuantumTask" ShouldProcessTarget="DeviceArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateQuantumTask" OutputProperty="QuantumTaskArn" Verb="New" Noun="QuantumTask" ShouldProcessTarget="DeviceArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDevice" OutputProperty="*" Verb="Get" Noun="Device" PipelineParameter="DeviceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDevice" OutputProperty="*" Verb="Get" Noun="Device" PipelineParameter="DeviceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJob" OutputProperty="*" Verb="Get" Noun="Job" PipelineParameter="JobArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetJob" OutputProperty="*" Verb="Get" Noun="Job" PipelineParameter="JobArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQuantumTask" OutputProperty="*" Verb="Get" Noun="QuantumTask" PipelineParameter="QuantumTaskArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetQuantumTask" OutputProperty="*" Verb="Get" Noun="QuantumTask" PipelineParameter="QuantumTaskArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchDevices" OutputProperty="Devices" Verb="Search" Noun="Device" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchDevices" OutputProperty="Devices" Verb="Search" Noun="Device" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchJobs" OutputProperty="Jobs" Verb="Search" Noun="Job" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchJobs" OutputProperty="Jobs" Verb="Search" Noun="Job" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchQuantumTasks" OutputProperty="QuantumTasks" Verb="Search" Noun="QuantumTask" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchQuantumTasks" OutputProperty="QuantumTasks" Verb="Search" Noun="QuantumTask" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -19,147 +19,147 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateChannel" Verb="Add" Noun="Channel" ShouldProcessTarget="NotificationConfigurationArn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateChannel" Verb="Add" Noun="Channel" ShouldProcessTarget="NotificationConfigurationArn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateManagedNotificationAccountContact" Verb="Add" Noun="ManagedNotificationAccountContact" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateManagedNotificationAccountContact" Verb="Add" Noun="ManagedNotificationAccountContact" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateManagedNotificationAdditionalChannel" Verb="Add" Noun="ManagedNotificationAdditionalChannel" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateManagedNotificationAdditionalChannel" Verb="Add" Noun="ManagedNotificationAdditionalChannel" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEventRule" OutputProperty="*" Verb="New" Noun="EventRule" ShouldProcessTarget="NotificationConfigurationArn" PipelineParameter="NotificationConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateEventRule" OutputProperty="*" Verb="New" Noun="EventRule" ShouldProcessTarget="NotificationConfigurationArn" PipelineParameter="NotificationConfigurationArn" NoPipelineParameter="false">
             <Params>
                 <Param Name="Regions" NewName="EventRuleRegion" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateNotificationConfiguration" OutputProperty="*" Verb="New" Noun="NotificationConfiguration" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateNotificationConfiguration" OutputProperty="*" Verb="New" Noun="NotificationConfiguration" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEventRule" Verb="Remove" Noun="EventRule" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteEventRule" Verb="Remove" Noun="EventRule" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteNotificationConfiguration" Verb="Remove" Noun="NotificationConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteNotificationConfiguration" Verb="Remove" Noun="NotificationConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterNotificationHub" OutputProperty="*" Verb="Remove" Noun="NotificationHub" ShouldProcessTarget="NotificationHubRegion" PipelineParameter="NotificationHubRegion" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeregisterNotificationHub" OutputProperty="*" Verb="Remove" Noun="NotificationHub" ShouldProcessTarget="NotificationHubRegion" PipelineParameter="NotificationHubRegion" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableNotificationsAccessForOrganization" Verb="Disable" Noun="NotificationsAccessForOrganization" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisableNotificationsAccessForOrganization" Verb="Disable" Noun="NotificationsAccessForOrganization" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateChannel" Verb="Remove" Noun="Channel" ShouldProcessTarget="NotificationConfigurationArn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateChannel" Verb="Remove" Noun="Channel" ShouldProcessTarget="NotificationConfigurationArn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateManagedNotificationAccountContact" Verb="Remove" Noun="ManagedNotificationAccountContact" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateManagedNotificationAccountContact" Verb="Remove" Noun="ManagedNotificationAccountContact" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateManagedNotificationAdditionalChannel" Verb="Remove" Noun="ManagedNotificationAdditionalChannel" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateManagedNotificationAdditionalChannel" Verb="Remove" Noun="ManagedNotificationAdditionalChannel" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableNotificationsAccessForOrganization" Verb="Enable" Noun="NotificationsAccessForOrganization" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="EnableNotificationsAccessForOrganization" Verb="Enable" Noun="NotificationsAccessForOrganization" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEventRule" OutputProperty="*" Verb="Get" Noun="EventRule" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetEventRule" OutputProperty="*" Verb="Get" Noun="EventRule" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetManagedNotificationChildEvent" OutputProperty="*" Verb="Get" Noun="ManagedNotificationChildEvent" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetManagedNotificationChildEvent" OutputProperty="*" Verb="Get" Noun="ManagedNotificationChildEvent" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetManagedNotificationConfiguration" OutputProperty="*" Verb="Get" Noun="ManagedNotificationConfiguration" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetManagedNotificationConfiguration" OutputProperty="*" Verb="Get" Noun="ManagedNotificationConfiguration" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetManagedNotificationEvent" OutputProperty="*" Verb="Get" Noun="ManagedNotificationEvent" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetManagedNotificationEvent" OutputProperty="*" Verb="Get" Noun="ManagedNotificationEvent" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetNotificationConfiguration" OutputProperty="*" Verb="Get" Noun="NotificationConfiguration" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetNotificationConfiguration" OutputProperty="*" Verb="Get" Noun="NotificationConfiguration" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetNotificationEvent" OutputProperty="*" Verb="Get" Noun="NotificationEvent" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetNotificationEvent" OutputProperty="*" Verb="Get" Noun="NotificationEvent" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetNotificationsAccessForOrganization" OutputProperty="NotificationsAccessForOrganization" Verb="Get" Noun="NotificationsAccessForOrganization" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetNotificationsAccessForOrganization" OutputProperty="NotificationsAccessForOrganization" Verb="Get" Noun="NotificationsAccessForOrganization" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelList" PipelineParameter="NotificationConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelList" PipelineParameter="NotificationConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEventRules" OutputProperty="EventRules" Verb="Get" Noun="EventRuleList" PipelineParameter="NotificationConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEventRules" OutputProperty="EventRules" Verb="Get" Noun="EventRuleList" PipelineParameter="NotificationConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListManagedNotificationChannelAssociations" OutputProperty="ChannelAssociations" Verb="Get" Noun="ManagedNotificationChannelAssociationList" PipelineParameter="ManagedNotificationConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListManagedNotificationChannelAssociations" OutputProperty="ChannelAssociations" Verb="Get" Noun="ManagedNotificationChannelAssociationList" PipelineParameter="ManagedNotificationConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListManagedNotificationChildEvents" OutputProperty="ManagedNotificationChildEvents" Verb="Get" Noun="ManagedNotificationChildEventList" PipelineParameter="AggregateManagedNotificationEventArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListManagedNotificationChildEvents" OutputProperty="ManagedNotificationChildEvents" Verb="Get" Noun="ManagedNotificationChildEventList" PipelineParameter="AggregateManagedNotificationEventArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListManagedNotificationConfigurations" OutputProperty="ManagedNotificationConfigurations" Verb="Get" Noun="ManagedNotificationConfigurationList" PipelineParameter="ChannelIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListManagedNotificationConfigurations" OutputProperty="ManagedNotificationConfigurations" Verb="Get" Noun="ManagedNotificationConfigurationList" PipelineParameter="ChannelIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListManagedNotificationEvents" OutputProperty="ManagedNotificationEvents" Verb="Get" Noun="ManagedNotificationEventList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListManagedNotificationEvents" OutputProperty="ManagedNotificationEvents" Verb="Get" Noun="ManagedNotificationEventList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNotificationConfigurations" OutputProperty="NotificationConfigurations" Verb="Get" Noun="NotificationConfigurationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListNotificationConfigurations" OutputProperty="NotificationConfigurations" Verb="Get" Noun="NotificationConfigurationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNotificationEvents" OutputProperty="NotificationEvents" Verb="Get" Noun="NotificationEventList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListNotificationEvents" OutputProperty="NotificationEvents" Verb="Get" Noun="NotificationEventList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNotificationHubs" OutputProperty="NotificationHubs" Verb="Get" Noun="NotificationHubList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListNotificationHubs" OutputProperty="NotificationHubs" Verb="Get" Noun="NotificationHubList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterNotificationHub" OutputProperty="*" Verb="Register" Noun="NotificationHub" ShouldProcessTarget="NotificationHubRegion" PipelineParameter="NotificationHubRegion" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RegisterNotificationHub" OutputProperty="*" Verb="Register" Noun="NotificationHub" ShouldProcessTarget="NotificationHubRegion" PipelineParameter="NotificationHubRegion" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEventRule" OutputProperty="*" Verb="Update" Noun="EventRule" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateEventRule" OutputProperty="*" Verb="Update" Noun="EventRule" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params>
                 <Param Name="Regions" NewName="EventRuleRegion" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateNotificationConfiguration" OutputProperty="Arn" Verb="Update" Noun="NotificationConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateNotificationConfiguration" OutputProperty="Arn" Verb="Update" Noun="NotificationConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

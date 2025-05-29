@@ -18,23 +18,23 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DescribeJobExecution" OutputProperty="Execution" Verb="Get" Noun="JobExecution" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeJobExecution" OutputProperty="Execution" Verb="Get" Noun="JobExecution" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPendingJobExecutions" OutputProperty="*" Verb="Get" Noun="PendingJobExecution" PipelineParameter="ThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPendingJobExecutions" OutputProperty="*" Verb="Get" Noun="PendingJobExecution" PipelineParameter="ThingName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartCommandExecution" OutputProperty="ExecutionId" Verb="Start" Noun="CommandExecution" AnonymousShouldProcessTarget="true" PipelineParameter="CommandArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartCommandExecution" OutputProperty="ExecutionId" Verb="Start" Noun="CommandExecution" AnonymousShouldProcessTarget="true" PipelineParameter="CommandArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartNextPendingJobExecution" OutputProperty="Execution" Verb="Start" Noun="NextPendingJobExecution" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartNextPendingJobExecution" OutputProperty="Execution" Verb="Start" Noun="NextPendingJobExecution" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateJobExecution" OutputProperty="*" Verb="Update" Noun="JobExecution" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateJobExecution" OutputProperty="*" Verb="Update" Noun="JobExecution" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

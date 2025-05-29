@@ -42,268 +42,268 @@
         <Property>IsTruncated</Property>
     </MetadataProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="AbortMultipartUpload" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AbortMultipartUpload" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CompleteMultipartUpload" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CompleteMultipartUpload" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopyObject" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CopyObject" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopyPart" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CopyPart" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBucketMetadataTableConfiguration" Verb="New" Noun="BucketMetadataTableConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateBucketMetadataTableConfiguration" Verb="New" Noun="BucketMetadataTableConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSession" OutputProperty="Credentials" Verb="New" Noun="Session" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateSession" OutputProperty="Credentials" Verb="New" Noun="Session" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBucket" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBucket" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBucketAnalyticsConfiguration" Verb="Remove" Noun="BucketAnalyticsConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBucketAnalyticsConfiguration" Verb="Remove" Noun="BucketAnalyticsConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBucketEncryption" Verb="Remove" Noun="BucketEncryption" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBucketEncryption" Verb="Remove" Noun="BucketEncryption" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBucketIntelligentTieringConfiguration" Verb="Remove" Noun="BucketIntelligentTieringConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBucketIntelligentTieringConfiguration" Verb="Remove" Noun="BucketIntelligentTieringConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBucketInventoryConfiguration" Verb="Remove" Noun="BucketInventoryConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBucketInventoryConfiguration" Verb="Remove" Noun="BucketInventoryConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBucketMetadataTableConfiguration" Verb="Remove" Noun="BucketMetadataTableConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBucketMetadataTableConfiguration" Verb="Remove" Noun="BucketMetadataTableConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBucketMetricsConfiguration" Verb="Remove" Noun="BucketMetricsConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBucketMetricsConfiguration" Verb="Remove" Noun="BucketMetricsConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBucketOwnershipControls" Verb="Remove" Noun="BucketOwnershipControl" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBucketOwnershipControls" Verb="Remove" Noun="BucketOwnershipControl" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBucketPolicy" Verb="Remove" Noun="BucketPolicy" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBucketPolicy" Verb="Remove" Noun="BucketPolicy" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBucketReplication" Verb="Remove" Noun="BucketReplication" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBucketReplication" Verb="Remove" Noun="BucketReplication" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBucketTagging" Verb="Remove" Noun="BucketTagging" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBucketTagging" Verb="Remove" Noun="BucketTagging" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBucketWebsite" Verb="Remove" Noun="BucketWebsite" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBucketWebsite" Verb="Remove" Noun="BucketWebsite" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCORSConfiguration" Verb="Remove" Noun="CORSConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteCORSConfiguration" Verb="Remove" Noun="CORSConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLifecycleConfiguration" Verb="Remove" Noun="LifecycleConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteLifecycleConfiguration" Verb="Remove" Noun="LifecycleConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteObject" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteObject" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteObjects" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteObjects" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteObjectTagging" OutputProperty="VersionId" Verb="Remove" Noun="ObjectTagSet" ShouldProcessTarget="Key" PositionalParameters="BucketName" PipelineParameter="Key" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteObjectTagging" OutputProperty="VersionId" Verb="Remove" Noun="ObjectTagSet" ShouldProcessTarget="Key" PositionalParameters="BucketName" PipelineParameter="Key" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePublicAccessBlock" Verb="Remove" Noun="PublicAccessBlock" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeletePublicAccessBlock" Verb="Remove" Noun="PublicAccessBlock" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetACL" OutputProperty="AccessControlList" Verb="Get" Noun="ACL" PositionalParameters="Key;VersionId" PipelineParameter="BucketName" NoPipelineParameter="false" ReplacementObsoleteMessage="This cmdlet is deprecated, use Get-S3BucketACL or Get-S3ObjectACL instead." LegacyV4Pagination="true">            
+        <ServiceOperation MethodName="GetACL" OutputProperty="AccessControlList" Verb="Get" Noun="ACL" PositionalParameters="Key;VersionId" PipelineParameter="BucketName" NoPipelineParameter="false" ReplacementObsoleteMessage="This cmdlet is deprecated, use Get-S3BucketACL or Get-S3ObjectACL instead.">            
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketAcl" OutputProperty="Grants" Verb="Get" Noun="BucketACL" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketAcl" OutputProperty="Grants" Verb="Get" Noun="BucketACL" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params>
                 <Param Name="BucketName" Mandatory="true" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetObjectAcl" OutputProperty="Grants" Verb="Get" Noun="ObjectACL" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetObjectAcl" OutputProperty="Grants" Verb="Get" Noun="ObjectACL" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params>
                 <Param Name="BucketName" Mandatory="true" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     
-        <ServiceOperation MethodName="GetBucketAccelerateConfiguration" OutputProperty="Status" Verb="Get" Noun="BucketAccelerateConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketAccelerateConfiguration" OutputProperty="Status" Verb="Get" Noun="BucketAccelerateConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketAnalyticsConfiguration" OutputProperty="AnalyticsConfiguration" Verb="Get" Noun="BucketAnalyticsConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketAnalyticsConfiguration" OutputProperty="AnalyticsConfiguration" Verb="Get" Noun="BucketAnalyticsConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketEncryption" OutputProperty="ServerSideEncryptionConfiguration" Verb="Get" Noun="BucketEncryption" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketEncryption" OutputProperty="ServerSideEncryptionConfiguration" Verb="Get" Noun="BucketEncryption" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketIntelligentTieringConfiguration" OutputProperty="IntelligentTieringConfiguration" Verb="Get" Noun="BucketIntelligentTieringConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketIntelligentTieringConfiguration" OutputProperty="IntelligentTieringConfiguration" Verb="Get" Noun="BucketIntelligentTieringConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketInventoryConfiguration" OutputProperty="InventoryConfiguration" Verb="Get" Noun="BucketInventoryConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketInventoryConfiguration" OutputProperty="InventoryConfiguration" Verb="Get" Noun="BucketInventoryConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketLocation" OutputProperty="Location" Verb="Get" Noun="BucketLocation" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketLocation" OutputProperty="Location" Verb="Get" Noun="BucketLocation" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketLogging" OutputProperty="BucketLoggingConfig" Verb="Get" Noun="BucketLogging" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketLogging" OutputProperty="BucketLoggingConfig" Verb="Get" Noun="BucketLogging" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketMetadataTableConfiguration" OutputProperty="GetBucketMetadataTableConfigurationResult" Verb="Get" Noun="BucketMetadataTableConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketMetadataTableConfiguration" OutputProperty="GetBucketMetadataTableConfigurationResult" Verb="Get" Noun="BucketMetadataTableConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketMetricsConfiguration" OutputProperty="MetricsConfiguration" Verb="Get" Noun="BucketMetricsConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketMetricsConfiguration" OutputProperty="MetricsConfiguration" Verb="Get" Noun="BucketMetricsConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketNotification" OutputProperty="*" Verb="Get" Noun="BucketNotification" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketNotification" OutputProperty="*" Verb="Get" Noun="BucketNotification" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketOwnershipControls" OutputProperty="OwnershipControls" Verb="Get" Noun="BucketOwnershipControl" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketOwnershipControls" OutputProperty="OwnershipControls" Verb="Get" Noun="BucketOwnershipControl" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketPolicy" OutputProperty="Policy" Verb="Get" Noun="BucketPolicy" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketPolicy" OutputProperty="Policy" Verb="Get" Noun="BucketPolicy" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketPolicyStatus" OutputProperty="PolicyStatus" Verb="Get" Noun="BucketPolicyStatus" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketPolicyStatus" OutputProperty="PolicyStatus" Verb="Get" Noun="BucketPolicyStatus" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketReplication" OutputProperty="Configuration" Verb="Get" Noun="BucketReplication" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketReplication" OutputProperty="Configuration" Verb="Get" Noun="BucketReplication" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketRequestPayment" OutputProperty="Payer" Verb="Get" Noun="BucketRequestPayment" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketRequestPayment" OutputProperty="Payer" Verb="Get" Noun="BucketRequestPayment" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketTagging" OutputProperty="TagSet" Verb="Get" Noun="BucketTagging" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketTagging" OutputProperty="TagSet" Verb="Get" Noun="BucketTagging" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketVersioning" OutputProperty="VersioningConfig" Verb="Get" Noun="BucketVersioning" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketVersioning" OutputProperty="VersioningConfig" Verb="Get" Noun="BucketVersioning" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketWebsite" OutputProperty="WebsiteConfiguration" Verb="Get" Noun="BucketWebsite" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketWebsite" OutputProperty="WebsiteConfiguration" Verb="Get" Noun="BucketWebsite" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCORSConfiguration" OutputProperty="Configuration" Verb="Get" Noun="CORSConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetCORSConfiguration" OutputProperty="Configuration" Verb="Get" Noun="CORSConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLifecycleConfiguration" OutputProperty="Configuration" Verb="Get" Noun="LifecycleConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetLifecycleConfiguration" OutputProperty="Configuration" Verb="Get" Noun="LifecycleConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetObject" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetObject" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetObjectAttributes" OutputProperty="*" Verb="Get" Noun="ObjectAttribute" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetObjectAttributes" OutputProperty="*" Verb="Get" Noun="ObjectAttribute" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetObjectLegalHold" OutputProperty="LegalHold" Verb="Get" Noun="ObjectLegalHold" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetObjectLegalHold" OutputProperty="LegalHold" Verb="Get" Noun="ObjectLegalHold" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetObjectLockConfiguration" OutputProperty="ObjectLockConfiguration" Verb="Get" Noun="ObjectLockConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetObjectLockConfiguration" OutputProperty="ObjectLockConfiguration" Verb="Get" Noun="ObjectLockConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetObjectMetadata" OutputProperty="*" Verb="Get" Noun="ObjectMetadata" PositionalParameters="Key" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetObjectMetadata" OutputProperty="*" Verb="Get" Noun="ObjectMetadata" PositionalParameters="Key" PipelineParameter="BucketName" NoPipelineParameter="false">
 			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetObjectRetention" OutputProperty="Retention" Verb="Get" Noun="ObjectRetention" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetObjectRetention" OutputProperty="Retention" Verb="Get" Noun="ObjectRetention" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetObjectTagging" OutputProperty="Tagging" Verb="Get" Noun="ObjectTagSet" PositionalParameters="BucketName" PipelineParameter="Key" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetObjectTagging" OutputProperty="Tagging" Verb="Get" Noun="ObjectTagSet" PositionalParameters="BucketName" PipelineParameter="Key" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetObjectTorrent" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetObjectTorrent" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPublicAccessBlock" OutputProperty="PublicAccessBlockConfiguration" Verb="Get" Noun="PublicAccessBlock" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPublicAccessBlock" OutputProperty="PublicAccessBlockConfiguration" Verb="Get" Noun="PublicAccessBlock" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InitiateMultipartUpload" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="InitiateMultipartUpload" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBucketAnalyticsConfigurations" OutputProperty="*" Verb="Get" Noun="BucketAnalyticsConfigurationList" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBucketAnalyticsConfigurations" OutputProperty="*" Verb="Get" Noun="BucketAnalyticsConfigurationList" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBucketIntelligentTieringConfigurations" OutputProperty="*" Verb="Get" Noun="BucketIntelligentTieringConfigurationList" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBucketIntelligentTieringConfigurations" OutputProperty="*" Verb="Get" Noun="BucketIntelligentTieringConfigurationList" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBucketInventoryConfigurations" OutputProperty="*" Verb="Get" Noun="BucketInventoryConfigurationList" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBucketInventoryConfigurations" OutputProperty="*" Verb="Get" Noun="BucketInventoryConfigurationList" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBucketMetricsConfigurations" OutputProperty="*" Verb="Get" Noun="BucketMetricsConfigurationList" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBucketMetricsConfigurations" OutputProperty="*" Verb="Get" Noun="BucketMetricsConfigurationList" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBuckets" OutputProperty="Buckets" Verb="Get" Noun="Bucket" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBuckets" OutputProperty="Buckets" Verb="Get" Noun="Bucket" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDirectoryBuckets" OutputProperty="*" Verb="Get" Noun="DirectoryBucket" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDirectoryBuckets" OutputProperty="*" Verb="Get" Noun="DirectoryBucket" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMultipartUploads" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMultipartUploads" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListObjects" OutputProperty="S3Objects" Verb="Get" Noun="Object" PositionalParameters="Prefix" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" DefaultParameterSet="GetMultipleObjects" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListObjects" OutputProperty="S3Objects" Verb="Get" Noun="Object" PositionalParameters="Prefix" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" DefaultParameterSet="GetMultipleObjects">
             <Params>
                 <Param Name="BucketName" Mandatory="true" />
                 <Param Name="Delimiter" ParameterSetName="GetMultipleObjects" />
@@ -314,7 +314,7 @@
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxKeys" ServicePageSize="1000" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListObjectsV2" OutputProperty="S3Objects" Verb="Get" Noun="ObjectV2" PositionalParameters="Prefix" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" DefaultParameterSet="GetMultipleObjects" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListObjectsV2" OutputProperty="S3Objects" Verb="Get" Noun="ObjectV2" PositionalParameters="Prefix" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" DefaultParameterSet="GetMultipleObjects">
             <Params>
                 <Param Name="BucketName" Mandatory="true" />
                 <Param Name="Delimiter" ParameterSetName="GetMultipleObjects" />
@@ -325,15 +325,15 @@
             <AutoIterate Start="ContinuationToken" Next="NextContinuationToken" EmitLimit="MaxKeys" ServicePageSize="1000" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListParts" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListParts" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVersions" OutputProperty="*" Verb="Get" Noun="Version" PositionalParameters="Prefix" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListVersions" OutputProperty="*" Verb="Get" Noun="Version" PositionalParameters="Prefix" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutACL" Verb="Set" Noun="ACL" ShouldProcessTarget="Key" PositionalParameters="Key;AccessControlList_Owner_Id;AccessControlList_Owner_DisplayName;AccessControlList_Grants;VersionId" PipelineParameter="BucketName" NoPipelineParameter="false" ReplacementObsoleteMessage="This cmdlet is deprecated, use Set-S3BucketACL or Set-S3ObjectACL instead." LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutACL" Verb="Set" Noun="ACL" ShouldProcessTarget="Key" PositionalParameters="Key;AccessControlList_Owner_Id;AccessControlList_Owner_DisplayName;AccessControlList_Grants;VersionId" PipelineParameter="BucketName" NoPipelineParameter="false" ReplacementObsoleteMessage="This cmdlet is deprecated, use Set-S3BucketACL or Set-S3ObjectACL instead.">
             <Params>
                 <Param Name="BucketName" Mandatory="true" />
                 <Param Name="AccessControlList_Owner_Id" NewName="Owner_Id" Alias="OwnerId;ACL_Owner_Id" />
@@ -343,137 +343,137 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketAcl" Verb="Set" Noun="BucketACL" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBucketAcl" Verb="Set" Noun="BucketACL" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params>
                 <Param Name="BucketName" Mandatory="true" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutObjectAcl" OutputProperty="RequestCharged" Verb="Set" Noun="ObjectACL" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutObjectAcl" OutputProperty="RequestCharged" Verb="Set" Noun="ObjectACL" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
         <Params>
             <Param Name="BucketName" Mandatory="true" />
         </Params>
         <TypesNotToFlatten />
         </ServiceOperation>    
-        <ServiceOperation MethodName="PutBucket" OutputProperty="*" Verb="New" Noun="Bucket" Exclude="true" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBucket" OutputProperty="*" Verb="New" Noun="Bucket" Exclude="true" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params>
                 <Param Name="BucketName" Mandatory="true" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketAccelerateConfiguration" Verb="Write" Noun="BucketAccelerateConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBucketAccelerateConfiguration" Verb="Write" Noun="BucketAccelerateConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketAnalyticsConfiguration" Verb="Write" Noun="BucketAnalyticsConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBucketAnalyticsConfiguration" Verb="Write" Noun="BucketAnalyticsConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketEncryption" Verb="Set" Noun="BucketEncryption" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBucketEncryption" Verb="Set" Noun="BucketEncryption" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketIntelligentTieringConfiguration" Verb="Write" Noun="BucketIntelligentTieringConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBucketIntelligentTieringConfiguration" Verb="Write" Noun="BucketIntelligentTieringConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketInventoryConfiguration" Verb="Write" Noun="BucketInventoryConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBucketInventoryConfiguration" Verb="Write" Noun="BucketInventoryConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketLogging" Verb="Write" Noun="BucketLogging" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBucketLogging" Verb="Write" Noun="BucketLogging" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketMetricsConfiguration" Verb="Write" Noun="BucketMetricsConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBucketMetricsConfiguration" Verb="Write" Noun="BucketMetricsConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketNotification" Verb="Write" Noun="BucketNotification" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBucketNotification" Verb="Write" Noun="BucketNotification" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketOwnershipControls" Verb="Write" Noun="BucketOwnershipControl" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBucketOwnershipControls" Verb="Write" Noun="BucketOwnershipControl" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketPolicy" Verb="Write" Noun="BucketPolicy" ShouldProcessTarget="BucketName" PositionalParameters="Policy" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBucketPolicy" Verb="Write" Noun="BucketPolicy" ShouldProcessTarget="BucketName" PositionalParameters="Policy" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketReplication" Verb="Write" Noun="BucketReplication" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBucketReplication" Verb="Write" Noun="BucketReplication" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketRequestPayment" Verb="Write" Noun="BucketRequestPayment" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBucketRequestPayment" Verb="Write" Noun="BucketRequestPayment" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketTagging" Verb="Write" Noun="BucketTagging" ShouldProcessTarget="BucketName" PositionalParameters="TagSet" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBucketTagging" Verb="Write" Noun="BucketTagging" ShouldProcessTarget="BucketName" PositionalParameters="TagSet" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params>
                 <Param Name="TagSet" Alias="TagSets" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketVersioning" Verb="Write" Noun="BucketVersioning" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBucketVersioning" Verb="Write" Noun="BucketVersioning" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketWebsite" Verb="Write" Noun="BucketWebsite" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBucketWebsite" Verb="Write" Noun="BucketWebsite" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutCORSConfiguration" Verb="Write" Noun="CORSConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutCORSConfiguration" Verb="Write" Noun="CORSConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutLifecycleConfiguration" OutputProperty="TransitionDefaultMinimumObjectSize" Verb="Write" Noun="LifecycleConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutLifecycleConfiguration" OutputProperty="TransitionDefaultMinimumObjectSize" Verb="Write" Noun="LifecycleConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutObject" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutObject" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutObjectLegalHold" OutputProperty="RequestCharged" Verb="Write" Noun="ObjectLegalHold" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutObjectLegalHold" OutputProperty="RequestCharged" Verb="Write" Noun="ObjectLegalHold" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutObjectLockConfiguration" OutputProperty="RequestCharged" Verb="Write" Noun="ObjectLockConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutObjectLockConfiguration" OutputProperty="RequestCharged" Verb="Write" Noun="ObjectLockConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutObjectRetention" OutputProperty="RequestCharged" Verb="Write" Noun="ObjectRetention" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutObjectRetention" OutputProperty="RequestCharged" Verb="Write" Noun="ObjectRetention" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutObjectTagging" OutputProperty="VersionId" Verb="Write" Noun="ObjectTagSet" ShouldProcessTarget="Key" PositionalParameters="BucketName" PipelineParameter="Key" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutObjectTagging" OutputProperty="VersionId" Verb="Write" Noun="ObjectTagSet" ShouldProcessTarget="Key" PositionalParameters="BucketName" PipelineParameter="Key" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutPublicAccessBlock" Verb="Add" Noun="PublicAccessBlock" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutPublicAccessBlock" Verb="Add" Noun="PublicAccessBlock" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreObject" OutputProperty="*" Verb="Restore" Noun="Object" ShouldProcessTarget="BucketName" PositionalParameters="Key;Days" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RestoreObject" OutputProperty="*" Verb="Restore" Noun="Object" ShouldProcessTarget="BucketName" PositionalParameters="Key;Days" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params>
                 <Param Name="Days" NewName="CopyLifetimeInDays" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SelectObjectContent" OutputProperty="Payload" Verb="Select" Noun="ObjectContent" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="Expression" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SelectObjectContent" OutputProperty="Payload" Verb="Select" Noun="ObjectContent" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="Expression" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UploadPart" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UploadPart" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="WriteGetObjectResponse" Verb="Write" Noun="GetObjectResponse" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="WriteGetObjectResponse" Verb="Write" Noun="GetObjectResponse" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="HeadBucket" OutputProperty="*" Verb="Head" Noun="Bucket" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" Exclude="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="HeadBucket" OutputProperty="*" Verb="Head" Noun="Bucket" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" Exclude="true">
         <Params />
         <TypesNotToFlatten />
       </ServiceOperation>

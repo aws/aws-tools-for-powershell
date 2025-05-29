@@ -18,15 +18,15 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="InvokeEndpoint" OutputProperty="*" Verb="Invoke" Noun="Endpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="InvokeEndpoint" OutputProperty="*" Verb="Invoke" Noun="Endpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InvokeEndpointAsync" OutputProperty="*" Verb="Invoke" Noun="EndpointAsync" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="InvokeEndpointAsync" OutputProperty="*" Verb="Invoke" Noun="EndpointAsync" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InvokeEndpointWithResponseStream" OutputProperty="*" Verb="Invoke" Noun="EndpointWithResponseStream" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="InvokeEndpointWithResponseStream" OutputProperty="*" Verb="Invoke" Noun="EndpointWithResponseStream" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

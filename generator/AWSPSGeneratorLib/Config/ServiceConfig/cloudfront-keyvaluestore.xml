@@ -19,27 +19,27 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DeleteKey" OutputProperty="*" Verb="Remove" Noun="Key" IgnoreSupportsShouldProcess="true" PipelineParameter="KvsARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteKey" OutputProperty="*" Verb="Remove" Noun="Key" IgnoreSupportsShouldProcess="true" PipelineParameter="KvsARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeKeyValueStore" OutputProperty="*" Verb="Get" Noun="KeyValueStore" PipelineParameter="KvsARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeKeyValueStore" OutputProperty="*" Verb="Get" Noun="KeyValueStore" PipelineParameter="KvsARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetKey" OutputProperty="*" Verb="Get" Noun="Key" PipelineParameter="KvsARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetKey" OutputProperty="*" Verb="Get" Noun="Key" PipelineParameter="KvsARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKeys" OutputProperty="Items" Verb="Get" Noun="KeyList" PipelineParameter="KvsARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListKeys" OutputProperty="Items" Verb="Get" Noun="KeyList" PipelineParameter="KvsARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutKey" OutputProperty="*" Verb="Write" Noun="Key" IgnoreSupportsShouldProcess="true" PipelineParameter="KvsARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutKey" OutputProperty="*" Verb="Write" Noun="Key" IgnoreSupportsShouldProcess="true" PipelineParameter="KvsARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateKeys" OutputProperty="*" Verb="Update" Noun="Key" IgnoreSupportsShouldProcess="true" PipelineParameter="KvsARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateKeys" OutputProperty="*" Verb="Update" Noun="Key" IgnoreSupportsShouldProcess="true" PipelineParameter="KvsARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

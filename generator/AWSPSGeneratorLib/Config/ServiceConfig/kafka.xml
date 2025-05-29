@@ -19,214 +19,214 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchAssociateScramSecret" OutputProperty="*" Verb="Register" Noun="AssociateScramSecret" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchAssociateScramSecret" OutputProperty="*" Verb="Register" Noun="AssociateScramSecret" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDisassociateScramSecret" OutputProperty="*" Verb="Unregister" Noun="DisassociateScramSecret" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchDisassociateScramSecret" OutputProperty="*" Verb="Unregister" Noun="DisassociateScramSecret" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCluster" OutputProperty="*" Verb="New" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateCluster" OutputProperty="*" Verb="New" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateClusterV2" OutputProperty="*" Verb="New" Noun="ClusterV2" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateClusterV2" OutputProperty="*" Verb="New" Noun="ClusterV2" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params>
                 <Param Name="Provisioned_ClientAuthentication_Sasl_Iam_Enabled" NewName="Provisioned_ClientAuthentication_Sasl_Iam_Enabled" />
                 <Param Name="Serverless_ClientAuthentication_Sasl_Iam_Enabled" NewName="Serverless_ClientAuthentication_Sasl_Iam_Enabled" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConfiguration" OutputProperty="*" Verb="New" Noun="Configuration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateConfiguration" OutputProperty="*" Verb="New" Noun="Configuration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateReplicator" OutputProperty="*" Verb="New" Noun="Replicator" ShouldProcessTarget="ReplicatorName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateReplicator" OutputProperty="*" Verb="New" Noun="Replicator" ShouldProcessTarget="ReplicatorName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVpcConnection" OutputProperty="*" Verb="New" Noun="VpcConnection" ShouldProcessTarget="TargetClusterArn" PipelineParameter="TargetClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateVpcConnection" OutputProperty="*" Verb="New" Noun="VpcConnection" ShouldProcessTarget="TargetClusterArn" PipelineParameter="TargetClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCluster" OutputProperty="*" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteCluster" OutputProperty="*" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteClusterPolicy" Verb="Remove" Noun="ClusterPolicy" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteClusterPolicy" Verb="Remove" Noun="ClusterPolicy" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConfiguration" OutputProperty="*" Verb="Remove" Noun="Configuration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteConfiguration" OutputProperty="*" Verb="Remove" Noun="Configuration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteReplicator" OutputProperty="*" Verb="Remove" Noun="Replicator" ShouldProcessTarget="ReplicatorArn" PipelineParameter="ReplicatorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteReplicator" OutputProperty="*" Verb="Remove" Noun="Replicator" ShouldProcessTarget="ReplicatorArn" PipelineParameter="ReplicatorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVpcConnection" OutputProperty="*" Verb="Remove" Noun="VpcConnection" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteVpcConnection" OutputProperty="*" Verb="Remove" Noun="VpcConnection" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCluster" OutputProperty="ClusterInfo" Verb="Get" Noun="Cluster" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCluster" OutputProperty="ClusterInfo" Verb="Get" Noun="Cluster" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusterOperation" OutputProperty="ClusterOperationInfo" Verb="Get" Noun="ClusterOperation" PipelineParameter="ClusterOperationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeClusterOperation" OutputProperty="ClusterOperationInfo" Verb="Get" Noun="ClusterOperation" PipelineParameter="ClusterOperationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusterOperationV2" OutputProperty="ClusterOperationInfo" Verb="Get" Noun="ClusterOperationV2" PipelineParameter="ClusterOperationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeClusterOperationV2" OutputProperty="ClusterOperationInfo" Verb="Get" Noun="ClusterOperationV2" PipelineParameter="ClusterOperationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusterV2" OutputProperty="ClusterInfo" Verb="Get" Noun="ClusterV2" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeClusterV2" OutputProperty="ClusterInfo" Verb="Get" Noun="ClusterV2" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConfiguration" OutputProperty="*" Verb="Get" Noun="Configuration" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeConfiguration" OutputProperty="*" Verb="Get" Noun="Configuration" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConfigurationRevision" OutputProperty="*" Verb="Get" Noun="ConfigurationRevision" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeConfigurationRevision" OutputProperty="*" Verb="Get" Noun="ConfigurationRevision" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReplicator" OutputProperty="*" Verb="Get" Noun="Replicator" PipelineParameter="ReplicatorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeReplicator" OutputProperty="*" Verb="Get" Noun="Replicator" PipelineParameter="ReplicatorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcConnection" OutputProperty="*" Verb="Get" Noun="VpcConnection" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVpcConnection" OutputProperty="*" Verb="Get" Noun="VpcConnection" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBootstrapBrokers" OutputProperty="BootstrapBrokerString" Verb="Get" Noun="BootstrapBroker" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBootstrapBrokers" OutputProperty="BootstrapBrokerString" Verb="Get" Noun="BootstrapBroker" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetClusterPolicy" OutputProperty="*" Verb="Get" Noun="ClusterPolicy" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetClusterPolicy" OutputProperty="*" Verb="Get" Noun="ClusterPolicy" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCompatibleKafkaVersions" OutputProperty="CompatibleKafkaVersions" Verb="Get" Noun="CompatibleKafkaVersion" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetCompatibleKafkaVersions" OutputProperty="CompatibleKafkaVersions" Verb="Get" Noun="CompatibleKafkaVersion" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClientVpcConnections" OutputProperty="ClientVpcConnections" Verb="Get" Noun="ClientVpcConnectionList" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListClientVpcConnections" OutputProperty="ClientVpcConnections" Verb="Get" Noun="ClientVpcConnectionList" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClusterOperations" OutputProperty="ClusterOperationInfoList" Verb="Get" Noun="ClusterOperationList" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListClusterOperations" OutputProperty="ClusterOperationInfoList" Verb="Get" Noun="ClusterOperationList" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClusterOperationsV2" OutputProperty="ClusterOperationInfoList" Verb="Get" Noun="ClusterOperationsV2List" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListClusterOperationsV2" OutputProperty="ClusterOperationInfoList" Verb="Get" Noun="ClusterOperationsV2List" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClusters" OutputProperty="ClusterInfoList" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListClusters" OutputProperty="ClusterInfoList" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClustersV2" OutputProperty="ClusterInfoList" Verb="Get" Noun="ClustersV2List" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListClustersV2" OutputProperty="ClusterInfoList" Verb="Get" Noun="ClustersV2List" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurationRevisions" OutputProperty="Revisions" Verb="Get" Noun="ConfigurationRevisionList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListConfigurationRevisions" OutputProperty="Revisions" Verb="Get" Noun="ConfigurationRevisionList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurations" OutputProperty="Configurations" Verb="Get" Noun="ConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListConfigurations" OutputProperty="Configurations" Verb="Get" Noun="ConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKafkaVersions" OutputProperty="KafkaVersions" Verb="Get" Noun="KafkaVersionList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListKafkaVersions" OutputProperty="KafkaVersions" Verb="Get" Noun="KafkaVersionList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNodes" OutputProperty="NodeInfoList" Verb="Get" Noun="NodeList" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListNodes" OutputProperty="NodeInfoList" Verb="Get" Noun="NodeList" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReplicators" OutputProperty="Replicators" Verb="Get" Noun="ReplicatorList" PipelineParameter="ReplicatorNameFilter" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListReplicators" OutputProperty="Replicators" Verb="Get" Noun="ReplicatorList" PipelineParameter="ReplicatorNameFilter" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListScramSecrets" OutputProperty="SecretArnList" Verb="Get" Noun="ScramSecretList" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListScramSecrets" OutputProperty="SecretArnList" Verb="Get" Noun="ScramSecretList" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVpcConnections" OutputProperty="VpcConnections" Verb="Get" Noun="VpcConnectionList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListVpcConnections" OutputProperty="VpcConnections" Verb="Get" Noun="VpcConnectionList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutClusterPolicy" OutputProperty="CurrentVersion" Verb="Write" Noun="ClusterPolicy" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutClusterPolicy" OutputProperty="CurrentVersion" Verb="Write" Noun="ClusterPolicy" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RebootBroker" OutputProperty="*" Verb="Restart" Noun="Broker" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RebootBroker" OutputProperty="*" Verb="Restart" Noun="Broker" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RejectClientVpcConnection" Verb="Deny" Noun="ClientVpcConnection" ShouldProcessTarget="VpcConnectionArn" PipelineParameter="VpcConnectionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RejectClientVpcConnection" Verb="Deny" Noun="ClientVpcConnection" ShouldProcessTarget="VpcConnectionArn" PipelineParameter="VpcConnectionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBrokerCount" OutputProperty="*" Verb="Update" Noun="BrokerCount" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateBrokerCount" OutputProperty="*" Verb="Update" Noun="BrokerCount" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBrokerStorage" OutputProperty="*" Verb="Update" Noun="BrokerStorage" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateBrokerStorage" OutputProperty="*" Verb="Update" Noun="BrokerStorage" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBrokerType" OutputProperty="*" Verb="Update" Noun="BrokerType" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateBrokerType" OutputProperty="*" Verb="Update" Noun="BrokerType" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateClusterConfiguration" OutputProperty="*" Verb="Update" Noun="ClusterConfiguration" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateClusterConfiguration" OutputProperty="*" Verb="Update" Noun="ClusterConfiguration" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateClusterKafkaVersion" OutputProperty="*" Verb="Update" Noun="ClusterKafkaVersion" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateClusterKafkaVersion" OutputProperty="*" Verb="Update" Noun="ClusterKafkaVersion" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConfiguration" OutputProperty="*" Verb="Update" Noun="Configuration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateConfiguration" OutputProperty="*" Verb="Update" Noun="Configuration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConnectivity" OutputProperty="*" Verb="Update" Noun="Connectivity" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateConnectivity" OutputProperty="*" Verb="Update" Noun="Connectivity" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMonitoring" OutputProperty="*" Verb="Update" Noun="Monitoring" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateMonitoring" OutputProperty="*" Verb="Update" Noun="Monitoring" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateReplicationInfo" OutputProperty="*" Verb="Update" Noun="ReplicationInfo" ShouldProcessTarget="ReplicatorArn" PipelineParameter="ReplicatorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateReplicationInfo" OutputProperty="*" Verb="Update" Noun="ReplicationInfo" ShouldProcessTarget="ReplicatorArn" PipelineParameter="ReplicatorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSecurity" OutputProperty="*" Verb="Update" Noun="Security" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateSecurity" OutputProperty="*" Verb="Update" Noun="Security" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStorage" OutputProperty="*" Verb="Update" Noun="Storage" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateStorage" OutputProperty="*" Verb="Update" Noun="Storage" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

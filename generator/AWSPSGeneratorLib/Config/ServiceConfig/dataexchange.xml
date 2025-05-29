@@ -19,154 +19,154 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptDataGrant" OutputProperty="*" Verb="Receive" Noun="DataGrant" ShouldProcessTarget="DataGrantArn" PipelineParameter="DataGrantArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AcceptDataGrant" OutputProperty="*" Verb="Receive" Noun="DataGrant" ShouldProcessTarget="DataGrantArn" PipelineParameter="DataGrantArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelJob" Verb="Stop" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelJob" Verb="Stop" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataGrant" OutputProperty="*" Verb="New" Noun="DataGrant" ShouldProcessTarget="SourceDataSetId" PipelineParameter="SourceDataSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDataGrant" OutputProperty="*" Verb="New" Noun="DataGrant" ShouldProcessTarget="SourceDataSetId" PipelineParameter="SourceDataSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataSet" OutputProperty="*" Verb="New" Noun="DataSet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDataSet" OutputProperty="*" Verb="New" Noun="DataSet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEventAction" OutputProperty="*" Verb="New" Noun="EventAction" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateEventAction" OutputProperty="*" Verb="New" Noun="EventAction" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateJob" OutputProperty="*" Verb="New" Noun="Job" ShouldProcessTarget="" PipelineParameter="Type" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateJob" OutputProperty="*" Verb="New" Noun="Job" ShouldProcessTarget="" PipelineParameter="Type" NoPipelineParameter="false">
             <Params>
                 <Param Name="Details_ExportRevisionsToS3_Encryption_KmsKeyArn" NewName="Details_ExportRevisionsToS3_Encryption_KmsKeyArn" />
                 <Param Name="Details_ExportRevisionsToS3_Encryption_Type" NewName="Details_ExportRevisionsToS3_Encryption_Type" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRevision" OutputProperty="*" Verb="New" Noun="Revision" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateRevision" OutputProperty="*" Verb="New" Noun="Revision" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAsset" Verb="Remove" Noun="Asset" ShouldProcessTarget="AssetId" PipelineParameter="AssetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAsset" Verb="Remove" Noun="Asset" ShouldProcessTarget="AssetId" PipelineParameter="AssetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataGrant" Verb="Remove" Noun="DataGrant" ShouldProcessTarget="DataGrantId" PipelineParameter="DataGrantId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDataGrant" Verb="Remove" Noun="DataGrant" ShouldProcessTarget="DataGrantId" PipelineParameter="DataGrantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataSet" Verb="Remove" Noun="DataSet" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDataSet" Verb="Remove" Noun="DataSet" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEventAction" Verb="Remove" Noun="EventAction" ShouldProcessTarget="EventActionId" PipelineParameter="EventActionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteEventAction" Verb="Remove" Noun="EventAction" ShouldProcessTarget="EventActionId" PipelineParameter="EventActionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRevision" Verb="Remove" Noun="Revision" ShouldProcessTarget="RevisionId" PipelineParameter="RevisionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteRevision" Verb="Remove" Noun="Revision" ShouldProcessTarget="RevisionId" PipelineParameter="RevisionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAsset" OutputProperty="*" Verb="Get" Noun="Asset" PipelineParameter="AssetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAsset" OutputProperty="*" Verb="Get" Noun="Asset" PipelineParameter="AssetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataGrant" OutputProperty="*" Verb="Get" Noun="DataGrant" PipelineParameter="DataGrantId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDataGrant" OutputProperty="*" Verb="Get" Noun="DataGrant" PipelineParameter="DataGrantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataSet" OutputProperty="*" Verb="Get" Noun="DataSet" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDataSet" OutputProperty="*" Verb="Get" Noun="DataSet" PipelineParameter="DataSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEventAction" OutputProperty="*" Verb="Get" Noun="EventAction" PipelineParameter="EventActionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetEventAction" OutputProperty="*" Verb="Get" Noun="EventAction" PipelineParameter="EventActionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJob" OutputProperty="*" Verb="Get" Noun="Job" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetJob" OutputProperty="*" Verb="Get" Noun="Job" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReceivedDataGrant" OutputProperty="*" Verb="Get" Noun="ReceivedDataGrant" PipelineParameter="DataGrantArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetReceivedDataGrant" OutputProperty="*" Verb="Get" Noun="ReceivedDataGrant" PipelineParameter="DataGrantArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRevision" OutputProperty="*" Verb="Get" Noun="Revision" PipelineParameter="RevisionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetRevision" OutputProperty="*" Verb="Get" Noun="Revision" PipelineParameter="RevisionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataGrants" OutputProperty="DataGrantSummaries" Verb="Get" Noun="DataGrantList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDataGrants" OutputProperty="DataGrantSummaries" Verb="Get" Noun="DataGrantList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataSetRevisions" OutputProperty="Revisions" Verb="Get" Noun="DataSetRevisionList" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDataSetRevisions" OutputProperty="Revisions" Verb="Get" Noun="DataSetRevisionList" PipelineParameter="DataSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataSets" OutputProperty="DataSets" Verb="Get" Noun="DataSetList" PipelineParameter="Origin" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDataSets" OutputProperty="DataSets" Verb="Get" Noun="DataSetList" PipelineParameter="Origin" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEventActions" OutputProperty="EventActions" Verb="Get" Noun="EventActionList" PipelineParameter="EventSourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEventActions" OutputProperty="EventActions" Verb="Get" Noun="EventActionList" PipelineParameter="EventSourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="DataSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReceivedDataGrants" OutputProperty="DataGrantSummaries" Verb="Get" Noun="ReceivedDataGrantList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListReceivedDataGrants" OutputProperty="DataGrantSummaries" Verb="Get" Noun="ReceivedDataGrantList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRevisionAssets" OutputProperty="Assets" Verb="Get" Noun="RevisionAssetList" PipelineParameter="RevisionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRevisionAssets" OutputProperty="Assets" Verb="Get" Noun="RevisionAssetList" PipelineParameter="RevisionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RevokeRevision" OutputProperty="*" Verb="Revoke" Noun="Revision" ShouldProcessTarget="RevisionId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RevokeRevision" OutputProperty="*" Verb="Revoke" Noun="Revision" ShouldProcessTarget="RevisionId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendApiAsset" OutputProperty="*" Verb="Send" Noun="ApiAsset" ShouldProcessTarget="AssetId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SendApiAsset" OutputProperty="*" Verb="Send" Noun="ApiAsset" ShouldProcessTarget="AssetId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendDataSetNotification" Verb="Send" Noun="DataSetNotification" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SendDataSetNotification" Verb="Send" Noun="DataSetNotification" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartJob" Verb="Start" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartJob" Verb="Start" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAsset" OutputProperty="*" Verb="Update" Noun="Asset" ShouldProcessTarget="AssetId" PipelineParameter="AssetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateAsset" OutputProperty="*" Verb="Update" Noun="Asset" ShouldProcessTarget="AssetId" PipelineParameter="AssetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataSet" OutputProperty="*" Verb="Update" Noun="DataSet" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDataSet" OutputProperty="*" Verb="Update" Noun="DataSet" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEventAction" OutputProperty="*" Verb="Update" Noun="EventAction" ShouldProcessTarget="EventActionId" PipelineParameter="EventActionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateEventAction" OutputProperty="*" Verb="Update" Noun="EventAction" ShouldProcessTarget="EventActionId" PipelineParameter="EventActionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRevision" OutputProperty="*" Verb="Update" Noun="Revision" ShouldProcessTarget="RevisionId" PipelineParameter="RevisionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateRevision" OutputProperty="*" Verb="Update" Noun="Revision" ShouldProcessTarget="RevisionId" PipelineParameter="RevisionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

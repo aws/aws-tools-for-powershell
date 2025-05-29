@@ -19,75 +19,75 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CopyBackupToRegion" OutputProperty="DestinationBackup" Verb="Copy" Noun="BackupToRegion" ShouldProcessTarget="BackupId" PipelineParameter="BackupId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CopyBackupToRegion" OutputProperty="DestinationBackup" Verb="Copy" Noun="BackupToRegion" ShouldProcessTarget="BackupId" PipelineParameter="BackupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCluster" OutputProperty="Cluster" Verb="New" Noun="Cluster" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateCluster" OutputProperty="Cluster" Verb="New" Noun="Cluster" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateHsm" OutputProperty="Hsm" Verb="New" Noun="Hsm" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateHsm" OutputProperty="Hsm" Verb="New" Noun="Hsm" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBackup" OutputProperty="Backup" Verb="Remove" Noun="Backup" ShouldProcessTarget="BackupId" PipelineParameter="BackupId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBackup" OutputProperty="Backup" Verb="Remove" Noun="Backup" ShouldProcessTarget="BackupId" PipelineParameter="BackupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCluster" OutputProperty="Cluster" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteCluster" OutputProperty="Cluster" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteHsm" OutputProperty="HsmId" Verb="Remove" Noun="Hsm" ShouldProcessTarget="HsmId" PipelineParameter="HsmId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteHsm" OutputProperty="HsmId" Verb="Remove" Noun="Hsm" ShouldProcessTarget="HsmId" PipelineParameter="HsmId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourcePolicy" OutputProperty="*" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteResourcePolicy" OutputProperty="*" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBackups" OutputProperty="Backups" Verb="Get" Noun="Backup" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBackups" OutputProperty="Backups" Verb="Get" Noun="Backup" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusters" OutputProperty="Clusters" Verb="Get" Noun="Cluster" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeClusters" OutputProperty="Clusters" Verb="Get" Noun="Cluster" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InitializeCluster" OutputProperty="*" Verb="Initialize" Noun="Cluster" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="InitializeCluster" OutputProperty="*" Verb="Initialize" Noun="Cluster" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTags" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyBackupAttributes" OutputProperty="Backup" Verb="Edit" Noun="BackupAttribute" ShouldProcessTarget="BackupId" PipelineParameter="BackupId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ModifyBackupAttributes" OutputProperty="Backup" Verb="Edit" Noun="BackupAttribute" ShouldProcessTarget="BackupId" PipelineParameter="BackupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyCluster" OutputProperty="Cluster" Verb="Edit" Noun="Cluster" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ModifyCluster" OutputProperty="Cluster" Verb="Edit" Noun="Cluster" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="*" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="*" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreBackup" OutputProperty="Backup" Verb="Restore" Noun="Backup" ShouldProcessTarget="BackupId" PipelineParameter="BackupId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RestoreBackup" OutputProperty="Backup" Verb="Restore" Noun="Backup" ShouldProcessTarget="BackupId" PipelineParameter="BackupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

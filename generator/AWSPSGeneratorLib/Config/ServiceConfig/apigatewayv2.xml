@@ -21,291 +21,291 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateApi" OutputProperty="*" Verb="New" Noun="Api" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateApi" OutputProperty="*" Verb="New" Noun="Api" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateApiMapping" OutputProperty="*" Verb="New" Noun="ApiMapping" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateApiMapping" OutputProperty="*" Verb="New" Noun="ApiMapping" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAuthorizer" OutputProperty="*" Verb="New" Noun="Authorizer" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAuthorizer" OutputProperty="*" Verb="New" Noun="Authorizer" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDeployment" OutputProperty="*" Verb="New" Noun="Deployment" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDeployment" OutputProperty="*" Verb="New" Noun="Deployment" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDomainName" OutputProperty="*" Verb="New" Noun="DomainName" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDomainName" OutputProperty="*" Verb="New" Noun="DomainName" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIntegration" OutputProperty="*" Verb="New" Noun="Integration" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateIntegration" OutputProperty="*" Verb="New" Noun="Integration" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIntegrationResponse" OutputProperty="*" Verb="New" Noun="IntegrationResponse" ShouldProcessTarget="IntegrationId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateIntegrationResponse" OutputProperty="*" Verb="New" Noun="IntegrationResponse" ShouldProcessTarget="IntegrationId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateModel" OutputProperty="*" Verb="New" Noun="Model" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateModel" OutputProperty="*" Verb="New" Noun="Model" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRoute" OutputProperty="*" Verb="New" Noun="Route" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateRoute" OutputProperty="*" Verb="New" Noun="Route" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRouteResponse" OutputProperty="*" Verb="New" Noun="RouteResponse" ShouldProcessTarget="RouteId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateRouteResponse" OutputProperty="*" Verb="New" Noun="RouteResponse" ShouldProcessTarget="RouteId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStage" OutputProperty="*" Verb="New" Noun="Stage" ShouldProcessTarget="StageName" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateStage" OutputProperty="*" Verb="New" Noun="Stage" ShouldProcessTarget="StageName" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVpcLink" OutputProperty="*" Verb="New" Noun="VpcLink" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateVpcLink" OutputProperty="*" Verb="New" Noun="VpcLink" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccessLogSettings" Verb="Remove" Noun="AccessLogSetting" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAccessLogSettings" Verb="Remove" Noun="AccessLogSetting" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApi" Verb="Remove" Noun="Api" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteApi" Verb="Remove" Noun="Api" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApiMapping" Verb="Remove" Noun="ApiMapping" ShouldProcessTarget="ApiMappingId" PipelineParameter="ApiMappingId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteApiMapping" Verb="Remove" Noun="ApiMapping" ShouldProcessTarget="ApiMappingId" PipelineParameter="ApiMappingId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAuthorizer" Verb="Remove" Noun="Authorizer" ShouldProcessTarget="AuthorizerId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAuthorizer" Verb="Remove" Noun="Authorizer" ShouldProcessTarget="AuthorizerId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCorsConfiguration" Verb="Remove" Noun="CorsConfiguration" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteCorsConfiguration" Verb="Remove" Noun="CorsConfiguration" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDeployment" Verb="Remove" Noun="Deployment" ShouldProcessTarget="DeploymentId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDeployment" Verb="Remove" Noun="Deployment" ShouldProcessTarget="DeploymentId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDomainName" Verb="Remove" Noun="DomainName" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDomainName" Verb="Remove" Noun="DomainName" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIntegration" Verb="Remove" Noun="Integration" ShouldProcessTarget="IntegrationId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteIntegration" Verb="Remove" Noun="Integration" ShouldProcessTarget="IntegrationId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIntegrationResponse" Verb="Remove" Noun="IntegrationResponse" ShouldProcessTarget="IntegrationResponseId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteIntegrationResponse" Verb="Remove" Noun="IntegrationResponse" ShouldProcessTarget="IntegrationResponseId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteModel" Verb="Remove" Noun="Model" ShouldProcessTarget="ModelId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteModel" Verb="Remove" Noun="Model" ShouldProcessTarget="ModelId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRoute" Verb="Remove" Noun="Route" ShouldProcessTarget="RouteId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteRoute" Verb="Remove" Noun="Route" ShouldProcessTarget="RouteId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRouteRequestParameter" Verb="Remove" Noun="RouteRequestParameter" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteRouteRequestParameter" Verb="Remove" Noun="RouteRequestParameter" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRouteResponse" Verb="Remove" Noun="RouteResponse" ShouldProcessTarget="RouteResponseId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteRouteResponse" Verb="Remove" Noun="RouteResponse" ShouldProcessTarget="RouteResponseId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRouteSettings" Verb="Remove" Noun="RouteSetting" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteRouteSettings" Verb="Remove" Noun="RouteSetting" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStage" Verb="Remove" Noun="Stage" ShouldProcessTarget="StageName" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteStage" Verb="Remove" Noun="Stage" ShouldProcessTarget="StageName" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVpcLink" Verb="Remove" Noun="VpcLink" ShouldProcessTarget="VpcLinkId" PipelineParameter="VpcLinkId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteVpcLink" Verb="Remove" Noun="VpcLink" ShouldProcessTarget="VpcLinkId" PipelineParameter="VpcLinkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExportApi" OutputProperty="Body" Verb="Export" Noun="Api" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ExportApi" OutputProperty="Body" Verb="Export" Noun="Api" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApi" OutputProperty="*" Verb="Get" Noun="Api" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetApi" OutputProperty="*" Verb="Get" Noun="Api" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApiMapping" OutputProperty="*" Verb="Get" Noun="ApiMapping" PipelineParameter="ApiMappingId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetApiMapping" OutputProperty="*" Verb="Get" Noun="ApiMapping" PipelineParameter="ApiMappingId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApiMappings" OutputProperty="Items" Verb="Get" Noun="ApiMappingList" ShouldProcessTarget="" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetApiMappings" OutputProperty="Items" Verb="Get" Noun="ApiMappingList" ShouldProcessTarget="" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApis" OutputProperty="Items" Verb="Get" Noun="ApiList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetApis" OutputProperty="Items" Verb="Get" Noun="ApiList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAuthorizer" OutputProperty="*" Verb="Get" Noun="Authorizer" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAuthorizer" OutputProperty="*" Verb="Get" Noun="Authorizer" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAuthorizers" OutputProperty="Items" Verb="Get" Noun="AuthorizerList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAuthorizers" OutputProperty="Items" Verb="Get" Noun="AuthorizerList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDeployment" OutputProperty="*" Verb="Get" Noun="Deployment" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDeployment" OutputProperty="*" Verb="Get" Noun="Deployment" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDeployments" OutputProperty="Items" Verb="Get" Noun="DeploymentList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDeployments" OutputProperty="Items" Verb="Get" Noun="DeploymentList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDomainName" OutputProperty="*" Verb="Get" Noun="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDomainName" OutputProperty="*" Verb="Get" Noun="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDomainNames" OutputProperty="Items" Verb="Get" Noun="DomainNameList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDomainNames" OutputProperty="Items" Verb="Get" Noun="DomainNameList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIntegration" OutputProperty="*" Verb="Get" Noun="Integration" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetIntegration" OutputProperty="*" Verb="Get" Noun="Integration" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIntegrationResponse" OutputProperty="*" Verb="Get" Noun="IntegrationResponse" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetIntegrationResponse" OutputProperty="*" Verb="Get" Noun="IntegrationResponse" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIntegrationResponses" OutputProperty="Items" Verb="Get" Noun="IntegrationResponseList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetIntegrationResponses" OutputProperty="Items" Verb="Get" Noun="IntegrationResponseList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIntegrations" OutputProperty="Items" Verb="Get" Noun="IntegrationList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetIntegrations" OutputProperty="Items" Verb="Get" Noun="IntegrationList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetModel" OutputProperty="*" Verb="Get" Noun="Model" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetModel" OutputProperty="*" Verb="Get" Noun="Model" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetModels" OutputProperty="Items" Verb="Get" Noun="ModelList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetModels" OutputProperty="Items" Verb="Get" Noun="ModelList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetModelTemplate" OutputProperty="Value" Verb="Get" Noun="ModelTemplate" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetModelTemplate" OutputProperty="Value" Verb="Get" Noun="ModelTemplate" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRoute" OutputProperty="*" Verb="Get" Noun="Route" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetRoute" OutputProperty="*" Verb="Get" Noun="Route" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRouteResponse" OutputProperty="*" Verb="Get" Noun="RouteResponse" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetRouteResponse" OutputProperty="*" Verb="Get" Noun="RouteResponse" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRouteResponses" OutputProperty="Items" Verb="Get" Noun="RouteResponseList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetRouteResponses" OutputProperty="Items" Verb="Get" Noun="RouteResponseList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRoutes" OutputProperty="Items" Verb="Get" Noun="RouteList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetRoutes" OutputProperty="Items" Verb="Get" Noun="RouteList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStage" OutputProperty="*" Verb="Get" Noun="Stage" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetStage" OutputProperty="*" Verb="Get" Noun="Stage" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStages" OutputProperty="Items" Verb="Get" Noun="StageList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetStages" OutputProperty="Items" Verb="Get" Noun="StageList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVpcLink" OutputProperty="*" Verb="Get" Noun="VpcLink" PipelineParameter="VpcLinkId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetVpcLink" OutputProperty="*" Verb="Get" Noun="VpcLink" PipelineParameter="VpcLinkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVpcLinks" OutputProperty="Items" Verb="Get" Noun="VpcLinkList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetVpcLinks" OutputProperty="Items" Verb="Get" Noun="VpcLinkList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportApi" OutputProperty="*" Verb="Import" Noun="Api" ShouldProcessTarget="Body" PipelineParameter="Body" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportApi" OutputProperty="*" Verb="Import" Noun="Api" ShouldProcessTarget="Body" PipelineParameter="Body" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReimportApi" OutputProperty="*" Verb="Update" Noun="ApiImport" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ReimportApi" OutputProperty="*" Verb="Update" Noun="ApiImport" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetAuthorizersCache" Verb="Reset" Noun="AuthorizersCache" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ResetAuthorizersCache" Verb="Reset" Noun="AuthorizersCache" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApi" OutputProperty="*" Verb="Update" Noun="Api" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateApi" OutputProperty="*" Verb="Update" Noun="Api" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApiMapping" OutputProperty="*" Verb="Update" Noun="ApiMapping" ShouldProcessTarget="ApiMappingId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateApiMapping" OutputProperty="*" Verb="Update" Noun="ApiMapping" ShouldProcessTarget="ApiMappingId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAuthorizer" OutputProperty="*" Verb="Update" Noun="Authorizer" ShouldProcessTarget="AuthorizerId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateAuthorizer" OutputProperty="*" Verb="Update" Noun="Authorizer" ShouldProcessTarget="AuthorizerId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDeployment" OutputProperty="*" Verb="Update" Noun="Deployment" ShouldProcessTarget="DeploymentId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDeployment" OutputProperty="*" Verb="Update" Noun="Deployment" ShouldProcessTarget="DeploymentId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDomainName" OutputProperty="*" Verb="Update" Noun="DomainName" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDomainName" OutputProperty="*" Verb="Update" Noun="DomainName" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIntegration" OutputProperty="*" Verb="Update" Noun="Integration" ShouldProcessTarget="IntegrationId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateIntegration" OutputProperty="*" Verb="Update" Noun="Integration" ShouldProcessTarget="IntegrationId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIntegrationResponse" OutputProperty="*" Verb="Update" Noun="IntegrationResponse" ShouldProcessTarget="IntegrationResponseId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateIntegrationResponse" OutputProperty="*" Verb="Update" Noun="IntegrationResponse" ShouldProcessTarget="IntegrationResponseId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateModel" OutputProperty="*" Verb="Update" Noun="Model" ShouldProcessTarget="ModelId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateModel" OutputProperty="*" Verb="Update" Noun="Model" ShouldProcessTarget="ModelId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRoute" OutputProperty="*" Verb="Update" Noun="Route" ShouldProcessTarget="RouteId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateRoute" OutputProperty="*" Verb="Update" Noun="Route" ShouldProcessTarget="RouteId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRouteResponse" OutputProperty="*" Verb="Update" Noun="RouteResponse" ShouldProcessTarget="RouteResponseId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateRouteResponse" OutputProperty="*" Verb="Update" Noun="RouteResponse" ShouldProcessTarget="RouteResponseId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStage" OutputProperty="*" Verb="Update" Noun="Stage" ShouldProcessTarget="StageName" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateStage" OutputProperty="*" Verb="Update" Noun="Stage" ShouldProcessTarget="StageName" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateVpcLink" OutputProperty="*" Verb="Update" Noun="VpcLink" ShouldProcessTarget="VpcLinkId" PipelineParameter="VpcLinkId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateVpcLink" OutputProperty="*" Verb="Update" Noun="VpcLink" ShouldProcessTarget="VpcLinkId" PipelineParameter="VpcLinkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

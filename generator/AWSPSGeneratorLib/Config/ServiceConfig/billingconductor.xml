@@ -18,133 +18,133 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateAccounts" OutputProperty="Arn" Verb="Register" Noun="Account" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateAccounts" OutputProperty="Arn" Verb="Register" Noun="Account" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociatePricingRules" OutputProperty="Arn" Verb="Register" Noun="PricingRule" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociatePricingRules" OutputProperty="Arn" Verb="Register" Noun="PricingRule" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchAssociateResourcesToCustomLineItem" OutputProperty="*" Verb="Register" Noun="ResourceBatchToCustomLineItem" ShouldProcessTarget="TargetArn" PipelineParameter="TargetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchAssociateResourcesToCustomLineItem" OutputProperty="*" Verb="Register" Noun="ResourceBatchToCustomLineItem" ShouldProcessTarget="TargetArn" PipelineParameter="TargetArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDisassociateResourcesFromCustomLineItem" OutputProperty="*" Verb="Unregister" Noun="ResourceBatchFromCustomLineItem" ShouldProcessTarget="TargetArn" PipelineParameter="TargetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchDisassociateResourcesFromCustomLineItem" OutputProperty="*" Verb="Unregister" Noun="ResourceBatchFromCustomLineItem" ShouldProcessTarget="TargetArn" PipelineParameter="TargetArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBillingGroup" OutputProperty="Arn" Verb="New" Noun="BillingGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateBillingGroup" OutputProperty="Arn" Verb="New" Noun="BillingGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCustomLineItem" OutputProperty="Arn" Verb="New" Noun="CustomLineItem" ShouldProcessTarget="Name" PipelineParameter="BillingGroupArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateCustomLineItem" OutputProperty="Arn" Verb="New" Noun="CustomLineItem" ShouldProcessTarget="Name" PipelineParameter="BillingGroupArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePricingPlan" OutputProperty="Arn" Verb="New" Noun="PricingPlan" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreatePricingPlan" OutputProperty="Arn" Verb="New" Noun="PricingPlan" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePricingRule" OutputProperty="Arn" Verb="New" Noun="PricingRule" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreatePricingRule" OutputProperty="Arn" Verb="New" Noun="PricingRule" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBillingGroup" OutputProperty="Arn" Verb="Remove" Noun="BillingGroup" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBillingGroup" OutputProperty="Arn" Verb="Remove" Noun="BillingGroup" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCustomLineItem" OutputProperty="Arn" Verb="Remove" Noun="CustomLineItem" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteCustomLineItem" OutputProperty="Arn" Verb="Remove" Noun="CustomLineItem" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePricingPlan" OutputProperty="Arn" Verb="Remove" Noun="PricingPlan" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeletePricingPlan" OutputProperty="Arn" Verb="Remove" Noun="PricingPlan" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePricingRule" OutputProperty="Arn" Verb="Remove" Noun="PricingRule" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeletePricingRule" OutputProperty="Arn" Verb="Remove" Noun="PricingRule" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateAccounts" OutputProperty="Arn" Verb="Unregister" Noun="Account" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateAccounts" OutputProperty="Arn" Verb="Unregister" Noun="Account" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociatePricingRules" OutputProperty="Arn" Verb="Unregister" Noun="PricingRule" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociatePricingRules" OutputProperty="Arn" Verb="Unregister" Noun="PricingRule" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBillingGroupCostReport" OutputProperty="BillingGroupCostReportResults" Verb="Get" Noun="BillingGroupCostReport" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBillingGroupCostReport" OutputProperty="BillingGroupCostReportResults" Verb="Get" Noun="BillingGroupCostReport" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccountAssociations" OutputProperty="LinkedAccounts" Verb="Get" Noun="AccountAssociationList" PipelineParameter="BillingPeriod" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAccountAssociations" OutputProperty="LinkedAccounts" Verb="Get" Noun="AccountAssociationList" PipelineParameter="BillingPeriod" NoPipelineParameter="false">
             <Params>
                 <Param Name="Filters_AccountIds" NewName="Filters_AccountIds" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBillingGroupCostReports" OutputProperty="BillingGroupCostReports" Verb="Get" Noun="BillingGroupCostReportList" PipelineParameter="BillingPeriod" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBillingGroupCostReports" OutputProperty="BillingGroupCostReports" Verb="Get" Noun="BillingGroupCostReportList" PipelineParameter="BillingPeriod" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBillingGroups" OutputProperty="BillingGroups" Verb="Get" Noun="BillingGroupList" PipelineParameter="BillingPeriod" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBillingGroups" OutputProperty="BillingGroups" Verb="Get" Noun="BillingGroupList" PipelineParameter="BillingPeriod" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCustomLineItems" OutputProperty="CustomLineItems" Verb="Get" Noun="CustomLineItemList" PipelineParameter="BillingPeriod" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCustomLineItems" OutputProperty="CustomLineItems" Verb="Get" Noun="CustomLineItemList" PipelineParameter="BillingPeriod" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCustomLineItemVersions" OutputProperty="CustomLineItemVersions" Verb="Get" Noun="CustomLineItemVersionList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCustomLineItemVersions" OutputProperty="CustomLineItemVersions" Verb="Get" Noun="CustomLineItemVersionList" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPricingPlans" OutputProperty="*" Verb="Get" Noun="PricingPlanList" PipelineParameter="BillingPeriod" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPricingPlans" OutputProperty="*" Verb="Get" Noun="PricingPlanList" PipelineParameter="BillingPeriod" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPricingPlansAssociatedWithPricingRule" OutputProperty="*" Verb="Get" Noun="PricingPlansAssociatedWithPricingRuleList" PipelineParameter="PricingRuleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPricingPlansAssociatedWithPricingRule" OutputProperty="*" Verb="Get" Noun="PricingPlansAssociatedWithPricingRuleList" PipelineParameter="PricingRuleArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPricingRules" OutputProperty="*" Verb="Get" Noun="PricingRuleList" PipelineParameter="BillingPeriod" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPricingRules" OutputProperty="*" Verb="Get" Noun="PricingRuleList" PipelineParameter="BillingPeriod" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPricingRulesAssociatedToPricingPlan" OutputProperty="*" Verb="Get" Noun="PricingRulesAssociatedToPricingPlanList" PipelineParameter="PricingPlanArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPricingRulesAssociatedToPricingPlan" OutputProperty="*" Verb="Get" Noun="PricingRulesAssociatedToPricingPlanList" PipelineParameter="PricingPlanArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourcesAssociatedToCustomLineItem" OutputProperty="*" Verb="Get" Noun="ResourcesAssociatedToCustomLineItemList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResourcesAssociatedToCustomLineItem" OutputProperty="*" Verb="Get" Noun="ResourcesAssociatedToCustomLineItemList" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBillingGroup" OutputProperty="*" Verb="Update" Noun="BillingGroup" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateBillingGroup" OutputProperty="*" Verb="Update" Noun="BillingGroup" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCustomLineItem" OutputProperty="*" Verb="Update" Noun="CustomLineItem" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateCustomLineItem" OutputProperty="*" Verb="Update" Noun="CustomLineItem" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePricingPlan" OutputProperty="*" Verb="Update" Noun="PricingPlan" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdatePricingPlan" OutputProperty="*" Verb="Update" Noun="PricingPlan" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePricingRule" OutputProperty="*" Verb="Update" Noun="PricingRule" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdatePricingRule" OutputProperty="*" Verb="Update" Noun="PricingRule" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

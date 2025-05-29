@@ -19,303 +19,303 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelImageCreation" OutputProperty="ImageBuildVersionArn" Verb="Stop" Noun="ImageCreation" ShouldProcessTarget="ImageBuildVersionArn" PipelineParameter="ImageBuildVersionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelImageCreation" OutputProperty="ImageBuildVersionArn" Verb="Stop" Noun="ImageCreation" ShouldProcessTarget="ImageBuildVersionArn" PipelineParameter="ImageBuildVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelLifecycleExecution" OutputProperty="LifecycleExecutionId" Verb="Stop" Noun="LifecycleExecution" ShouldProcessTarget="LifecycleExecutionId" PipelineParameter="LifecycleExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelLifecycleExecution" OutputProperty="LifecycleExecutionId" Verb="Stop" Noun="LifecycleExecution" ShouldProcessTarget="LifecycleExecutionId" PipelineParameter="LifecycleExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateComponent" OutputProperty="ComponentBuildVersionArn" Verb="New" Noun="Component" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateComponent" OutputProperty="ComponentBuildVersionArn" Verb="New" Noun="Component" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateContainerRecipe" OutputProperty="ContainerRecipeArn" Verb="New" Noun="ContainerRecipe" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateContainerRecipe" OutputProperty="ContainerRecipeArn" Verb="New" Noun="ContainerRecipe" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDistributionConfiguration" OutputProperty="DistributionConfigurationArn" Verb="New" Noun="DistributionConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDistributionConfiguration" OutputProperty="DistributionConfigurationArn" Verb="New" Noun="DistributionConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateImage" OutputProperty="ImageBuildVersionArn" Verb="New" Noun="Image" ShouldProcessTarget="ImageRecipeArn" PipelineParameter="ImageRecipeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateImage" OutputProperty="ImageBuildVersionArn" Verb="New" Noun="Image" ShouldProcessTarget="ImageRecipeArn" PipelineParameter="ImageRecipeArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateImagePipeline" OutputProperty="ImagePipelineArn" Verb="New" Noun="ImagePipeline" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateImagePipeline" OutputProperty="ImagePipelineArn" Verb="New" Noun="ImagePipeline" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateImageRecipe" OutputProperty="ImageRecipeArn" Verb="New" Noun="ImageRecipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateImageRecipe" OutputProperty="ImageRecipeArn" Verb="New" Noun="ImageRecipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInfrastructureConfiguration" OutputProperty="InfrastructureConfigurationArn" Verb="New" Noun="InfrastructureConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateInfrastructureConfiguration" OutputProperty="InfrastructureConfigurationArn" Verb="New" Noun="InfrastructureConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLifecyclePolicy" OutputProperty="LifecyclePolicyArn" Verb="New" Noun="LifecyclePolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateLifecyclePolicy" OutputProperty="LifecyclePolicyArn" Verb="New" Noun="LifecyclePolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWorkflow" OutputProperty="WorkflowBuildVersionArn" Verb="New" Noun="Workflow" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateWorkflow" OutputProperty="WorkflowBuildVersionArn" Verb="New" Noun="Workflow" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteComponent" OutputProperty="*" Verb="Remove" Noun="Component" ShouldProcessTarget="ComponentBuildVersionArn" PipelineParameter="ComponentBuildVersionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteComponent" OutputProperty="*" Verb="Remove" Noun="Component" ShouldProcessTarget="ComponentBuildVersionArn" PipelineParameter="ComponentBuildVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteContainerRecipe" OutputProperty="ContainerRecipeArn" Verb="Remove" Noun="ContainerRecipe" ShouldProcessTarget="ContainerRecipeArn" PipelineParameter="ContainerRecipeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteContainerRecipe" OutputProperty="ContainerRecipeArn" Verb="Remove" Noun="ContainerRecipe" ShouldProcessTarget="ContainerRecipeArn" PipelineParameter="ContainerRecipeArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDistributionConfiguration" OutputProperty="*" Verb="Remove" Noun="DistributionConfiguration" ShouldProcessTarget="DistributionConfigurationArn" PipelineParameter="DistributionConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDistributionConfiguration" OutputProperty="*" Verb="Remove" Noun="DistributionConfiguration" ShouldProcessTarget="DistributionConfigurationArn" PipelineParameter="DistributionConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteImage" OutputProperty="*" Verb="Remove" Noun="Image" ShouldProcessTarget="ImageBuildVersionArn" PipelineParameter="ImageBuildVersionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteImage" OutputProperty="*" Verb="Remove" Noun="Image" ShouldProcessTarget="ImageBuildVersionArn" PipelineParameter="ImageBuildVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteImagePipeline" OutputProperty="*" Verb="Remove" Noun="ImagePipeline" ShouldProcessTarget="ImagePipelineArn" PipelineParameter="ImagePipelineArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteImagePipeline" OutputProperty="*" Verb="Remove" Noun="ImagePipeline" ShouldProcessTarget="ImagePipelineArn" PipelineParameter="ImagePipelineArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteImageRecipe" OutputProperty="*" Verb="Remove" Noun="ImageRecipe" ShouldProcessTarget="ImageRecipeArn" PipelineParameter="ImageRecipeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteImageRecipe" OutputProperty="*" Verb="Remove" Noun="ImageRecipe" ShouldProcessTarget="ImageRecipeArn" PipelineParameter="ImageRecipeArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInfrastructureConfiguration" OutputProperty="*" Verb="Remove" Noun="InfrastructureConfiguration" ShouldProcessTarget="InfrastructureConfigurationArn" PipelineParameter="InfrastructureConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteInfrastructureConfiguration" OutputProperty="*" Verb="Remove" Noun="InfrastructureConfiguration" ShouldProcessTarget="InfrastructureConfigurationArn" PipelineParameter="InfrastructureConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLifecyclePolicy" OutputProperty="LifecyclePolicyArn" Verb="Remove" Noun="LifecyclePolicy" ShouldProcessTarget="LifecyclePolicyArn" PipelineParameter="LifecyclePolicyArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteLifecyclePolicy" OutputProperty="LifecyclePolicyArn" Verb="Remove" Noun="LifecyclePolicy" ShouldProcessTarget="LifecyclePolicyArn" PipelineParameter="LifecyclePolicyArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWorkflow" OutputProperty="WorkflowBuildVersionArn" Verb="Remove" Noun="Workflow" ShouldProcessTarget="WorkflowBuildVersionArn" PipelineParameter="WorkflowBuildVersionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteWorkflow" OutputProperty="WorkflowBuildVersionArn" Verb="Remove" Noun="Workflow" ShouldProcessTarget="WorkflowBuildVersionArn" PipelineParameter="WorkflowBuildVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetComponent" OutputProperty="Component" Verb="Get" Noun="Component" PipelineParameter="ComponentBuildVersionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetComponent" OutputProperty="Component" Verb="Get" Noun="Component" PipelineParameter="ComponentBuildVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetComponentPolicy" OutputProperty="Policy" Verb="Get" Noun="ComponentPolicy" PipelineParameter="ComponentArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetComponentPolicy" OutputProperty="Policy" Verb="Get" Noun="ComponentPolicy" PipelineParameter="ComponentArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetContainerRecipe" OutputProperty="ContainerRecipe" Verb="Get" Noun="ContainerRecipe" PipelineParameter="ContainerRecipeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetContainerRecipe" OutputProperty="ContainerRecipe" Verb="Get" Noun="ContainerRecipe" PipelineParameter="ContainerRecipeArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetContainerRecipePolicy" OutputProperty="Policy" Verb="Get" Noun="ContainerRecipePolicy" PipelineParameter="ContainerRecipeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetContainerRecipePolicy" OutputProperty="Policy" Verb="Get" Noun="ContainerRecipePolicy" PipelineParameter="ContainerRecipeArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDistributionConfiguration" OutputProperty="DistributionConfiguration" Verb="Get" Noun="DistributionConfiguration" PipelineParameter="DistributionConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDistributionConfiguration" OutputProperty="DistributionConfiguration" Verb="Get" Noun="DistributionConfiguration" PipelineParameter="DistributionConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetImage" OutputProperty="Image" Verb="Get" Noun="Image" PipelineParameter="ImageBuildVersionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetImage" OutputProperty="Image" Verb="Get" Noun="Image" PipelineParameter="ImageBuildVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetImagePipeline" OutputProperty="ImagePipeline" Verb="Get" Noun="ImagePipeline" PipelineParameter="ImagePipelineArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetImagePipeline" OutputProperty="ImagePipeline" Verb="Get" Noun="ImagePipeline" PipelineParameter="ImagePipelineArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetImagePolicy" OutputProperty="Policy" Verb="Get" Noun="ImagePolicy" PipelineParameter="ImageArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetImagePolicy" OutputProperty="Policy" Verb="Get" Noun="ImagePolicy" PipelineParameter="ImageArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetImageRecipe" OutputProperty="ImageRecipe" Verb="Get" Noun="ImageRecipe" PipelineParameter="ImageRecipeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetImageRecipe" OutputProperty="ImageRecipe" Verb="Get" Noun="ImageRecipe" PipelineParameter="ImageRecipeArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetImageRecipePolicy" OutputProperty="Policy" Verb="Get" Noun="ImageRecipePolicy" PipelineParameter="ImageRecipeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetImageRecipePolicy" OutputProperty="Policy" Verb="Get" Noun="ImageRecipePolicy" PipelineParameter="ImageRecipeArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInfrastructureConfiguration" OutputProperty="InfrastructureConfiguration" Verb="Get" Noun="InfrastructureConfiguration" PipelineParameter="InfrastructureConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetInfrastructureConfiguration" OutputProperty="InfrastructureConfiguration" Verb="Get" Noun="InfrastructureConfiguration" PipelineParameter="InfrastructureConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLifecycleExecution" OutputProperty="LifecycleExecution" Verb="Get" Noun="LifecycleExecution" PipelineParameter="LifecycleExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetLifecycleExecution" OutputProperty="LifecycleExecution" Verb="Get" Noun="LifecycleExecution" PipelineParameter="LifecycleExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLifecyclePolicy" OutputProperty="LifecyclePolicy" Verb="Get" Noun="LifecyclePolicy" PipelineParameter="LifecyclePolicyArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetLifecyclePolicy" OutputProperty="LifecyclePolicy" Verb="Get" Noun="LifecyclePolicy" PipelineParameter="LifecyclePolicyArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMarketplaceResource" OutputProperty="*" Verb="Get" Noun="MarketplaceResource" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMarketplaceResource" OutputProperty="*" Verb="Get" Noun="MarketplaceResource" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWorkflow" OutputProperty="Workflow" Verb="Get" Noun="Workflow" PipelineParameter="WorkflowBuildVersionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetWorkflow" OutputProperty="Workflow" Verb="Get" Noun="Workflow" PipelineParameter="WorkflowBuildVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWorkflowExecution" OutputProperty="*" Verb="Get" Noun="WorkflowExecution" PipelineParameter="WorkflowExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetWorkflowExecution" OutputProperty="*" Verb="Get" Noun="WorkflowExecution" PipelineParameter="WorkflowExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWorkflowStepExecution" OutputProperty="*" Verb="Get" Noun="WorkflowStepExecution" PipelineParameter="StepExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetWorkflowStepExecution" OutputProperty="*" Verb="Get" Noun="WorkflowStepExecution" PipelineParameter="StepExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportComponent" OutputProperty="ComponentBuildVersionArn" Verb="Import" Noun="Component" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportComponent" OutputProperty="ComponentBuildVersionArn" Verb="Import" Noun="Component" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportDiskImage" OutputProperty="ImageBuildVersionArn" Verb="Import" Noun="DiskImage" AnonymousShouldProcessTarget="true" PipelineParameter="Uri" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportDiskImage" OutputProperty="ImageBuildVersionArn" Verb="Import" Noun="DiskImage" AnonymousShouldProcessTarget="true" PipelineParameter="Uri" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportVmImage" OutputProperty="ImageArn" Verb="Import" Noun="VmImage" ShouldProcessTarget="VmImportTaskId" PipelineParameter="VmImportTaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportVmImage" OutputProperty="ImageArn" Verb="Import" Noun="VmImage" ShouldProcessTarget="VmImportTaskId" PipelineParameter="VmImportTaskId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListComponentBuildVersions" OutputProperty="ComponentSummaryList" Verb="Get" Noun="ComponentBuildVersionList" PipelineParameter="ComponentVersionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListComponentBuildVersions" OutputProperty="ComponentSummaryList" Verb="Get" Noun="ComponentBuildVersionList" PipelineParameter="ComponentVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListComponents" OutputProperty="ComponentVersionList" Verb="Get" Noun="ComponentList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListComponents" OutputProperty="ComponentVersionList" Verb="Get" Noun="ComponentList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListContainerRecipes" OutputProperty="ContainerRecipeSummaryList" Verb="Get" Noun="ContainerRecipeList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListContainerRecipes" OutputProperty="ContainerRecipeSummaryList" Verb="Get" Noun="ContainerRecipeList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDistributionConfigurations" OutputProperty="DistributionConfigurationSummaryList" Verb="Get" Noun="DistributionConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDistributionConfigurations" OutputProperty="DistributionConfigurationSummaryList" Verb="Get" Noun="DistributionConfigurationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImageBuildVersions" OutputProperty="ImageSummaryList" Verb="Get" Noun="ImageBuildVersionList" PipelineParameter="ImageVersionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListImageBuildVersions" OutputProperty="ImageSummaryList" Verb="Get" Noun="ImageBuildVersionList" PipelineParameter="ImageVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImagePackages" OutputProperty="ImagePackageList" Verb="Get" Noun="ImagePackageList" PipelineParameter="ImageBuildVersionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListImagePackages" OutputProperty="ImagePackageList" Verb="Get" Noun="ImagePackageList" PipelineParameter="ImageBuildVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImagePipelineImages" OutputProperty="ImageSummaryList" Verb="Get" Noun="ImagePipelineImageList" PipelineParameter="ImagePipelineArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListImagePipelineImages" OutputProperty="ImageSummaryList" Verb="Get" Noun="ImagePipelineImageList" PipelineParameter="ImagePipelineArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImagePipelines" OutputProperty="ImagePipelineList" Verb="Get" Noun="ImagePipelineList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListImagePipelines" OutputProperty="ImagePipelineList" Verb="Get" Noun="ImagePipelineList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImageRecipes" OutputProperty="ImageRecipeSummaryList" Verb="Get" Noun="ImageRecipeList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListImageRecipes" OutputProperty="ImageRecipeSummaryList" Verb="Get" Noun="ImageRecipeList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImages" OutputProperty="ImageVersionList" Verb="Get" Noun="ImageList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListImages" OutputProperty="ImageVersionList" Verb="Get" Noun="ImageList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImageScanFindingAggregations" OutputProperty="*" Verb="Get" Noun="ImageScanFindingAggregationList" PipelineParameter="Filter_Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListImageScanFindingAggregations" OutputProperty="*" Verb="Get" Noun="ImageScanFindingAggregationList" PipelineParameter="Filter_Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImageScanFindings" OutputProperty="Findings" Verb="Get" Noun="ImageScanFindingList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListImageScanFindings" OutputProperty="Findings" Verb="Get" Noun="ImageScanFindingList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInfrastructureConfigurations" OutputProperty="InfrastructureConfigurationSummaryList" Verb="Get" Noun="InfrastructureConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListInfrastructureConfigurations" OutputProperty="InfrastructureConfigurationSummaryList" Verb="Get" Noun="InfrastructureConfigurationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLifecycleExecutionResources" OutputProperty="*" Verb="Get" Noun="LifecycleExecutionResourceList" PipelineParameter="LifecycleExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLifecycleExecutionResources" OutputProperty="*" Verb="Get" Noun="LifecycleExecutionResourceList" PipelineParameter="LifecycleExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLifecycleExecutions" OutputProperty="LifecycleExecutions" Verb="Get" Noun="LifecycleExecutionList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLifecycleExecutions" OutputProperty="LifecycleExecutions" Verb="Get" Noun="LifecycleExecutionList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLifecyclePolicies" OutputProperty="LifecyclePolicySummaryList" Verb="Get" Noun="LifecyclePolicyList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLifecyclePolicies" OutputProperty="LifecyclePolicySummaryList" Verb="Get" Noun="LifecyclePolicyList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWaitingWorkflowSteps" OutputProperty="Steps" Verb="Get" Noun="WaitingWorkflowStepList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListWaitingWorkflowSteps" OutputProperty="Steps" Verb="Get" Noun="WaitingWorkflowStepList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkflowBuildVersions" OutputProperty="WorkflowSummaryList" Verb="Get" Noun="WorkflowBuildVersionList" PipelineParameter="WorkflowVersionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListWorkflowBuildVersions" OutputProperty="WorkflowSummaryList" Verb="Get" Noun="WorkflowBuildVersionList" PipelineParameter="WorkflowVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkflowExecutions" OutputProperty="*" Verb="Get" Noun="WorkflowExecutionList" PipelineParameter="ImageBuildVersionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListWorkflowExecutions" OutputProperty="*" Verb="Get" Noun="WorkflowExecutionList" PipelineParameter="ImageBuildVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkflows" OutputProperty="WorkflowVersionList" Verb="Get" Noun="WorkflowList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListWorkflows" OutputProperty="WorkflowVersionList" Verb="Get" Noun="WorkflowList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkflowStepExecutions" OutputProperty="*" Verb="Get" Noun="WorkflowStepExecutionList" PipelineParameter="WorkflowExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListWorkflowStepExecutions" OutputProperty="*" Verb="Get" Noun="WorkflowStepExecutionList" PipelineParameter="WorkflowExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutComponentPolicy" OutputProperty="*" Verb="Write" Noun="ComponentPolicy" ShouldProcessTarget="ComponentArn" PipelineParameter="Policy" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutComponentPolicy" OutputProperty="*" Verb="Write" Noun="ComponentPolicy" ShouldProcessTarget="ComponentArn" PipelineParameter="Policy" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutContainerRecipePolicy" OutputProperty="ContainerRecipeArn" Verb="Write" Noun="ContainerRecipePolicy" ShouldProcessTarget="ContainerRecipeArn" PipelineParameter="ContainerRecipeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutContainerRecipePolicy" OutputProperty="ContainerRecipeArn" Verb="Write" Noun="ContainerRecipePolicy" ShouldProcessTarget="ContainerRecipeArn" PipelineParameter="ContainerRecipeArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutImagePolicy" OutputProperty="*" Verb="Write" Noun="ImagePolicy" ShouldProcessTarget="ImageArn" PipelineParameter="Policy" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutImagePolicy" OutputProperty="*" Verb="Write" Noun="ImagePolicy" ShouldProcessTarget="ImageArn" PipelineParameter="Policy" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutImageRecipePolicy" OutputProperty="*" Verb="Write" Noun="ImageRecipePolicy" ShouldProcessTarget="ImageRecipeArn" PipelineParameter="Policy" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutImageRecipePolicy" OutputProperty="*" Verb="Write" Noun="ImageRecipePolicy" ShouldProcessTarget="ImageRecipeArn" PipelineParameter="Policy" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendWorkflowStepAction" OutputProperty="*" Verb="Send" Noun="WorkflowStepAction" ShouldProcessTarget="StepExecutionId" PipelineParameter="StepExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SendWorkflowStepAction" OutputProperty="*" Verb="Send" Noun="WorkflowStepAction" ShouldProcessTarget="StepExecutionId" PipelineParameter="StepExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartImagePipelineExecution" OutputProperty="ImageBuildVersionArn" Verb="Start" Noun="ImagePipelineExecution" ShouldProcessTarget="ImagePipelineArn" PipelineParameter="ImagePipelineArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartImagePipelineExecution" OutputProperty="ImageBuildVersionArn" Verb="Start" Noun="ImagePipelineExecution" ShouldProcessTarget="ImagePipelineArn" PipelineParameter="ImagePipelineArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartResourceStateUpdate" OutputProperty="*" Verb="Start" Noun="ResourceStateUpdate" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartResourceStateUpdate" OutputProperty="*" Verb="Start" Noun="ResourceStateUpdate" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDistributionConfiguration" OutputProperty="DistributionConfigurationArn" Verb="Update" Noun="DistributionConfiguration" ShouldProcessTarget="DistributionConfigurationArn" PipelineParameter="DistributionConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDistributionConfiguration" OutputProperty="DistributionConfigurationArn" Verb="Update" Noun="DistributionConfiguration" ShouldProcessTarget="DistributionConfigurationArn" PipelineParameter="DistributionConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateImagePipeline" OutputProperty="ImagePipelineArn" Verb="Update" Noun="ImagePipeline" ShouldProcessTarget="ImagePipelineArn" PipelineParameter="ImagePipelineArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateImagePipeline" OutputProperty="ImagePipelineArn" Verb="Update" Noun="ImagePipeline" ShouldProcessTarget="ImagePipelineArn" PipelineParameter="ImagePipelineArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateInfrastructureConfiguration" OutputProperty="InfrastructureConfigurationArn" Verb="Update" Noun="InfrastructureConfiguration" ShouldProcessTarget="InfrastructureConfigurationArn" PipelineParameter="InfrastructureConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateInfrastructureConfiguration" OutputProperty="InfrastructureConfigurationArn" Verb="Update" Noun="InfrastructureConfiguration" ShouldProcessTarget="InfrastructureConfigurationArn" PipelineParameter="InfrastructureConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLifecyclePolicy" OutputProperty="LifecyclePolicyArn" Verb="Update" Noun="LifecyclePolicy" ShouldProcessTarget="LifecyclePolicyArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateLifecyclePolicy" OutputProperty="LifecyclePolicyArn" Verb="Update" Noun="LifecyclePolicy" ShouldProcessTarget="LifecyclePolicyArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

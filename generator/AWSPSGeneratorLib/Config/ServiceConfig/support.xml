@@ -20,67 +20,67 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddAttachmentsToSet" OutputProperty="*" Verb="Add" Noun="AttachmentsToSet" ShouldProcessTarget="AttachmentSetId" PipelineParameter="AttachmentSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AddAttachmentsToSet" OutputProperty="*" Verb="Add" Noun="AttachmentsToSet" ShouldProcessTarget="AttachmentSetId" PipelineParameter="AttachmentSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddCommunicationToCase" OutputProperty="Result" Verb="Add" Noun="CommunicationToCase" ShouldProcessTarget="CaseId" PositionalParameters="CommunicationBody;CcEmailAddresses" PipelineParameter="CaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AddCommunicationToCase" OutputProperty="Result" Verb="Add" Noun="CommunicationToCase" ShouldProcessTarget="CaseId" PositionalParameters="CommunicationBody;CcEmailAddresses" PipelineParameter="CaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCase" OutputProperty="CaseId" Verb="New" Noun="Case" ShouldProcessTarget="AttachmentSetId" PositionalParameters="ServiceCode;SeverityCode;CategoryCode;CommunicationBody" PipelineParameter="Subject" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateCase" OutputProperty="CaseId" Verb="New" Noun="Case" ShouldProcessTarget="AttachmentSetId" PositionalParameters="ServiceCode;SeverityCode;CategoryCode;CommunicationBody" PipelineParameter="Subject" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAttachment" OutputProperty="Attachment" Verb="Get" Noun="Attachment" PipelineParameter="AttachmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAttachment" OutputProperty="Attachment" Verb="Get" Noun="Attachment" PipelineParameter="AttachmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCases" OutputProperty="Cases" Verb="Get" Noun="Case" PipelineParameter="CaseIdList" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ASACases" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCases" OutputProperty="Cases" Verb="Get" Noun="Case" PipelineParameter="CaseIdList" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ASACases">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCommunications" OutputProperty="Communications" Verb="Get" Noun="Communication" PipelineParameter="CaseId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ASACommunications" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCommunications" OutputProperty="Communications" Verb="Get" Noun="Communication" PipelineParameter="CaseId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ASACommunications">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCreateCaseOptions" OutputProperty="*" Verb="Get" Noun="CreateCaseOption" PipelineParameter="CategoryCode" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCreateCaseOptions" OutputProperty="*" Verb="Get" Noun="CreateCaseOption" PipelineParameter="CategoryCode" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeServices" OutputProperty="Services" Verb="Get" Noun="Service" PositionalParameters="Language" PipelineParameter="ServiceCodeList" NoPipelineParameter="false" LegacyAlias="Get-ASAServices" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeServices" OutputProperty="Services" Verb="Get" Noun="Service" PositionalParameters="Language" PipelineParameter="ServiceCodeList" NoPipelineParameter="false" LegacyAlias="Get-ASAServices">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSeverityLevels" OutputProperty="SeverityLevels" Verb="Get" Noun="SeverityLevel" PipelineParameter="Language" NoPipelineParameter="false" LegacyAlias="Get-ASASeverityLevels" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSeverityLevels" OutputProperty="SeverityLevels" Verb="Get" Noun="SeverityLevel" PipelineParameter="Language" NoPipelineParameter="false" LegacyAlias="Get-ASASeverityLevels">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSupportedLanguages" OutputProperty="SupportedLanguages" Verb="Get" Noun="SupportedLanguage" PipelineParameter="CategoryCode" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSupportedLanguages" OutputProperty="SupportedLanguages" Verb="Get" Noun="SupportedLanguage" PipelineParameter="CategoryCode" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTrustedAdvisorCheckRefreshStatuses" OutputProperty="Statuses" Verb="Get" Noun="TrustedAdvisorCheckRefreshStatus" PipelineParameter="CheckIds" NoPipelineParameter="false" LegacyAlias="Get-ASATrustedAdvisorCheckRefreshStatuses" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTrustedAdvisorCheckRefreshStatuses" OutputProperty="Statuses" Verb="Get" Noun="TrustedAdvisorCheckRefreshStatus" PipelineParameter="CheckIds" NoPipelineParameter="false" LegacyAlias="Get-ASATrustedAdvisorCheckRefreshStatuses">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTrustedAdvisorCheckResult" OutputProperty="Result" Verb="Get" Noun="TrustedAdvisorCheckResult" PositionalParameters="Language" PipelineParameter="CheckId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTrustedAdvisorCheckResult" OutputProperty="Result" Verb="Get" Noun="TrustedAdvisorCheckResult" PositionalParameters="Language" PipelineParameter="CheckId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTrustedAdvisorChecks" OutputProperty="Checks" Verb="Get" Noun="TrustedAdvisorCheck" PipelineParameter="Language" NoPipelineParameter="false" LegacyAlias="Get-ASATrustedAdvisorChecks" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTrustedAdvisorChecks" OutputProperty="Checks" Verb="Get" Noun="TrustedAdvisorCheck" PipelineParameter="Language" NoPipelineParameter="false" LegacyAlias="Get-ASATrustedAdvisorChecks">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTrustedAdvisorCheckSummaries" OutputProperty="Summaries" Verb="Get" Noun="TrustedAdvisorCheckSummary" PipelineParameter="CheckIds" NoPipelineParameter="false" LegacyAlias="Get-ASATrustedAdvisorCheckSummaries" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTrustedAdvisorCheckSummaries" OutputProperty="Summaries" Verb="Get" Noun="TrustedAdvisorCheckSummary" PipelineParameter="CheckIds" NoPipelineParameter="false" LegacyAlias="Get-ASATrustedAdvisorCheckSummaries">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RefreshTrustedAdvisorCheck" OutputProperty="Status" Verb="Request" Noun="TrustedAdvisorCheckRefresh" ShouldProcessTarget="CheckId" PipelineParameter="CheckId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RefreshTrustedAdvisorCheck" OutputProperty="Status" Verb="Request" Noun="TrustedAdvisorCheckRefresh" ShouldProcessTarget="CheckId" PipelineParameter="CheckId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResolveCase" OutputProperty="*" Verb="Resolve" Noun="Case" ShouldProcessTarget="CaseId" PipelineParameter="CaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ResolveCase" OutputProperty="*" Verb="Resolve" Noun="Case" ShouldProcessTarget="CaseId" PipelineParameter="CaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

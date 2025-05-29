@@ -23,27 +23,27 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelJob" OutputProperty="Success" Verb="Stop" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelJob" OutputProperty="Success" Verb="Stop" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateJob" OutputProperty="*" Verb="New" Noun="Job" ShouldProcessTarget="JobType" PositionalParameters="Manifest;ManifestAddendum;ValidateOnly" PipelineParameter="JobType" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateJob" OutputProperty="*" Verb="New" Noun="Job" ShouldProcessTarget="JobType" PositionalParameters="Manifest;ManifestAddendum;ValidateOnly" PipelineParameter="JobType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetShippingLabel" OutputProperty="*" Verb="Get" Noun="ShippingLabel" PipelineParameter="JobIds" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetShippingLabel" OutputProperty="*" Verb="Get" Noun="ShippingLabel" PipelineParameter="JobIds" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStatus" OutputProperty="*" Verb="Get" Noun="Status" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetStatus" OutputProperty="*" Verb="Get" Noun="Status" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" OutputProperty="Jobs" Verb="Get" Noun="Job" PositionalParameters="Marker" PipelineParameter="MaxJobs" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListJobs" OutputProperty="Jobs" Verb="Get" Noun="Job" PositionalParameters="Marker" PipelineParameter="MaxJobs" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateJob" OutputProperty="*" Verb="Update" Noun="Job" ShouldProcessTarget="JobId" PositionalParameters="Manifest;JobType;ValidateOnly" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateJob" OutputProperty="*" Verb="Update" Noun="Job" ShouldProcessTarget="JobId" PositionalParameters="Manifest;JobType;ValidateOnly" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

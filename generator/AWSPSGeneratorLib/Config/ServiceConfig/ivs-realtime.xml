@@ -19,149 +19,149 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateEncoderConfiguration" OutputProperty="EncoderConfiguration" Verb="New" Noun="EncoderConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateEncoderConfiguration" OutputProperty="EncoderConfiguration" Verb="New" Noun="EncoderConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIngestConfiguration" OutputProperty="IngestConfiguration" Verb="New" Noun="IngestConfiguration" ShouldProcessTarget="" PipelineParameter="IngestProtocol" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateIngestConfiguration" OutputProperty="IngestConfiguration" Verb="New" Noun="IngestConfiguration" ShouldProcessTarget="" PipelineParameter="IngestProtocol" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateParticipantToken" OutputProperty="ParticipantToken" Verb="New" Noun="ParticipantToken" ShouldProcessTarget="StageArn" PipelineParameter="StageArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateParticipantToken" OutputProperty="ParticipantToken" Verb="New" Noun="ParticipantToken" ShouldProcessTarget="StageArn" PipelineParameter="StageArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStage" OutputProperty="*" Verb="New" Noun="Stage" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateStage" OutputProperty="*" Verb="New" Noun="Stage" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStorageConfiguration" OutputProperty="StorageConfiguration" Verb="New" Noun="StorageConfiguration" ShouldProcessTarget="S3_BucketName" PipelineParameter="S3_BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateStorageConfiguration" OutputProperty="StorageConfiguration" Verb="New" Noun="StorageConfiguration" ShouldProcessTarget="S3_BucketName" PipelineParameter="S3_BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEncoderConfiguration" Verb="Remove" Noun="EncoderConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteEncoderConfiguration" Verb="Remove" Noun="EncoderConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIngestConfiguration" Verb="Remove" Noun="IngestConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteIngestConfiguration" Verb="Remove" Noun="IngestConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params>
                 <Param Name="Force" NewName="ForceDelete" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePublicKey" Verb="Remove" Noun="PublicKey" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeletePublicKey" Verb="Remove" Noun="PublicKey" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStage" Verb="Remove" Noun="Stage" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteStage" Verb="Remove" Noun="Stage" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStorageConfiguration" Verb="Remove" Noun="StorageConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteStorageConfiguration" Verb="Remove" Noun="StorageConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisconnectParticipant" Verb="Disconnect" Noun="Participant" ShouldProcessTarget="ParticipantId" PipelineParameter="ParticipantId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisconnectParticipant" Verb="Disconnect" Noun="Participant" ShouldProcessTarget="ParticipantId" PipelineParameter="ParticipantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetComposition" OutputProperty="Composition" Verb="Get" Noun="Composition" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetComposition" OutputProperty="Composition" Verb="Get" Noun="Composition" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEncoderConfiguration" OutputProperty="EncoderConfiguration" Verb="Get" Noun="EncoderConfiguration" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetEncoderConfiguration" OutputProperty="EncoderConfiguration" Verb="Get" Noun="EncoderConfiguration" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIngestConfiguration" OutputProperty="IngestConfiguration" Verb="Get" Noun="IngestConfiguration" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetIngestConfiguration" OutputProperty="IngestConfiguration" Verb="Get" Noun="IngestConfiguration" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetParticipant" OutputProperty="Participant" Verb="Get" Noun="Participant" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetParticipant" OutputProperty="Participant" Verb="Get" Noun="Participant" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPublicKey" OutputProperty="PublicKey" Verb="Get" Noun="PublicKey" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPublicKey" OutputProperty="PublicKey" Verb="Get" Noun="PublicKey" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStage" OutputProperty="Stage" Verb="Get" Noun="Stage" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetStage" OutputProperty="Stage" Verb="Get" Noun="Stage" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStageSession" OutputProperty="StageSession" Verb="Get" Noun="StageSession" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetStageSession" OutputProperty="StageSession" Verb="Get" Noun="StageSession" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStorageConfiguration" OutputProperty="StorageConfiguration" Verb="Get" Noun="StorageConfiguration" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetStorageConfiguration" OutputProperty="StorageConfiguration" Verb="Get" Noun="StorageConfiguration" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportPublicKey" OutputProperty="PublicKey" Verb="Import" Noun="PublicKey" ShouldProcessTarget="Name" PipelineParameter="PublicKeyMaterial" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportPublicKey" OutputProperty="PublicKey" Verb="Import" Noun="PublicKey" ShouldProcessTarget="Name" PipelineParameter="PublicKeyMaterial" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCompositions" OutputProperty="Compositions" Verb="Get" Noun="CompositionList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCompositions" OutputProperty="Compositions" Verb="Get" Noun="CompositionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEncoderConfigurations" OutputProperty="EncoderConfigurations" Verb="Get" Noun="EncoderConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEncoderConfigurations" OutputProperty="EncoderConfigurations" Verb="Get" Noun="EncoderConfigurationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIngestConfigurations" OutputProperty="IngestConfigurations" Verb="Get" Noun="IngestConfigurationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListIngestConfigurations" OutputProperty="IngestConfigurations" Verb="Get" Noun="IngestConfigurationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListParticipantEvents" OutputProperty="Events" Verb="Get" Noun="ParticipantEventList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListParticipantEvents" OutputProperty="Events" Verb="Get" Noun="ParticipantEventList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListParticipants" OutputProperty="Participants" Verb="Get" Noun="ParticipantList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListParticipants" OutputProperty="Participants" Verb="Get" Noun="ParticipantList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPublicKeys" OutputProperty="PublicKeys" Verb="Get" Noun="PublicKeyList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPublicKeys" OutputProperty="PublicKeys" Verb="Get" Noun="PublicKeyList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStages" OutputProperty="Stages" Verb="Get" Noun="StageList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStages" OutputProperty="Stages" Verb="Get" Noun="StageList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStageSessions" OutputProperty="StageSessions" Verb="Get" Noun="StageSessionList" PipelineParameter="StageArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStageSessions" OutputProperty="StageSessions" Verb="Get" Noun="StageSessionList" PipelineParameter="StageArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStorageConfigurations" OutputProperty="StorageConfigurations" Verb="Get" Noun="StorageConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStorageConfigurations" OutputProperty="StorageConfigurations" Verb="Get" Noun="StorageConfigurationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartComposition" OutputProperty="Composition" Verb="Start" Noun="Composition" ShouldProcessTarget="StageArn" PipelineParameter="StageArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartComposition" OutputProperty="Composition" Verb="Start" Noun="Composition" ShouldProcessTarget="StageArn" PipelineParameter="StageArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopComposition" Verb="Stop" Noun="Composition" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopComposition" Verb="Stop" Noun="Composition" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIngestConfiguration" OutputProperty="IngestConfiguration" Verb="Update" Noun="IngestConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateIngestConfiguration" OutputProperty="IngestConfiguration" Verb="Update" Noun="IngestConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStage" OutputProperty="Stage" Verb="Update" Noun="Stage" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateStage" OutputProperty="Stage" Verb="Update" Noun="Stage" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

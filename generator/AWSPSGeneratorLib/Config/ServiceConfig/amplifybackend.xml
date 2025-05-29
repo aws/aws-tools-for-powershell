@@ -18,19 +18,19 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CloneBackend" OutputProperty="*" Verb="Copy" Noun="Backend" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CloneBackend" OutputProperty="*" Verb="Copy" Noun="Backend" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBackend" OutputProperty="*" Verb="New" Noun="Backend" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateBackend" OutputProperty="*" Verb="New" Noun="Backend" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBackendAPI" OutputProperty="*" Verb="New" Noun="BackendAPI" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateBackendAPI" OutputProperty="*" Verb="New" Noun="BackendAPI" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBackendAuth" OutputProperty="*" Verb="New" Noun="BackendAuth" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateBackendAuth" OutputProperty="*" Verb="New" Noun="BackendAuth" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params>
                 <Param Name="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage" NewName="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage" />
                 <Param Name="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject" NewName="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject" />
@@ -38,99 +38,99 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBackendConfig" OutputProperty="*" Verb="New" Noun="BackendConfig" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateBackendConfig" OutputProperty="*" Verb="New" Noun="BackendConfig" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBackendStorage" OutputProperty="*" Verb="New" Noun="BackendStorage" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateBackendStorage" OutputProperty="*" Verb="New" Noun="BackendStorage" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateToken" OutputProperty="*" Verb="New" Noun="Token" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateToken" OutputProperty="*" Verb="New" Noun="Token" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBackend" OutputProperty="*" Verb="Remove" Noun="Backend" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBackend" OutputProperty="*" Verb="Remove" Noun="Backend" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBackendAPI" OutputProperty="*" Verb="Remove" Noun="BackendAPI" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBackendAPI" OutputProperty="*" Verb="Remove" Noun="BackendAPI" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBackendAuth" OutputProperty="*" Verb="Remove" Noun="BackendAuth" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBackendAuth" OutputProperty="*" Verb="Remove" Noun="BackendAuth" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBackendStorage" OutputProperty="*" Verb="Remove" Noun="BackendStorage" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBackendStorage" OutputProperty="*" Verb="Remove" Noun="BackendStorage" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteToken" OutputProperty="IsSuccess" Verb="Remove" Noun="Token" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteToken" OutputProperty="IsSuccess" Verb="Remove" Noun="Token" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateBackendAPIModels" OutputProperty="*" Verb="New" Noun="BackendAPIModel" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GenerateBackendAPIModels" OutputProperty="*" Verb="New" Noun="BackendAPIModel" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBackend" OutputProperty="*" Verb="Get" Noun="Backend" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBackend" OutputProperty="*" Verb="Get" Noun="Backend" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBackendAPI" OutputProperty="*" Verb="Get" Noun="BackendAPI" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBackendAPI" OutputProperty="*" Verb="Get" Noun="BackendAPI" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBackendAPIModels" OutputProperty="*" Verb="Get" Noun="BackendAPIModel" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBackendAPIModels" OutputProperty="*" Verb="Get" Noun="BackendAPIModel" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBackendAuth" OutputProperty="*" Verb="Get" Noun="BackendAuth" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBackendAuth" OutputProperty="*" Verb="Get" Noun="BackendAuth" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBackendJob" OutputProperty="*" Verb="Get" Noun="BackendJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBackendJob" OutputProperty="*" Verb="Get" Noun="BackendJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBackendStorage" OutputProperty="*" Verb="Get" Noun="BackendStorage" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBackendStorage" OutputProperty="*" Verb="Get" Noun="BackendStorage" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetToken" OutputProperty="*" Verb="Get" Noun="Token" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetToken" OutputProperty="*" Verb="Get" Noun="Token" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportBackendAuth" OutputProperty="*" Verb="Import" Noun="BackendAuth" AnonymousShouldProcessTarget="true" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportBackendAuth" OutputProperty="*" Verb="Import" Noun="BackendAuth" AnonymousShouldProcessTarget="true" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportBackendStorage" OutputProperty="*" Verb="Import" Noun="BackendStorage" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportBackendStorage" OutputProperty="*" Verb="Import" Noun="BackendStorage" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackendJobs" OutputProperty="Jobs" Verb="Get" Noun="BackendJobList" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBackendJobs" OutputProperty="Jobs" Verb="Get" Noun="BackendJobList" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListS3Buckets" OutputProperty="Buckets" Verb="Get" Noun="S3BucketList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListS3Buckets" OutputProperty="Buckets" Verb="Get" Noun="S3BucketList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveAllBackends" OutputProperty="*" Verb="Remove" Noun="AllBackend" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RemoveAllBackends" OutputProperty="*" Verb="Remove" Noun="AllBackend" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveBackendConfig" OutputProperty="Error" Verb="Remove" Noun="BackendConfig" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RemoveBackendConfig" OutputProperty="Error" Verb="Remove" Noun="BackendConfig" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBackendAPI" OutputProperty="*" Verb="Update" Noun="BackendAPI" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateBackendAPI" OutputProperty="*" Verb="Update" Noun="BackendAPI" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBackendAuth" OutputProperty="*" Verb="Update" Noun="BackendAuth" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateBackendAuth" OutputProperty="*" Verb="Update" Noun="BackendAuth" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params>
                 <Param Name="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage" NewName="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailMessage" />
                 <Param Name="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject" NewName="ResourceConfig_UserPoolConfigs_ForgotPassword_EmailSettings_EmailSubject" />
@@ -138,15 +138,15 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBackendConfig" OutputProperty="*" Verb="Update" Noun="BackendConfig" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateBackendConfig" OutputProperty="*" Verb="Update" Noun="BackendConfig" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBackendJob" OutputProperty="*" Verb="Update" Noun="BackendJob" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateBackendJob" OutputProperty="*" Verb="Update" Noun="BackendJob" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBackendStorage" OutputProperty="*" Verb="Update" Noun="BackendStorage" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateBackendStorage" OutputProperty="*" Verb="Update" Noun="BackendStorage" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

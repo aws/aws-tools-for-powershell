@@ -19,35 +19,35 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="GetTelemetryEvaluationStatus" OutputProperty="*" Verb="Get" Noun="TelemetryEvaluationStatus" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTelemetryEvaluationStatus" OutputProperty="*" Verb="Get" Noun="TelemetryEvaluationStatus" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTelemetryEvaluationStatusForOrganization" OutputProperty="*" Verb="Get" Noun="TelemetryEvaluationStatusForOrganization" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTelemetryEvaluationStatusForOrganization" OutputProperty="*" Verb="Get" Noun="TelemetryEvaluationStatusForOrganization" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceTelemetry" OutputProperty="TelemetryConfigurations" Verb="Get" Noun="ResourceTelemetryList" PipelineParameter="ResourceIdentifierPrefix" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResourceTelemetry" OutputProperty="TelemetryConfigurations" Verb="Get" Noun="ResourceTelemetryList" PipelineParameter="ResourceIdentifierPrefix" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceTelemetryForOrganization" OutputProperty="TelemetryConfigurations" Verb="Get" Noun="ResourceTelemetryForOrganizationList" PipelineParameter="ResourceIdentifierPrefix" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResourceTelemetryForOrganization" OutputProperty="TelemetryConfigurations" Verb="Get" Noun="ResourceTelemetryForOrganizationList" PipelineParameter="ResourceIdentifierPrefix" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartTelemetryEvaluation" Verb="Start" Noun="TelemetryEvaluation" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartTelemetryEvaluation" Verb="Start" Noun="TelemetryEvaluation" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartTelemetryEvaluationForOrganization" Verb="Start" Noun="TelemetryEvaluationForOrganization" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartTelemetryEvaluationForOrganization" Verb="Start" Noun="TelemetryEvaluationForOrganization" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopTelemetryEvaluation" Verb="Stop" Noun="TelemetryEvaluation" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopTelemetryEvaluation" Verb="Stop" Noun="TelemetryEvaluation" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopTelemetryEvaluationForOrganization" Verb="Stop" Noun="TelemetryEvaluationForOrganization" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopTelemetryEvaluationForOrganization" Verb="Stop" Noun="TelemetryEvaluationForOrganization" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

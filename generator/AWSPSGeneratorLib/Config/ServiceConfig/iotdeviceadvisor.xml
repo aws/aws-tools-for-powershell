@@ -18,59 +18,59 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateSuiteDefinition" OutputProperty="*" Verb="New" Noun="SuiteDefinition" ShouldProcessTarget="SuiteDefinitionConfiguration_SuiteDefinitionName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateSuiteDefinition" OutputProperty="*" Verb="New" Noun="SuiteDefinition" ShouldProcessTarget="SuiteDefinitionConfiguration_SuiteDefinitionName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSuiteDefinition" Verb="Remove" Noun="SuiteDefinition" ShouldProcessTarget="SuiteDefinitionId" PipelineParameter="SuiteDefinitionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteSuiteDefinition" Verb="Remove" Noun="SuiteDefinition" ShouldProcessTarget="SuiteDefinitionId" PipelineParameter="SuiteDefinitionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEndpoint" OutputProperty="Endpoint" Verb="Get" Noun="Endpoint" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetEndpoint" OutputProperty="Endpoint" Verb="Get" Noun="Endpoint" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSuiteDefinition" OutputProperty="*" Verb="Get" Noun="SuiteDefinition" PipelineParameter="SuiteDefinitionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSuiteDefinition" OutputProperty="*" Verb="Get" Noun="SuiteDefinition" PipelineParameter="SuiteDefinitionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSuiteRun" OutputProperty="*" Verb="Get" Noun="SuiteRun" PipelineParameter="SuiteDefinitionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSuiteRun" OutputProperty="*" Verb="Get" Noun="SuiteRun" PipelineParameter="SuiteDefinitionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSuiteRunReport" OutputProperty="QualificationReportDownloadUrl" Verb="Get" Noun="SuiteRunReport" PipelineParameter="SuiteRunId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSuiteRunReport" OutputProperty="QualificationReportDownloadUrl" Verb="Get" Noun="SuiteRunReport" PipelineParameter="SuiteRunId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSuiteDefinitions" OutputProperty="SuiteDefinitionInformationList" Verb="Get" Noun="SuiteDefinitionList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSuiteDefinitions" OutputProperty="SuiteDefinitionInformationList" Verb="Get" Noun="SuiteDefinitionList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSuiteRuns" OutputProperty="SuiteRunsList" Verb="Get" Noun="SuiteRunList" PipelineParameter="SuiteDefinitionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSuiteRuns" OutputProperty="SuiteRunsList" Verb="Get" Noun="SuiteRunList" PipelineParameter="SuiteDefinitionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSuiteRun" OutputProperty="*" Verb="Start" Noun="SuiteRun" ShouldProcessTarget="SuiteDefinitionId" PipelineParameter="SuiteDefinitionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartSuiteRun" OutputProperty="*" Verb="Start" Noun="SuiteRun" ShouldProcessTarget="SuiteDefinitionId" PipelineParameter="SuiteDefinitionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopSuiteRun" Verb="Stop" Noun="SuiteRun" ShouldProcessTarget="SuiteRunId" PipelineParameter="SuiteRunId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopSuiteRun" Verb="Stop" Noun="SuiteRun" ShouldProcessTarget="SuiteRunId" PipelineParameter="SuiteRunId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSuiteDefinition" OutputProperty="*" Verb="Update" Noun="SuiteDefinition" ShouldProcessTarget="SuiteDefinitionId" PipelineParameter="SuiteDefinitionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateSuiteDefinition" OutputProperty="*" Verb="Update" Noun="SuiteDefinition" ShouldProcessTarget="SuiteDefinitionId" PipelineParameter="SuiteDefinitionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

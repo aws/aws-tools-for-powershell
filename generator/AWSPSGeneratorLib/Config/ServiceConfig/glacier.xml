@@ -23,77 +23,77 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AbortMultipartUpload" Verb="Remove" Noun="MultipartUpload" ShouldProcessTarget="UploadId" PipelineParameter="UploadId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AbortMultipartUpload" Verb="Remove" Noun="MultipartUpload" ShouldProcessTarget="UploadId" PipelineParameter="UploadId" NoPipelineParameter="false">
             <Params>
                 <Param Name="UploadId" Alias="MultipartUploadId" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AbortVaultLock" Verb="Stop" Noun="VaultLock" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AbortVaultLock" Verb="Stop" Noun="VaultLock" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddTagsToVault" Verb="Add" Noun="TagsToVault" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AddTagsToVault" Verb="Add" Noun="TagsToVault" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CompleteMultipartUpload" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CompleteMultipartUpload" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CompleteVaultLock" Verb="Complete" Noun="VaultLock" ShouldProcessTarget="LockId" PipelineParameter="LockId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CompleteVaultLock" Verb="Complete" Noun="VaultLock" ShouldProcessTarget="LockId" PipelineParameter="LockId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVault" OutputProperty="Location" Verb="New" Noun="Vault" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateVault" OutputProperty="Location" Verb="New" Noun="Vault" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteArchive" Verb="Remove" Noun="Archive" ShouldProcessTarget="ArchiveId" PipelineParameter="ArchiveId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteArchive" Verb="Remove" Noun="Archive" ShouldProcessTarget="ArchiveId" PipelineParameter="ArchiveId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVault" Verb="Remove" Noun="Vault" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteVault" Verb="Remove" Noun="Vault" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVaultAccessPolicy" Verb="Remove" Noun="VaultAccessPolicy" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteVaultAccessPolicy" Verb="Remove" Noun="VaultAccessPolicy" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVaultNotifications" Verb="Remove" Noun="VaultNotification" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteVaultNotifications" Verb="Remove" Noun="VaultNotification" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeJob" OutputProperty="*" Verb="Get" Noun="Job" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeJob" OutputProperty="*" Verb="Get" Noun="Job" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVault" OutputProperty="*" Verb="Get" Noun="Vault" PipelineParameter="VaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVault" OutputProperty="*" Verb="Get" Noun="Vault" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataRetrievalPolicy" OutputProperty="Policy" Verb="Get" Noun="DataRetrievalPolicy" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDataRetrievalPolicy" OutputProperty="Policy" Verb="Get" Noun="DataRetrievalPolicy" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJobOutput" Verb="Get" Noun="JobOutput" Exclude="true" ShouldProcessTarget="" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetJobOutput" Verb="Get" Noun="JobOutput" Exclude="true" ShouldProcessTarget="" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVaultAccessPolicy" OutputProperty="Policy" Verb="Get" Noun="VaultAccessPolicy" PipelineParameter="VaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetVaultAccessPolicy" OutputProperty="Policy" Verb="Get" Noun="VaultAccessPolicy" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVaultLock" OutputProperty="*" Verb="Get" Noun="VaultLock" PipelineParameter="VaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetVaultLock" OutputProperty="*" Verb="Get" Noun="VaultLock" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVaultNotifications" OutputProperty="VaultNotificationConfig" Verb="Get" Noun="VaultNotification" PipelineParameter="VaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetVaultNotifications" OutputProperty="VaultNotificationConfig" Verb="Get" Noun="VaultNotification" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InitiateJob" OutputProperty="*" Verb="Start" Noun="Job" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="InitiateJob" OutputProperty="*" Verb="Start" Noun="Job" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params>
                 <Param Name="JobParameters_Description" NewName="JobDescription" />
                 <Param Name="JobParameters_ArchiveId" NewName="ArchiveId" />
@@ -108,64 +108,64 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InitiateMultipartUpload" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="InitiateMultipartUpload" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InitiateVaultLock" OutputProperty="LockId" Verb="Start" Noun="VaultLock" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="InitiateVaultLock" OutputProperty="LockId" Verb="Start" Noun="VaultLock" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" OutputProperty="JobList" Verb="Get" Noun="JobList" PipelineParameter="VaultName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListJobs" OutputProperty="JobList" Verb="Get" Noun="JobList" PipelineParameter="VaultName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMultipartUploads" OutputProperty="UploadsList" Verb="Get" Noun="MultipartUploadList" PipelineParameter="VaultName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMultipartUploads" OutputProperty="UploadsList" Verb="Get" Noun="MultipartUploadList" PipelineParameter="VaultName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="UploadIdMarker" Next="Marker" EmitLimit="Limit" ServicePageSize="50" PageSizeIsRequired="true" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListParts" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListParts" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProvisionedCapacity" OutputProperty="ProvisionedCapacityList" Verb="Get" Noun="ProvisionedCapacityList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListProvisionedCapacity" OutputProperty="ProvisionedCapacityList" Verb="Get" Noun="ProvisionedCapacityList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForVault" OutputProperty="Tags" Verb="Get" Noun="VaultTagList" PipelineParameter="VaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForVault" OutputProperty="Tags" Verb="Get" Noun="VaultTagList" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVaults" OutputProperty="VaultList" Verb="Get" Noun="VaultList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListVaults" OutputProperty="VaultList" Verb="Get" Noun="VaultList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PurchaseProvisionedCapacity" OutputProperty="CapacityId" Verb="New" Noun="ProvisionedCapacityPurchase" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PurchaseProvisionedCapacity" OutputProperty="CapacityId" Verb="New" Noun="ProvisionedCapacityPurchase" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTagsFromVault" Verb="Remove" Noun="TagsFromVault" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RemoveTagsFromVault" Verb="Remove" Noun="TagsFromVault" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetDataRetrievalPolicy" Verb="Set" Noun="DataRetrievalPolicy" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SetDataRetrievalPolicy" Verb="Set" Noun="DataRetrievalPolicy" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetVaultAccessPolicy" Verb="Set" Noun="VaultAccessPolicy" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SetVaultAccessPolicy" Verb="Set" Noun="VaultAccessPolicy" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetVaultNotifications" Verb="Set" Noun="VaultNotification" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SetVaultNotifications" Verb="Set" Noun="VaultNotification" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UploadArchive" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UploadArchive" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UploadMultipartPart" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UploadMultipartPart" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -19,39 +19,39 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchGetTokenBalance" OutputProperty="*" Verb="Get" Noun="BatchTokenBalance" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchGetTokenBalance" OutputProperty="*" Verb="Get" Noun="BatchTokenBalance" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAssetContract" OutputProperty="*" Verb="Get" Noun="AssetContract" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAssetContract" OutputProperty="*" Verb="Get" Noun="AssetContract" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTokenBalance" OutputProperty="*" Verb="Get" Noun="TokenBalance" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTokenBalance" OutputProperty="*" Verb="Get" Noun="TokenBalance" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTransaction" OutputProperty="Transaction" Verb="Get" Noun="Transaction" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTransaction" OutputProperty="Transaction" Verb="Get" Noun="Transaction" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssetContracts" OutputProperty="Contracts" Verb="Get" Noun="AssetContractList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAssetContracts" OutputProperty="Contracts" Verb="Get" Noun="AssetContractList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFilteredTransactionEvents" OutputProperty="Events" Verb="Get" Noun="FilteredTransactionEventList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFilteredTransactionEvents" OutputProperty="Events" Verb="Get" Noun="FilteredTransactionEventList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTokenBalances" OutputProperty="TokenBalances" Verb="Get" Noun="TokenBalanceList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTokenBalances" OutputProperty="TokenBalances" Verb="Get" Noun="TokenBalanceList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTransactionEvents" OutputProperty="Events" Verb="Get" Noun="TransactionEventList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTransactionEvents" OutputProperty="Events" Verb="Get" Noun="TransactionEventList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTransactions" OutputProperty="Transactions" Verb="Get" Noun="TransactionList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTransactions" OutputProperty="Transactions" Verb="Get" Noun="TransactionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

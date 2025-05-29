@@ -21,11 +21,11 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateFaces" OutputProperty="*" Verb="Add" Noun="REKFacesToUser" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateFaces" OutputProperty="*" Verb="Add" Noun="REKFacesToUser" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CompareFaces" OutputProperty="*" Verb="Compare" Noun="Face" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CompareFaces" OutputProperty="*" Verb="Compare" Noun="Face" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="SourceImage_S3Object_Bucket" NewName="SourceImageBucket" AutoApplyAlias="false" />
                 <Param Name="SourceImage_S3Object_Name" NewName="SourceImageName" AutoApplyAlias="false" />
@@ -38,95 +38,95 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopyProjectVersion" OutputProperty="ProjectVersionArn" Verb="Copy" Noun="ProjectVersion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CopyProjectVersion" OutputProperty="ProjectVersionArn" Verb="Copy" Noun="ProjectVersion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCollection" OutputProperty="*" Verb="New" Noun="Collection" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateCollection" OutputProperty="*" Verb="New" Noun="Collection" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataset" OutputProperty="DatasetArn" Verb="New" Noun="Dataset" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDataset" OutputProperty="DatasetArn" Verb="New" Noun="Dataset" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFaceLivenessSession" OutputProperty="SessionId" Verb="New" Noun="FaceLivenessSession" ShouldProcessTarget="KmsKeyId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateFaceLivenessSession" OutputProperty="SessionId" Verb="New" Noun="FaceLivenessSession" ShouldProcessTarget="KmsKeyId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProject" OutputProperty="ProjectArn" Verb="New" Noun="Project" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateProject" OutputProperty="ProjectArn" Verb="New" Noun="Project" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProjectVersion" OutputProperty="ProjectVersionArn" Verb="New" Noun="ProjectVersion" ShouldProcessTarget="VersionName" PipelineParameter="VersionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateProjectVersion" OutputProperty="ProjectVersionArn" Verb="New" Noun="ProjectVersion" ShouldProcessTarget="VersionName" PipelineParameter="VersionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStreamProcessor" OutputProperty="StreamProcessorArn" Verb="New" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateStreamProcessor" OutputProperty="StreamProcessorArn" Verb="New" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUser" Verb="New" Noun="User" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateUser" Verb="New" Noun="User" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCollection" OutputProperty="StatusCode" Verb="Remove" Noun="Collection" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteCollection" OutputProperty="StatusCode" Verb="Remove" Noun="Collection" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataset" Verb="Remove" Noun="Dataset" ShouldProcessTarget="DatasetArn" PipelineParameter="DatasetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDataset" Verb="Remove" Noun="Dataset" ShouldProcessTarget="DatasetArn" PipelineParameter="DatasetArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFaces" OutputProperty="DeletedFaces" Verb="Remove" Noun="Face" ShouldProcessTarget="CollectionId" PipelineParameter="FaceIds" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteFaces" OutputProperty="DeletedFaces" Verb="Remove" Noun="Face" ShouldProcessTarget="CollectionId" PipelineParameter="FaceIds" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProject" OutputProperty="Status" Verb="Remove" Noun="Project" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteProject" OutputProperty="Status" Verb="Remove" Noun="Project" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProjectPolicy" Verb="Remove" Noun="ProjectPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteProjectPolicy" Verb="Remove" Noun="ProjectPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProjectVersion" OutputProperty="Status" Verb="Remove" Noun="ProjectVersion" ShouldProcessTarget="ProjectVersionArn" PipelineParameter="ProjectVersionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteProjectVersion" OutputProperty="Status" Verb="Remove" Noun="ProjectVersion" ShouldProcessTarget="ProjectVersionArn" PipelineParameter="ProjectVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStreamProcessor" Verb="Remove" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteStreamProcessor" Verb="Remove" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCollection" OutputProperty="*" Verb="Get" Noun="Collection" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCollection" OutputProperty="*" Verb="Get" Noun="Collection" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDataset" OutputProperty="DatasetDescription" Verb="Get" Noun="Dataset" PipelineParameter="DatasetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDataset" OutputProperty="DatasetDescription" Verb="Get" Noun="Dataset" PipelineParameter="DatasetArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProjects" OutputProperty="ProjectDescriptions" Verb="Get" Noun="Project" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeProjects" OutputProperty="ProjectDescriptions" Verb="Get" Noun="Project" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProjectVersions" OutputProperty="ProjectVersionDescriptions" Verb="Get" Noun="ProjectVersion" PipelineParameter="ProjectArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeProjectVersions" OutputProperty="ProjectVersionDescriptions" Verb="Get" Noun="ProjectVersion" PipelineParameter="ProjectArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStreamProcessor" OutputProperty="*" Verb="Get" Noun="StreamProcessor" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeStreamProcessor" OutputProperty="*" Verb="Get" Noun="StreamProcessor" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectCustomLabels" OutputProperty="CustomLabels" Verb="Find" Noun="CustomLabel" PipelineParameter="ProjectVersionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DetectCustomLabels" OutputProperty="CustomLabels" Verb="Find" Noun="CustomLabel" PipelineParameter="ProjectVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectFaces" OutputProperty="*" Verb="Find" Noun="Face" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DetectFaces" OutputProperty="*" Verb="Find" Noun="Face" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
                 <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
@@ -135,7 +135,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectLabels" OutputProperty="*" Verb="Find" Noun="Label" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DetectLabels" OutputProperty="*" Verb="Find" Noun="Label" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
                 <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
@@ -144,11 +144,11 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectModerationLabels" OutputProperty="*" Verb="Find" Noun="ModerationLabel" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DetectModerationLabels" OutputProperty="*" Verb="Find" Noun="ModerationLabel" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectProtectiveEquipment" OutputProperty="*" Verb="Find" Noun="ProtectiveEquipment" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DetectProtectiveEquipment" OutputProperty="*" Verb="Find" Noun="ProtectiveEquipment" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
                 <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
@@ -157,7 +157,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectText" OutputProperty="TextDetections" Verb="Find" Noun="Text" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DetectText" OutputProperty="TextDetections" Verb="Find" Noun="Text" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
                 <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
@@ -166,59 +166,59 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateFaces" OutputProperty="*" Verb="Remove" Noun="REKFacesFromUser" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateFaces" OutputProperty="*" Verb="Remove" Noun="REKFacesFromUser" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DistributeDatasetEntries" Verb="Invoke" Noun="DistributeDatasetEntry" ShouldProcessTarget="Datasets" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DistributeDatasetEntries" Verb="Invoke" Noun="DistributeDatasetEntry" ShouldProcessTarget="Datasets" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCelebrityInfo" OutputProperty="*" Verb="Get" Noun="CelebrityInfo" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetCelebrityInfo" OutputProperty="*" Verb="Get" Noun="CelebrityInfo" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCelebrityRecognition" OutputProperty="*" Verb="Get" Noun="CelebrityRecognition" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetCelebrityRecognition" OutputProperty="*" Verb="Get" Noun="CelebrityRecognition" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetContentModeration" OutputProperty="*" Verb="Get" Noun="ContentModeration" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetContentModeration" OutputProperty="*" Verb="Get" Noun="ContentModeration" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFaceDetection" OutputProperty="*" Verb="Get" Noun="FaceDetection" PipelineParameter="JobId" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFaceDetection" OutputProperty="*" Verb="Get" Noun="FaceDetection" PipelineParameter="JobId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFaceLivenessSessionResults" OutputProperty="*" Verb="Get" Noun="FaceLivenessSessionResult" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFaceLivenessSessionResults" OutputProperty="*" Verb="Get" Noun="FaceLivenessSessionResult" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFaceSearch" OutputProperty="*" Verb="Get" Noun="FaceSearch" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFaceSearch" OutputProperty="*" Verb="Get" Noun="FaceSearch" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLabelDetection" OutputProperty="*" Verb="Get" Noun="LabelDetection" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetLabelDetection" OutputProperty="*" Verb="Get" Noun="LabelDetection" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMediaAnalysisJob" OutputProperty="*" Verb="Get" Noun="MediaAnalysisJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMediaAnalysisJob" OutputProperty="*" Verb="Get" Noun="MediaAnalysisJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPersonTracking" OutputProperty="*" Verb="Get" Noun="PersonTracking" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPersonTracking" OutputProperty="*" Verb="Get" Noun="PersonTracking" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSegmentDetection" OutputProperty="*" Verb="Get" Noun="SegmentDetection" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSegmentDetection" OutputProperty="*" Verb="Get" Noun="SegmentDetection" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTextDetection" OutputProperty="*" Verb="Get" Noun="TextDetection" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTextDetection" OutputProperty="*" Verb="Get" Noun="TextDetection" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="IndexFaces" OutputProperty="*" Verb="Add" Noun="DetectedFacesToCollection" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="IndexFaces" OutputProperty="*" Verb="Add" Noun="DetectedFacesToCollection" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params>
                 <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
                 <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
@@ -227,47 +227,47 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCollections" OutputProperty="*" Verb="Get" Noun="CollectionIdList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCollections" OutputProperty="*" Verb="Get" Noun="CollectionIdList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasetEntries" OutputProperty="DatasetEntries" Verb="Get" Noun="DatasetEntryList" PipelineParameter="DatasetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDatasetEntries" OutputProperty="DatasetEntries" Verb="Get" Noun="DatasetEntryList" PipelineParameter="DatasetArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasetLabels" OutputProperty="DatasetLabelDescriptions" Verb="Get" Noun="DatasetLabelList" PipelineParameter="DatasetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDatasetLabels" OutputProperty="DatasetLabelDescriptions" Verb="Get" Noun="DatasetLabelList" PipelineParameter="DatasetArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFaces" OutputProperty="*" Verb="Get" Noun="FaceList" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFaces" OutputProperty="*" Verb="Get" Noun="FaceList" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMediaAnalysisJobs" OutputProperty="MediaAnalysisJobs" Verb="Get" Noun="MediaAnalysisJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMediaAnalysisJobs" OutputProperty="MediaAnalysisJobs" Verb="Get" Noun="MediaAnalysisJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProjectPolicies" OutputProperty="ProjectPolicies" Verb="Get" Noun="ProjectPolicyList" PipelineParameter="ProjectArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListProjectPolicies" OutputProperty="ProjectPolicies" Verb="Get" Noun="ProjectPolicyList" PipelineParameter="ProjectArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreamProcessors" OutputProperty="StreamProcessors" Verb="Get" Noun="StreamProcessorList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStreamProcessors" OutputProperty="StreamProcessors" Verb="Get" Noun="StreamProcessorList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutProjectPolicy" OutputProperty="PolicyRevisionId" Verb="Write" Noun="ProjectPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutProjectPolicy" OutputProperty="PolicyRevisionId" Verb="Write" Noun="ProjectPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RecognizeCelebrities" OutputProperty="*" Verb="Find" Noun="Celebrity" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RecognizeCelebrities" OutputProperty="*" Verb="Find" Noun="Celebrity" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
                 <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
@@ -276,11 +276,11 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchFaces" OutputProperty="*" Verb="Search" Noun="Face" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchFaces" OutputProperty="*" Verb="Search" Noun="Face" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchFacesByImage" OutputProperty="*" Verb="Search" Noun="FacesByImage" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchFacesByImage" OutputProperty="*" Verb="Search" Noun="FacesByImage" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params>
                 <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
                 <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
@@ -289,79 +289,79 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchUsers" OutputProperty="*" Verb="Search" Noun="User" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchUsers" OutputProperty="*" Verb="Search" Noun="User" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchUsersByImage" OutputProperty="*" Verb="Search" Noun="UsersByImage" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchUsersByImage" OutputProperty="*" Verb="Search" Noun="UsersByImage" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartCelebrityRecognition" OutputProperty="JobId" Verb="Start" Noun="CelebrityRecognition" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartCelebrityRecognition" OutputProperty="JobId" Verb="Start" Noun="CelebrityRecognition" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartContentModeration" OutputProperty="JobId" Verb="Start" Noun="ContentModeration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartContentModeration" OutputProperty="JobId" Verb="Start" Noun="ContentModeration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartFaceDetection" OutputProperty="JobId" Verb="Start" Noun="FaceDetection" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartFaceDetection" OutputProperty="JobId" Verb="Start" Noun="FaceDetection" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartFaceSearch" OutputProperty="JobId" Verb="Start" Noun="FaceSearch" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartFaceSearch" OutputProperty="JobId" Verb="Start" Noun="FaceSearch" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartLabelDetection" OutputProperty="JobId" Verb="Start" Noun="LabelDetection" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartLabelDetection" OutputProperty="JobId" Verb="Start" Noun="LabelDetection" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMediaAnalysisJob" OutputProperty="JobId" Verb="Start" Noun="MediaAnalysisJob" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartMediaAnalysisJob" OutputProperty="JobId" Verb="Start" Noun="MediaAnalysisJob" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartPersonTracking" OutputProperty="JobId" Verb="Start" Noun="PersonTracking" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartPersonTracking" OutputProperty="JobId" Verb="Start" Noun="PersonTracking" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartProjectVersion" OutputProperty="Status" Verb="Start" Noun="ProjectVersion" ShouldProcessTarget="ProjectVersionArn" PipelineParameter="ProjectVersionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartProjectVersion" OutputProperty="Status" Verb="Start" Noun="ProjectVersion" ShouldProcessTarget="ProjectVersionArn" PipelineParameter="ProjectVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSegmentDetection" OutputProperty="JobId" Verb="Start" Noun="SegmentDetection" ShouldProcessTarget="" PipelineParameter="Video" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartSegmentDetection" OutputProperty="JobId" Verb="Start" Noun="SegmentDetection" ShouldProcessTarget="" PipelineParameter="Video" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartStreamProcessor" OutputProperty="SessionId" Verb="Start" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartStreamProcessor" OutputProperty="SessionId" Verb="Start" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartTextDetection" OutputProperty="JobId" Verb="Start" Noun="TextDetection" ShouldProcessTarget="" PipelineParameter="Video" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartTextDetection" OutputProperty="JobId" Verb="Start" Noun="TextDetection" ShouldProcessTarget="" PipelineParameter="Video" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopProjectVersion" OutputProperty="Status" Verb="Stop" Noun="ProjectVersion" ShouldProcessTarget="ProjectVersionArn" PipelineParameter="ProjectVersionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopProjectVersion" OutputProperty="Status" Verb="Stop" Noun="ProjectVersion" ShouldProcessTarget="ProjectVersionArn" PipelineParameter="ProjectVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopStreamProcessor" Verb="Stop" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopStreamProcessor" Verb="Stop" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDatasetEntries" Verb="Update" Noun="DatasetEntry" ShouldProcessTarget="DatasetArn" PipelineParameter="DatasetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDatasetEntries" Verb="Update" Noun="DatasetEntry" ShouldProcessTarget="DatasetArn" PipelineParameter="DatasetArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStreamProcessor" Verb="Update" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateStreamProcessor" Verb="Update" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

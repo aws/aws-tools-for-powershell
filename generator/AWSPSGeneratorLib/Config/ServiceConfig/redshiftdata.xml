@@ -18,47 +18,47 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchExecuteStatement" OutputProperty="*" Verb="Push" Noun="BatchStatement" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchExecuteStatement" OutputProperty="*" Verb="Push" Noun="BatchStatement" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelStatement" OutputProperty="Status" Verb="Stop" Noun="Statement" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelStatement" OutputProperty="Status" Verb="Stop" Noun="Statement" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStatement" OutputProperty="*" Verb="Get" Noun="Statement" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeStatement" OutputProperty="*" Verb="Get" Noun="Statement" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTable" OutputProperty="*" Verb="Get" Noun="Table" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTable" OutputProperty="*" Verb="Get" Noun="Table" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteStatement" OutputProperty="Id" Verb="Send" Noun="Statement" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ExecuteStatement" OutputProperty="Id" Verb="Send" Noun="Statement" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStatementResult" OutputProperty="*" Verb="Get" Noun="StatementResult" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetStatementResult" OutputProperty="*" Verb="Get" Noun="StatementResult" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStatementResultV2" OutputProperty="*" Verb="Get" Noun="StatementResultV2" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetStatementResultV2" OutputProperty="*" Verb="Get" Noun="StatementResultV2" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatabases" OutputProperty="Databases" Verb="Get" Noun="DatabasisList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDatabases" OutputProperty="Databases" Verb="Get" Noun="DatabasisList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSchemas" OutputProperty="Schemas" Verb="Get" Noun="SchemaList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSchemas" OutputProperty="Schemas" Verb="Get" Noun="SchemaList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStatements" OutputProperty="Statements" Verb="Get" Noun="StatementList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStatements" OutputProperty="Statements" Verb="Get" Noun="StatementList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTables" OutputProperty="Tables" Verb="Get" Noun="TableList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTables" OutputProperty="Tables" Verb="Get" Noun="TableList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

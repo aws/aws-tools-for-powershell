@@ -19,207 +19,207 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptInboundCrossClusterSearchConnection" OutputProperty="CrossClusterSearchConnection" Verb="Approve" Noun="InboundCrossClusterSearchConnection" ShouldProcessTarget="CrossClusterSearchConnectionId" PipelineParameter="CrossClusterSearchConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AcceptInboundCrossClusterSearchConnection" OutputProperty="CrossClusterSearchConnection" Verb="Approve" Noun="InboundCrossClusterSearchConnection" ShouldProcessTarget="CrossClusterSearchConnectionId" PipelineParameter="CrossClusterSearchConnectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="TagList" PipelineParameter="TagList" NoPipelineParameter="false" LegacyAlias="Add-ESTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="TagList" PipelineParameter="TagList" NoPipelineParameter="false" LegacyAlias="Add-ESTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociatePackage" OutputProperty="DomainPackageDetails" Verb="Start" Noun="AssociatePackage" ShouldProcessTarget="DomainName" PipelineParameter="PackageID" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociatePackage" OutputProperty="DomainPackageDetails" Verb="Start" Noun="AssociatePackage" ShouldProcessTarget="DomainName" PipelineParameter="PackageID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AuthorizeVpcEndpointAccess" OutputProperty="AuthorizedPrincipal" Verb="Approve" Noun="VpcEndpointAccess" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AuthorizeVpcEndpointAccess" OutputProperty="AuthorizedPrincipal" Verb="Approve" Noun="VpcEndpointAccess" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelDomainConfigChange" OutputProperty="*" Verb="Stop" Noun="DomainConfigChange" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelDomainConfigChange" OutputProperty="*" Verb="Stop" Noun="DomainConfigChange" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelElasticsearchServiceSoftwareUpdate" OutputProperty="ServiceSoftwareOptions" Verb="Stop" Noun="ElasticsearchServiceSoftwareUpdate" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelElasticsearchServiceSoftwareUpdate" OutputProperty="ServiceSoftwareOptions" Verb="Stop" Noun="ElasticsearchServiceSoftwareUpdate" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateElasticsearchDomain" OutputProperty="DomainStatus" Verb="New" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateElasticsearchDomain" OutputProperty="DomainStatus" Verb="New" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateOutboundCrossClusterSearchConnection" OutputProperty="*" Verb="New" Noun="OutboundCrossClusterSearchConnection" ShouldProcessTarget="" PipelineParameter="ConnectionAlias" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateOutboundCrossClusterSearchConnection" OutputProperty="*" Verb="New" Noun="OutboundCrossClusterSearchConnection" ShouldProcessTarget="" PipelineParameter="ConnectionAlias" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePackage" OutputProperty="PackageDetails" Verb="New" Noun="Package" ShouldProcessTarget="PackageName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreatePackage" OutputProperty="PackageDetails" Verb="New" Noun="Package" ShouldProcessTarget="PackageName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVpcEndpoint" OutputProperty="VpcEndpoint" Verb="New" Noun="VpcEndpoint" ShouldProcessTarget="DomainArn" PipelineParameter="DomainArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateVpcEndpoint" OutputProperty="VpcEndpoint" Verb="New" Noun="VpcEndpoint" ShouldProcessTarget="DomainArn" PipelineParameter="DomainArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteElasticsearchDomain" OutputProperty="DomainStatus" Verb="Remove" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteElasticsearchDomain" OutputProperty="DomainStatus" Verb="Remove" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteElasticsearchServiceRole" Verb="Remove" Noun="ElasticsearchServiceRole" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteElasticsearchServiceRole" Verb="Remove" Noun="ElasticsearchServiceRole" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInboundCrossClusterSearchConnection" OutputProperty="CrossClusterSearchConnection" Verb="Remove" Noun="InboundCrossClusterSearchConnection" ShouldProcessTarget="CrossClusterSearchConnectionId" PipelineParameter="CrossClusterSearchConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteInboundCrossClusterSearchConnection" OutputProperty="CrossClusterSearchConnection" Verb="Remove" Noun="InboundCrossClusterSearchConnection" ShouldProcessTarget="CrossClusterSearchConnectionId" PipelineParameter="CrossClusterSearchConnectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteOutboundCrossClusterSearchConnection" OutputProperty="CrossClusterSearchConnection" Verb="Remove" Noun="OutboundCrossClusterSearchConnection" ShouldProcessTarget="CrossClusterSearchConnectionId" PipelineParameter="CrossClusterSearchConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteOutboundCrossClusterSearchConnection" OutputProperty="CrossClusterSearchConnection" Verb="Remove" Noun="OutboundCrossClusterSearchConnection" ShouldProcessTarget="CrossClusterSearchConnectionId" PipelineParameter="CrossClusterSearchConnectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePackage" OutputProperty="PackageDetails" Verb="Remove" Noun="Package" ShouldProcessTarget="PackageID" PipelineParameter="PackageID" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeletePackage" OutputProperty="PackageDetails" Verb="Remove" Noun="Package" ShouldProcessTarget="PackageID" PipelineParameter="PackageID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVpcEndpoint" OutputProperty="VpcEndpointSummary" Verb="Remove" Noun="VpcEndpoint" ShouldProcessTarget="VpcEndpointId" PipelineParameter="VpcEndpointId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteVpcEndpoint" OutputProperty="VpcEndpointSummary" Verb="Remove" Noun="VpcEndpoint" ShouldProcessTarget="VpcEndpointId" PipelineParameter="VpcEndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDomainAutoTunes" OutputProperty="AutoTunes" Verb="Get" Noun="DomainAutoTune" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDomainAutoTunes" OutputProperty="AutoTunes" Verb="Get" Noun="DomainAutoTune" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDomainChangeProgress" OutputProperty="ChangeProgressStatus" Verb="Get" Noun="DomainChangeProgress" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDomainChangeProgress" OutputProperty="ChangeProgressStatus" Verb="Get" Noun="DomainChangeProgress" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeElasticsearchDomain" OutputProperty="DomainStatus" Verb="Get" Noun="Domain" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeElasticsearchDomain" OutputProperty="DomainStatus" Verb="Get" Noun="Domain" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeElasticsearchDomainConfig" OutputProperty="DomainConfig" Verb="Get" Noun="DomainConfig" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeElasticsearchDomainConfig" OutputProperty="DomainConfig" Verb="Get" Noun="DomainConfig" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeElasticsearchDomains" OutputProperty="DomainStatusList" Verb="Get" Noun="DomainList" PipelineParameter="DomainNames" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeElasticsearchDomains" OutputProperty="DomainStatusList" Verb="Get" Noun="DomainList" PipelineParameter="DomainNames" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeElasticsearchInstanceTypeLimits" OutputProperty="LimitsByRole" Verb="Get" Noun="InstanceTypeLimit" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeElasticsearchInstanceTypeLimits" OutputProperty="LimitsByRole" Verb="Get" Noun="InstanceTypeLimit" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInboundCrossClusterSearchConnections" OutputProperty="CrossClusterSearchConnections" Verb="Get" Noun="InboundCrossClusterSearchConnection" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeInboundCrossClusterSearchConnections" OutputProperty="CrossClusterSearchConnections" Verb="Get" Noun="InboundCrossClusterSearchConnection" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOutboundCrossClusterSearchConnections" OutputProperty="CrossClusterSearchConnections" Verb="Get" Noun="OutboundCrossClusterSearchConnection" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeOutboundCrossClusterSearchConnections" OutputProperty="CrossClusterSearchConnections" Verb="Get" Noun="OutboundCrossClusterSearchConnection" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePackages" OutputProperty="PackageDetailsList" Verb="Get" Noun="Package" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribePackages" OutputProperty="PackageDetailsList" Verb="Get" Noun="Package" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedElasticsearchInstanceOfferings" OutputProperty="ReservedElasticsearchInstanceOfferings" Verb="Get" Noun="ReservedElasticsearchInstanceOfferingList" PipelineParameter="ReservedElasticsearchInstanceOfferingId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeReservedElasticsearchInstanceOfferings" OutputProperty="ReservedElasticsearchInstanceOfferings" Verb="Get" Noun="ReservedElasticsearchInstanceOfferingList" PipelineParameter="ReservedElasticsearchInstanceOfferingId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedElasticsearchInstances" OutputProperty="ReservedElasticsearchInstances" Verb="Get" Noun="ReservedElasticsearchInstanceList" PipelineParameter="ReservedElasticsearchInstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeReservedElasticsearchInstances" OutputProperty="ReservedElasticsearchInstances" Verb="Get" Noun="ReservedElasticsearchInstanceList" PipelineParameter="ReservedElasticsearchInstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcEndpoints" OutputProperty="*" Verb="Get" Noun="VpcEndpoint" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVpcEndpoints" OutputProperty="*" Verb="Get" Noun="VpcEndpoint" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DissociatePackage" OutputProperty="DomainPackageDetails" Verb="Start" Noun="DissociatePackage" ShouldProcessTarget="DomainName" PipelineParameter="PackageID" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DissociatePackage" OutputProperty="DomainPackageDetails" Verb="Start" Noun="DissociatePackage" ShouldProcessTarget="DomainName" PipelineParameter="PackageID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCompatibleElasticsearchVersions" OutputProperty="CompatibleElasticsearchVersions" Verb="Get" Noun="CompatibleElasticsearchVersion" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetCompatibleElasticsearchVersions" OutputProperty="CompatibleElasticsearchVersions" Verb="Get" Noun="CompatibleElasticsearchVersion" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPackageVersionHistory" OutputProperty="*" Verb="Get" Noun="PackageVersionHistory" PipelineParameter="PackageID" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPackageVersionHistory" OutputProperty="*" Verb="Get" Noun="PackageVersionHistory" PipelineParameter="PackageID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUpgradeHistory" OutputProperty="UpgradeHistories" Verb="Get" Noun="UpgradeHistory" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetUpgradeHistory" OutputProperty="UpgradeHistories" Verb="Get" Noun="UpgradeHistory" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUpgradeStatus" OutputProperty="*" Verb="Get" Noun="UpgradeStatus" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetUpgradeStatus" OutputProperty="*" Verb="Get" Noun="UpgradeStatus" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomainNames" OutputProperty="DomainNames" Verb="Get" Noun="DomainNameList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDomainNames" OutputProperty="DomainNames" Verb="Get" Noun="DomainNameList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomainsForPackage" OutputProperty="DomainPackageDetailsList" Verb="Get" Noun="DomainsForPackageList" PipelineParameter="PackageID" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDomainsForPackage" OutputProperty="DomainPackageDetailsList" Verb="Get" Noun="DomainsForPackageList" PipelineParameter="PackageID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListElasticsearchInstanceTypes" OutputProperty="ElasticsearchInstanceTypes" Verb="Get" Noun="InstanceTypeList" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListElasticsearchInstanceTypes" OutputProperty="ElasticsearchInstanceTypes" Verb="Get" Noun="InstanceTypeList" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListElasticsearchVersions" OutputProperty="ElasticsearchVersions" Verb="Get" Noun="VersionList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListElasticsearchVersions" OutputProperty="ElasticsearchVersions" Verb="Get" Noun="VersionList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPackagesForDomain" OutputProperty="DomainPackageDetailsList" Verb="Get" Noun="PackagesForDomainList" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPackagesForDomain" OutputProperty="DomainPackageDetailsList" Verb="Get" Noun="PackagesForDomainList" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ARN" NoPipelineParameter="false" LegacyAlias="Get-ESTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTags" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ARN" NoPipelineParameter="false" LegacyAlias="Get-ESTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVpcEndpointAccess" OutputProperty="AuthorizedPrincipalList" Verb="Get" Noun="VpcEndpointAccessList" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListVpcEndpointAccess" OutputProperty="AuthorizedPrincipalList" Verb="Get" Noun="VpcEndpointAccessList" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVpcEndpoints" OutputProperty="VpcEndpointSummaryList" Verb="Get" Noun="VpcEndpointList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListVpcEndpoints" OutputProperty="VpcEndpointSummaryList" Verb="Get" Noun="VpcEndpointList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVpcEndpointsForDomain" OutputProperty="VpcEndpointSummaryList" Verb="Get" Noun="VpcEndpointsForDomainList" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListVpcEndpointsForDomain" OutputProperty="VpcEndpointSummaryList" Verb="Get" Noun="VpcEndpointsForDomainList" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PurchaseReservedElasticsearchInstanceOffering" OutputProperty="*" Verb="New" Noun="ReservedElasticsearchInstanceOffering" ShouldProcessTarget="ReservedElasticsearchInstanceOfferingId" PipelineParameter="ReservedElasticsearchInstanceOfferingId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PurchaseReservedElasticsearchInstanceOffering" OutputProperty="*" Verb="New" Noun="ReservedElasticsearchInstanceOffering" ShouldProcessTarget="ReservedElasticsearchInstanceOfferingId" PipelineParameter="ReservedElasticsearchInstanceOfferingId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RejectInboundCrossClusterSearchConnection" OutputProperty="CrossClusterSearchConnection" Verb="Deny" Noun="InboundCrossClusterSearchConnection" ShouldProcessTarget="CrossClusterSearchConnectionId" PipelineParameter="CrossClusterSearchConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RejectInboundCrossClusterSearchConnection" OutputProperty="CrossClusterSearchConnection" Verb="Deny" Noun="InboundCrossClusterSearchConnection" ShouldProcessTarget="CrossClusterSearchConnectionId" PipelineParameter="CrossClusterSearchConnectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ARN" PipelineParameter="TagKeys" NoPipelineParameter="false" LegacyAlias="Remove-ESTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ARN" PipelineParameter="TagKeys" NoPipelineParameter="false" LegacyAlias="Remove-ESTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RevokeVpcEndpointAccess" Verb="Revoke" Noun="VpcEndpointAccess" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RevokeVpcEndpointAccess" Verb="Revoke" Noun="VpcEndpointAccess" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartElasticsearchServiceSoftwareUpdate" OutputProperty="ServiceSoftwareOptions" Verb="Start" Noun="ElasticsearchServiceSoftwareUpdate" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartElasticsearchServiceSoftwareUpdate" OutputProperty="ServiceSoftwareOptions" Verb="Start" Noun="ElasticsearchServiceSoftwareUpdate" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateElasticsearchDomainConfig" OutputProperty="DomainConfig" Verb="Update" Noun="DomainConfig" ShouldProcessTarget="DomainName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateElasticsearchDomainConfig" OutputProperty="DomainConfig" Verb="Update" Noun="DomainConfig" ShouldProcessTarget="DomainName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePackage" OutputProperty="PackageDetails" Verb="Update" Noun="Package" ShouldProcessTarget="PackageSource_S3BucketName" PipelineParameter="PackageID" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdatePackage" OutputProperty="PackageDetails" Verb="Update" Noun="Package" ShouldProcessTarget="PackageSource_S3BucketName" PipelineParameter="PackageID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateVpcEndpoint" OutputProperty="VpcEndpoint" Verb="Update" Noun="VpcEndpoint" ShouldProcessTarget="VpcEndpointId" PipelineParameter="VpcEndpointId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateVpcEndpoint" OutputProperty="VpcEndpoint" Verb="Update" Noun="VpcEndpoint" ShouldProcessTarget="VpcEndpointId" PipelineParameter="VpcEndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpgradeElasticsearchDomain" OutputProperty="*" Verb="Update" Noun="ElasticsearchDomain" ShouldProcessTarget="DomainName" PipelineParameter="TargetVersion" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpgradeElasticsearchDomain" OutputProperty="*" Verb="Update" Noun="ElasticsearchDomain" ShouldProcessTarget="DomainName" PipelineParameter="TargetVersion" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

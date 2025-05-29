@@ -19,151 +19,151 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="ApplyArchiveRule" Verb="Start" Noun="ArchiveRule" ShouldProcessTarget="AnalyzerArn" PipelineParameter="RuleName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ApplyArchiveRule" Verb="Start" Noun="ArchiveRule" ShouldProcessTarget="AnalyzerArn" PipelineParameter="RuleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelPolicyGeneration" Verb="Stop" Noun="PolicyGeneration" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelPolicyGeneration" Verb="Stop" Noun="PolicyGeneration" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CheckAccessNotGranted" OutputProperty="*" Verb="Test" Noun="AccessNotGranted" IgnoreSupportsShouldProcess="true" PipelineParameter="PolicyDocument" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CheckAccessNotGranted" OutputProperty="*" Verb="Test" Noun="AccessNotGranted" IgnoreSupportsShouldProcess="true" PipelineParameter="PolicyDocument" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CheckNoNewAccess" OutputProperty="*" Verb="Test" Noun="NoNewAccess" IgnoreSupportsShouldProcess="true" PipelineParameter="NewPolicyDocument" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CheckNoNewAccess" OutputProperty="*" Verb="Test" Noun="NoNewAccess" IgnoreSupportsShouldProcess="true" PipelineParameter="NewPolicyDocument" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CheckNoPublicAccess" OutputProperty="*" Verb="Test" Noun="NoPublicAccess" AnonymousShouldProcessTarget="true" PipelineParameter="PolicyDocument" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CheckNoPublicAccess" OutputProperty="*" Verb="Test" Noun="NoPublicAccess" AnonymousShouldProcessTarget="true" PipelineParameter="PolicyDocument" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAccessPreview" OutputProperty="Id" Verb="New" Noun="AccessPreview" ShouldProcessTarget="AnalyzerArn" PipelineParameter="AnalyzerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAccessPreview" OutputProperty="Id" Verb="New" Noun="AccessPreview" ShouldProcessTarget="AnalyzerArn" PipelineParameter="AnalyzerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAnalyzer" OutputProperty="Arn" Verb="New" Noun="Analyzer" ShouldProcessTarget="AnalyzerName" PipelineParameter="AnalyzerName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAnalyzer" OutputProperty="Arn" Verb="New" Noun="Analyzer" ShouldProcessTarget="AnalyzerName" PipelineParameter="AnalyzerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateArchiveRule" Verb="New" Noun="ArchiveRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateArchiveRule" Verb="New" Noun="ArchiveRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAnalyzer" Verb="Remove" Noun="Analyzer" ShouldProcessTarget="AnalyzerName" PipelineParameter="AnalyzerName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAnalyzer" Verb="Remove" Noun="Analyzer" ShouldProcessTarget="AnalyzerName" PipelineParameter="AnalyzerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteArchiveRule" Verb="Remove" Noun="ArchiveRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteArchiveRule" Verb="Remove" Noun="ArchiveRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateFindingRecommendation" Verb="Start" Noun="FindingRecommendation" AnonymousShouldProcessTarget="true" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GenerateFindingRecommendation" Verb="Start" Noun="FindingRecommendation" AnonymousShouldProcessTarget="true" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccessPreview" OutputProperty="AccessPreview" Verb="Get" Noun="AccessPreview" PipelineParameter="AccessPreviewId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAccessPreview" OutputProperty="AccessPreview" Verb="Get" Noun="AccessPreview" PipelineParameter="AccessPreviewId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAnalyzedResource" OutputProperty="Resource" Verb="Get" Noun="AnalyzedResource" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAnalyzedResource" OutputProperty="Resource" Verb="Get" Noun="AnalyzedResource" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAnalyzer" OutputProperty="Analyzer" Verb="Get" Noun="Analyzer" PipelineParameter="AnalyzerName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAnalyzer" OutputProperty="Analyzer" Verb="Get" Noun="Analyzer" PipelineParameter="AnalyzerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetArchiveRule" OutputProperty="ArchiveRule" Verb="Get" Noun="ArchiveRule" PipelineParameter="RuleName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetArchiveRule" OutputProperty="ArchiveRule" Verb="Get" Noun="ArchiveRule" PipelineParameter="RuleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFinding" OutputProperty="Finding" Verb="Get" Noun="Finding" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFinding" OutputProperty="Finding" Verb="Get" Noun="Finding" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFindingRecommendation" OutputProperty="*" Verb="Get" Noun="FindingRecommendation" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFindingRecommendation" OutputProperty="*" Verb="Get" Noun="FindingRecommendation" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFindingsStatistics" OutputProperty="*" Verb="Get" Noun="FindingsStatistic" PipelineParameter="AnalyzerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFindingsStatistics" OutputProperty="*" Verb="Get" Noun="FindingsStatistic" PipelineParameter="AnalyzerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFindingV2" OutputProperty="*" Verb="Get" Noun="FindingV2" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFindingV2" OutputProperty="*" Verb="Get" Noun="FindingV2" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGeneratedPolicy" OutputProperty="*" Verb="Get" Noun="GeneratedPolicy" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetGeneratedPolicy" OutputProperty="*" Verb="Get" Noun="GeneratedPolicy" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccessPreviewFindings" OutputProperty="Findings" Verb="Get" Noun="AccessPreviewFindingList" PipelineParameter="AccessPreviewId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAccessPreviewFindings" OutputProperty="Findings" Verb="Get" Noun="AccessPreviewFindingList" PipelineParameter="AccessPreviewId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccessPreviews" OutputProperty="AccessPreviews" Verb="Get" Noun="AccessPreviewList" PipelineParameter="AnalyzerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAccessPreviews" OutputProperty="AccessPreviews" Verb="Get" Noun="AccessPreviewList" PipelineParameter="AnalyzerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAnalyzedResources" OutputProperty="AnalyzedResources" Verb="Get" Noun="AnalyzedResourceList" PipelineParameter="AnalyzerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAnalyzedResources" OutputProperty="AnalyzedResources" Verb="Get" Noun="AnalyzedResourceList" PipelineParameter="AnalyzerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAnalyzers" OutputProperty="Analyzers" Verb="Get" Noun="AnalyzerList" PipelineParameter="Type" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAnalyzers" OutputProperty="Analyzers" Verb="Get" Noun="AnalyzerList" PipelineParameter="Type" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListArchiveRules" OutputProperty="ArchiveRules" Verb="Get" Noun="ArchiveRuleList" PipelineParameter="AnalyzerName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListArchiveRules" OutputProperty="ArchiveRules" Verb="Get" Noun="ArchiveRuleList" PipelineParameter="AnalyzerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFindings" OutputProperty="Findings" Verb="Get" Noun="FindingList" PipelineParameter="AnalyzerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFindings" OutputProperty="Findings" Verb="Get" Noun="FindingList" PipelineParameter="AnalyzerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFindingsV2" OutputProperty="Findings" Verb="Get" Noun="FindingsV2List" PipelineParameter="AnalyzerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFindingsV2" OutputProperty="Findings" Verb="Get" Noun="FindingsV2List" PipelineParameter="AnalyzerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPolicyGenerations" OutputProperty="PolicyGenerations" Verb="Get" Noun="PolicyGenerationList" PipelineParameter="PrincipalArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPolicyGenerations" OutputProperty="PolicyGenerations" Verb="Get" Noun="PolicyGenerationList" PipelineParameter="PrincipalArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartPolicyGeneration" OutputProperty="JobId" Verb="Start" Noun="PolicyGeneration" ShouldProcessTarget="PolicyGenerationDetails_PrincipalArn" PipelineParameter="PolicyGenerationDetails_PrincipalArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartPolicyGeneration" OutputProperty="JobId" Verb="Start" Noun="PolicyGeneration" ShouldProcessTarget="PolicyGenerationDetails_PrincipalArn" PipelineParameter="PolicyGenerationDetails_PrincipalArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartResourceScan" Verb="Start" Noun="ResourceScan" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartResourceScan" Verb="Start" Noun="ResourceScan" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAnalyzer" OutputProperty="*" Verb="Update" Noun="Analyzer" ShouldProcessTarget="AnalyzerName" PipelineParameter="AnalyzerName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateAnalyzer" OutputProperty="*" Verb="Update" Noun="Analyzer" ShouldProcessTarget="AnalyzerName" PipelineParameter="AnalyzerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateArchiveRule" Verb="Update" Noun="ArchiveRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateArchiveRule" Verb="Update" Noun="ArchiveRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFindings" Verb="Update" Noun="Finding" ShouldProcessTarget="AnalyzerArn" PipelineParameter="AnalyzerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateFindings" Verb="Update" Noun="Finding" ShouldProcessTarget="AnalyzerArn" PipelineParameter="AnalyzerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ValidatePolicy" OutputProperty="Findings" Verb="Use" Noun="PolicyValidation" AnonymousShouldProcessTarget="true" PipelineParameter="PolicyDocument" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ValidatePolicy" OutputProperty="Findings" Verb="Use" Noun="PolicyValidation" AnonymousShouldProcessTarget="true" PipelineParameter="PolicyDocument" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

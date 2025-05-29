@@ -18,373 +18,373 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="ActivateMessageTemplate" OutputProperty="*" Verb="Enable" Noun="MessageTemplate" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ActivateMessageTemplate" OutputProperty="*" Verb="Enable" Noun="MessageTemplate" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAIAgent" OutputProperty="AiAgent" Verb="New" Noun="AIAgent" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAIAgent" OutputProperty="AiAgent" Verb="New" Noun="AIAgent" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAIAgentVersion" OutputProperty="*" Verb="New" Noun="AIAgentVersion" ShouldProcessTarget="AiAgentId" PipelineParameter="AiAgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAIAgentVersion" OutputProperty="*" Verb="New" Noun="AIAgentVersion" ShouldProcessTarget="AiAgentId" PipelineParameter="AiAgentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAIGuardrail" OutputProperty="AiGuardrail" Verb="New" Noun="AIGuardrail" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAIGuardrail" OutputProperty="AiGuardrail" Verb="New" Noun="AIGuardrail" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAIGuardrailVersion" OutputProperty="*" Verb="New" Noun="AIGuardrailVersion" ShouldProcessTarget="AiGuardrailId" PipelineParameter="AiGuardrailId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAIGuardrailVersion" OutputProperty="*" Verb="New" Noun="AIGuardrailVersion" ShouldProcessTarget="AiGuardrailId" PipelineParameter="AiGuardrailId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAIPrompt" OutputProperty="AiPrompt" Verb="New" Noun="AIPrompt" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAIPrompt" OutputProperty="AiPrompt" Verb="New" Noun="AIPrompt" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAIPromptVersion" OutputProperty="*" Verb="New" Noun="AIPromptVersion" ShouldProcessTarget="AiPromptId" PipelineParameter="AiPromptId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAIPromptVersion" OutputProperty="*" Verb="New" Noun="AIPromptVersion" ShouldProcessTarget="AiPromptId" PipelineParameter="AiPromptId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAssistant" OutputProperty="Assistant" Verb="New" Noun="Assistant" ShouldProcessTarget="Name" PipelineParameter="Type" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAssistant" OutputProperty="Assistant" Verb="New" Noun="Assistant" ShouldProcessTarget="Name" PipelineParameter="Type" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAssistantAssociation" OutputProperty="AssistantAssociation" Verb="New" Noun="AssistantAssociation" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAssistantAssociation" OutputProperty="AssistantAssociation" Verb="New" Noun="AssistantAssociation" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateContent" OutputProperty="Content" Verb="New" Noun="Content" ShouldProcessTarget="Name" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateContent" OutputProperty="Content" Verb="New" Noun="Content" ShouldProcessTarget="Name" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateContentAssociation" OutputProperty="ContentAssociation" Verb="New" Noun="ContentAssociation" ShouldProcessTarget="ContentId" PipelineParameter="ContentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateContentAssociation" OutputProperty="ContentAssociation" Verb="New" Noun="ContentAssociation" ShouldProcessTarget="ContentId" PipelineParameter="ContentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateKnowledgeBase" OutputProperty="KnowledgeBase" Verb="New" Noun="KnowledgeBase" ShouldProcessTarget="Name" PipelineParameter="KnowledgeBaseType" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateKnowledgeBase" OutputProperty="KnowledgeBase" Verb="New" Noun="KnowledgeBase" ShouldProcessTarget="Name" PipelineParameter="KnowledgeBaseType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMessageTemplate" OutputProperty="MessageTemplate" Verb="New" Noun="MessageTemplate" AnonymousShouldProcessTarget="true" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateMessageTemplate" OutputProperty="MessageTemplate" Verb="New" Noun="MessageTemplate" AnonymousShouldProcessTarget="true" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params>
                 <Param Name="Content_Email_Body_PlainText_Content" NewName="Content_Email_Body_PlainText_Content" />
                 <Param Name="Content_Sms_Body_PlainText_Content" NewName="Content_Sms_Body_PlainText_Content" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMessageTemplateAttachment" OutputProperty="Attachment" Verb="New" Noun="MessageTemplateAttachment" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateMessageTemplateAttachment" OutputProperty="Attachment" Verb="New" Noun="MessageTemplateAttachment" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMessageTemplateVersion" OutputProperty="MessageTemplate" Verb="New" Noun="MessageTemplateVersion" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateMessageTemplateVersion" OutputProperty="MessageTemplate" Verb="New" Noun="MessageTemplateVersion" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateQuickResponse" OutputProperty="QuickResponse" Verb="New" Noun="QuickResponse" AnonymousShouldProcessTarget="true" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateQuickResponse" OutputProperty="QuickResponse" Verb="New" Noun="QuickResponse" AnonymousShouldProcessTarget="true" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSession" OutputProperty="Session" Verb="New" Noun="Session" ShouldProcessTarget="Name" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateSession" OutputProperty="Session" Verb="New" Noun="Session" ShouldProcessTarget="Name" PipelineParameter="AssistantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeactivateMessageTemplate" OutputProperty="*" Verb="Disable" Noun="MessageTemplate" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeactivateMessageTemplate" OutputProperty="*" Verb="Disable" Noun="MessageTemplate" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAIAgent" Verb="Remove" Noun="AIAgent" ShouldProcessTarget="AiAgentId" PipelineParameter="AiAgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAIAgent" Verb="Remove" Noun="AIAgent" ShouldProcessTarget="AiAgentId" PipelineParameter="AiAgentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAIAgentVersion" Verb="Remove" Noun="AIAgentVersion" ShouldProcessTarget="AiAgentId" PipelineParameter="AiAgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAIAgentVersion" Verb="Remove" Noun="AIAgentVersion" ShouldProcessTarget="AiAgentId" PipelineParameter="AiAgentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAIGuardrail" Verb="Remove" Noun="AIGuardrail" ShouldProcessTarget="AiGuardrailId" PipelineParameter="AiGuardrailId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAIGuardrail" Verb="Remove" Noun="AIGuardrail" ShouldProcessTarget="AiGuardrailId" PipelineParameter="AiGuardrailId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAIGuardrailVersion" Verb="Remove" Noun="AIGuardrailVersion" ShouldProcessTarget="AiGuardrailId" PipelineParameter="AiGuardrailId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAIGuardrailVersion" Verb="Remove" Noun="AIGuardrailVersion" ShouldProcessTarget="AiGuardrailId" PipelineParameter="AiGuardrailId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAIPrompt" Verb="Remove" Noun="AIPrompt" ShouldProcessTarget="AiPromptId" PipelineParameter="AiPromptId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAIPrompt" Verb="Remove" Noun="AIPrompt" ShouldProcessTarget="AiPromptId" PipelineParameter="AiPromptId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAIPromptVersion" Verb="Remove" Noun="AIPromptVersion" ShouldProcessTarget="AiPromptId" PipelineParameter="AiPromptId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAIPromptVersion" Verb="Remove" Noun="AIPromptVersion" ShouldProcessTarget="AiPromptId" PipelineParameter="AiPromptId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAssistant" Verb="Remove" Noun="Assistant" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAssistant" Verb="Remove" Noun="Assistant" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAssistantAssociation" Verb="Remove" Noun="AssistantAssociation" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantAssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAssistantAssociation" Verb="Remove" Noun="AssistantAssociation" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantAssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteContent" Verb="Remove" Noun="Content" ShouldProcessTarget="ContentId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteContent" Verb="Remove" Noun="Content" ShouldProcessTarget="ContentId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteContentAssociation" Verb="Remove" Noun="ContentAssociation" ShouldProcessTarget="ContentId" PipelineParameter="ContentAssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteContentAssociation" Verb="Remove" Noun="ContentAssociation" ShouldProcessTarget="ContentId" PipelineParameter="ContentAssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteImportJob" Verb="Remove" Noun="ImportJob" ShouldProcessTarget="ImportJobId" PipelineParameter="ImportJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteImportJob" Verb="Remove" Noun="ImportJob" ShouldProcessTarget="ImportJobId" PipelineParameter="ImportJobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteKnowledgeBase" Verb="Remove" Noun="KnowledgeBase" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteKnowledgeBase" Verb="Remove" Noun="KnowledgeBase" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMessageTemplate" Verb="Remove" Noun="MessageTemplate" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteMessageTemplate" Verb="Remove" Noun="MessageTemplate" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMessageTemplateAttachment" Verb="Remove" Noun="MessageTemplateAttachment" ShouldProcessTarget="AttachmentId" PipelineParameter="AttachmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteMessageTemplateAttachment" Verb="Remove" Noun="MessageTemplateAttachment" ShouldProcessTarget="AttachmentId" PipelineParameter="AttachmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteQuickResponse" Verb="Remove" Noun="QuickResponse" ShouldProcessTarget="QuickResponseId" PipelineParameter="QuickResponseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteQuickResponse" Verb="Remove" Noun="QuickResponse" ShouldProcessTarget="QuickResponseId" PipelineParameter="QuickResponseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAIAgent" OutputProperty="*" Verb="Get" Noun="AIAgent" PipelineParameter="AiAgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAIAgent" OutputProperty="*" Verb="Get" Noun="AIAgent" PipelineParameter="AiAgentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAIGuardrail" OutputProperty="*" Verb="Get" Noun="AIGuardrail" PipelineParameter="AiGuardrailId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAIGuardrail" OutputProperty="*" Verb="Get" Noun="AIGuardrail" PipelineParameter="AiGuardrailId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAIPrompt" OutputProperty="*" Verb="Get" Noun="AIPrompt" PipelineParameter="AiPromptId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAIPrompt" OutputProperty="*" Verb="Get" Noun="AIPrompt" PipelineParameter="AiPromptId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAssistant" OutputProperty="Assistant" Verb="Get" Noun="Assistant" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAssistant" OutputProperty="Assistant" Verb="Get" Noun="Assistant" PipelineParameter="AssistantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAssistantAssociation" OutputProperty="AssistantAssociation" Verb="Get" Noun="AssistantAssociation" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAssistantAssociation" OutputProperty="AssistantAssociation" Verb="Get" Noun="AssistantAssociation" PipelineParameter="AssistantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetContent" OutputProperty="Content" Verb="Get" Noun="Content" PipelineParameter="ContentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetContent" OutputProperty="Content" Verb="Get" Noun="Content" PipelineParameter="ContentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetContentAssociation" OutputProperty="ContentAssociation" Verb="Get" Noun="ContentAssociation" PipelineParameter="ContentAssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetContentAssociation" OutputProperty="ContentAssociation" Verb="Get" Noun="ContentAssociation" PipelineParameter="ContentAssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetContentSummary" OutputProperty="ContentSummary" Verb="Get" Noun="ContentSummary" PipelineParameter="ContentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetContentSummary" OutputProperty="ContentSummary" Verb="Get" Noun="ContentSummary" PipelineParameter="ContentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetImportJob" OutputProperty="ImportJob" Verb="Get" Noun="ImportJob" PipelineParameter="ImportJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetImportJob" OutputProperty="ImportJob" Verb="Get" Noun="ImportJob" PipelineParameter="ImportJobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetKnowledgeBase" OutputProperty="KnowledgeBase" Verb="Get" Noun="KnowledgeBase" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetKnowledgeBase" OutputProperty="KnowledgeBase" Verb="Get" Noun="KnowledgeBase" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMessageTemplate" OutputProperty="MessageTemplate" Verb="Get" Noun="MessageTemplate" PipelineParameter="MessageTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMessageTemplate" OutputProperty="MessageTemplate" Verb="Get" Noun="MessageTemplate" PipelineParameter="MessageTemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetNextMessage" OutputProperty="*" Verb="Get" Noun="NextMessage" PipelineParameter="NextMessageToken" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetNextMessage" OutputProperty="*" Verb="Get" Noun="NextMessage" PipelineParameter="NextMessageToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQuickResponse" OutputProperty="QuickResponse" Verb="Get" Noun="QuickResponse" PipelineParameter="QuickResponseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetQuickResponse" OutputProperty="QuickResponse" Verb="Get" Noun="QuickResponse" PipelineParameter="QuickResponseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRecommendations" OutputProperty="*" Verb="Get" Noun="Recommendation" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetRecommendations" OutputProperty="*" Verb="Get" Noun="Recommendation" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSession" OutputProperty="Session" Verb="Get" Noun="Session" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSession" OutputProperty="Session" Verb="Get" Noun="Session" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAIAgents" OutputProperty="AiAgentSummaries" Verb="Get" Noun="AIAgentList" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAIAgents" OutputProperty="AiAgentSummaries" Verb="Get" Noun="AIAgentList" PipelineParameter="AssistantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAIAgentVersions" OutputProperty="AiAgentVersionSummaries" Verb="Get" Noun="AIAgentVersionList" PipelineParameter="AiAgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAIAgentVersions" OutputProperty="AiAgentVersionSummaries" Verb="Get" Noun="AIAgentVersionList" PipelineParameter="AiAgentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAIGuardrails" OutputProperty="AiGuardrailSummaries" Verb="Get" Noun="AIGuardrailList" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAIGuardrails" OutputProperty="AiGuardrailSummaries" Verb="Get" Noun="AIGuardrailList" PipelineParameter="AssistantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAIGuardrailVersions" OutputProperty="AiGuardrailVersionSummaries" Verb="Get" Noun="AIGuardrailVersionList" PipelineParameter="AiGuardrailId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAIGuardrailVersions" OutputProperty="AiGuardrailVersionSummaries" Verb="Get" Noun="AIGuardrailVersionList" PipelineParameter="AiGuardrailId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAIPrompts" OutputProperty="AiPromptSummaries" Verb="Get" Noun="AIPromptList" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAIPrompts" OutputProperty="AiPromptSummaries" Verb="Get" Noun="AIPromptList" PipelineParameter="AssistantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAIPromptVersions" OutputProperty="AiPromptVersionSummaries" Verb="Get" Noun="AIPromptVersionList" PipelineParameter="AiPromptId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAIPromptVersions" OutputProperty="AiPromptVersionSummaries" Verb="Get" Noun="AIPromptVersionList" PipelineParameter="AiPromptId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssistantAssociations" OutputProperty="AssistantAssociationSummaries" Verb="Get" Noun="AssistantAssociationList" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAssistantAssociations" OutputProperty="AssistantAssociationSummaries" Verb="Get" Noun="AssistantAssociationList" PipelineParameter="AssistantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssistants" OutputProperty="AssistantSummaries" Verb="Get" Noun="AssistantList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAssistants" OutputProperty="AssistantSummaries" Verb="Get" Noun="AssistantList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListContentAssociations" OutputProperty="ContentAssociationSummaries" Verb="Get" Noun="ContentAssociationList" PipelineParameter="ContentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListContentAssociations" OutputProperty="ContentAssociationSummaries" Verb="Get" Noun="ContentAssociationList" PipelineParameter="ContentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListContents" OutputProperty="ContentSummaries" Verb="Get" Noun="ContentList" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListContents" OutputProperty="ContentSummaries" Verb="Get" Noun="ContentList" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImportJobs" OutputProperty="ImportJobSummaries" Verb="Get" Noun="ImportJobList" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListImportJobs" OutputProperty="ImportJobSummaries" Verb="Get" Noun="ImportJobList" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKnowledgeBases" OutputProperty="KnowledgeBaseSummaries" Verb="Get" Noun="KnowledgeBasisList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListKnowledgeBases" OutputProperty="KnowledgeBaseSummaries" Verb="Get" Noun="KnowledgeBasisList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMessages" OutputProperty="Messages" Verb="Get" Noun="MessageList" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMessages" OutputProperty="Messages" Verb="Get" Noun="MessageList" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMessageTemplates" OutputProperty="MessageTemplateSummaries" Verb="Get" Noun="MessageTemplateList" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMessageTemplates" OutputProperty="MessageTemplateSummaries" Verb="Get" Noun="MessageTemplateList" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMessageTemplateVersions" OutputProperty="MessageTemplateVersionSummaries" Verb="Get" Noun="MessageTemplateVersionList" PipelineParameter="MessageTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMessageTemplateVersions" OutputProperty="MessageTemplateVersionSummaries" Verb="Get" Noun="MessageTemplateVersionList" PipelineParameter="MessageTemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQuickResponses" OutputProperty="QuickResponseSummaries" Verb="Get" Noun="QuickResponseList" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListQuickResponses" OutputProperty="QuickResponseSummaries" Verb="Get" Noun="QuickResponseList" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="NotifyRecommendationsReceived" OutputProperty="*" Verb="Remove" Noun="RecommendationsReceived" ShouldProcessTarget="SessionId" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="NotifyRecommendationsReceived" OutputProperty="*" Verb="Remove" Noun="RecommendationsReceived" ShouldProcessTarget="SessionId" PipelineParameter="AssistantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutFeedback" OutputProperty="*" Verb="Write" Noun="Feedback" ShouldProcessTarget="TargetId" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutFeedback" OutputProperty="*" Verb="Write" Noun="Feedback" ShouldProcessTarget="TargetId" PipelineParameter="AssistantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="QueryAssistant" OutputProperty="Results" Verb="Search" Noun="Assistant" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="QueryAssistant" OutputProperty="Results" Verb="Search" Noun="Assistant" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveAssistantAIAgent" Verb="Remove" Noun="AssistantAIAgent" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RemoveAssistantAIAgent" Verb="Remove" Noun="AssistantAIAgent" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveKnowledgeBaseTemplateUri" Verb="Remove" Noun="KnowledgeBaseTemplateUri" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RemoveKnowledgeBaseTemplateUri" Verb="Remove" Noun="KnowledgeBaseTemplateUri" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RenderMessageTemplate" OutputProperty="*" Verb="Invoke" Noun="MessageTemplate" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RenderMessageTemplate" OutputProperty="*" Verb="Invoke" Noun="MessageTemplate" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchContent" OutputProperty="ContentSummaries" Verb="Search" Noun="Content" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchContent" OutputProperty="ContentSummaries" Verb="Search" Noun="Content" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchMessageTemplates" OutputProperty="Results" Verb="Search" Noun="MessageTemplate" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchMessageTemplates" OutputProperty="Results" Verb="Search" Noun="MessageTemplate" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchQuickResponses" OutputProperty="Results" Verb="Search" Noun="QuickResponse" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchQuickResponses" OutputProperty="Results" Verb="Search" Noun="QuickResponse" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchSessions" OutputProperty="SessionSummaries" Verb="Search" Noun="Session" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchSessions" OutputProperty="SessionSummaries" Verb="Search" Noun="Session" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendMessage" OutputProperty="*" Verb="Send" Noun="Message" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SendMessage" OutputProperty="*" Verb="Send" Noun="Message" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartContentUpload" OutputProperty="*" Verb="Start" Noun="ContentUpload" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartContentUpload" OutputProperty="*" Verb="Start" Noun="ContentUpload" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartImportJob" OutputProperty="ImportJob" Verb="Start" Noun="ImportJob" AnonymousShouldProcessTarget="true" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartImportJob" OutputProperty="ImportJob" Verb="Start" Noun="ImportJob" AnonymousShouldProcessTarget="true" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAIAgent" OutputProperty="AiAgent" Verb="Update" Noun="AIAgent" ShouldProcessTarget="AiAgentId" PipelineParameter="AiAgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateAIAgent" OutputProperty="AiAgent" Verb="Update" Noun="AIAgent" ShouldProcessTarget="AiAgentId" PipelineParameter="AiAgentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAIGuardrail" OutputProperty="AiGuardrail" Verb="Update" Noun="AIGuardrail" ShouldProcessTarget="AiGuardrailId" PipelineParameter="AiGuardrailId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateAIGuardrail" OutputProperty="AiGuardrail" Verb="Update" Noun="AIGuardrail" ShouldProcessTarget="AiGuardrailId" PipelineParameter="AiGuardrailId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAIPrompt" OutputProperty="AiPrompt" Verb="Update" Noun="AIPrompt" ShouldProcessTarget="AiPromptId" PipelineParameter="AiPromptId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateAIPrompt" OutputProperty="AiPrompt" Verb="Update" Noun="AIPrompt" ShouldProcessTarget="AiPromptId" PipelineParameter="AiPromptId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAssistantAIAgent" OutputProperty="Assistant" Verb="Update" Noun="AssistantAIAgent" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateAssistantAIAgent" OutputProperty="Assistant" Verb="Update" Noun="AssistantAIAgent" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateContent" OutputProperty="Content" Verb="Update" Noun="Content" ShouldProcessTarget="ContentId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateContent" OutputProperty="Content" Verb="Update" Noun="Content" ShouldProcessTarget="ContentId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateKnowledgeBaseTemplateUri" OutputProperty="KnowledgeBase" Verb="Update" Noun="KnowledgeBaseTemplateUri" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateKnowledgeBaseTemplateUri" OutputProperty="KnowledgeBase" Verb="Update" Noun="KnowledgeBaseTemplateUri" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMessageTemplate" OutputProperty="MessageTemplate" Verb="Update" Noun="MessageTemplate" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateMessageTemplate" OutputProperty="MessageTemplate" Verb="Update" Noun="MessageTemplate" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false">
             <Params>
                 <Param Name="Content_Email_Body_PlainText_Content" NewName="Content_Email_Body_PlainText_Content" />
                 <Param Name="Content_Sms_Body_PlainText_Content" NewName="Content_Sms_Body_PlainText_Content" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMessageTemplateMetadata" OutputProperty="MessageTemplate" Verb="Update" Noun="MessageTemplateMetadata" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateMessageTemplateMetadata" OutputProperty="MessageTemplate" Verb="Update" Noun="MessageTemplateMetadata" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateQuickResponse" OutputProperty="QuickResponse" Verb="Update" Noun="QuickResponse" ShouldProcessTarget="QuickResponseId" PipelineParameter="QuickResponseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateQuickResponse" OutputProperty="QuickResponse" Verb="Update" Noun="QuickResponse" ShouldProcessTarget="QuickResponseId" PipelineParameter="QuickResponseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSession" OutputProperty="Session" Verb="Update" Noun="Session" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateSession" OutputProperty="Session" Verb="Update" Noun="Session" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSessionData" OutputProperty="*" Verb="Update" Noun="SessionData" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateSessionData" OutputProperty="*" Verb="Update" Noun="SessionData" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -19,62 +19,62 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateRepository" OutputProperty="RepositoryAssociation" Verb="Register" Noun="Repository" ShouldProcessTarget="Repository_CodeCommit_Name" PipelineParameter="Repository_CodeCommit_Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateRepository" OutputProperty="RepositoryAssociation" Verb="Register" Noun="Repository" ShouldProcessTarget="Repository_CodeCommit_Name" PipelineParameter="Repository_CodeCommit_Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCodeReview" OutputProperty="CodeReview" Verb="New" Noun="CodeReview" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateCodeReview" OutputProperty="CodeReview" Verb="New" Noun="CodeReview" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params>
                 <Param Name="Type_RepositoryAnalysis_RepositoryHead_BranchName" NewName="Type_RepositoryAnalysis_RepositoryHead_BranchName" Alias="RepositoryHead_BranchName" />
                 <Param Name="Type_RepositoryAnalysis_SourceCodeType_RepositoryHead_BranchName" NewName="Type_RepositoryAnalysis_SourceCodeType_RepositoryHead_BranchName" Alias="SourceCodeType_RepositoryHead_BranchName" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCodeReview" OutputProperty="CodeReview" Verb="Get" Noun="CodeReview" PipelineParameter="CodeReviewArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCodeReview" OutputProperty="CodeReview" Verb="Get" Noun="CodeReview" PipelineParameter="CodeReviewArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRecommendationFeedback" OutputProperty="RecommendationFeedback" Verb="Get" Noun="RecommendationFeedback" PipelineParameter="RecommendationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeRecommendationFeedback" OutputProperty="RecommendationFeedback" Verb="Get" Noun="RecommendationFeedback" PipelineParameter="RecommendationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRepositoryAssociation" OutputProperty="RepositoryAssociation" Verb="Get" Noun="RepositoryAssociation" PipelineParameter="AssociationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeRepositoryAssociation" OutputProperty="RepositoryAssociation" Verb="Get" Noun="RepositoryAssociation" PipelineParameter="AssociationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateRepository" OutputProperty="RepositoryAssociation" Verb="Unregister" Noun="Repository" ShouldProcessTarget="AssociationArn" PipelineParameter="AssociationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateRepository" OutputProperty="RepositoryAssociation" Verb="Unregister" Noun="Repository" ShouldProcessTarget="AssociationArn" PipelineParameter="AssociationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCodeReviews" OutputProperty="CodeReviewSummaries" Verb="Get" Noun="CodeReviewList" PipelineParameter="Type" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCodeReviews" OutputProperty="CodeReviewSummaries" Verb="Get" Noun="CodeReviewList" PipelineParameter="Type" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecommendationFeedback" OutputProperty="RecommendationFeedbackSummaries" Verb="Get" Noun="RecommendationFeedbackList" PipelineParameter="CodeReviewArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRecommendationFeedback" OutputProperty="RecommendationFeedbackSummaries" Verb="Get" Noun="RecommendationFeedbackList" PipelineParameter="CodeReviewArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecommendations" OutputProperty="RecommendationSummaries" Verb="Get" Noun="RecommendationList" PipelineParameter="CodeReviewArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRecommendations" OutputProperty="RecommendationSummaries" Verb="Get" Noun="RecommendationList" PipelineParameter="CodeReviewArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRepositoryAssociations" OutputProperty="RepositoryAssociationSummaries" Verb="Get" Noun="RepositoryAssociationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRepositoryAssociations" OutputProperty="RepositoryAssociationSummaries" Verb="Get" Noun="RepositoryAssociationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRecommendationFeedback" Verb="Write" Noun="RecommendationFeedback" ShouldProcessTarget="RecommendationId" PipelineParameter="RecommendationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutRecommendationFeedback" Verb="Write" Noun="RecommendationFeedback" ShouldProcessTarget="RecommendationId" PipelineParameter="RecommendationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

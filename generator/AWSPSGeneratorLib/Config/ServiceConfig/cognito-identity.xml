@@ -21,95 +21,95 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateIdentityPool" OutputProperty="*" Verb="New" Noun="IdentityPool" ShouldProcessTarget="IdentityPoolName" PipelineParameter="IdentityPoolName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateIdentityPool" OutputProperty="*" Verb="New" Noun="IdentityPool" ShouldProcessTarget="IdentityPoolName" PipelineParameter="IdentityPoolName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIdentities" OutputProperty="UnprocessedIdentityIds" Verb="Remove" Noun="Identity" ShouldProcessTarget="IdentityIdsToDelete" PipelineParameter="IdentityIdsToDelete" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteIdentities" OutputProperty="UnprocessedIdentityIds" Verb="Remove" Noun="Identity" ShouldProcessTarget="IdentityIdsToDelete" PipelineParameter="IdentityIdsToDelete" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIdentityPool" Verb="Remove" Noun="IdentityPool" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteIdentityPool" Verb="Remove" Noun="IdentityPool" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIdentity" OutputProperty="*" Verb="Get" Noun="Identity" PipelineParameter="IdentityId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeIdentity" OutputProperty="*" Verb="Get" Noun="Identity" PipelineParameter="IdentityId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIdentityPool" OutputProperty="*" Verb="Get" Noun="IdentityPool" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeIdentityPool" OutputProperty="*" Verb="Get" Noun="IdentityPool" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCredentialsForIdentity" OutputProperty="*" Verb="Get" Noun="CredentialsForIdentity" AnonymousAuthentication="Always" PipelineParameter="IdentityId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetCredentialsForIdentity" OutputProperty="*" Verb="Get" Noun="CredentialsForIdentity" AnonymousAuthentication="Always" PipelineParameter="IdentityId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetId" OutputProperty="IdentityId" Verb="Get" Noun="Id" AnonymousAuthentication="Always" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetId" OutputProperty="IdentityId" Verb="Get" Noun="Id" AnonymousAuthentication="Always" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIdentityPoolRoles" OutputProperty="*" Verb="Get" Noun="IdentityPoolRole" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetIdentityPoolRoles" OutputProperty="*" Verb="Get" Noun="IdentityPoolRole" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOpenIdToken" OutputProperty="*" Verb="Get" Noun="OpenIdToken" AnonymousAuthentication="Always" PipelineParameter="IdentityId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetOpenIdToken" OutputProperty="*" Verb="Get" Noun="OpenIdToken" AnonymousAuthentication="Always" PipelineParameter="IdentityId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOpenIdTokenForDeveloperIdentity" OutputProperty="*" Verb="Get" Noun="OpenIdTokenForDeveloperIdentity" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetOpenIdTokenForDeveloperIdentity" OutputProperty="*" Verb="Get" Noun="OpenIdTokenForDeveloperIdentity" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPrincipalTagAttributeMap" OutputProperty="*" Verb="Get" Noun="PrincipalTagAttributeMap" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPrincipalTagAttributeMap" OutputProperty="*" Verb="Get" Noun="PrincipalTagAttributeMap" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIdentities" OutputProperty="*" Verb="Get" Noun="IdentityList" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListIdentities" OutputProperty="*" Verb="Get" Noun="IdentityList" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIdentityPools" OutputProperty="IdentityPools" Verb="Get" Noun="IdentityPoolList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListIdentityPools" OutputProperty="IdentityPools" Verb="Get" Noun="IdentityPoolList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="LookupDeveloperIdentity" OutputProperty="*" Verb="Find" Noun="DeveloperIdentity" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="LookupDeveloperIdentity" OutputProperty="*" Verb="Find" Noun="DeveloperIdentity" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="MergeDeveloperIdentities" OutputProperty="IdentityId" Verb="Merge" Noun="DeveloperIdentity" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="MergeDeveloperIdentities" OutputProperty="IdentityId" Verb="Merge" Noun="DeveloperIdentity" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetIdentityPoolRoles" Verb="Set" Noun="IdentityPoolRole" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SetIdentityPoolRoles" Verb="Set" Noun="IdentityPoolRole" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetPrincipalTagAttributeMap" OutputProperty="*" Verb="Set" Noun="PrincipalTagAttributeMap" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SetPrincipalTagAttributeMap" OutputProperty="*" Verb="Set" Noun="PrincipalTagAttributeMap" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UnlinkDeveloperIdentity" Verb="Dismount" Noun="DeveloperIdentity" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UnlinkDeveloperIdentity" Verb="Dismount" Noun="DeveloperIdentity" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UnlinkIdentity" Verb="Dismount" Noun="Identity" ShouldProcessTarget="IdentityId" AnonymousAuthentication="Always" PipelineParameter="IdentityId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UnlinkIdentity" Verb="Dismount" Noun="Identity" ShouldProcessTarget="IdentityId" AnonymousAuthentication="Always" PipelineParameter="IdentityId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIdentityPool" OutputProperty="*" Verb="Update" Noun="IdentityPool" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateIdentityPool" OutputProperty="*" Verb="Update" Noun="IdentityPool" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

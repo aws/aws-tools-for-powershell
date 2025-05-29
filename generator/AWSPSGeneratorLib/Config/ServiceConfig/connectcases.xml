@@ -20,159 +20,159 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchGetCaseRule" OutputProperty="*" Verb="Group" Noun="GetCaseRule" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchGetCaseRule" OutputProperty="*" Verb="Group" Noun="GetCaseRule" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetField" OutputProperty="*" Verb="Group" Noun="GetField" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchGetField" OutputProperty="*" Verb="Group" Noun="GetField" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchPutFieldOptions" OutputProperty="Errors" Verb="Group" Noun="PutFieldOption" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchPutFieldOptions" OutputProperty="Errors" Verb="Group" Noun="PutFieldOption" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCase" OutputProperty="*" Verb="New" Noun="Case" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateCase" OutputProperty="*" Verb="New" Noun="Case" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCaseRule" OutputProperty="*" Verb="New" Noun="CaseRule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateCaseRule" OutputProperty="*" Verb="New" Noun="CaseRule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDomain" OutputProperty="*" Verb="New" Noun="Domain" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDomain" OutputProperty="*" Verb="New" Noun="Domain" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateField" OutputProperty="*" Verb="New" Noun="Field" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateField" OutputProperty="*" Verb="New" Noun="Field" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLayout" OutputProperty="*" Verb="New" Noun="Layout" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateLayout" OutputProperty="*" Verb="New" Noun="Layout" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRelatedItem" OutputProperty="*" Verb="New" Noun="RelatedItem" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateRelatedItem" OutputProperty="*" Verb="New" Noun="RelatedItem" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTemplate" OutputProperty="*" Verb="New" Noun="Template" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateTemplate" OutputProperty="*" Verb="New" Noun="Template" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCaseRule" Verb="Remove" Noun="CaseRule" ShouldProcessTarget="CaseRuleId" PipelineParameter="CaseRuleId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteCaseRule" Verb="Remove" Noun="CaseRule" ShouldProcessTarget="CaseRuleId" PipelineParameter="CaseRuleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDomain" Verb="Remove" Noun="Domain" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDomain" Verb="Remove" Noun="Domain" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteField" Verb="Remove" Noun="Field" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteField" Verb="Remove" Noun="Field" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLayout" Verb="Remove" Noun="Layout" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteLayout" Verb="Remove" Noun="Layout" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTemplate" Verb="Remove" Noun="Template" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteTemplate" Verb="Remove" Noun="Template" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCase" OutputProperty="*" Verb="Get" Noun="Case" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetCase" OutputProperty="*" Verb="Get" Noun="Case" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCaseAuditEvents" OutputProperty="AuditEvents" Verb="Get" Noun="CaseAuditEvent" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetCaseAuditEvents" OutputProperty="AuditEvents" Verb="Get" Noun="CaseAuditEvent" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCaseEventConfiguration" OutputProperty="EventBridge" Verb="Get" Noun="CaseEventConfiguration" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetCaseEventConfiguration" OutputProperty="EventBridge" Verb="Get" Noun="CaseEventConfiguration" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDomain" OutputProperty="*" Verb="Get" Noun="Domain" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDomain" OutputProperty="*" Verb="Get" Noun="Domain" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLayout" OutputProperty="*" Verb="Get" Noun="Layout" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetLayout" OutputProperty="*" Verb="Get" Noun="Layout" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTemplate" OutputProperty="*" Verb="Get" Noun="Template" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTemplate" OutputProperty="*" Verb="Get" Noun="Template" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCaseRules" OutputProperty="CaseRules" Verb="Get" Noun="CaseRuleList" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCaseRules" OutputProperty="CaseRules" Verb="Get" Noun="CaseRuleList" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCasesForContact" OutputProperty="Cases" Verb="Get" Noun="CasesForContactList" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCasesForContact" OutputProperty="Cases" Verb="Get" Noun="CasesForContactList" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomains" OutputProperty="Domains" Verb="Get" Noun="DomainList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDomains" OutputProperty="Domains" Verb="Get" Noun="DomainList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFieldOptions" OutputProperty="Options" Verb="Get" Noun="FieldOptionList" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFieldOptions" OutputProperty="Options" Verb="Get" Noun="FieldOptionList" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFields" OutputProperty="Fields" Verb="Get" Noun="FieldList" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFields" OutputProperty="Fields" Verb="Get" Noun="FieldList" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLayouts" OutputProperty="Layouts" Verb="Get" Noun="LayoutList" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLayouts" OutputProperty="Layouts" Verb="Get" Noun="LayoutList" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTemplates" OutputProperty="Templates" Verb="Get" Noun="TemplateList" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTemplates" OutputProperty="Templates" Verb="Get" Noun="TemplateList" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutCaseEventConfiguration" Verb="Write" Noun="CaseEventConfiguration" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutCaseEventConfiguration" Verb="Write" Noun="CaseEventConfiguration" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchCases" OutputProperty="Cases" Verb="Search" Noun="Case" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchCases" OutputProperty="Cases" Verb="Search" Noun="Case" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchRelatedItems" OutputProperty="RelatedItems" Verb="Search" Noun="RelatedItem" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchRelatedItems" OutputProperty="RelatedItems" Verb="Search" Noun="RelatedItem" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCase" Verb="Update" Noun="Case" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateCase" Verb="Update" Noun="Case" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCaseRule" Verb="Update" Noun="CaseRule" ShouldProcessTarget="CaseRuleId" PipelineParameter="CaseRuleId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateCaseRule" Verb="Update" Noun="CaseRule" ShouldProcessTarget="CaseRuleId" PipelineParameter="CaseRuleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateField" Verb="Update" Noun="Field" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateField" Verb="Update" Noun="Field" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLayout" Verb="Update" Noun="Layout" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateLayout" Verb="Update" Noun="Layout" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTemplate" Verb="Update" Noun="Template" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateTemplate" Verb="Update" Noun="Template" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

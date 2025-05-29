@@ -19,31 +19,31 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DeleteReportDefinition" OutputProperty="ResponseMessage" Verb="Remove" Noun="ReportDefinition" ShouldProcessTarget="ReportName" PipelineParameter="ReportName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteReportDefinition" OutputProperty="ResponseMessage" Verb="Remove" Noun="ReportDefinition" ShouldProcessTarget="ReportName" PipelineParameter="ReportName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReportDefinitions" OutputProperty="ReportDefinitions" Verb="Get" Noun="ReportDefinition" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CURReportDefinitions" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeReportDefinitions" OutputProperty="ReportDefinitions" Verb="Get" Noun="ReportDefinition" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CURReportDefinitions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ReportName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ReportName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyReportDefinition" Verb="Edit" Noun="ReportDefinition" ShouldProcessTarget="ReportName" PipelineParameter="ReportName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ModifyReportDefinition" Verb="Edit" Noun="ReportDefinition" ShouldProcessTarget="ReportName" PipelineParameter="ReportName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutReportDefinition" Verb="Write" Noun="ReportDefinition" ShouldProcessTarget="ReportDefinition_ReportName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutReportDefinition" Verb="Write" Noun="ReportDefinition" ShouldProcessTarget="ReportDefinition_ReportName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ReportName" PipelineParameter="ReportName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ReportName" PipelineParameter="ReportName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ReportName" PipelineParameter="ReportName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ReportName" PipelineParameter="ReportName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

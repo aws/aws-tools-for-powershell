@@ -18,19 +18,19 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateConnector" OutputProperty="ConnectorArn" Verb="New" Noun="Connector" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateConnector" OutputProperty="ConnectorArn" Verb="New" Noun="Connector" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDirectoryRegistration" OutputProperty="DirectoryRegistrationArn" Verb="New" Noun="DirectoryRegistration" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDirectoryRegistration" OutputProperty="DirectoryRegistrationArn" Verb="New" Noun="DirectoryRegistration" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateServicePrincipalName" Verb="New" Noun="ServicePrincipalName" ShouldProcessTarget="DirectoryRegistrationArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateServicePrincipalName" Verb="New" Noun="ServicePrincipalName" ShouldProcessTarget="DirectoryRegistrationArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTemplate" OutputProperty="TemplateArn" Verb="New" Noun="Template" ShouldProcessTarget="ConnectorArn" PipelineParameter="ConnectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateTemplate" OutputProperty="TemplateArn" Verb="New" Noun="Template" ShouldProcessTarget="ConnectorArn" PipelineParameter="ConnectorArn" NoPipelineParameter="false">
             <Params>
                 <Param Name="Definition_TemplateV2_CertificateValidity_RenewalPeriod_Period" NewName="Definition_TemplateV2_CertificateValidity_RenewalPeriod_Period" />
                 <Param Name="Definition_TemplateV2_CertificateValidity_RenewalPeriod_PeriodType" NewName="Definition_TemplateV2_CertificateValidity_RenewalPeriod_PeriodType" />
@@ -159,83 +159,83 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTemplateGroupAccessControlEntry" Verb="New" Noun="TemplateGroupAccessControlEntry" ShouldProcessTarget="TemplateArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateTemplateGroupAccessControlEntry" Verb="New" Noun="TemplateGroupAccessControlEntry" ShouldProcessTarget="TemplateArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConnector" Verb="Remove" Noun="Connector" ShouldProcessTarget="ConnectorArn" PipelineParameter="ConnectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteConnector" Verb="Remove" Noun="Connector" ShouldProcessTarget="ConnectorArn" PipelineParameter="ConnectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDirectoryRegistration" Verb="Remove" Noun="DirectoryRegistration" ShouldProcessTarget="DirectoryRegistrationArn" PipelineParameter="DirectoryRegistrationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDirectoryRegistration" Verb="Remove" Noun="DirectoryRegistration" ShouldProcessTarget="DirectoryRegistrationArn" PipelineParameter="DirectoryRegistrationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteServicePrincipalName" Verb="Remove" Noun="ServicePrincipalName" ShouldProcessTarget="ConnectorArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteServicePrincipalName" Verb="Remove" Noun="ServicePrincipalName" ShouldProcessTarget="ConnectorArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTemplate" Verb="Remove" Noun="Template" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteTemplate" Verb="Remove" Noun="Template" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTemplateGroupAccessControlEntry" Verb="Remove" Noun="TemplateGroupAccessControlEntry" ShouldProcessTarget="GroupSecurityIdentifier" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteTemplateGroupAccessControlEntry" Verb="Remove" Noun="TemplateGroupAccessControlEntry" ShouldProcessTarget="GroupSecurityIdentifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConnector" OutputProperty="Connector" Verb="Get" Noun="Connector" PipelineParameter="ConnectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetConnector" OutputProperty="Connector" Verb="Get" Noun="Connector" PipelineParameter="ConnectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDirectoryRegistration" OutputProperty="DirectoryRegistration" Verb="Get" Noun="DirectoryRegistration" PipelineParameter="DirectoryRegistrationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDirectoryRegistration" OutputProperty="DirectoryRegistration" Verb="Get" Noun="DirectoryRegistration" PipelineParameter="DirectoryRegistrationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetServicePrincipalName" OutputProperty="ServicePrincipalName" Verb="Get" Noun="ServicePrincipalName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetServicePrincipalName" OutputProperty="ServicePrincipalName" Verb="Get" Noun="ServicePrincipalName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTemplate" OutputProperty="Template" Verb="Get" Noun="Template" PipelineParameter="TemplateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTemplate" OutputProperty="Template" Verb="Get" Noun="Template" PipelineParameter="TemplateArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTemplateGroupAccessControlEntry" OutputProperty="AccessControlEntry" Verb="Get" Noun="TemplateGroupAccessControlEntry" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTemplateGroupAccessControlEntry" OutputProperty="AccessControlEntry" Verb="Get" Noun="TemplateGroupAccessControlEntry" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConnectors" OutputProperty="Connectors" Verb="Get" Noun="ConnectorList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListConnectors" OutputProperty="Connectors" Verb="Get" Noun="ConnectorList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDirectoryRegistrations" OutputProperty="DirectoryRegistrations" Verb="Get" Noun="DirectoryRegistrationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDirectoryRegistrations" OutputProperty="DirectoryRegistrations" Verb="Get" Noun="DirectoryRegistrationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServicePrincipalNames" OutputProperty="ServicePrincipalNames" Verb="Get" Noun="ServicePrincipalNameList" PipelineParameter="DirectoryRegistrationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListServicePrincipalNames" OutputProperty="ServicePrincipalNames" Verb="Get" Noun="ServicePrincipalNameList" PipelineParameter="DirectoryRegistrationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTemplateGroupAccessControlEntries" OutputProperty="AccessControlEntries" Verb="Get" Noun="TemplateGroupAccessControlEntryList" PipelineParameter="TemplateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTemplateGroupAccessControlEntries" OutputProperty="AccessControlEntries" Verb="Get" Noun="TemplateGroupAccessControlEntryList" PipelineParameter="TemplateArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTemplates" OutputProperty="Templates" Verb="Get" Noun="TemplateList" PipelineParameter="ConnectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTemplates" OutputProperty="Templates" Verb="Get" Noun="TemplateList" PipelineParameter="ConnectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTemplate" Verb="Update" Noun="Template" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateTemplate" Verb="Update" Noun="Template" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false">
             <Params>
                 <Param Name="Definition_TemplateV2_CertificateValidity_RenewalPeriod_Period" NewName="Definition_TemplateV2_CertificateValidity_RenewalPeriod_Period" />
                 <Param Name="Definition_TemplateV2_CertificateValidity_RenewalPeriod_PeriodType" NewName="Definition_TemplateV2_CertificateValidity_RenewalPeriod_PeriodType" />
@@ -364,7 +364,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTemplateGroupAccessControlEntry" Verb="Update" Noun="TemplateGroupAccessControlEntry" ShouldProcessTarget="GroupSecurityIdentifier" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateTemplateGroupAccessControlEntry" Verb="Update" Noun="TemplateGroupAccessControlEntry" ShouldProcessTarget="GroupSecurityIdentifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -19,7 +19,7 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreatePipe" OutputProperty="*" Verb="New" Noun="Pipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreatePipe" OutputProperty="*" Verb="New" Noun="Pipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params>
                 <Param Name="EnrichmentParameters_HttpParameters_HeaderParameters" NewName="EnrichmentParameters_HttpParameters_HeaderParameters" Alias="Enrichment_HttpParameters_HeaderParameters" />
                 <Param Name="TargetParameters_HttpParameters_HeaderParameters" NewName="TargetParameters_HttpParameters_HeaderParameters" Alias="Target_HttpParameters_HeaderParameters" />
@@ -39,39 +39,39 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePipe" OutputProperty="*" Verb="Remove" Noun="Pipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeletePipe" OutputProperty="*" Verb="Remove" Noun="Pipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePipe" OutputProperty="*" Verb="Get" Noun="Pipe" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribePipe" OutputProperty="*" Verb="Get" Noun="Pipe" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPipes" OutputProperty="Pipes" Verb="Get" Noun="PipeList" PipelineParameter="NamePrefix" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPipes" OutputProperty="Pipes" Verb="Get" Noun="PipeList" PipelineParameter="NamePrefix" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartPipe" OutputProperty="*" Verb="Start" Noun="Pipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartPipe" OutputProperty="*" Verb="Start" Noun="Pipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopPipe" OutputProperty="*" Verb="Stop" Noun="Pipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopPipe" OutputProperty="*" Verb="Stop" Noun="Pipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePipe" OutputProperty="*" Verb="Update" Noun="Pipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdatePipe" OutputProperty="*" Verb="Update" Noun="Pipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params>
                 <Param Name="EnrichmentParameters_HttpParameters_HeaderParameters" NewName="EnrichmentParameters_HttpParameters_HeaderParameters" Alias="Enrichment_HttpParameters_HeaderParameters" />
                 <Param Name="TargetParameters_HttpParameters_HeaderParameters" NewName="TargetParameters_HttpParameters_HeaderParameters" Alias="Target_HttpParameters_HeaderParameters" />

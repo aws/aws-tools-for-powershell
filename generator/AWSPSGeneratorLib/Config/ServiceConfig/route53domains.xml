@@ -25,143 +25,143 @@
         <Property>NextPageMarker</Property>
     </MetadataProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptDomainTransferFromAnotherAwsAccount" OutputProperty="OperationId" Verb="Approve" Noun="DomainTransferFromAnotherAwsAccount" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AcceptDomainTransferFromAnotherAwsAccount" OutputProperty="OperationId" Verb="Approve" Noun="DomainTransferFromAnotherAwsAccount" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateDelegationSignerToDomain" OutputProperty="OperationId" Verb="Add" Noun="DelegationSignerToDomain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateDelegationSignerToDomain" OutputProperty="OperationId" Verb="Add" Noun="DelegationSignerToDomain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelDomainTransferToAnotherAwsAccount" OutputProperty="OperationId" Verb="Stop" Noun="DomainTransferToAnotherAwsAccount" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelDomainTransferToAnotherAwsAccount" OutputProperty="OperationId" Verb="Stop" Noun="DomainTransferToAnotherAwsAccount" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CheckDomainAvailability" OutputProperty="Availability" Verb="Test" Noun="DomainAvailability" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Get-R53DDomainAvailability" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CheckDomainAvailability" OutputProperty="Availability" Verb="Test" Noun="DomainAvailability" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Get-R53DDomainAvailability">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CheckDomainTransferability" OutputProperty="Transferability" Verb="Test" Noun="DomainTransferability" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CheckDomainTransferability" OutputProperty="Transferability" Verb="Test" Noun="DomainTransferability" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDomain" OutputProperty="OperationId" Verb="Remove" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDomain" OutputProperty="OperationId" Verb="Remove" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTagsForDomain" Verb="Remove" Noun="TagsForDomain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteTagsForDomain" Verb="Remove" Noun="TagsForDomain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableDomainAutoRenew" Verb="Disable" Noun="DomainAutoRenew" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisableDomainAutoRenew" Verb="Disable" Noun="DomainAutoRenew" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableDomainTransferLock" OutputProperty="OperationId" Verb="Disable" Noun="DomainTransferLock" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisableDomainTransferLock" OutputProperty="OperationId" Verb="Disable" Noun="DomainTransferLock" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateDelegationSignerFromDomain" OutputProperty="OperationId" Verb="Remove" Noun="DelegationSignerFromDomain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateDelegationSignerFromDomain" OutputProperty="OperationId" Verb="Remove" Noun="DelegationSignerFromDomain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableDomainAutoRenew" Verb="Enable" Noun="DomainAutoRenew" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="EnableDomainAutoRenew" Verb="Enable" Noun="DomainAutoRenew" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableDomainTransferLock" OutputProperty="OperationId" Verb="Enable" Noun="DomainTransferLock" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="EnableDomainTransferLock" OutputProperty="OperationId" Verb="Enable" Noun="DomainTransferLock" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetContactReachabilityStatus" OutputProperty="*" Verb="Get" Noun="ContactReachabilityStatus" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetContactReachabilityStatus" OutputProperty="*" Verb="Get" Noun="ContactReachabilityStatus" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDomainDetail" OutputProperty="*" Verb="Get" Noun="DomainDetail" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDomainDetail" OutputProperty="*" Verb="Get" Noun="DomainDetail" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDomainSuggestions" OutputProperty="SuggestionsList" Verb="Get" Noun="DomainSuggestion" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDomainSuggestions" OutputProperty="SuggestionsList" Verb="Get" Noun="DomainSuggestion" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOperationDetail" OutputProperty="*" Verb="Get" Noun="OperationDetail" PipelineParameter="OperationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetOperationDetail" OutputProperty="*" Verb="Get" Noun="OperationDetail" PipelineParameter="OperationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomains" OutputProperty="Domains" Verb="Get" Noun="DomainList" PipelineParameter="MaxItems" NoPipelineParameter="false" LegacyAlias="Get-R53DDomains" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDomains" OutputProperty="Domains" Verb="Get" Noun="DomainList" PipelineParameter="MaxItems" NoPipelineParameter="false" LegacyAlias="Get-R53DDomains">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOperations" OutputProperty="Operations" Verb="Get" Noun="OperationList" PipelineParameter="MaxItems" NoPipelineParameter="false" LegacyAlias="Get-R53DOperations" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListOperations" OutputProperty="Operations" Verb="Get" Noun="OperationList" PipelineParameter="MaxItems" NoPipelineParameter="false" LegacyAlias="Get-R53DOperations">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPrices" OutputProperty="Prices" Verb="Get" Noun="PriceList" PipelineParameter="Tld" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPrices" OutputProperty="Prices" Verb="Get" Noun="PriceList" PipelineParameter="Tld" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForDomain" OutputProperty="TagList" Verb="Get" Noun="TagsForDomain" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForDomain" OutputProperty="TagList" Verb="Get" Noun="TagsForDomain" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PushDomain" Verb="Push" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PushDomain" Verb="Push" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterDomain" OutputProperty="OperationId" Verb="Register" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RegisterDomain" OutputProperty="OperationId" Verb="Register" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params>
                 <Param Name="DurationInYears" AutoRename="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RejectDomainTransferFromAnotherAwsAccount" OutputProperty="OperationId" Verb="Deny" Noun="DomainTransferFromAnotherAwsAccount" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RejectDomainTransferFromAnotherAwsAccount" OutputProperty="OperationId" Verb="Deny" Noun="DomainTransferFromAnotherAwsAccount" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RenewDomain" OutputProperty="OperationId" Verb="Update" Noun="DomainRenewal" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RenewDomain" OutputProperty="OperationId" Verb="Update" Noun="DomainRenewal" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResendContactReachabilityEmail" OutputProperty="*" Verb="Send" Noun="ContactReachabilityEmail" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ResendContactReachabilityEmail" OutputProperty="*" Verb="Send" Noun="ContactReachabilityEmail" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResendOperationAuthorization" Verb="Send" Noun="OperationAuthorization" ShouldProcessTarget="OperationId" PipelineParameter="OperationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ResendOperationAuthorization" Verb="Send" Noun="OperationAuthorization" ShouldProcessTarget="OperationId" PipelineParameter="OperationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RetrieveDomainAuthCode" OutputProperty="AuthCode" Verb="Get" Noun="DomainAuthCode" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RetrieveDomainAuthCode" OutputProperty="AuthCode" Verb="Get" Noun="DomainAuthCode" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TransferDomain" OutputProperty="OperationId" Verb="Invoke" Noun="DomainTransfer" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TransferDomain" OutputProperty="OperationId" Verb="Invoke" Noun="DomainTransfer" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params>
                 <Param Name="DurationInYears" AutoRename="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TransferDomainToAnotherAwsAccount" OutputProperty="*" Verb="Move" Noun="DomainToAnotherAwsAccount" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TransferDomainToAnotherAwsAccount" OutputProperty="*" Verb="Move" Noun="DomainToAnotherAwsAccount" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDomainContact" OutputProperty="OperationId" Verb="Update" Noun="DomainContact" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDomainContact" OutputProperty="OperationId" Verb="Update" Noun="DomainContact" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDomainContactPrivacy" OutputProperty="OperationId" Verb="Update" Noun="DomainContactPrivacy" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDomainContactPrivacy" OutputProperty="OperationId" Verb="Update" Noun="DomainContactPrivacy" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDomainNameservers" OutputProperty="OperationId" Verb="Update" Noun="DomainNameserver" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Update-R53DDomainNameservers" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDomainNameservers" OutputProperty="OperationId" Verb="Update" Noun="DomainNameserver" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Update-R53DDomainNameservers">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTagsForDomain" Verb="Update" Noun="TagsForDomain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateTagsForDomain" Verb="Update" Noun="TagsForDomain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ViewBilling" OutputProperty="BillingRecords" Verb="Get" Noun="BillingRecord" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ViewBilling" OutputProperty="BillingRecords" Verb="Get" Noun="BillingRecord" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextPageMarker" EmitLimit="MaxItems" ServicePageSize="20" PageSizeIsRequired="true" />
             <TypesNotToFlatten />

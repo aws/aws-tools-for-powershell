@@ -19,151 +19,151 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateApp" OutputProperty="App" Verb="New" Noun="App" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateApp" OutputProperty="App" Verb="New" Noun="App" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBackendEnvironment" OutputProperty="BackendEnvironment" Verb="New" Noun="BackendEnvironment" ShouldProcessTarget="EnvironmentName" PipelineParameter="EnvironmentName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateBackendEnvironment" OutputProperty="BackendEnvironment" Verb="New" Noun="BackendEnvironment" ShouldProcessTarget="EnvironmentName" PipelineParameter="EnvironmentName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBranch" OutputProperty="Branch" Verb="New" Noun="Branch" ShouldProcessTarget="BranchName" PipelineParameter="BranchName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateBranch" OutputProperty="Branch" Verb="New" Noun="Branch" ShouldProcessTarget="BranchName" PipelineParameter="BranchName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDeployment" OutputProperty="*" Verb="New" Noun="Deployment" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDeployment" OutputProperty="*" Verb="New" Noun="Deployment" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDomainAssociation" OutputProperty="DomainAssociation" Verb="New" Noun="DomainAssociation" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDomainAssociation" OutputProperty="DomainAssociation" Verb="New" Noun="DomainAssociation" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWebhook" OutputProperty="Webhook" Verb="New" Noun="Webhook" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateWebhook" OutputProperty="Webhook" Verb="New" Noun="Webhook" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApp" OutputProperty="App" Verb="Remove" Noun="App" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteApp" OutputProperty="App" Verb="Remove" Noun="App" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBackendEnvironment" OutputProperty="BackendEnvironment" Verb="Remove" Noun="BackendEnvironment" ShouldProcessTarget="EnvironmentName" PipelineParameter="EnvironmentName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBackendEnvironment" OutputProperty="BackendEnvironment" Verb="Remove" Noun="BackendEnvironment" ShouldProcessTarget="EnvironmentName" PipelineParameter="EnvironmentName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBranch" OutputProperty="Branch" Verb="Remove" Noun="Branch" ShouldProcessTarget="BranchName" PipelineParameter="BranchName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBranch" OutputProperty="Branch" Verb="Remove" Noun="Branch" ShouldProcessTarget="BranchName" PipelineParameter="BranchName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDomainAssociation" OutputProperty="DomainAssociation" Verb="Remove" Noun="DomainAssociation" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDomainAssociation" OutputProperty="DomainAssociation" Verb="Remove" Noun="DomainAssociation" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteJob" OutputProperty="JobSummary" Verb="Remove" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteJob" OutputProperty="JobSummary" Verb="Remove" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWebhook" OutputProperty="Webhook" Verb="Remove" Noun="Webhook" ShouldProcessTarget="WebhookId" PipelineParameter="WebhookId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteWebhook" OutputProperty="Webhook" Verb="Remove" Noun="Webhook" ShouldProcessTarget="WebhookId" PipelineParameter="WebhookId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateAccessLogs" OutputProperty="LogUrl" Verb="New" Noun="AccessLog" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GenerateAccessLogs" OutputProperty="LogUrl" Verb="New" Noun="AccessLog" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApp" OutputProperty="App" Verb="Get" Noun="App" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetApp" OutputProperty="App" Verb="Get" Noun="App" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetArtifactUrl" OutputProperty="*" Verb="Get" Noun="ArtifactUrl" PipelineParameter="ArtifactId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetArtifactUrl" OutputProperty="*" Verb="Get" Noun="ArtifactUrl" PipelineParameter="ArtifactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBackendEnvironment" OutputProperty="BackendEnvironment" Verb="Get" Noun="BackendEnvironment" PipelineParameter="EnvironmentName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBackendEnvironment" OutputProperty="BackendEnvironment" Verb="Get" Noun="BackendEnvironment" PipelineParameter="EnvironmentName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBranch" OutputProperty="Branch" Verb="Get" Noun="Branch" PipelineParameter="BranchName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBranch" OutputProperty="Branch" Verb="Get" Noun="Branch" PipelineParameter="BranchName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDomainAssociation" OutputProperty="DomainAssociation" Verb="Get" Noun="DomainAssociation" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDomainAssociation" OutputProperty="DomainAssociation" Verb="Get" Noun="DomainAssociation" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJob" OutputProperty="Job" Verb="Get" Noun="Job" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetJob" OutputProperty="Job" Verb="Get" Noun="Job" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWebhook" OutputProperty="Webhook" Verb="Get" Noun="Webhook" PipelineParameter="WebhookId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetWebhook" OutputProperty="Webhook" Verb="Get" Noun="Webhook" PipelineParameter="WebhookId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApps" OutputProperty="Apps" Verb="Get" Noun="AppList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListApps" OutputProperty="Apps" Verb="Get" Noun="AppList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListArtifacts" OutputProperty="Artifacts" Verb="Get" Noun="ArtifactList" PipelineParameter="AppId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListArtifacts" OutputProperty="Artifacts" Verb="Get" Noun="ArtifactList" PipelineParameter="AppId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackendEnvironments" OutputProperty="BackendEnvironments" Verb="Get" Noun="BackendEnvironmentList" PipelineParameter="AppId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBackendEnvironments" OutputProperty="BackendEnvironments" Verb="Get" Noun="BackendEnvironmentList" PipelineParameter="AppId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBranches" OutputProperty="Branches" Verb="Get" Noun="BranchList" PipelineParameter="AppId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBranches" OutputProperty="Branches" Verb="Get" Noun="BranchList" PipelineParameter="AppId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomainAssociations" OutputProperty="DomainAssociations" Verb="Get" Noun="DomainAssociationList" PipelineParameter="AppId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDomainAssociations" OutputProperty="DomainAssociations" Verb="Get" Noun="DomainAssociationList" PipelineParameter="AppId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" OutputProperty="JobSummaries" Verb="Get" Noun="JobList" PipelineParameter="BranchName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListJobs" OutputProperty="JobSummaries" Verb="Get" Noun="JobList" PipelineParameter="BranchName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWebhooks" OutputProperty="Webhooks" Verb="Get" Noun="WebhookList" PipelineParameter="AppId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListWebhooks" OutputProperty="Webhooks" Verb="Get" Noun="WebhookList" PipelineParameter="AppId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDeployment" OutputProperty="JobSummary" Verb="Start" Noun="Deployment" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartDeployment" OutputProperty="JobSummary" Verb="Start" Noun="Deployment" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartJob" OutputProperty="JobSummary" Verb="Start" Noun="Job" ShouldProcessTarget="BranchName" PipelineParameter="BranchName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartJob" OutputProperty="JobSummary" Verb="Start" Noun="Job" ShouldProcessTarget="BranchName" PipelineParameter="BranchName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopJob" OutputProperty="JobSummary" Verb="Stop" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopJob" OutputProperty="JobSummary" Verb="Stop" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApp" OutputProperty="App" Verb="Update" Noun="App" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateApp" OutputProperty="App" Verb="Update" Noun="App" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBranch" OutputProperty="Branch" Verb="Update" Noun="Branch" ShouldProcessTarget="BranchName" PipelineParameter="BranchName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateBranch" OutputProperty="Branch" Verb="Update" Noun="Branch" ShouldProcessTarget="BranchName" PipelineParameter="BranchName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDomainAssociation" OutputProperty="DomainAssociation" Verb="Update" Noun="DomainAssociation" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDomainAssociation" OutputProperty="DomainAssociation" Verb="Update" Noun="DomainAssociation" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWebhook" OutputProperty="Webhook" Verb="Update" Noun="Webhook" ShouldProcessTarget="WebhookId" PipelineParameter="WebhookId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateWebhook" OutputProperty="Webhook" Verb="Update" Noun="Webhook" ShouldProcessTarget="WebhookId" PipelineParameter="WebhookId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

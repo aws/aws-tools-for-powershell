@@ -18,55 +18,55 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelZonalShift" OutputProperty="*" Verb="Stop" Noun="ZonalShift" ShouldProcessTarget="ZonalShiftId" PipelineParameter="ZonalShiftId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelZonalShift" OutputProperty="*" Verb="Stop" Noun="ZonalShift" ShouldProcessTarget="ZonalShiftId" PipelineParameter="ZonalShiftId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePracticeRunConfiguration" OutputProperty="*" Verb="New" Noun="PracticeRunConfiguration" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreatePracticeRunConfiguration" OutputProperty="*" Verb="New" Noun="PracticeRunConfiguration" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePracticeRunConfiguration" OutputProperty="*" Verb="Remove" Noun="PracticeRunConfiguration" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeletePracticeRunConfiguration" OutputProperty="*" Verb="Remove" Noun="PracticeRunConfiguration" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAutoshiftObserverNotificationStatus" OutputProperty="Status" Verb="Get" Noun="AutoshiftObserverNotificationStatus" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAutoshiftObserverNotificationStatus" OutputProperty="Status" Verb="Get" Noun="AutoshiftObserverNotificationStatus" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetManagedResource" OutputProperty="*" Verb="Get" Noun="ManagedResource" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetManagedResource" OutputProperty="*" Verb="Get" Noun="ManagedResource" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAutoshifts" OutputProperty="Items" Verb="Get" Noun="AutoshiftList" PipelineParameter="Status" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAutoshifts" OutputProperty="Items" Verb="Get" Noun="AutoshiftList" PipelineParameter="Status" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListManagedResources" OutputProperty="Items" Verb="Get" Noun="ManagedResourceList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListManagedResources" OutputProperty="Items" Verb="Get" Noun="ManagedResourceList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListZonalShifts" OutputProperty="Items" Verb="Get" Noun="ZonalShiftList" PipelineParameter="Status" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListZonalShifts" OutputProperty="Items" Verb="Get" Noun="ZonalShiftList" PipelineParameter="Status" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartZonalShift" OutputProperty="*" Verb="Start" Noun="ZonalShift" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartZonalShift" OutputProperty="*" Verb="Start" Noun="ZonalShift" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAutoshiftObserverNotificationStatus" OutputProperty="Status" Verb="Update" Noun="AutoshiftObserverNotificationStatus" ShouldProcessTarget="Status" PipelineParameter="Status" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateAutoshiftObserverNotificationStatus" OutputProperty="Status" Verb="Update" Noun="AutoshiftObserverNotificationStatus" ShouldProcessTarget="Status" PipelineParameter="Status" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePracticeRunConfiguration" OutputProperty="*" Verb="Update" Noun="PracticeRunConfiguration" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdatePracticeRunConfiguration" OutputProperty="*" Verb="Update" Noun="PracticeRunConfiguration" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateZonalAutoshiftConfiguration" OutputProperty="*" Verb="Update" Noun="ZonalAutoshiftConfiguration" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateZonalAutoshiftConfiguration" OutputProperty="*" Verb="Update" Noun="ZonalAutoshiftConfiguration" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateZonalShift" OutputProperty="*" Verb="Update" Noun="ZonalShift" ShouldProcessTarget="ZonalShiftId" PipelineParameter="ZonalShiftId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateZonalShift" OutputProperty="*" Verb="Update" Noun="ZonalShift" ShouldProcessTarget="ZonalShiftId" PipelineParameter="ZonalShiftId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -18,7 +18,7 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="GetFreeTierUsage" OutputProperty="FreeTierUsages" Verb="Get" Noun="FreeTierUsage" PipelineParameter="Filter" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFreeTierUsage" OutputProperty="FreeTierUsages" Verb="Get" Noun="FreeTierUsage" PipelineParameter="Filter" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

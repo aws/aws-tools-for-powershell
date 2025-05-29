@@ -19,107 +19,107 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateBudget" Verb="New" Noun="Budget" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateBudget" Verb="New" Noun="Budget" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBudgetAction" OutputProperty="*" Verb="New" Noun="BudgetAction" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateBudgetAction" OutputProperty="*" Verb="New" Noun="BudgetAction" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateNotification" Verb="New" Noun="Notification" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateNotification" Verb="New" Noun="Notification" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSubscriber" Verb="New" Noun="Subscriber" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateSubscriber" Verb="New" Noun="Subscriber" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBudget" Verb="Remove" Noun="Budget" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBudget" Verb="Remove" Noun="Budget" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBudgetAction" OutputProperty="*" Verb="Remove" Noun="BudgetAction" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBudgetAction" OutputProperty="*" Verb="Remove" Noun="BudgetAction" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteNotification" Verb="Remove" Noun="Notification" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteNotification" Verb="Remove" Noun="Notification" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSubscriber" Verb="Remove" Noun="Subscriber" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteSubscriber" Verb="Remove" Noun="Subscriber" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBudget" OutputProperty="Budget" Verb="Get" Noun="Budget" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBudget" OutputProperty="Budget" Verb="Get" Noun="Budget" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBudgetAction" OutputProperty="*" Verb="Get" Noun="BudgetAction" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBudgetAction" OutputProperty="*" Verb="Get" Noun="BudgetAction" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBudgetActionHistories" OutputProperty="*" Verb="Get" Noun="BudgetActionHistory" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBudgetActionHistories" OutputProperty="*" Verb="Get" Noun="BudgetActionHistory" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBudgetActionsForAccount" OutputProperty="*" Verb="Get" Noun="BudgetActionsForAccount" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBudgetActionsForAccount" OutputProperty="*" Verb="Get" Noun="BudgetActionsForAccount" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBudgetActionsForBudget" OutputProperty="*" Verb="Get" Noun="BudgetActionsForBudget" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBudgetActionsForBudget" OutputProperty="*" Verb="Get" Noun="BudgetActionsForBudget" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBudgetNotificationsForAccount" OutputProperty="BudgetNotificationsForAccount" Verb="Get" Noun="BudgetNotificationsForAccount" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBudgetNotificationsForAccount" OutputProperty="BudgetNotificationsForAccount" Verb="Get" Noun="BudgetNotificationsForAccount" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBudgetPerformanceHistory" OutputProperty="BudgetPerformanceHistory" Verb="Get" Noun="BudgetPerformanceHistory" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBudgetPerformanceHistory" OutputProperty="BudgetPerformanceHistory" Verb="Get" Noun="BudgetPerformanceHistory" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBudgets" OutputProperty="Budgets" Verb="Get" Noun="BudgetList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBudgets" OutputProperty="Budgets" Verb="Get" Noun="BudgetList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNotificationsForBudget" OutputProperty="Notifications" Verb="Get" Noun="NotificationsForBudget" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeNotificationsForBudget" OutputProperty="Notifications" Verb="Get" Noun="NotificationsForBudget" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSubscribersForNotification" OutputProperty="Subscribers" Verb="Get" Noun="SubscribersForNotification" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSubscribersForNotification" OutputProperty="Subscribers" Verb="Get" Noun="SubscribersForNotification" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteBudgetAction" OutputProperty="*" Verb="Invoke" Noun="BudgetAction" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ExecuteBudgetAction" OutputProperty="*" Verb="Invoke" Noun="BudgetAction" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="ResourceTags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="ResourceTags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBudget" Verb="Update" Noun="Budget" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateBudget" Verb="Update" Noun="Budget" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBudgetAction" OutputProperty="*" Verb="Update" Noun="BudgetAction" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateBudgetAction" OutputProperty="*" Verb="Update" Noun="BudgetAction" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateNotification" Verb="Update" Noun="Notification" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateNotification" Verb="Update" Noun="Notification" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSubscriber" Verb="Update" Noun="Subscriber" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateSubscriber" Verb="Update" Noun="Subscriber" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

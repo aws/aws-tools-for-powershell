@@ -19,199 +19,199 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateDataset" OutputProperty="*" Verb="New" Noun="Dataset" ShouldProcessTarget="DatasetName" PipelineParameter="DatasetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDataset" OutputProperty="*" Verb="New" Noun="Dataset" ShouldProcessTarget="DatasetName" PipelineParameter="DatasetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInferenceScheduler" OutputProperty="*" Verb="New" Noun="InferenceScheduler" ShouldProcessTarget="InferenceSchedulerName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateInferenceScheduler" OutputProperty="*" Verb="New" Noun="InferenceScheduler" ShouldProcessTarget="InferenceSchedulerName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLabel" OutputProperty="LabelId" Verb="New" Noun="Label" ShouldProcessTarget="LabelGroupName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateLabel" OutputProperty="LabelId" Verb="New" Noun="Label" ShouldProcessTarget="LabelGroupName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLabelGroup" OutputProperty="*" Verb="New" Noun="LabelGroup" ShouldProcessTarget="LabelGroupName" PipelineParameter="LabelGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateLabelGroup" OutputProperty="*" Verb="New" Noun="LabelGroup" ShouldProcessTarget="LabelGroupName" PipelineParameter="LabelGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateModel" OutputProperty="*" Verb="New" Noun="Model" ShouldProcessTarget="ModelName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateModel" OutputProperty="*" Verb="New" Noun="Model" ShouldProcessTarget="ModelName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRetrainingScheduler" OutputProperty="*" Verb="New" Noun="RetrainingScheduler" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateRetrainingScheduler" OutputProperty="*" Verb="New" Noun="RetrainingScheduler" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataset" Verb="Remove" Noun="Dataset" ShouldProcessTarget="DatasetName" PipelineParameter="DatasetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDataset" Verb="Remove" Noun="Dataset" ShouldProcessTarget="DatasetName" PipelineParameter="DatasetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInferenceScheduler" Verb="Remove" Noun="InferenceScheduler" ShouldProcessTarget="InferenceSchedulerName" PipelineParameter="InferenceSchedulerName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteInferenceScheduler" Verb="Remove" Noun="InferenceScheduler" ShouldProcessTarget="InferenceSchedulerName" PipelineParameter="InferenceSchedulerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLabel" Verb="Remove" Noun="Label" ShouldProcessTarget="LabelGroupName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteLabel" Verb="Remove" Noun="Label" ShouldProcessTarget="LabelGroupName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLabelGroup" Verb="Remove" Noun="LabelGroup" ShouldProcessTarget="LabelGroupName" PipelineParameter="LabelGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteLabelGroup" Verb="Remove" Noun="LabelGroup" ShouldProcessTarget="LabelGroupName" PipelineParameter="LabelGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteModel" Verb="Remove" Noun="Model" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteModel" Verb="Remove" Noun="Model" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRetrainingScheduler" Verb="Remove" Noun="RetrainingScheduler" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteRetrainingScheduler" Verb="Remove" Noun="RetrainingScheduler" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDataIngestionJob" OutputProperty="*" Verb="Get" Noun="DataIngestionJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDataIngestionJob" OutputProperty="*" Verb="Get" Noun="DataIngestionJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDataset" OutputProperty="*" Verb="Get" Noun="Dataset" PipelineParameter="DatasetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDataset" OutputProperty="*" Verb="Get" Noun="Dataset" PipelineParameter="DatasetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInferenceScheduler" OutputProperty="*" Verb="Get" Noun="InferenceScheduler" PipelineParameter="InferenceSchedulerName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeInferenceScheduler" OutputProperty="*" Verb="Get" Noun="InferenceScheduler" PipelineParameter="InferenceSchedulerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLabel" OutputProperty="*" Verb="Get" Noun="Label" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLabel" OutputProperty="*" Verb="Get" Noun="Label" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLabelGroup" OutputProperty="*" Verb="Get" Noun="LabelGroup" PipelineParameter="LabelGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLabelGroup" OutputProperty="*" Verb="Get" Noun="LabelGroup" PipelineParameter="LabelGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeModel" OutputProperty="*" Verb="Get" Noun="Model" PipelineParameter="ModelName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeModel" OutputProperty="*" Verb="Get" Noun="Model" PipelineParameter="ModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeModelVersion" OutputProperty="*" Verb="Get" Noun="ModelVersion" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeModelVersion" OutputProperty="*" Verb="Get" Noun="ModelVersion" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRetrainingScheduler" OutputProperty="*" Verb="Get" Noun="RetrainingScheduler" PipelineParameter="ModelName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeRetrainingScheduler" OutputProperty="*" Verb="Get" Noun="RetrainingScheduler" PipelineParameter="ModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportDataset" OutputProperty="*" Verb="Import" Noun="Dataset" ShouldProcessTarget="SourceDatasetArn" PipelineParameter="SourceDatasetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportDataset" OutputProperty="*" Verb="Import" Noun="Dataset" ShouldProcessTarget="SourceDatasetArn" PipelineParameter="SourceDatasetArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportModelVersion" OutputProperty="*" Verb="Import" Noun="ModelVersion" ShouldProcessTarget="SourceModelVersionArn" PipelineParameter="SourceModelVersionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportModelVersion" OutputProperty="*" Verb="Import" Noun="ModelVersion" ShouldProcessTarget="SourceModelVersionArn" PipelineParameter="SourceModelVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataIngestionJobs" OutputProperty="DataIngestionJobSummaries" Verb="Get" Noun="DataIngestionJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDataIngestionJobs" OutputProperty="DataIngestionJobSummaries" Verb="Get" Noun="DataIngestionJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasets" OutputProperty="DatasetSummaries" Verb="Get" Noun="DatasetList" PipelineParameter="DatasetNameBeginsWith" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDatasets" OutputProperty="DatasetSummaries" Verb="Get" Noun="DatasetList" PipelineParameter="DatasetNameBeginsWith" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInferenceEvents" OutputProperty="InferenceEventSummaries" Verb="Get" Noun="InferenceEventList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListInferenceEvents" OutputProperty="InferenceEventSummaries" Verb="Get" Noun="InferenceEventList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInferenceExecutions" OutputProperty="InferenceExecutionSummaries" Verb="Get" Noun="InferenceExecutionList" PipelineParameter="InferenceSchedulerName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListInferenceExecutions" OutputProperty="InferenceExecutionSummaries" Verb="Get" Noun="InferenceExecutionList" PipelineParameter="InferenceSchedulerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInferenceSchedulers" OutputProperty="InferenceSchedulerSummaries" Verb="Get" Noun="InferenceSchedulerList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListInferenceSchedulers" OutputProperty="InferenceSchedulerSummaries" Verb="Get" Noun="InferenceSchedulerList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLabelGroups" OutputProperty="LabelGroupSummaries" Verb="Get" Noun="LabelGroupList" PipelineParameter="LabelGroupNameBeginsWith" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLabelGroups" OutputProperty="LabelGroupSummaries" Verb="Get" Noun="LabelGroupList" PipelineParameter="LabelGroupNameBeginsWith" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLabels" OutputProperty="LabelSummaries" Verb="Get" Noun="LabelList" PipelineParameter="LabelGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLabels" OutputProperty="LabelSummaries" Verb="Get" Noun="LabelList" PipelineParameter="LabelGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListModels" OutputProperty="ModelSummaries" Verb="Get" Noun="ModelList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListModels" OutputProperty="ModelSummaries" Verb="Get" Noun="ModelList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListModelVersions" OutputProperty="ModelVersionSummaries" Verb="Get" Noun="ModelVersionList" PipelineParameter="ModelName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListModelVersions" OutputProperty="ModelVersionSummaries" Verb="Get" Noun="ModelVersionList" PipelineParameter="ModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRetrainingSchedulers" OutputProperty="RetrainingSchedulerSummaries" Verb="Get" Noun="RetrainingSchedulerList" PipelineParameter="ModelNameBeginsWith" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRetrainingSchedulers" OutputProperty="RetrainingSchedulerSummaries" Verb="Get" Noun="RetrainingSchedulerList" PipelineParameter="ModelNameBeginsWith" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSensorStatistics" OutputProperty="SensorStatisticsSummaries" Verb="Get" Noun="SensorStatisticList" PipelineParameter="DatasetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSensorStatistics" OutputProperty="SensorStatisticsSummaries" Verb="Get" Noun="SensorStatisticList" PipelineParameter="DatasetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="*" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="*" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDataIngestionJob" OutputProperty="*" Verb="Start" Noun="DataIngestionJob" ShouldProcessTarget="DatasetName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartDataIngestionJob" OutputProperty="*" Verb="Start" Noun="DataIngestionJob" ShouldProcessTarget="DatasetName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartInferenceScheduler" OutputProperty="*" Verb="Start" Noun="InferenceScheduler" ShouldProcessTarget="InferenceSchedulerName" PipelineParameter="InferenceSchedulerName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartInferenceScheduler" OutputProperty="*" Verb="Start" Noun="InferenceScheduler" ShouldProcessTarget="InferenceSchedulerName" PipelineParameter="InferenceSchedulerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartRetrainingScheduler" OutputProperty="*" Verb="Start" Noun="RetrainingScheduler" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartRetrainingScheduler" OutputProperty="*" Verb="Start" Noun="RetrainingScheduler" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopInferenceScheduler" OutputProperty="*" Verb="Stop" Noun="InferenceScheduler" ShouldProcessTarget="InferenceSchedulerName" PipelineParameter="InferenceSchedulerName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopInferenceScheduler" OutputProperty="*" Verb="Stop" Noun="InferenceScheduler" ShouldProcessTarget="InferenceSchedulerName" PipelineParameter="InferenceSchedulerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopRetrainingScheduler" OutputProperty="*" Verb="Stop" Noun="RetrainingScheduler" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopRetrainingScheduler" OutputProperty="*" Verb="Stop" Noun="RetrainingScheduler" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateActiveModelVersion" OutputProperty="*" Verb="Update" Noun="ActiveModelVersion" ShouldProcessTarget="ModelName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateActiveModelVersion" OutputProperty="*" Verb="Update" Noun="ActiveModelVersion" ShouldProcessTarget="ModelName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateInferenceScheduler" Verb="Update" Noun="InferenceScheduler" ShouldProcessTarget="InferenceSchedulerName" PipelineParameter="InferenceSchedulerName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateInferenceScheduler" Verb="Update" Noun="InferenceScheduler" ShouldProcessTarget="InferenceSchedulerName" PipelineParameter="InferenceSchedulerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLabelGroup" Verb="Update" Noun="LabelGroup" ShouldProcessTarget="LabelGroupName" PipelineParameter="LabelGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateLabelGroup" Verb="Update" Noun="LabelGroup" ShouldProcessTarget="LabelGroupName" PipelineParameter="LabelGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateModel" Verb="Update" Noun="Model" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateModel" Verb="Update" Noun="Model" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRetrainingScheduler" Verb="Update" Noun="RetrainingScheduler" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateRetrainingScheduler" Verb="Update" Noun="RetrainingScheduler" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

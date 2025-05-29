@@ -19,143 +19,143 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateApp" OutputProperty="*" Verb="New" Noun="App" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateApp" OutputProperty="*" Verb="New" Noun="App" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateReplicationJob" OutputProperty="ReplicationJobId" Verb="New" Noun="ReplicationJob" ShouldProcessTarget="ServerId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateReplicationJob" OutputProperty="ReplicationJobId" Verb="New" Noun="ReplicationJob" ShouldProcessTarget="ServerId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApp" Verb="Remove" Noun="App" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteApp" Verb="Remove" Noun="App" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAppLaunchConfiguration" Verb="Remove" Noun="AppLaunchConfiguration" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAppLaunchConfiguration" Verb="Remove" Noun="AppLaunchConfiguration" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAppReplicationConfiguration" Verb="Remove" Noun="AppReplicationConfiguration" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAppReplicationConfiguration" Verb="Remove" Noun="AppReplicationConfiguration" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAppValidationConfiguration" Verb="Remove" Noun="AppValidationConfiguration" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAppValidationConfiguration" Verb="Remove" Noun="AppValidationConfiguration" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteReplicationJob" Verb="Remove" Noun="ReplicationJob" ShouldProcessTarget="ReplicationJobId" PipelineParameter="ReplicationJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteReplicationJob" Verb="Remove" Noun="ReplicationJob" ShouldProcessTarget="ReplicationJobId" PipelineParameter="ReplicationJobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteServerCatalog" Verb="Remove" Noun="ServerCatalog" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteServerCatalog" Verb="Remove" Noun="ServerCatalog" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateConnector" Verb="Unregister" Noun="Connector" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateConnector" Verb="Unregister" Noun="Connector" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateChangeSet" OutputProperty="S3Location" Verb="New" Noun="ChangeSet" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GenerateChangeSet" OutputProperty="S3Location" Verb="New" Noun="ChangeSet" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateTemplate" OutputProperty="S3Location" Verb="New" Noun="Template" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GenerateTemplate" OutputProperty="S3Location" Verb="New" Noun="Template" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApp" OutputProperty="*" Verb="Get" Noun="App" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetApp" OutputProperty="*" Verb="Get" Noun="App" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAppLaunchConfiguration" OutputProperty="*" Verb="Get" Noun="AppLaunchConfiguration" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAppLaunchConfiguration" OutputProperty="*" Verb="Get" Noun="AppLaunchConfiguration" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAppReplicationConfiguration" OutputProperty="ServerGroupReplicationConfigurations" Verb="Get" Noun="AppReplicationConfiguration" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAppReplicationConfiguration" OutputProperty="ServerGroupReplicationConfigurations" Verb="Get" Noun="AppReplicationConfiguration" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAppValidationConfiguration" OutputProperty="*" Verb="Get" Noun="AppValidationConfiguration" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAppValidationConfiguration" OutputProperty="*" Verb="Get" Noun="AppValidationConfiguration" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAppValidationOutput" OutputProperty="ValidationOutputList" Verb="Get" Noun="AppValidationOutput" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAppValidationOutput" OutputProperty="ValidationOutputList" Verb="Get" Noun="AppValidationOutput" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConnectors" OutputProperty="ConnectorList" Verb="Get" Noun="Connector" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetConnectors" OutputProperty="ConnectorList" Verb="Get" Noun="Connector" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReplicationJobs" OutputProperty="ReplicationJobList" Verb="Get" Noun="ReplicationJob" PipelineParameter="ReplicationJobId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetReplicationJobs" OutputProperty="ReplicationJobList" Verb="Get" Noun="ReplicationJob" PipelineParameter="ReplicationJobId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReplicationRuns" OutputProperty="*" Verb="Get" Noun="ReplicationRun" PipelineParameter="ReplicationJobId" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetReplicationRuns" OutputProperty="*" Verb="Get" Noun="ReplicationRun" PipelineParameter="ReplicationJobId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetServers" OutputProperty="*" Verb="Get" Noun="Server" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetServers" OutputProperty="*" Verb="Get" Noun="Server" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportAppCatalog" Verb="Import" Noun="AppCatalog" ShouldProcessTarget="RoleName" PipelineParameter="RoleName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportAppCatalog" Verb="Import" Noun="AppCatalog" ShouldProcessTarget="RoleName" PipelineParameter="RoleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportServerCatalog" Verb="Import" Noun="ServerCatalog" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportServerCatalog" Verb="Import" Noun="ServerCatalog" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="LaunchApp" Verb="Start" Noun="App" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="LaunchApp" Verb="Start" Noun="App" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApps" OutputProperty="Apps" Verb="Get" Noun="AppList" PipelineParameter="AppIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListApps" OutputProperty="Apps" Verb="Get" Noun="AppList" PipelineParameter="AppIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="NotifyAppValidationOutput" Verb="Write" Noun="AppValidationOutput" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="NotifyAppValidationOutput" Verb="Write" Noun="AppValidationOutput" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAppLaunchConfiguration" Verb="Write" Noun="AppLaunchConfiguration" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutAppLaunchConfiguration" Verb="Write" Noun="AppLaunchConfiguration" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAppReplicationConfiguration" Verb="Write" Noun="AppReplicationConfiguration" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutAppReplicationConfiguration" Verb="Write" Noun="AppReplicationConfiguration" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAppValidationConfiguration" Verb="Write" Noun="AppValidationConfiguration" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutAppValidationConfiguration" Verb="Write" Noun="AppValidationConfiguration" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartAppReplication" Verb="Start" Noun="AppReplication" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartAppReplication" Verb="Start" Noun="AppReplication" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartOnDemandAppReplication" Verb="Start" Noun="OnDemandAppReplication" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartOnDemandAppReplication" Verb="Start" Noun="OnDemandAppReplication" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartOnDemandReplicationRun" OutputProperty="ReplicationRunId" Verb="Start" Noun="OnDemandReplicationRun" ShouldProcessTarget="ReplicationJobId" PipelineParameter="ReplicationJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartOnDemandReplicationRun" OutputProperty="ReplicationRunId" Verb="Start" Noun="OnDemandReplicationRun" ShouldProcessTarget="ReplicationJobId" PipelineParameter="ReplicationJobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopAppReplication" Verb="Stop" Noun="AppReplication" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopAppReplication" Verb="Stop" Noun="AppReplication" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TerminateApp" Verb="Stop" Noun="App" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TerminateApp" Verb="Stop" Noun="App" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApp" OutputProperty="*" Verb="Update" Noun="App" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateApp" OutputProperty="*" Verb="Update" Noun="App" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateReplicationJob" Verb="Update" Noun="ReplicationJob" ShouldProcessTarget="ReplicationJobId" PipelineParameter="ReplicationJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateReplicationJob" Verb="Update" Noun="ReplicationJob" ShouldProcessTarget="ReplicationJobId" PipelineParameter="ReplicationJobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

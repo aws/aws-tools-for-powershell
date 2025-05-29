@@ -18,15 +18,15 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DeleteConnection" Verb="Remove" Noun="Connection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteConnection" Verb="Remove" Noun="Connection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConnection" OutputProperty="*" Verb="Get" Noun="Connection" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetConnection" OutputProperty="*" Verb="Get" Noun="Connection" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PostToConnection" Verb="Send" Noun="DataToConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="Data" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PostToConnection" Verb="Send" Noun="DataToConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="Data" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

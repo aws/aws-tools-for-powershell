@@ -18,47 +18,47 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchUpdateRecommendationResourceExclusion" OutputProperty="BatchUpdateRecommendationResourceExclusionErrors" Verb="Update" Noun="UpdateRecommendationResourceExclusionBatch" ShouldProcessTarget="RecommendationResourceExclusions" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchUpdateRecommendationResourceExclusion" OutputProperty="BatchUpdateRecommendationResourceExclusionErrors" Verb="Update" Noun="UpdateRecommendationResourceExclusionBatch" ShouldProcessTarget="RecommendationResourceExclusions" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOrganizationRecommendation" OutputProperty="OrganizationRecommendation" Verb="Get" Noun="OrganizationRecommendation" PipelineParameter="OrganizationRecommendationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetOrganizationRecommendation" OutputProperty="OrganizationRecommendation" Verb="Get" Noun="OrganizationRecommendation" PipelineParameter="OrganizationRecommendationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRecommendation" OutputProperty="Recommendation" Verb="Get" Noun="Recommendation" PipelineParameter="RecommendationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetRecommendation" OutputProperty="Recommendation" Verb="Get" Noun="Recommendation" PipelineParameter="RecommendationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListChecks" OutputProperty="CheckSummaries" Verb="Get" Noun="CheckList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListChecks" OutputProperty="CheckSummaries" Verb="Get" Noun="CheckList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOrganizationRecommendationAccounts" OutputProperty="AccountRecommendationLifecycleSummaries" Verb="Get" Noun="OrganizationRecommendationAccountList" PipelineParameter="OrganizationRecommendationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListOrganizationRecommendationAccounts" OutputProperty="AccountRecommendationLifecycleSummaries" Verb="Get" Noun="OrganizationRecommendationAccountList" PipelineParameter="OrganizationRecommendationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOrganizationRecommendationResources" OutputProperty="OrganizationRecommendationResourceSummaries" Verb="Get" Noun="OrganizationRecommendationResourceList" PipelineParameter="OrganizationRecommendationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListOrganizationRecommendationResources" OutputProperty="OrganizationRecommendationResourceSummaries" Verb="Get" Noun="OrganizationRecommendationResourceList" PipelineParameter="OrganizationRecommendationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOrganizationRecommendations" OutputProperty="OrganizationRecommendationSummaries" Verb="Get" Noun="OrganizationRecommendationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListOrganizationRecommendations" OutputProperty="OrganizationRecommendationSummaries" Verb="Get" Noun="OrganizationRecommendationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecommendationResources" OutputProperty="RecommendationResourceSummaries" Verb="Get" Noun="RecommendationResourceList" PipelineParameter="RecommendationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRecommendationResources" OutputProperty="RecommendationResourceSummaries" Verb="Get" Noun="RecommendationResourceList" PipelineParameter="RecommendationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecommendations" OutputProperty="RecommendationSummaries" Verb="Get" Noun="RecommendationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRecommendations" OutputProperty="RecommendationSummaries" Verb="Get" Noun="RecommendationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateOrganizationRecommendationLifecycle" Verb="Update" Noun="OrganizationRecommendationLifecycle" ShouldProcessTarget="OrganizationRecommendationIdentifier" PipelineParameter="OrganizationRecommendationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateOrganizationRecommendationLifecycle" Verb="Update" Noun="OrganizationRecommendationLifecycle" ShouldProcessTarget="OrganizationRecommendationIdentifier" PipelineParameter="OrganizationRecommendationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRecommendationLifecycle" Verb="Update" Noun="RecommendationLifecycle" ShouldProcessTarget="RecommendationIdentifier" PipelineParameter="RecommendationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateRecommendationLifecycle" Verb="Update" Noun="RecommendationLifecycle" ShouldProcessTarget="RecommendationIdentifier" PipelineParameter="RecommendationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

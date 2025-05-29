@@ -19,55 +19,55 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateFHIRDatastore" OutputProperty="*" Verb="New" Noun="FHIRDatastore" ShouldProcessTarget="DatastoreName" PipelineParameter="DatastoreTypeVersion" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateFHIRDatastore" OutputProperty="*" Verb="New" Noun="FHIRDatastore" ShouldProcessTarget="DatastoreName" PipelineParameter="DatastoreTypeVersion" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFHIRDatastore" OutputProperty="*" Verb="Remove" Noun="FHIRDatastore" ShouldProcessTarget="DatastoreId" PipelineParameter="DatastoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteFHIRDatastore" OutputProperty="*" Verb="Remove" Noun="FHIRDatastore" ShouldProcessTarget="DatastoreId" PipelineParameter="DatastoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFHIRDatastore" OutputProperty="DatastoreProperties" Verb="Get" Noun="FHIRDatastore" PipelineParameter="DatastoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeFHIRDatastore" OutputProperty="DatastoreProperties" Verb="Get" Noun="FHIRDatastore" PipelineParameter="DatastoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFHIRExportJob" OutputProperty="ExportJobProperties" Verb="Get" Noun="FHIRExportJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeFHIRExportJob" OutputProperty="ExportJobProperties" Verb="Get" Noun="FHIRExportJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFHIRImportJob" OutputProperty="ImportJobProperties" Verb="Get" Noun="FHIRImportJob" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeFHIRImportJob" OutputProperty="ImportJobProperties" Verb="Get" Noun="FHIRImportJob" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFHIRDatastores" OutputProperty="DatastorePropertiesList" Verb="Get" Noun="FHIRDatastoreList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFHIRDatastores" OutputProperty="DatastorePropertiesList" Verb="Get" Noun="FHIRDatastoreList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFHIRExportJobs" OutputProperty="ExportJobPropertiesList" Verb="Get" Noun="FHIRExportJobList" PipelineParameter="DatastoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFHIRExportJobs" OutputProperty="ExportJobPropertiesList" Verb="Get" Noun="FHIRExportJobList" PipelineParameter="DatastoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFHIRImportJobs" OutputProperty="ImportJobPropertiesList" Verb="Get" Noun="FHIRImportJobList" PipelineParameter="DatastoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFHIRImportJobs" OutputProperty="ImportJobPropertiesList" Verb="Get" Noun="FHIRImportJobList" PipelineParameter="DatastoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartFHIRExportJob" OutputProperty="*" Verb="Start" Noun="FHIRExportJob" ShouldProcessTarget="DatastoreId" PipelineParameter="DatastoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartFHIRExportJob" OutputProperty="*" Verb="Start" Noun="FHIRExportJob" ShouldProcessTarget="DatastoreId" PipelineParameter="DatastoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartFHIRImportJob" OutputProperty="*" Verb="Start" Noun="FHIRImportJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartFHIRImportJob" OutputProperty="*" Verb="Start" Noun="FHIRImportJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -18,99 +18,99 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateTestCase" OutputProperty="*" Verb="New" Noun="TestCase" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateTestCase" OutputProperty="*" Verb="New" Noun="TestCase" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTestConfiguration" OutputProperty="*" Verb="New" Noun="TestConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateTestConfiguration" OutputProperty="*" Verb="New" Noun="TestConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTestSuite" OutputProperty="*" Verb="New" Noun="TestSuite" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateTestSuite" OutputProperty="*" Verb="New" Noun="TestSuite" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTestCase" Verb="Remove" Noun="TestCase" ShouldProcessTarget="TestCaseId" PipelineParameter="TestCaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteTestCase" Verb="Remove" Noun="TestCase" ShouldProcessTarget="TestCaseId" PipelineParameter="TestCaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTestConfiguration" Verb="Remove" Noun="TestConfiguration" ShouldProcessTarget="TestConfigurationId" PipelineParameter="TestConfigurationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteTestConfiguration" Verb="Remove" Noun="TestConfiguration" ShouldProcessTarget="TestConfigurationId" PipelineParameter="TestConfigurationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTestRun" Verb="Remove" Noun="TestRun" ShouldProcessTarget="TestRunId" PipelineParameter="TestRunId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteTestRun" Verb="Remove" Noun="TestRun" ShouldProcessTarget="TestRunId" PipelineParameter="TestRunId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTestSuite" Verb="Remove" Noun="TestSuite" ShouldProcessTarget="TestSuiteId" PipelineParameter="TestSuiteId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteTestSuite" Verb="Remove" Noun="TestSuite" ShouldProcessTarget="TestSuiteId" PipelineParameter="TestSuiteId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTestCase" OutputProperty="*" Verb="Get" Noun="TestCase" PipelineParameter="TestCaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTestCase" OutputProperty="*" Verb="Get" Noun="TestCase" PipelineParameter="TestCaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTestConfiguration" OutputProperty="*" Verb="Get" Noun="TestConfiguration" PipelineParameter="TestConfigurationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTestConfiguration" OutputProperty="*" Verb="Get" Noun="TestConfiguration" PipelineParameter="TestConfigurationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTestRunStep" OutputProperty="*" Verb="Get" Noun="TestRunStep" PipelineParameter="TestRunId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTestRunStep" OutputProperty="*" Verb="Get" Noun="TestRunStep" PipelineParameter="TestRunId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTestSuite" OutputProperty="*" Verb="Get" Noun="TestSuite" PipelineParameter="TestSuiteId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTestSuite" OutputProperty="*" Verb="Get" Noun="TestSuite" PipelineParameter="TestSuiteId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTestCases" OutputProperty="TestCases" Verb="Get" Noun="TestCaseList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTestCases" OutputProperty="TestCases" Verb="Get" Noun="TestCaseList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTestConfigurations" OutputProperty="TestConfigurations" Verb="Get" Noun="TestConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTestConfigurations" OutputProperty="TestConfigurations" Verb="Get" Noun="TestConfigurationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTestRuns" OutputProperty="TestRuns" Verb="Get" Noun="TestRunList" PipelineParameter="TestSuiteId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTestRuns" OutputProperty="TestRuns" Verb="Get" Noun="TestRunList" PipelineParameter="TestSuiteId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTestRunSteps" OutputProperty="TestRunSteps" Verb="Get" Noun="TestRunStepList" PipelineParameter="TestRunId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTestRunSteps" OutputProperty="TestRunSteps" Verb="Get" Noun="TestRunStepList" PipelineParameter="TestRunId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTestRunTestCases" OutputProperty="TestRunTestCases" Verb="Get" Noun="TestRunTestCaseList" PipelineParameter="TestRunId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTestRunTestCases" OutputProperty="TestRunTestCases" Verb="Get" Noun="TestRunTestCaseList" PipelineParameter="TestRunId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTestSuites" OutputProperty="TestSuites" Verb="Get" Noun="TestSuiteList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTestSuites" OutputProperty="TestSuites" Verb="Get" Noun="TestSuiteList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartTestRun" OutputProperty="*" Verb="Start" Noun="TestRun" ShouldProcessTarget="TestSuiteId" PipelineParameter="TestSuiteId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartTestRun" OutputProperty="*" Verb="Start" Noun="TestRun" ShouldProcessTarget="TestSuiteId" PipelineParameter="TestSuiteId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTestCase" OutputProperty="*" Verb="Update" Noun="TestCase" ShouldProcessTarget="TestCaseId" PipelineParameter="TestCaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateTestCase" OutputProperty="*" Verb="Update" Noun="TestCase" ShouldProcessTarget="TestCaseId" PipelineParameter="TestCaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTestConfiguration" OutputProperty="*" Verb="Update" Noun="TestConfiguration" ShouldProcessTarget="TestConfigurationId" PipelineParameter="TestConfigurationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateTestConfiguration" OutputProperty="*" Verb="Update" Noun="TestConfiguration" ShouldProcessTarget="TestConfigurationId" PipelineParameter="TestConfigurationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTestSuite" OutputProperty="*" Verb="Update" Noun="TestSuite" ShouldProcessTarget="TestSuiteId" PipelineParameter="TestSuiteId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateTestSuite" OutputProperty="*" Verb="Update" Noun="TestSuite" ShouldProcessTarget="TestSuiteId" PipelineParameter="TestSuiteId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

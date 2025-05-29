@@ -18,135 +18,135 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateAwsLogSource" OutputProperty="*" Verb="New" Noun="AwsLogSource" ShouldProcessTarget="Sources" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAwsLogSource" OutputProperty="*" Verb="New" Noun="AwsLogSource" ShouldProcessTarget="Sources" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCustomLogSource" OutputProperty="*" Verb="New" Noun="CustomLogSource" ShouldProcessTarget="SourceName" PipelineParameter="EventClasses" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateCustomLogSource" OutputProperty="*" Verb="New" Noun="CustomLogSource" ShouldProcessTarget="SourceName" PipelineParameter="EventClasses" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataLake" OutputProperty="DataLakes" Verb="New" Noun="DataLake" ShouldProcessTarget="MetaStoreManagerRoleArn" PipelineParameter="MetaStoreManagerRoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDataLake" OutputProperty="DataLakes" Verb="New" Noun="DataLake" ShouldProcessTarget="MetaStoreManagerRoleArn" PipelineParameter="MetaStoreManagerRoleArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataLakeExceptionSubscription" Verb="New" Noun="DataLakeExceptionSubscription" ShouldProcessTarget="NotificationEndpoint" PipelineParameter="NotificationEndpoint" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDataLakeExceptionSubscription" Verb="New" Noun="DataLakeExceptionSubscription" ShouldProcessTarget="NotificationEndpoint" PipelineParameter="NotificationEndpoint" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataLakeOrganizationConfiguration" Verb="New" Noun="DataLakeOrganizationConfiguration" ShouldProcessTarget="AutoEnableNewAccount" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDataLakeOrganizationConfiguration" Verb="New" Noun="DataLakeOrganizationConfiguration" ShouldProcessTarget="AutoEnableNewAccount" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSubscriber" OutputProperty="*" Verb="New" Noun="Subscriber" ShouldProcessTarget="SubscriberIdentity_Principal" PipelineParameter="SubscriberName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateSubscriber" OutputProperty="*" Verb="New" Noun="Subscriber" ShouldProcessTarget="SubscriberIdentity_Principal" PipelineParameter="SubscriberName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSubscriberNotification" OutputProperty="SubscriberEndpoint" Verb="New" Noun="SubscriberNotification" ShouldProcessTarget="SubscriberId" PipelineParameter="SubscriberId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateSubscriberNotification" OutputProperty="SubscriberEndpoint" Verb="New" Noun="SubscriberNotification" ShouldProcessTarget="SubscriberId" PipelineParameter="SubscriberId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAwsLogSource" OutputProperty="*" Verb="Remove" Noun="AwsLogSource" ShouldProcessTarget="Sources" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAwsLogSource" OutputProperty="*" Verb="Remove" Noun="AwsLogSource" ShouldProcessTarget="Sources" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCustomLogSource" Verb="Remove" Noun="CustomLogSource" ShouldProcessTarget="SourceName" PipelineParameter="SourceName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteCustomLogSource" Verb="Remove" Noun="CustomLogSource" ShouldProcessTarget="SourceName" PipelineParameter="SourceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataLake" Verb="Remove" Noun="DataLake" ShouldProcessTarget="Regions" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDataLake" Verb="Remove" Noun="DataLake" ShouldProcessTarget="Regions" PipelineParameter="" NoPipelineParameter="false">
             <Params>
                 <Param Name="Regions" NewName="DataLakeRegions" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataLakeExceptionSubscription" Verb="Remove" Noun="DataLakeExceptionSubscription" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDataLakeExceptionSubscription" Verb="Remove" Noun="DataLakeExceptionSubscription" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataLakeOrganizationConfiguration" Verb="Remove" Noun="DataLakeOrganizationConfiguration" ShouldProcessTarget="AutoEnableNewAccount" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDataLakeOrganizationConfiguration" Verb="Remove" Noun="DataLakeOrganizationConfiguration" ShouldProcessTarget="AutoEnableNewAccount" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSubscriber" Verb="Remove" Noun="Subscriber" ShouldProcessTarget="SubscriberId" PipelineParameter="SubscriberId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteSubscriber" Verb="Remove" Noun="Subscriber" ShouldProcessTarget="SubscriberId" PipelineParameter="SubscriberId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSubscriberNotification" Verb="Remove" Noun="SubscriberNotification" ShouldProcessTarget="SubscriberId" PipelineParameter="SubscriberId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteSubscriberNotification" Verb="Remove" Noun="SubscriberNotification" ShouldProcessTarget="SubscriberId" PipelineParameter="SubscriberId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterDataLakeDelegatedAdministrator" Verb="Remove" Noun="DataLakeDelegatedAdministrator" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeregisterDataLakeDelegatedAdministrator" Verb="Remove" Noun="DataLakeDelegatedAdministrator" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataLakeExceptionSubscription" OutputProperty="*" Verb="Get" Noun="DataLakeExceptionSubscription" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDataLakeExceptionSubscription" OutputProperty="*" Verb="Get" Noun="DataLakeExceptionSubscription" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataLakeOrganizationConfiguration" OutputProperty="AutoEnableNewAccount" Verb="Get" Noun="DataLakeOrganizationConfiguration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDataLakeOrganizationConfiguration" OutputProperty="AutoEnableNewAccount" Verb="Get" Noun="DataLakeOrganizationConfiguration" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataLakeSources" OutputProperty="*" Verb="Get" Noun="DataLakeSource" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDataLakeSources" OutputProperty="*" Verb="Get" Noun="DataLakeSource" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSubscriber" OutputProperty="Subscriber" Verb="Get" Noun="Subscriber" PipelineParameter="SubscriberId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSubscriber" OutputProperty="Subscriber" Verb="Get" Noun="Subscriber" PipelineParameter="SubscriberId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataLakeExceptions" OutputProperty="Exceptions" Verb="Get" Noun="DataLakeExceptionList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDataLakeExceptions" OutputProperty="Exceptions" Verb="Get" Noun="DataLakeExceptionList" PipelineParameter="" NoPipelineParameter="false">
             <Params>
                 <Param Name="Regions" NewName="DataLakeRegions" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataLakes" OutputProperty="DataLakes" Verb="Get" Noun="DataLakeList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDataLakes" OutputProperty="DataLakes" Verb="Get" Noun="DataLakeList" PipelineParameter="" NoPipelineParameter="false">
             <Params>
                 <Param Name="Regions" NewName="DataLakeRegions" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLogSources" OutputProperty="Sources" Verb="Get" Noun="LogSourceList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLogSources" OutputProperty="Sources" Verb="Get" Noun="LogSourceList" PipelineParameter="" NoPipelineParameter="false">
             <Params>
                 <Param Name="Regions" NewName="SourceRegions" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSubscribers" OutputProperty="Subscribers" Verb="Get" Noun="SubscriberList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSubscribers" OutputProperty="Subscribers" Verb="Get" Noun="SubscriberList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterDataLakeDelegatedAdministrator" Verb="Register" Noun="DataLakeDelegatedAdministrator" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RegisterDataLakeDelegatedAdministrator" Verb="Register" Noun="DataLakeDelegatedAdministrator" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataLake" OutputProperty="DataLakes" Verb="Update" Noun="DataLake" ShouldProcessTarget="MetaStoreManagerRoleArn" PipelineParameter="MetaStoreManagerRoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDataLake" OutputProperty="DataLakes" Verb="Update" Noun="DataLake" ShouldProcessTarget="MetaStoreManagerRoleArn" PipelineParameter="MetaStoreManagerRoleArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataLakeExceptionSubscription" Verb="Update" Noun="DataLakeExceptionSubscription" ShouldProcessTarget="NotificationEndpoint" PipelineParameter="NotificationEndpoint" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDataLakeExceptionSubscription" Verb="Update" Noun="DataLakeExceptionSubscription" ShouldProcessTarget="NotificationEndpoint" PipelineParameter="NotificationEndpoint" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSubscriber" OutputProperty="Subscriber" Verb="Update" Noun="Subscriber" ShouldProcessTarget="SubscriberId" PipelineParameter="SubscriberId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateSubscriber" OutputProperty="Subscriber" Verb="Update" Noun="Subscriber" ShouldProcessTarget="SubscriberId" PipelineParameter="SubscriberId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSubscriberNotification" OutputProperty="SubscriberEndpoint" Verb="Update" Noun="SubscriberNotification" ShouldProcessTarget="SubscriberId" PipelineParameter="SubscriberId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateSubscriberNotification" OutputProperty="SubscriberEndpoint" Verb="Update" Noun="SubscriberNotification" ShouldProcessTarget="SubscriberId" PipelineParameter="SubscriberId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

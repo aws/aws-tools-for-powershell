@@ -18,7 +18,7 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="SendCommand" OutputProperty="*" Verb="Send" Noun="Command" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SendCommand" OutputProperty="*" Verb="Send" Noun="Command" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="SessionToken" NewName="QLDBSessionToken" AutoApplyAlias="false" />
             </Params>

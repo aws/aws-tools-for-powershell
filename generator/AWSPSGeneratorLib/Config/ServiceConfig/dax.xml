@@ -19,88 +19,88 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateCluster" OutputProperty="Cluster" Verb="New" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateCluster" OutputProperty="Cluster" Verb="New" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateParameterGroup" OutputProperty="ParameterGroup" Verb="New" Noun="ParameterGroup" ShouldProcessTarget="ParameterGroupName" PipelineParameter="ParameterGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateParameterGroup" OutputProperty="ParameterGroup" Verb="New" Noun="ParameterGroup" ShouldProcessTarget="ParameterGroupName" PipelineParameter="ParameterGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSubnetGroup" OutputProperty="SubnetGroup" Verb="New" Noun="SubnetGroup" ShouldProcessTarget="SubnetGroupName" PipelineParameter="SubnetGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateSubnetGroup" OutputProperty="SubnetGroup" Verb="New" Noun="SubnetGroup" ShouldProcessTarget="SubnetGroupName" PipelineParameter="SubnetGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DecreaseReplicationFactor" OutputProperty="Cluster" Verb="Set" Noun="ReplicationFactorDecrease" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DecreaseReplicationFactor" OutputProperty="Cluster" Verb="Set" Noun="ReplicationFactorDecrease" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCluster" OutputProperty="Cluster" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteCluster" OutputProperty="Cluster" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteParameterGroup" OutputProperty="DeletionMessage" Verb="Remove" Noun="ParameterGroup" ShouldProcessTarget="ParameterGroupName" PipelineParameter="ParameterGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteParameterGroup" OutputProperty="DeletionMessage" Verb="Remove" Noun="ParameterGroup" ShouldProcessTarget="ParameterGroupName" PipelineParameter="ParameterGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSubnetGroup" OutputProperty="DeletionMessage" Verb="Remove" Noun="SubnetGroup" ShouldProcessTarget="SubnetGroupName" PipelineParameter="SubnetGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteSubnetGroup" OutputProperty="DeletionMessage" Verb="Remove" Noun="SubnetGroup" ShouldProcessTarget="SubnetGroupName" PipelineParameter="SubnetGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusters" OutputProperty="Clusters" Verb="Get" Noun="Cluster" PipelineParameter="ClusterNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeClusters" OutputProperty="Clusters" Verb="Get" Noun="Cluster" PipelineParameter="ClusterNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDefaultParameters" OutputProperty="Parameters" Verb="Get" Noun="DefaultParameter" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDefaultParameters" OutputProperty="Parameters" Verb="Get" Noun="DefaultParameter" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeParameterGroups" OutputProperty="ParameterGroups" Verb="Get" Noun="ParameterGroup" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeParameterGroups" OutputProperty="ParameterGroups" Verb="Get" Noun="ParameterGroup" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeParameters" OutputProperty="Parameters" Verb="Get" Noun="Parameter" PipelineParameter="ParameterGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeParameters" OutputProperty="Parameters" Verb="Get" Noun="Parameter" PipelineParameter="ParameterGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSubnetGroups" OutputProperty="SubnetGroups" Verb="Get" Noun="SubnetGroup" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSubnetGroups" OutputProperty="SubnetGroups" Verb="Get" Noun="SubnetGroup" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="IncreaseReplicationFactor" OutputProperty="Cluster" Verb="Set" Noun="ReplicationFactorIncrease" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="IncreaseReplicationFactor" OutputProperty="Cluster" Verb="Set" Noun="ReplicationFactorIncrease" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceName" NoPipelineParameter="false">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RebootNode" OutputProperty="Cluster" Verb="Restart" Noun="Node" ShouldProcessTarget="NodeId" PipelineParameter="NodeId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RebootNode" OutputProperty="Cluster" Verb="Restart" Noun="Node" ShouldProcessTarget="NodeId" PipelineParameter="NodeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" OutputProperty="Tags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" OutputProperty="Tags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" OutputProperty="Tags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceName" PipelineParameter="TagKeys" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" OutputProperty="Tags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceName" PipelineParameter="TagKeys" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCluster" OutputProperty="Cluster" Verb="Update" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateCluster" OutputProperty="Cluster" Verb="Update" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateParameterGroup" OutputProperty="ParameterGroup" Verb="Update" Noun="ParameterGroup" ShouldProcessTarget="ParameterGroupName" PipelineParameter="ParameterGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateParameterGroup" OutputProperty="ParameterGroup" Verb="Update" Noun="ParameterGroup" ShouldProcessTarget="ParameterGroupName" PipelineParameter="ParameterGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSubnetGroup" OutputProperty="SubnetGroup" Verb="Update" Noun="SubnetGroup" ShouldProcessTarget="SubnetGroupName" PipelineParameter="SubnetGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateSubnetGroup" OutputProperty="SubnetGroup" Verb="Update" Noun="SubnetGroup" ShouldProcessTarget="SubnetGroupName" PipelineParameter="SubnetGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

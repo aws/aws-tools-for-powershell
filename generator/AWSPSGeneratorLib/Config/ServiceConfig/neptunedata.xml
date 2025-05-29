@@ -18,175 +18,175 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelGremlinQuery" OutputProperty="Status" Verb="Stop" Noun="GremlinQuery" ShouldProcessTarget="QueryId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelGremlinQuery" OutputProperty="Status" Verb="Stop" Noun="GremlinQuery" ShouldProcessTarget="QueryId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelLoaderJob" OutputProperty="Status" Verb="Stop" Noun="LoaderJob" ShouldProcessTarget="LoadId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelLoaderJob" OutputProperty="Status" Verb="Stop" Noun="LoaderJob" ShouldProcessTarget="LoadId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelMLDataProcessingJob" OutputProperty="Status" Verb="Stop" Noun="MLDataProcessingJob" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelMLDataProcessingJob" OutputProperty="Status" Verb="Stop" Noun="MLDataProcessingJob" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelMLModelTrainingJob" OutputProperty="Status" Verb="Stop" Noun="MLModelTrainingJob" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelMLModelTrainingJob" OutputProperty="Status" Verb="Stop" Noun="MLModelTrainingJob" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelMLModelTransformJob" OutputProperty="Status" Verb="Stop" Noun="MLModelTransformJob" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelMLModelTransformJob" OutputProperty="Status" Verb="Stop" Noun="MLModelTransformJob" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelOpenCypherQuery" OutputProperty="*" Verb="Stop" Noun="OpenCypherQuery" ShouldProcessTarget="QueryId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelOpenCypherQuery" OutputProperty="*" Verb="Stop" Noun="OpenCypherQuery" ShouldProcessTarget="QueryId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMLEndpoint" OutputProperty="*" Verb="New" Noun="MLEndpoint" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateMLEndpoint" OutputProperty="*" Verb="New" Noun="MLEndpoint" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMLEndpoint" OutputProperty="Status" Verb="Remove" Noun="MLEndpoint" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteMLEndpoint" OutputProperty="Status" Verb="Remove" Noun="MLEndpoint" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePropertygraphStatistics" OutputProperty="*" Verb="Remove" Noun="PropertygraphStatistic" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeletePropertygraphStatistics" OutputProperty="*" Verb="Remove" Noun="PropertygraphStatistic" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSparqlStatistics" OutputProperty="*" Verb="Remove" Noun="SparqlStatistic" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteSparqlStatistics" OutputProperty="*" Verb="Remove" Noun="SparqlStatistic" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteFastReset" OutputProperty="*" Verb="Invoke" Noun="FastReset" ShouldProcessTarget="Action" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ExecuteFastReset" OutputProperty="*" Verb="Invoke" Noun="FastReset" ShouldProcessTarget="Action" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteGremlinExplainQuery" OutputProperty="Output" Verb="Invoke" Noun="GremlinExplainQuery" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ExecuteGremlinExplainQuery" OutputProperty="Output" Verb="Invoke" Noun="GremlinExplainQuery" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteGremlinProfileQuery" OutputProperty="Output" Verb="Invoke" Noun="GremlinProfileQuery" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ExecuteGremlinProfileQuery" OutputProperty="Output" Verb="Invoke" Noun="GremlinProfileQuery" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteGremlinQuery" OutputProperty="*" Verb="Invoke" Noun="GremlinQuery" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ExecuteGremlinQuery" OutputProperty="*" Verb="Invoke" Noun="GremlinQuery" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteOpenCypherExplainQuery" OutputProperty="Results" Verb="Invoke" Noun="OpenCypherExplainQuery" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ExecuteOpenCypherExplainQuery" OutputProperty="Results" Verb="Invoke" Noun="OpenCypherExplainQuery" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteOpenCypherQuery" OutputProperty="Results" Verb="Invoke" Noun="OpenCypherQuery" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ExecuteOpenCypherQuery" OutputProperty="Results" Verb="Invoke" Noun="OpenCypherQuery" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEngineStatus" OutputProperty="*" Verb="Get" Noun="EngineStatus" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetEngineStatus" OutputProperty="*" Verb="Get" Noun="EngineStatus" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGremlinQueryStatus" OutputProperty="*" Verb="Get" Noun="GremlinQueryStatus" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetGremlinQueryStatus" OutputProperty="*" Verb="Get" Noun="GremlinQueryStatus" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLoaderJobStatus" OutputProperty="*" Verb="Get" Noun="LoaderJobStatus" PipelineParameter="LoadId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetLoaderJobStatus" OutputProperty="*" Verb="Get" Noun="LoaderJobStatus" PipelineParameter="LoadId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMLDataProcessingJob" OutputProperty="*" Verb="Get" Noun="MLDataProcessingJob" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMLDataProcessingJob" OutputProperty="*" Verb="Get" Noun="MLDataProcessingJob" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMLEndpoint" OutputProperty="*" Verb="Get" Noun="MLEndpoint" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMLEndpoint" OutputProperty="*" Verb="Get" Noun="MLEndpoint" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMLModelTrainingJob" OutputProperty="*" Verb="Get" Noun="MLModelTrainingJob" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMLModelTrainingJob" OutputProperty="*" Verb="Get" Noun="MLModelTrainingJob" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMLModelTransformJob" OutputProperty="*" Verb="Get" Noun="MLModelTransformJob" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMLModelTransformJob" OutputProperty="*" Verb="Get" Noun="MLModelTransformJob" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOpenCypherQueryStatus" OutputProperty="*" Verb="Get" Noun="OpenCypherQueryStatus" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetOpenCypherQueryStatus" OutputProperty="*" Verb="Get" Noun="OpenCypherQueryStatus" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPropertygraphStatistics" OutputProperty="*" Verb="Get" Noun="PropertygraphStatistic" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPropertygraphStatistics" OutputProperty="*" Verb="Get" Noun="PropertygraphStatistic" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPropertygraphStream" OutputProperty="*" Verb="Get" Noun="PropertygraphStream" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPropertygraphStream" OutputProperty="*" Verb="Get" Noun="PropertygraphStream" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPropertygraphSummary" OutputProperty="*" Verb="Get" Noun="PropertygraphSummary" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPropertygraphSummary" OutputProperty="*" Verb="Get" Noun="PropertygraphSummary" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRDFGraphSummary" OutputProperty="*" Verb="Get" Noun="RDFGraphSummary" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetRDFGraphSummary" OutputProperty="*" Verb="Get" Noun="RDFGraphSummary" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSparqlStatistics" OutputProperty="*" Verb="Get" Noun="SparqlStatistic" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSparqlStatistics" OutputProperty="*" Verb="Get" Noun="SparqlStatistic" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSparqlStream" OutputProperty="*" Verb="Get" Noun="SparqlStream" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSparqlStream" OutputProperty="*" Verb="Get" Noun="SparqlStream" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGremlinQueries" OutputProperty="*" Verb="Get" Noun="GremlinQueryList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListGremlinQueries" OutputProperty="*" Verb="Get" Noun="GremlinQueryList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLoaderJobs" OutputProperty="*" Verb="Get" Noun="LoaderJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLoaderJobs" OutputProperty="*" Verb="Get" Noun="LoaderJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMLDataProcessingJobs" OutputProperty="Ids" Verb="Get" Noun="MLDataProcessingJobList" PipelineParameter="NeptuneIamRoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMLDataProcessingJobs" OutputProperty="Ids" Verb="Get" Noun="MLDataProcessingJobList" PipelineParameter="NeptuneIamRoleArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMLEndpoints" OutputProperty="Ids" Verb="Get" Noun="MLEndpointList" PipelineParameter="NeptuneIamRoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMLEndpoints" OutputProperty="Ids" Verb="Get" Noun="MLEndpointList" PipelineParameter="NeptuneIamRoleArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMLModelTrainingJobs" OutputProperty="Ids" Verb="Get" Noun="MLModelTrainingJobList" PipelineParameter="NeptuneIamRoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMLModelTrainingJobs" OutputProperty="Ids" Verb="Get" Noun="MLModelTrainingJobList" PipelineParameter="NeptuneIamRoleArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMLModelTransformJobs" OutputProperty="Ids" Verb="Get" Noun="MLModelTransformJobList" PipelineParameter="NeptuneIamRoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMLModelTransformJobs" OutputProperty="Ids" Verb="Get" Noun="MLModelTransformJobList" PipelineParameter="NeptuneIamRoleArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOpenCypherQueries" OutputProperty="*" Verb="Get" Noun="OpenCypherQueryList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListOpenCypherQueries" OutputProperty="*" Verb="Get" Noun="OpenCypherQueryList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ManagePropertygraphStatistics" OutputProperty="*" Verb="Update" Noun="PropertygraphStatistic" ShouldProcessTarget="Mode" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ManagePropertygraphStatistics" OutputProperty="*" Verb="Update" Noun="PropertygraphStatistic" ShouldProcessTarget="Mode" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ManageSparqlStatistics" OutputProperty="*" Verb="Update" Noun="SparqlStatistic" ShouldProcessTarget="Mode" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ManageSparqlStatistics" OutputProperty="*" Verb="Update" Noun="SparqlStatistic" ShouldProcessTarget="Mode" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartLoaderJob" OutputProperty="*" Verb="Start" Noun="LoaderJob" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartLoaderJob" OutputProperty="*" Verb="Start" Noun="LoaderJob" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMLDataProcessingJob" OutputProperty="*" Verb="Start" Noun="MLDataProcessingJob" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartMLDataProcessingJob" OutputProperty="*" Verb="Start" Noun="MLDataProcessingJob" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMLModelTrainingJob" OutputProperty="*" Verb="Start" Noun="MLModelTrainingJob" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartMLModelTrainingJob" OutputProperty="*" Verb="Start" Noun="MLModelTrainingJob" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMLModelTransformJob" OutputProperty="*" Verb="Start" Noun="MLModelTransformJob" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartMLModelTransformJob" OutputProperty="*" Verb="Start" Noun="MLModelTransformJob" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

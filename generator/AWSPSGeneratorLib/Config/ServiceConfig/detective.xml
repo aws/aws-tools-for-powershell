@@ -19,119 +19,119 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptInvitation" Verb="Approve" Noun="Invitation" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AcceptInvitation" Verb="Approve" Noun="Invitation" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetGraphMemberDatasources" OutputProperty="*" Verb="Get" Noun="GraphMemberDatasource" PipelineParameter="GraphArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchGetGraphMemberDatasources" OutputProperty="*" Verb="Get" Noun="GraphMemberDatasource" PipelineParameter="GraphArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetMembershipDatasources" OutputProperty="*" Verb="Get" Noun="MembershipDatasource" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchGetMembershipDatasources" OutputProperty="*" Verb="Get" Noun="MembershipDatasource" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGraph" OutputProperty="GraphArn" Verb="New" Noun="Graph" ShouldProcessTarget="Tags" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateGraph" OutputProperty="GraphArn" Verb="New" Noun="Graph" ShouldProcessTarget="Tags" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMembers" OutputProperty="*" Verb="New" Noun="Member" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateMembers" OutputProperty="*" Verb="New" Noun="Member" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGraph" Verb="Remove" Noun="Graph" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteGraph" Verb="Remove" Noun="Graph" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMembers" OutputProperty="*" Verb="Remove" Noun="Member" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteMembers" OutputProperty="*" Verb="Remove" Noun="Member" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOrganizationConfiguration" OutputProperty="AutoEnable" Verb="Get" Noun="OrganizationConfiguration" PipelineParameter="GraphArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeOrganizationConfiguration" OutputProperty="AutoEnable" Verb="Get" Noun="OrganizationConfiguration" PipelineParameter="GraphArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableOrganizationAdminAccount" Verb="Disable" Noun="OrganizationAdminAccount" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisableOrganizationAdminAccount" Verb="Disable" Noun="OrganizationAdminAccount" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateMembership" Verb="Remove" Noun="Membership" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateMembership" Verb="Remove" Noun="Membership" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableOrganizationAdminAccount" Verb="Enable" Noun="OrganizationAdminAccount" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="EnableOrganizationAdminAccount" Verb="Enable" Noun="OrganizationAdminAccount" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInvestigation" OutputProperty="*" Verb="Get" Noun="Investigation" PipelineParameter="InvestigationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetInvestigation" OutputProperty="*" Verb="Get" Noun="Investigation" PipelineParameter="InvestigationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMembers" OutputProperty="*" Verb="Get" Noun="Member" PipelineParameter="GraphArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMembers" OutputProperty="*" Verb="Get" Noun="Member" PipelineParameter="GraphArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasourcePackages" OutputProperty="DatasourcePackages" Verb="Get" Noun="DatasourcePackageList" PipelineParameter="GraphArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDatasourcePackages" OutputProperty="DatasourcePackages" Verb="Get" Noun="DatasourcePackageList" PipelineParameter="GraphArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGraphs" OutputProperty="GraphList" Verb="Get" Noun="GraphList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListGraphs" OutputProperty="GraphList" Verb="Get" Noun="GraphList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIndicators" OutputProperty="*" Verb="Get" Noun="IndicatorList" PipelineParameter="InvestigationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListIndicators" OutputProperty="*" Verb="Get" Noun="IndicatorList" PipelineParameter="InvestigationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInvestigations" OutputProperty="InvestigationDetails" Verb="Get" Noun="InvestigationList" PipelineParameter="GraphArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListInvestigations" OutputProperty="InvestigationDetails" Verb="Get" Noun="InvestigationList" PipelineParameter="GraphArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInvitations" OutputProperty="Invitations" Verb="Get" Noun="InvitationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListInvitations" OutputProperty="Invitations" Verb="Get" Noun="InvitationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMembers" OutputProperty="MemberDetails" Verb="Get" Noun="MemberList" PipelineParameter="GraphArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMembers" OutputProperty="MemberDetails" Verb="Get" Noun="MemberList" PipelineParameter="GraphArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOrganizationAdminAccounts" OutputProperty="Administrators" Verb="Get" Noun="OrganizationAdminAccountList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListOrganizationAdminAccounts" OutputProperty="Administrators" Verb="Get" Noun="OrganizationAdminAccountList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RejectInvitation" Verb="Deny" Noun="Invitation" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RejectInvitation" Verb="Deny" Noun="Invitation" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartInvestigation" OutputProperty="InvestigationId" Verb="Start" Noun="Investigation" AnonymousShouldProcessTarget="true" PipelineParameter="EntityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartInvestigation" OutputProperty="InvestigationId" Verb="Start" Noun="Investigation" AnonymousShouldProcessTarget="true" PipelineParameter="EntityArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMonitoringMember" Verb="Start" Noun="MonitoringMember" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartMonitoringMember" Verb="Start" Noun="MonitoringMember" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDatasourcePackages" Verb="Update" Noun="DatasourcePackage" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDatasourcePackages" Verb="Update" Noun="DatasourcePackage" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateInvestigationState" Verb="Update" Noun="InvestigationState" ShouldProcessTarget="InvestigationId" PipelineParameter="InvestigationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateInvestigationState" Verb="Update" Noun="InvestigationState" ShouldProcessTarget="InvestigationId" PipelineParameter="InvestigationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateOrganizationConfiguration" Verb="Update" Noun="OrganizationConfiguration" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateOrganizationConfiguration" Verb="Update" Noun="OrganizationConfiguration" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

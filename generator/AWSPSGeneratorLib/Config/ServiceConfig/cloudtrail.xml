@@ -27,233 +27,233 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Add-CTTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Add-CTTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelQuery" OutputProperty="*" Verb="Stop" Noun="Query" ShouldProcessTarget="QueryId" PipelineParameter="QueryId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelQuery" OutputProperty="*" Verb="Stop" Noun="Query" ShouldProcessTarget="QueryId" PipelineParameter="QueryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateChannel" OutputProperty="*" Verb="New" Noun="Channel" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateChannel" OutputProperty="*" Verb="New" Noun="Channel" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDashboard" OutputProperty="*" Verb="New" Noun="Dashboard" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDashboard" OutputProperty="*" Verb="New" Noun="Dashboard" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEventDataStore" OutputProperty="*" Verb="New" Noun="EventDataStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateEventDataStore" OutputProperty="*" Verb="New" Noun="EventDataStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTrail" OutputProperty="*" Verb="New" Noun="Trail" ShouldProcessTarget="Name" PositionalParameters="S3BucketName;S3KeyPrefix" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateTrail" OutputProperty="*" Verb="New" Noun="Trail" ShouldProcessTarget="Name" PositionalParameters="S3BucketName;S3KeyPrefix" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteChannel" Verb="Remove" Noun="Channel" ShouldProcessTarget="Channel" PipelineParameter="Channel" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteChannel" Verb="Remove" Noun="Channel" ShouldProcessTarget="Channel" PipelineParameter="Channel" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDashboard" Verb="Remove" Noun="Dashboard" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDashboard" Verb="Remove" Noun="Dashboard" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEventDataStore" Verb="Remove" Noun="EventDataStore" ShouldProcessTarget="EventDataStore" PipelineParameter="EventDataStore" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteEventDataStore" Verb="Remove" Noun="EventDataStore" ShouldProcessTarget="EventDataStore" PipelineParameter="EventDataStore" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTrail" Verb="Remove" Noun="Trail" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteTrail" Verb="Remove" Noun="Trail" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterOrganizationDelegatedAdmin" Verb="Unregister" Noun="OrganizationDelegatedAdmin" ShouldProcessTarget="DelegatedAdminAccountId" PipelineParameter="DelegatedAdminAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeregisterOrganizationDelegatedAdmin" Verb="Unregister" Noun="OrganizationDelegatedAdmin" ShouldProcessTarget="DelegatedAdminAccountId" PipelineParameter="DelegatedAdminAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeQuery" OutputProperty="*" Verb="Get" Noun="Query" PipelineParameter="QueryId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeQuery" OutputProperty="*" Verb="Get" Noun="Query" PipelineParameter="QueryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTrails" OutputProperty="TrailList" Verb="Get" Noun="Trail" PositionalParameters="IncludeShadowTrails" PipelineParameter="TrailNameList" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTrails" OutputProperty="TrailList" Verb="Get" Noun="Trail" PositionalParameters="IncludeShadowTrails" PipelineParameter="TrailNameList" NoPipelineParameter="false">
             <Params>
                 <Param Name="TrailNameList" Alias="Name" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableFederation" OutputProperty="*" Verb="Disable" Noun="Federation" ShouldProcessTarget="EventDataStore" PipelineParameter="EventDataStore" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisableFederation" OutputProperty="*" Verb="Disable" Noun="Federation" ShouldProcessTarget="EventDataStore" PipelineParameter="EventDataStore" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableFederation" OutputProperty="*" Verb="Enable" Noun="Federation" ShouldProcessTarget="FederationRoleArn" PipelineParameter="FederationRoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="EnableFederation" OutputProperty="*" Verb="Enable" Noun="Federation" ShouldProcessTarget="FederationRoleArn" PipelineParameter="FederationRoleArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateQuery" OutputProperty="*" Verb="Invoke" Noun="GenerateQuery" ShouldProcessTarget="Prompt" PipelineParameter="Prompt" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GenerateQuery" OutputProperty="*" Verb="Invoke" Noun="GenerateQuery" ShouldProcessTarget="Prompt" PipelineParameter="Prompt" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetChannel" OutputProperty="*" Verb="Get" Noun="Channel" PipelineParameter="Channel" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetChannel" OutputProperty="*" Verb="Get" Noun="Channel" PipelineParameter="Channel" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDashboard" OutputProperty="*" Verb="Get" Noun="Dashboard" PipelineParameter="DashboardId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDashboard" OutputProperty="*" Verb="Get" Noun="Dashboard" PipelineParameter="DashboardId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEventDataStore" OutputProperty="*" Verb="Get" Noun="EventDataStore" PipelineParameter="EventDataStore" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetEventDataStore" OutputProperty="*" Verb="Get" Noun="EventDataStore" PipelineParameter="EventDataStore" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEventSelectors" OutputProperty="*" Verb="Get" Noun="EventSelector" PipelineParameter="TrailName" NoPipelineParameter="false" LegacyAlias="Get-CTEventSelectors" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetEventSelectors" OutputProperty="*" Verb="Get" Noun="EventSelector" PipelineParameter="TrailName" NoPipelineParameter="false" LegacyAlias="Get-CTEventSelectors">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetImport" OutputProperty="*" Verb="Get" Noun="Import" PipelineParameter="ImportId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetImport" OutputProperty="*" Verb="Get" Noun="Import" PipelineParameter="ImportId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInsightSelectors" OutputProperty="*" Verb="Get" Noun="InsightSelector" PipelineParameter="TrailName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetInsightSelectors" OutputProperty="*" Verb="Get" Noun="InsightSelector" PipelineParameter="TrailName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQueryResults" OutputProperty="*" Verb="Get" Noun="QueryResult" PipelineParameter="QueryId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetQueryResults" OutputProperty="*" Verb="Get" Noun="QueryResult" PipelineParameter="QueryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTrail" OutputProperty="Trail" Verb="Get" Noun="TrailByName" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTrail" OutputProperty="Trail" Verb="Get" Noun="TrailByName" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTrailStatus" OutputProperty="*" Verb="Get" Noun="TrailStatus" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTrailStatus" OutputProperty="*" Verb="Get" Noun="TrailStatus" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelSummary" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelSummary" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDashboards" OutputProperty="Dashboards" Verb="Get" Noun="DashboardSummary" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDashboards" OutputProperty="Dashboards" Verb="Get" Noun="DashboardSummary" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEventDataStores" OutputProperty="EventDataStores" Verb="Get" Noun="EventDataStoreSummary" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEventDataStores" OutputProperty="EventDataStores" Verb="Get" Noun="EventDataStoreSummary" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImportFailures" OutputProperty="*" Verb="Get" Noun="ImportFailure" PipelineParameter="ImportId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListImportFailures" OutputProperty="*" Verb="Get" Noun="ImportFailure" PipelineParameter="ImportId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImports" OutputProperty="Imports" Verb="Get" Noun="ImportList" PipelineParameter="Destination" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListImports" OutputProperty="Imports" Verb="Get" Noun="ImportList" PipelineParameter="Destination" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInsightsMetricData" OutputProperty="*" Verb="Get" Noun="InsightsMetricData" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListInsightsMetricData" OutputProperty="*" Verb="Get" Noun="InsightsMetricData" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPublicKeys" OutputProperty="PublicKeyList" Verb="Get" Noun="PublicKey" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPublicKeys" OutputProperty="PublicKeyList" Verb="Get" Noun="PublicKey" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQueries" OutputProperty="Queries" Verb="Get" Noun="QuerySummary" PipelineParameter="EventDataStore" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListQueries" OutputProperty="Queries" Verb="Get" Noun="QuerySummary" PipelineParameter="EventDataStore" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" OutputProperty="ResourceTagList" Verb="Get" Noun="ResourceTag" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-CTTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTags" OutputProperty="ResourceTagList" Verb="Get" Noun="ResourceTag" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-CTTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrails" OutputProperty="Trails" Verb="Get" Noun="TrailSummary" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTrails" OutputProperty="Trails" Verb="Get" Noun="TrailSummary" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="LookupEvents" OutputProperty="Events" Verb="Find" Noun="Event" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Find-CTEvents" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="LookupEvents" OutputProperty="Events" Verb="Find" Noun="Event" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Find-CTEvents">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutEventSelectors" OutputProperty="*" Verb="Write" Noun="EventSelector" ShouldProcessTarget="TrailName" PipelineParameter="TrailName" NoPipelineParameter="false" LegacyAlias="Write-CTEventSelectors" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutEventSelectors" OutputProperty="*" Verb="Write" Noun="EventSelector" ShouldProcessTarget="TrailName" PipelineParameter="TrailName" NoPipelineParameter="false" LegacyAlias="Write-CTEventSelectors">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutInsightSelectors" OutputProperty="*" Verb="Write" Noun="InsightSelector" ShouldProcessTarget="TrailName" PipelineParameter="TrailName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutInsightSelectors" OutputProperty="*" Verb="Write" Noun="InsightSelector" ShouldProcessTarget="TrailName" PipelineParameter="TrailName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="*" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="*" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterOrganizationDelegatedAdmin" Verb="Register" Noun="OrganizationDelegatedAdmin" ShouldProcessTarget="MemberAccountId" PipelineParameter="MemberAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RegisterOrganizationDelegatedAdmin" Verb="Register" Noun="OrganizationDelegatedAdmin" ShouldProcessTarget="MemberAccountId" PipelineParameter="MemberAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Remove-CTTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Remove-CTTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreEventDataStore" OutputProperty="*" Verb="Restore" Noun="EventDataStore" ShouldProcessTarget="EventDataStore" PipelineParameter="EventDataStore" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RestoreEventDataStore" OutputProperty="*" Verb="Restore" Noun="EventDataStore" ShouldProcessTarget="EventDataStore" PipelineParameter="EventDataStore" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchSampleQueries" OutputProperty="SearchResults" Verb="Search" Noun="SampleQuery" ShouldProcessTarget="SearchPhrase" PipelineParameter="SearchPhrase" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchSampleQueries" OutputProperty="SearchResults" Verb="Search" Noun="SampleQuery" ShouldProcessTarget="SearchPhrase" PipelineParameter="SearchPhrase" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDashboardRefresh" OutputProperty="RefreshId" Verb="Start" Noun="DashboardRefresh" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartDashboardRefresh" OutputProperty="RefreshId" Verb="Start" Noun="DashboardRefresh" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartEventDataStoreIngestion" Verb="Start" Noun="EventDataStoreIngestion" ShouldProcessTarget="EventDataStore" PipelineParameter="EventDataStore" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartEventDataStoreIngestion" Verb="Start" Noun="EventDataStoreIngestion" ShouldProcessTarget="EventDataStore" PipelineParameter="EventDataStore" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartImport" OutputProperty="*" Verb="Start" Noun="Import" ShouldProcessTarget="ImportId" PipelineParameter="Destinations" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartImport" OutputProperty="*" Verb="Start" Noun="Import" ShouldProcessTarget="ImportId" PipelineParameter="Destinations" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartLogging" Verb="Start" Noun="Logging" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartLogging" Verb="Start" Noun="Logging" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartQuery" OutputProperty="QueryId" Verb="Start" Noun="Query" ShouldProcessTarget="QueryStatement" PipelineParameter="QueryStatement" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartQuery" OutputProperty="QueryId" Verb="Start" Noun="Query" ShouldProcessTarget="QueryStatement" PipelineParameter="QueryStatement" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopEventDataStoreIngestion" Verb="Stop" Noun="EventDataStoreIngestion" ShouldProcessTarget="EventDataStore" PipelineParameter="EventDataStore" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopEventDataStoreIngestion" Verb="Stop" Noun="EventDataStoreIngestion" ShouldProcessTarget="EventDataStore" PipelineParameter="EventDataStore" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopImport" OutputProperty="*" Verb="Stop" Noun="Import" ShouldProcessTarget="ImportId" PipelineParameter="ImportId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopImport" OutputProperty="*" Verb="Stop" Noun="Import" ShouldProcessTarget="ImportId" PipelineParameter="ImportId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopLogging" Verb="Stop" Noun="Logging" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopLogging" Verb="Stop" Noun="Logging" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateChannel" OutputProperty="*" Verb="Update" Noun="Channel" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateChannel" OutputProperty="*" Verb="Update" Noun="Channel" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDashboard" OutputProperty="*" Verb="Update" Noun="Dashboard" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDashboard" OutputProperty="*" Verb="Update" Noun="Dashboard" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEventDataStore" OutputProperty="*" Verb="Update" Noun="EventDataStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateEventDataStore" OutputProperty="*" Verb="Update" Noun="EventDataStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTrail" OutputProperty="*" Verb="Update" Noun="Trail" ShouldProcessTarget="Name" PositionalParameters="S3BucketName;S3KeyPrefix" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateTrail" OutputProperty="*" Verb="Update" Noun="Trail" ShouldProcessTarget="Name" PositionalParameters="S3BucketName;S3KeyPrefix" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

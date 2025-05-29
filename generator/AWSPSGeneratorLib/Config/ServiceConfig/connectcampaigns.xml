@@ -18,91 +18,91 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateCampaign" OutputProperty="*" Verb="New" Noun="Campaign" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateCampaign" OutputProperty="*" Verb="New" Noun="Campaign" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCampaign" Verb="Remove" Noun="Campaign" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteCampaign" Verb="Remove" Noun="Campaign" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConnectInstanceConfig" Verb="Remove" Noun="ConnectInstanceConfig" ShouldProcessTarget="ConnectInstanceId" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteConnectInstanceConfig" Verb="Remove" Noun="ConnectInstanceConfig" ShouldProcessTarget="ConnectInstanceId" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInstanceOnboardingJob" Verb="Remove" Noun="InstanceOnboardingJob" ShouldProcessTarget="ConnectInstanceId" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteInstanceOnboardingJob" Verb="Remove" Noun="InstanceOnboardingJob" ShouldProcessTarget="ConnectInstanceId" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCampaign" OutputProperty="Campaign" Verb="Get" Noun="Campaign" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCampaign" OutputProperty="Campaign" Verb="Get" Noun="Campaign" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCampaignState" OutputProperty="State" Verb="Get" Noun="CampaignState" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetCampaignState" OutputProperty="State" Verb="Get" Noun="CampaignState" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCampaignStateBatch" OutputProperty="*" Verb="Get" Noun="CampaignStateBatch" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetCampaignStateBatch" OutputProperty="*" Verb="Get" Noun="CampaignStateBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConnectInstanceConfig" OutputProperty="ConnectInstanceConfig" Verb="Get" Noun="ConnectInstanceConfig" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetConnectInstanceConfig" OutputProperty="ConnectInstanceConfig" Verb="Get" Noun="ConnectInstanceConfig" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInstanceOnboardingJobStatus" OutputProperty="ConnectInstanceOnboardingJobStatus" Verb="Get" Noun="InstanceOnboardingJobStatus" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetInstanceOnboardingJobStatus" OutputProperty="ConnectInstanceOnboardingJobStatus" Verb="Get" Noun="InstanceOnboardingJobStatus" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCampaigns" OutputProperty="CampaignSummaryList" Verb="Get" Noun="CampaignList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCampaigns" OutputProperty="CampaignSummaryList" Verb="Get" Noun="CampaignList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PauseCampaign" Verb="Suspend" Noun="Campaign" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PauseCampaign" Verb="Suspend" Noun="Campaign" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutDialRequestBatch" OutputProperty="*" Verb="Write" Noun="DialRequestBatch" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutDialRequestBatch" OutputProperty="*" Verb="Write" Noun="DialRequestBatch" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResumeCampaign" Verb="Resume" Noun="Campaign" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ResumeCampaign" Verb="Resume" Noun="Campaign" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartCampaign" Verb="Start" Noun="Campaign" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartCampaign" Verb="Start" Noun="Campaign" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartInstanceOnboardingJob" OutputProperty="ConnectInstanceOnboardingJobStatus" Verb="Start" Noun="InstanceOnboardingJob" ShouldProcessTarget="ConnectInstanceId" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartInstanceOnboardingJob" OutputProperty="ConnectInstanceOnboardingJobStatus" Verb="Start" Noun="InstanceOnboardingJob" ShouldProcessTarget="ConnectInstanceId" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopCampaign" Verb="Stop" Noun="Campaign" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopCampaign" Verb="Stop" Noun="Campaign" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCampaignDialerConfig" Verb="Update" Noun="CampaignDialerConfig" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateCampaignDialerConfig" Verb="Update" Noun="CampaignDialerConfig" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCampaignName" Verb="Update" Noun="CampaignName" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateCampaignName" Verb="Update" Noun="CampaignName" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCampaignOutboundCallConfig" Verb="Update" Noun="CampaignOutboundCallConfig" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateCampaignOutboundCallConfig" Verb="Update" Noun="CampaignOutboundCallConfig" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

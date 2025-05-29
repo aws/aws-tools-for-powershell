@@ -18,151 +18,151 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelBatchJobExecution" Verb="Stop" Noun="BatchJobExecution" ShouldProcessTarget="ExecutionId" PipelineParameter="ExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelBatchJobExecution" Verb="Stop" Noun="BatchJobExecution" ShouldProcessTarget="ExecutionId" PipelineParameter="ExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateApplication" OutputProperty="*" Verb="New" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateApplication" OutputProperty="*" Verb="New" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataSetExportTask" OutputProperty="TaskId" Verb="New" Noun="DataSetExportTask" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDataSetExportTask" OutputProperty="TaskId" Verb="New" Noun="DataSetExportTask" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataSetImportTask" OutputProperty="TaskId" Verb="New" Noun="DataSetImportTask" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDataSetImportTask" OutputProperty="TaskId" Verb="New" Noun="DataSetImportTask" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDeployment" OutputProperty="DeploymentId" Verb="New" Noun="Deployment" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDeployment" OutputProperty="DeploymentId" Verb="New" Noun="Deployment" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEnvironment" OutputProperty="EnvironmentId" Verb="New" Noun="Environment" ShouldProcessTarget="Name" PipelineParameter="EngineType" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateEnvironment" OutputProperty="EnvironmentId" Verb="New" Noun="Environment" ShouldProcessTarget="Name" PipelineParameter="EngineType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplicationFromEnvironment" Verb="Remove" Noun="ApplicationFromEnvironment" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteApplicationFromEnvironment" Verb="Remove" Noun="ApplicationFromEnvironment" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEnvironment" Verb="Remove" Noun="Environment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteEnvironment" Verb="Remove" Noun="Environment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApplication" OutputProperty="*" Verb="Get" Noun="Application" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetApplication" OutputProperty="*" Verb="Get" Noun="Application" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApplicationVersion" OutputProperty="*" Verb="Get" Noun="ApplicationVersion" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetApplicationVersion" OutputProperty="*" Verb="Get" Noun="ApplicationVersion" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBatchJobExecution" OutputProperty="*" Verb="Get" Noun="BatchJobExecution" PipelineParameter="ExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBatchJobExecution" OutputProperty="*" Verb="Get" Noun="BatchJobExecution" PipelineParameter="ExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataSetDetails" OutputProperty="*" Verb="Get" Noun="DataSetDetail" PipelineParameter="DataSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDataSetDetails" OutputProperty="*" Verb="Get" Noun="DataSetDetail" PipelineParameter="DataSetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataSetExportTask" OutputProperty="*" Verb="Get" Noun="DataSetExportTask" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDataSetExportTask" OutputProperty="*" Verb="Get" Noun="DataSetExportTask" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataSetImportTask" OutputProperty="*" Verb="Get" Noun="DataSetImportTask" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDataSetImportTask" OutputProperty="*" Verb="Get" Noun="DataSetImportTask" PipelineParameter="TaskId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDeployment" OutputProperty="*" Verb="Get" Noun="Deployment" PipelineParameter="DeploymentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDeployment" OutputProperty="*" Verb="Get" Noun="Deployment" PipelineParameter="DeploymentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEnvironment" OutputProperty="*" Verb="Get" Noun="Environment" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetEnvironment" OutputProperty="*" Verb="Get" Noun="Environment" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSignedBluinsightsUrl" OutputProperty="SignedBiUrl" Verb="Get" Noun="SignedBluinsightsUrl" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSignedBluinsightsUrl" OutputProperty="SignedBiUrl" Verb="Get" Noun="SignedBluinsightsUrl" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplications" OutputProperty="Applications" Verb="Get" Noun="ApplicationList" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListApplications" OutputProperty="Applications" Verb="Get" Noun="ApplicationList" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplicationVersions" OutputProperty="ApplicationVersions" Verb="Get" Noun="ApplicationVersionList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListApplicationVersions" OutputProperty="ApplicationVersions" Verb="Get" Noun="ApplicationVersionList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBatchJobDefinitions" OutputProperty="BatchJobDefinitions" Verb="Get" Noun="BatchJobDefinitionList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBatchJobDefinitions" OutputProperty="BatchJobDefinitions" Verb="Get" Noun="BatchJobDefinitionList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBatchJobExecutions" OutputProperty="BatchJobExecutions" Verb="Get" Noun="BatchJobExecutionList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBatchJobExecutions" OutputProperty="BatchJobExecutions" Verb="Get" Noun="BatchJobExecutionList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBatchJobRestartPoints" OutputProperty="BatchJobSteps" Verb="Get" Noun="BatchJobRestartPointList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBatchJobRestartPoints" OutputProperty="BatchJobSteps" Verb="Get" Noun="BatchJobRestartPointList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataSetExportHistory" OutputProperty="DataSetExportTasks" Verb="Get" Noun="DataSetExportHistoryList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDataSetExportHistory" OutputProperty="DataSetExportTasks" Verb="Get" Noun="DataSetExportHistoryList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataSetImportHistory" OutputProperty="DataSetImportTasks" Verb="Get" Noun="DataSetImportHistoryList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDataSetImportHistory" OutputProperty="DataSetImportTasks" Verb="Get" Noun="DataSetImportHistoryList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataSets" OutputProperty="DataSets" Verb="Get" Noun="DataSetList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDataSets" OutputProperty="DataSets" Verb="Get" Noun="DataSetList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeployments" OutputProperty="Deployments" Verb="Get" Noun="DeploymentList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDeployments" OutputProperty="Deployments" Verb="Get" Noun="DeploymentList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEngineVersions" OutputProperty="EngineVersions" Verb="Get" Noun="EngineVersionList" PipelineParameter="EngineType" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEngineVersions" OutputProperty="EngineVersions" Verb="Get" Noun="EngineVersionList" PipelineParameter="EngineType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEnvironments" OutputProperty="Environments" Verb="Get" Noun="EnvironmentList" PipelineParameter="EngineType" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEnvironments" OutputProperty="Environments" Verb="Get" Noun="EnvironmentList" PipelineParameter="EngineType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartApplication" Verb="Start" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartApplication" Verb="Start" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartBatchJob" OutputProperty="ExecutionId" Verb="Start" Noun="BatchJob" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartBatchJob" OutputProperty="ExecutionId" Verb="Start" Noun="BatchJob" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopApplication" Verb="Stop" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopApplication" Verb="Stop" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApplication" OutputProperty="ApplicationVersion" Verb="Update" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateApplication" OutputProperty="ApplicationVersion" Verb="Update" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEnvironment" OutputProperty="EnvironmentId" Verb="Update" Noun="Environment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateEnvironment" OutputProperty="EnvironmentId" Verb="Update" Noun="Environment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

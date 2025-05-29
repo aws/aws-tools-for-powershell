@@ -19,51 +19,51 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptInboundConnection" OutputProperty="Connection" Verb="Approve" Noun="InboundConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AcceptInboundConnection" OutputProperty="Connection" Verb="Approve" Noun="InboundConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddDataSource" OutputProperty="Message" Verb="Add" Noun="DataSource" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AddDataSource" OutputProperty="Message" Verb="Add" Noun="DataSource" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddDirectQueryDataSource" OutputProperty="DataSourceArn" Verb="Add" Noun="DirectQueryDataSource" ShouldProcessTarget="DataSourceName" PipelineParameter="DataSourceName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AddDirectQueryDataSource" OutputProperty="DataSourceArn" Verb="Add" Noun="DirectQueryDataSource" ShouldProcessTarget="DataSourceName" PipelineParameter="DataSourceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="TagList" PipelineParameter="TagList" NoPipelineParameter="false" LegacyAlias="Add-ESTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="TagList" PipelineParameter="TagList" NoPipelineParameter="false" LegacyAlias="Add-ESTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociatePackage" OutputProperty="DomainPackageDetails" Verb="Start" Noun="AssociatePackage" ShouldProcessTarget="DomainName" PipelineParameter="PackageID" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociatePackage" OutputProperty="DomainPackageDetails" Verb="Start" Noun="AssociatePackage" ShouldProcessTarget="DomainName" PipelineParameter="PackageID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociatePackages" OutputProperty="DomainPackageDetailsList" Verb="Start" Noun="OSAssociatePackageList" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociatePackages" OutputProperty="DomainPackageDetailsList" Verb="Start" Noun="OSAssociatePackageList" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AuthorizeVpcEndpointAccess" OutputProperty="AuthorizedPrincipal" Verb="Approve" Noun="VpcEndpointAccess" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AuthorizeVpcEndpointAccess" OutputProperty="AuthorizedPrincipal" Verb="Approve" Noun="VpcEndpointAccess" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelDomainConfigChange" OutputProperty="*" Verb="Stop" Noun="DomainConfigChange" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelDomainConfigChange" OutputProperty="*" Verb="Stop" Noun="DomainConfigChange" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelServiceSoftwareUpdate" OutputProperty="ServiceSoftwareOptions" Verb="Stop" Noun="ServiceSoftwareUpdate" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelServiceSoftwareUpdate" OutputProperty="ServiceSoftwareOptions" Verb="Stop" Noun="ServiceSoftwareUpdate" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateApplication" OutputProperty="*" Verb="New" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateApplication" OutputProperty="*" Verb="New" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDomain" OutputProperty="DomainStatus" Verb="New" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDomain" OutputProperty="DomainStatus" Verb="New" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateOutboundConnection" OutputProperty="*" Verb="New" Noun="OutboundConnection" ShouldProcessTarget="" PipelineParameter="ConnectionAlias" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateOutboundConnection" OutputProperty="*" Verb="New" Noun="OutboundConnection" ShouldProcessTarget="" PipelineParameter="ConnectionAlias" NoPipelineParameter="false">
             <Params>
                 <Param Name="LocalDomainInfo_AWSDomainInformation_DomainName" NewName="LocalDomainInfo_AWSDomainInformation_DomainName" />
                 <Param Name="LocalDomainInfo_AWSDomainInformation_OwnerId" NewName="LocalDomainInfo_AWSDomainInformation_OwnerId" />
@@ -74,259 +74,259 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePackage" OutputProperty="PackageDetails" Verb="New" Noun="Package" ShouldProcessTarget="PackageName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreatePackage" OutputProperty="PackageDetails" Verb="New" Noun="Package" ShouldProcessTarget="PackageName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVpcEndpoint" OutputProperty="VpcEndpoint" Verb="New" Noun="VpcEndpoint" ShouldProcessTarget="DomainArn" PipelineParameter="DomainArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateVpcEndpoint" OutputProperty="VpcEndpoint" Verb="New" Noun="VpcEndpoint" ShouldProcessTarget="DomainArn" PipelineParameter="DomainArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataSource" OutputProperty="Message" Verb="Remove" Noun="DataSource" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDataSource" OutputProperty="Message" Verb="Remove" Noun="DataSource" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDirectQueryDataSource" Verb="Remove" Noun="DirectQueryDataSource" ShouldProcessTarget="DataSourceName" PipelineParameter="DataSourceName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDirectQueryDataSource" Verb="Remove" Noun="DirectQueryDataSource" ShouldProcessTarget="DataSourceName" PipelineParameter="DataSourceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDomain" OutputProperty="DomainStatus" Verb="Remove" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDomain" OutputProperty="DomainStatus" Verb="Remove" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInboundConnection" OutputProperty="Connection" Verb="Remove" Noun="InboundConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteInboundConnection" OutputProperty="Connection" Verb="Remove" Noun="InboundConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteOutboundConnection" OutputProperty="Connection" Verb="Remove" Noun="OutboundConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteOutboundConnection" OutputProperty="Connection" Verb="Remove" Noun="OutboundConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePackage" OutputProperty="PackageDetails" Verb="Remove" Noun="Package" ShouldProcessTarget="PackageID" PipelineParameter="PackageID" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeletePackage" OutputProperty="PackageDetails" Verb="Remove" Noun="Package" ShouldProcessTarget="PackageID" PipelineParameter="PackageID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVpcEndpoint" OutputProperty="VpcEndpointSummary" Verb="Remove" Noun="VpcEndpoint" ShouldProcessTarget="VpcEndpointId" PipelineParameter="VpcEndpointId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteVpcEndpoint" OutputProperty="VpcEndpointSummary" Verb="Remove" Noun="VpcEndpoint" ShouldProcessTarget="VpcEndpointId" PipelineParameter="VpcEndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDomain" OutputProperty="DomainStatus" Verb="Get" Noun="Domain" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDomain" OutputProperty="DomainStatus" Verb="Get" Noun="Domain" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDomainAutoTunes" OutputProperty="AutoTunes" Verb="Get" Noun="DomainAutoTune" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDomainAutoTunes" OutputProperty="AutoTunes" Verb="Get" Noun="DomainAutoTune" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDomainChangeProgress" OutputProperty="ChangeProgressStatus" Verb="Get" Noun="DomainChangeProgress" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDomainChangeProgress" OutputProperty="ChangeProgressStatus" Verb="Get" Noun="DomainChangeProgress" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDomainConfig" OutputProperty="DomainConfig" Verb="Get" Noun="DomainConfig" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDomainConfig" OutputProperty="DomainConfig" Verb="Get" Noun="DomainConfig" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDomainHealth" OutputProperty="*" Verb="Get" Noun="DomainHealth" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDomainHealth" OutputProperty="*" Verb="Get" Noun="DomainHealth" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDomainNodes" OutputProperty="DomainNodesStatusList" Verb="Get" Noun="DomainNode" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDomainNodes" OutputProperty="DomainNodesStatusList" Verb="Get" Noun="DomainNode" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDomains" OutputProperty="DomainStatusList" Verb="Get" Noun="DomainList" PipelineParameter="DomainNames" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDomains" OutputProperty="DomainStatusList" Verb="Get" Noun="DomainList" PipelineParameter="DomainNames" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDryRunProgress" OutputProperty="*" Verb="Get" Noun="DryRunProgress" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDryRunProgress" OutputProperty="*" Verb="Get" Noun="DryRunProgress" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInboundConnections" OutputProperty="Connections" Verb="Get" Noun="InboundConnection" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeInboundConnections" OutputProperty="Connections" Verb="Get" Noun="InboundConnection" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceTypeLimits" OutputProperty="LimitsByRole" Verb="Get" Noun="InstanceTypeLimit" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeInstanceTypeLimits" OutputProperty="LimitsByRole" Verb="Get" Noun="InstanceTypeLimit" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOutboundConnections" OutputProperty="Connections" Verb="Get" Noun="OutboundConnection" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeOutboundConnections" OutputProperty="Connections" Verb="Get" Noun="OutboundConnection" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePackages" OutputProperty="PackageDetailsList" Verb="Get" Noun="Package" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribePackages" OutputProperty="PackageDetailsList" Verb="Get" Noun="Package" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedInstanceOfferings" OutputProperty="ReservedInstanceOfferings" Verb="Get" Noun="ReservedInstanceOfferingList" PipelineParameter="ReservedInstanceOfferingId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeReservedInstanceOfferings" OutputProperty="ReservedInstanceOfferings" Verb="Get" Noun="ReservedInstanceOfferingList" PipelineParameter="ReservedInstanceOfferingId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedInstances" OutputProperty="ReservedInstances" Verb="Get" Noun="ReservedInstanceList" PipelineParameter="ReservedInstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeReservedInstances" OutputProperty="ReservedInstances" Verb="Get" Noun="ReservedInstanceList" PipelineParameter="ReservedInstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcEndpoints" OutputProperty="*" Verb="Get" Noun="VpcEndpoint" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVpcEndpoints" OutputProperty="*" Verb="Get" Noun="VpcEndpoint" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DissociatePackage" OutputProperty="DomainPackageDetails" Verb="Start" Noun="DissociatePackage" ShouldProcessTarget="DomainName" PipelineParameter="PackageID" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DissociatePackage" OutputProperty="DomainPackageDetails" Verb="Start" Noun="DissociatePackage" ShouldProcessTarget="DomainName" PipelineParameter="PackageID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DissociatePackages" OutputProperty="DomainPackageDetailsList" Verb="Start" Noun="OSDissociatePackageList" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DissociatePackages" OutputProperty="DomainPackageDetailsList" Verb="Start" Noun="OSDissociatePackageList" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApplication" OutputProperty="*" Verb="Get" Noun="Application" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetApplication" OutputProperty="*" Verb="Get" Noun="Application" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCompatibleVersions" OutputProperty="CompatibleVersions" Verb="Get" Noun="CompatibleVersion" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetCompatibleVersions" OutputProperty="CompatibleVersions" Verb="Get" Noun="CompatibleVersion" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataSource" OutputProperty="*" Verb="Get" Noun="DataSource" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDataSource" OutputProperty="*" Verb="Get" Noun="DataSource" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDirectQueryDataSource" OutputProperty="*" Verb="Get" Noun="DirectQueryDataSource" PipelineParameter="DataSourceName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDirectQueryDataSource" OutputProperty="*" Verb="Get" Noun="DirectQueryDataSource" PipelineParameter="DataSourceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDomainMaintenanceStatus" OutputProperty="*" Verb="Get" Noun="DomainMaintenanceStatus" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDomainMaintenanceStatus" OutputProperty="*" Verb="Get" Noun="DomainMaintenanceStatus" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPackageVersionHistory" OutputProperty="*" Verb="Get" Noun="PackageVersionHistory" PipelineParameter="PackageID" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPackageVersionHistory" OutputProperty="*" Verb="Get" Noun="PackageVersionHistory" PipelineParameter="PackageID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUpgradeHistory" OutputProperty="UpgradeHistories" Verb="Get" Noun="UpgradeHistory" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetUpgradeHistory" OutputProperty="UpgradeHistories" Verb="Get" Noun="UpgradeHistory" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUpgradeStatus" OutputProperty="*" Verb="Get" Noun="UpgradeStatus" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetUpgradeStatus" OutputProperty="*" Verb="Get" Noun="UpgradeStatus" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplications" OutputProperty="ApplicationSummaries" Verb="Get" Noun="ApplicationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListApplications" OutputProperty="ApplicationSummaries" Verb="Get" Noun="ApplicationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataSources" OutputProperty="DataSources" Verb="Get" Noun="DataSourceList" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDataSources" OutputProperty="DataSources" Verb="Get" Noun="DataSourceList" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDirectQueryDataSources" OutputProperty="DirectQueryDataSources" Verb="Get" Noun="DirectQueryDataSourceList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDirectQueryDataSources" OutputProperty="DirectQueryDataSources" Verb="Get" Noun="DirectQueryDataSourceList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomainMaintenances" OutputProperty="DomainMaintenances" Verb="Get" Noun="DomainMaintenanceList" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDomainMaintenances" OutputProperty="DomainMaintenances" Verb="Get" Noun="DomainMaintenanceList" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomainNames" OutputProperty="DomainNames" Verb="Get" Noun="DomainNameList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDomainNames" OutputProperty="DomainNames" Verb="Get" Noun="DomainNameList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomainsForPackage" OutputProperty="DomainPackageDetailsList" Verb="Get" Noun="DomainsForPackageList" PipelineParameter="PackageID" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDomainsForPackage" OutputProperty="DomainPackageDetailsList" Verb="Get" Noun="DomainsForPackageList" PipelineParameter="PackageID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInstanceTypeDetails" OutputProperty="InstanceTypeDetails" Verb="Get" Noun="InstanceTypeDetailList" PipelineParameter="EngineVersion" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListInstanceTypeDetails" OutputProperty="InstanceTypeDetails" Verb="Get" Noun="InstanceTypeDetailList" PipelineParameter="EngineVersion" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPackagesForDomain" OutputProperty="DomainPackageDetailsList" Verb="Get" Noun="PackagesForDomainList" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPackagesForDomain" OutputProperty="DomainPackageDetailsList" Verb="Get" Noun="PackagesForDomainList" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListScheduledActions" OutputProperty="ScheduledActions" Verb="Get" Noun="ScheduledActionList" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListScheduledActions" OutputProperty="ScheduledActions" Verb="Get" Noun="ScheduledActionList" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ARN" NoPipelineParameter="false" LegacyAlias="Get-ESTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTags" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ARN" NoPipelineParameter="false" LegacyAlias="Get-ESTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVersions" OutputProperty="Versions" Verb="Get" Noun="VersionList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListVersions" OutputProperty="Versions" Verb="Get" Noun="VersionList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVpcEndpointAccess" OutputProperty="AuthorizedPrincipalList" Verb="Get" Noun="VpcEndpointAccessList" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListVpcEndpointAccess" OutputProperty="AuthorizedPrincipalList" Verb="Get" Noun="VpcEndpointAccessList" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVpcEndpoints" OutputProperty="VpcEndpointSummaryList" Verb="Get" Noun="VpcEndpointList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListVpcEndpoints" OutputProperty="VpcEndpointSummaryList" Verb="Get" Noun="VpcEndpointList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVpcEndpointsForDomain" OutputProperty="VpcEndpointSummaryList" Verb="Get" Noun="VpcEndpointsForDomainList" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListVpcEndpointsForDomain" OutputProperty="VpcEndpointSummaryList" Verb="Get" Noun="VpcEndpointsForDomainList" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PurchaseReservedInstanceOffering" OutputProperty="*" Verb="New" Noun="ReservedInstanceOffering" ShouldProcessTarget="ReservedInstanceOfferingId" PipelineParameter="ReservedInstanceOfferingId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PurchaseReservedInstanceOffering" OutputProperty="*" Verb="New" Noun="ReservedInstanceOffering" ShouldProcessTarget="ReservedInstanceOfferingId" PipelineParameter="ReservedInstanceOfferingId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RejectInboundConnection" OutputProperty="Connection" Verb="Deny" Noun="InboundConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RejectInboundConnection" OutputProperty="Connection" Verb="Deny" Noun="InboundConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ARN" PipelineParameter="TagKeys" NoPipelineParameter="false" LegacyAlias="Remove-ESTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ARN" PipelineParameter="TagKeys" NoPipelineParameter="false" LegacyAlias="Remove-ESTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RevokeVpcEndpointAccess" Verb="Revoke" Noun="VpcEndpointAccess" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RevokeVpcEndpointAccess" Verb="Revoke" Noun="VpcEndpointAccess" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDomainMaintenance" OutputProperty="MaintenanceId" Verb="Start" Noun="DomainMaintenance" ShouldProcessTarget="DomainName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartDomainMaintenance" OutputProperty="MaintenanceId" Verb="Start" Noun="DomainMaintenance" ShouldProcessTarget="DomainName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartServiceSoftwareUpdate" OutputProperty="ServiceSoftwareOptions" Verb="Start" Noun="ServiceSoftwareUpdate" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartServiceSoftwareUpdate" OutputProperty="ServiceSoftwareOptions" Verb="Start" Noun="ServiceSoftwareUpdate" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApplication" OutputProperty="*" Verb="Update" Noun="Application" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateApplication" OutputProperty="*" Verb="Update" Noun="Application" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataSource" OutputProperty="Message" Verb="Update" Noun="DataSource" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDataSource" OutputProperty="Message" Verb="Update" Noun="DataSource" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDirectQueryDataSource" OutputProperty="DataSourceArn" Verb="Update" Noun="DirectQueryDataSource" ShouldProcessTarget="DataSourceName" PipelineParameter="DataSourceName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDirectQueryDataSource" OutputProperty="DataSourceArn" Verb="Update" Noun="DirectQueryDataSource" ShouldProcessTarget="DataSourceName" PipelineParameter="DataSourceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDomainConfig" OutputProperty="DomainConfig" Verb="Update" Noun="DomainConfig" ShouldProcessTarget="DomainName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDomainConfig" OutputProperty="DomainConfig" Verb="Update" Noun="DomainConfig" ShouldProcessTarget="DomainName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePackage" OutputProperty="PackageDetails" Verb="Update" Noun="Package" ShouldProcessTarget="PackageSource_S3BucketName" PipelineParameter="PackageID" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdatePackage" OutputProperty="PackageDetails" Verb="Update" Noun="Package" ShouldProcessTarget="PackageSource_S3BucketName" PipelineParameter="PackageID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePackageScope" OutputProperty="*" Verb="Update" Noun="OSPackageScope" ShouldProcessTarget="PackageID" PipelineParameter="PackageID" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdatePackageScope" OutputProperty="*" Verb="Update" Noun="OSPackageScope" ShouldProcessTarget="PackageID" PipelineParameter="PackageID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateScheduledAction" OutputProperty="ScheduledAction" Verb="Update" Noun="ScheduledAction" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateScheduledAction" OutputProperty="ScheduledAction" Verb="Update" Noun="ScheduledAction" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateVpcEndpoint" OutputProperty="VpcEndpoint" Verb="Update" Noun="VpcEndpoint" ShouldProcessTarget="VpcEndpointId" PipelineParameter="VpcEndpointId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateVpcEndpoint" OutputProperty="VpcEndpoint" Verb="Update" Noun="VpcEndpoint" ShouldProcessTarget="VpcEndpointId" PipelineParameter="VpcEndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpgradeDomain" OutputProperty="*" Verb="Update" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="TargetVersion" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpgradeDomain" OutputProperty="*" Verb="Update" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="TargetVersion" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

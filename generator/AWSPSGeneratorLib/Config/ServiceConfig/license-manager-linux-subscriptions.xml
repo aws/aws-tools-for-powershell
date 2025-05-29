@@ -20,47 +20,47 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DeregisterSubscriptionProvider" Verb="Remove" Noun="SubscriptionProvider" ShouldProcessTarget="SubscriptionProviderArn" PipelineParameter="SubscriptionProviderArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeregisterSubscriptionProvider" Verb="Remove" Noun="SubscriptionProvider" ShouldProcessTarget="SubscriptionProviderArn" PipelineParameter="SubscriptionProviderArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRegisteredSubscriptionProvider" OutputProperty="*" Verb="Get" Noun="RegisteredSubscriptionProvider" PipelineParameter="SubscriptionProviderArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetRegisteredSubscriptionProvider" OutputProperty="*" Verb="Get" Noun="RegisteredSubscriptionProvider" PipelineParameter="SubscriptionProviderArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetServiceSettings" OutputProperty="*" Verb="Get" Noun="ServiceSetting" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetServiceSettings" OutputProperty="*" Verb="Get" Noun="ServiceSetting" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLinuxSubscriptionInstances" OutputProperty="Instances" Verb="Get" Noun="LinuxSubscriptionInstanceList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLinuxSubscriptionInstances" OutputProperty="Instances" Verb="Get" Noun="LinuxSubscriptionInstanceList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLinuxSubscriptions" OutputProperty="Subscriptions" Verb="Get" Noun="LinuxSubscriptionList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLinuxSubscriptions" OutputProperty="Subscriptions" Verb="Get" Noun="LinuxSubscriptionList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRegisteredSubscriptionProviders" OutputProperty="RegisteredSubscriptionProviders" Verb="Get" Noun="RegisteredSubscriptionProviderList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRegisteredSubscriptionProviders" OutputProperty="RegisteredSubscriptionProviders" Verb="Get" Noun="RegisteredSubscriptionProviderList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterSubscriptionProvider" OutputProperty="*" Verb="Register" Noun="SubscriptionProvider" ShouldProcessTarget="SecretArn" PipelineParameter="SecretArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RegisterSubscriptionProvider" OutputProperty="*" Verb="Register" Noun="SubscriptionProvider" ShouldProcessTarget="SecretArn" PipelineParameter="SecretArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateServiceSettings" OutputProperty="*" Verb="Update" Noun="ServiceSetting" ShouldProcessTarget="LinuxSubscriptionsDiscovery" PipelineParameter="LinuxSubscriptionsDiscovery" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateServiceSettings" OutputProperty="*" Verb="Update" Noun="ServiceSetting" ShouldProcessTarget="LinuxSubscriptionsDiscovery" PipelineParameter="LinuxSubscriptionsDiscovery" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

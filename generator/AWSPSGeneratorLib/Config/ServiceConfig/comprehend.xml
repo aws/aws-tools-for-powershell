@@ -19,343 +19,343 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchDetectDominantLanguage" OutputProperty="*" Verb="Find" Noun="DominantLanguageBatch" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchDetectDominantLanguage" OutputProperty="*" Verb="Find" Noun="DominantLanguageBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDetectEntities" OutputProperty="*" Verb="Find" Noun="EntityBatch" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchDetectEntities" OutputProperty="*" Verb="Find" Noun="EntityBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDetectKeyPhrases" OutputProperty="*" Verb="Find" Noun="KeyPhrasesBatch" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchDetectKeyPhrases" OutputProperty="*" Verb="Find" Noun="KeyPhrasesBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDetectSentiment" OutputProperty="*" Verb="Find" Noun="SentimentBatch" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchDetectSentiment" OutputProperty="*" Verb="Find" Noun="SentimentBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDetectSyntax" OutputProperty="*" Verb="Find" Noun="SyntaxBatch" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchDetectSyntax" OutputProperty="*" Verb="Find" Noun="SyntaxBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDetectTargetedSentiment" OutputProperty="*" Verb="Find" Noun="TargetedSentimentBatch" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchDetectTargetedSentiment" OutputProperty="*" Verb="Find" Noun="TargetedSentimentBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ClassifyDocument" OutputProperty="Classes" Verb="Invoke" Noun="DocumentClassification" ShouldProcessTarget="EndpointArn" PipelineParameter="Text" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ClassifyDocument" OutputProperty="Classes" Verb="Invoke" Noun="DocumentClassification" ShouldProcessTarget="EndpointArn" PipelineParameter="Text" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ContainsPiiEntities" OutputProperty="Labels" Verb="Find" Noun="PiiEntityType" PipelineParameter="Text" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ContainsPiiEntities" OutputProperty="Labels" Verb="Find" Noun="PiiEntityType" PipelineParameter="Text" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataset" OutputProperty="DatasetArn" Verb="New" Noun="Dataset" AnonymousShouldProcessTarget="true" PipelineParameter="FlywheelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDataset" OutputProperty="DatasetArn" Verb="New" Noun="Dataset" AnonymousShouldProcessTarget="true" PipelineParameter="FlywheelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDocumentClassifier" OutputProperty="DocumentClassifierArn" Verb="New" Noun="DocumentClassifier" ShouldProcessTarget="DocumentClassifierName" PipelineParameter="DocumentClassifierName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDocumentClassifier" OutputProperty="DocumentClassifierArn" Verb="New" Noun="DocumentClassifier" ShouldProcessTarget="DocumentClassifierName" PipelineParameter="DocumentClassifierName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEndpoint" OutputProperty="EndpointArn" Verb="New" Noun="Endpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateEndpoint" OutputProperty="EndpointArn" Verb="New" Noun="Endpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEntityRecognizer" OutputProperty="EntityRecognizerArn" Verb="New" Noun="EntityRecognizer" ShouldProcessTarget="RecognizerName" PipelineParameter="RecognizerName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateEntityRecognizer" OutputProperty="EntityRecognizerArn" Verb="New" Noun="EntityRecognizer" ShouldProcessTarget="RecognizerName" PipelineParameter="RecognizerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFlywheel" OutputProperty="*" Verb="New" Noun="Flywheel" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateFlywheel" OutputProperty="*" Verb="New" Noun="Flywheel" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDocumentClassifier" Verb="Remove" Noun="DocumentClassifier" ShouldProcessTarget="DocumentClassifierArn" PipelineParameter="DocumentClassifierArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDocumentClassifier" Verb="Remove" Noun="DocumentClassifier" ShouldProcessTarget="DocumentClassifierArn" PipelineParameter="DocumentClassifierArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEndpoint" Verb="Remove" Noun="Endpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteEndpoint" Verb="Remove" Noun="Endpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEntityRecognizer" Verb="Remove" Noun="EntityRecognizer" ShouldProcessTarget="EntityRecognizerArn" PipelineParameter="EntityRecognizerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteEntityRecognizer" Verb="Remove" Noun="EntityRecognizer" ShouldProcessTarget="EntityRecognizerArn" PipelineParameter="EntityRecognizerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFlywheel" Verb="Remove" Noun="Flywheel" ShouldProcessTarget="FlywheelArn" PipelineParameter="FlywheelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteFlywheel" Verb="Remove" Noun="Flywheel" ShouldProcessTarget="FlywheelArn" PipelineParameter="FlywheelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDataset" OutputProperty="DatasetProperties" Verb="Get" Noun="Dataset" PipelineParameter="DatasetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDataset" OutputProperty="DatasetProperties" Verb="Get" Noun="Dataset" PipelineParameter="DatasetArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDocumentClassificationJob" OutputProperty="DocumentClassificationJobProperties" Verb="Get" Noun="DocumentClassificationJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDocumentClassificationJob" OutputProperty="DocumentClassificationJobProperties" Verb="Get" Noun="DocumentClassificationJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDocumentClassifier" OutputProperty="DocumentClassifierProperties" Verb="Get" Noun="DocumentClassifier" PipelineParameter="DocumentClassifierArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDocumentClassifier" OutputProperty="DocumentClassifierProperties" Verb="Get" Noun="DocumentClassifier" PipelineParameter="DocumentClassifierArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDominantLanguageDetectionJob" OutputProperty="DominantLanguageDetectionJobProperties" Verb="Get" Noun="DominantLanguageDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDominantLanguageDetectionJob" OutputProperty="DominantLanguageDetectionJobProperties" Verb="Get" Noun="DominantLanguageDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEndpoint" OutputProperty="EndpointProperties" Verb="Get" Noun="Endpoint" PipelineParameter="EndpointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeEndpoint" OutputProperty="EndpointProperties" Verb="Get" Noun="Endpoint" PipelineParameter="EndpointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEntitiesDetectionJob" OutputProperty="EntitiesDetectionJobProperties" Verb="Get" Noun="EntitiesDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeEntitiesDetectionJob" OutputProperty="EntitiesDetectionJobProperties" Verb="Get" Noun="EntitiesDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEntityRecognizer" OutputProperty="EntityRecognizerProperties" Verb="Get" Noun="EntityRecognizer" PipelineParameter="EntityRecognizerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeEntityRecognizer" OutputProperty="EntityRecognizerProperties" Verb="Get" Noun="EntityRecognizer" PipelineParameter="EntityRecognizerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEventsDetectionJob" OutputProperty="EventsDetectionJobProperties" Verb="Get" Noun="EventsDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeEventsDetectionJob" OutputProperty="EventsDetectionJobProperties" Verb="Get" Noun="EventsDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFlywheel" OutputProperty="FlywheelProperties" Verb="Get" Noun="Flywheel" PipelineParameter="FlywheelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeFlywheel" OutputProperty="FlywheelProperties" Verb="Get" Noun="Flywheel" PipelineParameter="FlywheelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFlywheelIteration" OutputProperty="FlywheelIterationProperties" Verb="Get" Noun="FlywheelIteration" PipelineParameter="FlywheelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeFlywheelIteration" OutputProperty="FlywheelIterationProperties" Verb="Get" Noun="FlywheelIteration" PipelineParameter="FlywheelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeKeyPhrasesDetectionJob" OutputProperty="KeyPhrasesDetectionJobProperties" Verb="Get" Noun="KeyPhrasesDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeKeyPhrasesDetectionJob" OutputProperty="KeyPhrasesDetectionJobProperties" Verb="Get" Noun="KeyPhrasesDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePiiEntitiesDetectionJob" OutputProperty="PiiEntitiesDetectionJobProperties" Verb="Get" Noun="PiiEntitiesDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribePiiEntitiesDetectionJob" OutputProperty="PiiEntitiesDetectionJobProperties" Verb="Get" Noun="PiiEntitiesDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSentimentDetectionJob" OutputProperty="SentimentDetectionJobProperties" Verb="Get" Noun="SentimentDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSentimentDetectionJob" OutputProperty="SentimentDetectionJobProperties" Verb="Get" Noun="SentimentDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTargetedSentimentDetectionJob" OutputProperty="TargetedSentimentDetectionJobProperties" Verb="Get" Noun="TargetedSentimentDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTargetedSentimentDetectionJob" OutputProperty="TargetedSentimentDetectionJobProperties" Verb="Get" Noun="TargetedSentimentDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTopicsDetectionJob" OutputProperty="TopicsDetectionJobProperties" Verb="Get" Noun="TopicsDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTopicsDetectionJob" OutputProperty="TopicsDetectionJobProperties" Verb="Get" Noun="TopicsDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectDominantLanguage" OutputProperty="Languages" Verb="Find" Noun="DominantLanguage" PipelineParameter="Text" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DetectDominantLanguage" OutputProperty="Languages" Verb="Find" Noun="DominantLanguage" PipelineParameter="Text" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectEntities" OutputProperty="Entities" Verb="Find" Noun="Entity" PipelineParameter="Text" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DetectEntities" OutputProperty="Entities" Verb="Find" Noun="Entity" PipelineParameter="Text" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectKeyPhrases" OutputProperty="KeyPhrases" Verb="Find" Noun="KeyPhrase" PipelineParameter="Text" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DetectKeyPhrases" OutputProperty="KeyPhrases" Verb="Find" Noun="KeyPhrase" PipelineParameter="Text" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectPiiEntities" OutputProperty="Entities" Verb="Find" Noun="PiiEntity" PipelineParameter="Text" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DetectPiiEntities" OutputProperty="Entities" Verb="Find" Noun="PiiEntity" PipelineParameter="Text" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectSentiment" OutputProperty="*" Verb="Find" Noun="Sentiment" PipelineParameter="Text" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DetectSentiment" OutputProperty="*" Verb="Find" Noun="Sentiment" PipelineParameter="Text" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectSyntax" OutputProperty="SyntaxTokens" Verb="Find" Noun="Syntax" PipelineParameter="Text" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DetectSyntax" OutputProperty="SyntaxTokens" Verb="Find" Noun="Syntax" PipelineParameter="Text" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectTargetedSentiment" OutputProperty="Entities" Verb="Find" Noun="TargetedSentiment" PipelineParameter="Text" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DetectTargetedSentiment" OutputProperty="Entities" Verb="Find" Noun="TargetedSentiment" PipelineParameter="Text" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectToxicContent" OutputProperty="ResultList" Verb="Find" Noun="ToxicContent" PipelineParameter="LanguageCode" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DetectToxicContent" OutputProperty="ResultList" Verb="Find" Noun="ToxicContent" PipelineParameter="LanguageCode" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportModel" OutputProperty="ModelArn" Verb="Import" Noun="Model" ShouldProcessTarget="SourceModelArn" PipelineParameter="SourceModelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportModel" OutputProperty="ModelArn" Verb="Import" Noun="Model" ShouldProcessTarget="SourceModelArn" PipelineParameter="SourceModelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasets" OutputProperty="DatasetPropertiesList" Verb="Get" Noun="DatasetList" PipelineParameter="FlywheelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDatasets" OutputProperty="DatasetPropertiesList" Verb="Get" Noun="DatasetList" PipelineParameter="FlywheelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDocumentClassificationJobs" OutputProperty="DocumentClassificationJobPropertiesList" Verb="Get" Noun="DocumentClassificationJobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDocumentClassificationJobs" OutputProperty="DocumentClassificationJobPropertiesList" Verb="Get" Noun="DocumentClassificationJobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDocumentClassifiers" OutputProperty="DocumentClassifierPropertiesList" Verb="Get" Noun="DocumentClassifierList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDocumentClassifiers" OutputProperty="DocumentClassifierPropertiesList" Verb="Get" Noun="DocumentClassifierList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDocumentClassifierSummaries" OutputProperty="DocumentClassifierSummariesList" Verb="Get" Noun="DocumentClassifierSummaryList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDocumentClassifierSummaries" OutputProperty="DocumentClassifierSummariesList" Verb="Get" Noun="DocumentClassifierSummaryList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDominantLanguageDetectionJobs" OutputProperty="DominantLanguageDetectionJobPropertiesList" Verb="Get" Noun="DominantLanguageDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDominantLanguageDetectionJobs" OutputProperty="DominantLanguageDetectionJobPropertiesList" Verb="Get" Noun="DominantLanguageDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEndpoints" OutputProperty="EndpointPropertiesList" Verb="Get" Noun="EndpointList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEndpoints" OutputProperty="EndpointPropertiesList" Verb="Get" Noun="EndpointList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEntitiesDetectionJobs" OutputProperty="EntitiesDetectionJobPropertiesList" Verb="Get" Noun="EntitiesDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEntitiesDetectionJobs" OutputProperty="EntitiesDetectionJobPropertiesList" Verb="Get" Noun="EntitiesDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEntityRecognizers" OutputProperty="EntityRecognizerPropertiesList" Verb="Get" Noun="EntityRecognizerList" PipelineParameter="Filter_Status" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEntityRecognizers" OutputProperty="EntityRecognizerPropertiesList" Verb="Get" Noun="EntityRecognizerList" PipelineParameter="Filter_Status" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEntityRecognizerSummaries" OutputProperty="EntityRecognizerSummariesList" Verb="Get" Noun="EntityRecognizerSummaryList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEntityRecognizerSummaries" OutputProperty="EntityRecognizerSummariesList" Verb="Get" Noun="EntityRecognizerSummaryList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEventsDetectionJobs" OutputProperty="EventsDetectionJobPropertiesList" Verb="Get" Noun="EventsDetectionJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEventsDetectionJobs" OutputProperty="EventsDetectionJobPropertiesList" Verb="Get" Noun="EventsDetectionJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFlywheelIterationHistory" OutputProperty="FlywheelIterationPropertiesList" Verb="Get" Noun="FlywheelIterationHistoryList" PipelineParameter="FlywheelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFlywheelIterationHistory" OutputProperty="FlywheelIterationPropertiesList" Verb="Get" Noun="FlywheelIterationHistoryList" PipelineParameter="FlywheelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFlywheels" OutputProperty="FlywheelSummaryList" Verb="Get" Noun="FlywheelList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFlywheels" OutputProperty="FlywheelSummaryList" Verb="Get" Noun="FlywheelList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKeyPhrasesDetectionJobs" OutputProperty="KeyPhrasesDetectionJobPropertiesList" Verb="Get" Noun="KeyPhrasesDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListKeyPhrasesDetectionJobs" OutputProperty="KeyPhrasesDetectionJobPropertiesList" Verb="Get" Noun="KeyPhrasesDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPiiEntitiesDetectionJobs" OutputProperty="PiiEntitiesDetectionJobPropertiesList" Verb="Get" Noun="PiiEntitiesDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPiiEntitiesDetectionJobs" OutputProperty="PiiEntitiesDetectionJobPropertiesList" Verb="Get" Noun="PiiEntitiesDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSentimentDetectionJobs" OutputProperty="SentimentDetectionJobPropertiesList" Verb="Get" Noun="SentimentDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSentimentDetectionJobs" OutputProperty="SentimentDetectionJobPropertiesList" Verb="Get" Noun="SentimentDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTargetedSentimentDetectionJobs" OutputProperty="TargetedSentimentDetectionJobPropertiesList" Verb="Get" Noun="TargetedSentimentDetectionJobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTargetedSentimentDetectionJobs" OutputProperty="TargetedSentimentDetectionJobPropertiesList" Verb="Get" Noun="TargetedSentimentDetectionJobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTopicsDetectionJobs" OutputProperty="TopicsDetectionJobPropertiesList" Verb="Get" Noun="TopicsDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTopicsDetectionJobs" OutputProperty="TopicsDetectionJobPropertiesList" Verb="Get" Noun="TopicsDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="PolicyRevisionId" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="PolicyRevisionId" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDocumentClassificationJob" OutputProperty="*" Verb="Start" Noun="DocumentClassificationJob" ShouldProcessTarget="DocumentClassifierArn" PipelineParameter="DocumentClassifierArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartDocumentClassificationJob" OutputProperty="*" Verb="Start" Noun="DocumentClassificationJob" ShouldProcessTarget="DocumentClassifierArn" PipelineParameter="DocumentClassifierArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDominantLanguageDetectionJob" OutputProperty="*" Verb="Start" Noun="DominantLanguageDetectionJob" AnonymousShouldProcessTarget="true" PipelineParameter="InputDataConfig" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartDominantLanguageDetectionJob" OutputProperty="*" Verb="Start" Noun="DominantLanguageDetectionJob" AnonymousShouldProcessTarget="true" PipelineParameter="InputDataConfig" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartEntitiesDetectionJob" OutputProperty="*" Verb="Start" Noun="EntitiesDetectionJob" AnonymousShouldProcessTarget="true" PipelineParameter="InputDataConfig" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartEntitiesDetectionJob" OutputProperty="*" Verb="Start" Noun="EntitiesDetectionJob" AnonymousShouldProcessTarget="true" PipelineParameter="InputDataConfig" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartEventsDetectionJob" OutputProperty="*" Verb="Start" Noun="EventsDetectionJob" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartEventsDetectionJob" OutputProperty="*" Verb="Start" Noun="EventsDetectionJob" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartFlywheelIteration" OutputProperty="*" Verb="Start" Noun="FlywheelIteration" ShouldProcessTarget="FlywheelArn" PipelineParameter="FlywheelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartFlywheelIteration" OutputProperty="*" Verb="Start" Noun="FlywheelIteration" ShouldProcessTarget="FlywheelArn" PipelineParameter="FlywheelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartKeyPhrasesDetectionJob" OutputProperty="*" Verb="Start" Noun="KeyPhrasesDetectionJob" AnonymousShouldProcessTarget="true" PipelineParameter="InputDataConfig" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartKeyPhrasesDetectionJob" OutputProperty="*" Verb="Start" Noun="KeyPhrasesDetectionJob" AnonymousShouldProcessTarget="true" PipelineParameter="InputDataConfig" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartPiiEntitiesDetectionJob" OutputProperty="*" Verb="Start" Noun="PiiEntitiesDetectionJob" AnonymousShouldProcessTarget="true" PipelineParameter="InputDataConfig" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartPiiEntitiesDetectionJob" OutputProperty="*" Verb="Start" Noun="PiiEntitiesDetectionJob" AnonymousShouldProcessTarget="true" PipelineParameter="InputDataConfig" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSentimentDetectionJob" OutputProperty="*" Verb="Start" Noun="SentimentDetectionJob" AnonymousShouldProcessTarget="true" PipelineParameter="InputDataConfig" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartSentimentDetectionJob" OutputProperty="*" Verb="Start" Noun="SentimentDetectionJob" AnonymousShouldProcessTarget="true" PipelineParameter="InputDataConfig" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartTargetedSentimentDetectionJob" OutputProperty="*" Verb="Start" Noun="TargetedSentimentDetectionJob" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="InputDataConfig" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartTargetedSentimentDetectionJob" OutputProperty="*" Verb="Start" Noun="TargetedSentimentDetectionJob" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="InputDataConfig" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartTopicsDetectionJob" OutputProperty="*" Verb="Start" Noun="TopicsDetectionJob" AnonymousShouldProcessTarget="true" PipelineParameter="InputDataConfig" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartTopicsDetectionJob" OutputProperty="*" Verb="Start" Noun="TopicsDetectionJob" AnonymousShouldProcessTarget="true" PipelineParameter="InputDataConfig" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopDominantLanguageDetectionJob" OutputProperty="*" Verb="Stop" Noun="DominantLanguageDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopDominantLanguageDetectionJob" OutputProperty="*" Verb="Stop" Noun="DominantLanguageDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopEntitiesDetectionJob" OutputProperty="*" Verb="Stop" Noun="EntitiesDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopEntitiesDetectionJob" OutputProperty="*" Verb="Stop" Noun="EntitiesDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopEventsDetectionJob" OutputProperty="*" Verb="Stop" Noun="EventsDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopEventsDetectionJob" OutputProperty="*" Verb="Stop" Noun="EventsDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopKeyPhrasesDetectionJob" OutputProperty="*" Verb="Stop" Noun="KeyPhrasesDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopKeyPhrasesDetectionJob" OutputProperty="*" Verb="Stop" Noun="KeyPhrasesDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopPiiEntitiesDetectionJob" OutputProperty="*" Verb="Stop" Noun="PiiEntitiesDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopPiiEntitiesDetectionJob" OutputProperty="*" Verb="Stop" Noun="PiiEntitiesDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopSentimentDetectionJob" OutputProperty="*" Verb="Stop" Noun="SentimentDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopSentimentDetectionJob" OutputProperty="*" Verb="Stop" Noun="SentimentDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopTargetedSentimentDetectionJob" OutputProperty="*" Verb="Stop" Noun="TargetedSentimentDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopTargetedSentimentDetectionJob" OutputProperty="*" Verb="Stop" Noun="TargetedSentimentDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopTrainingDocumentClassifier" Verb="Stop" Noun="TrainingDocumentClassifier" ShouldProcessTarget="DocumentClassifierArn" PipelineParameter="DocumentClassifierArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopTrainingDocumentClassifier" Verb="Stop" Noun="TrainingDocumentClassifier" ShouldProcessTarget="DocumentClassifierArn" PipelineParameter="DocumentClassifierArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopTrainingEntityRecognizer" Verb="Stop" Noun="TrainingEntityRecognizer" ShouldProcessTarget="EntityRecognizerArn" PipelineParameter="EntityRecognizerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopTrainingEntityRecognizer" Verb="Stop" Noun="TrainingEntityRecognizer" ShouldProcessTarget="EntityRecognizerArn" PipelineParameter="EntityRecognizerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEndpoint" OutputProperty="*" Verb="Update" Noun="Endpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateEndpoint" OutputProperty="*" Verb="Update" Noun="Endpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFlywheel" OutputProperty="FlywheelProperties" Verb="Update" Noun="Flywheel" ShouldProcessTarget="FlywheelArn" PipelineParameter="FlywheelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateFlywheel" OutputProperty="FlywheelProperties" Verb="Update" Noun="Flywheel" ShouldProcessTarget="FlywheelArn" PipelineParameter="FlywheelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

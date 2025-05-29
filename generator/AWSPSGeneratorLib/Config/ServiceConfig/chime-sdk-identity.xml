@@ -18,123 +18,123 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateAppInstance" OutputProperty="AppInstanceArn" Verb="New" Noun="AppInstance" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAppInstance" OutputProperty="AppInstanceArn" Verb="New" Noun="AppInstance" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAppInstanceAdmin" OutputProperty="*" Verb="New" Noun="AppInstanceAdmin" ShouldProcessTarget="AppInstanceAdminArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAppInstanceAdmin" OutputProperty="*" Verb="New" Noun="AppInstanceAdmin" ShouldProcessTarget="AppInstanceAdminArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAppInstanceBot" OutputProperty="AppInstanceBotArn" Verb="New" Noun="AppInstanceBot" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAppInstanceBot" OutputProperty="AppInstanceBotArn" Verb="New" Noun="AppInstanceBot" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAppInstanceUser" OutputProperty="AppInstanceUserArn" Verb="New" Noun="AppInstanceUser" ShouldProcessTarget="AppInstanceUserId" PipelineParameter="AppInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAppInstanceUser" OutputProperty="AppInstanceUserArn" Verb="New" Noun="AppInstanceUser" ShouldProcessTarget="AppInstanceUserId" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAppInstance" Verb="Remove" Noun="AppInstance" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAppInstance" Verb="Remove" Noun="AppInstance" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAppInstanceAdmin" Verb="Remove" Noun="AppInstanceAdmin" ShouldProcessTarget="AppInstanceAdminArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAppInstanceAdmin" Verb="Remove" Noun="AppInstanceAdmin" ShouldProcessTarget="AppInstanceAdminArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAppInstanceBot" Verb="Remove" Noun="AppInstanceBot" ShouldProcessTarget="AppInstanceBotArn" PipelineParameter="AppInstanceBotArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAppInstanceBot" Verb="Remove" Noun="AppInstanceBot" ShouldProcessTarget="AppInstanceBotArn" PipelineParameter="AppInstanceBotArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAppInstanceUser" Verb="Remove" Noun="AppInstanceUser" ShouldProcessTarget="AppInstanceUserArn" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAppInstanceUser" Verb="Remove" Noun="AppInstanceUser" ShouldProcessTarget="AppInstanceUserArn" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterAppInstanceUserEndpoint" Verb="Unregister" Noun="AppInstanceUserEndpoint" ShouldProcessTarget="EndpointId" PipelineParameter="EndpointId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeregisterAppInstanceUserEndpoint" Verb="Unregister" Noun="AppInstanceUserEndpoint" ShouldProcessTarget="EndpointId" PipelineParameter="EndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAppInstance" OutputProperty="AppInstance" Verb="Get" Noun="AppInstance" PipelineParameter="AppInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAppInstance" OutputProperty="AppInstance" Verb="Get" Noun="AppInstance" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAppInstanceAdmin" OutputProperty="AppInstanceAdmin" Verb="Get" Noun="AppInstanceAdmin" PipelineParameter="AppInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAppInstanceAdmin" OutputProperty="AppInstanceAdmin" Verb="Get" Noun="AppInstanceAdmin" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAppInstanceBot" OutputProperty="AppInstanceBot" Verb="Get" Noun="AppInstanceBot" PipelineParameter="AppInstanceBotArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAppInstanceBot" OutputProperty="AppInstanceBot" Verb="Get" Noun="AppInstanceBot" PipelineParameter="AppInstanceBotArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAppInstanceUser" OutputProperty="AppInstanceUser" Verb="Get" Noun="AppInstanceUser" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAppInstanceUser" OutputProperty="AppInstanceUser" Verb="Get" Noun="AppInstanceUser" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAppInstanceUserEndpoint" OutputProperty="AppInstanceUserEndpoint" Verb="Get" Noun="AppInstanceUserEndpoint" PipelineParameter="EndpointId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAppInstanceUserEndpoint" OutputProperty="AppInstanceUserEndpoint" Verb="Get" Noun="AppInstanceUserEndpoint" PipelineParameter="EndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAppInstanceRetentionSettings" OutputProperty="*" Verb="Get" Noun="AppInstanceRetentionSetting" PipelineParameter="AppInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAppInstanceRetentionSettings" OutputProperty="*" Verb="Get" Noun="AppInstanceRetentionSetting" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAppInstanceAdmins" OutputProperty="*" Verb="Get" Noun="AppInstanceAdminList" PipelineParameter="AppInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAppInstanceAdmins" OutputProperty="*" Verb="Get" Noun="AppInstanceAdminList" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAppInstanceBots" OutputProperty="*" Verb="Get" Noun="AppInstanceBotList" PipelineParameter="AppInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAppInstanceBots" OutputProperty="*" Verb="Get" Noun="AppInstanceBotList" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAppInstances" OutputProperty="AppInstances" Verb="Get" Noun="AppInstanceList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAppInstances" OutputProperty="AppInstances" Verb="Get" Noun="AppInstanceList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAppInstanceUserEndpoints" OutputProperty="AppInstanceUserEndpoints" Verb="Get" Noun="AppInstanceUserEndpointList" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAppInstanceUserEndpoints" OutputProperty="AppInstanceUserEndpoints" Verb="Get" Noun="AppInstanceUserEndpointList" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAppInstanceUsers" OutputProperty="*" Verb="Get" Noun="AppInstanceUserList" PipelineParameter="AppInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAppInstanceUsers" OutputProperty="*" Verb="Get" Noun="AppInstanceUserList" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAppInstanceRetentionSettings" OutputProperty="*" Verb="Write" Noun="AppInstanceRetentionSetting" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutAppInstanceRetentionSettings" OutputProperty="*" Verb="Write" Noun="AppInstanceRetentionSetting" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAppInstanceUserExpirationSettings" OutputProperty="*" Verb="Write" Noun="AppInstanceUserExpirationSetting" ShouldProcessTarget="AppInstanceUserArn" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutAppInstanceUserExpirationSettings" OutputProperty="*" Verb="Write" Noun="AppInstanceUserExpirationSetting" ShouldProcessTarget="AppInstanceUserArn" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterAppInstanceUserEndpoint" OutputProperty="*" Verb="Register" Noun="AppInstanceUserEndpoint" ShouldProcessTarget="ResourceArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RegisterAppInstanceUserEndpoint" OutputProperty="*" Verb="Register" Noun="AppInstanceUserEndpoint" ShouldProcessTarget="ResourceArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAppInstance" OutputProperty="AppInstanceArn" Verb="Update" Noun="AppInstance" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateAppInstance" OutputProperty="AppInstanceArn" Verb="Update" Noun="AppInstance" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAppInstanceBot" OutputProperty="AppInstanceBotArn" Verb="Update" Noun="AppInstanceBot" ShouldProcessTarget="AppInstanceBotArn" PipelineParameter="AppInstanceBotArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateAppInstanceBot" OutputProperty="AppInstanceBotArn" Verb="Update" Noun="AppInstanceBot" ShouldProcessTarget="AppInstanceBotArn" PipelineParameter="AppInstanceBotArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAppInstanceUser" OutputProperty="AppInstanceUserArn" Verb="Update" Noun="AppInstanceUser" ShouldProcessTarget="AppInstanceUserArn" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateAppInstanceUser" OutputProperty="AppInstanceUserArn" Verb="Update" Noun="AppInstanceUser" ShouldProcessTarget="AppInstanceUserArn" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAppInstanceUserEndpoint" OutputProperty="*" Verb="Update" Noun="AppInstanceUserEndpoint" ShouldProcessTarget="EndpointId" PipelineParameter="EndpointId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateAppInstanceUserEndpoint" OutputProperty="*" Verb="Update" Noun="AppInstanceUserEndpoint" ShouldProcessTarget="EndpointId" PipelineParameter="EndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

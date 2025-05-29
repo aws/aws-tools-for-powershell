@@ -19,105 +19,105 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelTagSyncTask" Verb="Stop" Noun="TagSyncTask" ShouldProcessTarget="TaskArn" PipelineParameter="TaskArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelTagSyncTask" Verb="Stop" Noun="TagSyncTask" ShouldProcessTarget="TaskArn" PipelineParameter="TaskArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGroup" OutputProperty="*" Verb="New" Noun="Group" ShouldProcessTarget="Name" PipelineParameter="ResourceQuery" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateGroup" OutputProperty="*" Verb="New" Noun="Group" ShouldProcessTarget="Name" PipelineParameter="ResourceQuery" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGroup" OutputProperty="Group" Verb="Remove" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteGroup" OutputProperty="Group" Verb="Remove" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
             <Params>
                 <Param Name="GroupName" Alias="Name" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccountSettings" OutputProperty="AccountSettings" Verb="Get" Noun="AccountSetting" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAccountSettings" OutputProperty="AccountSettings" Verb="Get" Noun="AccountSetting" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGroup" OutputProperty="Group" Verb="Get" Noun="Group" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetGroup" OutputProperty="Group" Verb="Get" Noun="Group" PipelineParameter="GroupName" NoPipelineParameter="false">
             <Params>
                 <Param Name="GroupName" Alias="Name" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGroupConfiguration" OutputProperty="*" Verb="Get" Noun="GroupConfiguration" PipelineParameter="Group" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetGroupConfiguration" OutputProperty="*" Verb="Get" Noun="GroupConfiguration" PipelineParameter="Group" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGroupQuery" OutputProperty="GroupQuery" Verb="Get" Noun="GroupQuery" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetGroupQuery" OutputProperty="GroupQuery" Verb="Get" Noun="GroupQuery" PipelineParameter="GroupName" NoPipelineParameter="false">
             <Params>
                 <Param Name="GroupName" Alias="Name" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTagSyncTask" OutputProperty="*" Verb="Get" Noun="TagSyncTask" PipelineParameter="TaskArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTagSyncTask" OutputProperty="*" Verb="Get" Noun="TagSyncTask" PipelineParameter="TaskArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GroupResources" OutputProperty="*" Verb="Add" Noun="Resource" ShouldProcessTarget="Group" PipelineParameter="Group" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GroupResources" OutputProperty="*" Verb="Add" Noun="Resource" ShouldProcessTarget="Group" PipelineParameter="Group" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroupingStatuses" OutputProperty="*" Verb="Get" Noun="GroupingStatusList" PipelineParameter="Group" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListGroupingStatuses" OutputProperty="*" Verb="Get" Noun="GroupingStatusList" PipelineParameter="Group" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroupResources" OutputProperty="*" Verb="Get" Noun="GroupResourceList" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListGroupResources" OutputProperty="*" Verb="Get" Noun="GroupResourceList" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params>
                 <Param Name="GroupName" Alias="Name" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroups" OutputProperty="GroupIdentifiers" Verb="Get" Noun="GroupList" PipelineParameter="Filters" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListGroups" OutputProperty="GroupIdentifiers" Verb="Get" Noun="GroupList" PipelineParameter="Filters" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagSyncTasks" OutputProperty="TagSyncTasks" Verb="Get" Noun="TagSyncTaskList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagSyncTasks" OutputProperty="TagSyncTasks" Verb="Get" Noun="TagSyncTaskList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutGroupConfiguration" Verb="Write" Noun="GroupConfiguration" ShouldProcessTarget="Group" PipelineParameter="Group" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutGroupConfiguration" Verb="Write" Noun="GroupConfiguration" ShouldProcessTarget="Group" PipelineParameter="Group" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchResources" OutputProperty="*" Verb="Find" Noun="Resource" PipelineParameter="ResourceQuery" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchResources" OutputProperty="*" Verb="Find" Noun="Resource" PipelineParameter="ResourceQuery" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartTagSyncTask" OutputProperty="*" Verb="Start" Noun="TagSyncTask" ShouldProcessTarget="RoleArn" PipelineParameter="Group" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartTagSyncTask" OutputProperty="*" Verb="Start" Noun="TagSyncTask" ShouldProcessTarget="RoleArn" PipelineParameter="Group" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Tag" OutputProperty="*" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Tags" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="Tag" OutputProperty="*" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Tags" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UngroupResources" OutputProperty="*" Verb="Remove" Noun="Resource" ShouldProcessTarget="Group" PipelineParameter="Group" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UngroupResources" OutputProperty="*" Verb="Remove" Noun="Resource" ShouldProcessTarget="Group" PipelineParameter="Group" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Untag" OutputProperty="*" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Keys" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="Untag" OutputProperty="*" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Keys" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAccountSettings" OutputProperty="AccountSettings" Verb="Update" Noun="AccountSetting" ShouldProcessTarget="GroupLifecycleEventsDesiredStatus" PipelineParameter="GroupLifecycleEventsDesiredStatus" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateAccountSettings" OutputProperty="AccountSettings" Verb="Update" Noun="AccountSetting" ShouldProcessTarget="GroupLifecycleEventsDesiredStatus" PipelineParameter="GroupLifecycleEventsDesiredStatus" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGroup" OutputProperty="Group" Verb="Update" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="Description" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateGroup" OutputProperty="Group" Verb="Update" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="Description" NoPipelineParameter="false">
             <Params>
                 <Param Name="GroupName" Alias="Name" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGroupQuery" OutputProperty="GroupQuery" Verb="Update" Noun="GroupQuery" ShouldProcessTarget="GroupName" PipelineParameter="ResourceQuery" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateGroupQuery" OutputProperty="GroupQuery" Verb="Update" Noun="GroupQuery" ShouldProcessTarget="GroupName" PipelineParameter="ResourceQuery" NoPipelineParameter="false">
             <Params>
                 <Param Name="GroupName" Alias="Name" />
             </Params>

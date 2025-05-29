@@ -18,107 +18,107 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelFlowExecutions" OutputProperty="InvalidExecutions" Verb="Stop" Noun="FlowExecution" ShouldProcessTarget="FlowName" PipelineParameter="FlowName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelFlowExecutions" OutputProperty="InvalidExecutions" Verb="Stop" Noun="FlowExecution" ShouldProcessTarget="FlowName" PipelineParameter="FlowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConnectorProfile" OutputProperty="ConnectorProfileArn" Verb="New" Noun="ConnectorProfile" ShouldProcessTarget="ConnectorProfileName" PipelineParameter="ConnectorProfileName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateConnectorProfile" OutputProperty="ConnectorProfileArn" Verb="New" Noun="ConnectorProfile" ShouldProcessTarget="ConnectorProfileName" PipelineParameter="ConnectorProfileName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten>
                 <Type>Amazon.Appflow.Model.ConnectorProfileConfig</Type>
             </TypesNotToFlatten>
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFlow" OutputProperty="FlowArn" Verb="New" Noun="Flow" ShouldProcessTarget="FlowName" PipelineParameter="FlowName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateFlow" OutputProperty="FlowArn" Verb="New" Noun="Flow" ShouldProcessTarget="FlowName" PipelineParameter="FlowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConnectorProfile" Verb="Remove" Noun="ConnectorProfile" ShouldProcessTarget="ConnectorProfileName" PipelineParameter="ConnectorProfileName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteConnectorProfile" Verb="Remove" Noun="ConnectorProfile" ShouldProcessTarget="ConnectorProfileName" PipelineParameter="ConnectorProfileName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFlow" Verb="Remove" Noun="Flow" ShouldProcessTarget="FlowName" PipelineParameter="FlowName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteFlow" Verb="Remove" Noun="Flow" ShouldProcessTarget="FlowName" PipelineParameter="FlowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConnector" OutputProperty="ConnectorConfiguration" Verb="Get" Noun="Connector" PipelineParameter="ConnectorType" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeConnector" OutputProperty="ConnectorConfiguration" Verb="Get" Noun="Connector" PipelineParameter="ConnectorType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConnectorEntity" OutputProperty="ConnectorEntityFields" Verb="Get" Noun="ConnectorEntity" PipelineParameter="ConnectorEntityName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeConnectorEntity" OutputProperty="ConnectorEntityFields" Verb="Get" Noun="ConnectorEntity" PipelineParameter="ConnectorEntityName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConnectorProfiles" OutputProperty="ConnectorProfileDetails" Verb="Get" Noun="ConnectorProfile" PipelineParameter="ConnectorType" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeConnectorProfiles" OutputProperty="ConnectorProfileDetails" Verb="Get" Noun="ConnectorProfile" PipelineParameter="ConnectorType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConnectors" OutputProperty="ConnectorConfigurations" Verb="Get" Noun="ConnectorConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeConnectors" OutputProperty="ConnectorConfigurations" Verb="Get" Noun="ConnectorConfigurationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFlow" OutputProperty="*" Verb="Get" Noun="Flow" PipelineParameter="FlowName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeFlow" OutputProperty="*" Verb="Get" Noun="Flow" PipelineParameter="FlowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFlowExecutionRecords" OutputProperty="FlowExecutions" Verb="Get" Noun="FlowExecutionRecord" PipelineParameter="FlowName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeFlowExecutionRecords" OutputProperty="FlowExecutions" Verb="Get" Noun="FlowExecutionRecord" PipelineParameter="FlowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConnectorEntities" OutputProperty="ConnectorEntityMap" Verb="Get" Noun="ConnectorEntityList" PipelineParameter="ConnectorProfileName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListConnectorEntities" OutputProperty="ConnectorEntityMap" Verb="Get" Noun="ConnectorEntityList" PipelineParameter="ConnectorProfileName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConnectors" OutputProperty="Connectors" Verb="Get" Noun="ConnectorList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListConnectors" OutputProperty="Connectors" Verb="Get" Noun="ConnectorList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFlows" OutputProperty="Flows" Verb="Get" Noun="FlowList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFlows" OutputProperty="Flows" Verb="Get" Noun="FlowList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterConnector" OutputProperty="ConnectorArn" Verb="Register" Noun="Connector" ShouldProcessTarget="ConnectorProvisioningConfig_Lambda_LambdaArn" PipelineParameter="ConnectorLabel" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RegisterConnector" OutputProperty="ConnectorArn" Verb="Register" Noun="Connector" ShouldProcessTarget="ConnectorProvisioningConfig_Lambda_LambdaArn" PipelineParameter="ConnectorLabel" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetConnectorMetadataCache" Verb="Reset" Noun="ConnectorMetadataCache" AnonymousShouldProcessTarget="true" PipelineParameter="ConnectorProfileName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ResetConnectorMetadataCache" Verb="Reset" Noun="ConnectorMetadataCache" AnonymousShouldProcessTarget="true" PipelineParameter="ConnectorProfileName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartFlow" OutputProperty="*" Verb="Start" Noun="Flow" ShouldProcessTarget="FlowName" PipelineParameter="FlowName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartFlow" OutputProperty="*" Verb="Start" Noun="Flow" ShouldProcessTarget="FlowName" PipelineParameter="FlowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopFlow" OutputProperty="*" Verb="Stop" Noun="Flow" ShouldProcessTarget="FlowName" PipelineParameter="FlowName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopFlow" OutputProperty="*" Verb="Stop" Noun="Flow" ShouldProcessTarget="FlowName" PipelineParameter="FlowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UnregisterConnector" Verb="Unregister" Noun="Connector" ShouldProcessTarget="ConnectorLabel" PipelineParameter="ConnectorLabel" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UnregisterConnector" Verb="Unregister" Noun="Connector" ShouldProcessTarget="ConnectorLabel" PipelineParameter="ConnectorLabel" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConnectorProfile" OutputProperty="ConnectorProfileArn" Verb="Update" Noun="ConnectorProfile" ShouldProcessTarget="ConnectorProfileName" PipelineParameter="ConnectorProfileName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateConnectorProfile" OutputProperty="ConnectorProfileArn" Verb="Update" Noun="ConnectorProfile" ShouldProcessTarget="ConnectorProfileName" PipelineParameter="ConnectorProfileName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten>
                 <Type>Amazon.Appflow.Model.ConnectorProfileConfig</Type>
             </TypesNotToFlatten>
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConnectorRegistration" OutputProperty="ConnectorArn" Verb="Update" Noun="ConnectorRegistration" ShouldProcessTarget="ConnectorLabel" PipelineParameter="ConnectorLabel" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateConnectorRegistration" OutputProperty="ConnectorArn" Verb="Update" Noun="ConnectorRegistration" ShouldProcessTarget="ConnectorLabel" PipelineParameter="ConnectorLabel" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFlow" OutputProperty="FlowStatus" Verb="Update" Noun="Flow" ShouldProcessTarget="FlowName" PipelineParameter="FlowName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateFlow" OutputProperty="FlowStatus" Verb="Update" Noun="Flow" ShouldProcessTarget="FlowName" PipelineParameter="FlowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

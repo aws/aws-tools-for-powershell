@@ -19,151 +19,151 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateActivity" OutputProperty="*" Verb="New" Noun="Activity" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateActivity" OutputProperty="*" Verb="New" Noun="Activity" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStateMachine" OutputProperty="*" Verb="New" Noun="StateMachine" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateStateMachine" OutputProperty="*" Verb="New" Noun="StateMachine" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStateMachineAlias" OutputProperty="*" Verb="New" Noun="StateMachineAlias" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateStateMachineAlias" OutputProperty="*" Verb="New" Noun="StateMachineAlias" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteActivity" Verb="Remove" Noun="Activity" ShouldProcessTarget="ActivityArn" PipelineParameter="ActivityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteActivity" Verb="Remove" Noun="Activity" ShouldProcessTarget="ActivityArn" PipelineParameter="ActivityArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStateMachine" Verb="Remove" Noun="StateMachine" ShouldProcessTarget="StateMachineArn" PipelineParameter="StateMachineArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteStateMachine" Verb="Remove" Noun="StateMachine" ShouldProcessTarget="StateMachineArn" PipelineParameter="StateMachineArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStateMachineAlias" Verb="Remove" Noun="StateMachineAlias" ShouldProcessTarget="StateMachineAliasArn" PipelineParameter="StateMachineAliasArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteStateMachineAlias" Verb="Remove" Noun="StateMachineAlias" ShouldProcessTarget="StateMachineAliasArn" PipelineParameter="StateMachineAliasArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStateMachineVersion" Verb="Remove" Noun="StateMachineVersion" ShouldProcessTarget="StateMachineVersionArn" PipelineParameter="StateMachineVersionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteStateMachineVersion" Verb="Remove" Noun="StateMachineVersion" ShouldProcessTarget="StateMachineVersionArn" PipelineParameter="StateMachineVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeActivity" OutputProperty="*" Verb="Get" Noun="Activity" PipelineParameter="ActivityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeActivity" OutputProperty="*" Verb="Get" Noun="Activity" PipelineParameter="ActivityArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeExecution" OutputProperty="*" Verb="Get" Noun="Execution" PipelineParameter="ExecutionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeExecution" OutputProperty="*" Verb="Get" Noun="Execution" PipelineParameter="ExecutionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMapRun" OutputProperty="*" Verb="Get" Noun="MapRun" PipelineParameter="MapRunArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeMapRun" OutputProperty="*" Verb="Get" Noun="MapRun" PipelineParameter="MapRunArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStateMachine" OutputProperty="*" Verb="Get" Noun="StateMachine" PipelineParameter="StateMachineArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeStateMachine" OutputProperty="*" Verb="Get" Noun="StateMachine" PipelineParameter="StateMachineArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStateMachineAlias" OutputProperty="*" Verb="Get" Noun="StateMachineAlias" PipelineParameter="StateMachineAliasArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeStateMachineAlias" OutputProperty="*" Verb="Get" Noun="StateMachineAlias" PipelineParameter="StateMachineAliasArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStateMachineForExecution" OutputProperty="*" Verb="Get" Noun="StateMachineForExecution" PipelineParameter="ExecutionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeStateMachineForExecution" OutputProperty="*" Verb="Get" Noun="StateMachineForExecution" PipelineParameter="ExecutionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetActivityTask" OutputProperty="*" Verb="Get" Noun="ActivityTask" PipelineParameter="ActivityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetActivityTask" OutputProperty="*" Verb="Get" Noun="ActivityTask" PipelineParameter="ActivityArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetExecutionHistory" OutputProperty="Events" Verb="Get" Noun="ExecutionHistory" PipelineParameter="ExecutionArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetExecutionHistory" OutputProperty="Events" Verb="Get" Noun="ExecutionHistory" PipelineParameter="ExecutionArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListActivities" OutputProperty="Activities" Verb="Get" Noun="ActivityList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListActivities" OutputProperty="Activities" Verb="Get" Noun="ActivityList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExecutions" OutputProperty="Executions" Verb="Get" Noun="ExecutionList" PipelineParameter="StateMachineArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListExecutions" OutputProperty="Executions" Verb="Get" Noun="ExecutionList" PipelineParameter="StateMachineArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMapRuns" OutputProperty="MapRuns" Verb="Get" Noun="MapRunList" PipelineParameter="ExecutionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMapRuns" OutputProperty="MapRuns" Verb="Get" Noun="MapRunList" PipelineParameter="ExecutionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStateMachineAliases" OutputProperty="StateMachineAliases" Verb="Get" Noun="StateMachineAliasList" PipelineParameter="StateMachineArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStateMachineAliases" OutputProperty="StateMachineAliases" Verb="Get" Noun="StateMachineAliasList" PipelineParameter="StateMachineArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStateMachines" OutputProperty="StateMachines" Verb="Get" Noun="StateMachineList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStateMachines" OutputProperty="StateMachines" Verb="Get" Noun="StateMachineList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStateMachineVersions" OutputProperty="StateMachineVersions" Verb="Get" Noun="StateMachineVersionList" PipelineParameter="StateMachineArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStateMachineVersions" OutputProperty="StateMachineVersions" Verb="Get" Noun="StateMachineVersionList" PipelineParameter="StateMachineArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PublishStateMachineVersion" OutputProperty="*" Verb="Publish" Noun="StateMachineVersion" ShouldProcessTarget="StateMachineArn" PipelineParameter="StateMachineArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PublishStateMachineVersion" OutputProperty="*" Verb="Publish" Noun="StateMachineVersion" ShouldProcessTarget="StateMachineArn" PipelineParameter="StateMachineArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RedriveExecution" OutputProperty="RedriveDate" Verb="Restart" Noun="Execution" ShouldProcessTarget="ExecutionArn" PipelineParameter="ExecutionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RedriveExecution" OutputProperty="RedriveDate" Verb="Restart" Noun="Execution" ShouldProcessTarget="ExecutionArn" PipelineParameter="ExecutionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendTaskFailure" Verb="Send" Noun="TaskFailure" ShouldProcessTarget="TaskToken" PipelineParameter="TaskToken" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SendTaskFailure" Verb="Send" Noun="TaskFailure" ShouldProcessTarget="TaskToken" PipelineParameter="TaskToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendTaskHeartbeat" Verb="Send" Noun="TaskHeartbeat" ShouldProcessTarget="TaskToken" PipelineParameter="TaskToken" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SendTaskHeartbeat" Verb="Send" Noun="TaskHeartbeat" ShouldProcessTarget="TaskToken" PipelineParameter="TaskToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendTaskSuccess" Verb="Send" Noun="TaskSuccess" ShouldProcessTarget="TaskToken" PipelineParameter="TaskToken" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SendTaskSuccess" Verb="Send" Noun="TaskSuccess" ShouldProcessTarget="TaskToken" PipelineParameter="TaskToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartExecution" OutputProperty="*" Verb="Start" Noun="Execution" ShouldProcessTarget="StateMachineArn" PipelineParameter="StateMachineArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartExecution" OutputProperty="*" Verb="Start" Noun="Execution" ShouldProcessTarget="StateMachineArn" PipelineParameter="StateMachineArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSyncExecution" OutputProperty="*" Verb="Start" Noun="SyncExecution" ShouldProcessTarget="StateMachineArn" PipelineParameter="StateMachineArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartSyncExecution" OutputProperty="*" Verb="Start" Noun="SyncExecution" ShouldProcessTarget="StateMachineArn" PipelineParameter="StateMachineArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopExecution" OutputProperty="StopDate" Verb="Stop" Noun="Execution" ShouldProcessTarget="ExecutionArn" PipelineParameter="ExecutionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopExecution" OutputProperty="StopDate" Verb="Stop" Noun="Execution" ShouldProcessTarget="ExecutionArn" PipelineParameter="ExecutionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestState" OutputProperty="*" Verb="Test" Noun="State" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TestState" OutputProperty="*" Verb="Test" Noun="State" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMapRun" Verb="Update" Noun="MapRun" ShouldProcessTarget="MapRunArn" PipelineParameter="MapRunArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateMapRun" Verb="Update" Noun="MapRun" ShouldProcessTarget="MapRunArn" PipelineParameter="MapRunArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStateMachine" OutputProperty="UpdateDate" Verb="Update" Noun="StateMachine" ShouldProcessTarget="StateMachineArn" PipelineParameter="StateMachineArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateStateMachine" OutputProperty="UpdateDate" Verb="Update" Noun="StateMachine" ShouldProcessTarget="StateMachineArn" PipelineParameter="StateMachineArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStateMachineAlias" OutputProperty="UpdateDate" Verb="Update" Noun="StateMachineAlias" ShouldProcessTarget="StateMachineAliasArn" PipelineParameter="StateMachineAliasArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateStateMachineAlias" OutputProperty="UpdateDate" Verb="Update" Noun="StateMachineAlias" ShouldProcessTarget="StateMachineAliasArn" PipelineParameter="StateMachineAliasArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ValidateStateMachineDefinition" OutputProperty="*" Verb="Test" Noun="StateMachineDefinitionValidation" PipelineParameter="Definition" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ValidateStateMachineDefinition" OutputProperty="*" Verb="Test" Noun="StateMachineDefinitionValidation" PipelineParameter="Definition" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

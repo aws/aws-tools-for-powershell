@@ -18,51 +18,51 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateDeployment" OutputProperty="DeploymentId" Verb="New" Noun="Deployment" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDeployment" OutputProperty="DeploymentId" Verb="New" Noun="Deployment" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDeployment" OutputProperty="*" Verb="Remove" Noun="Deployment" ShouldProcessTarget="DeploymentId" PipelineParameter="DeploymentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteDeployment" OutputProperty="*" Verb="Remove" Noun="Deployment" ShouldProcessTarget="DeploymentId" PipelineParameter="DeploymentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDeployment" OutputProperty="Deployment" Verb="Get" Noun="Deployment" PipelineParameter="DeploymentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDeployment" OutputProperty="Deployment" Verb="Get" Noun="Deployment" PipelineParameter="DeploymentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWorkload" OutputProperty="Workload" Verb="Get" Noun="Workload" PipelineParameter="WorkloadName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetWorkload" OutputProperty="Workload" Verb="Get" Noun="Workload" PipelineParameter="WorkloadName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWorkloadDeploymentPattern" OutputProperty="WorkloadDeploymentPattern" Verb="Get" Noun="WorkloadDeploymentPattern" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetWorkloadDeploymentPattern" OutputProperty="WorkloadDeploymentPattern" Verb="Get" Noun="WorkloadDeploymentPattern" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeploymentEvents" OutputProperty="DeploymentEvents" Verb="Get" Noun="DeploymentEventList" PipelineParameter="DeploymentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDeploymentEvents" OutputProperty="DeploymentEvents" Verb="Get" Noun="DeploymentEventList" PipelineParameter="DeploymentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeployments" OutputProperty="Deployments" Verb="Get" Noun="DeploymentList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDeployments" OutputProperty="Deployments" Verb="Get" Noun="DeploymentList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkloadDeploymentPatterns" OutputProperty="WorkloadDeploymentPatterns" Verb="Get" Noun="WorkloadDeploymentPatternList" PipelineParameter="WorkloadName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListWorkloadDeploymentPatterns" OutputProperty="WorkloadDeploymentPatterns" Verb="Get" Noun="WorkloadDeploymentPatternList" PipelineParameter="WorkloadName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkloads" OutputProperty="Workloads" Verb="Get" Noun="WorkloadList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListWorkloads" OutputProperty="Workloads" Verb="Get" Noun="WorkloadList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -21,31 +21,31 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchCreateCustomVocabularyItem" OutputProperty="*" Verb="New" Noun="CustomVocabularyItem" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchCreateCustomVocabularyItem" OutputProperty="*" Verb="New" Noun="CustomVocabularyItem" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDeleteCustomVocabularyItem" OutputProperty="*" Verb="Remove" Noun="CustomVocabularyItem" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchDeleteCustomVocabularyItem" OutputProperty="*" Verb="Remove" Noun="CustomVocabularyItem" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchUpdateCustomVocabularyItem" OutputProperty="*" Verb="Edit" Noun="CustomVocabularyItem" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchUpdateCustomVocabularyItem" OutputProperty="*" Verb="Edit" Noun="CustomVocabularyItem" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BuildBotLocale" OutputProperty="*" Verb="Invoke" Noun="BuildBotLocale" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BuildBotLocale" OutputProperty="*" Verb="Invoke" Noun="BuildBotLocale" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBot" OutputProperty="*" Verb="New" Noun="Bot" ShouldProcessTarget="BotName" PipelineParameter="BotName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateBot" OutputProperty="*" Verb="New" Noun="Bot" ShouldProcessTarget="BotName" PipelineParameter="BotName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBotAlias" OutputProperty="*" Verb="New" Noun="BotAlias" ShouldProcessTarget="BotAliasName" PipelineParameter="BotAliasName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateBotAlias" OutputProperty="*" Verb="New" Noun="BotAlias" ShouldProcessTarget="BotAliasName" PipelineParameter="BotAliasName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBotLocale" OutputProperty="*" Verb="New" Noun="BotLocale" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateBotLocale" OutputProperty="*" Verb="New" Noun="BotLocale" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false">
             <Params>
                 <Param Name="GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_ModelArn" NewName="GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_ModelArn" Alias="BedrockModelSpecification_ModelArn" />
                 <Param Name="GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_ModelArn" NewName="GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_ModelArn" />
@@ -65,19 +65,19 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBotReplica" OutputProperty="*" Verb="New" Noun="BotReplica" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateBotReplica" OutputProperty="*" Verb="New" Noun="BotReplica" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBotVersion" OutputProperty="*" Verb="New" Noun="BotVersion" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateBotVersion" OutputProperty="*" Verb="New" Noun="BotVersion" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateExport" OutputProperty="*" Verb="New" Noun="Export" ShouldProcessTarget="" PipelineParameter="FileFormat" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateExport" OutputProperty="*" Verb="New" Noun="Export" ShouldProcessTarget="" PipelineParameter="FileFormat" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIntent" OutputProperty="*" Verb="New" Noun="Intent" ShouldProcessTarget="IntentName" PipelineParameter="IntentName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateIntent" OutputProperty="*" Verb="New" Noun="Intent" ShouldProcessTarget="IntentName" PipelineParameter="IntentName" NoPipelineParameter="false">
             <Params>
                 <Param Name="KendraConfiguration_QueryFilterString" NewName="KendraConfiguration_QueryFilterString" />
                 <Param Name="KendraConfiguration_QueryFilterStringEnabled" NewName="KendraConfiguration_QueryFilterStringEnabled" />
@@ -328,15 +328,15 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateResourcePolicy" OutputProperty="*" Verb="New" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateResourcePolicy" OutputProperty="*" Verb="New" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateResourcePolicyStatement" OutputProperty="*" Verb="New" Noun="ResourcePolicyStatement" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateResourcePolicyStatement" OutputProperty="*" Verb="New" Noun="ResourcePolicyStatement" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSlot" OutputProperty="*" Verb="New" Noun="Slot" ShouldProcessTarget="SlotName" PipelineParameter="SlotName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateSlot" OutputProperty="*" Verb="New" Noun="Slot" ShouldProcessTarget="SlotName" PipelineParameter="SlotName" NoPipelineParameter="false">
             <Params>
                 <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_FailureConditional_Active" NewName="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_FailureConditional_Active" />
                 <Param Name="ValueElicitationSetting_SlotCaptureSetting_FailureConditional_Active" NewName="ValueElicitationSetting_SlotCaptureSetting_FailureConditional_Active" />
@@ -416,327 +416,327 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSlotType" OutputProperty="*" Verb="New" Noun="SlotType" ShouldProcessTarget="SlotTypeName" PipelineParameter="SlotTypeName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateSlotType" OutputProperty="*" Verb="New" Noun="SlotType" ShouldProcessTarget="SlotTypeName" PipelineParameter="SlotTypeName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTestSetDiscrepancyReport" OutputProperty="*" Verb="New" Noun="TestSetDiscrepancyReport" ShouldProcessTarget="TestSetId" PipelineParameter="TestSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateTestSetDiscrepancyReport" OutputProperty="*" Verb="New" Noun="TestSetDiscrepancyReport" ShouldProcessTarget="TestSetId" PipelineParameter="TestSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUploadUrl" OutputProperty="*" Verb="New" Noun="UploadUrl" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateUploadUrl" OutputProperty="*" Verb="New" Noun="UploadUrl" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBot" OutputProperty="*" Verb="Remove" Noun="Bot" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBot" OutputProperty="*" Verb="Remove" Noun="Bot" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBotAlias" OutputProperty="*" Verb="Remove" Noun="BotAlias" ShouldProcessTarget="BotAliasId" PipelineParameter="BotAliasId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBotAlias" OutputProperty="*" Verb="Remove" Noun="BotAlias" ShouldProcessTarget="BotAliasId" PipelineParameter="BotAliasId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBotLocale" OutputProperty="*" Verb="Remove" Noun="BotLocale" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBotLocale" OutputProperty="*" Verb="Remove" Noun="BotLocale" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBotReplica" OutputProperty="*" Verb="Remove" Noun="BotReplica" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBotReplica" OutputProperty="*" Verb="Remove" Noun="BotReplica" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBotVersion" OutputProperty="*" Verb="Remove" Noun="BotVersion" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBotVersion" OutputProperty="*" Verb="Remove" Noun="BotVersion" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCustomVocabulary" OutputProperty="*" Verb="Remove" Noun="CustomVocabulary" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteCustomVocabulary" OutputProperty="*" Verb="Remove" Noun="CustomVocabulary" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteExport" OutputProperty="*" Verb="Remove" Noun="Export" ShouldProcessTarget="ExportId" PipelineParameter="ExportId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteExport" OutputProperty="*" Verb="Remove" Noun="Export" ShouldProcessTarget="ExportId" PipelineParameter="ExportId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteImport" OutputProperty="*" Verb="Remove" Noun="Import" ShouldProcessTarget="ImportId" PipelineParameter="ImportId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteImport" OutputProperty="*" Verb="Remove" Noun="Import" ShouldProcessTarget="ImportId" PipelineParameter="ImportId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIntent" Verb="Remove" Noun="Intent" ShouldProcessTarget="IntentId" PipelineParameter="IntentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteIntent" Verb="Remove" Noun="Intent" ShouldProcessTarget="IntentId" PipelineParameter="IntentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourcePolicy" OutputProperty="*" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteResourcePolicy" OutputProperty="*" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourcePolicyStatement" OutputProperty="*" Verb="Remove" Noun="ResourcePolicyStatement" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteResourcePolicyStatement" OutputProperty="*" Verb="Remove" Noun="ResourcePolicyStatement" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSlot" Verb="Remove" Noun="Slot" ShouldProcessTarget="SlotId" PipelineParameter="SlotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteSlot" Verb="Remove" Noun="Slot" ShouldProcessTarget="SlotId" PipelineParameter="SlotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSlotType" Verb="Remove" Noun="SlotType" ShouldProcessTarget="SlotTypeId" PipelineParameter="SlotTypeId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteSlotType" Verb="Remove" Noun="SlotType" ShouldProcessTarget="SlotTypeId" PipelineParameter="SlotTypeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTestSet" Verb="Remove" Noun="TestSet" ShouldProcessTarget="TestSetId" PipelineParameter="TestSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteTestSet" Verb="Remove" Noun="TestSet" ShouldProcessTarget="TestSetId" PipelineParameter="TestSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUtterances" Verb="Remove" Noun="Utterance" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteUtterances" Verb="Remove" Noun="Utterance" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBot" OutputProperty="*" Verb="Get" Noun="Bot" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBot" OutputProperty="*" Verb="Get" Noun="Bot" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBotAlias" OutputProperty="*" Verb="Get" Noun="BotAlias" PipelineParameter="BotAliasId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBotAlias" OutputProperty="*" Verb="Get" Noun="BotAlias" PipelineParameter="BotAliasId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBotLocale" OutputProperty="*" Verb="Get" Noun="BotLocale" PipelineParameter="LocaleId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBotLocale" OutputProperty="*" Verb="Get" Noun="BotLocale" PipelineParameter="LocaleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBotRecommendation" OutputProperty="*" Verb="Get" Noun="BotRecommendation" PipelineParameter="BotRecommendationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBotRecommendation" OutputProperty="*" Verb="Get" Noun="BotRecommendation" PipelineParameter="BotRecommendationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBotReplica" OutputProperty="*" Verb="Get" Noun="BotReplica" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBotReplica" OutputProperty="*" Verb="Get" Noun="BotReplica" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBotResourceGeneration" OutputProperty="*" Verb="Get" Noun="BotResourceGeneration" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBotResourceGeneration" OutputProperty="*" Verb="Get" Noun="BotResourceGeneration" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBotVersion" OutputProperty="*" Verb="Get" Noun="BotVersion" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBotVersion" OutputProperty="*" Verb="Get" Noun="BotVersion" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCustomVocabularyMetadata" OutputProperty="*" Verb="Get" Noun="CustomVocabularyMetadata" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCustomVocabularyMetadata" OutputProperty="*" Verb="Get" Noun="CustomVocabularyMetadata" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeExport" OutputProperty="*" Verb="Get" Noun="Export" PipelineParameter="ExportId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeExport" OutputProperty="*" Verb="Get" Noun="Export" PipelineParameter="ExportId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImport" OutputProperty="*" Verb="Get" Noun="Import" PipelineParameter="ImportId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeImport" OutputProperty="*" Verb="Get" Noun="Import" PipelineParameter="ImportId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIntent" OutputProperty="*" Verb="Get" Noun="Intent" PipelineParameter="IntentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeIntent" OutputProperty="*" Verb="Get" Noun="Intent" PipelineParameter="IntentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSlot" OutputProperty="*" Verb="Get" Noun="Slot" PipelineParameter="SlotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSlot" OutputProperty="*" Verb="Get" Noun="Slot" PipelineParameter="SlotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSlotType" OutputProperty="*" Verb="Get" Noun="SlotType" PipelineParameter="SlotTypeId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSlotType" OutputProperty="*" Verb="Get" Noun="SlotType" PipelineParameter="SlotTypeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTestExecution" OutputProperty="*" Verb="Get" Noun="TestExecution" PipelineParameter="TestExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTestExecution" OutputProperty="*" Verb="Get" Noun="TestExecution" PipelineParameter="TestExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTestSet" OutputProperty="*" Verb="Get" Noun="TestSet" PipelineParameter="TestSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTestSet" OutputProperty="*" Verb="Get" Noun="TestSet" PipelineParameter="TestSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTestSetDiscrepancyReport" OutputProperty="*" Verb="Get" Noun="TestSetDiscrepancyReport" PipelineParameter="TestSetDiscrepancyReportId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTestSetDiscrepancyReport" OutputProperty="*" Verb="Get" Noun="TestSetDiscrepancyReport" PipelineParameter="TestSetDiscrepancyReportId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTestSetGeneration" OutputProperty="*" Verb="Get" Noun="TestSetGeneration" PipelineParameter="TestSetGenerationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTestSetGeneration" OutputProperty="*" Verb="Get" Noun="TestSetGeneration" PipelineParameter="TestSetGenerationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateBotElement" OutputProperty="*" Verb="Get" Noun="BotElement" AnonymousShouldProcessTarget="true" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GenerateBotElement" OutputProperty="*" Verb="Get" Noun="BotElement" AnonymousShouldProcessTarget="true" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTestExecutionArtifactsUrl" OutputProperty="*" Verb="Get" Noun="TestExecutionArtifactsUrl" PipelineParameter="TestExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTestExecutionArtifactsUrl" OutputProperty="*" Verb="Get" Noun="TestExecutionArtifactsUrl" PipelineParameter="TestExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAggregatedUtterances" OutputProperty="*" Verb="Get" Noun="AggregatedUtteranceList" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAggregatedUtterances" OutputProperty="*" Verb="Get" Noun="AggregatedUtteranceList" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBotAliases" OutputProperty="*" Verb="Get" Noun="BotAliasList" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBotAliases" OutputProperty="*" Verb="Get" Noun="BotAliasList" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBotAliasReplicas" OutputProperty="*" Verb="Get" Noun="BotAliasReplicaList" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBotAliasReplicas" OutputProperty="*" Verb="Get" Noun="BotAliasReplicaList" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBotLocales" OutputProperty="*" Verb="Get" Noun="BotLocaleList" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBotLocales" OutputProperty="*" Verb="Get" Noun="BotLocaleList" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBotRecommendations" OutputProperty="*" Verb="Get" Noun="BotRecommendationList" PipelineParameter="LocaleId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBotRecommendations" OutputProperty="*" Verb="Get" Noun="BotRecommendationList" PipelineParameter="LocaleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBotReplicas" OutputProperty="*" Verb="Get" Noun="BotReplicaList" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBotReplicas" OutputProperty="*" Verb="Get" Noun="BotReplicaList" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBotResourceGenerations" OutputProperty="*" Verb="Get" Noun="BotResourceGenerationList" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBotResourceGenerations" OutputProperty="*" Verb="Get" Noun="BotResourceGenerationList" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBots" OutputProperty="BotSummaries" Verb="Get" Noun="BotList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBots" OutputProperty="BotSummaries" Verb="Get" Noun="BotList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBotVersionReplicas" OutputProperty="*" Verb="Get" Noun="BotVersionReplicaList" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBotVersionReplicas" OutputProperty="*" Verb="Get" Noun="BotVersionReplicaList" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBotVersions" OutputProperty="*" Verb="Get" Noun="BotVersionList" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBotVersions" OutputProperty="*" Verb="Get" Noun="BotVersionList" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBuiltInIntents" OutputProperty="*" Verb="Get" Noun="BuiltInIntentList" PipelineParameter="LocaleId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBuiltInIntents" OutputProperty="*" Verb="Get" Noun="BuiltInIntentList" PipelineParameter="LocaleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBuiltInSlotTypes" OutputProperty="*" Verb="Get" Noun="BuiltInSlotTypeList" PipelineParameter="LocaleId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBuiltInSlotTypes" OutputProperty="*" Verb="Get" Noun="BuiltInSlotTypeList" PipelineParameter="LocaleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCustomVocabularyItems" OutputProperty="*" Verb="Get" Noun="CustomVocabularyItemList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCustomVocabularyItems" OutputProperty="*" Verb="Get" Noun="CustomVocabularyItemList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExports" OutputProperty="*" Verb="Get" Noun="ExportList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListExports" OutputProperty="*" Verb="Get" Noun="ExportList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImports" OutputProperty="*" Verb="Get" Noun="ImportList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListImports" OutputProperty="*" Verb="Get" Noun="ImportList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIntentMetrics" OutputProperty="*" Verb="Get" Noun="IntentMetricList" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListIntentMetrics" OutputProperty="*" Verb="Get" Noun="IntentMetricList" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIntentPaths" OutputProperty="NodeSummaries" Verb="Get" Noun="IntentPathList" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListIntentPaths" OutputProperty="NodeSummaries" Verb="Get" Noun="IntentPathList" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIntents" OutputProperty="*" Verb="Get" Noun="IntentList" PipelineParameter="LocaleId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListIntents" OutputProperty="*" Verb="Get" Noun="IntentList" PipelineParameter="LocaleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIntentStageMetrics" OutputProperty="*" Verb="Get" Noun="IntentStageMetricList" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListIntentStageMetrics" OutputProperty="*" Verb="Get" Noun="IntentStageMetricList" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecommendedIntents" OutputProperty="*" Verb="Get" Noun="RecommendedIntentList" PipelineParameter="BotRecommendationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRecommendedIntents" OutputProperty="*" Verb="Get" Noun="RecommendedIntentList" PipelineParameter="BotRecommendationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSessionAnalyticsData" OutputProperty="*" Verb="Get" Noun="SessionAnalyticsDataList" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSessionAnalyticsData" OutputProperty="*" Verb="Get" Noun="SessionAnalyticsDataList" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSessionMetrics" OutputProperty="*" Verb="Get" Noun="SessionMetricList" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSessionMetrics" OutputProperty="*" Verb="Get" Noun="SessionMetricList" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSlots" OutputProperty="*" Verb="Get" Noun="SlotList" PipelineParameter="IntentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSlots" OutputProperty="*" Verb="Get" Noun="SlotList" PipelineParameter="IntentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSlotTypes" OutputProperty="*" Verb="Get" Noun="SlotTypeList" PipelineParameter="LocaleId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSlotTypes" OutputProperty="*" Verb="Get" Noun="SlotTypeList" PipelineParameter="LocaleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTestExecutionResultItems" OutputProperty="TestExecutionResults" Verb="Get" Noun="TestExecutionResultItemList" PipelineParameter="TestExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTestExecutionResultItems" OutputProperty="TestExecutionResults" Verb="Get" Noun="TestExecutionResultItemList" PipelineParameter="TestExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTestExecutions" OutputProperty="TestExecutions" Verb="Get" Noun="TestExecutionList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTestExecutions" OutputProperty="TestExecutions" Verb="Get" Noun="TestExecutionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTestSetRecords" OutputProperty="TestSetRecords" Verb="Get" Noun="TestSetRecordList" PipelineParameter="TestSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTestSetRecords" OutputProperty="TestSetRecords" Verb="Get" Noun="TestSetRecordList" PipelineParameter="TestSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTestSets" OutputProperty="TestSets" Verb="Get" Noun="TestSetList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTestSets" OutputProperty="TestSets" Verb="Get" Noun="TestSetList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUtteranceAnalyticsData" OutputProperty="*" Verb="Get" Noun="UtteranceAnalyticsDataList" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListUtteranceAnalyticsData" OutputProperty="*" Verb="Get" Noun="UtteranceAnalyticsDataList" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUtteranceMetrics" OutputProperty="*" Verb="Get" Noun="UtteranceMetricList" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListUtteranceMetrics" OutputProperty="*" Verb="Get" Noun="UtteranceMetricList" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchAssociatedTranscripts" OutputProperty="*" Verb="Search" Noun="AssociatedTranscript" ShouldProcessTarget="BotRecommendationId" PipelineParameter="BotRecommendationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchAssociatedTranscripts" OutputProperty="*" Verb="Search" Noun="AssociatedTranscript" ShouldProcessTarget="BotRecommendationId" PipelineParameter="BotRecommendationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartBotRecommendation" OutputProperty="*" Verb="Start" Noun="BotRecommendation" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartBotRecommendation" OutputProperty="*" Verb="Start" Noun="BotRecommendation" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartBotResourceGeneration" OutputProperty="*" Verb="Start" Noun="BotResourceGeneration" AnonymousShouldProcessTarget="true" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartBotResourceGeneration" OutputProperty="*" Verb="Start" Noun="BotResourceGeneration" AnonymousShouldProcessTarget="true" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartImport" OutputProperty="*" Verb="Start" Noun="Import" ShouldProcessTarget="ImportId" PipelineParameter="ImportId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartImport" OutputProperty="*" Verb="Start" Noun="Import" ShouldProcessTarget="ImportId" PipelineParameter="ImportId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartTestExecution" OutputProperty="*" Verb="Start" Noun="TestExecution" ShouldProcessTarget="TestSetId" PipelineParameter="TestSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartTestExecution" OutputProperty="*" Verb="Start" Noun="TestExecution" ShouldProcessTarget="TestSetId" PipelineParameter="TestSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartTestSetGeneration" OutputProperty="*" Verb="Start" Noun="TestSetGeneration" ShouldProcessTarget="TestSetName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartTestSetGeneration" OutputProperty="*" Verb="Start" Noun="TestSetGeneration" ShouldProcessTarget="TestSetName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopBotRecommendation" OutputProperty="*" Verb="Stop" Noun="BotRecommendation" ShouldProcessTarget="BotRecommendationId" PipelineParameter="BotRecommendationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopBotRecommendation" OutputProperty="*" Verb="Stop" Noun="BotRecommendation" ShouldProcessTarget="BotRecommendationId" PipelineParameter="BotRecommendationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBot" OutputProperty="*" Verb="Update" Noun="Bot" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateBot" OutputProperty="*" Verb="Update" Noun="Bot" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBotAlias" OutputProperty="*" Verb="Update" Noun="BotAlias" ShouldProcessTarget="BotAliasId" PipelineParameter="BotAliasId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateBotAlias" OutputProperty="*" Verb="Update" Noun="BotAlias" ShouldProcessTarget="BotAliasId" PipelineParameter="BotAliasId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBotLocale" OutputProperty="*" Verb="Update" Noun="BotLocale" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateBotLocale" OutputProperty="*" Verb="Update" Noun="BotLocale" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false">
             <Params>
                 <Param Name="GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_ModelArn" NewName="GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_ModelArn" Alias="BedrockModelSpecification_ModelArn" />
                 <Param Name="GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_ModelArn" NewName="GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_ModelArn" />
@@ -756,15 +756,15 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBotRecommendation" OutputProperty="*" Verb="Update" Noun="BotRecommendation" ShouldProcessTarget="BotRecommendationId" PipelineParameter="BotRecommendationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateBotRecommendation" OutputProperty="*" Verb="Update" Noun="BotRecommendation" ShouldProcessTarget="BotRecommendationId" PipelineParameter="BotRecommendationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateExport" OutputProperty="*" Verb="Update" Noun="Export" ShouldProcessTarget="ExportId" PipelineParameter="ExportId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateExport" OutputProperty="*" Verb="Update" Noun="Export" ShouldProcessTarget="ExportId" PipelineParameter="ExportId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIntent" OutputProperty="*" Verb="Update" Noun="Intent" ShouldProcessTarget="IntentId" PipelineParameter="IntentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateIntent" OutputProperty="*" Verb="Update" Noun="Intent" ShouldProcessTarget="IntentId" PipelineParameter="IntentId" NoPipelineParameter="false">
             <Params>
                 <Param Name="KendraConfiguration_QueryFilterString" NewName="KendraConfiguration_QueryFilterString" />
                 <Param Name="KendraConfiguration_QueryFilterStringEnabled" NewName="KendraConfiguration_QueryFilterStringEnabled" />
@@ -1015,11 +1015,11 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateResourcePolicy" OutputProperty="*" Verb="Update" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateResourcePolicy" OutputProperty="*" Verb="Update" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSlot" OutputProperty="*" Verb="Update" Noun="Slot" ShouldProcessTarget="SlotId" PipelineParameter="SlotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateSlot" OutputProperty="*" Verb="Update" Noun="Slot" ShouldProcessTarget="SlotId" PipelineParameter="SlotId" NoPipelineParameter="false">
             <Params>
                 <Param Name="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_FailureConditional_Active" NewName="ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_FailureConditional_Active" />
                 <Param Name="ValueElicitationSetting_SlotCaptureSetting_FailureConditional_Active" NewName="ValueElicitationSetting_SlotCaptureSetting_FailureConditional_Active" />
@@ -1099,11 +1099,11 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSlotType" OutputProperty="*" Verb="Update" Noun="SlotType" ShouldProcessTarget="SlotTypeId" PipelineParameter="SlotTypeId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateSlotType" OutputProperty="*" Verb="Update" Noun="SlotType" ShouldProcessTarget="SlotTypeId" PipelineParameter="SlotTypeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTestSet" OutputProperty="*" Verb="Update" Noun="TestSet" ShouldProcessTarget="TestSetId" PipelineParameter="TestSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateTestSet" OutputProperty="*" Verb="Update" Noun="TestSet" ShouldProcessTarget="TestSetId" PipelineParameter="TestSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

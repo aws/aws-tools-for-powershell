@@ -19,287 +19,287 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateAccess" OutputProperty="*" Verb="New" Noun="Access" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAccess" OutputProperty="*" Verb="New" Noun="Access" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAgreement" OutputProperty="AgreementId" Verb="New" Noun="Agreement" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAgreement" OutputProperty="AgreementId" Verb="New" Noun="Agreement" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConnector" OutputProperty="ConnectorId" Verb="New" Noun="Connector" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateConnector" OutputProperty="ConnectorId" Verb="New" Noun="Connector" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProfile" OutputProperty="ProfileId" Verb="New" Noun="Profile" ShouldProcessTarget="As2Id" PipelineParameter="As2Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateProfile" OutputProperty="ProfileId" Verb="New" Noun="Profile" ShouldProcessTarget="As2Id" PipelineParameter="As2Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateServer" OutputProperty="ServerId" Verb="New" Noun="Server" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateServer" OutputProperty="ServerId" Verb="New" Noun="Server" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUser" OutputProperty="*" Verb="New" Noun="User" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateUser" OutputProperty="*" Verb="New" Noun="User" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWebApp" OutputProperty="WebAppId" Verb="New" Noun="WebApp" ShouldProcessTarget="IdentityProviderDetails_IdentityCenterConfig_InstanceArn" PipelineParameter="AccessEndpoint" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateWebApp" OutputProperty="WebAppId" Verb="New" Noun="WebApp" ShouldProcessTarget="IdentityProviderDetails_IdentityCenterConfig_InstanceArn" PipelineParameter="AccessEndpoint" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWorkflow" OutputProperty="WorkflowId" Verb="New" Noun="Workflow" ShouldProcessTarget="Description" PipelineParameter="Description" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateWorkflow" OutputProperty="WorkflowId" Verb="New" Noun="Workflow" ShouldProcessTarget="Description" PipelineParameter="Description" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccess" Verb="Remove" Noun="Access" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAccess" Verb="Remove" Noun="Access" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAgreement" Verb="Remove" Noun="Agreement" ShouldProcessTarget="AgreementId" PipelineParameter="AgreementId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAgreement" Verb="Remove" Noun="Agreement" ShouldProcessTarget="AgreementId" PipelineParameter="AgreementId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCertificate" Verb="Remove" Noun="Certificate" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteCertificate" Verb="Remove" Noun="Certificate" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConnector" Verb="Remove" Noun="Connector" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteConnector" Verb="Remove" Noun="Connector" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteHostKey" Verb="Remove" Noun="HostKey" ShouldProcessTarget="HostKeyId" PipelineParameter="HostKeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteHostKey" Verb="Remove" Noun="HostKey" ShouldProcessTarget="HostKeyId" PipelineParameter="HostKeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProfile" Verb="Remove" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteProfile" Verb="Remove" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteServer" Verb="Remove" Noun="Server" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteServer" Verb="Remove" Noun="Server" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSshPublicKey" Verb="Remove" Noun="SshPublicKey" ShouldProcessTarget="SshPublicKeyId" PipelineParameter="SshPublicKeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteSshPublicKey" Verb="Remove" Noun="SshPublicKey" ShouldProcessTarget="SshPublicKeyId" PipelineParameter="SshPublicKeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWebApp" Verb="Remove" Noun="WebApp" ShouldProcessTarget="WebAppId" PipelineParameter="WebAppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteWebApp" Verb="Remove" Noun="WebApp" ShouldProcessTarget="WebAppId" PipelineParameter="WebAppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWebAppCustomization" Verb="Remove" Noun="WebAppCustomization" ShouldProcessTarget="WebAppId" PipelineParameter="WebAppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteWebAppCustomization" Verb="Remove" Noun="WebAppCustomization" ShouldProcessTarget="WebAppId" PipelineParameter="WebAppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWorkflow" Verb="Remove" Noun="Workflow" ShouldProcessTarget="WorkflowId" PipelineParameter="WorkflowId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteWorkflow" Verb="Remove" Noun="Workflow" ShouldProcessTarget="WorkflowId" PipelineParameter="WorkflowId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccess" OutputProperty="*" Verb="Get" Noun="Access" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAccess" OutputProperty="*" Verb="Get" Noun="Access" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAgreement" OutputProperty="Agreement" Verb="Get" Noun="Agreement" PipelineParameter="AgreementId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAgreement" OutputProperty="Agreement" Verb="Get" Noun="Agreement" PipelineParameter="AgreementId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCertificate" OutputProperty="Certificate" Verb="Get" Noun="Certificate" PipelineParameter="CertificateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCertificate" OutputProperty="Certificate" Verb="Get" Noun="Certificate" PipelineParameter="CertificateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConnector" OutputProperty="Connector" Verb="Get" Noun="Connector" PipelineParameter="ConnectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeConnector" OutputProperty="Connector" Verb="Get" Noun="Connector" PipelineParameter="ConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeExecution" OutputProperty="*" Verb="Get" Noun="Execution" PipelineParameter="ExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeExecution" OutputProperty="*" Verb="Get" Noun="Execution" PipelineParameter="ExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeHostKey" OutputProperty="HostKey" Verb="Get" Noun="HostKey" PipelineParameter="HostKeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeHostKey" OutputProperty="HostKey" Verb="Get" Noun="HostKey" PipelineParameter="HostKeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProfile" OutputProperty="Profile" Verb="Get" Noun="Profile" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeProfile" OutputProperty="Profile" Verb="Get" Noun="Profile" PipelineParameter="ProfileId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSecurityPolicy" OutputProperty="SecurityPolicy" Verb="Get" Noun="SecurityPolicy" PipelineParameter="SecurityPolicyName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSecurityPolicy" OutputProperty="SecurityPolicy" Verb="Get" Noun="SecurityPolicy" PipelineParameter="SecurityPolicyName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeServer" OutputProperty="Server" Verb="Get" Noun="Server" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeServer" OutputProperty="Server" Verb="Get" Noun="Server" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeUser" OutputProperty="*" Verb="Get" Noun="User" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeUser" OutputProperty="*" Verb="Get" Noun="User" PipelineParameter="UserName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWebApp" OutputProperty="WebApp" Verb="Get" Noun="WebApp" PipelineParameter="WebAppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeWebApp" OutputProperty="WebApp" Verb="Get" Noun="WebApp" PipelineParameter="WebAppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWebAppCustomization" OutputProperty="WebAppCustomization" Verb="Get" Noun="WebAppCustomization" PipelineParameter="WebAppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeWebAppCustomization" OutputProperty="WebAppCustomization" Verb="Get" Noun="WebAppCustomization" PipelineParameter="WebAppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkflow" OutputProperty="Workflow" Verb="Get" Noun="Workflow" PipelineParameter="WorkflowId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeWorkflow" OutputProperty="Workflow" Verb="Get" Noun="Workflow" PipelineParameter="WorkflowId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportCertificate" OutputProperty="CertificateId" Verb="Import" Noun="Certificate" ShouldProcessTarget="Certificate" PipelineParameter="Certificate" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportCertificate" OutputProperty="CertificateId" Verb="Import" Noun="Certificate" ShouldProcessTarget="Certificate" PipelineParameter="Certificate" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportHostKey" OutputProperty="*" Verb="Import" Noun="HostKey" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportHostKey" OutputProperty="*" Verb="Import" Noun="HostKey" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportSshPublicKey" OutputProperty="*" Verb="Import" Noun="SshPublicKey" ShouldProcessTarget="UserName" PipelineParameter="SshPublicKeyBody" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportSshPublicKey" OutputProperty="*" Verb="Import" Noun="SshPublicKey" ShouldProcessTarget="UserName" PipelineParameter="SshPublicKeyBody" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccesses" OutputProperty="*" Verb="Get" Noun="AccessList" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAccesses" OutputProperty="*" Verb="Get" Noun="AccessList" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAgreements" OutputProperty="Agreements" Verb="Get" Noun="AgreementList" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAgreements" OutputProperty="Agreements" Verb="Get" Noun="AgreementList" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCertificates" OutputProperty="Certificates" Verb="Get" Noun="CertificateList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCertificates" OutputProperty="Certificates" Verb="Get" Noun="CertificateList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConnectors" OutputProperty="Connectors" Verb="Get" Noun="ConnectorList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListConnectors" OutputProperty="Connectors" Verb="Get" Noun="ConnectorList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExecutions" OutputProperty="*" Verb="Get" Noun="ExecutionList" PipelineParameter="WorkflowId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListExecutions" OutputProperty="*" Verb="Get" Noun="ExecutionList" PipelineParameter="WorkflowId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFileTransferResults" OutputProperty="FileTransferResults" Verb="Get" Noun="FileTransferResultList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFileTransferResults" OutputProperty="FileTransferResults" Verb="Get" Noun="FileTransferResultList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHostKeys" OutputProperty="*" Verb="Get" Noun="HostKeyList" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListHostKeys" OutputProperty="*" Verb="Get" Noun="HostKeyList" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProfiles" OutputProperty="Profiles" Verb="Get" Noun="ProfileList" PipelineParameter="ProfileType" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListProfiles" OutputProperty="Profiles" Verb="Get" Noun="ProfileList" PipelineParameter="ProfileType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSecurityPolicies" OutputProperty="SecurityPolicyNames" Verb="Get" Noun="SecurityPolicyList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSecurityPolicies" OutputProperty="SecurityPolicyNames" Verb="Get" Noun="SecurityPolicyList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServers" OutputProperty="Servers" Verb="Get" Noun="ServerList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListServers" OutputProperty="Servers" Verb="Get" Noun="ServerList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWebApps" OutputProperty="WebApps" Verb="Get" Noun="WebAppList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListWebApps" OutputProperty="WebApps" Verb="Get" Noun="WebAppList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkflows" OutputProperty="Workflows" Verb="Get" Noun="WorkflowList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListWorkflows" OutputProperty="Workflows" Verb="Get" Noun="WorkflowList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendWorkflowStepState" Verb="Send" Noun="WorkflowStepState" ShouldProcessTarget="WorkflowId" PipelineParameter="WorkflowId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SendWorkflowStepState" Verb="Send" Noun="WorkflowStepState" ShouldProcessTarget="WorkflowId" PipelineParameter="WorkflowId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDirectoryListing" OutputProperty="*" Verb="Start" Noun="DirectoryListing" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartDirectoryListing" OutputProperty="*" Verb="Start" Noun="DirectoryListing" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartFileTransfer" OutputProperty="TransferId" Verb="Start" Noun="FileTransfer" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartFileTransfer" OutputProperty="TransferId" Verb="Start" Noun="FileTransfer" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartRemoteDelete" OutputProperty="DeleteId" Verb="Start" Noun="RemoteDelete" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartRemoteDelete" OutputProperty="DeleteId" Verb="Start" Noun="RemoteDelete" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartRemoteMove" OutputProperty="MoveId" Verb="Start" Noun="RemoteMove" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartRemoteMove" OutputProperty="MoveId" Verb="Start" Noun="RemoteMove" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartServer" Verb="Start" Noun="Server" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartServer" Verb="Start" Noun="Server" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopServer" Verb="Stop" Noun="Server" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopServer" Verb="Stop" Noun="Server" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestConnection" OutputProperty="*" Verb="Test" Noun="Connection" PipelineParameter="ConnectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TestConnection" OutputProperty="*" Verb="Test" Noun="Connection" PipelineParameter="ConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestIdentityProvider" OutputProperty="*" Verb="Test" Noun="IdentityProvider" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TestIdentityProvider" OutputProperty="*" Verb="Test" Noun="IdentityProvider" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAccess" OutputProperty="*" Verb="Update" Noun="Access" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateAccess" OutputProperty="*" Verb="Update" Noun="Access" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAgreement" OutputProperty="AgreementId" Verb="Update" Noun="Agreement" ShouldProcessTarget="AgreementId" PipelineParameter="AgreementId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateAgreement" OutputProperty="AgreementId" Verb="Update" Noun="Agreement" ShouldProcessTarget="AgreementId" PipelineParameter="AgreementId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCertificate" OutputProperty="CertificateId" Verb="Update" Noun="Certificate" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateCertificate" OutputProperty="CertificateId" Verb="Update" Noun="Certificate" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConnector" OutputProperty="ConnectorId" Verb="Update" Noun="Connector" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateConnector" OutputProperty="ConnectorId" Verb="Update" Noun="Connector" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateHostKey" OutputProperty="*" Verb="Update" Noun="HostKey" ShouldProcessTarget="HostKeyId" PipelineParameter="HostKeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateHostKey" OutputProperty="*" Verb="Update" Noun="HostKey" ShouldProcessTarget="HostKeyId" PipelineParameter="HostKeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProfile" OutputProperty="ProfileId" Verb="Update" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateProfile" OutputProperty="ProfileId" Verb="Update" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateServer" OutputProperty="ServerId" Verb="Update" Noun="Server" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateServer" OutputProperty="ServerId" Verb="Update" Noun="Server" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUser" OutputProperty="*" Verb="Update" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateUser" OutputProperty="*" Verb="Update" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWebApp" OutputProperty="WebAppId" Verb="Update" Noun="WebApp" ShouldProcessTarget="WebAppId" PipelineParameter="WebAppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateWebApp" OutputProperty="WebAppId" Verb="Update" Noun="WebApp" ShouldProcessTarget="WebAppId" PipelineParameter="WebAppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWebAppCustomization" OutputProperty="WebAppId" Verb="Update" Noun="WebAppCustomization" ShouldProcessTarget="WebAppId" PipelineParameter="WebAppId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateWebAppCustomization" OutputProperty="WebAppId" Verb="Update" Noun="WebAppCustomization" ShouldProcessTarget="WebAppId" PipelineParameter="WebAppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

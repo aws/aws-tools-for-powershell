@@ -19,43 +19,43 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateAccessGrantsIdentityCenter" Verb="Connect" Noun="AccessGrantsIdentityCenter" ShouldProcessTarget="IdentityCenterArn" PipelineParameter="IdentityCenterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateAccessGrantsIdentityCenter" Verb="Connect" Noun="AccessGrantsIdentityCenter" ShouldProcessTarget="IdentityCenterArn" PipelineParameter="IdentityCenterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAccessGrant" OutputProperty="*" Verb="New" Noun="AccessGrant" ShouldProcessTarget="AccessGrantsLocationId" PipelineParameter="AccessGrantsLocationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAccessGrant" OutputProperty="*" Verb="New" Noun="AccessGrant" ShouldProcessTarget="AccessGrantsLocationId" PipelineParameter="AccessGrantsLocationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAccessGrantsInstance" OutputProperty="*" Verb="New" Noun="AccessGrantsInstance" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAccessGrantsInstance" OutputProperty="*" Verb="New" Noun="AccessGrantsInstance" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAccessGrantsLocation" OutputProperty="*" Verb="New" Noun="AccessGrantsLocation" ShouldProcessTarget="IAMRoleArn" PipelineParameter="IAMRoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAccessGrantsLocation" OutputProperty="*" Verb="New" Noun="AccessGrantsLocation" ShouldProcessTarget="IAMRoleArn" PipelineParameter="IAMRoleArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAccessPoint" OutputProperty="AccessPointArn" Verb="New" Noun="AccessPoint" ShouldProcessTarget="Bucket" PipelineParameter="Bucket" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAccessPoint" OutputProperty="AccessPointArn" Verb="New" Noun="AccessPoint" ShouldProcessTarget="Bucket" PipelineParameter="Bucket" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAccessPointForObjectLambda" OutputProperty="ObjectLambdaAccessPointArn" Verb="New" Noun="AccessPointForObjectLambda" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAccessPointForObjectLambda" OutputProperty="ObjectLambdaAccessPointArn" Verb="New" Noun="AccessPointForObjectLambda" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBucket" OutputProperty="*" Verb="New" Noun="Bucket" ShouldProcessTarget="OutpostId" PipelineParameter="Bucket" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateBucket" OutputProperty="*" Verb="New" Noun="Bucket" ShouldProcessTarget="OutpostId" PipelineParameter="Bucket" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateJob" OutputProperty="JobId" Verb="New" Noun="Job" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateJob" OutputProperty="JobId" Verb="New" Noun="Job" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMultiRegionAccessPoint" OutputProperty="RequestTokenARN" Verb="New" Noun="MultiRegionAccessPoint" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateMultiRegionAccessPoint" OutputProperty="RequestTokenARN" Verb="New" Noun="MultiRegionAccessPoint" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStorageLensGroup" Verb="New" Noun="StorageLensGroup" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateStorageLensGroup" Verb="New" Noun="StorageLensGroup" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params>
                 <Param Name="StorageLensGroup_Filter_And_MatchAnyPrefix" NewName="StorageLensGroup_Filter_And_MatchAnyPrefix" />
                 <Param Name="StorageLensGroup_Filter_And_MatchAnySuffix" NewName="StorageLensGroup_Filter_And_MatchAnySuffix" />
@@ -81,319 +81,319 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccessGrant" Verb="Remove" Noun="AccessGrant" ShouldProcessTarget="AccessGrantId" PipelineParameter="AccessGrantId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAccessGrant" Verb="Remove" Noun="AccessGrant" ShouldProcessTarget="AccessGrantId" PipelineParameter="AccessGrantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccessGrantsInstance" Verb="Remove" Noun="AccessGrantsInstance" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAccessGrantsInstance" Verb="Remove" Noun="AccessGrantsInstance" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccessGrantsInstanceResourcePolicy" Verb="Remove" Noun="AccessGrantsInstanceResourcePolicy" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAccessGrantsInstanceResourcePolicy" Verb="Remove" Noun="AccessGrantsInstanceResourcePolicy" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccessGrantsLocation" Verb="Remove" Noun="AccessGrantsLocation" ShouldProcessTarget="AccessGrantsLocationId" PipelineParameter="AccessGrantsLocationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAccessGrantsLocation" Verb="Remove" Noun="AccessGrantsLocation" ShouldProcessTarget="AccessGrantsLocationId" PipelineParameter="AccessGrantsLocationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccessPoint" Verb="Remove" Noun="AccessPoint" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAccessPoint" Verb="Remove" Noun="AccessPoint" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccessPointForObjectLambda" Verb="Remove" Noun="AccessPointForObjectLambda" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAccessPointForObjectLambda" Verb="Remove" Noun="AccessPointForObjectLambda" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccessPointPolicy" Verb="Remove" Noun="AccessPointPolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAccessPointPolicy" Verb="Remove" Noun="AccessPointPolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccessPointPolicyForObjectLambda" Verb="Remove" Noun="AccessPointPolicyForObjectLambda" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAccessPointPolicyForObjectLambda" Verb="Remove" Noun="AccessPointPolicyForObjectLambda" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccessPointScope" Verb="Remove" Noun="AccessPointScope" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAccessPointScope" Verb="Remove" Noun="AccessPointScope" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBucket" Verb="Remove" Noun="Bucket" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBucket" Verb="Remove" Noun="Bucket" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBucketLifecycleConfiguration" Verb="Remove" Noun="BucketLifecycleConfiguration" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBucketLifecycleConfiguration" Verb="Remove" Noun="BucketLifecycleConfiguration" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBucketPolicy" Verb="Remove" Noun="BucketPolicy" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBucketPolicy" Verb="Remove" Noun="BucketPolicy" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBucketReplication" Verb="Remove" Noun="BucketReplication" ShouldProcessTarget="AccountId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBucketReplication" Verb="Remove" Noun="BucketReplication" ShouldProcessTarget="AccountId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBucketTagging" Verb="Remove" Noun="BucketTagging" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteBucketTagging" Verb="Remove" Noun="BucketTagging" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteJobTagging" Verb="Remove" Noun="JobTagging" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteJobTagging" Verb="Remove" Noun="JobTagging" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMultiRegionAccessPoint" OutputProperty="RequestTokenARN" Verb="Remove" Noun="MultiRegionAccessPoint" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteMultiRegionAccessPoint" OutputProperty="RequestTokenARN" Verb="Remove" Noun="MultiRegionAccessPoint" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePublicAccessBlock" Verb="Remove" Noun="PublicAccessBlock" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeletePublicAccessBlock" Verb="Remove" Noun="PublicAccessBlock" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStorageLensConfiguration" Verb="Remove" Noun="StorageLensConfiguration" ShouldProcessTarget="ConfigId" PipelineParameter="ConfigId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteStorageLensConfiguration" Verb="Remove" Noun="StorageLensConfiguration" ShouldProcessTarget="ConfigId" PipelineParameter="ConfigId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStorageLensConfigurationTagging" Verb="Remove" Noun="StorageLensConfigurationTagging" ShouldProcessTarget="ConfigId" PipelineParameter="ConfigId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteStorageLensConfigurationTagging" Verb="Remove" Noun="StorageLensConfigurationTagging" ShouldProcessTarget="ConfigId" PipelineParameter="ConfigId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStorageLensGroup" Verb="Remove" Noun="StorageLensGroup" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteStorageLensGroup" Verb="Remove" Noun="StorageLensGroup" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeJob" OutputProperty="Job" Verb="Get" Noun="Job" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeJob" OutputProperty="Job" Verb="Get" Noun="Job" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMultiRegionAccessPointOperation" OutputProperty="AsyncOperation" Verb="Get" Noun="MultiRegionAccessPointOperation" PipelineParameter="RequestTokenARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeMultiRegionAccessPointOperation" OutputProperty="AsyncOperation" Verb="Get" Noun="MultiRegionAccessPointOperation" PipelineParameter="RequestTokenARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DissociateAccessGrantsIdentityCenter" Verb="Disconnect" Noun="AccessGrantsIdentityCenter" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DissociateAccessGrantsIdentityCenter" Verb="Disconnect" Noun="AccessGrantsIdentityCenter" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccessGrant" OutputProperty="*" Verb="Get" Noun="AccessGrant" PipelineParameter="AccessGrantId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAccessGrant" OutputProperty="*" Verb="Get" Noun="AccessGrant" PipelineParameter="AccessGrantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccessGrantsInstance" OutputProperty="*" Verb="Get" Noun="AccessGrantsInstance" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAccessGrantsInstance" OutputProperty="*" Verb="Get" Noun="AccessGrantsInstance" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccessGrantsInstanceForPrefix" OutputProperty="*" Verb="Get" Noun="AccessGrantsInstanceForPrefix" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAccessGrantsInstanceForPrefix" OutputProperty="*" Verb="Get" Noun="AccessGrantsInstanceForPrefix" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccessGrantsInstanceResourcePolicy" OutputProperty="*" Verb="Get" Noun="AccessGrantsInstanceResourcePolicy" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAccessGrantsInstanceResourcePolicy" OutputProperty="*" Verb="Get" Noun="AccessGrantsInstanceResourcePolicy" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccessGrantsLocation" OutputProperty="*" Verb="Get" Noun="AccessGrantsLocation" PipelineParameter="AccessGrantsLocationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAccessGrantsLocation" OutputProperty="*" Verb="Get" Noun="AccessGrantsLocation" PipelineParameter="AccessGrantsLocationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccessPoint" OutputProperty="*" Verb="Get" Noun="AccessPoint" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAccessPoint" OutputProperty="*" Verb="Get" Noun="AccessPoint" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccessPointConfigurationForObjectLambda" OutputProperty="Configuration" Verb="Get" Noun="AccessPointConfigurationForObjectLambda" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAccessPointConfigurationForObjectLambda" OutputProperty="Configuration" Verb="Get" Noun="AccessPointConfigurationForObjectLambda" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccessPointForObjectLambda" OutputProperty="*" Verb="Get" Noun="AccessPointForObjectLambda" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAccessPointForObjectLambda" OutputProperty="*" Verb="Get" Noun="AccessPointForObjectLambda" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccessPointPolicy" OutputProperty="Policy" Verb="Get" Noun="AccessPointPolicy" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAccessPointPolicy" OutputProperty="Policy" Verb="Get" Noun="AccessPointPolicy" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccessPointPolicyForObjectLambda" OutputProperty="Policy" Verb="Get" Noun="AccessPointPolicyForObjectLambda" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAccessPointPolicyForObjectLambda" OutputProperty="Policy" Verb="Get" Noun="AccessPointPolicyForObjectLambda" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccessPointPolicyStatus" OutputProperty="PolicyStatus" Verb="Get" Noun="AccessPointPolicyStatus" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAccessPointPolicyStatus" OutputProperty="PolicyStatus" Verb="Get" Noun="AccessPointPolicyStatus" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccessPointPolicyStatusForObjectLambda" OutputProperty="PolicyStatus" Verb="Get" Noun="AccessPointPolicyStatusForObjectLambda" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAccessPointPolicyStatusForObjectLambda" OutputProperty="PolicyStatus" Verb="Get" Noun="AccessPointPolicyStatusForObjectLambda" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccessPointScope" OutputProperty="Scope" Verb="Get" Noun="AccessPointScope" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAccessPointScope" OutputProperty="Scope" Verb="Get" Noun="AccessPointScope" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucket" OutputProperty="*" Verb="Get" Noun="Bucket" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucket" OutputProperty="*" Verb="Get" Noun="Bucket" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketLifecycleConfiguration" OutputProperty="Rules" Verb="Get" Noun="BucketLifecycleConfiguration" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketLifecycleConfiguration" OutputProperty="Rules" Verb="Get" Noun="BucketLifecycleConfiguration" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketPolicy" OutputProperty="Policy" Verb="Get" Noun="BucketPolicy" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketPolicy" OutputProperty="Policy" Verb="Get" Noun="BucketPolicy" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketReplication" OutputProperty="ReplicationConfiguration" Verb="Get" Noun="BucketReplication" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketReplication" OutputProperty="ReplicationConfiguration" Verb="Get" Noun="BucketReplication" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketTagging" OutputProperty="TagSet" Verb="Get" Noun="BucketTagging" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketTagging" OutputProperty="TagSet" Verb="Get" Noun="BucketTagging" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketVersioning" OutputProperty="*" Verb="Get" Noun="BucketVersioning" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetBucketVersioning" OutputProperty="*" Verb="Get" Noun="BucketVersioning" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataAccess" OutputProperty="*" Verb="Get" Noun="DataAccess" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDataAccess" OutputProperty="*" Verb="Get" Noun="DataAccess" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJobTagging" OutputProperty="Tags" Verb="Get" Noun="JobTagging" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetJobTagging" OutputProperty="Tags" Verb="Get" Noun="JobTagging" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMultiRegionAccessPoint" OutputProperty="AccessPoint" Verb="Get" Noun="MultiRegionAccessPoint" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMultiRegionAccessPoint" OutputProperty="AccessPoint" Verb="Get" Noun="MultiRegionAccessPoint" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMultiRegionAccessPointPolicy" OutputProperty="Policy" Verb="Get" Noun="MultiRegionAccessPointPolicy" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMultiRegionAccessPointPolicy" OutputProperty="Policy" Verb="Get" Noun="MultiRegionAccessPointPolicy" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMultiRegionAccessPointPolicyStatus" OutputProperty="Established" Verb="Get" Noun="MultiRegionAccessPointPolicyStatus" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMultiRegionAccessPointPolicyStatus" OutputProperty="Established" Verb="Get" Noun="MultiRegionAccessPointPolicyStatus" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMultiRegionAccessPointRoutes" OutputProperty="*" Verb="Get" Noun="MultiRegionAccessPointRoute" PipelineParameter="Mrap" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMultiRegionAccessPointRoutes" OutputProperty="*" Verb="Get" Noun="MultiRegionAccessPointRoute" PipelineParameter="Mrap" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPublicAccessBlock" OutputProperty="PublicAccessBlockConfiguration" Verb="Get" Noun="PublicAccessBlock" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPublicAccessBlock" OutputProperty="PublicAccessBlockConfiguration" Verb="Get" Noun="PublicAccessBlock" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStorageLensConfiguration" OutputProperty="StorageLensConfiguration" Verb="Get" Noun="StorageLensConfiguration" PipelineParameter="ConfigId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetStorageLensConfiguration" OutputProperty="StorageLensConfiguration" Verb="Get" Noun="StorageLensConfiguration" PipelineParameter="ConfigId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStorageLensConfigurationTagging" OutputProperty="Tags" Verb="Get" Noun="StorageLensConfigurationTagging" PipelineParameter="ConfigId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetStorageLensConfigurationTagging" OutputProperty="Tags" Verb="Get" Noun="StorageLensConfigurationTagging" PipelineParameter="ConfigId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStorageLensGroup" OutputProperty="StorageLensGroup" Verb="Get" Noun="StorageLensGroup" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetStorageLensGroup" OutputProperty="StorageLensGroup" Verb="Get" Noun="StorageLensGroup" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccessGrants" OutputProperty="AccessGrantsList" Verb="Get" Noun="AccessGrantList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAccessGrants" OutputProperty="AccessGrantsList" Verb="Get" Noun="AccessGrantList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccessGrantsInstances" OutputProperty="AccessGrantsInstancesList" Verb="Get" Noun="AccessGrantsInstanceList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAccessGrantsInstances" OutputProperty="AccessGrantsInstancesList" Verb="Get" Noun="AccessGrantsInstanceList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccessGrantsLocations" OutputProperty="AccessGrantsLocationsList" Verb="Get" Noun="AccessGrantsLocationList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAccessGrantsLocations" OutputProperty="AccessGrantsLocationsList" Verb="Get" Noun="AccessGrantsLocationList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccessPoints" OutputProperty="AccessPointList" Verb="Get" Noun="AccessPointList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAccessPoints" OutputProperty="AccessPointList" Verb="Get" Noun="AccessPointList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccessPointsForDirectoryBuckets" OutputProperty="AccessPointList" Verb="Get" Noun="AccessPointsForDirectoryBucketList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAccessPointsForDirectoryBuckets" OutputProperty="AccessPointList" Verb="Get" Noun="AccessPointsForDirectoryBucketList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccessPointsForObjectLambda" OutputProperty="ObjectLambdaAccessPointList" Verb="Get" Noun="AccessPointsForObjectLambdaList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAccessPointsForObjectLambda" OutputProperty="ObjectLambdaAccessPointList" Verb="Get" Noun="AccessPointsForObjectLambdaList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCallerAccessGrants" OutputProperty="CallerAccessGrantsList" Verb="Get" Noun="CallerAccessGrantList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCallerAccessGrants" OutputProperty="CallerAccessGrantsList" Verb="Get" Noun="CallerAccessGrantList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMultiRegionAccessPoints" OutputProperty="AccessPoints" Verb="Get" Noun="MultiRegionAccessPointList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMultiRegionAccessPoints" OutputProperty="AccessPoints" Verb="Get" Noun="MultiRegionAccessPointList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRegionalBuckets" OutputProperty="RegionalBucketList" Verb="Get" Noun="RegionalBucketList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRegionalBuckets" OutputProperty="RegionalBucketList" Verb="Get" Noun="RegionalBucketList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStorageLensConfigurations" OutputProperty="StorageLensConfigurationList" Verb="Get" Noun="StorageLensConfigurationList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStorageLensConfigurations" OutputProperty="StorageLensConfigurationList" Verb="Get" Noun="StorageLensConfigurationList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStorageLensGroups" OutputProperty="StorageLensGroupList" Verb="Get" Noun="StorageLensGroupList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStorageLensGroups" OutputProperty="StorageLensGroupList" Verb="Get" Noun="StorageLensGroupList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAccessGrantsInstanceResourcePolicy" OutputProperty="*" Verb="Write" Noun="AccessGrantsInstanceResourcePolicy" ShouldProcessTarget="Policy" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutAccessGrantsInstanceResourcePolicy" OutputProperty="*" Verb="Write" Noun="AccessGrantsInstanceResourcePolicy" ShouldProcessTarget="Policy" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAccessPointConfigurationForObjectLambda" Verb="Write" Noun="AccessPointConfigurationForObjectLambda" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutAccessPointConfigurationForObjectLambda" Verb="Write" Noun="AccessPointConfigurationForObjectLambda" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAccessPointPolicy" Verb="Write" Noun="AccessPointPolicy" ShouldProcessTarget="Name" PipelineParameter="Policy" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutAccessPointPolicy" Verb="Write" Noun="AccessPointPolicy" ShouldProcessTarget="Name" PipelineParameter="Policy" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAccessPointPolicyForObjectLambda" Verb="Write" Noun="AccessPointPolicyForObjectLambda" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutAccessPointPolicyForObjectLambda" Verb="Write" Noun="AccessPointPolicyForObjectLambda" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAccessPointScope" Verb="Write" Noun="AccessPointScope" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutAccessPointScope" Verb="Write" Noun="AccessPointScope" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketLifecycleConfiguration" Verb="Write" Noun="BucketLifecycleConfiguration" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBucketLifecycleConfiguration" Verb="Write" Noun="BucketLifecycleConfiguration" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketPolicy" Verb="Write" Noun="BucketPolicy" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBucketPolicy" Verb="Write" Noun="BucketPolicy" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketReplication" Verb="Write" Noun="BucketReplication" ShouldProcessTarget="AccountId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBucketReplication" Verb="Write" Noun="BucketReplication" ShouldProcessTarget="AccountId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketTagging" Verb="Write" Noun="BucketTagging" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBucketTagging" Verb="Write" Noun="BucketTagging" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketVersioning" Verb="Write" Noun="BucketVersioning" ShouldProcessTarget="AccountId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutBucketVersioning" Verb="Write" Noun="BucketVersioning" ShouldProcessTarget="AccountId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutJobTagging" Verb="Add" Noun="JobTagging" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutJobTagging" Verb="Add" Noun="JobTagging" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutMultiRegionAccessPointPolicy" OutputProperty="RequestTokenARN" Verb="Write" Noun="MultiRegionAccessPointPolicy" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutMultiRegionAccessPointPolicy" OutputProperty="RequestTokenARN" Verb="Write" Noun="MultiRegionAccessPointPolicy" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutPublicAccessBlock" Verb="Add" Noun="PublicAccessBlock" ShouldProcessTarget="AccountId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutPublicAccessBlock" Verb="Add" Noun="PublicAccessBlock" ShouldProcessTarget="AccountId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutStorageLensConfiguration" Verb="Write" Noun="StorageLensConfiguration" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutStorageLensConfiguration" Verb="Write" Noun="StorageLensConfiguration" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params>
                 <Param Name="StorageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled" NewName="StorageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled" />
                 <Param Name="StorageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics_IsEnabled" NewName="StorageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled" />
@@ -406,35 +406,35 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutStorageLensConfigurationTagging" Verb="Write" Noun="StorageLensConfigurationTagging" ShouldProcessTarget="ConfigId" PipelineParameter="ConfigId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutStorageLensConfigurationTagging" Verb="Write" Noun="StorageLensConfigurationTagging" ShouldProcessTarget="ConfigId" PipelineParameter="ConfigId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SubmitMultiRegionAccessPointRoutes" Verb="Submit" Noun="MultiRegionAccessPointRoute" ShouldProcessTarget="AccountId" PipelineParameter="Mrap" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SubmitMultiRegionAccessPointRoutes" Verb="Submit" Noun="MultiRegionAccessPointRoute" ShouldProcessTarget="AccountId" PipelineParameter="Mrap" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAccessGrantsLocation" OutputProperty="*" Verb="Update" Noun="AccessGrantsLocation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateAccessGrantsLocation" OutputProperty="*" Verb="Update" Noun="AccessGrantsLocation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateJobPriority" OutputProperty="*" Verb="Update" Noun="JobPriority" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateJobPriority" OutputProperty="*" Verb="Update" Noun="JobPriority" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateJobStatus" OutputProperty="*" Verb="Update" Noun="JobStatus" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateJobStatus" OutputProperty="*" Verb="Update" Noun="JobStatus" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStorageLensGroup" Verb="Update" Noun="StorageLensGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateStorageLensGroup" Verb="Update" Noun="StorageLensGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params>
                 <Param Name="StorageLensGroup_Filter_And_MatchAnyPrefix" NewName="StorageLensGroup_Filter_And_MatchAnyPrefix" />
                 <Param Name="StorageLensGroup_Filter_And_MatchAnySuffix" NewName="StorageLensGroup_Filter_And_MatchAnySuffix" />

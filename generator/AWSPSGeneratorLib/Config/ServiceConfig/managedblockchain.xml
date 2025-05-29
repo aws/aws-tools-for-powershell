@@ -20,111 +20,111 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateAccessor" OutputProperty="*" Verb="New" Noun="Accessor" ShouldProcessTarget="AccessorType" PipelineParameter="AccessorType" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateAccessor" OutputProperty="*" Verb="New" Noun="Accessor" ShouldProcessTarget="AccessorType" PipelineParameter="AccessorType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMember" OutputProperty="MemberId" Verb="New" Noun="Member" ShouldProcessTarget="MemberConfiguration_Name" PipelineParameter="MemberConfiguration_Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateMember" OutputProperty="MemberId" Verb="New" Noun="Member" ShouldProcessTarget="MemberConfiguration_Name" PipelineParameter="MemberConfiguration_Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateNetwork" OutputProperty="*" Verb="New" Noun="Network" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateNetwork" OutputProperty="*" Verb="New" Noun="Network" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateNode" OutputProperty="NodeId" Verb="New" Noun="Node" ShouldProcessTarget="NetworkId" PipelineParameter="NetworkId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateNode" OutputProperty="NodeId" Verb="New" Noun="Node" ShouldProcessTarget="NetworkId" PipelineParameter="NetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProposal" OutputProperty="ProposalId" Verb="New" Noun="Proposal" ShouldProcessTarget="NetworkId" PipelineParameter="NetworkId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateProposal" OutputProperty="ProposalId" Verb="New" Noun="Proposal" ShouldProcessTarget="NetworkId" PipelineParameter="NetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccessor" Verb="Remove" Noun="Accessor" ShouldProcessTarget="AccessorId" PipelineParameter="AccessorId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAccessor" Verb="Remove" Noun="Accessor" ShouldProcessTarget="AccessorId" PipelineParameter="AccessorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMember" Verb="Remove" Noun="Member" ShouldProcessTarget="MemberId" PipelineParameter="MemberId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteMember" Verb="Remove" Noun="Member" ShouldProcessTarget="MemberId" PipelineParameter="MemberId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteNode" Verb="Remove" Noun="Node" ShouldProcessTarget="NodeId" PipelineParameter="NodeId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteNode" Verb="Remove" Noun="Node" ShouldProcessTarget="NodeId" PipelineParameter="NodeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccessor" OutputProperty="Accessor" Verb="Get" Noun="Accessor" PipelineParameter="AccessorId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAccessor" OutputProperty="Accessor" Verb="Get" Noun="Accessor" PipelineParameter="AccessorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMember" OutputProperty="Member" Verb="Get" Noun="Member" PipelineParameter="MemberId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMember" OutputProperty="Member" Verb="Get" Noun="Member" PipelineParameter="MemberId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetNetwork" OutputProperty="Network" Verb="Get" Noun="Network" PipelineParameter="NetworkId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetNetwork" OutputProperty="Network" Verb="Get" Noun="Network" PipelineParameter="NetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetNode" OutputProperty="Node" Verb="Get" Noun="Node" PipelineParameter="NodeId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetNode" OutputProperty="Node" Verb="Get" Noun="Node" PipelineParameter="NodeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProposal" OutputProperty="Proposal" Verb="Get" Noun="Proposal" PipelineParameter="ProposalId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetProposal" OutputProperty="Proposal" Verb="Get" Noun="Proposal" PipelineParameter="ProposalId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccessors" OutputProperty="Accessors" Verb="Get" Noun="AccessorList" PipelineParameter="NetworkType" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAccessors" OutputProperty="Accessors" Verb="Get" Noun="AccessorList" PipelineParameter="NetworkType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInvitations" OutputProperty="Invitations" Verb="Get" Noun="InvitationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListInvitations" OutputProperty="Invitations" Verb="Get" Noun="InvitationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMembers" OutputProperty="Members" Verb="Get" Noun="MemberList" PipelineParameter="NetworkId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMembers" OutputProperty="Members" Verb="Get" Noun="MemberList" PipelineParameter="NetworkId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNetworks" OutputProperty="Networks" Verb="Get" Noun="NetworkList" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListNetworks" OutputProperty="Networks" Verb="Get" Noun="NetworkList" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNodes" OutputProperty="Nodes" Verb="Get" Noun="NodeList" PipelineParameter="MemberId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListNodes" OutputProperty="Nodes" Verb="Get" Noun="NodeList" PipelineParameter="MemberId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProposals" OutputProperty="Proposals" Verb="Get" Noun="ProposalList" PipelineParameter="NetworkId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListProposals" OutputProperty="Proposals" Verb="Get" Noun="ProposalList" PipelineParameter="NetworkId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProposalVotes" OutputProperty="ProposalVotes" Verb="Get" Noun="ProposalVoteList" PipelineParameter="ProposalId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListProposalVotes" OutputProperty="ProposalVotes" Verb="Get" Noun="ProposalVoteList" PipelineParameter="ProposalId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RejectInvitation" Verb="Deny" Noun="Invitation" ShouldProcessTarget="InvitationId" PipelineParameter="InvitationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RejectInvitation" Verb="Deny" Noun="Invitation" ShouldProcessTarget="InvitationId" PipelineParameter="InvitationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMember" Verb="Update" Noun="Member" ShouldProcessTarget="MemberId" PipelineParameter="MemberId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateMember" Verb="Update" Noun="Member" ShouldProcessTarget="MemberId" PipelineParameter="MemberId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateNode" Verb="Update" Noun="Node" ShouldProcessTarget="NodeId" PipelineParameter="NodeId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateNode" Verb="Update" Noun="Node" ShouldProcessTarget="NodeId" PipelineParameter="NodeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="VoteOnProposal" Verb="Send" Noun="ProposalVote" ShouldProcessTarget="ProposalId" PipelineParameter="ProposalId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="VoteOnProposal" Verb="Send" Noun="ProposalVote" ShouldProcessTarget="ProposalId" PipelineParameter="ProposalId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

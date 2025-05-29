@@ -19,43 +19,43 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateSlackChannelConfiguration" Verb="New" Noun="SlackChannelConfiguration" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateSlackChannelConfiguration" Verb="New" Noun="SlackChannelConfiguration" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccountAlias" Verb="Remove" Noun="AccountAlias" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAccountAlias" Verb="Remove" Noun="AccountAlias" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSlackChannelConfiguration" Verb="Remove" Noun="SlackChannelConfiguration" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteSlackChannelConfiguration" Verb="Remove" Noun="SlackChannelConfiguration" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSlackWorkspaceConfiguration" Verb="Remove" Noun="SlackWorkspaceConfiguration" ShouldProcessTarget="TeamId" PipelineParameter="TeamId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteSlackWorkspaceConfiguration" Verb="Remove" Noun="SlackWorkspaceConfiguration" ShouldProcessTarget="TeamId" PipelineParameter="TeamId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccountAlias" OutputProperty="AccountAlias" Verb="Get" Noun="AccountAlias" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAccountAlias" OutputProperty="AccountAlias" Verb="Get" Noun="AccountAlias" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSlackChannelConfigurations" OutputProperty="SlackChannelConfigurations" Verb="Get" Noun="SlackChannelConfigurationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSlackChannelConfigurations" OutputProperty="SlackChannelConfigurations" Verb="Get" Noun="SlackChannelConfigurationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSlackWorkspaceConfigurations" OutputProperty="SlackWorkspaceConfigurations" Verb="Get" Noun="SlackWorkspaceConfigurationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSlackWorkspaceConfigurations" OutputProperty="SlackWorkspaceConfigurations" Verb="Get" Noun="SlackWorkspaceConfigurationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAccountAlias" Verb="Set" Noun="AccountAlias" ShouldProcessTarget="AccountAlias" PipelineParameter="AccountAlias" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutAccountAlias" Verb="Set" Noun="AccountAlias" ShouldProcessTarget="AccountAlias" PipelineParameter="AccountAlias" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterSlackWorkspaceForOrganization" OutputProperty="*" Verb="Register" Noun="SlackWorkspaceForOrganization" ShouldProcessTarget="TeamId" PipelineParameter="TeamId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RegisterSlackWorkspaceForOrganization" OutputProperty="*" Verb="Register" Noun="SlackWorkspaceForOrganization" ShouldProcessTarget="TeamId" PipelineParameter="TeamId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSlackChannelConfiguration" OutputProperty="*" Verb="Update" Noun="SlackChannelConfiguration" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateSlackChannelConfiguration" OutputProperty="*" Verb="Update" Noun="SlackChannelConfiguration" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

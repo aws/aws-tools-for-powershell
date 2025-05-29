@@ -19,275 +19,275 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateFirewallRuleGroup" OutputProperty="FirewallRuleGroupAssociation" Verb="New" Noun="FirewallRuleGroupAssociation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateFirewallRuleGroup" OutputProperty="FirewallRuleGroupAssociation" Verb="New" Noun="FirewallRuleGroupAssociation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateResolverEndpointIpAddress" OutputProperty="ResolverEndpoint" Verb="Add" Noun="ResolverEndpointIpAddressAssociation" ShouldProcessTarget="ResolverEndpointId" PipelineParameter="IpAddress" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateResolverEndpointIpAddress" OutputProperty="ResolverEndpoint" Verb="Add" Noun="ResolverEndpointIpAddressAssociation" ShouldProcessTarget="ResolverEndpointId" PipelineParameter="IpAddress" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateResolverQueryLogConfig" OutputProperty="ResolverQueryLogConfigAssociation" Verb="Add" Noun="ResolverQueryLogConfigAssociation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateResolverQueryLogConfig" OutputProperty="ResolverQueryLogConfigAssociation" Verb="Add" Noun="ResolverQueryLogConfigAssociation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateResolverRule" OutputProperty="ResolverRuleAssociation" Verb="Add" Noun="ResolverRuleAssociation" ShouldProcessTarget="ResolverRuleId" PipelineParameter="ResolverRuleId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateResolverRule" OutputProperty="ResolverRuleAssociation" Verb="Add" Noun="ResolverRuleAssociation" ShouldProcessTarget="ResolverRuleId" PipelineParameter="ResolverRuleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFirewallDomainList" OutputProperty="FirewallDomainList" Verb="New" Noun="FirewallDomainList" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateFirewallDomainList" OutputProperty="FirewallDomainList" Verb="New" Noun="FirewallDomainList" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFirewallRule" OutputProperty="FirewallRule" Verb="New" Noun="FirewallRule" ShouldProcessTarget="FirewallRuleGroupId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateFirewallRule" OutputProperty="FirewallRule" Verb="New" Noun="FirewallRule" ShouldProcessTarget="FirewallRuleGroupId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFirewallRuleGroup" OutputProperty="FirewallRuleGroup" Verb="New" Noun="FirewallRuleGroup" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateFirewallRuleGroup" OutputProperty="FirewallRuleGroup" Verb="New" Noun="FirewallRuleGroup" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateOutpostResolver" OutputProperty="OutpostResolver" Verb="New" Noun="OutpostResolver" ShouldProcessTarget="OutpostArn" PipelineParameter="OutpostArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateOutpostResolver" OutputProperty="OutpostResolver" Verb="New" Noun="OutpostResolver" ShouldProcessTarget="OutpostArn" PipelineParameter="OutpostArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateResolverEndpoint" OutputProperty="ResolverEndpoint" Verb="New" Noun="ResolverEndpoint" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateResolverEndpoint" OutputProperty="ResolverEndpoint" Verb="New" Noun="ResolverEndpoint" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateResolverQueryLogConfig" OutputProperty="ResolverQueryLogConfig" Verb="New" Noun="ResolverQueryLogConfig" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateResolverQueryLogConfig" OutputProperty="ResolverQueryLogConfig" Verb="New" Noun="ResolverQueryLogConfig" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateResolverRule" OutputProperty="ResolverRule" Verb="New" Noun="ResolverRule" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateResolverRule" OutputProperty="ResolverRule" Verb="New" Noun="ResolverRule" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFirewallDomainList" OutputProperty="FirewallDomainList" Verb="Remove" Noun="FirewallDomainList" ShouldProcessTarget="FirewallDomainListId" PipelineParameter="FirewallDomainListId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteFirewallDomainList" OutputProperty="FirewallDomainList" Verb="Remove" Noun="FirewallDomainList" ShouldProcessTarget="FirewallDomainListId" PipelineParameter="FirewallDomainListId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFirewallRule" OutputProperty="FirewallRule" Verb="Remove" Noun="FirewallRule" ShouldProcessTarget="FirewallRuleGroupId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteFirewallRule" OutputProperty="FirewallRule" Verb="Remove" Noun="FirewallRule" ShouldProcessTarget="FirewallRuleGroupId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFirewallRuleGroup" OutputProperty="FirewallRuleGroup" Verb="Remove" Noun="FirewallRuleGroup" ShouldProcessTarget="FirewallRuleGroupId" PipelineParameter="FirewallRuleGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteFirewallRuleGroup" OutputProperty="FirewallRuleGroup" Verb="Remove" Noun="FirewallRuleGroup" ShouldProcessTarget="FirewallRuleGroupId" PipelineParameter="FirewallRuleGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteOutpostResolver" OutputProperty="OutpostResolver" Verb="Remove" Noun="OutpostResolver" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteOutpostResolver" OutputProperty="OutpostResolver" Verb="Remove" Noun="OutpostResolver" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResolverEndpoint" OutputProperty="ResolverEndpoint" Verb="Remove" Noun="ResolverEndpoint" ShouldProcessTarget="ResolverEndpointId" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteResolverEndpoint" OutputProperty="ResolverEndpoint" Verb="Remove" Noun="ResolverEndpoint" ShouldProcessTarget="ResolverEndpointId" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResolverQueryLogConfig" OutputProperty="ResolverQueryLogConfig" Verb="Remove" Noun="ResolverQueryLogConfig" ShouldProcessTarget="ResolverQueryLogConfigId" PipelineParameter="ResolverQueryLogConfigId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteResolverQueryLogConfig" OutputProperty="ResolverQueryLogConfig" Verb="Remove" Noun="ResolverQueryLogConfig" ShouldProcessTarget="ResolverQueryLogConfigId" PipelineParameter="ResolverQueryLogConfigId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResolverRule" OutputProperty="ResolverRule" Verb="Remove" Noun="ResolverRule" ShouldProcessTarget="ResolverRuleId" PipelineParameter="ResolverRuleId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteResolverRule" OutputProperty="ResolverRule" Verb="Remove" Noun="ResolverRule" ShouldProcessTarget="ResolverRuleId" PipelineParameter="ResolverRuleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateFirewallRuleGroup" OutputProperty="FirewallRuleGroupAssociation" Verb="Remove" Noun="FirewallRuleGroupAssociation" ShouldProcessTarget="FirewallRuleGroupAssociationId" PipelineParameter="FirewallRuleGroupAssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateFirewallRuleGroup" OutputProperty="FirewallRuleGroupAssociation" Verb="Remove" Noun="FirewallRuleGroupAssociation" ShouldProcessTarget="FirewallRuleGroupAssociationId" PipelineParameter="FirewallRuleGroupAssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateResolverEndpointIpAddress" OutputProperty="ResolverEndpoint" Verb="Remove" Noun="ResolverEndpointIpAddressAssociation" ShouldProcessTarget="ResolverEndpointId" PipelineParameter="IpAddress" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateResolverEndpointIpAddress" OutputProperty="ResolverEndpoint" Verb="Remove" Noun="ResolverEndpointIpAddressAssociation" ShouldProcessTarget="ResolverEndpointId" PipelineParameter="IpAddress" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateResolverQueryLogConfig" OutputProperty="ResolverQueryLogConfigAssociation" Verb="Remove" Noun="ResolverQueryLogConfigAssociation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateResolverQueryLogConfig" OutputProperty="ResolverQueryLogConfigAssociation" Verb="Remove" Noun="ResolverQueryLogConfigAssociation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateResolverRule" OutputProperty="ResolverRuleAssociation" Verb="Remove" Noun="ResolverRuleAssociation" ShouldProcessTarget="ResolverRuleId" PipelineParameter="ResolverRuleId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateResolverRule" OutputProperty="ResolverRuleAssociation" Verb="Remove" Noun="ResolverRuleAssociation" ShouldProcessTarget="ResolverRuleId" PipelineParameter="ResolverRuleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFirewallConfig" OutputProperty="FirewallConfig" Verb="Get" Noun="FirewallConfig" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFirewallConfig" OutputProperty="FirewallConfig" Verb="Get" Noun="FirewallConfig" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFirewallDomainList" OutputProperty="FirewallDomainList" Verb="Get" Noun="FirewallDomainList" PipelineParameter="FirewallDomainListId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFirewallDomainList" OutputProperty="FirewallDomainList" Verb="Get" Noun="FirewallDomainList" PipelineParameter="FirewallDomainListId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFirewallRuleGroup" OutputProperty="FirewallRuleGroup" Verb="Get" Noun="FirewallRuleGroup" PipelineParameter="FirewallRuleGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFirewallRuleGroup" OutputProperty="FirewallRuleGroup" Verb="Get" Noun="FirewallRuleGroup" PipelineParameter="FirewallRuleGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFirewallRuleGroupAssociation" OutputProperty="FirewallRuleGroupAssociation" Verb="Get" Noun="FirewallRuleGroupAssociation" PipelineParameter="FirewallRuleGroupAssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFirewallRuleGroupAssociation" OutputProperty="FirewallRuleGroupAssociation" Verb="Get" Noun="FirewallRuleGroupAssociation" PipelineParameter="FirewallRuleGroupAssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFirewallRuleGroupPolicy" OutputProperty="FirewallRuleGroupPolicy" Verb="Get" Noun="FirewallRuleGroupPolicy" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetFirewallRuleGroupPolicy" OutputProperty="FirewallRuleGroupPolicy" Verb="Get" Noun="FirewallRuleGroupPolicy" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOutpostResolver" OutputProperty="OutpostResolver" Verb="Get" Noun="OutpostResolver" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetOutpostResolver" OutputProperty="OutpostResolver" Verb="Get" Noun="OutpostResolver" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResolverConfig" OutputProperty="ResolverConfig" Verb="Get" Noun="ResolverConfig" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetResolverConfig" OutputProperty="ResolverConfig" Verb="Get" Noun="ResolverConfig" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResolverDnssecConfig" OutputProperty="ResolverDNSSECConfig" Verb="Get" Noun="ResolverDnssecConfig" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetResolverDnssecConfig" OutputProperty="ResolverDNSSECConfig" Verb="Get" Noun="ResolverDnssecConfig" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResolverEndpoint" OutputProperty="ResolverEndpoint" Verb="Get" Noun="ResolverEndpoint" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetResolverEndpoint" OutputProperty="ResolverEndpoint" Verb="Get" Noun="ResolverEndpoint" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResolverQueryLogConfig" OutputProperty="ResolverQueryLogConfig" Verb="Get" Noun="ResolverQueryLogConfig" PipelineParameter="ResolverQueryLogConfigId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetResolverQueryLogConfig" OutputProperty="ResolverQueryLogConfig" Verb="Get" Noun="ResolverQueryLogConfig" PipelineParameter="ResolverQueryLogConfigId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResolverQueryLogConfigAssociation" OutputProperty="ResolverQueryLogConfigAssociation" Verb="Get" Noun="ResolverQueryLogConfigAssociation" PipelineParameter="ResolverQueryLogConfigAssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetResolverQueryLogConfigAssociation" OutputProperty="ResolverQueryLogConfigAssociation" Verb="Get" Noun="ResolverQueryLogConfigAssociation" PipelineParameter="ResolverQueryLogConfigAssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResolverQueryLogConfigPolicy" OutputProperty="ResolverQueryLogConfigPolicy" Verb="Get" Noun="ResolverQueryLogConfigPolicy" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetResolverQueryLogConfigPolicy" OutputProperty="ResolverQueryLogConfigPolicy" Verb="Get" Noun="ResolverQueryLogConfigPolicy" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResolverRule" OutputProperty="ResolverRule" Verb="Get" Noun="ResolverRule" PipelineParameter="ResolverRuleId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetResolverRule" OutputProperty="ResolverRule" Verb="Get" Noun="ResolverRule" PipelineParameter="ResolverRuleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResolverRuleAssociation" OutputProperty="ResolverRuleAssociation" Verb="Get" Noun="ResolverRuleAssociation" PipelineParameter="ResolverRuleAssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetResolverRuleAssociation" OutputProperty="ResolverRuleAssociation" Verb="Get" Noun="ResolverRuleAssociation" PipelineParameter="ResolverRuleAssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResolverRulePolicy" OutputProperty="ResolverRulePolicy" Verb="Get" Noun="ResolverRulePolicy" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetResolverRulePolicy" OutputProperty="ResolverRulePolicy" Verb="Get" Noun="ResolverRulePolicy" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportFirewallDomains" OutputProperty="*" Verb="Import" Noun="FirewallDomainList" ShouldProcessTarget="FirewallDomainListId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportFirewallDomains" OutputProperty="*" Verb="Import" Noun="FirewallDomainList" ShouldProcessTarget="FirewallDomainListId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFirewallConfigs" OutputProperty="FirewallConfigs" Verb="Get" Noun="FirewallConfigList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFirewallConfigs" OutputProperty="FirewallConfigs" Verb="Get" Noun="FirewallConfigList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFirewallDomainLists" OutputProperty="FirewallDomainLists" Verb="Get" Noun="FirewallDomainListList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFirewallDomainLists" OutputProperty="FirewallDomainLists" Verb="Get" Noun="FirewallDomainListList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFirewallDomains" OutputProperty="Domains" Verb="Get" Noun="FirewallDomain" PipelineParameter="FirewallDomainListId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFirewallDomains" OutputProperty="Domains" Verb="Get" Noun="FirewallDomain" PipelineParameter="FirewallDomainListId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFirewallRuleGroupAssociations" OutputProperty="FirewallRuleGroupAssociations" Verb="Get" Noun="FirewallRuleGroupAssociationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFirewallRuleGroupAssociations" OutputProperty="FirewallRuleGroupAssociations" Verb="Get" Noun="FirewallRuleGroupAssociationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFirewallRuleGroups" OutputProperty="FirewallRuleGroups" Verb="Get" Noun="FirewallRuleGroupList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFirewallRuleGroups" OutputProperty="FirewallRuleGroups" Verb="Get" Noun="FirewallRuleGroupList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFirewallRules" OutputProperty="FirewallRules" Verb="Get" Noun="FirewallRuleList" PipelineParameter="FirewallRuleGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFirewallRules" OutputProperty="FirewallRules" Verb="Get" Noun="FirewallRuleList" PipelineParameter="FirewallRuleGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOutpostResolvers" OutputProperty="OutpostResolvers" Verb="Get" Noun="OutpostResolverList" PipelineParameter="OutpostArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListOutpostResolvers" OutputProperty="OutpostResolvers" Verb="Get" Noun="OutpostResolverList" PipelineParameter="OutpostArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResolverConfigs" OutputProperty="ResolverConfigs" Verb="Get" Noun="ResolverConfigList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResolverConfigs" OutputProperty="ResolverConfigs" Verb="Get" Noun="ResolverConfigList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResolverDnssecConfigs" OutputProperty="ResolverDnssecConfigs" Verb="Get" Noun="ResolverDnssecConfigList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResolverDnssecConfigs" OutputProperty="ResolverDnssecConfigs" Verb="Get" Noun="ResolverDnssecConfigList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResolverEndpointIpAddresses" OutputProperty="IpAddresses" Verb="Get" Noun="ResolverEndpointIpAddressList" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResolverEndpointIpAddresses" OutputProperty="IpAddresses" Verb="Get" Noun="ResolverEndpointIpAddressList" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResolverEndpoints" OutputProperty="ResolverEndpoints" Verb="Get" Noun="ResolverEndpointList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResolverEndpoints" OutputProperty="ResolverEndpoints" Verb="Get" Noun="ResolverEndpointList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResolverQueryLogConfigAssociations" OutputProperty="*" Verb="Get" Noun="ResolverQueryLogConfigAssociationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResolverQueryLogConfigAssociations" OutputProperty="*" Verb="Get" Noun="ResolverQueryLogConfigAssociationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResolverQueryLogConfigs" OutputProperty="*" Verb="Get" Noun="ResolverQueryLogConfigList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResolverQueryLogConfigs" OutputProperty="*" Verb="Get" Noun="ResolverQueryLogConfigList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResolverRuleAssociations" OutputProperty="ResolverRuleAssociations" Verb="Get" Noun="ResolverRuleAssociationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResolverRuleAssociations" OutputProperty="ResolverRuleAssociations" Verb="Get" Noun="ResolverRuleAssociationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResolverRules" OutputProperty="ResolverRules" Verb="Get" Noun="ResolverRuleList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResolverRules" OutputProperty="ResolverRules" Verb="Get" Noun="ResolverRuleList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutFirewallRuleGroupPolicy" OutputProperty="ReturnValue" Verb="Edit" Noun="FirewallRuleGroupPolicy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutFirewallRuleGroupPolicy" OutputProperty="ReturnValue" Verb="Edit" Noun="FirewallRuleGroupPolicy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutResolverQueryLogConfigPolicy" OutputProperty="ReturnValue" Verb="Write" Noun="ResolverQueryLogConfigPolicy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutResolverQueryLogConfigPolicy" OutputProperty="ReturnValue" Verb="Write" Noun="ResolverQueryLogConfigPolicy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutResolverRulePolicy" OutputProperty="ReturnValue" Verb="Set" Noun="ResolverRulePolicy" ShouldProcessTarget="Arn" PipelineParameter="ResolverRulePolicy" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutResolverRulePolicy" OutputProperty="ReturnValue" Verb="Set" Noun="ResolverRulePolicy" ShouldProcessTarget="Arn" PipelineParameter="ResolverRulePolicy" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFirewallConfig" OutputProperty="FirewallConfig" Verb="Edit" Noun="FirewallConfig" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateFirewallConfig" OutputProperty="FirewallConfig" Verb="Edit" Noun="FirewallConfig" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFirewallDomains" OutputProperty="*" Verb="Edit" Noun="FirewallDomain" ShouldProcessTarget="FirewallDomainListId" PipelineParameter="FirewallDomainListId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateFirewallDomains" OutputProperty="*" Verb="Edit" Noun="FirewallDomain" ShouldProcessTarget="FirewallDomainListId" PipelineParameter="FirewallDomainListId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFirewallRule" OutputProperty="FirewallRule" Verb="Edit" Noun="FirewallRule" ShouldProcessTarget="FirewallRuleGroupId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateFirewallRule" OutputProperty="FirewallRule" Verb="Edit" Noun="FirewallRule" ShouldProcessTarget="FirewallRuleGroupId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFirewallRuleGroupAssociation" OutputProperty="FirewallRuleGroupAssociation" Verb="Edit" Noun="FirewallRuleGroupAssociation" ShouldProcessTarget="FirewallRuleGroupAssociationId" PipelineParameter="FirewallRuleGroupAssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateFirewallRuleGroupAssociation" OutputProperty="FirewallRuleGroupAssociation" Verb="Edit" Noun="FirewallRuleGroupAssociation" ShouldProcessTarget="FirewallRuleGroupAssociationId" PipelineParameter="FirewallRuleGroupAssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateOutpostResolver" OutputProperty="OutpostResolver" Verb="Update" Noun="OutpostResolver" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateOutpostResolver" OutputProperty="OutpostResolver" Verb="Update" Noun="OutpostResolver" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateResolverConfig" OutputProperty="ResolverConfig" Verb="Update" Noun="ResolverConfig" ShouldProcessTarget="ResourceId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateResolverConfig" OutputProperty="ResolverConfig" Verb="Update" Noun="ResolverConfig" ShouldProcessTarget="ResourceId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateResolverDnssecConfig" OutputProperty="ResolverDNSSECConfig" Verb="Update" Noun="ResolverDnssecConfig" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateResolverDnssecConfig" OutputProperty="ResolverDNSSECConfig" Verb="Update" Noun="ResolverDnssecConfig" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateResolverEndpoint" OutputProperty="ResolverEndpoint" Verb="Update" Noun="ResolverEndpoint" ShouldProcessTarget="ResolverEndpointId" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateResolverEndpoint" OutputProperty="ResolverEndpoint" Verb="Update" Noun="ResolverEndpoint" ShouldProcessTarget="ResolverEndpointId" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateResolverRule" OutputProperty="ResolverRule" Verb="Update" Noun="ResolverRule" ShouldProcessTarget="ResolverRuleId" PipelineParameter="ResolverRuleId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateResolverRule" OutputProperty="ResolverRule" Verb="Update" Noun="ResolverRule" ShouldProcessTarget="ResolverRuleId" PipelineParameter="ResolverRuleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
