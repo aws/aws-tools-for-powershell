@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>ssm-guiconnect</C2jFilename>
+    <AssemblyName>SSMGuiConnect</AssemblyName>
+    <ServiceNounPrefix>SSMG</ServiceNounPrefix>
+    <ServiceName>AWS SSM-GUIConnect</ServiceName>
+    <ServiceClientInterface>IAmazonSSMGuiConnect</ServiceClientInterface>
+    <ServiceClient>AmazonSSMGuiConnectClient</ServiceClient>
+    <ServiceModuleGuid>90cd6c25-198d-4567-a8e2-3d8931984b11</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteConnectionRecordingPreferences" OutputProperty="*" Verb="Remove" Noun="ConnectionRecordingPreference" ShouldProcessTarget="ClientToken" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnectionRecordingPreferences" OutputProperty="ConnectionRecordingPreferences" Verb="Get" Noun="ConnectionRecordingPreference" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConnectionRecordingPreferences" OutputProperty="ConnectionRecordingPreferences" Verb="Update" Noun="ConnectionRecordingPreference" ShouldProcessTarget="ConnectionRecordingPreferences_KMSKeyArn" PipelineParameter="ConnectionRecordingPreferences_KMSKeyArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

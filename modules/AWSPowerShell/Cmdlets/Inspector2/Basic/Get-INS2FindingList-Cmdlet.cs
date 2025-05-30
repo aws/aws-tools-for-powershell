@@ -162,6 +162,28 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_EcrImageHash { get; set; }
         #endregion
         
+        #region Parameter FilterCriteria_EcrImageInUseCount
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria indicating when details for an Amazon ECR image include when an Amazon
+        /// ECR image is in use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.NumberFilter[] FilterCriteria_EcrImageInUseCount { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_EcrImageLastInUseAt
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria indicating when an Amazon ECR image was last used in an Amazon ECS
+        /// cluster task or Amazon EKS cluster pod.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.DateFilter[] FilterCriteria_EcrImageLastInUseAt { get; set; }
+        #endregion
+        
         #region Parameter FilterCriteria_EcrImagePushedAt
         /// <summary>
         /// <para>
@@ -607,6 +629,14 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             {
                 context.FilterCriteria_EcrImageHash = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_EcrImageHash);
             }
+            if (this.FilterCriteria_EcrImageInUseCount != null)
+            {
+                context.FilterCriteria_EcrImageInUseCount = new List<Amazon.Inspector2.Model.NumberFilter>(this.FilterCriteria_EcrImageInUseCount);
+            }
+            if (this.FilterCriteria_EcrImageLastInUseAt != null)
+            {
+                context.FilterCriteria_EcrImageLastInUseAt = new List<Amazon.Inspector2.Model.DateFilter>(this.FilterCriteria_EcrImageLastInUseAt);
+            }
             if (this.FilterCriteria_EcrImagePushedAt != null)
             {
                 context.FilterCriteria_EcrImagePushedAt = new List<Amazon.Inspector2.Model.DateFilter>(this.FilterCriteria_EcrImagePushedAt);
@@ -863,6 +893,26 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_EcrImageHash != null)
             {
                 request.FilterCriteria.EcrImageHash = requestFilterCriteria_filterCriteria_EcrImageHash;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.NumberFilter> requestFilterCriteria_filterCriteria_EcrImageInUseCount = null;
+            if (cmdletContext.FilterCriteria_EcrImageInUseCount != null)
+            {
+                requestFilterCriteria_filterCriteria_EcrImageInUseCount = cmdletContext.FilterCriteria_EcrImageInUseCount;
+            }
+            if (requestFilterCriteria_filterCriteria_EcrImageInUseCount != null)
+            {
+                request.FilterCriteria.EcrImageInUseCount = requestFilterCriteria_filterCriteria_EcrImageInUseCount;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.DateFilter> requestFilterCriteria_filterCriteria_EcrImageLastInUseAt = null;
+            if (cmdletContext.FilterCriteria_EcrImageLastInUseAt != null)
+            {
+                requestFilterCriteria_filterCriteria_EcrImageLastInUseAt = cmdletContext.FilterCriteria_EcrImageLastInUseAt;
+            }
+            if (requestFilterCriteria_filterCriteria_EcrImageLastInUseAt != null)
+            {
+                request.FilterCriteria.EcrImageLastInUseAt = requestFilterCriteria_filterCriteria_EcrImageLastInUseAt;
                 requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.DateFilter> requestFilterCriteria_filterCriteria_EcrImagePushedAt = null;
@@ -1283,6 +1333,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_Ec2InstanceVpcId { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_EcrImageArchitecture { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_EcrImageHash { get; set; }
+            public List<Amazon.Inspector2.Model.NumberFilter> FilterCriteria_EcrImageInUseCount { get; set; }
+            public List<Amazon.Inspector2.Model.DateFilter> FilterCriteria_EcrImageLastInUseAt { get; set; }
             public List<Amazon.Inspector2.Model.DateFilter> FilterCriteria_EcrImagePushedAt { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_EcrImageRegistry { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_EcrImageRepositoryName { get; set; }

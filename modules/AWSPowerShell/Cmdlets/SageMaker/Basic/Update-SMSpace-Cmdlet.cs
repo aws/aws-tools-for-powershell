@@ -433,6 +433,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String SpaceDisplayName { get; set; }
         #endregion
         
+        #region Parameter SpaceSettings_SpaceManagedResource
+        /// <summary>
+        /// <para>
+        /// <para>If you enable this option, SageMaker AI creates the following resources on your behalf
+        /// when you create the space:</para><ul><li><para>The user profile that possesses the space.</para></li><li><para>The app that the space contains.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SpaceSettings_SpaceManagedResources")]
+        [AWSConstantClassSource("Amazon.SageMaker.FeatureStatus")]
+        public Amazon.SageMaker.FeatureStatus SpaceSettings_SpaceManagedResource { get; set; }
+        #endregion
+        
         #region Parameter SpaceName
         /// <summary>
         /// <para>
@@ -558,6 +571,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.KernelGatewayAppSettings_LifecycleConfigArn = new List<System.String>(this.KernelGatewayAppSettings_LifecycleConfigArn);
             }
+            context.SpaceSettings_SpaceManagedResource = this.SpaceSettings_SpaceManagedResource;
             context.EbsStorageSettings_EbsVolumeSizeInGb = this.EbsStorageSettings_EbsVolumeSizeInGb;
             
             // allow further manipulation of loaded context prior to processing
@@ -609,6 +623,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestSpaceSettings_spaceSettings_CustomFileSystem != null)
             {
                 request.SpaceSettings.CustomFileSystems = requestSpaceSettings_spaceSettings_CustomFileSystem;
+                requestSpaceSettingsIsNull = false;
+            }
+            Amazon.SageMaker.FeatureStatus requestSpaceSettings_spaceSettings_SpaceManagedResource = null;
+            if (cmdletContext.SpaceSettings_SpaceManagedResource != null)
+            {
+                requestSpaceSettings_spaceSettings_SpaceManagedResource = cmdletContext.SpaceSettings_SpaceManagedResource;
+            }
+            if (requestSpaceSettings_spaceSettings_SpaceManagedResource != null)
+            {
+                request.SpaceSettings.SpaceManagedResources = requestSpaceSettings_spaceSettings_SpaceManagedResource;
                 requestSpaceSettingsIsNull = false;
             }
             Amazon.SageMaker.Model.SpaceStorageSettings requestSpaceSettings_spaceSettings_SpaceStorageSettings = null;
@@ -1193,6 +1217,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias { get; set; }
             public System.String SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn { get; set; }
             public List<System.String> KernelGatewayAppSettings_LifecycleConfigArn { get; set; }
+            public Amazon.SageMaker.FeatureStatus SpaceSettings_SpaceManagedResource { get; set; }
             public System.Int32? EbsStorageSettings_EbsVolumeSizeInGb { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateSpaceResponse, UpdateSMSpaceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.SpaceArn;

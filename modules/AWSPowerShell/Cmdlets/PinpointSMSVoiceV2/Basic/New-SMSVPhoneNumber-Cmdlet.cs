@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter MessageType
         /// <summary>
         /// <para>
-        /// <para>The type of message. Valid values are TRANSACTIONAL for messages that are critical
-        /// or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive.</para>
+        /// <para>The type of message. Valid values are <c>TRANSACTIONAL</c> for messages that are critical
+        /// or time-sensitive and <c>PROMOTIONAL</c> for messages that aren't critical or time-sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -113,7 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter NumberType
         /// <summary>
         /// <para>
-        /// <para>The type of phone number to request.</para>
+        /// <para>The type of phone number to request.</para><para>When you request a <c>SIMULATOR</c> phone number, you must set <b>MessageType</b>
+        /// as <c>TRANSACTIONAL</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

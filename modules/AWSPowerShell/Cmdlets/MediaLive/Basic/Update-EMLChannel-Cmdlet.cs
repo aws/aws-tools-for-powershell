@@ -22,11 +22,9 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using System.Threading;
 using Amazon.MediaLive;
 using Amazon.MediaLive.Model;
 
-#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.EML
 {
     /// <summary>
@@ -43,7 +41,6 @@ namespace Amazon.PowerShell.Cmdlets.EML
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ChannelId
         /// <summary>
@@ -60,6 +57,27 @@ namespace Amazon.PowerShell.Cmdlets.EML
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ChannelId { get; set; }
+        #endregion
+        
+        #region Parameter AnywhereSettings_ChannelPlacementGroupId
+        /// <summary>
+        /// <para>
+        /// The ID of the channel placement
+        /// group for the channel.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AnywhereSettings_ChannelPlacementGroupId { get; set; }
+        #endregion
+        
+        #region Parameter AnywhereSettings_ClusterId
+        /// <summary>
+        /// <para>
+        /// The ID of the cluster for the channel.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AnywhereSettings_ClusterId { get; set; }
         #endregion
         
         #region Parameter InputSpecification_Codec
@@ -238,6 +256,16 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public string Select { get; set; } = "Channel";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the ChannelId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ChannelId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ChannelId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -248,13 +276,9 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public SwitchParameter Force { get; set; }
         #endregion
         
-        protected override void StopProcessing()
-        {
-            base.StopProcessing();
-            _cancellationTokenSource.Cancel();
-        }
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ChannelId), MyInvocation.BoundParameters);
@@ -268,11 +292,23 @@ namespace Amazon.PowerShell.Cmdlets.EML
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.MediaLive.Model.UpdateChannelResponse, UpdateEMLChannelCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.ChannelId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AnywhereSettings_ChannelPlacementGroupId = this.AnywhereSettings_ChannelPlacementGroupId;
+            context.AnywhereSettings_ClusterId = this.AnywhereSettings_ClusterId;
             context.CdiInputSpecification_Resolution = this.CdiInputSpecification_Resolution;
             context.ChannelEngineVersion_Version = this.ChannelEngineVersion_Version;
             context.ChannelId = this.ChannelId;
@@ -317,6 +353,35 @@ namespace Amazon.PowerShell.Cmdlets.EML
             // create request
             var request = new Amazon.MediaLive.Model.UpdateChannelRequest();
             
+            
+             // populate AnywhereSettings
+            var requestAnywhereSettingsIsNull = true;
+            request.AnywhereSettings = new Amazon.MediaLive.Model.AnywhereSettings();
+            System.String requestAnywhereSettings_anywhereSettings_ChannelPlacementGroupId = null;
+            if (cmdletContext.AnywhereSettings_ChannelPlacementGroupId != null)
+            {
+                requestAnywhereSettings_anywhereSettings_ChannelPlacementGroupId = cmdletContext.AnywhereSettings_ChannelPlacementGroupId;
+            }
+            if (requestAnywhereSettings_anywhereSettings_ChannelPlacementGroupId != null)
+            {
+                request.AnywhereSettings.ChannelPlacementGroupId = requestAnywhereSettings_anywhereSettings_ChannelPlacementGroupId;
+                requestAnywhereSettingsIsNull = false;
+            }
+            System.String requestAnywhereSettings_anywhereSettings_ClusterId = null;
+            if (cmdletContext.AnywhereSettings_ClusterId != null)
+            {
+                requestAnywhereSettings_anywhereSettings_ClusterId = cmdletContext.AnywhereSettings_ClusterId;
+            }
+            if (requestAnywhereSettings_anywhereSettings_ClusterId != null)
+            {
+                request.AnywhereSettings.ClusterId = requestAnywhereSettings_anywhereSettings_ClusterId;
+                requestAnywhereSettingsIsNull = false;
+            }
+             // determine if request.AnywhereSettings should be set to null
+            if (requestAnywhereSettingsIsNull)
+            {
+                request.AnywhereSettings = null;
+            }
             
              // populate CdiInputSpecification
             var requestCdiInputSpecificationIsNull = true;
@@ -503,7 +568,13 @@ namespace Amazon.PowerShell.Cmdlets.EML
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaLive", "UpdateChannel");
             try
             {
-                return client.UpdateChannelAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                #if DESKTOP
+                return client.UpdateChannel(request);
+                #elif CORECLR
+                return client.UpdateChannelAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
             }
             catch (AmazonServiceException exc)
             {
@@ -520,6 +591,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AnywhereSettings_ChannelPlacementGroupId { get; set; }
+            public System.String AnywhereSettings_ClusterId { get; set; }
             public Amazon.MediaLive.CdiInputResolution CdiInputSpecification_Resolution { get; set; }
             public System.String ChannelEngineVersion_Version { get; set; }
             public System.String ChannelId { get; set; }

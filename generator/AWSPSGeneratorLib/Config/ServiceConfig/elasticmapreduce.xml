@@ -46,11 +46,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PositionalParameters="Tags" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Add-EMRTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PositionalParameters="Tags" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Add-EMRTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelSteps" OutputProperty="CancelStepsInfoList" Verb="Stop" Noun="Step" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyAlias="Stop-EMRSteps" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelSteps" OutputProperty="CancelStepsInfoList" Verb="Stop" Noun="Step" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Stop-EMRSteps">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePersistentAppUI" OutputProperty="*" Verb="New" Noun="PersistentAppUI" ShouldProcessTarget="TargetResourceArn" PipelineParameter="TargetResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -90,6 +94,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribePersistentAppUI" OutputProperty="PersistentAppUI" Verb="Get" Noun="PersistentAppUI" PipelineParameter="PersistentAppUIId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeReleaseLabel" OutputProperty="*" Verb="Get" Noun="ReleaseLabel" PipelineParameter="ReleaseLabel" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -122,27 +130,35 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetOnClusterAppUIPresignedURL" OutputProperty="*" Verb="Get" Noun="OnClusterAppUIPresignedURL" PipelineParameter="ClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPersistentAppUIPresignedURL" OutputProperty="*" Verb="Get" Noun="PersistentAppUIPresignedURL" PipelineParameter="PersistentAppUIId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetStudioSessionMapping" OutputProperty="SessionMapping" Verb="Get" Noun="StudioSessionMapping" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBootstrapActions" OutputProperty="BootstrapActions" Verb="Get" Noun="BootstrapActionList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyAlias="Get-EMRBootstrapActions" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBootstrapActions" OutputProperty="BootstrapActions" Verb="Get" Noun="BootstrapActionList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-EMRBootstrapActions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-EMRClusters" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyAlias="Get-EMRClusters">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInstanceFleets" OutputProperty="InstanceFleets" Verb="Get" Noun="InstanceFleetList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyAlias="Get-EMRInstanceFleets" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListInstanceFleets" OutputProperty="InstanceFleets" Verb="Get" Noun="InstanceFleetList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-EMRInstanceFleets">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInstanceGroups" OutputProperty="InstanceGroups" Verb="Get" Noun="InstanceGroupList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyAlias="Get-EMRInstanceGroups" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListInstanceGroups" OutputProperty="InstanceGroups" Verb="Get" Noun="InstanceGroupList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-EMRInstanceGroups">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInstances" OutputProperty="Instances" Verb="Get" Noun="InstanceList" PositionalParameters="ClusterId;InstanceGroupTypes" PipelineParameter="InstanceGroupId" NoPipelineParameter="false" LegacyAlias="Get-EMRInstances" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListInstances" OutputProperty="Instances" Verb="Get" Noun="InstanceList" PositionalParameters="ClusterId;InstanceGroupTypes" PipelineParameter="InstanceGroupId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-EMRInstances">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -158,7 +174,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSteps" OutputProperty="Steps" Verb="Get" Noun="StepList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyAlias="Get-EMRSteps" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSteps" OutputProperty="Steps" Verb="Get" Noun="StepList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-EMRSteps">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -214,7 +230,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="TagKeys" PositionalParameters="TagKeys" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Remove-EMRTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="TagKeys" PositionalParameters="TagKeys" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Remove-EMRTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -239,7 +255,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetVisibleToAllUsers" Verb="Set" Noun="VisibleToAllUser" ShouldProcessTarget="JobFlowIds" PositionalParameters="VisibleToAllUsers" PipelineParameter="JobFlowIds" NoPipelineParameter="false" LegacyAlias="Set-EMRVisibleToAllUsers" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SetVisibleToAllUsers" Verb="Set" Noun="VisibleToAllUser" ShouldProcessTarget="JobFlowIds" PositionalParameters="VisibleToAllUsers" PipelineParameter="JobFlowIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Set-EMRVisibleToAllUsers">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

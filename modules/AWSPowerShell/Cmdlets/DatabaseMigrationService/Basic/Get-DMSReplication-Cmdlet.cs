@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters applied to the replications.</para>
+        /// <para>Filters applied to the replications.</para><para> Valid filter names: <c>replication-config-arn</c> | <c>replication-config-id</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

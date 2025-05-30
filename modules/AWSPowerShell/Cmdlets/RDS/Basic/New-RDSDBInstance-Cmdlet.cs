@@ -494,8 +494,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// DB instances, the life cycle type is managed by the DB cluster.</para><para>You can use this setting to enroll your DB instance into Amazon RDS Extended Support.
         /// With RDS Extended Support, you can run the selected major engine version on your DB
         /// instance past the end of standard support for that engine version. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Using
-        /// Amazon RDS Extended Support</a> in the <i>Amazon RDS User Guide</i>.</para><para>Valid Values: <c>open-source-rds-extended-support | open-source-rds-extended-support-disabled</c></para><para>Default: <c>open-source-rds-extended-support</c></para>
+        /// see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Amazon
+        /// RDS Extended Support with Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</para><para>Valid Values: <c>open-source-rds-extended-support | open-source-rds-extended-support-disabled</c></para><para>Default: <c>open-source-rds-extended-support</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

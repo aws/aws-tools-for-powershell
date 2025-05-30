@@ -285,7 +285,12 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter MaxWorkerCount
         /// <summary>
         /// <para>
-        /// <para>The maximum number of workers for the fleet.</para>
+        /// <para>The maximum number of workers for the fleet.</para><para>Deadline Cloud limits the number of workers to less than or equal to the fleet's maximum
+        /// worker count. The service maintains eventual consistency for the worker count. If
+        /// you make multiple rapid calls to <c>CreateWorker</c> before the field updates, you
+        /// might exceed your fleet's maximum worker count. For example, if your <c>maxWorkerCount</c>
+        /// is 10 and you currently have 9 workers, making two quick <c>CreateWorker</c> calls
+        /// might successfully create 2 workers instead of 1, resulting in 11 total workers.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -438,6 +443,35 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter HostConfiguration_ScriptBody
+        /// <summary>
+        /// <para>
+        /// <para>The text of the script that runs as a worker is starting up that you can use to provide
+        /// additional configuration for workers in your fleet. The script runs after a worker
+        /// enters the <c>STARTING</c> state and before the worker processes tasks.</para><para>For more information about using the script, see <a href="https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/smf-admin.html">Run
+        /// scripts as an administrator to configure workers</a> in the <i>Deadline Cloud Developer
+        /// Guide</i>. </para><important><para>The script runs as an administrative user (<c>sudo root</c> on Linux, as an Administrator
+        /// on Windows). </para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HostConfiguration_ScriptBody { get; set; }
+        #endregion
+        
+        #region Parameter HostConfiguration_ScriptTimeoutSecond
+        /// <summary>
+        /// <para>
+        /// <para>The maximum time that the host configuration can run. If the timeout expires, the
+        /// worker enters the <c>NOT RESPONDING</c> state and shuts down. You are charged for
+        /// the time that the worker is running the host configuration script.</para><note><para>You should configure your fleet for a maximum of one worker while testing your host
+        /// configuration script to avoid starting additional workers.</para></note><para>The default is 300 seconds (5 minutes).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HostConfiguration_ScriptTimeoutSeconds")]
+        public System.Int32? HostConfiguration_ScriptTimeoutSecond { get; set; }
+        #endregion
+        
         #region Parameter AcceleratorCapabilities_Selection
         /// <summary>
         /// <para>
@@ -472,6 +506,32 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Configuration_CustomerManaged_StorageProfileId")]
         public System.String CustomerManaged_StorageProfileId { get; set; }
+        #endregion
+        
+        #region Parameter ServiceManagedEc2_StorageProfileId
+        /// <summary>
+        /// <para>
+        /// <para>The storage profile ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ServiceManagedEc2_StorageProfileId")]
+        public System.String ServiceManagedEc2_StorageProfileId { get; set; }
+        #endregion
+        
+        #region Parameter CustomerManaged_TagPropagationMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether tags associated with a fleet are attached to workers when the worker
+        /// is launched. </para><para>When the <c>tagPropagationMode</c> is set to <c>PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH</c>
+        /// any tag associated with a fleet is attached to workers when they launch. If the tags
+        /// for a fleet change, the tags associated with running workers <b>do not</b> change.</para><para>If you don't specify <c>tagPropagationMode</c>, the default is <c>NO_PROPAGATION</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_CustomerManaged_TagPropagationMode")]
+        [AWSConstantClassSource("Amazon.Deadline.TagPropagationMode")]
+        public Amazon.Deadline.TagPropagationMode CustomerManaged_TagPropagationMode { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -568,6 +628,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             context.ClientToken = this.ClientToken;
             context.CustomerManaged_Mode = this.CustomerManaged_Mode;
             context.CustomerManaged_StorageProfileId = this.CustomerManaged_StorageProfileId;
+            context.CustomerManaged_TagPropagationMode = this.CustomerManaged_TagPropagationMode;
             context.AcceleratorCount_Max = this.AcceleratorCount_Max;
             context.AcceleratorCount_Min = this.AcceleratorCount_Min;
             context.AcceleratorTotalMemoryMiB_Max = this.AcceleratorTotalMemoryMiB_Max;
@@ -622,6 +683,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             context.Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Max = this.Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Max;
             context.Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Min = this.Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Min;
             context.InstanceMarketOptions_Type = this.InstanceMarketOptions_Type;
+            context.ServiceManagedEc2_StorageProfileId = this.ServiceManagedEc2_StorageProfileId;
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
             #if MODULAR
@@ -637,6 +699,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
                 WriteWarning("You are passing $null as a value for parameter FarmId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.HostConfiguration_ScriptBody = this.HostConfiguration_ScriptBody;
+            context.HostConfiguration_ScriptTimeoutSecond = this.HostConfiguration_ScriptTimeoutSecond;
             context.MaxWorkerCount = this.MaxWorkerCount;
             #if MODULAR
             if (this.MaxWorkerCount == null && ParameterWasBound(nameof(this.MaxWorkerCount)))
@@ -689,6 +753,16 @@ namespace Amazon.PowerShell.Cmdlets.ADC
              // populate ServiceManagedEc2
             var requestConfiguration_configuration_ServiceManagedEc2IsNull = true;
             requestConfiguration_configuration_ServiceManagedEc2 = new Amazon.Deadline.Model.ServiceManagedEc2FleetConfiguration();
+            System.String requestConfiguration_configuration_ServiceManagedEc2_serviceManagedEc2_StorageProfileId = null;
+            if (cmdletContext.ServiceManagedEc2_StorageProfileId != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_serviceManagedEc2_StorageProfileId = cmdletContext.ServiceManagedEc2_StorageProfileId;
+            }
+            if (requestConfiguration_configuration_ServiceManagedEc2_serviceManagedEc2_StorageProfileId != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2.StorageProfileId = requestConfiguration_configuration_ServiceManagedEc2_serviceManagedEc2_StorageProfileId;
+                requestConfiguration_configuration_ServiceManagedEc2IsNull = false;
+            }
             Amazon.Deadline.Model.ServiceManagedEc2InstanceMarketOptions requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceMarketOptions = null;
             
              // populate InstanceMarketOptions
@@ -999,6 +1073,16 @@ namespace Amazon.PowerShell.Cmdlets.ADC
                 requestConfiguration_configuration_CustomerManaged.StorageProfileId = requestConfiguration_configuration_CustomerManaged_customerManaged_StorageProfileId;
                 requestConfiguration_configuration_CustomerManagedIsNull = false;
             }
+            Amazon.Deadline.TagPropagationMode requestConfiguration_configuration_CustomerManaged_customerManaged_TagPropagationMode = null;
+            if (cmdletContext.CustomerManaged_TagPropagationMode != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_customerManaged_TagPropagationMode = cmdletContext.CustomerManaged_TagPropagationMode;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_customerManaged_TagPropagationMode != null)
+            {
+                requestConfiguration_configuration_CustomerManaged.TagPropagationMode = requestConfiguration_configuration_CustomerManaged_customerManaged_TagPropagationMode;
+                requestConfiguration_configuration_CustomerManagedIsNull = false;
+            }
             Amazon.Deadline.Model.CustomerManagedWorkerCapabilities requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities = null;
             
              // populate WorkerCapabilities
@@ -1231,6 +1315,35 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             {
                 request.FarmId = cmdletContext.FarmId;
             }
+            
+             // populate HostConfiguration
+            var requestHostConfigurationIsNull = true;
+            request.HostConfiguration = new Amazon.Deadline.Model.HostConfiguration();
+            System.String requestHostConfiguration_hostConfiguration_ScriptBody = null;
+            if (cmdletContext.HostConfiguration_ScriptBody != null)
+            {
+                requestHostConfiguration_hostConfiguration_ScriptBody = cmdletContext.HostConfiguration_ScriptBody;
+            }
+            if (requestHostConfiguration_hostConfiguration_ScriptBody != null)
+            {
+                request.HostConfiguration.ScriptBody = requestHostConfiguration_hostConfiguration_ScriptBody;
+                requestHostConfigurationIsNull = false;
+            }
+            System.Int32? requestHostConfiguration_hostConfiguration_ScriptTimeoutSecond = null;
+            if (cmdletContext.HostConfiguration_ScriptTimeoutSecond != null)
+            {
+                requestHostConfiguration_hostConfiguration_ScriptTimeoutSecond = cmdletContext.HostConfiguration_ScriptTimeoutSecond.Value;
+            }
+            if (requestHostConfiguration_hostConfiguration_ScriptTimeoutSecond != null)
+            {
+                request.HostConfiguration.ScriptTimeoutSeconds = requestHostConfiguration_hostConfiguration_ScriptTimeoutSecond.Value;
+                requestHostConfigurationIsNull = false;
+            }
+             // determine if request.HostConfiguration should be set to null
+            if (requestHostConfigurationIsNull)
+            {
+                request.HostConfiguration = null;
+            }
             if (cmdletContext.MaxWorkerCount != null)
             {
                 request.MaxWorkerCount = cmdletContext.MaxWorkerCount.Value;
@@ -1305,6 +1418,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public System.String ClientToken { get; set; }
             public Amazon.Deadline.AutoScalingMode CustomerManaged_Mode { get; set; }
             public System.String CustomerManaged_StorageProfileId { get; set; }
+            public Amazon.Deadline.TagPropagationMode CustomerManaged_TagPropagationMode { get; set; }
             public System.Int32? AcceleratorCount_Max { get; set; }
             public System.Int32? AcceleratorCount_Min { get; set; }
             public System.Int32? AcceleratorTotalMemoryMiB_Max { get; set; }
@@ -1335,9 +1449,12 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public System.Int32? Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Max { get; set; }
             public System.Int32? Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Min { get; set; }
             public Amazon.Deadline.Ec2MarketType InstanceMarketOptions_Type { get; set; }
+            public System.String ServiceManagedEc2_StorageProfileId { get; set; }
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public System.String FarmId { get; set; }
+            public System.String HostConfiguration_ScriptBody { get; set; }
+            public System.Int32? HostConfiguration_ScriptTimeoutSecond { get; set; }
             public System.Int32? MaxWorkerCount { get; set; }
             public System.Int32? MinWorkerCount { get; set; }
             public System.String RoleArn { get; set; }

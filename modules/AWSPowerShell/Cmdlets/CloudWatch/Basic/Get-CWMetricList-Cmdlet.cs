@@ -68,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Dimension
         /// <summary>
         /// <para>
-        /// <para>The dimensions to filter against. Only the dimensions that match exactly will be returned.</para>
+        /// <para>The dimensions to filter against. Only the dimension with names that match exactly
+        /// will be returned. If you specify one dimension name and a metric has that dimension
+        /// and also other dimensions, it will be returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

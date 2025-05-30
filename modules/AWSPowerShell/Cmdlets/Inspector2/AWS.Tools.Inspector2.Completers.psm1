@@ -219,6 +219,13 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.EcrPullDateRescanMode
+        "Update-INS2Configuration/EcrConfiguration_PullDateRescanMode"
+        {
+            $v = "LAST_IN_USE_AT","LAST_PULL_DATE"
+            break
+        }
+
         # Amazon.Inspector2.EcrRescanDuration
         "Update-INS2Configuration/EcrConfiguration_RescanDuration"
         {
@@ -408,6 +415,7 @@ $INS2_map = @{
     "Ec2InstanceAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "Ec2InstanceAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "EcrConfiguration_PullDateRescanDuration"=@("Update-INS2Configuration")
+    "EcrConfiguration_PullDateRescanMode"=@("Update-INS2Configuration")
     "EcrConfiguration_RescanDuration"=@("Update-INS2Configuration")
     "FindingTypeAggregation_FindingType"=@("Get-INS2FindingAggregationList")
     "FindingTypeAggregation_ResourceType"=@("Get-INS2FindingAggregationList")
@@ -514,6 +522,7 @@ $INS2_SelectMap = @{
                "Enable-INS2DelegatedAdminAccount",
                "Get-INS2CisScanReport",
                "Get-INS2CisScanResultDetail",
+               "Get-INS2ClustersForImage",
                "Get-INS2Configuration",
                "Get-INS2DelegatedAdminAccount",
                "Get-INS2Ec2DeepInspectionConfiguration",

@@ -270,6 +270,7 @@ $CP_SelectMap = @{
                "Get-CPThirdPartyJobDetail",
                "Get-CPActionExecutionList",
                "Get-CPActionType",
+               "Get-CPDeployActionExecutionTargetList",
                "Get-CPPipelineExecutionSummary",
                "Get-CPPipelineList",
                "Get-CPRuleExecutionList",

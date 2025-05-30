@@ -88,7 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ManagedStorageConfiguration_FargateEphemeralStorageKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>Specify the Key Management Service key ID for the Fargate ephemeral storage.</para><para>The key must be a single Region key.</para>
+        /// <para>Specify the Key Management Service key ID for Fargate ephemeral storage.</para><para>When you specify a <c>fargateEphemeralStorageKmsKeyId</c>, Amazon Web Services Fargate
+        /// uses the key to encrypt data at rest in ephemeral storage. For more information about
+        /// Fargate ephemeral storage encryption, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-storage-encryption.html">Customer
+        /// managed keys for Amazon Web Services Fargate ephemeral storage for Amazon ECS</a>
+        /// in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>The key must be a single Region key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +115,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ManagedStorageConfiguration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>Specify a Key Management Service key ID to encrypt the managed storage.</para><para>The key must be a single Region key.</para>
+        /// <para>Specify a Key Management Service key ID to encrypt Amazon ECS managed storage.</para><para> When you specify a <c>kmsKeyId</c>, Amazon ECS uses the key to encrypt data volumes
+        /// managed by Amazon ECS that are attached to tasks in the cluster. The following data
+        /// volumes are managed by Amazon ECS: Amazon EBS. For more information about encryption
+        /// of Amazon EBS volumes attached to Amazon ECS tasks, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-kms-encryption.html">Encrypt
+        /// data stored in Amazon EBS volumes for Amazon ECS</a> in the <i>Amazon Elastic Container
+        /// Service Developer Guide</i>.</para><para>The key must be a single Region key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

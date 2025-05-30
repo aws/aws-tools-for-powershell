@@ -143,11 +143,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDestinations" OutputProperty="Destinations" Verb="Get" Noun="Destination" PipelineParameter="DestinationNamePrefix" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDestinations" OutputProperty="Destinations" Verb="Get" Noun="Destination" PipelineParameter="DestinationNamePrefix" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeExportTasks" OutputProperty="ExportTasks" Verb="Get" Noun="ExportTask" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CWLExportTasks" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeExportTasks" OutputProperty="ExportTasks" Verb="Get" Noun="ExportTask" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CWLExportTasks">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -159,15 +159,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLogGroups" OutputProperty="LogGroups" Verb="Get" Noun="LogGroup" PipelineParameter="LogGroupNamePrefix" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CWLLogGroups" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLogGroups" OutputProperty="LogGroups" Verb="Get" Noun="LogGroup" PipelineParameter="LogGroupNamePrefix" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CWLLogGroups">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLogStreams" OutputProperty="LogStreams" Verb="Get" Noun="LogStream" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CWLLogStreams" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLogStreams" OutputProperty="LogStreams" Verb="Get" Noun="LogStream" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CWLLogStreams">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMetricFilters" OutputProperty="MetricFilters" Verb="Get" Noun="MetricFilter" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CWLMetricFilters" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeMetricFilters" OutputProperty="MetricFilters" Verb="Get" Noun="MetricFilter" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CWLMetricFilters">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -179,11 +179,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeResourcePolicies" OutputProperty="ResourcePolicies" Verb="Get" Noun="ResourcePolicy" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeResourcePolicies" OutputProperty="ResourcePolicies" Verb="Get" Noun="ResourcePolicy" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSubscriptionFilters" OutputProperty="SubscriptionFilters" Verb="Get" Noun="SubscriptionFilter" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CWLSubscriptionFilters" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSubscriptionFilters" OutputProperty="SubscriptionFilters" Verb="Get" Noun="SubscriptionFilter" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CWLSubscriptionFilters">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -191,7 +191,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="FilterLogEvents" OutputProperty="*" Verb="Get" Noun="FilteredLogEvent" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="FilterLogEvents" OutputProperty="*" Verb="Get" Noun="FilteredLogEvent" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -223,7 +223,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLogEvents" OutputProperty="*" Verb="Get" Noun="LogEvent" PositionalParameters="LogGroupName" PipelineParameter="LogStreamName" NoPipelineParameter="false" LegacyAlias="Get-CWLLogEvents" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetLogEvents" OutputProperty="*" Verb="Get" Noun="LogEvent" PositionalParameters="LogGroupName" PipelineParameter="LogStreamName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-CWLLogEvents">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -252,6 +252,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListLogAnomalyDetectors" OutputProperty="AnomalyDetectors" Verb="Get" Noun="LogAnomalyDetectorList" PipelineParameter="FilterLogGroupArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLogGroups" OutputProperty="LogGroups" Verb="Get" Noun="LogGroupList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -303,7 +307,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutLogEvents" OutputProperty="NextSequenceToken" Verb="Write" Noun="LogEvent" ShouldProcessTarget="LogStreamName" PositionalParameters="LogGroupName;LogStreamName" PipelineParameter="SequenceToken" NoPipelineParameter="false" LegacyAlias="Write-CWLLogEvents" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutLogEvents" OutputProperty="NextSequenceToken" Verb="Write" Noun="LogEvent" ShouldProcessTarget="LogStreamName" PositionalParameters="LogGroupName;LogStreamName" PipelineParameter="SequenceToken" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Write-CWLLogEvents">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

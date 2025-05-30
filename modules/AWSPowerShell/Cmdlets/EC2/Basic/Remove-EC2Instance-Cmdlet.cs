@@ -30,8 +30,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Shuts down the specified instances. This operation is idempotent; if you terminate
-    /// an instance more than once, each call succeeds. 
+    /// Shuts down the specified instances. This operation is <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">idempotent</a>;
+    /// if you terminate an instance more than once, each call succeeds.
     /// 
     ///  
     /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// launched. Volumes attached after instance launch continue running.
     /// </para><para>
     /// You can stop, start, and terminate EBS-backed instances. You can only terminate instance
-    /// store-backed instances. What happens to an instance differs if you stop it or terminate
+    /// store-backed instances. What happens to an instance differs if you stop or terminate
     /// it. For example, when you stop an instance, the root device and any other devices
     /// attached to the instance persist. When you terminate an instance, any attached EBS
     /// volumes with the <c>DeleteOnTermination</c> block device mapping parameter set to

@@ -206,6 +206,7 @@ $KIN_SelectMap = @{
                "Get-KINShardList",
                "Get-KINStreamConsumerList",
                "Get-KINStreamList",
+               "Get-KINResourceTag",
                "Get-KINTagsForStream",
                "Merge-KINShard",
                "Write-KINRecord",
@@ -216,6 +217,8 @@ $KIN_SelectMap = @{
                "Split-KINShard",
                "Start-KINStreamEncryption",
                "Stop-KINStreamEncryption",
+               "Add-KINResourceTag",
+               "Remove-KINResourceTag",
                "Update-KINShardCount",
                "Update-KINStreamMode")
 }

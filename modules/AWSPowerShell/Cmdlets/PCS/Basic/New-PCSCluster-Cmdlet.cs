@@ -73,6 +73,33 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         public System.String ClusterName { get; set; }
         #endregion
         
+        #region Parameter Accounting_DefaultPurgeTimeInDay
+        /// <summary>
+        /// <para>
+        /// <para>The default value for all purge settings for <c>slurmdbd.conf</c>. For more information,
+        /// see the <a href="https://slurm.schedmd.com/slurmdbd.conf.html">slurmdbd.conf documentation
+        /// at SchedMD</a>.</para><para>The default value for <c>defaultPurgeTimeInDays</c> is <c>-1</c>.</para><para>A value of <c>-1</c> means there is no purge time and records persist as long as the
+        /// cluster exists.</para><important><para><c>0</c> isn't a valid value.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SlurmConfiguration_Accounting_DefaultPurgeTimeInDays")]
+        public System.Int32? Accounting_DefaultPurgeTimeInDay { get; set; }
+        #endregion
+        
+        #region Parameter Accounting_Mode
+        /// <summary>
+        /// <para>
+        /// <para>The default value for <c>mode</c> is <c>STANDARD</c>. A value of <c>STANDARD</c> means
+        /// Slurm accounting is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SlurmConfiguration_Accounting_Mode")]
+        [AWSConstantClassSource("Amazon.PCS.AccountingMode")]
+        public Amazon.PCS.AccountingMode Accounting_Mode { get; set; }
+        #endregion
+        
         #region Parameter SlurmConfiguration_ScaleDownIdleTimeInSecond
         /// <summary>
         /// <para>
@@ -172,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         /// <para>
         /// <para>The version of the specified scheduling software that Amazon Web Services PCS uses
         /// to manage cluster scaling and job scheduling. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm
-        /// versions in Amazon Web Services PCS</a> in the <i>Amazon Web Services PCS User Guide</i>.</para><para>Valid Values: <c>23.11 | 24.05</c></para>
+        /// versions in Amazon Web Services PCS</a> in the <i>Amazon Web Services PCS User Guide</i>.</para><para>Valid Values: <c>23.11 | 24.05 | 24.11</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -284,6 +311,8 @@ namespace Amazon.PowerShell.Cmdlets.PCS
                 WriteWarning("You are passing $null as a value for parameter Size which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Accounting_DefaultPurgeTimeInDay = this.Accounting_DefaultPurgeTimeInDay;
+            context.Accounting_Mode = this.Accounting_Mode;
             context.SlurmConfiguration_ScaleDownIdleTimeInSecond = this.SlurmConfiguration_ScaleDownIdleTimeInSecond;
             if (this.SlurmConfiguration_SlurmCustomSetting != null)
             {
@@ -407,6 +436,41 @@ namespace Amazon.PowerShell.Cmdlets.PCS
                 request.SlurmConfiguration.SlurmCustomSettings = requestSlurmConfiguration_slurmConfiguration_SlurmCustomSetting;
                 requestSlurmConfigurationIsNull = false;
             }
+            Amazon.PCS.Model.AccountingRequest requestSlurmConfiguration_slurmConfiguration_Accounting = null;
+            
+             // populate Accounting
+            var requestSlurmConfiguration_slurmConfiguration_AccountingIsNull = true;
+            requestSlurmConfiguration_slurmConfiguration_Accounting = new Amazon.PCS.Model.AccountingRequest();
+            System.Int32? requestSlurmConfiguration_slurmConfiguration_Accounting_accounting_DefaultPurgeTimeInDay = null;
+            if (cmdletContext.Accounting_DefaultPurgeTimeInDay != null)
+            {
+                requestSlurmConfiguration_slurmConfiguration_Accounting_accounting_DefaultPurgeTimeInDay = cmdletContext.Accounting_DefaultPurgeTimeInDay.Value;
+            }
+            if (requestSlurmConfiguration_slurmConfiguration_Accounting_accounting_DefaultPurgeTimeInDay != null)
+            {
+                requestSlurmConfiguration_slurmConfiguration_Accounting.DefaultPurgeTimeInDays = requestSlurmConfiguration_slurmConfiguration_Accounting_accounting_DefaultPurgeTimeInDay.Value;
+                requestSlurmConfiguration_slurmConfiguration_AccountingIsNull = false;
+            }
+            Amazon.PCS.AccountingMode requestSlurmConfiguration_slurmConfiguration_Accounting_accounting_Mode = null;
+            if (cmdletContext.Accounting_Mode != null)
+            {
+                requestSlurmConfiguration_slurmConfiguration_Accounting_accounting_Mode = cmdletContext.Accounting_Mode;
+            }
+            if (requestSlurmConfiguration_slurmConfiguration_Accounting_accounting_Mode != null)
+            {
+                requestSlurmConfiguration_slurmConfiguration_Accounting.Mode = requestSlurmConfiguration_slurmConfiguration_Accounting_accounting_Mode;
+                requestSlurmConfiguration_slurmConfiguration_AccountingIsNull = false;
+            }
+             // determine if requestSlurmConfiguration_slurmConfiguration_Accounting should be set to null
+            if (requestSlurmConfiguration_slurmConfiguration_AccountingIsNull)
+            {
+                requestSlurmConfiguration_slurmConfiguration_Accounting = null;
+            }
+            if (requestSlurmConfiguration_slurmConfiguration_Accounting != null)
+            {
+                request.SlurmConfiguration.Accounting = requestSlurmConfiguration_slurmConfiguration_Accounting;
+                requestSlurmConfigurationIsNull = false;
+            }
              // determine if request.SlurmConfiguration should be set to null
             if (requestSlurmConfigurationIsNull)
             {
@@ -478,6 +542,8 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             public Amazon.PCS.SchedulerType Scheduler_Type { get; set; }
             public System.String Scheduler_Version { get; set; }
             public Amazon.PCS.Size Size { get; set; }
+            public System.Int32? Accounting_DefaultPurgeTimeInDay { get; set; }
+            public Amazon.PCS.AccountingMode Accounting_Mode { get; set; }
             public System.Int32? SlurmConfiguration_ScaleDownIdleTimeInSecond { get; set; }
             public List<Amazon.PCS.Model.SlurmCustomSetting> SlurmConfiguration_SlurmCustomSetting { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

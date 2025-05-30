@@ -30,12 +30,12 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Retrieves all the metadata from an object without returning the object itself. This
-    /// operation is useful if you're interested only in an object's metadata. 
+    /// Retrieves all of the metadata from an object without returning the object itself.
+    /// This operation is useful if you're interested only in an object's metadata. 
     /// 
     ///  
     /// <para><c>GetObjectAttributes</c> combines the functionality of <c>HeadObject</c> and <c>ListParts</c>.
-    /// All of the data returned with each of those individual calls can be returned with
+    /// All of the data returned with both of those individual calls can be returned with
     /// a single call to <c>GetObjectAttributes</c>.
     /// </para><note><para><b>Directory buckets</b> - For directory buckets, you must make requests for this
     /// API operation to the Zonal endpoint. These endpoints support virtual-hosted-style
@@ -45,14 +45,23 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts
     /// for directory buckets in Local Zones</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></note><dl><dt>Permissions</dt><dd><ul><li><para><b>General purpose bucket permissions</b> - To use <c>GetObjectAttributes</c>, you
-    /// must have READ access to the object. The permissions that you need to use this operation
-    /// depend on whether the bucket is versioned. If the bucket is versioned, you need both
-    /// the <c>s3:GetObjectVersion</c> and <c>s3:GetObjectVersionAttributes</c> permissions
-    /// for this operation. If the bucket is not versioned, you need the <c>s3:GetObject</c>
-    /// and <c>s3:GetObjectAttributes</c> permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
-    /// Permissions in a Policy</a> in the <i>Amazon S3 User Guide</i>. If the object that
-    /// you request does not exist, the error Amazon S3 returns depends on whether you also
-    /// have the <c>s3:ListBucket</c> permission.
+    /// must have READ access to the object.
+    /// </para><para>
+    /// The other permissions that you need to use this operation depend on whether the bucket
+    /// is versioned and if a version ID is passed in the <c>GetObjectAttributes</c> request.
+    /// 
+    /// </para><ul><li><para>
+    /// If you pass a version ID in your request, you need both the <c>s3:GetObjectVersion</c>
+    /// and <c>s3:GetObjectVersionAttributes</c> permissions.
+    /// </para></li><li><para>
+    /// If you do not pass a version ID in your request, you need the <c>s3:GetObject</c>
+    /// and <c>s3:GetObjectAttributes</c> permissions. 
+    /// </para></li></ul><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
+    /// Permissions in a Policy</a> in the <i>Amazon S3 User Guide</i>.
+    /// </para><para>
+    /// If the object that you request does not exist, the error Amazon S3 returns depends
+    /// on whether you also have the <c>s3:ListBucket</c> permission.
     /// </para><ul><li><para>
     /// If you have the <c>s3:ListBucket</c> permission on the bucket, Amazon S3 returns an
     /// HTTP status code <c>404 Not Found</c> ("no such key") error.
@@ -84,10 +93,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// get an HTTP <c>400 Bad Request</c> error. It's because the encryption method can't
     /// be changed when you retrieve the object.
     /// </para></note><para>
-    /// If you encrypt an object by using server-side encryption with customer-provided encryption
-    /// keys (SSE-C) when you store the object in Amazon S3, then when you retrieve the metadata
-    /// from the object, you must use the following headers to provide the encryption key
-    /// for the server to be able to retrieve the object's metadata. The headers are: 
+    /// If you encrypted an object when you stored the object in Amazon S3 by using server-side
+    /// encryption with customer-provided encryption keys (SSE-C), then when you retrieve
+    /// the metadata from the object, you must use the following headers. These headers provide
+    /// the server with the encryption key required to retrieve the object's metadata. The
+    /// headers are: 
     /// </para><ul><li><para><c>x-amz-server-side-encryption-customer-algorithm</c></para></li><li><para><c>x-amz-server-side-encryption-customer-key</c></para></li><li><para><c>x-amz-server-side-encryption-customer-key-MD5</c></para></li></ul><para>
     /// For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side
     /// Encryption (Using Customer-Provided Encryption Keys)</a> in the <i>Amazon S3 User
@@ -203,7 +213,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter MaxPart
         /// <summary>
         /// <para>
-        /// <para>Sets the maximum number of parts to return.</para>
+        /// <para>Sets the maximum number of parts to return. For more information, see 
+        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html">
+        /// Uploading and copying objects using multipart upload in Amazon S3 </a> in the <i>Amazon Simple Storage Service user guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -226,8 +238,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter PartNumberMarker
         /// <summary>
         /// <para>
-        /// <para>Specifies the part after which listing should begin. Only parts with higher part numbers
-        /// will be listed.</para>
+        /// <para>Specifies the part after which listing should begin. Only parts with higher part numbers will be listed. For more information, 
+        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html">
+        /// Uploading and copying objects using multipart upload in Amazon S3 </a> in the <i>Amazon Simple Storage Service user guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

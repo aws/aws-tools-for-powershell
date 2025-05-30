@@ -63,7 +63,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJobDetails" OutputProperty="JobDetails" Verb="Get" Noun="JobDetail" PipelineParameter="JobId" NoPipelineParameter="false" LegacyAlias="Get-CPJobDetails" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetJobDetails" OutputProperty="JobDetails" Verb="Get" Noun="JobDetail" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-CPJobDetails">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -79,7 +79,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetThirdPartyJobDetails" OutputProperty="JobDetails" Verb="Get" Noun="ThirdPartyJobDetail" PipelineParameter="JobId" NoPipelineParameter="false" LegacyAlias="Get-CPThirdPartyJobDetails" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetThirdPartyJobDetails" OutputProperty="JobDetails" Verb="Get" Noun="ThirdPartyJobDetail" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-CPThirdPartyJobDetails">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -91,7 +91,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPipelineExecutions" OutputProperty="PipelineExecutionSummaries" Verb="Get" Noun="PipelineExecutionSummary" PipelineParameter="PipelineName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDeployActionExecutionTargets" OutputProperty="Targets" Verb="Get" Noun="DeployActionExecutionTargetList" PipelineParameter="ActionExecutionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPipelineExecutions" OutputProperty="PipelineExecutionSummaries" Verb="Get" Noun="PipelineExecutionSummary" PipelineParameter="PipelineName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
@@ -120,11 +124,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PollForJobs" OutputProperty="Jobs" Verb="Get" Noun="ActionableJobList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-CPActionableJobs" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PollForJobs" OutputProperty="Jobs" Verb="Get" Noun="ActionableJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyAlias="Get-CPActionableJobs">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PollForThirdPartyJobs" OutputProperty="Jobs" Verb="Get" Noun="ActionableThirdPartyJobList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-CPActionableThirdPartyJobs" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PollForThirdPartyJobs" OutputProperty="Jobs" Verb="Get" Noun="ActionableThirdPartyJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyAlias="Get-CPActionableThirdPartyJobs">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

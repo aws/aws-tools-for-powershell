@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A map of the key-value pairs of the tag or tags to assign to the resource.</para>
+        /// <para>A map of the key-value pairs of the tag or tags to assign.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

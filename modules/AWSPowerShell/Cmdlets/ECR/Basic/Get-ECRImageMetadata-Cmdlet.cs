@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// Returns metadata about the images in a repository.
     /// 
     ///  <note><para>
-    /// Starting with Docker version 1.9, the Docker client compresses image layers before
+    /// Beginning with Docker version 1.9, the Docker client compresses image layers before
     /// pushing them to a V2 Docker registry. The output of the <c>docker images</c> command
-    /// shows the uncompressed image size. Therefore, Docker might return a larger image than
-    /// the image shown in the Amazon Web Services Management Console.
+    /// shows the uncompressed image size, so it may return a larger image size than the image
+    /// sizes returned by <a>DescribeImages</a>.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ECRImageMetadata")]

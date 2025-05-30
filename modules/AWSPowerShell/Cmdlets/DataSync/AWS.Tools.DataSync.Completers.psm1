@@ -96,7 +96,7 @@ $DSYN_Completers = {
             ($_ -eq "Update-DSYNLocationAzureBlob/AuthenticationType")
         }
         {
-            $v = "SAS"
+            $v = "NONE","SAS"
             break
         }
 
@@ -107,24 +107,6 @@ $DSYN_Completers = {
         }
         {
             $v = "BLOCK"
-            break
-        }
-
-        # Amazon.DataSync.DiscoveryResourceType
-        {
-            ($_ -eq "Get-DSYNStorageSystemResource/ResourceType") -Or
-            ($_ -eq "Get-DSYNStorageSystemResourceMetric/ResourceType") -Or
-            ($_ -eq "New-DSYNRecommendation/ResourceType")
-        }
-        {
-            $v = "CLUSTER","SVM","VOLUME"
-            break
-        }
-
-        # Amazon.DataSync.DiscoverySystemType
-        "Add-DSYNStorageSystem/SystemType"
-        {
-            $v = "NetAppONTAP"
             break
         }
 
@@ -331,12 +313,10 @@ $DSYN_map = @{
     "Protocol_SMB_MountOptions_Version"=@("New-DSYNLocationFsxOntap","New-DSYNLocationFsxOpenZf","Update-DSYNLocationFsxOntap","Update-DSYNLocationFsxOpenZf")
     "QopConfiguration_DataTransferProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
     "QopConfiguration_RpcProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
-    "ResourceType"=@("Get-DSYNStorageSystemResource","Get-DSYNStorageSystemResourceMetric","New-DSYNRecommendation")
     "S3StorageClass"=@("New-DSYNLocationS3","Update-DSYNLocationS3")
     "Schedule_Status"=@("New-DSYNTask","Update-DSYNTask")
     "ServerProtocol"=@("New-DSYNLocationObjectStorage","Update-DSYNLocationObjectStorage")
     "Skipped_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
-    "SystemType"=@("Add-DSYNStorageSystem")
     "TaskMode"=@("New-DSYNTask")
     "TaskReportConfig_ObjectVersionId"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "TaskReportConfig_OutputType"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
@@ -395,8 +375,7 @@ $DSYN_SelectCompleters = {
 }
 
 $DSYN_SelectMap = @{
-    "Select"=@("Add-DSYNStorageSystem",
-               "Stop-DSYNTaskExecution",
+    "Select"=@("Stop-DSYNTaskExecution",
                "New-DSYNAgent",
                "New-DSYNLocationAzureBlob",
                "New-DSYNLocationEfs",
@@ -414,7 +393,6 @@ $DSYN_SelectMap = @{
                "Remove-DSYNLocation",
                "Remove-DSYNTask",
                "Get-DSYNAgent",
-               "Get-DSYNDiscoveryJob",
                "Get-DSYNLocationAzureBlob",
                "Get-DSYNLocationEfs",
                "Get-DSYNLocationFsxLustre",
@@ -426,27 +404,17 @@ $DSYN_SelectMap = @{
                "Get-DSYNLocationObjectStorage",
                "Get-DSYNLocationS3",
                "Get-DSYNLocationSmb",
-               "Get-DSYNStorageSystem",
-               "Get-DSYNStorageSystemResourceMetric",
-               "Get-DSYNStorageSystemResource",
                "Get-DSYNTask",
                "Get-DSYNTaskExecution",
-               "New-DSYNRecommendation",
                "Get-DSYNAgentList",
-               "Get-DSYNDiscoveryJobList",
                "Get-DSYNLocationList",
-               "Get-DSYNStorageSystemList",
                "Get-DSYNResourceTagList",
                "Get-DSYNTaskExecutionList",
                "Get-DSYNTaskList",
-               "Remove-DSYNStorageSystem",
-               "Start-DSYNDiscoveryJob",
                "Start-DSYNTaskExecution",
-               "Stop-DSYNDiscoveryJob",
                "Add-DSYNResourceTag",
                "Remove-DSYNResourceTag",
                "Update-DSYNAgent",
-               "Update-DSYNDiscoveryJob",
                "Update-DSYNLocationAzureBlob",
                "Update-DSYNLocationEfs",
                "Update-DSYNLocationFsxLustre",
@@ -458,7 +426,6 @@ $DSYN_SelectMap = @{
                "Update-DSYNLocationObjectStorage",
                "Update-DSYNLocationS3",
                "Update-DSYNLocationSmb",
-               "Update-DSYNStorageSystem",
                "Update-DSYNTask",
                "Update-DSYNTaskExecution")
 }

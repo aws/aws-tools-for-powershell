@@ -120,6 +120,13 @@ $NWFW_Completers = {
             break
         }
 
+        # Amazon.NetworkFirewall.IPAddressType
+        "New-NWFWVpcEndpointAssociation/SubnetMapping_IPAddressType"
+        {
+            $v = "DUALSTACK","IPV4","IPV6"
+            break
+        }
+
         # Amazon.NetworkFirewall.ResourceManagedStatus
         "Get-NWFWRuleGroupList/Scope"
         {
@@ -188,6 +195,7 @@ $NWFW_map = @{
     "StatefulEngineOptions_RuleOrder"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "StatefulEngineOptions_StreamExceptionPolicy"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "StatefulRuleOptions_RuleOrder"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
+    "SubnetMapping_IPAddressType"=@("New-NWFWVpcEndpointAssociation")
     "Type"=@("Get-NWFWRuleGroup","Get-NWFWRuleGroupList","Get-NWFWRuleGroupMetadata","New-NWFWRuleGroup","Remove-NWFWRuleGroup","Update-NWFWRuleGroup")
 }
 
@@ -247,12 +255,15 @@ $NWFW_SelectMap = @{
                "New-NWFWFirewallPolicy",
                "New-NWFWRuleGroup",
                "New-NWFWTLSInspectionConfiguration",
+               "New-NWFWVpcEndpointAssociation",
                "Remove-NWFWFirewall",
                "Remove-NWFWFirewallPolicy",
                "Remove-NWFWResourcePolicy",
                "Remove-NWFWRuleGroup",
                "Remove-NWFWTLSInspectionConfiguration",
+               "Remove-NWFWVpcEndpointAssociation",
                "Get-NWFWFirewall",
+               "Get-NWFWFirewallMetadata",
                "Get-NWFWFirewallPolicy",
                "Get-NWFWFlowOperation",
                "Get-NWFWLoggingConfiguration",
@@ -260,6 +271,7 @@ $NWFW_SelectMap = @{
                "Get-NWFWRuleGroup",
                "Get-NWFWRuleGroupMetadata",
                "Get-NWFWTLSInspectionConfiguration",
+               "Get-NWFWVpcEndpointAssociation",
                "Unregister-NWFWSubnet",
                "Get-NWFWAnalysisReportResult",
                "Get-NWFWAnalysisReportList",
@@ -270,6 +282,7 @@ $NWFW_SelectMap = @{
                "Get-NWFWRuleGroupList",
                "Get-NWFWResourceTag",
                "Get-NWFWTLSInspectionConfigurationList",
+               "Get-NWFWVpcEndpointAssociationList",
                "Write-NWFWResourcePolicy",
                "Start-NWFWAnalysisReport",
                "Start-NWFWFlowCapture",

@@ -74,10 +74,12 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </para><para><a>CreateStream</a> has a limit of five transactions per second per account.
     /// </para><para>
     /// You can add tags to the stream when making a <c>CreateStream</c> request by setting
-    /// the <c>Tags</c> parameter. If you pass <c>Tags</c> parameter, in addition to having
-    /// <c>kinesis:createStream</c> permission, you must also have <c>kinesis:addTagsToStream</c>
-    /// permission for the stream that will be created. Tags will take effect from the <c>CREATING</c>
-    /// status of the stream. 
+    /// the <c>Tags</c> parameter. If you pass the <c>Tags</c> parameter, in addition to having
+    /// the <c>kinesis:CreateStream</c> permission, you must also have the <c>kinesis:AddTagsToStream</c>
+    /// permission for the stream that will be created. The <c>kinesis:TagResource</c> permission
+    /// won’t work to tag streams on creation. Tags will take effect from the <c>CREATING</c>
+    /// status of the stream, but you can't make any updates to the tags until the stream
+    /// is in <c>ACTIVE</c> state.
     /// </para>
     /// </summary>
     [Cmdlet("New", "KINStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -141,7 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A set of up to 10 key-value pairs to use to create the tags.</para>
+        /// <para>A set of up to 50 key-value pairs to use to create the tags. A tag consists of a required
+        /// key and an optional value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

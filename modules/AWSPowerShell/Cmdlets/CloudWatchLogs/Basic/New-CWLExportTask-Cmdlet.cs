@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// the Amazon S3 key prefix for all exported objects.
     /// </para><note><para>
     /// We recommend that you don't regularly export to Amazon S3 as a way to continuously
-    /// archive your logs. For that use case, we instaed recommend that you use subscriptions.
+    /// archive your logs. For that use case, we instead recommend that you use subscriptions.
     /// For more information about subscriptions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions.html">Real-time
     /// processing of log data with subscriptions</a>.
     /// </para></note><note><para>

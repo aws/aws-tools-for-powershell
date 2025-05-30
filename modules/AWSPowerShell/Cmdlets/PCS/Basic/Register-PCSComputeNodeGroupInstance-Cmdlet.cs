@@ -30,12 +30,7 @@ using Amazon.PCS.Model;
 namespace Amazon.PowerShell.Cmdlets.PCS
 {
     /// <summary>
-    /// <important><para>
-    /// This API action isn't intended for you to use.
-    /// </para></important><para>
-    /// Amazon Web Services PCS uses this API action to register the compute nodes it launches
-    /// in your account.
-    /// </para>
+    /// Amazon.PCS.IAmazonPCS.RegisterComputeNodeGroupInstance
     /// </summary>
     [Cmdlet("Register", "PCSComputeNodeGroupInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PCS.Model.RegisterComputeNodeGroupInstanceResponse")]

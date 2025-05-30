@@ -166,6 +166,7 @@ $SQ_SelectCompleters = {
 
 $SQ_SelectMap = @{
     "Select"=@("Register-SQServiceQuotaTemplate",
+               "New-SQSupportCase",
                "Remove-SQServiceQuotaIncreaseRequestFromTemplate",
                "Unregister-SQServiceQuotaTemplate",
                "Get-SQAssociationForServiceQuotaTemplate",

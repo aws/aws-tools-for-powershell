@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>The actions to execute when this alarm transitions to the <c>ALARM</c> state from
         /// any other state. Each action is specified as an Amazon Resource Name (ARN). Valid
-        /// values:</para><para><b>EC2 actions:</b></para><ul><li><para><c>arn:aws:automate:<i>region</i>:ec2:stop</c></para></li><li><para><c>arn:aws:automate:<i>region</i>:ec2:terminate</c></para></li><li><para><c>arn:aws:automate:<i>region</i>:ec2:reboot</c></para></li><li><para><c>arn:aws:automate:<i>region</i>:ec2:recover</c></para></li><li><para><c>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</c></para></li><li><para><c>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</c></para></li><li><para><c>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</c></para></li><li><para><c>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</c></para></li></ul><para><b>Autoscaling action:</b></para><ul><li><para><c>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></c></para></li></ul><para><b>Lambda actions:</b></para><ul><li><para>Invoke the latest version of a Lambda function: <c>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i></c></para></li><li><para>Invoke a specific version of a Lambda function: <c>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>version-number</i></c></para></li><li><para>Invoke a function by using an alias Lambda function: <c>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>alias-name</i></c></para></li></ul><para><b>SNS notification action:</b></para><ul><li><para><c>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></c></para></li></ul><para><b>SSM integration actions:</b></para><ul><li><para><c>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>#CATEGORY=<i>category-name</i></c></para></li><li><para><c>arn:aws:ssm-incidents::<i>account-id</i>:responseplan/<i>response-plan-name</i></c></para></li></ul><para><b>Start a Amazon Q Developer operational investigation</b></para><para><c>arn:aws:aiops:<i>region</i>:<i>account-id</i>:investigation-group:<i>ingestigation-group-id</i></c></para>
+        /// values:</para><para><b>EC2 actions:</b></para><ul><li><para><c>arn:aws:automate:<i>region</i>:ec2:stop</c></para></li><li><para><c>arn:aws:automate:<i>region</i>:ec2:terminate</c></para></li><li><para><c>arn:aws:automate:<i>region</i>:ec2:reboot</c></para></li><li><para><c>arn:aws:automate:<i>region</i>:ec2:recover</c></para></li><li><para><c>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</c></para></li><li><para><c>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</c></para></li><li><para><c>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</c></para></li><li><para><c>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</c></para></li></ul><para><b>Autoscaling action:</b></para><ul><li><para><c>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></c></para></li></ul><para><b>Lambda actions:</b></para><ul><li><para>Invoke the latest version of a Lambda function: <c>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i></c></para></li><li><para>Invoke a specific version of a Lambda function: <c>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>version-number</i></c></para></li><li><para>Invoke a function by using an alias Lambda function: <c>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>alias-name</i></c></para></li></ul><para><b>SNS notification action:</b></para><ul><li><para><c>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></c></para></li></ul><para><b>SSM integration actions:</b></para><ul><li><para><c>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>#CATEGORY=<i>category-name</i></c></para></li><li><para><c>arn:aws:ssm-incidents::<i>account-id</i>:responseplan/<i>response-plan-name</i></c></para></li></ul><para><b>Start a Amazon Q Developer operational investigation</b></para><para><c>arn:aws:aiops:<i>region</i>:<i>account-id</i>:investigation-group:<i>investigation-group-id</i></c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,8 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>The number of periods over which data is compared to the specified threshold. If you
         /// are setting an alarm that requires that a number of consecutive data points be breaching
         /// to trigger the alarm, this value specifies that number. If you are setting an "M out
-        /// of N" alarm, this value is the N.</para><para>An alarm's total current evaluation period can be no longer than one day, so this
-        /// number multiplied by <c>Period</c> cannot be more than 86,400 seconds.</para>
+        /// of N" alarm, this value is the N.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -311,18 +310,20 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>The length, in seconds, used each time the metric specified in <c>MetricName</c> is
-        /// evaluated. Valid values are 10, 30, and any multiple of 60.</para><para><c>Period</c> is required for alarms based on static thresholds. If you are creating
+        /// evaluated. Valid values are 10, 20, 30, and any multiple of 60.</para><para><c>Period</c> is required for alarms based on static thresholds. If you are creating
         /// an alarm based on a metric math expression, you specify the period for each metric
-        /// within the objects in the <c>Metrics</c> array.</para><para>Be sure to specify 10 or 30 only for metrics that are stored by a <c>PutMetricData</c>
-        /// call with a <c>StorageResolution</c> of 1. If you specify a period of 10 or 30 for
-        /// a metric that does not have sub-minute resolution, the alarm still attempts to gather
-        /// data at the period rate that you specify. In this case, it does not receive data for
-        /// the attempts that do not correspond to a one-minute data resolution, and the alarm
-        /// might often lapse into INSUFFICENT_DATA status. Specifying 10 or 30 also sets this
-        /// alarm as a high-resolution alarm, which has a higher charge than other alarms. For
-        /// more information about pricing, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon
-        /// CloudWatch Pricing</a>.</para><para>An alarm's total current evaluation period can be no longer than one day, so <c>Period</c>
-        /// multiplied by <c>EvaluationPeriods</c> cannot be more than 86,400 seconds.</para>
+        /// within the objects in the <c>Metrics</c> array.</para><para>Be sure to specify 10, 20, or 30 only for metrics that are stored by a <c>PutMetricData</c>
+        /// call with a <c>StorageResolution</c> of 1. If you specify a period of 10, 20, or 30
+        /// for a metric that does not have sub-minute resolution, the alarm still attempts to
+        /// gather data at the period rate that you specify. In this case, it does not receive
+        /// data for the attempts that do not correspond to a one-minute data resolution, and
+        /// the alarm might often lapse into INSUFFICENT_DATA status. Specifying 10, 20, or 30
+        /// also sets this alarm as a high-resolution alarm, which has a higher charge than other
+        /// alarms. For more information about pricing, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon
+        /// CloudWatch Pricing</a>.</para><para>An alarm's total current evaluation period can be no longer than seven days, so <c>Period</c>
+        /// multiplied by <c>EvaluationPeriods</c> can't be more than 604,800 seconds. For alarms
+        /// with a period of less than one hour (3,600 seconds), the total evaluation period can't
+        /// be longer than one day (86,400 seconds).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

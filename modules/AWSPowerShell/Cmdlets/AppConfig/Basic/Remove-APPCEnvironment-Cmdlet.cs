@@ -72,14 +72,14 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter DeletionProtectionCheck
         /// <summary>
         /// <para>
-        /// <para>A parameter to configure deletion protection. If enabled, deletion protection prevents
-        /// a user from deleting an environment if your application called either <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a>
+        /// <para>A parameter to configure deletion protection. Deletion protection prevents a user
+        /// from deleting an environment if your application called either <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a>
         /// or in the environment during the specified interval. </para><para>This parameter supports the following values:</para><ul><li><para><c>BYPASS</c>: Instructs AppConfig to bypass the deletion protection check and delete
         /// a configuration profile even if deletion protection would have otherwise prevented
         /// it. </para></li><li><para><c>APPLY</c>: Instructs the deletion protection check to run, even if deletion protection
         /// is disabled at the account level. <c>APPLY</c> also forces the deletion protection
         /// check to run against resources created in the past hour, which are normally excluded
-        /// from deletion protection checks. </para></li><li><para><c>ACCOUNT_DEFAULT</c>: The default setting, which instructs AppConfig to implement
+        /// from deletion protection checks.</para></li><li><para><c>ACCOUNT_DEFAULT</c>: The default setting, which instructs AppConfig to implement
         /// the deletion protection value specified in the <c>UpdateAccountSettings</c> API.</para></li></ul>
         /// </para>
         /// </summary>

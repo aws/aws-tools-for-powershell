@@ -101,10 +101,24 @@ $COH_Completers = {
             break
         }
 
+        # Amazon.CostOptimizationHub.PaymentOption
+        "Update-COHPreference/PreferredCommitment_PaymentOption"
+        {
+            $v = "AllUpfront","NoUpfront","PartialUpfront"
+            break
+        }
+
         # Amazon.CostOptimizationHub.SavingsEstimationMode
         "Update-COHPreference/SavingsEstimationMode"
         {
             $v = "AfterDiscounts","BeforeDiscounts"
+            break
+        }
+
+        # Amazon.CostOptimizationHub.Term
+        "Update-COHPreference/PreferredCommitment_Term"
+        {
+            $v = "OneYear","ThreeYears"
             break
         }
 
@@ -119,6 +133,8 @@ $COH_Completers = {
 $COH_map = @{
     "MemberAccountDiscountVisibility"=@("Update-COHPreference")
     "OrderBy_Order"=@("Get-COHRecommendationList")
+    "PreferredCommitment_PaymentOption"=@("Update-COHPreference")
+    "PreferredCommitment_Term"=@("Update-COHPreference")
     "SavingsEstimationMode"=@("Update-COHPreference")
     "Status"=@("Update-COHEnrollmentStatus")
 }

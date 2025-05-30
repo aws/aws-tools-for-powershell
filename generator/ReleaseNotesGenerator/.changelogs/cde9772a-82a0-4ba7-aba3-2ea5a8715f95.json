@@ -1,0 +1,6 @@
+{
+  "Type": "OverrideVersion",
+  "Version": "5.0.0",
+  "Description": "Please find a description of the changes for 5.0.0-preview005 at https://github.com/aws/aws-tools-for-powershell/issues/357",
+  "PreviewLabel": "preview005"
+}

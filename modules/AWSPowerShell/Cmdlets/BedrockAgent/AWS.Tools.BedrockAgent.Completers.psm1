@@ -120,6 +120,16 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.ConcurrencyType
+        {
+            ($_ -eq "New-AABFlowAlias/ConcurrencyConfiguration_Type") -Or
+            ($_ -eq "Update-AABFlowAlias/ConcurrencyConfiguration_Type")
+        }
+        {
+            $v = "Automatic","Manual"
+            break
+        }
+
         # Amazon.BedrockAgent.ConfluenceAuthType
         {
             ($_ -eq "New-AABDataSource/DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_AuthType") -Or
@@ -397,6 +407,7 @@ $AAB_map = @{
     "BedrockEmbeddingModelConfiguration_EmbeddingDataType"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "BedrockFoundationModelConfiguration_ParsingModality"=@("New-AABDataSource","Update-AABDataSource")
     "ChunkingConfiguration_ChunkingStrategy"=@("New-AABDataSource","Update-AABDataSource")
+    "ConcurrencyConfiguration_Type"=@("New-AABFlowAlias","Update-AABFlowAlias")
     "ContextEnrichmentConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
     "CrawlerConfiguration_Scope"=@("New-AABDataSource","Update-AABDataSource")
     "DataDeletionPolicy"=@("New-AABDataSource","Update-AABDataSource")

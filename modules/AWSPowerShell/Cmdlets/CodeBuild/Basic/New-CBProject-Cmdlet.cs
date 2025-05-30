@@ -203,6 +203,22 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public Amazon.CodeBuild.ComputeType Environment_ComputeType { get; set; }
         #endregion
         
+        #region Parameter DockerServer_ComputeType
+        /// <summary>
+        /// <para>
+        /// <para>Information about the compute resources the docker server uses. Available values include:</para><ul><li><para><c>BUILD_GENERAL1_SMALL</c>: Use up to 4 GiB memory and 2 vCPUs for your docker server.</para></li><li><para><c>BUILD_GENERAL1_MEDIUM</c>: Use up to 8 GiB memory and 4 vCPUs for your docker
+        /// server.</para></li><li><para><c>BUILD_GENERAL1_LARGE</c>: Use up to 16 GiB memory and 8 vCPUs for your docker
+        /// server.</para></li><li><para><c>BUILD_GENERAL1_XLARGE</c>: Use up to 64 GiB memory and 32 vCPUs for your docker
+        /// server.</para></li><li><para><c>BUILD_GENERAL1_2XLARGE</c>: Use up to 128 GiB memory and 64 vCPUs for your docker
+        /// server.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Environment_DockerServer_ComputeType")]
+        [AWSConstantClassSource("Amazon.CodeBuild.ComputeType")]
+        public Amazon.CodeBuild.ComputeType DockerServer_ComputeType { get; set; }
+        #endregion
+        
         #region Parameter Restrictions_ComputeTypesAllowed
         /// <summary>
         /// <para>
@@ -586,6 +602,17 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.Int64? ComputeConfiguration_Memory { get; set; }
         #endregion
         
+        #region Parameter Status_Message
+        /// <summary>
+        /// <para>
+        /// <para>A message associated with the status of a docker server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Environment_DockerServer_Status_Message")]
+        public System.String Status_Message { get; set; }
+        #endregion
+        
         #region Parameter Cache_Mode
         /// <summary>
         /// <para>
@@ -802,6 +829,18 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public Amazon.CodeBuild.Model.ProjectSourceVersion[] SecondarySourceVersion { get; set; }
         #endregion
         
+        #region Parameter DockerServer_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>A list of one or more security groups IDs.</para><note><para>Security groups configured for Docker servers should allow ingress network traffic
+        /// from the VPC configured in the project. They should allow ingress on port 9876.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Environment_DockerServer_SecurityGroupIds")]
+        public System.String[] DockerServer_SecurityGroupId { get; set; }
+        #endregion
+        
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
@@ -870,6 +909,17 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SourceVersion { get; set; }
+        #endregion
+        
+        #region Parameter Status_Status
+        /// <summary>
+        /// <para>
+        /// <para>The status of the docker server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Environment_DockerServer_Status_Status")]
+        public System.String Status_Status { get; set; }
         #endregion
         
         #region Parameter CloudWatchLogs_Status
@@ -1171,6 +1221,13 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 WriteWarning("You are passing $null as a value for parameter Environment_ComputeType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DockerServer_ComputeType = this.DockerServer_ComputeType;
+            if (this.DockerServer_SecurityGroupId != null)
+            {
+                context.DockerServer_SecurityGroupId = new List<System.String>(this.DockerServer_SecurityGroupId);
+            }
+            context.Status_Message = this.Status_Message;
+            context.Status_Status = this.Status_Status;
             if (this.Environment_EnvironmentVariable != null)
             {
                 context.Environment_EnvironmentVariable = new List<Amazon.CodeBuild.Model.EnvironmentVariable>(this.Environment_EnvironmentVariable);
@@ -1685,6 +1742,76 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestEnvironment_environment_RegistryCredential != null)
             {
                 request.Environment.RegistryCredential = requestEnvironment_environment_RegistryCredential;
+                requestEnvironmentIsNull = false;
+            }
+            Amazon.CodeBuild.Model.DockerServer requestEnvironment_environment_DockerServer = null;
+            
+             // populate DockerServer
+            var requestEnvironment_environment_DockerServerIsNull = true;
+            requestEnvironment_environment_DockerServer = new Amazon.CodeBuild.Model.DockerServer();
+            Amazon.CodeBuild.ComputeType requestEnvironment_environment_DockerServer_dockerServer_ComputeType = null;
+            if (cmdletContext.DockerServer_ComputeType != null)
+            {
+                requestEnvironment_environment_DockerServer_dockerServer_ComputeType = cmdletContext.DockerServer_ComputeType;
+            }
+            if (requestEnvironment_environment_DockerServer_dockerServer_ComputeType != null)
+            {
+                requestEnvironment_environment_DockerServer.ComputeType = requestEnvironment_environment_DockerServer_dockerServer_ComputeType;
+                requestEnvironment_environment_DockerServerIsNull = false;
+            }
+            List<System.String> requestEnvironment_environment_DockerServer_dockerServer_SecurityGroupId = null;
+            if (cmdletContext.DockerServer_SecurityGroupId != null)
+            {
+                requestEnvironment_environment_DockerServer_dockerServer_SecurityGroupId = cmdletContext.DockerServer_SecurityGroupId;
+            }
+            if (requestEnvironment_environment_DockerServer_dockerServer_SecurityGroupId != null)
+            {
+                requestEnvironment_environment_DockerServer.SecurityGroupIds = requestEnvironment_environment_DockerServer_dockerServer_SecurityGroupId;
+                requestEnvironment_environment_DockerServerIsNull = false;
+            }
+            Amazon.CodeBuild.Model.DockerServerStatus requestEnvironment_environment_DockerServer_environment_DockerServer_Status = null;
+            
+             // populate Status
+            var requestEnvironment_environment_DockerServer_environment_DockerServer_StatusIsNull = true;
+            requestEnvironment_environment_DockerServer_environment_DockerServer_Status = new Amazon.CodeBuild.Model.DockerServerStatus();
+            System.String requestEnvironment_environment_DockerServer_environment_DockerServer_Status_status_Message = null;
+            if (cmdletContext.Status_Message != null)
+            {
+                requestEnvironment_environment_DockerServer_environment_DockerServer_Status_status_Message = cmdletContext.Status_Message;
+            }
+            if (requestEnvironment_environment_DockerServer_environment_DockerServer_Status_status_Message != null)
+            {
+                requestEnvironment_environment_DockerServer_environment_DockerServer_Status.Message = requestEnvironment_environment_DockerServer_environment_DockerServer_Status_status_Message;
+                requestEnvironment_environment_DockerServer_environment_DockerServer_StatusIsNull = false;
+            }
+            System.String requestEnvironment_environment_DockerServer_environment_DockerServer_Status_status_Status = null;
+            if (cmdletContext.Status_Status != null)
+            {
+                requestEnvironment_environment_DockerServer_environment_DockerServer_Status_status_Status = cmdletContext.Status_Status;
+            }
+            if (requestEnvironment_environment_DockerServer_environment_DockerServer_Status_status_Status != null)
+            {
+                requestEnvironment_environment_DockerServer_environment_DockerServer_Status.Status = requestEnvironment_environment_DockerServer_environment_DockerServer_Status_status_Status;
+                requestEnvironment_environment_DockerServer_environment_DockerServer_StatusIsNull = false;
+            }
+             // determine if requestEnvironment_environment_DockerServer_environment_DockerServer_Status should be set to null
+            if (requestEnvironment_environment_DockerServer_environment_DockerServer_StatusIsNull)
+            {
+                requestEnvironment_environment_DockerServer_environment_DockerServer_Status = null;
+            }
+            if (requestEnvironment_environment_DockerServer_environment_DockerServer_Status != null)
+            {
+                requestEnvironment_environment_DockerServer.Status = requestEnvironment_environment_DockerServer_environment_DockerServer_Status;
+                requestEnvironment_environment_DockerServerIsNull = false;
+            }
+             // determine if requestEnvironment_environment_DockerServer should be set to null
+            if (requestEnvironment_environment_DockerServerIsNull)
+            {
+                requestEnvironment_environment_DockerServer = null;
+            }
+            if (requestEnvironment_environment_DockerServer != null)
+            {
+                request.Environment.DockerServer = requestEnvironment_environment_DockerServer;
                 requestEnvironmentIsNull = false;
             }
             Amazon.CodeBuild.Model.ComputeConfiguration requestEnvironment_environment_ComputeConfiguration = null;
@@ -2207,6 +2334,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.Int64? ComputeConfiguration_Memory { get; set; }
             public System.Int64? ComputeConfiguration_VCpu { get; set; }
             public Amazon.CodeBuild.ComputeType Environment_ComputeType { get; set; }
+            public Amazon.CodeBuild.ComputeType DockerServer_ComputeType { get; set; }
+            public List<System.String> DockerServer_SecurityGroupId { get; set; }
+            public System.String Status_Message { get; set; }
+            public System.String Status_Status { get; set; }
             public List<Amazon.CodeBuild.Model.EnvironmentVariable> Environment_EnvironmentVariable { get; set; }
             public System.String Fleet_FleetArn { get; set; }
             public System.String Environment_Image { get; set; }

@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter ApplicationArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the application provider under which the operation will run.</para>
+        /// <para>The ARN of the application for which the assignment is created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         /// <para>
         /// <para>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds
         /// are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information
-        /// about PrincipalIds in IAM Identity Center, see the <a href="/singlesignon/latest/IdentityStoreAPIReference/welcome.html">IAM
+        /// about PrincipalIds in IAM Identity Center, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html">IAM
         /// Identity Center Identity Store API Reference</a>.</para>
         /// </para>
         /// </summary>

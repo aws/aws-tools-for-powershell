@@ -46,6 +46,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetExecutionFlowSnapshot" OutputProperty="*" Verb="Get" Noun="ExecutionFlowSnapshot" PipelineParameter="ExecutionIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFlowExecution" OutputProperty="*" Verb="Get" Noun="FlowExecution" PipelineParameter="ExecutionIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetInvocationStep" OutputProperty="InvocationStep" Verb="Get" Noun="InvocationStep" PipelineParameter="SessionIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -63,6 +71,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="InvokeInlineAgent" OutputProperty="*" Verb="Invoke" Noun="InlineAgent" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFlowExecutionEvents" OutputProperty="FlowExecutionEvents" Verb="Get" Noun="FlowExecutionEventList" PipelineParameter="ExecutionIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFlowExecutions" OutputProperty="FlowExecutionSummaries" Verb="Get" Noun="FlowExecutionList" PipelineParameter="FlowIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -140,6 +156,14 @@
                 <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfig_Latency" NewName="Stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency" />
                 <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfig_Latency" NewName="Stream_KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartFlowExecution" OutputProperty="ExecutionArn" Verb="Start" Noun="FlowExecution" ShouldProcessTarget="FlowIdentifier" PipelineParameter="FlowIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopFlowExecution" OutputProperty="*" Verb="Stop" Noun="FlowExecution" ShouldProcessTarget="ExecutionIdentifier" PipelineParameter="ExecutionIdentifier" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">

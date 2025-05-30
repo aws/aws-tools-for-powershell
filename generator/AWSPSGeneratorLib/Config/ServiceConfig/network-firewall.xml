@@ -42,6 +42,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpcEndpointAssociation" OutputProperty="*" Verb="New" Noun="VpcEndpointAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteFirewall" OutputProperty="*" Verb="Remove" Noun="Firewall" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -62,7 +66,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpcEndpointAssociation" OutputProperty="*" Verb="Remove" Noun="VpcEndpointAssociation" ShouldProcessTarget="VpcEndpointAssociationArn" PipelineParameter="VpcEndpointAssociationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeFirewall" OutputProperty="*" Verb="Get" Noun="Firewall" PipelineParameter="FirewallArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFirewallMetadata" OutputProperty="*" Verb="Get" Noun="FirewallMetadata" PipelineParameter="FirewallArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -91,6 +103,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeTLSInspectionConfiguration" OutputProperty="*" Verb="Get" Noun="TLSInspectionConfiguration" PipelineParameter="TLSInspectionConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcEndpointAssociation" OutputProperty="*" Verb="Get" Noun="VpcEndpointAssociation" PipelineParameter="VpcEndpointAssociationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -131,6 +147,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTLSInspectionConfigurations" OutputProperty="TLSInspectionConfigurations" Verb="Get" Noun="TLSInspectionConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVpcEndpointAssociations" OutputProperty="VpcEndpointAssociations" Verb="Get" Noun="VpcEndpointAssociationList" PipelineParameter="FirewallArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

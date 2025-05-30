@@ -217,7 +217,8 @@ $NPT_SelectMap = @{
                "Restore-NPTDBClusterFromSnapshot",
                "Restore-NPTDBClusterToPointInTime",
                "Start-NPTDBCluster",
-               "Stop-NPTDBCluster")
+               "Stop-NPTDBCluster",
+               "Request-NPTSwitchoverGlobalCluster")
 }
 
 _awsArgumentCompleterRegistration $NPT_SelectCompleters $NPT_SelectMap

@@ -135,6 +135,19 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         public System.String[] Principal { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Tags to add to the grant. For more information about tagging support in License Manager,
+        /// see the <a href="https://docs.aws.amazon.com/license-manager/latest/APIReference/API_TagResource.html">TagResource</a>
+        /// operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.LicenseManager.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -247,6 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
                 WriteWarning("You are passing $null as a value for parameter Principal which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.LicenseManager.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -286,6 +303,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             if (cmdletContext.Principal != null)
             {
                 request.Principals = cmdletContext.Principal;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -348,6 +369,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             public System.String HomeRegion { get; set; }
             public System.String LicenseArn { get; set; }
             public List<System.String> Principal { get; set; }
+            public List<Amazon.LicenseManager.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.LicenseManager.Model.CreateGrantResponse, NewLICMGrantCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

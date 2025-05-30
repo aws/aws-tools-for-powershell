@@ -70,6 +70,17 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         public System.Boolean? IncludeChild { get; set; }
         #endregion
         
+        #region Parameter Filter_InheritanceDriftStatus
+        /// <summary>
+        /// <para>
+        /// <para>A list of <c>EnabledBaselineDriftStatus</c> items for enabled baselines.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_InheritanceDriftStatuses")]
+        public System.String[] Filter_InheritanceDriftStatus { get; set; }
+        #endregion
+        
         #region Parameter Filter_ParentIdentifier
         /// <summary>
         /// <para>
@@ -80,6 +91,17 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Filter_ParentIdentifiers")]
         public System.String[] Filter_ParentIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Filter_Status
+        /// <summary>
+        /// <para>
+        /// <para>A list of <c>EnablementStatus</c> items.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_Statuses")]
+        public System.String[] Filter_Status { get; set; }
         #endregion
         
         #region Parameter Filter_TargetIdentifier
@@ -148,9 +170,17 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             {
                 context.Filter_BaselineIdentifier = new List<System.String>(this.Filter_BaselineIdentifier);
             }
+            if (this.Filter_InheritanceDriftStatus != null)
+            {
+                context.Filter_InheritanceDriftStatus = new List<System.String>(this.Filter_InheritanceDriftStatus);
+            }
             if (this.Filter_ParentIdentifier != null)
             {
                 context.Filter_ParentIdentifier = new List<System.String>(this.Filter_ParentIdentifier);
+            }
+            if (this.Filter_Status != null)
+            {
+                context.Filter_Status = new List<System.String>(this.Filter_Status);
             }
             if (this.Filter_TargetIdentifier != null)
             {
@@ -189,6 +219,16 @@ namespace Amazon.PowerShell.Cmdlets.ACT
                 request.Filter.BaselineIdentifiers = requestFilter_filter_BaselineIdentifier;
                 requestFilterIsNull = false;
             }
+            List<System.String> requestFilter_filter_InheritanceDriftStatus = null;
+            if (cmdletContext.Filter_InheritanceDriftStatus != null)
+            {
+                requestFilter_filter_InheritanceDriftStatus = cmdletContext.Filter_InheritanceDriftStatus;
+            }
+            if (requestFilter_filter_InheritanceDriftStatus != null)
+            {
+                request.Filter.InheritanceDriftStatuses = requestFilter_filter_InheritanceDriftStatus;
+                requestFilterIsNull = false;
+            }
             List<System.String> requestFilter_filter_ParentIdentifier = null;
             if (cmdletContext.Filter_ParentIdentifier != null)
             {
@@ -197,6 +237,16 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             if (requestFilter_filter_ParentIdentifier != null)
             {
                 request.Filter.ParentIdentifiers = requestFilter_filter_ParentIdentifier;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_Status = null;
+            if (cmdletContext.Filter_Status != null)
+            {
+                requestFilter_filter_Status = cmdletContext.Filter_Status;
+            }
+            if (requestFilter_filter_Status != null)
+            {
+                request.Filter.Statuses = requestFilter_filter_Status;
                 requestFilterIsNull = false;
             }
             List<System.String> requestFilter_filter_TargetIdentifier = null;
@@ -282,7 +332,9 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> Filter_BaselineIdentifier { get; set; }
+            public List<System.String> Filter_InheritanceDriftStatus { get; set; }
             public List<System.String> Filter_ParentIdentifier { get; set; }
+            public List<System.String> Filter_Status { get; set; }
             public List<System.String> Filter_TargetIdentifier { get; set; }
             public System.Boolean? IncludeChild { get; set; }
             public System.Int32? MaxResult { get; set; }

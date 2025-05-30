@@ -84,12 +84,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-KINResourceTag', 
         'Add-KINTagsToStream', 
         'Disable-KINEnhancedMonitoring', 
         'Enable-KINEnhancedMonitoring', 
         'Get-KINLimit', 
         'Get-KINRecord', 
         'Get-KINResourcePolicy', 
+        'Get-KINResourceTag', 
         'Get-KINShardIterator', 
         'Get-KINShardList', 
         'Get-KINStream', 
@@ -102,6 +104,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-KINStream', 
         'Register-KINStreamConsumer', 
         'Remove-KINResourcePolicy', 
+        'Remove-KINResourceTag', 
         'Remove-KINStream', 
         'Remove-KINTagsFromStream', 
         'Request-KINStreamRetentionPeriodDecrease', 

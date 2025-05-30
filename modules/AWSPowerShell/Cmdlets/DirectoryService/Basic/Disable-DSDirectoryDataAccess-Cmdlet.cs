@@ -31,7 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
     /// Deactivates access to directory data via the Directory Service Data API for the specified
-    /// directory.
+    /// directory. For more information, see <a href="https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html">Directory
+    /// Service Data API Reference</a>.
     /// </summary>
     [Cmdlet("Disable", "DSDirectoryDataAccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

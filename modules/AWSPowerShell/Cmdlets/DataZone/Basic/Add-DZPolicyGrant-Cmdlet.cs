@@ -149,6 +149,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String CreateEnvironmentProfile_DomainUnitId { get; set; }
         #endregion
         
+        #region Parameter UseAssetType_DomainUnitId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the domain unit.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Detail_UseAssetType_DomainUnitId")]
+        public System.String UseAssetType_DomainUnitId { get; set; }
+        #endregion
+        
         #region Parameter DomainUnit_DomainUnitIdentifier
         /// <summary>
         /// <para>
@@ -453,6 +464,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.Detail_DelegateCreateEnvironmentProfile = this.Detail_DelegateCreateEnvironmentProfile;
             context.OverrideDomainUnitOwners_IncludeChildDomainUnit = this.OverrideDomainUnitOwners_IncludeChildDomainUnit;
             context.OverrideProjectOwners_IncludeChildDomainUnit = this.OverrideProjectOwners_IncludeChildDomainUnit;
+            context.UseAssetType_DomainUnitId = this.UseAssetType_DomainUnitId;
             context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
             if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
@@ -768,6 +780,31 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestDetail_detail_OverrideProjectOwners != null)
             {
                 request.Detail.OverrideProjectOwners = requestDetail_detail_OverrideProjectOwners;
+                requestDetailIsNull = false;
+            }
+            Amazon.DataZone.Model.UseAssetTypePolicyGrantDetail requestDetail_detail_UseAssetType = null;
+            
+             // populate UseAssetType
+            var requestDetail_detail_UseAssetTypeIsNull = true;
+            requestDetail_detail_UseAssetType = new Amazon.DataZone.Model.UseAssetTypePolicyGrantDetail();
+            System.String requestDetail_detail_UseAssetType_useAssetType_DomainUnitId = null;
+            if (cmdletContext.UseAssetType_DomainUnitId != null)
+            {
+                requestDetail_detail_UseAssetType_useAssetType_DomainUnitId = cmdletContext.UseAssetType_DomainUnitId;
+            }
+            if (requestDetail_detail_UseAssetType_useAssetType_DomainUnitId != null)
+            {
+                requestDetail_detail_UseAssetType.DomainUnitId = requestDetail_detail_UseAssetType_useAssetType_DomainUnitId;
+                requestDetail_detail_UseAssetTypeIsNull = false;
+            }
+             // determine if requestDetail_detail_UseAssetType should be set to null
+            if (requestDetail_detail_UseAssetTypeIsNull)
+            {
+                requestDetail_detail_UseAssetType = null;
+            }
+            if (requestDetail_detail_UseAssetType != null)
+            {
+                request.Detail.UseAssetType = requestDetail_detail_UseAssetType;
                 requestDetailIsNull = false;
             }
             Amazon.DataZone.Model.CreateProjectFromProjectProfilePolicyGrantDetail requestDetail_detail_CreateProjectFromProjectProfile = null;
@@ -1110,6 +1147,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public Amazon.DataZone.Model.Unit Detail_DelegateCreateEnvironmentProfile { get; set; }
             public System.Boolean? OverrideDomainUnitOwners_IncludeChildDomainUnit { get; set; }
             public System.Boolean? OverrideProjectOwners_IncludeChildDomainUnit { get; set; }
+            public System.String UseAssetType_DomainUnitId { get; set; }
             public System.String DomainIdentifier { get; set; }
             public System.String EntityIdentifier { get; set; }
             public Amazon.DataZone.TargetEntityType EntityType { get; set; }

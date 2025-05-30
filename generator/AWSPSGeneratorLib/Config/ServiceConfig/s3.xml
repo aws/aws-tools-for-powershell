@@ -138,7 +138,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetACL" OutputProperty="AccessControlList" Verb="Get" Noun="ACL" PositionalParameters="Key;VersionId" PipelineParameter="BucketName" NoPipelineParameter="false" ReplacementObsoleteMessage="This cmdlet is deprecated, use Get-S3BucketACL or Get-S3ObjectACL instead." LegacyV4Pagination="true">            
+        <ServiceOperation MethodName="GetACL" OutputProperty="AccessControlList" Verb="Get" Noun="ACL" PositionalParameters="Key;VersionId" PipelineParameter="BucketName" NoPipelineParameter="false" ReplacementObsoleteMessage="This cmdlet is deprecated, use Get-S3BucketACL or Get-S3ObjectACL instead." LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

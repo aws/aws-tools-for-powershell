@@ -312,6 +312,7 @@ $RDS_SelectMap = @{
                "Get-RDSDBInstanceAutomatedBackup",
                "Get-RDSDBInstance",
                "Get-RDSDBLogFile",
+               "Get-RDSDBMajorEngineVersion",
                "Get-RDSDBParameterGroup",
                "Get-RDSDBParameter",
                "Get-RDSDBProxy",

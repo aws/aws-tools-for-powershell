@@ -95,6 +95,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IVSRTParticipant', 
         'Get-IVSRTParticipantEventList', 
         'Get-IVSRTParticipantList', 
+        'Get-IVSRTParticipantReplicaList', 
         'Get-IVSRTPublicKey', 
         'Get-IVSRTPublicKeyList', 
         'Get-IVSRTResourceTag', 
@@ -117,7 +118,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-IVSRTStage', 
         'Remove-IVSRTStorageConfiguration', 
         'Start-IVSRTComposition', 
+        'Start-IVSRTParticipantReplication', 
         'Stop-IVSRTComposition', 
+        'Stop-IVSRTParticipantReplication', 
         'Update-IVSRTIngestConfiguration', 
         'Update-IVSRTStage')
 

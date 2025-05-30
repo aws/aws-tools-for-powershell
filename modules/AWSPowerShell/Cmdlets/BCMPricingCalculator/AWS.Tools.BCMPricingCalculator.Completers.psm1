@@ -83,7 +83,7 @@ $BCMPC_Completers = {
         # Amazon.BCMPricingCalculator.WorkloadEstimateRateType
         "New-BCMPCWorkloadEstimate/RateType"
         {
-            $v = "AFTER_DISCOUNTS","BEFORE_DISCOUNTS"
+            $v = "AFTER_DISCOUNTS","AFTER_DISCOUNTS_AND_COMMITMENTS","BEFORE_DISCOUNTS"
             break
         }
 

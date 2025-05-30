@@ -22,15 +22,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMultiRegionClusters" OutputProperty="LinkedClusterArns" Verb="New" Noun="MultiRegionCluster" ShouldProcessTarget="WitnessRegion" PipelineParameter="WitnessRegion" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCluster" OutputProperty="*" Verb="Remove" Noun="Cluster" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMultiRegionClusters" Verb="Remove" Noun="MultiRegionCluster" ShouldProcessTarget="LinkedClusterArns" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

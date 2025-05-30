@@ -131,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         /// <para>
         /// <para> The Amazon Web Services services that are included in the scope of the assessment.
         /// </para><important><para>This API parameter is no longer supported. If you use this parameter to specify one
-        /// or more Amazon Web Services, Audit Manager ignores this input. Instead, the value
-        /// for <c>awsServices</c> will show as empty.</para></important>
+        /// or more Amazon Web Services services, Audit Manager ignores this input. Instead, the
+        /// value for <c>awsServices</c> will show as empty.</para></important>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

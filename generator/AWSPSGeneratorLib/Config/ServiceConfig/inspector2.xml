@@ -117,6 +117,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetClustersForImage" OutputProperty="Cluster" Verb="Get" Noun="ClustersForImage" PipelineParameter="Filter_ResourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetConfiguration" OutputProperty="EcrConfiguration" Verb="Get" Noun="Configuration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

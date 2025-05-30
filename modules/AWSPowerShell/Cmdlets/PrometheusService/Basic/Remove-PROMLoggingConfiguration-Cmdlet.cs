@@ -30,7 +30,11 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Deletes the logging configuration for a workspace.
+    /// Deletes the rules and alerting logging configuration for a workspace.
+    /// 
+    ///  <note><para>
+    /// These logging configurations are only for rules and alerting logs.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "PROMLoggingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

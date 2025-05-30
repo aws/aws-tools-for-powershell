@@ -30,9 +30,13 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// The <c>CreateLoggingConfiguration</c> operation creates a logging configuration for
-    /// the workspace. Use this operation to set the CloudWatch log group to which the logs
-    /// will be published to.
+    /// The <c>CreateLoggingConfiguration</c> operation creates rules and alerting logging
+    /// configuration for the workspace. Use this operation to set the CloudWatch log group
+    /// to which the logs will be published to.
+    /// 
+    ///  <note><para>
+    /// These logging configurations are only for rules and alerting logs.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "PROMLoggingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PrometheusService.Model.LoggingConfigurationStatus")]

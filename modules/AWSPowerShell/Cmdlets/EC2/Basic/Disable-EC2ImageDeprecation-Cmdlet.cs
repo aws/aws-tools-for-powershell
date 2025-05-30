@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate
-    /// an AMI</a> in the <i>Amazon EC2 User Guide</i>.
+    /// an Amazon EC2 AMI</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Disable", "EC2ImageDeprecation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

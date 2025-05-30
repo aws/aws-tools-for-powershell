@@ -67,6 +67,21 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String BucketName { get; set; }
         #endregion
         
+        #region Parameter ChecksumAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the algorithm used to create the checksum for the object when you use the
+        /// SDK. This header will not provide any additional functionality if you don't use the
+        /// SDK. When you send this header, there must be a corresponding <c>x-amz-checksum-<i>algorithm</i></c> or <c>x-amz-trailer</c> header sent. Otherwise, Amazon S3 fails the
+        /// request with the HTTP status code <c>400 Bad Request</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>If you provide an individual checksum, Amazon S3 ignores any provided <c>ChecksumAlgorithm</c> parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.ChecksumAlgorithm")]
+        public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
+        #endregion
+        
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
@@ -140,6 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 context.OwnershipControls_Rule = new List<Amazon.S3.Model.OwnershipControlsRule>(this.OwnershipControls_Rule);
             }
+            context.ChecksumAlgorithm = this.ChecksumAlgorithm;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -182,6 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestOwnershipControlsIsNull)
             {
                 request.OwnershipControls = null;
+            }
+            if (cmdletContext.ChecksumAlgorithm != null)
+            {
+                request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
             }
             
             CmdletOutput output;
@@ -241,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String BucketName { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
             public List<Amazon.S3.Model.OwnershipControlsRule> OwnershipControls_Rule { get; set; }
+            public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketOwnershipControlsResponse, WriteS3BucketOwnershipControlCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

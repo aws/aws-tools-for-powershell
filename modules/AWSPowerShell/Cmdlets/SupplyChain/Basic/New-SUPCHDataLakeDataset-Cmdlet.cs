@@ -57,6 +57,18 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter PartitionSpec_Field
+        /// <summary>
+        /// <para>
+        /// <para>The fields on which to partition a dataset. The partitions will be applied hierarchically
+        /// based on the order of this list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PartitionSpec_Fields")]
+        public Amazon.SupplyChain.Model.DataLakeDatasetPartitionField[] PartitionSpec_Field { get; set; }
+        #endregion
+        
         #region Parameter Schema_Field
         /// <summary>
         /// <para>
@@ -116,7 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The name space of the dataset.</para><ul><li><para><b>asc</b> - For information on the Amazon Web Services Supply Chain supported datasets
+        /// <para>The namespace of the dataset, besides the custom defined namespace, every instance
+        /// comes with below pre-defined namespaces:</para><ul><li><para><b>asc</b> - For information on the Amazon Web Services Supply Chain supported datasets
         /// see <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</para></li><li><para><b>default</b> - For datasets with custom user-defined schemas.</para></li></ul>
         /// </para>
         /// </summary>
@@ -129,6 +142,23 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Namespace { get; set; }
+        #endregion
+        
+        #region Parameter Schema_PrimaryKey
+        /// <summary>
+        /// <para>
+        /// <para>The list of primary key fields for the dataset. Primary keys defined can help data
+        /// ingestion methods to ensure data uniqueness: CreateDataIntegrationFlow's dedupe strategy
+        /// will leverage primary keys to perform records deduplication before write to dataset;
+        /// SendDataIntegrationEvent's UPSERT and DELETE can only work with dataset with primary
+        /// keys. For more details, refer to those data ingestion documentations.</para><para>Note that defining primary keys does not necessarily mean the dataset cannot have
+        /// duplicate records, duplicate records can still be ingested if CreateDataIntegrationFlow's
+        /// dedupe disabled or through SendDataIntegrationEvent's APPEND operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Schema_PrimaryKeys")]
+        public Amazon.SupplyChain.Model.DataLakeDatasetPrimaryKeyField[] Schema_PrimaryKey { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -210,11 +240,19 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
                 WriteWarning("You are passing $null as a value for parameter Namespace which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.PartitionSpec_Field != null)
+            {
+                context.PartitionSpec_Field = new List<Amazon.SupplyChain.Model.DataLakeDatasetPartitionField>(this.PartitionSpec_Field);
+            }
             if (this.Schema_Field != null)
             {
                 context.Schema_Field = new List<Amazon.SupplyChain.Model.DataLakeDatasetSchemaField>(this.Schema_Field);
             }
             context.Schema_Name = this.Schema_Name;
+            if (this.Schema_PrimaryKey != null)
+            {
+                context.Schema_PrimaryKey = new List<Amazon.SupplyChain.Model.DataLakeDatasetPrimaryKeyField>(this.Schema_PrimaryKey);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -256,6 +294,25 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
                 request.Namespace = cmdletContext.Namespace;
             }
             
+             // populate PartitionSpec
+            var requestPartitionSpecIsNull = true;
+            request.PartitionSpec = new Amazon.SupplyChain.Model.DataLakeDatasetPartitionSpec();
+            List<Amazon.SupplyChain.Model.DataLakeDatasetPartitionField> requestPartitionSpec_partitionSpec_Field = null;
+            if (cmdletContext.PartitionSpec_Field != null)
+            {
+                requestPartitionSpec_partitionSpec_Field = cmdletContext.PartitionSpec_Field;
+            }
+            if (requestPartitionSpec_partitionSpec_Field != null)
+            {
+                request.PartitionSpec.Fields = requestPartitionSpec_partitionSpec_Field;
+                requestPartitionSpecIsNull = false;
+            }
+             // determine if request.PartitionSpec should be set to null
+            if (requestPartitionSpecIsNull)
+            {
+                request.PartitionSpec = null;
+            }
+            
              // populate Schema
             var requestSchemaIsNull = true;
             request.Schema = new Amazon.SupplyChain.Model.DataLakeDatasetSchema();
@@ -277,6 +334,16 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
             if (requestSchema_schema_Name != null)
             {
                 request.Schema.Name = requestSchema_schema_Name;
+                requestSchemaIsNull = false;
+            }
+            List<Amazon.SupplyChain.Model.DataLakeDatasetPrimaryKeyField> requestSchema_schema_PrimaryKey = null;
+            if (cmdletContext.Schema_PrimaryKey != null)
+            {
+                requestSchema_schema_PrimaryKey = cmdletContext.Schema_PrimaryKey;
+            }
+            if (requestSchema_schema_PrimaryKey != null)
+            {
+                request.Schema.PrimaryKeys = requestSchema_schema_PrimaryKey;
                 requestSchemaIsNull = false;
             }
              // determine if request.Schema should be set to null
@@ -347,8 +414,10 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
             public System.String InstanceId { get; set; }
             public System.String Name { get; set; }
             public System.String Namespace { get; set; }
+            public List<Amazon.SupplyChain.Model.DataLakeDatasetPartitionField> PartitionSpec_Field { get; set; }
             public List<Amazon.SupplyChain.Model.DataLakeDatasetSchemaField> Schema_Field { get; set; }
             public System.String Schema_Name { get; set; }
+            public List<Amazon.SupplyChain.Model.DataLakeDatasetPrimaryKeyField> Schema_PrimaryKey { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.SupplyChain.Model.CreateDataLakeDatasetResponse, NewSUPCHDataLakeDatasetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Dataset;

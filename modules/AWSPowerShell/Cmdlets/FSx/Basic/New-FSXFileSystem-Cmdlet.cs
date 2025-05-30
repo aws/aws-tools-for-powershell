@@ -270,7 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// file system will be created. By default in the Amazon FSx API and Amazon FSx console,
         /// Amazon FSx selects an available /28 IP address range for you from one of the VPC's
         /// CIDR ranges. You can have overlapping endpoint IP addresses for file systems deployed
-        /// in the same VPC/route tables.</para>
+        /// in the same VPC/route tables, as long as they don't overlap with any subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -574,14 +574,14 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>Sets the storage class for the file system that you're creating. Valid values are
         /// <c>SSD</c>, <c>HDD</c>, and <c>INTELLIGENT_TIERING</c>.</para><ul><li><para>Set to <c>SSD</c> to use solid state drive storage. SSD is supported on all Windows,
-        /// Lustre, ONTAP, and OpenZFS deployment types.</para></li><li><para>Set to <c>HDD</c> to use hard disk drive storage. HDD is supported on <c>SINGLE_AZ_2</c>
+        /// Lustre, ONTAP, and OpenZFS deployment types.</para></li><li><para>Set to <c>HDD</c> to use hard disk drive storage, which is supported on <c>SINGLE_AZ_2</c>
         /// and <c>MULTI_AZ_1</c> Windows file system deployment types, and on <c>PERSISTENT_1</c>
         /// Lustre file system deployment types.</para></li><li><para>Set to <c>INTELLIGENT_TIERING</c> to use fully elastic, intelligently-tiered storage.
         /// Intelligent-Tiering is only available for OpenZFS file systems with the Multi-AZ deployment
-        /// type.</para></li></ul><para>Default value is <c>SSD</c>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/optimize-fsx-costs.html#storage-type-options">
-        /// Storage type options</a> in the <i>FSx for Windows File Server User Guide</i>, <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html#storage-options">Multiple
-        /// storage options</a> in the <i>FSx for Lustre User Guide</i>, and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance-intelligent-tiering">Working
-        /// with Intelligent-Tiering</a> in the <i>Amazon FSx for OpenZFS User Guide</i>. </para>
+        /// type and for Lustre file systems with the Persistent_2 deployment type.</para></li></ul><para>Default value is <c>SSD</c>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/optimize-fsx-costs.html#storage-type-options">
+        /// Storage type options</a> in the <i>FSx for Windows File Server User Guide</i>, <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/lustre-storage-classes">FSx
+        /// for Lustre storage classes</a> in the <i>FSx for Lustre User Guide</i>, and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance-intelligent-tiering">Working
+        /// with Intelligent-Tiering</a> in the <i>Amazon FSx for OpenZFS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -647,7 +647,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies the throughput of an Amazon FSx for OpenZFS file system, measured in megabytes
-        /// per second (MBps). Valid values depend on the DeploymentType you choose, as follows:</para><ul><li><para>For <c>MULTI_AZ_1</c> and <c>SINGLE_AZ_2</c>, valid values are 160, 320, 640, 1280,
+        /// per second (MBps). Valid values depend on the <c>DeploymentType</c> that you choose,
+        /// as follows:</para><ul><li><para>For <c>MULTI_AZ_1</c> and <c>SINGLE_AZ_2</c>, valid values are 160, 320, 640, 1280,
         /// 2560, 3840, 5120, 7680, or 10240 MBps.</para></li><li><para>For <c>SINGLE_AZ_1</c>, valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096
         /// MBps.</para></li></ul><para>You pay for additional throughput capacity that you provision.</para>
         /// </para>

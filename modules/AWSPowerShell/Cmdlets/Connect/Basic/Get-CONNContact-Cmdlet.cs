@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     ///  
     /// <para>
     /// Describes the specified contact. 
-    /// </para><important><ul><li><para><c>CustomerEndpoint</c> and <c>SystemEndpoint</c> are only populated for EMAIL contacts.
-    /// 
+    /// </para><important><ul><li><para><c>SystemEndpoint</c> is not populated for contacts with initiation method of MONITOR,
+    /// QUEUE_TRANSFER, or CALLBACK
     /// </para></li><li><para>
     /// Contact information remains available in Amazon Connect for 24 months from the <c>InitiationTimestamp</c>,
     /// and then it is deleted. Only contact information that is available in Amazon Connect

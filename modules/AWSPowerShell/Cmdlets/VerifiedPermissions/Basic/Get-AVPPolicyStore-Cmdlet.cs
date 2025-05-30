@@ -61,6 +61,20 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         public System.String PolicyStoreId { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to return the tags that are attached to the policy store. If this
+        /// parameter is included in the API call, the tags are returned, otherwise they are not
+        /// returned.</para><note><para>If this parameter is included in the API call but there are no tags attached to the
+        /// policy store, the <c>tags</c> response parameter is omitted from the response.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Boolean? Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -98,6 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
                 WriteWarning("You are passing $null as a value for parameter PolicyStoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Tag = this.Tag;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -117,6 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             if (cmdletContext.PolicyStoreId != null)
             {
                 request.PolicyStoreId = cmdletContext.PolicyStoreId;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag.Value;
             }
             
             CmdletOutput output;
@@ -174,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String PolicyStoreId { get; set; }
+            public System.Boolean? Tag { get; set; }
             public System.Func<Amazon.VerifiedPermissions.Model.GetPolicyStoreResponse, GetAVPPolicyStoreCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

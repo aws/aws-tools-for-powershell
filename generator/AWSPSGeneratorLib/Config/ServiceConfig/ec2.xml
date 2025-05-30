@@ -351,6 +351,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDelegateMacVolumeOwnershipTask" OutputProperty="MacModificationTask" Verb="New" Noun="DelegateMacVolumeOwnershipTask" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDhcpOptions" OutputProperty="DhcpOptions" Verb="New" Noun="DhcpOption" ShouldProcessTarget="DhcpConfigurations" PipelineParameter="DhcpConfigurations" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -436,6 +440,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLocalGatewayRouteTableVpcAssociation" OutputProperty="LocalGatewayRouteTableVpcAssociation" Verb="New" Noun="LocalGatewayRouteTableVpcAssociation" ShouldProcessTarget="LocalGatewayRouteTableId" PipelineParameter="LocalGatewayRouteTableId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLocalGatewayVirtualInterface" OutputProperty="LocalGatewayVirtualInterface" Verb="New" Noun="LocalGatewayVirtualInterface" ShouldProcessTarget="LocalGatewayVirtualInterfaceGroupId" PipelineParameter="LocalGatewayVirtualInterfaceGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLocalGatewayVirtualInterfaceGroup" OutputProperty="LocalGatewayVirtualInterfaceGroup" Verb="New" Noun="LocalGatewayVirtualInterfaceGroup" ShouldProcessTarget="LocalGatewayId" PipelineParameter="LocalGatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMacSystemIntegrityProtectionModificationTask" OutputProperty="MacModificationTask" Verb="New" Noun="MacSystemIntegrityProtectionModificationTask" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -783,6 +799,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLocalGatewayVirtualInterface" OutputProperty="LocalGatewayVirtualInterface" Verb="Remove" Noun="LocalGatewayVirtualInterface" ShouldProcessTarget="LocalGatewayVirtualInterfaceId" PipelineParameter="LocalGatewayVirtualInterfaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLocalGatewayVirtualInterfaceGroup" OutputProperty="LocalGatewayVirtualInterfaceGroup" Verb="Remove" Noun="LocalGatewayVirtualInterfaceGroup" ShouldProcessTarget="LocalGatewayVirtualInterfaceGroupId" PipelineParameter="LocalGatewayVirtualInterfaceGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteManagedPrefixList" OutputProperty="PrefixList" Verb="Remove" Noun="ManagedPrefixList" ShouldProcessTarget="PrefixListId" PipelineParameter="PrefixListId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1015,7 +1039,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterImage" Verb="Unregister" Noun="Image" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeregisterImage" OutputProperty="*" Verb="Unregister" Noun="Image" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1355,6 +1379,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMacModificationTasks" OutputProperty="MacModificationTasks" Verb="Get" Noun="MacModificationTask" PipelineParameter="DryRun" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeManagedPrefixLists" OutputProperty="PrefixLists" Verb="Get" Noun="ManagedPrefixList" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1396,6 +1424,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeNetworkInterfaces" OutputProperty="NetworkInterfaces" Verb="Get" Noun="NetworkInterface" PositionalParameters="Filters" PipelineParameter="NetworkInterfaceIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeOutpostLags" OutputProperty="OutpostLags" Verb="Get" Noun="OutpostLag" PipelineParameter="DryRun" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1478,6 +1510,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeSecurityGroupVpcAssociations" OutputProperty="SecurityGroupVpcAssociations" Verb="Get" Noun="SecurityGroupVpcAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeServiceLinkVirtualInterfaces" OutputProperty="ServiceLinkVirtualInterfaces" Verb="Get" Noun="ServiceLinkVirtualInterface" PipelineParameter="DryRun" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1981,6 +2017,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetActiveVpnTunnelStatus" OutputProperty="ActiveVpnTunnelStatus" Verb="Get" Noun="ActiveVpnTunnelStatus" PipelineParameter="VpnConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAllowedImagesSettings" OutputProperty="*" Verb="Get" Noun="AllowedImagesSetting" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -2379,6 +2419,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyPrivateDnsNameOptions" OutputProperty="Return" Verb="Edit" Noun="PrivateDnsNameOption" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyPublicIpDnsNameOptions" OutputProperty="Successful" Verb="Edit" Noun="PublicIpDnsNameOption" ShouldProcessTarget="NetworkInterfaceId" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -107,6 +107,16 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         public Amazon.ConnectCases.CommentBodyTextType Comment_ContentType { get; set; }
         #endregion
         
+        #region Parameter PerformedBy_CustomEntity
+        /// <summary>
+        /// <para>
+        /// <para>Any provided entity.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PerformedBy_CustomEntity { get; set; }
+        #endregion
+        
         #region Parameter DomainId
         /// <summary>
         /// <para>
@@ -292,6 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
                 WriteWarning("You are passing $null as a value for parameter DomainId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PerformedBy_CustomEntity = this.PerformedBy_CustomEntity;
             context.PerformedBy_UserArn = this.PerformedBy_UserArn;
             context.Type = this.Type;
             #if MODULAR
@@ -502,6 +513,16 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
              // populate PerformedBy
             var requestPerformedByIsNull = true;
             request.PerformedBy = new Amazon.ConnectCases.Model.UserUnion();
+            System.String requestPerformedBy_performedBy_CustomEntity = null;
+            if (cmdletContext.PerformedBy_CustomEntity != null)
+            {
+                requestPerformedBy_performedBy_CustomEntity = cmdletContext.PerformedBy_CustomEntity;
+            }
+            if (requestPerformedBy_performedBy_CustomEntity != null)
+            {
+                request.PerformedBy.CustomEntity = requestPerformedBy_performedBy_CustomEntity;
+                requestPerformedByIsNull = false;
+            }
             System.String requestPerformedBy_performedBy_UserArn = null;
             if (cmdletContext.PerformedBy_UserArn != null)
             {
@@ -587,6 +608,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             public System.Int64? SlaInputConfiguration_TargetSlaMinute { get; set; }
             public Amazon.ConnectCases.SlaType SlaInputConfiguration_Type { get; set; }
             public System.String DomainId { get; set; }
+            public System.String PerformedBy_CustomEntity { get; set; }
             public System.String PerformedBy_UserArn { get; set; }
             public Amazon.ConnectCases.RelatedItemType Type { get; set; }
             public System.Func<Amazon.ConnectCases.Model.CreateRelatedItemResponse, NewCCASRelatedItemCmdlet, object> Select { get; set; } =

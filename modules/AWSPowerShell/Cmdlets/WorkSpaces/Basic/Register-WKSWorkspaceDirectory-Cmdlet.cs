@@ -93,19 +93,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         public System.Boolean? EnableSelfService { get; set; }
         #endregion
         
-        #region Parameter EnableWorkDoc
-        /// <summary>
-        /// <para>
-        /// <para>Indicates whether Amazon WorkDocs is enabled or disabled. If you have enabled this
-        /// parameter and WorkDocs is not available in the Region, you will receive an OperationNotSupportedException
-        /// error. Set <c>EnableWorkDocs</c> to disabled, and try again.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("EnableWorkDocs")]
-        public System.Boolean? EnableWorkDoc { get; set; }
-        #endregion
-        
         #region Parameter IdcInstanceArn
         /// <summary>
         /// <para>
@@ -269,7 +256,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             context.ActiveDirectoryConfig_ServiceAccountSecretArn = this.ActiveDirectoryConfig_ServiceAccountSecretArn;
             context.DirectoryId = this.DirectoryId;
             context.EnableSelfService = this.EnableSelfService;
-            context.EnableWorkDoc = this.EnableWorkDoc;
             context.IdcInstanceArn = this.IdcInstanceArn;
             context.MicrosoftEntraConfig_ApplicationConfigSecretArn = this.MicrosoftEntraConfig_ApplicationConfigSecretArn;
             context.MicrosoftEntraConfig_TenantId = this.MicrosoftEntraConfig_TenantId;
@@ -338,10 +324,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (cmdletContext.EnableSelfService != null)
             {
                 request.EnableSelfService = cmdletContext.EnableSelfService.Value;
-            }
-            if (cmdletContext.EnableWorkDoc != null)
-            {
-                request.EnableWorkDocs = cmdletContext.EnableWorkDoc.Value;
             }
             if (cmdletContext.IdcInstanceArn != null)
             {
@@ -463,7 +445,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             public System.String ActiveDirectoryConfig_ServiceAccountSecretArn { get; set; }
             public System.String DirectoryId { get; set; }
             public System.Boolean? EnableSelfService { get; set; }
-            public System.Boolean? EnableWorkDoc { get; set; }
             public System.String IdcInstanceArn { get; set; }
             public System.String MicrosoftEntraConfig_ApplicationConfigSecretArn { get; set; }
             public System.String MicrosoftEntraConfig_TenantId { get; set; }

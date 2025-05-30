@@ -170,6 +170,17 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         public System.String PoolName { get; set; }
         #endregion
         
+        #region Parameter RunningMode
+        /// <summary>
+        /// <para>
+        /// <para>The running mode for the pool.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkSpaces.PoolsRunningMode")]
+        public Amazon.WorkSpaces.PoolsRunningMode RunningMode { get; set; }
+        #endregion
+        
         #region Parameter ApplicationSettings_SettingsGroup
         /// <summary>
         /// <para>
@@ -287,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 WriteWarning("You are passing $null as a value for parameter PoolName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RunningMode = this.RunningMode;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.WorkSpaces.Model.Tag>(this.Tag);
@@ -373,6 +385,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (cmdletContext.PoolName != null)
             {
                 request.PoolName = cmdletContext.PoolName;
+            }
+            if (cmdletContext.RunningMode != null)
+            {
+                request.RunningMode = cmdletContext.RunningMode;
             }
             if (cmdletContext.Tag != null)
             {
@@ -479,6 +495,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             public System.String Description { get; set; }
             public System.String DirectoryId { get; set; }
             public System.String PoolName { get; set; }
+            public Amazon.WorkSpaces.PoolsRunningMode RunningMode { get; set; }
             public List<Amazon.WorkSpaces.Model.Tag> Tag { get; set; }
             public System.Int32? TimeoutSettings_DisconnectTimeoutInSecond { get; set; }
             public System.Int32? TimeoutSettings_IdleDisconnectTimeoutInSecond { get; set; }

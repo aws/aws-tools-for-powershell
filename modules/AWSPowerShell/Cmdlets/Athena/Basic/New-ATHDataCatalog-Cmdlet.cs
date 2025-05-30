@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     /// 
     ///  
     /// <para>
-    /// This API operation creates the following resources.
+    /// For a <c>FEDERATED</c> catalog, this API operation creates the following resources.
     /// </para><ul><li><para>
     /// CFN Stack Name with a maximum length of 128 characters and prefix <c>athenafederatedcatalog-CATALOG_NAME_SANITIZED</c>
     /// with length 23 characters.
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <para>The type of data catalog to create: <c>LAMBDA</c> for a federated catalog, <c>GLUE</c>
         /// for an Glue Data Catalog, and <c>HIVE</c> for an external Apache Hive metastore. <c>FEDERATED</c>
         /// is a federated catalog for which Athena creates the connection and the Lambda function
-        /// for you based on the parameters that you pass.</para>
+        /// for you based on the parameters that you pass.</para><para>For <c>FEDERATED</c> type, we do not support IAM identity center.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

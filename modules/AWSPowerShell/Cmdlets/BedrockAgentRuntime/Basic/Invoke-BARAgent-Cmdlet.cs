@@ -33,7 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
     /// <note></note><para>
     /// Sends a prompt for the agent to process and respond to. Note the following fields
     /// for the request:
-    /// </para><ul><li><para>
+    /// 
+    ///  <ul><li><para>
     /// To continue the same conversation with an agent, use the same <c>sessionId</c> value
     /// in the request.
     /// </para></li><li><para>
@@ -62,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
     /// for the action, elicited from the user, in the <c>returnControl</c> field.
     /// </para></li><li><para>
     /// Errors are also surfaced in the response.
-    /// </para></li></ul>
+    /// </para></li></ul></para>
     /// </summary>
     [Cmdlet("Invoke", "BARAgent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentRuntime.Model.InvokeAgentResponse")]

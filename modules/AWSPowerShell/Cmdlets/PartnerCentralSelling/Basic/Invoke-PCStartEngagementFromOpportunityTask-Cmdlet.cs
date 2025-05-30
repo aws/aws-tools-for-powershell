@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of objects specifying each tag name and value.</para>
+        /// <para>A map of the key-value pairs of the tag or tags to assign.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

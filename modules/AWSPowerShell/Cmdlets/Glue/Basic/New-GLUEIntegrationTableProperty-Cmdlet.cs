@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SourceTableConfig_Field
         /// <summary>
         /// <para>
-        /// <para>A list of fields used for column-level filtering.</para>
+        /// <para>A list of fields used for column-level filtering. Currently unsupported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SourceTableConfig_FilterPredicate
         /// <summary>
         /// <para>
-        /// <para>A condition clause used for row-level filtering.</para>
+        /// <para>A condition clause used for row-level filtering. Currently unsupported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SourceTableConfig_PrimaryKey
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of a record.</para>
+        /// <para>Provide the primary key set for this table. Currently supported specifically for SAP
+        /// <c>EntityOf</c> entities upon request. Contact Amazon Web Services Support to make
+        /// this feature available.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SourceTableConfig_RecordUpdateField
         /// <summary>
         /// <para>
-        /// <para>Incremental pull timestamp-based field.</para>
+        /// <para>Incremental pull timestamp-based field. Currently unsupported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +105,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The connection ARN of the source, or the database ARN of the target.</para>
+        /// <para>The Amazon Resource Name (ARN) of the target table for which to create integration
+        /// table properties. Currently, this API only supports creating integration table properties
+        /// for target tables, and the provided ARN should be the ARN of the target table in the
+        /// Glue Data Catalog. Support for creating integration table properties for source connections
+        /// (using the connection ARN) is not yet implemented and will be added in a future release.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

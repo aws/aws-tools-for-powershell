@@ -31,9 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
 {
     /// <summary>
     /// Lists all applications associated with the instance of IAM Identity Center. When listing
-    /// applications for an instance in the management account, member accounts must use the
-    /// <c>applicationAccount</c> parameter to filter the list to only applications created
-    /// from that account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// applications for an organization instance in the management account, member accounts
+    /// must use the <c>applicationAccount</c> parameter to filter the list to only applications
+    /// created from that account. When listing applications for an account instance in the
+    /// same member account, a filter is not required.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSOADMNApplicationList")]
     [OutputType("Amazon.SSOAdmin.Model.Application")]
