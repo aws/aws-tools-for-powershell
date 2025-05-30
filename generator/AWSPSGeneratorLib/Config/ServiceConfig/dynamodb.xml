@@ -29,7 +29,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetItem" OutputProperty="Responses" Verb="Get" Noun="BatchItem" PipelineParameter="RequestItems" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchGetItem" OutputProperty="Responses" Verb="Get" Noun="BatchItem" PipelineParameter="ReturnConsumedCapacity" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -180,7 +180,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScheduledActions" OutputProperty="ScheduledUpdateGroupActions" Verb="Get" Noun="ScheduledAction" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeScheduledActions" OutputProperty="ScheduledUpdateGroupActions" Verb="Get" Noun="ScheduledAction" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -252,7 +252,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutScheduledUpdateGroupAction" Verb="Write" Noun="ScheduledUpdateGroupAction" ShouldProcessTarget="AutoScalingGroupName" PositionalParameters="ScheduledActionName;StartTime;EndTime" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutScheduledUpdateGroupAction" Verb="Write" Noun="ScheduledUpdateGroupAction" ShouldProcessTarget="AutoScalingGroupName" PositionalParameters="ScheduledActionName;StartTime;EndTime" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
