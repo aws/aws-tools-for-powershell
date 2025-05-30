@@ -1,4 +1,12 @@
-﻿### 4.1.830 (2025-05-29 20:24Z)
+﻿### 4.1.831 (2025-05-30 20:35Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1055.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon EMR Serverless
+    * Modified cmdlet Start-EMRServerlessJobRun: added parameters ExecutionIamPolicy_Policy and ExecutionIamPolicy_PolicyArn.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMDomain: added parameter UnifiedStudioSettings_SingleSignOnApplicationArn.
+    * Modified cmdlet Update-SMDomain: added parameter UnifiedStudioSettings_SingleSignOnApplicationArn.
+
+### 4.1.830 (2025-05-29 20:24Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1054.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AmazonMWAA
     * Modified cmdlet Update-MWAAEnvironment: added parameter WorkerReplacementStrategy.
