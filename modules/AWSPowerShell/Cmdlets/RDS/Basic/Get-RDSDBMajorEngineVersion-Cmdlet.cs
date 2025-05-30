@@ -22,9 +22,11 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.RDS;
 using Amazon.RDS.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
@@ -41,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Engine
         /// <summary>
@@ -86,10 +89,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// value is available, a pagination token called a marker is included in the response
         /// so you can retrieve the remaining results.</para><para>Default: 100</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxRecords")]
-        public System.Int32? MaxRecord { get; set; }
+        [Alias("MaxItems","MaxRecords")]
+        public int? MaxRecord { get; set; }
         #endregion
         
         #region Parameter Select
@@ -113,9 +121,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();
@@ -132,6 +144,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.MajorEngineVersion = this.MajorEngineVersion;
             context.Marker = this.Marker;
             context.MaxRecord = this.MaxRecord;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.MaxRecord)) && this.MaxRecord.HasValue)
+            {
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxRecord parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxRecord" +
+                    " to the service to specify how many items should be returned by each service call.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -160,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             if (cmdletContext.MaxRecord != null)
             {
-                request.MaxRecords = cmdletContext.MaxRecord.Value;
+                request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxRecord.Value);
             }
             
             // Initialize loop variant and commence piping
@@ -224,13 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "DescribeDBMajorEngineVersions");
             try
             {
-                #if DESKTOP
-                return client.DescribeDBMajorEngineVersions(request);
-                #elif CORECLR
-                return client.DescribeDBMajorEngineVersionsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeDBMajorEngineVersionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -250,7 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String Engine { get; set; }
             public System.String MajorEngineVersion { get; set; }
             public System.String Marker { get; set; }
-            public System.Int32? MaxRecord { get; set; }
+            public int? MaxRecord { get; set; }
             public System.Func<Amazon.RDS.Model.DescribeDBMajorEngineVersionsResponse, GetRDSDBMajorEngineVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DBMajorEngineVersions;
         }

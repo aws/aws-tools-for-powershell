@@ -30,7 +30,7 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// Returns a paginated list of target engine recommendations for your source databases.
+    /// Returns a paginated list of target engine recommendations for your source databases.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
     /// </summary>
     [Cmdlet("Get", "DMSRecommendation")]
     [OutputType("Amazon.DatabaseMigrationService.Model.Recommendation")]
@@ -64,10 +64,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// the specified <c>MaxRecords</c> value, Fleet Advisor includes a pagination token in
         /// the response so that you can retrieve the remaining results.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxRecords")]
-        public System.Int32? MaxRecord { get; set; }
+        [Alias("MaxItems","MaxRecords")]
+        public int? MaxRecord { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -79,6 +84,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// The value of <c>NextToken</c> is a unique pagination token for each page. Make the
         /// call again using the returned token to retrieve the next page. Keep all other arguments
         /// unchanged.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,6 +103,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "Recommendations";
+        #endregion
+        
+        #region Parameter NoAutoIteration
+        /// <summary>
+        /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
+        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
+        /// as the start point.
+        /// This cmdlet didn't autopaginate in V4. To preserve the V4 autopagination behavior for all cmdlets, run Set-AWSAutoIterationMode -IterationMode v4.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -120,6 +140,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 context.Filter = new List<Amazon.DatabaseMigrationService.Model.Filter>(this.Filter);
             }
             context.MaxRecord = this.MaxRecord;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.MaxRecord)) && this.MaxRecord.HasValue)
+            {
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxRecord parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxRecord" +
+                    " to the service to specify how many items should be returned by each service call.");
+            }
+            #endif
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -134,7 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
+            var useParameterSelect = this.Select.StartsWith("^");
+            
+            // create request and set iteration invariants
             var request = new Amazon.DatabaseMigrationService.Model.DescribeRecommendationsRequest();
             
             if (cmdletContext.Filter != null)
@@ -143,34 +174,55 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             }
             if (cmdletContext.MaxRecord != null)
             {
-                request.MaxRecords = cmdletContext.MaxRecord.Value;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
+                request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxRecord.Value);
             }
             
-            CmdletOutput output;
+            // Initialize loop variant and commence piping
+            var _nextToken = cmdletContext.NextToken;
+            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
+            var _shouldAutoIterate = !(SessionState.PSVariable.GetValue("AWSPowerShell_AutoIteration_Mode")?.ToString() == "v4");
             
-            // issue call
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            try
+            do
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                request.NextToken = _nextToken;
+                
+                CmdletOutput output;
+                
+                try
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
-            }
-            catch (Exception e)
+                    
+                    var response = CallAWSServiceOperation(client, request);
+                    
+                    object pipelineOutput = null;
+                    if (!useParameterSelect)
+                    {
+                        pipelineOutput = cmdletContext.Select(response, this);
+                    }
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                    
+                    _nextToken = response.NextToken;
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                ProcessOutput(output);
+                
+            } while (!_userControllingPaging && _shouldAutoIterate && AutoIterationHelpers.HasValue(_nextToken));
+            
+            if (useParameterSelect)
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                WriteObject(cmdletContext.Select(null, this));
             }
             
-            return output;
+            
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -205,7 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.DatabaseMigrationService.Model.Filter> Filter { get; set; }
-            public System.Int32? MaxRecord { get; set; }
+            public int? MaxRecord { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.DatabaseMigrationService.Model.DescribeRecommendationsResponse, GetDMSRecommendationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Recommendations;

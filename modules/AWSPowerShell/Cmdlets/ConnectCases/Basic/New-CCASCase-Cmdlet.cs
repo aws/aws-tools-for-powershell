@@ -50,8 +50,6 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     public partial class NewCCASCaseCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         

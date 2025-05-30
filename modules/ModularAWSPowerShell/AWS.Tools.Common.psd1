@@ -95,9 +95,9 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
         'Clear-AWSDefaultConfiguration', 
         'Get-AWSPowerShellVersion', 
         'Set-AWSSensitiveDataConfiguration', 
-        'Get-AWSSensitiveDataConfiguration',
+        'Get-AWSSensitiveDataConfiguration', 
         'Set-AWSAutoIterationMode', 
-        'Get-AWSAutoIterationMode',
+        'Get-AWSAutoIterationMode', 
         'New-AWSCredential', 
         'Set-AWSCredential', 
         'Clear-AWSCredential', 
@@ -153,7 +153,7 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'
             ReleaseNotes = 'https://github.com/aws/aws-tools-for-powershell/blob/v5-main/CHANGELOG.md'
-            Prerelease = 'preview004'
+            Prerelease = 'preview005'
         }
     }
 }

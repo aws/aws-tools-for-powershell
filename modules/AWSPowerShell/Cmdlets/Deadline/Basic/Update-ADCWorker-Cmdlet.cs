@@ -42,8 +42,6 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     public partial class UpdateADCWorkerCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         

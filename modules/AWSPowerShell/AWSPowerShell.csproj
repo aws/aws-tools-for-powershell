@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net472;netstandard2.0</TargetFrameworks>
     <RootNamespace>Amazon.PowerShell</RootNamespace>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -20,7 +20,7 @@
     <Company>Amazon.com, Inc</Company>
     <PackageProjectUrl>https://github.com/aws/aws-tools-for-powershell</PackageProjectUrl>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net45'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='net472'">
     <AssemblyName>AWSPowerShell</AssemblyName>
     <DocumentationFile>$(OutputPath)\AWSPowerShell.XML</DocumentationFile>
     <DefineConstants>$(DefineConstants);DESKTOP</DefineConstants>
@@ -49,9 +49,15 @@
     <Compile Remove="Cmdlets/*/bin/**" />
     <Compile Remove="Cmdlets/*/obj/**" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='net45'">
-    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.PowerShell.3.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
+  <ItemGroup>
+      <!-- If Powershell (pwsh) has a preloaded System.Text.Json that is older than the version specified below
+      then it cannot load the version specified here. So we compile with an older version but ship the newer version that .NET SDK ships.
+      -->
+    <PackageReference Include="System.Text.Json" Version="6.0.11" />
+  </ItemGroup>  
+  <ItemGroup Condition="'$(TargetFramework)'=='net472'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net472" Version="1.0.3" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.PowerShell.5.1.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -59,1204 +65,1214 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="AWSSDK.AccessAnalyzer">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AccessAnalyzer.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AccessAnalyzer.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Account">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Account.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Account.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ACMPCA">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ACMPCA.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ACMPCA.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Amplify">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Amplify.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Amplify.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AmplifyBackend">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AmplifyBackend.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AmplifyBackend.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AmplifyUIBuilder">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AmplifyUIBuilder.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AmplifyUIBuilder.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.APIGateway">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.APIGateway.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.APIGateway.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ApiGatewayManagementApi">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ApiGatewayManagementApi.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ApiGatewayManagementApi.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ApiGatewayV2">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ApiGatewayV2.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ApiGatewayV2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppConfig">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppConfig.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AppConfig.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppConfigData">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppConfigData.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AppConfigData.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppFabric">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppFabric.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AppFabric.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Appflow">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Appflow.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Appflow.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppIntegrationsService">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppIntegrationsService.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AppIntegrationsService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ApplicationAutoScaling">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ApplicationAutoScaling.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ApplicationAutoScaling.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ApplicationCostProfiler">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ApplicationCostProfiler.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ApplicationCostProfiler.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ApplicationDiscoveryService">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ApplicationDiscoveryService.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ApplicationDiscoveryService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ApplicationInsights">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ApplicationInsights.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ApplicationInsights.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ApplicationSignals">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ApplicationSignals.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ApplicationSignals.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppMesh">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppMesh.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AppMesh.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppRegistry">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppRegistry.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AppRegistry.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppRunner">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppRunner.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AppRunner.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppStream">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppStream.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AppStream.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppSync">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppSync.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AppSync.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppTest">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppTest.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AppTest.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ARCZonalShift">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ARCZonalShift.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ARCZonalShift.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Artifact">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Artifact.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Artifact.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Athena">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Athena.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Athena.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AuditManager">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AuditManager.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AuditManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AugmentedAIRuntime">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AugmentedAIRuntime.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AugmentedAIRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AutoScaling">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AutoScaling.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AutoScaling.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AutoScalingPlans">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AutoScalingPlans.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AutoScalingPlans.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AWSHealth">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AWSHealth.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AWSHealth.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AWSMarketplaceCommerceAnalytics">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AWSMarketplaceCommerceAnalytics.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AWSMarketplaceCommerceAnalytics.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AWSMarketplaceMetering">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AWSMarketplaceMetering.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AWSMarketplaceMetering.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AWSSupport">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AWSSupport.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AWSSupport.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.B2bi">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.B2bi.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.B2bi.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Backup">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Backup.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Backup.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.BackupGateway">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BackupGateway.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.BackupGateway.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.BackupSearch">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BackupSearch.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.BackupSearch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Batch">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Batch.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Batch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.BCMDataExports">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BCMDataExports.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.BCMDataExports.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.BCMPricingCalculator">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BCMPricingCalculator.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.BCMPricingCalculator.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Bedrock">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Bedrock.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Bedrock.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.BedrockAgent">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BedrockAgent.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.BedrockAgent.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.BedrockAgentRuntime">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BedrockAgentRuntime.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.BedrockAgentRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.BedrockDataAutomation">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BedrockDataAutomation.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.BedrockDataAutomation.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.BedrockDataAutomationRuntime">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BedrockDataAutomationRuntime.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.BedrockDataAutomationRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.BedrockRuntime">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BedrockRuntime.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.BedrockRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Billing">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Billing.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Billing.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.BillingConductor">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BillingConductor.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.BillingConductor.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Braket">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Braket.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Braket.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Budgets">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Budgets.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Budgets.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CertificateManager">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CertificateManager.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CertificateManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Chatbot">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Chatbot.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Chatbot.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Chime">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Chime.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Chime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ChimeSDKIdentity">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ChimeSDKIdentity.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ChimeSDKIdentity.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ChimeSDKMediaPipelines">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ChimeSDKMediaPipelines.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ChimeSDKMediaPipelines.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ChimeSDKMeetings">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ChimeSDKMeetings.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ChimeSDKMeetings.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ChimeSDKMessaging">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ChimeSDKMessaging.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ChimeSDKMessaging.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ChimeSDKVoice">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ChimeSDKVoice.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ChimeSDKVoice.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CleanRooms">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CleanRooms.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CleanRooms.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CleanRoomsML">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CleanRoomsML.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CleanRoomsML.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Cloud9">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Cloud9.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Cloud9.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudControlApi">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudControlApi.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CloudControlApi.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudDirectory">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudDirectory.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CloudDirectory.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudFormation">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudFormation.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CloudFormation.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudFront">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudFront.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CloudFront.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudFrontKeyValueStore">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudFrontKeyValueStore.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CloudFrontKeyValueStore.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudHSM">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudHSM.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CloudHSM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudHSMV2">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudHSMV2.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CloudHSMV2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudSearch">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudSearch.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CloudSearch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudSearchDomain">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudSearchDomain.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CloudSearchDomain.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudTrail">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudTrail.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CloudTrail.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudTrailData">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudTrailData.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CloudTrailData.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatch">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudWatch.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CloudWatch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatchEvents">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudWatchEvents.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CloudWatchEvents.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatchEvidently">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudWatchEvidently.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CloudWatchEvidently.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatchLogs">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudWatchLogs.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CloudWatchLogs.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatchRUM">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudWatchRUM.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CloudWatchRUM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeArtifact">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CodeArtifact.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CodeArtifact.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeBuild">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CodeBuild.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CodeBuild.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeCatalyst">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CodeCatalyst.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CodeCatalyst.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeCommit">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CodeCommit.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CodeCommit.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeConnections">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CodeConnections.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CodeConnections.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeDeploy">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CodeDeploy.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CodeDeploy.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeGuruProfiler">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CodeGuruProfiler.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CodeGuruProfiler.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeGuruReviewer">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CodeGuruReviewer.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CodeGuruReviewer.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeGuruSecurity">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CodeGuruSecurity.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CodeGuruSecurity.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodePipeline">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CodePipeline.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CodePipeline.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeStarconnections">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CodeStarconnections.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CodeStarconnections.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeStarNotifications">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CodeStarNotifications.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CodeStarNotifications.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CognitoIdentity">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CognitoIdentity.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CognitoIdentity.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CognitoIdentityProvider">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CognitoIdentityProvider.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CognitoIdentityProvider.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CognitoSync">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CognitoSync.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CognitoSync.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Comprehend">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Comprehend.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Comprehend.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ComprehendMedical">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ComprehendMedical.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ComprehendMedical.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ComputeOptimizer">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ComputeOptimizer.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ComputeOptimizer.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConfigService">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ConfigService.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ConfigService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Connect">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Connect.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Connect.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConnectCampaignService">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ConnectCampaignService.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ConnectCampaignService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConnectCampaignsV2">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ConnectCampaignsV2.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ConnectCampaignsV2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConnectCases">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ConnectCases.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ConnectCases.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConnectContactLens">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ConnectContactLens.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ConnectContactLens.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConnectParticipant">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ConnectParticipant.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ConnectParticipant.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConnectWisdomService">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ConnectWisdomService.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ConnectWisdomService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ControlCatalog">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ControlCatalog.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ControlCatalog.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ControlTower">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ControlTower.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ControlTower.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Core">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Core.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CostAndUsageReport">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CostAndUsageReport.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CostAndUsageReport.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CostExplorer">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CostExplorer.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CostExplorer.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CostOptimizationHub">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CostOptimizationHub.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CostOptimizationHub.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CustomerProfiles">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CustomerProfiles.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CustomerProfiles.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DatabaseMigrationService">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DatabaseMigrationService.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.DatabaseMigrationService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DataExchange">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DataExchange.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.DataExchange.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DataPipeline">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DataPipeline.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.DataPipeline.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DataSync">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DataSync.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.DataSync.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DataZone">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DataZone.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.DataZone.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DAX">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DAX.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.DAX.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Deadline">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Deadline.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Deadline.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Detective">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Detective.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Detective.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DeviceFarm">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DeviceFarm.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.DeviceFarm.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DevOpsGuru">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DevOpsGuru.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.DevOpsGuru.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DirectConnect">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DirectConnect.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.DirectConnect.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DirectoryService">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DirectoryService.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.DirectoryService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DirectoryServiceData">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DirectoryServiceData.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.DirectoryServiceData.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DLM">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DLM.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.DLM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DocDB">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DocDB.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.DocDB.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DocDBElastic">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DocDBElastic.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.DocDBElastic.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Drs">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Drs.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Drs.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DSQL">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DSQL.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.DSQL.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.DynamoDBStreams">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.DynamoDBStreams.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DynamoDBv2.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.DynamoDBv2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EBS">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EBS.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.EBS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EC2">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EC2.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.EC2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EC2InstanceConnect">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EC2InstanceConnect.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.EC2InstanceConnect.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECR">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ECR.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ECR.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECRPublic">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ECRPublic.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ECRPublic.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECS">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ECS.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ECS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EKS">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EKS.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.EKS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EKSAuth">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EKSAuth.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.EKSAuth.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElastiCache">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ElastiCache.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ElastiCache.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticBeanstalk">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ElasticBeanstalk.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ElasticBeanstalk.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticFileSystem">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ElasticFileSystem.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ElasticFileSystem.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticLoadBalancing">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ElasticLoadBalancing.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ElasticLoadBalancing.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticLoadBalancingV2">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ElasticLoadBalancingV2.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ElasticLoadBalancingV2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticMapReduce">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ElasticMapReduce.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ElasticMapReduce.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Elasticsearch">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Elasticsearch.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Elasticsearch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticTranscoder">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ElasticTranscoder.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ElasticTranscoder.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EMRContainers">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EMRContainers.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.EMRContainers.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EMRServerless">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EMRServerless.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.EMRServerless.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EntityResolution">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EntityResolution.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.EntityResolution.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EventBridge">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.EventBridge.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.EventBridge.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Finspace">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Finspace.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Finspace.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.FinSpaceData">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.FinSpaceData.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.FinSpaceData.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.FIS">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.FIS.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.FIS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.FMS">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.FMS.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.FMS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ForecastQueryService">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ForecastQueryService.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ForecastQueryService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ForecastService">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ForecastService.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ForecastService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.FraudDetector">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.FraudDetector.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.FraudDetector.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.FreeTier">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.FreeTier.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.FreeTier.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.FSx">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.FSx.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.FSx.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.GameLift">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.GameLift.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.GameLift.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.GameLiftStreams">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.GameLiftStreams.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.GameLiftStreams.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.GeoMaps">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.GeoMaps.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.GeoMaps.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.GeoPlaces">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.GeoPlaces.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.GeoPlaces.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.GeoRoutes">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.GeoRoutes.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.GeoRoutes.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Glacier">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Glacier.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Glacier.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.GlobalAccelerator">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.GlobalAccelerator.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.GlobalAccelerator.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Glue">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Glue.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Glue.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.GlueDataBrew">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.GlueDataBrew.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.GlueDataBrew.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Greengrass">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Greengrass.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Greengrass.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.GreengrassV2">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.GreengrassV2.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.GreengrassV2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.GroundStation">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.GroundStation.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.GroundStation.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.GuardDuty">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.GuardDuty.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.GuardDuty.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.HealthLake">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.HealthLake.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.HealthLake.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IAMRolesAnywhere">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IAMRolesAnywhere.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IAMRolesAnywhere.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IdentityManagement">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IdentityManagement.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IdentityManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IdentityStore">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IdentityStore.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IdentityStore.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Imagebuilder">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Imagebuilder.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Imagebuilder.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ImportExport">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ImportExport.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ImportExport.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Inspector">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Inspector.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Inspector.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Inspector2">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Inspector2.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Inspector2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.InspectorScan">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.InspectorScan.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.InspectorScan.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.InternetMonitor">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.InternetMonitor.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.InternetMonitor.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Invoicing">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Invoicing.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Invoicing.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoT">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoT.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IoT.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTDeviceAdvisor">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTDeviceAdvisor.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IoTDeviceAdvisor.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTEvents">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTEvents.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IoTEvents.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTEventsData">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTEventsData.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IoTEventsData.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTFleetHub">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTFleetHub.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IoTFleetHub.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTFleetWise">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTFleetWise.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IoTFleetWise.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTJobsDataPlane">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTJobsDataPlane.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IoTJobsDataPlane.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTManagedIntegrations">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTManagedIntegrations.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IoTManagedIntegrations.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTSecureTunneling">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTSecureTunneling.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IoTSecureTunneling.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTSiteWise">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTSiteWise.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IoTSiteWise.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTThingsGraph">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTThingsGraph.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IoTThingsGraph.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTTwinMaker">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTTwinMaker.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IoTTwinMaker.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTWireless">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTWireless.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IoTWireless.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IVS">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IVS.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IVS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Ivschat">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Ivschat.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Ivschat.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IVSRealTime">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IVSRealTime.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IVSRealTime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Kafka">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Kafka.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Kafka.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KafkaConnect">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.KafkaConnect.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.KafkaConnect.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Kendra">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Kendra.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Kendra.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KendraRanking">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.KendraRanking.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.KendraRanking.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KeyManagementService">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.KeyManagementService.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.KeyManagementService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Keyspaces">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Keyspaces.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Keyspaces.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Kinesis">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Kinesis.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Kinesis.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KinesisAnalytics">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.KinesisAnalytics.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.KinesisAnalytics.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KinesisAnalyticsV2">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.KinesisAnalyticsV2.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.KinesisAnalyticsV2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KinesisFirehose">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.KinesisFirehose.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.KinesisFirehose.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KinesisVideo">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.KinesisVideo.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.KinesisVideo.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KinesisVideoMedia">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.KinesisVideoMedia.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.KinesisVideoMedia.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KinesisVideoSignalingChannels">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.KinesisVideoSignalingChannels.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.KinesisVideoSignalingChannels.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KinesisVideoWebRTCStorage">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.KinesisVideoWebRTCStorage.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.KinesisVideoWebRTCStorage.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LakeFormation">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LakeFormation.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.LakeFormation.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Lambda">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Lambda.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Lambda.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LaunchWizard">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LaunchWizard.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.LaunchWizard.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Lex">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Lex.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Lex.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LexModelBuildingService">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LexModelBuildingService.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.LexModelBuildingService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LexModelsV2">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LexModelsV2.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.LexModelsV2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LexRuntimeV2">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LexRuntimeV2.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.LexRuntimeV2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LicenseManager">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LicenseManager.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.LicenseManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LicenseManagerLinuxSubscriptions">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LicenseManagerLinuxSubscriptions.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.LicenseManagerLinuxSubscriptions.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LicenseManagerUserSubscriptions">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LicenseManagerUserSubscriptions.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.LicenseManagerUserSubscriptions.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Lightsail">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Lightsail.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Lightsail.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LocationService">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LocationService.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.LocationService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LookoutEquipment">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LookoutEquipment.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.LookoutEquipment.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LookoutforVision">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LookoutforVision.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.LookoutforVision.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LookoutMetrics">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LookoutMetrics.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.LookoutMetrics.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MachineLearning">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MachineLearning.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MachineLearning.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Macie2">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Macie2.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Macie2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MailManager">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MailManager.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MailManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MainframeModernization">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MainframeModernization.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MainframeModernization.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ManagedBlockchain">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ManagedBlockchain.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ManagedBlockchain.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ManagedBlockchainQuery">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ManagedBlockchainQuery.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ManagedBlockchainQuery.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ManagedGrafana">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ManagedGrafana.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ManagedGrafana.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MarketplaceAgreement">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MarketplaceAgreement.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MarketplaceAgreement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MarketplaceCatalog">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MarketplaceCatalog.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MarketplaceCatalog.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MarketplaceDeployment">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MarketplaceDeployment.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MarketplaceDeployment.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MarketplaceEntitlementService">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MarketplaceEntitlementService.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MarketplaceEntitlementService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MarketplaceReporting">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MarketplaceReporting.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MarketplaceReporting.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaConnect">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MediaConnect.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MediaConnect.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaConvert">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MediaConvert.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MediaConvert.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaLive">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MediaLive.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MediaLive.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaPackage">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MediaPackage.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MediaPackage.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaPackageV2">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MediaPackageV2.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MediaPackageV2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaPackageVod">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MediaPackageVod.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MediaPackageVod.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaStore">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MediaStore.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MediaStore.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaStoreData">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MediaStoreData.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MediaStoreData.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaTailor">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MediaTailor.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MediaTailor.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MedicalImaging">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MedicalImaging.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MedicalImaging.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MemoryDB">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MemoryDB.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MemoryDB.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Mgn">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Mgn.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Mgn.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MigrationHub">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MigrationHub.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MigrationHub.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MigrationHubConfig">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MigrationHubConfig.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MigrationHubConfig.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MigrationHubOrchestrator">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MigrationHubOrchestrator.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MigrationHubOrchestrator.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MigrationHubRefactorSpaces">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MigrationHubRefactorSpaces.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MigrationHubRefactorSpaces.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MigrationHubStrategyRecommendations">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MigrationHubStrategyRecommendations.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MigrationHubStrategyRecommendations.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MQ">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MQ.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MQ.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MTurk">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MTurk.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MTurk.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MWAA">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MWAA.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MWAA.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Neptune">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Neptune.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Neptune.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Neptunedata">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Neptunedata.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Neptunedata.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.NeptuneGraph">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NeptuneGraph.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.NeptuneGraph.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.NetworkFirewall">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NetworkFirewall.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.NetworkFirewall.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.NetworkFlowMonitor">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NetworkFlowMonitor.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.NetworkFlowMonitor.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.NetworkManager">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NetworkManager.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.NetworkManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.NetworkMonitor">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NetworkMonitor.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.NetworkMonitor.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Notifications">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Notifications.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Notifications.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.NotificationsContacts">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NotificationsContacts.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.NotificationsContacts.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OAM">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.OAM.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.OAM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ObservabilityAdmin">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ObservabilityAdmin.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ObservabilityAdmin.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Omics">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Omics.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Omics.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OpenSearchServerless">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.OpenSearchServerless.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.OpenSearchServerless.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OpenSearchService">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.OpenSearchService.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.OpenSearchService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OpsWorks">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.OpsWorks.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.OpsWorks.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OpsWorksCM">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.OpsWorksCM.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.OpsWorksCM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Organizations">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Organizations.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Organizations.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OSIS">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.OSIS.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.OSIS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Outposts">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Outposts.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Outposts.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Panorama">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Panorama.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Panorama.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.PartnerCentralSelling">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PartnerCentralSelling.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PartnerCentralSelling.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.PaymentCryptography">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PaymentCryptography.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PaymentCryptography.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.PaymentCryptographyData">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PaymentCryptographyData.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PaymentCryptographyData.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.PcaConnectorAd">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PcaConnectorAd.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PcaConnectorAd.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.PcaConnectorScep">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PcaConnectorScep.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PcaConnectorScep.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.PCS">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PCS.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PCS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Personalize">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Personalize.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Personalize.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.PersonalizeEvents">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PersonalizeEvents.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PersonalizeEvents.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.PersonalizeRuntime">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PersonalizeRuntime.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PersonalizeRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.PI">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PI.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PI.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Pinpoint">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Pinpoint.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Pinpoint.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.PinpointEmail">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PinpointEmail.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PinpointEmail.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.PinpointSMSVoiceV2">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PinpointSMSVoiceV2.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PinpointSMSVoiceV2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Pipes">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Pipes.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Pipes.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Polly">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Polly.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Polly.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Pricing">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Pricing.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Pricing.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.PrometheusService">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PrometheusService.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PrometheusService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Proton">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Proton.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Proton.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.QApps">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.QApps.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.QApps.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.QBusiness">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.QBusiness.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.QBusiness.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.QConnect">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.QConnect.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.QConnect.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.QLDB">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.QLDB.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.QLDB.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.QLDBSession">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.QLDBSession.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.QLDBSession.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.QuickSight">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.QuickSight.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.QuickSight.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.RAM">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.RAM.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.RAM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.RDS">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.RDS.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.RDS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.RDSDataService">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.RDSDataService.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.RDSDataService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.RecycleBin">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.RecycleBin.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.RecycleBin.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Redshift">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Redshift.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Redshift.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.RedshiftDataAPIService">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.RedshiftDataAPIService.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.RedshiftDataAPIService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.RedshiftServerless">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.RedshiftServerless.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.RedshiftServerless.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Rekognition">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Rekognition.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Rekognition.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Repostspace">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Repostspace.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Repostspace.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ResilienceHub">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ResilienceHub.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ResilienceHub.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ResourceExplorer2">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ResourceExplorer2.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ResourceExplorer2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ResourceGroups">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ResourceGroups.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ResourceGroups.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ResourceGroupsTaggingAPI">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ResourceGroupsTaggingAPI.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ResourceGroupsTaggingAPI.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.RoboMaker">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.RoboMaker.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.RoboMaker.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Route53.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Route53.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53Domains">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Route53Domains.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Route53Domains.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53Profiles">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Route53Profiles.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Route53Profiles.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53RecoveryCluster">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Route53RecoveryCluster.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Route53RecoveryCluster.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53RecoveryControlConfig">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Route53RecoveryControlConfig.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Route53RecoveryControlConfig.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53RecoveryReadiness">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Route53RecoveryReadiness.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Route53RecoveryReadiness.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53Resolver">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Route53Resolver.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Route53Resolver.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.S3">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.S3.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.S3.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.S3Control">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.S3Control.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.S3Control.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.S3Outposts">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.S3Outposts.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.S3Outposts.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.S3Tables">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.S3Tables.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.S3Tables.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SageMaker">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SageMaker.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SageMaker.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SagemakerEdgeManager">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SagemakerEdgeManager.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SagemakerEdgeManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SageMakerFeatureStoreRuntime">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SageMakerFeatureStoreRuntime.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SageMakerFeatureStoreRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SageMakerGeospatial">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SageMakerGeospatial.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SageMakerGeospatial.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SageMakerMetrics">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SageMakerMetrics.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SageMakerMetrics.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SageMakerRuntime">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SageMakerRuntime.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SageMakerRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SavingsPlans">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SavingsPlans.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SavingsPlans.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Scheduler">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Scheduler.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Scheduler.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Schemas">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Schemas.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Schemas.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SecretsManager">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SecretsManager.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SecretsManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SecurityHub">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SecurityHub.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SecurityHub.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SecurityIR">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SecurityIR.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SecurityIR.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SecurityLake">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SecurityLake.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SecurityLake.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SecurityToken">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SecurityToken.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SecurityToken.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ServerlessApplicationRepository">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ServerlessApplicationRepository.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ServerlessApplicationRepository.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ServerMigrationService">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ServerMigrationService.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ServerMigrationService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ServiceCatalog">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ServiceCatalog.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ServiceCatalog.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ServiceDiscovery">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ServiceDiscovery.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ServiceDiscovery.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ServiceQuotas">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ServiceQuotas.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ServiceQuotas.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Shield">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Shield.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Shield.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleEmail">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SimpleEmail.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SimpleEmail.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleEmailV2">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SimpleEmailV2.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SimpleEmailV2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleNotificationService">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SimpleNotificationService.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SimpleNotificationService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleSystemsManagement">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SimpleSystemsManagement.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SimpleSystemsManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleWorkflow">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SimpleWorkflow.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SimpleWorkflow.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimSpaceWeaver">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SimSpaceWeaver.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SimSpaceWeaver.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Snowball">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Snowball.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Snowball.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SnowDeviceManagement">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SnowDeviceManagement.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SnowDeviceManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SocialMessaging">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SocialMessaging.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SocialMessaging.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SQS">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SQS.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SQS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SSMContacts">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SSMContacts.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SSMContacts.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SSMGuiConnect">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SSMGuiConnect.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SSMGuiConnect.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SSMIncidents">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SSMIncidents.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SSMIncidents.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SSMQuickSetup">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SSMQuickSetup.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SSMQuickSetup.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SsmSap">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SsmSap.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SsmSap.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SSO">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SSO.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SSO.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SSOAdmin">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SSOAdmin.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SSOAdmin.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SSOOIDC">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SSOOIDC.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SSOOIDC.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.StepFunctions">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.StepFunctions.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.StepFunctions.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.StorageGateway">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.StorageGateway.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.StorageGateway.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SupplyChain">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SupplyChain.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SupplyChain.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SupportApp">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SupportApp.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SupportApp.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Synthetics">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Synthetics.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Synthetics.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.TaxSettings">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.TaxSettings.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.TaxSettings.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Textract">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Textract.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Textract.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.TimestreamInfluxDB">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.TimestreamInfluxDB.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.TimestreamInfluxDB.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.TimestreamQuery">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.TimestreamQuery.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.TimestreamQuery.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.TimestreamWrite">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.TimestreamWrite.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.TimestreamWrite.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Tnb">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Tnb.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Tnb.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.TranscribeService">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.TranscribeService.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.TranscribeService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Transfer">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Transfer.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Transfer.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Translate">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Translate.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Translate.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.TrustedAdvisor">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.TrustedAdvisor.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.TrustedAdvisor.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.VerifiedPermissions">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.VerifiedPermissions.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.VerifiedPermissions.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.VoiceID">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.VoiceID.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.VoiceID.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.VPCLattice">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.VPCLattice.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.VPCLattice.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WAF">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WAF.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.WAF.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WAFRegional">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WAFRegional.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.WAFRegional.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WAFV2">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WAFV2.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.WAFV2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WellArchitected">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WellArchitected.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.WellArchitected.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WorkDocs">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WorkDocs.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.WorkDocs.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WorkMail">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WorkMail.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.WorkMail.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WorkMailMessageFlow">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WorkMailMessageFlow.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.WorkMailMessageFlow.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WorkSpaces">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WorkSpaces.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.WorkSpaces.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WorkSpacesThinClient">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WorkSpacesThinClient.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.WorkSpacesThinClient.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WorkSpacesWeb">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WorkSpacesWeb.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.WorkSpacesWeb.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.XRay">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.XRay.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.XRay.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Extensions.CloudFront.Signers">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Extensions.CloudFront.Signers.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Extensions.EC2.DecryptPassword">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Extensions.EC2.DecryptPassword.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
-    <PackageReference Include="PowerShellStandard.Library" Version="3.0.0-preview-02" />
+    <PackageReference Include="PowerShellStandard.Library" Version="5.1.1" />
     <PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" />
     <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
     <Reference Include="AWSSDK.AccessAnalyzer">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AccessAnalyzer.dll</HintPath>
     </Reference>
@@ -1649,6 +1665,9 @@
     </Reference>
     <Reference Include="AWSSDK.DSQL">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.DSQL.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.DynamoDBStreams">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.DynamoDBStreams.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.DynamoDBv2.dll</HintPath>
@@ -2450,6 +2469,12 @@
     </Reference>
     <Reference Include="AWSSDK.XRay">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.XRay.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Extensions.CloudFront.Signers">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Extensions.CloudFront.Signers.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Extensions.EC2.DecryptPassword">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Extensions.EC2.DecryptPassword.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

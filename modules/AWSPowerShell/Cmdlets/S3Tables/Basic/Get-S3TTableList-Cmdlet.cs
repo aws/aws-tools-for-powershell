@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
     /// 
     ///  <dl><dt>Permissions</dt><dd><para>
     /// You must have the <c>s3tables:ListTables</c> permission to use this operation. 
-    /// </para></dd></dl>
+    /// </para></dd></dl><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
     /// </summary>
     [Cmdlet("Get", "S3TTableList")]
     [OutputType("Amazon.S3Tables.Model.ListTablesResponse")]
@@ -48,29 +48,6 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
-        
-        #region Parameter ContinuationToken
-        /// <summary>
-        /// <para>
-        /// <para><c>ContinuationToken</c> indicates to Amazon S3 that the list is being continued
-        /// on this bucket with a token. <c>ContinuationToken</c> is obfuscated and is not a real
-        /// key. You can use this <c>ContinuationToken</c> for pagination of the list results.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ContinuationToken { get; set; }
-        #endregion
-        
-        #region Parameter MaxTable
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of tables to return.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxTables")]
-        public System.Int32? MaxTable { get; set; }
-        #endregion
         
         #region Parameter Namespace
         /// <summary>
@@ -109,6 +86,39 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         public System.String TableBucketARN { get; set; }
         #endregion
         
+        #region Parameter ContinuationToken
+        /// <summary>
+        /// <para>
+        /// <para><c>ContinuationToken</c> indicates to Amazon S3 that the list is being continued
+        /// on this bucket with a token. <c>ContinuationToken</c> is obfuscated and is not a real
+        /// key. You can use this <c>ContinuationToken</c> for pagination of the list results.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>'ContinuationToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-ContinuationToken' to null for the first call then set the 'ContinuationToken' using the same property output from the previous call for subsequent calls.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NextToken")]
+        public System.String ContinuationToken { get; set; }
+        #endregion
+        
+        #region Parameter MaxTable
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of tables to return.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxItems","MaxTables")]
+        public int? MaxTable { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -118,6 +128,17 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter NoAutoIteration
+        /// <summary>
+        /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
+        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of ContinuationToken
+        /// as the start point.
+        /// This cmdlet didn't autopaginate in V4. To preserve the V4 autopagination behavior for all cmdlets, run Set-AWSAutoIterationMode -IterationMode v4.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -141,6 +162,15 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             }
             context.ContinuationToken = this.ContinuationToken;
             context.MaxTable = this.MaxTable;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.MaxTable)) && this.MaxTable.HasValue)
+            {
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxTable parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxTable" +
+                    " to the service to specify how many items should be returned by each service call.");
+            }
+            #endif
             context.Namespace = this.Namespace;
             context.Prefix = this.Prefix;
             context.TableBucketARN = this.TableBucketARN;
@@ -163,16 +193,14 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
+            var useParameterSelect = this.Select.StartsWith("^");
+            
+            // create request and set iteration invariants
             var request = new Amazon.S3Tables.Model.ListTablesRequest();
             
-            if (cmdletContext.ContinuationToken != null)
-            {
-                request.ContinuationToken = cmdletContext.ContinuationToken;
-            }
             if (cmdletContext.MaxTable != null)
             {
-                request.MaxTables = cmdletContext.MaxTable.Value;
+                request.MaxTables = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxTable.Value);
             }
             if (cmdletContext.Namespace != null)
             {
@@ -187,27 +215,52 @@ namespace Amazon.PowerShell.Cmdlets.S3T
                 request.TableBucketARN = cmdletContext.TableBucketARN;
             }
             
-            CmdletOutput output;
+            // Initialize loop variant and commence piping
+            var _nextToken = cmdletContext.ContinuationToken;
+            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.ContinuationToken));
+            var _shouldAutoIterate = !(SessionState.PSVariable.GetValue("AWSPowerShell_AutoIteration_Mode")?.ToString() == "v4");
             
-            // issue call
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            try
+            do
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                request.ContinuationToken = _nextToken;
+                
+                CmdletOutput output;
+                
+                try
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
-            }
-            catch (Exception e)
+                    
+                    var response = CallAWSServiceOperation(client, request);
+                    
+                    object pipelineOutput = null;
+                    if (!useParameterSelect)
+                    {
+                        pipelineOutput = cmdletContext.Select(response, this);
+                    }
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                    
+                    _nextToken = response.ContinuationToken;
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                ProcessOutput(output);
+                
+            } while (!_userControllingPaging && _shouldAutoIterate && AutoIterationHelpers.HasValue(_nextToken));
+            
+            if (useParameterSelect)
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                WriteObject(cmdletContext.Select(null, this));
             }
             
-            return output;
+            
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -242,7 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ContinuationToken { get; set; }
-            public System.Int32? MaxTable { get; set; }
+            public int? MaxTable { get; set; }
             public System.String Namespace { get; set; }
             public System.String Prefix { get; set; }
             public System.String TableBucketARN { get; set; }
