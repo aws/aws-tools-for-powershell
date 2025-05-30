@@ -23,159 +23,159 @@
         <Property>NumResults</Property>
     </MetadataProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptQualificationRequest" Verb="Grant" Noun="QualificationRequest" ShouldProcessTarget="QualificationRequestId" PipelineParameter="QualificationRequestId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AcceptQualificationRequest" Verb="Grant" Noun="QualificationRequest" ShouldProcessTarget="QualificationRequestId" PipelineParameter="QualificationRequestId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ApproveAssignment" Verb="Approve" Noun="Assignment" ShouldProcessTarget="AssignmentId" PipelineParameter="AssignmentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ApproveAssignment" Verb="Approve" Noun="Assignment" ShouldProcessTarget="AssignmentId" PipelineParameter="AssignmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateQualificationWithWorker" Verb="Add" Noun="QualificationToWorker" ShouldProcessTarget="WorkerId" PipelineParameter="WorkerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateQualificationWithWorker" Verb="Add" Noun="QualificationToWorker" ShouldProcessTarget="WorkerId" PipelineParameter="WorkerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAdditionalAssignmentsForHIT" Verb="New" Noun="AdditionalAssignmentsForHIT" ShouldProcessTarget="HITId" PipelineParameter="HITId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAdditionalAssignmentsForHIT" Verb="New" Noun="AdditionalAssignmentsForHIT" ShouldProcessTarget="HITId" PipelineParameter="HITId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateHIT" OutputProperty="HIT" Verb="New" Noun="HIT" ShouldProcessTarget="Title" PipelineParameter="Title" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateHIT" OutputProperty="HIT" Verb="New" Noun="HIT" ShouldProcessTarget="Title" PipelineParameter="Title" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateHITType" OutputProperty="HITTypeId" Verb="New" Noun="HITType" ShouldProcessTarget="Title" PipelineParameter="Title" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateHITType" OutputProperty="HITTypeId" Verb="New" Noun="HITType" ShouldProcessTarget="Title" PipelineParameter="Title" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateHITWithHITType" OutputProperty="HIT" Verb="New" Noun="HITWithHITType" ShouldProcessTarget="HITTypeId" PipelineParameter="HITTypeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateHITWithHITType" OutputProperty="HIT" Verb="New" Noun="HITWithHITType" ShouldProcessTarget="HITTypeId" PipelineParameter="HITTypeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateQualificationType" OutputProperty="QualificationType" Verb="New" Noun="QualificationType" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateQualificationType" OutputProperty="QualificationType" Verb="New" Noun="QualificationType" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWorkerBlock" Verb="New" Noun="WorkerBlock" ShouldProcessTarget="WorkerId" PipelineParameter="WorkerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateWorkerBlock" Verb="New" Noun="WorkerBlock" ShouldProcessTarget="WorkerId" PipelineParameter="WorkerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteHIT" Verb="Remove" Noun="HIT" ShouldProcessTarget="HITId" PipelineParameter="HITId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteHIT" Verb="Remove" Noun="HIT" ShouldProcessTarget="HITId" PipelineParameter="HITId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteQualificationType" Verb="Remove" Noun="QualificationType" ShouldProcessTarget="QualificationTypeId" PipelineParameter="QualificationTypeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteQualificationType" Verb="Remove" Noun="QualificationType" ShouldProcessTarget="QualificationTypeId" PipelineParameter="QualificationTypeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWorkerBlock" Verb="Remove" Noun="WorkerBlock" ShouldProcessTarget="WorkerId" PipelineParameter="WorkerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteWorkerBlock" Verb="Remove" Noun="WorkerBlock" ShouldProcessTarget="WorkerId" PipelineParameter="WorkerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateQualificationFromWorker" Verb="Remove" Noun="QualificationFromWorker" ShouldProcessTarget="WorkerId" PipelineParameter="WorkerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateQualificationFromWorker" Verb="Remove" Noun="QualificationFromWorker" ShouldProcessTarget="WorkerId" PipelineParameter="WorkerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccountBalance" OutputProperty="*" Verb="Get" Noun="AccountBalance" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAccountBalance" OutputProperty="*" Verb="Get" Noun="AccountBalance" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAssignment" OutputProperty="*" Verb="Get" Noun="Assignment" PipelineParameter="AssignmentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAssignment" OutputProperty="*" Verb="Get" Noun="Assignment" PipelineParameter="AssignmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFileUploadURL" OutputProperty="FileUploadURL" Verb="Get" Noun="FileUploadURL" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetFileUploadURL" OutputProperty="FileUploadURL" Verb="Get" Noun="FileUploadURL" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHIT" OutputProperty="HIT" Verb="Get" Noun="HIT" PipelineParameter="HITId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetHIT" OutputProperty="HIT" Verb="Get" Noun="HIT" PipelineParameter="HITId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQualificationScore" OutputProperty="Qualification" Verb="Get" Noun="QualificationScore" PipelineParameter="WorkerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetQualificationScore" OutputProperty="Qualification" Verb="Get" Noun="QualificationScore" PipelineParameter="WorkerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQualificationType" OutputProperty="QualificationType" Verb="Get" Noun="QualificationType" PipelineParameter="QualificationTypeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetQualificationType" OutputProperty="QualificationType" Verb="Get" Noun="QualificationType" PipelineParameter="QualificationTypeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssignmentsForHIT" OutputProperty="Assignments" Verb="Get" Noun="HITAssignmentList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListAssignmentsForHIT" OutputProperty="Assignments" Verb="Get" Noun="HITAssignmentList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBonusPayments" OutputProperty="BonusPayments" Verb="Get" Noun="BonusPaymentList" PipelineParameter="HITId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListBonusPayments" OutputProperty="BonusPayments" Verb="Get" Noun="BonusPaymentList" PipelineParameter="HITId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHITs" OutputProperty="HITs" Verb="Get" Noun="HITList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListHITs" OutputProperty="HITs" Verb="Get" Noun="HITList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHITsForQualificationType" OutputProperty="HITs" Verb="Get" Noun="HITListForQualificationType" PipelineParameter="QualificationTypeId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListHITsForQualificationType" OutputProperty="HITs" Verb="Get" Noun="HITListForQualificationType" PipelineParameter="QualificationTypeId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQualificationRequests" OutputProperty="QualificationRequests" Verb="Get" Noun="QualificationRequestList" PipelineParameter="QualificationTypeId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListQualificationRequests" OutputProperty="QualificationRequests" Verb="Get" Noun="QualificationRequestList" PipelineParameter="QualificationTypeId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQualificationTypes" OutputProperty="QualificationTypes" Verb="Get" Noun="QualificationTypeList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListQualificationTypes" OutputProperty="QualificationTypes" Verb="Get" Noun="QualificationTypeList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReviewableHITs" OutputProperty="HITs" Verb="Get" Noun="ReviewableHITList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListReviewableHITs" OutputProperty="HITs" Verb="Get" Noun="ReviewableHITList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReviewPolicyResultsForHIT" OutputProperty="*" Verb="Get" Noun="ReviewPolicyResultList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="ListReviewPolicyResultsForHIT" OutputProperty="*" Verb="Get" Noun="ReviewPolicyResultList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkerBlocks" OutputProperty="WorkerBlocks" Verb="Get" Noun="WorkerBlockList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListWorkerBlocks" OutputProperty="WorkerBlocks" Verb="Get" Noun="WorkerBlockList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkersWithQualificationType" OutputProperty="Qualifications" Verb="Get" Noun="WorkersWithQualificationType" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListWorkersWithQualificationType" OutputProperty="Qualifications" Verb="Get" Noun="WorkersWithQualificationType" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="NotifyWorkers" OutputProperty="NotifyWorkersFailureStatuses" Verb="Send" Noun="WorkerNotification" ShouldProcessTarget="WorkerIds" PipelineParameter="WorkerIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="NotifyWorkers" OutputProperty="NotifyWorkersFailureStatuses" Verb="Send" Noun="WorkerNotification" ShouldProcessTarget="WorkerIds" PipelineParameter="WorkerIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RejectAssignment" Verb="Deny" Noun="Assignment" ShouldProcessTarget="AssignmentId" PipelineParameter="AssignmentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RejectAssignment" Verb="Deny" Noun="Assignment" ShouldProcessTarget="AssignmentId" PipelineParameter="AssignmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RejectQualificationRequest" Verb="Deny" Noun="QualificationRequest" ShouldProcessTarget="QualificationRequestId" PipelineParameter="QualificationRequestId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RejectQualificationRequest" Verb="Deny" Noun="QualificationRequest" ShouldProcessTarget="QualificationRequestId" PipelineParameter="QualificationRequestId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendBonus" Verb="Send" Noun="Bonus" ShouldProcessTarget="WorkerId" PipelineParameter="WorkerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SendBonus" Verb="Send" Noun="Bonus" ShouldProcessTarget="WorkerId" PipelineParameter="WorkerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendTestEventNotification" Verb="Send" Noun="TestEventNotification" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="SendTestEventNotification" Verb="Send" Noun="TestEventNotification" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateExpirationForHIT" Verb="Update" Noun="ExpirationForHIT" ShouldProcessTarget="HITId" PipelineParameter="HITId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateExpirationForHIT" Verb="Update" Noun="ExpirationForHIT" ShouldProcessTarget="HITId" PipelineParameter="HITId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateHITReviewStatus" Verb="Update" Noun="HITReviewStatus" ShouldProcessTarget="HITId" PipelineParameter="HITId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateHITReviewStatus" Verb="Update" Noun="HITReviewStatus" ShouldProcessTarget="HITId" PipelineParameter="HITId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateHITTypeOfHIT" Verb="Update" Noun="HITTypeOfHIT" ShouldProcessTarget="HITId" PipelineParameter="HITId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateHITTypeOfHIT" Verb="Update" Noun="HITTypeOfHIT" ShouldProcessTarget="HITId" PipelineParameter="HITId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateNotificationSettings" Verb="Update" Noun="NotificationSetting" ShouldProcessTarget="HITTypeId" PipelineParameter="HITTypeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateNotificationSettings" Verb="Update" Noun="NotificationSetting" ShouldProcessTarget="HITTypeId" PipelineParameter="HITTypeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateQualificationType" OutputProperty="QualificationType" Verb="Update" Noun="QualificationType" ShouldProcessTarget="QualificationTypeId" PipelineParameter="QualificationTypeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateQualificationType" OutputProperty="QualificationType" Verb="Update" Noun="QualificationType" ShouldProcessTarget="QualificationTypeId" PipelineParameter="QualificationTypeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

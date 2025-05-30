@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The block device mapping entries that define the block devices to attach to the instances
         /// at launch. By default, the block devices specified in the block device mapping for
         /// the AMI are used. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block
-        /// device mappings</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para>
+        /// device mappings</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// is not available with all instance types. Additional fees are incurred when you enable
         /// EBS optimization for an instance type that is not EBS-optimized by default. For more
         /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
-        /// EBS-optimized instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>The default value is <c>false</c>.</para>
+        /// EBS-optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</para><para>The default value is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The ID of the Amazon Machine Image (AMI) that was assigned during registration. For
         /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Find
-        /// a Linux AMI</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>If you specify <c>InstanceId</c>, an <c>ImageId</c> is not required.</para>
+        /// a Linux AMI</a> in the <i>Amazon EC2 User Guide</i>.</para><para>If you specify <c>InstanceId</c>, an <c>ImageId</c> is not required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -230,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>Specifies the instance type of the EC2 instance. For information about available instance
         /// types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes">Available
-        /// instance types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>If you specify <c>InstanceId</c>, an <c>InstanceType</c> is not required.</para>
+        /// instance types</a> in the <i>Amazon EC2 User Guide</i>.</para><para>If you specify <c>InstanceId</c>, an <c>InstanceType</c> is not required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -242,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The ID of the kernel associated with the AMI.</para><note><para>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information,
         /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">User
-        /// provided kernels</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para></note>
+        /// provided kernels</a> in the <i>Amazon EC2 User Guide</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -253,8 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The name of the key pair. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon
-        /// EC2 key pairs and Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide for Linux
-        /// Instances</i>.</para>
+        /// EC2 key pairs and Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -298,7 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The ID of the RAM disk to select.</para><note><para>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information,
         /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">User
-        /// provided kernels</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para></note>
+        /// provided kernels</a> in the <i>Amazon EC2 User Guide</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

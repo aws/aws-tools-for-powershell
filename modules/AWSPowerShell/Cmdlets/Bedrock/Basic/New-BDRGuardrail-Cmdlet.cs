@@ -147,6 +147,19 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public Amazon.Bedrock.Model.GuardrailContextualGroundingFilterConfig[] ContextualGroundingPolicyConfig_FiltersConfig { get; set; }
         #endregion
         
+        #region Parameter CrossRegionConfig_GuardrailProfileIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID or Amazon Resource Name (ARN) of the guardrail profile that your guardrail
+        /// is using. Guardrail profile availability depends on your current Amazon Web Services
+        /// Region. For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html">Amazon
+        /// Bedrock User Guide</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CrossRegionConfig_GuardrailProfileIdentifier { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
@@ -304,6 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             {
                 context.ContextualGroundingPolicyConfig_FiltersConfig = new List<Amazon.Bedrock.Model.GuardrailContextualGroundingFilterConfig>(this.ContextualGroundingPolicyConfig_FiltersConfig);
             }
+            context.CrossRegionConfig_GuardrailProfileIdentifier = this.CrossRegionConfig_GuardrailProfileIdentifier;
             context.Description = this.Description;
             context.KmsKeyId = this.KmsKeyId;
             context.Name = this.Name;
@@ -402,6 +416,25 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestContextualGroundingPolicyConfigIsNull)
             {
                 request.ContextualGroundingPolicyConfig = null;
+            }
+            
+             // populate CrossRegionConfig
+            var requestCrossRegionConfigIsNull = true;
+            request.CrossRegionConfig = new Amazon.Bedrock.Model.GuardrailCrossRegionConfig();
+            System.String requestCrossRegionConfig_crossRegionConfig_GuardrailProfileIdentifier = null;
+            if (cmdletContext.CrossRegionConfig_GuardrailProfileIdentifier != null)
+            {
+                requestCrossRegionConfig_crossRegionConfig_GuardrailProfileIdentifier = cmdletContext.CrossRegionConfig_GuardrailProfileIdentifier;
+            }
+            if (requestCrossRegionConfig_crossRegionConfig_GuardrailProfileIdentifier != null)
+            {
+                request.CrossRegionConfig.GuardrailProfileIdentifier = requestCrossRegionConfig_crossRegionConfig_GuardrailProfileIdentifier;
+                requestCrossRegionConfigIsNull = false;
+            }
+             // determine if request.CrossRegionConfig should be set to null
+            if (requestCrossRegionConfigIsNull)
+            {
+                request.CrossRegionConfig = null;
             }
             if (cmdletContext.Description != null)
             {
@@ -556,6 +589,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             public System.String ClientRequestToken { get; set; }
             public List<Amazon.Bedrock.Model.GuardrailContentFilterConfig> ContentPolicyConfig_FiltersConfig { get; set; }
             public List<Amazon.Bedrock.Model.GuardrailContextualGroundingFilterConfig> ContextualGroundingPolicyConfig_FiltersConfig { get; set; }
+            public System.String CrossRegionConfig_GuardrailProfileIdentifier { get; set; }
             public System.String Description { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String Name { get; set; }

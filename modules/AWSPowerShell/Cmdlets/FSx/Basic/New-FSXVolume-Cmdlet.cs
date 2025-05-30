@@ -147,11 +147,12 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>A Boolean value indicating whether tags for the volume should be copied to snapshots.
-        /// This value defaults to <c>false</c>. If it's set to <c>true</c>, all tags for the
-        /// volume are copied to snapshots where the user doesn't specify tags. If this value
-        /// is <c>true</c>, and you specify one or more tags, only the specified tags are copied
-        /// to snapshots. If you specify one or more tags when creating the snapshot, no tags
-        /// are copied from the volume, regardless of this value.</para>
+        /// This value defaults to <c>false</c>. If this value is set to <c>true</c>, and you
+        /// do not specify any tags, all tags for the original volume are copied over to snapshots.
+        /// If this value is set to <c>true</c>, and you do specify one or more tags, only the
+        /// specified tags for the original volume are copied over to snapshots. If you specify
+        /// one or more tags when creating a new snapshot, no tags are copied over from the original
+        /// volume, regardless of this value. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

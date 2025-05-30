@@ -19,245 +19,245 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddLFTagsToResource" OutputProperty="Failures" Verb="Add" Noun="LFTagsToResource" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddLFTagsToResource" OutputProperty="Failures" Verb="Add" Noun="LFTagsToResource" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssumeDecoratedRoleWithSAML" Verb="Use" Noun="" Exclude="true" ShouldProcessTarget="" PositionalParameters="PrincipalArn;SAMLAssertion;Policy;DurationSeconds" PipelineParameter="RoleArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssumeDecoratedRoleWithSAML" Verb="Use" Noun="" Exclude="true" ShouldProcessTarget="" PositionalParameters="PrincipalArn;SAMLAssertion;Policy;DurationSeconds" PipelineParameter="RoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="DurationSeconds" NewName="DurationInSeconds" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGrantPermissions" OutputProperty="Failures" Verb="Grant" Noun="PermissionBatch" ShouldProcessTarget="CatalogId" PipelineParameter="Entries" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGrantPermissions" OutputProperty="Failures" Verb="Grant" Noun="PermissionBatch" ShouldProcessTarget="CatalogId" PipelineParameter="Entries" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchRevokePermissions" OutputProperty="Failures" Verb="Revoke" Noun="PermissionBatch" ShouldProcessTarget="CatalogId" PipelineParameter="Entries" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchRevokePermissions" OutputProperty="Failures" Verb="Revoke" Noun="PermissionBatch" ShouldProcessTarget="CatalogId" PipelineParameter="Entries" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelTransaction" Verb="Stop" Noun="Transaction" ShouldProcessTarget="TransactionId" PipelineParameter="TransactionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelTransaction" Verb="Stop" Noun="Transaction" ShouldProcessTarget="TransactionId" PipelineParameter="TransactionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CommitTransaction" OutputProperty="TransactionStatus" Verb="Write" Noun="Transaction" ShouldProcessTarget="TransactionId" PipelineParameter="TransactionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CommitTransaction" OutputProperty="TransactionStatus" Verb="Write" Noun="Transaction" ShouldProcessTarget="TransactionId" PipelineParameter="TransactionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataCellsFilter" Verb="New" Noun="DataCellsFilter" ShouldProcessTarget="TableData_TableName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateDataCellsFilter" Verb="New" Noun="DataCellsFilter" ShouldProcessTarget="TableData_TableName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLakeFormationIdentityCenterConfiguration" OutputProperty="ApplicationArn" Verb="New" Noun="LakeFormationIdentityCenterConfiguration" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateLakeFormationIdentityCenterConfiguration" OutputProperty="ApplicationArn" Verb="New" Noun="LakeFormationIdentityCenterConfiguration" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLakeFormationOptIn" Verb="New" Noun="LakeFormationOptIn" ShouldProcessTarget="Principal_DataLakePrincipalIdentifier" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateLakeFormationOptIn" Verb="New" Noun="LakeFormationOptIn" ShouldProcessTarget="Principal_DataLakePrincipalIdentifier" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLFTag" Verb="New" Noun="LFTag" ShouldProcessTarget="CatalogId" PipelineParameter="TagKey" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateLFTag" Verb="New" Noun="LFTag" ShouldProcessTarget="CatalogId" PipelineParameter="TagKey" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLFTagExpression" Verb="New" Noun="LFTagExpression" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateLFTagExpression" Verb="New" Noun="LFTagExpression" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataCellsFilter" Verb="Remove" Noun="DataCellsFilter" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDataCellsFilter" Verb="Remove" Noun="DataCellsFilter" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLakeFormationIdentityCenterConfiguration" Verb="Remove" Noun="LakeFormationIdentityCenterConfiguration" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteLakeFormationIdentityCenterConfiguration" Verb="Remove" Noun="LakeFormationIdentityCenterConfiguration" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLakeFormationOptIn" Verb="Remove" Noun="LakeFormationOptIn" ShouldProcessTarget="Principal_DataLakePrincipalIdentifier" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteLakeFormationOptIn" Verb="Remove" Noun="LakeFormationOptIn" ShouldProcessTarget="Principal_DataLakePrincipalIdentifier" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLFTag" Verb="Remove" Noun="LFTag" ShouldProcessTarget="CatalogId" PipelineParameter="TagKey" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteLFTag" Verb="Remove" Noun="LFTag" ShouldProcessTarget="CatalogId" PipelineParameter="TagKey" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLFTagExpression" Verb="Remove" Noun="LFTagExpression" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteLFTagExpression" Verb="Remove" Noun="LFTagExpression" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteObjectsOnCancel" Verb="Remove" Noun="ObjectsOnCancel" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteObjectsOnCancel" Verb="Remove" Noun="ObjectsOnCancel" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterResource" Verb="Unregister" Noun="Resource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeregisterResource" Verb="Unregister" Noun="Resource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLakeFormationIdentityCenterConfiguration" OutputProperty="*" Verb="Get" Noun="LakeFormationIdentityCenterConfiguration" PipelineParameter="CatalogId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLakeFormationIdentityCenterConfiguration" OutputProperty="*" Verb="Get" Noun="LakeFormationIdentityCenterConfiguration" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeResource" OutputProperty="ResourceInfo" Verb="Get" Noun="Resource" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeResource" OutputProperty="ResourceInfo" Verb="Get" Noun="Resource" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTransaction" OutputProperty="TransactionDescription" Verb="Get" Noun="Transaction" PipelineParameter="TransactionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTransaction" OutputProperty="TransactionDescription" Verb="Get" Noun="Transaction" PipelineParameter="TransactionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExtendTransaction" Verb="Invoke" Noun="Transaction" ShouldProcessTarget="TransactionId" PipelineParameter="TransactionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ExtendTransaction" Verb="Invoke" Noun="Transaction" ShouldProcessTarget="TransactionId" PipelineParameter="TransactionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataCellsFilter" OutputProperty="DataCellsFilter" Verb="Get" Noun="DataCellsFilter" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDataCellsFilter" OutputProperty="DataCellsFilter" Verb="Get" Noun="DataCellsFilter" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataLakePrincipal" OutputProperty="Identity" Verb="Get" Noun="DataLakePrincipal" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDataLakePrincipal" OutputProperty="Identity" Verb="Get" Noun="DataLakePrincipal" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataLakeSettings" OutputProperty="DataLakeSettings" Verb="Get" Noun="DataLakeSetting" PipelineParameter="CatalogId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDataLakeSettings" OutputProperty="DataLakeSettings" Verb="Get" Noun="DataLakeSetting" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEffectivePermissionsForPath" OutputProperty="Permissions" Verb="Get" Noun="EffectivePermissionsForPath" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="GetEffectivePermissionsForPath" OutputProperty="Permissions" Verb="Get" Noun="EffectivePermissionsForPath" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLFTag" OutputProperty="*" Verb="Get" Noun="LFTag" PipelineParameter="TagKey" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetLFTag" OutputProperty="*" Verb="Get" Noun="LFTag" PipelineParameter="TagKey" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLFTagExpression" OutputProperty="*" Verb="Get" Noun="LFTagExpression" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetLFTagExpression" OutputProperty="*" Verb="Get" Noun="LFTagExpression" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQueryState" OutputProperty="*" Verb="Get" Noun="QueryState" PipelineParameter="QueryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetQueryState" OutputProperty="*" Verb="Get" Noun="QueryState" PipelineParameter="QueryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQueryStatistics" OutputProperty="*" Verb="Get" Noun="QueryStatistic" PipelineParameter="QueryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetQueryStatistics" OutputProperty="*" Verb="Get" Noun="QueryStatistic" PipelineParameter="QueryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourceLFTags" OutputProperty="*" Verb="Get" Noun="ResourceLFTag" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetResourceLFTags" OutputProperty="*" Verb="Get" Noun="ResourceLFTag" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTableObjects" OutputProperty="Objects" Verb="Get" Noun="TableObject" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTableObjects" OutputProperty="Objects" Verb="Get" Noun="TableObject" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTemporaryGluePartitionCredentials" OutputProperty="*" Verb="Get" Noun="TemporaryGluePartitionCredential" PipelineParameter="TableArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTemporaryGluePartitionCredentials" OutputProperty="*" Verb="Get" Noun="TemporaryGluePartitionCredential" PipelineParameter="TableArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTemporaryGlueTableCredentials" OutputProperty="*" Verb="Get" Noun="TemporaryGlueTableCredential" PipelineParameter="TableArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTemporaryGlueTableCredentials" OutputProperty="*" Verb="Get" Noun="TemporaryGlueTableCredential" PipelineParameter="TableArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWorkUnitResults" OutputProperty="ResultStream" Verb="Get" Noun="WorkUnitResult" PipelineParameter="QueryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetWorkUnitResults" OutputProperty="ResultStream" Verb="Get" Noun="WorkUnitResult" PipelineParameter="QueryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWorkUnits" OutputProperty="*" Verb="Get" Noun="WorkUnit" PipelineParameter="QueryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetWorkUnits" OutputProperty="*" Verb="Get" Noun="WorkUnit" PipelineParameter="QueryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GrantPermissions" Verb="Grant" Noun="Permission" ShouldProcessTarget="CatalogId" PipelineParameter="Permissions" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GrantPermissions" Verb="Grant" Noun="Permission" ShouldProcessTarget="CatalogId" PipelineParameter="Permissions" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataCellsFilter" OutputProperty="DataCellsFilters" Verb="Get" Noun="DataCellsFilterList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListDataCellsFilter" OutputProperty="DataCellsFilters" Verb="Get" Noun="DataCellsFilterList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLakeFormationOptIns" OutputProperty="LakeFormationOptInsInfoList" Verb="Get" Noun="LakeFormationOptInList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListLakeFormationOptIns" OutputProperty="LakeFormationOptInsInfoList" Verb="Get" Noun="LakeFormationOptInList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLFTagExpressions" OutputProperty="LFTagExpressions" Verb="Get" Noun="LFTagExpressionList" PipelineParameter="CatalogId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLFTagExpressions" OutputProperty="LFTagExpressions" Verb="Get" Noun="LFTagExpressionList" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLFTags" OutputProperty="LFTags" Verb="Get" Noun="LFTagList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListLFTags" OutputProperty="LFTags" Verb="Get" Noun="LFTagList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPermissions" OutputProperty="PrincipalResourcePermissions" Verb="Get" Noun="PermissionList" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListPermissions" OutputProperty="PrincipalResourcePermissions" Verb="Get" Noun="PermissionList" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResources" OutputProperty="ResourceInfoList" Verb="Get" Noun="ResourceList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListResources" OutputProperty="ResourceInfoList" Verb="Get" Noun="ResourceList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTableStorageOptimizers" OutputProperty="StorageOptimizerList" Verb="Get" Noun="TableStorageOptimizerList" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTableStorageOptimizers" OutputProperty="StorageOptimizerList" Verb="Get" Noun="TableStorageOptimizerList" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTransactions" OutputProperty="Transactions" Verb="Get" Noun="TransactionList" PipelineParameter="StatusFilter" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTransactions" OutputProperty="Transactions" Verb="Get" Noun="TransactionList" PipelineParameter="StatusFilter" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutDataLakeSettings" Verb="Write" Noun="DataLakeSetting" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutDataLakeSettings" Verb="Write" Noun="DataLakeSetting" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterResource" Verb="Register" Noun="Resource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterResource" Verb="Register" Noun="Resource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveLFTagsFromResource" OutputProperty="Failures" Verb="Remove" Noun="LFTagsFromResource" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveLFTagsFromResource" OutputProperty="Failures" Verb="Remove" Noun="LFTagsFromResource" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RevokePermissions" Verb="Revoke" Noun="Permission" ShouldProcessTarget="CatalogId" PipelineParameter="Permissions" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RevokePermissions" Verb="Revoke" Noun="Permission" ShouldProcessTarget="CatalogId" PipelineParameter="Permissions" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchDatabasesByLFTags" OutputProperty="DatabaseList" Verb="Search" Noun="DatabasesByLFTag" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchDatabasesByLFTags" OutputProperty="DatabaseList" Verb="Search" Noun="DatabasesByLFTag" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchTablesByLFTags" OutputProperty="TableList" Verb="Search" Noun="TablesByLFTag" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchTablesByLFTags" OutputProperty="TableList" Verb="Search" Noun="TablesByLFTag" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartQueryPlanning" OutputProperty="QueryId" Verb="Start" Noun="QueryPlanning" ShouldProcessTarget="QueryPlanningContext_DatabaseName" PipelineParameter="QueryString" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartQueryPlanning" OutputProperty="QueryId" Verb="Start" Noun="QueryPlanning" ShouldProcessTarget="QueryPlanningContext_DatabaseName" PipelineParameter="QueryString" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartTransaction" OutputProperty="TransactionId" Verb="Start" Noun="Transaction" ShouldProcessTarget="TransactionType" PipelineParameter="TransactionType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartTransaction" OutputProperty="TransactionId" Verb="Start" Noun="Transaction" ShouldProcessTarget="TransactionType" PipelineParameter="TransactionType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataCellsFilter" Verb="Update" Noun="DataCellsFilter" ShouldProcessTarget="TableData_TableName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateDataCellsFilter" Verb="Update" Noun="DataCellsFilter" ShouldProcessTarget="TableData_TableName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLakeFormationIdentityCenterConfiguration" Verb="Update" Noun="LakeFormationIdentityCenterConfiguration" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateLakeFormationIdentityCenterConfiguration" Verb="Update" Noun="LakeFormationIdentityCenterConfiguration" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLFTag" Verb="Update" Noun="LFTag" ShouldProcessTarget="CatalogId" PipelineParameter="TagKey" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateLFTag" Verb="Update" Noun="LFTag" ShouldProcessTarget="CatalogId" PipelineParameter="TagKey" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLFTagExpression" Verb="Update" Noun="LFTagExpression" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateLFTagExpression" Verb="Update" Noun="LFTagExpression" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateResource" Verb="Update" Noun="Resource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateResource" Verb="Update" Noun="Resource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTableObjects" Verb="Update" Noun="TableObject" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateTableObjects" Verb="Update" Noun="TableObject" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTableStorageOptimizer" OutputProperty="Result" Verb="Update" Noun="TableStorageOptimizer" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateTableStorageOptimizer" OutputProperty="Result" Verb="Update" Noun="TableStorageOptimizer" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -19,94 +19,94 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateDataset" OutputProperty="DatasetMetadata" Verb="New" Noun="Dataset" ShouldProcessTarget="ProjectName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateDataset" OutputProperty="DatasetMetadata" Verb="New" Noun="Dataset" ShouldProcessTarget="ProjectName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateModel" OutputProperty="ModelMetadata" Verb="New" Noun="Model" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateModel" OutputProperty="ModelMetadata" Verb="New" Noun="Model" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="OutputConfig_S3Location_Bucket" NewName="Output_S3Location_Bucket" />
                 <Param Name="OutputConfig_S3Location_Prefix" NewName="Output_S3Location_Prefix" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProject" OutputProperty="ProjectMetadata" Verb="New" Noun="Project" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateProject" OutputProperty="ProjectMetadata" Verb="New" Noun="Project" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataset" Verb="Remove" Noun="Dataset" ShouldProcessTarget="ProjectName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteDataset" Verb="Remove" Noun="Dataset" ShouldProcessTarget="ProjectName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteModel" OutputProperty="ModelArn" Verb="Remove" Noun="Model" ShouldProcessTarget="ProjectName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteModel" OutputProperty="ModelArn" Verb="Remove" Noun="Model" ShouldProcessTarget="ProjectName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProject" OutputProperty="ProjectArn" Verb="Remove" Noun="Project" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteProject" OutputProperty="ProjectArn" Verb="Remove" Noun="Project" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDataset" OutputProperty="DatasetDescription" Verb="Get" Noun="Dataset" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeDataset" OutputProperty="DatasetDescription" Verb="Get" Noun="Dataset" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeModel" OutputProperty="ModelDescription" Verb="Get" Noun="Model" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeModel" OutputProperty="ModelDescription" Verb="Get" Noun="Model" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeModelPackagingJob" OutputProperty="ModelPackagingDescription" Verb="Get" Noun="ModelPackagingJob" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeModelPackagingJob" OutputProperty="ModelPackagingDescription" Verb="Get" Noun="ModelPackagingJob" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProject" OutputProperty="ProjectDescription" Verb="Get" Noun="Project" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeProject" OutputProperty="ProjectDescription" Verb="Get" Noun="Project" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectAnomalies" OutputProperty="DetectAnomalyResult" Verb="Find" Noun="Anomaly" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DetectAnomalies" OutputProperty="DetectAnomalyResult" Verb="Find" Noun="Anomaly" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasetEntries" OutputProperty="DatasetEntries" Verb="Get" Noun="DatasetEntryList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListDatasetEntries" OutputProperty="DatasetEntries" Verb="Get" Noun="DatasetEntryList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListModelPackagingJobs" OutputProperty="ModelPackagingJobs" Verb="Get" Noun="ModelPackagingJobList" PipelineParameter="ProjectName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListModelPackagingJobs" OutputProperty="ModelPackagingJobs" Verb="Get" Noun="ModelPackagingJobList" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListModels" OutputProperty="Models" Verb="Get" Noun="ModelList" PipelineParameter="ProjectName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListModels" OutputProperty="Models" Verb="Get" Noun="ModelList" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProjects" OutputProperty="Projects" Verb="Get" Noun="ProjectList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProjects" OutputProperty="Projects" Verb="Get" Noun="ProjectList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartModel" OutputProperty="Status" Verb="Start" Noun="Model" ShouldProcessTarget="ProjectName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartModel" OutputProperty="Status" Verb="Start" Noun="Model" ShouldProcessTarget="ProjectName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartModelPackagingJob" OutputProperty="JobName" Verb="Start" Noun="ModelPackagingJob" ShouldProcessTarget="ProjectName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartModelPackagingJob" OutputProperty="JobName" Verb="Start" Noun="ModelPackagingJob" ShouldProcessTarget="ProjectName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopModel" OutputProperty="Status" Verb="Stop" Noun="Model" ShouldProcessTarget="ProjectName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StopModel" OutputProperty="Status" Verb="Stop" Noun="Model" ShouldProcessTarget="ProjectName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDatasetEntries" OutputProperty="Status" Verb="Update" Noun="DatasetEntry" ShouldProcessTarget="ProjectName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateDatasetEntries" OutputProperty="Status" Verb="Update" Noun="DatasetEntry" ShouldProcessTarget="ProjectName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

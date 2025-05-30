@@ -37,11 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// To search for an available Capacity Block offering, you specify a reservation duration
-    /// and instance count. You must select one of the following options.
-    /// </para><ul><li><para>
-    /// For reservation durations<b> 1-day increments up 14 days and 7-day increments up to
-    /// 182 days total</b></para></li><li><para>
-    /// For instance count<b> 1, 2, 4, 8, 16, 32, or 64 instances</b></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// and instance count.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2CapacityBlockOffering")]
     [OutputType("Amazon.EC2.Model.CapacityBlockOffering")]
@@ -59,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CapacityDurationHour
         /// <summary>
         /// <para>
-        /// <para>The number of hours for which to reserve Capacity Block.</para>
+        /// <para>The reservation duration for the Capacity Block, in hours. You must specify the duration
+        /// in 1-day increments up 14 days, and in 7-day increments up to 182 days.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,7 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceCount
         /// <summary>
         /// <para>
-        /// <para>The number of instances for which to reserve capacity.</para>
+        /// <para>The number of instances for which to reserve capacity. Each Capacity Block can have
+        /// up to 64 instances, and you can have up to 256 instances across Capacity Blocks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

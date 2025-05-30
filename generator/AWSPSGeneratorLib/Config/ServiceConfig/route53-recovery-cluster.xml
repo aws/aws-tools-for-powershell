@@ -18,19 +18,19 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="GetRoutingControlState" OutputProperty="*" Verb="Get" Noun="RoutingControlState" PipelineParameter="RoutingControlArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRoutingControlState" OutputProperty="*" Verb="Get" Noun="RoutingControlState" PipelineParameter="RoutingControlArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRoutingControls" OutputProperty="RoutingControls" Verb="Get" Noun="RoutingControlList" PipelineParameter="ControlPanelArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRoutingControls" OutputProperty="RoutingControls" Verb="Get" Noun="RoutingControlList" PipelineParameter="ControlPanelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRoutingControlState" Verb="Update" Noun="RoutingControlState" ShouldProcessTarget="RoutingControlArn" PipelineParameter="RoutingControlArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRoutingControlState" Verb="Update" Noun="RoutingControlState" ShouldProcessTarget="RoutingControlArn" PipelineParameter="RoutingControlArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRoutingControlStates" Verb="Update" Noun="RoutingControlStateBatch" ShouldProcessTarget="UpdateRoutingControlStateEntries" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRoutingControlStates" Verb="Update" Noun="RoutingControlStateBatch" ShouldProcessTarget="UpdateRoutingControlStateEntries" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

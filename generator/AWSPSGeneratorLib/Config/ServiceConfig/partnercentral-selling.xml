@@ -18,155 +18,155 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptEngagementInvitation" Verb="Invoke" Noun="AcceptEngagementInvitation" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AcceptEngagementInvitation" Verb="Invoke" Noun="AcceptEngagementInvitation" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssignOpportunity" Verb="Invoke" Noun="AssignOpportunity" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssignOpportunity" Verb="Invoke" Noun="AssignOpportunity" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateOpportunity" Verb="Invoke" Noun="AssociateOpportunity" ShouldProcessTarget="OpportunityIdentifier" PipelineParameter="OpportunityIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateOpportunity" Verb="Invoke" Noun="AssociateOpportunity" ShouldProcessTarget="OpportunityIdentifier" PipelineParameter="OpportunityIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEngagement" OutputProperty="*" Verb="Invoke" Noun="CreateEngagement" ShouldProcessTarget="Title" PipelineParameter="Title" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateEngagement" OutputProperty="*" Verb="Invoke" Noun="CreateEngagement" ShouldProcessTarget="Title" PipelineParameter="Title" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEngagementInvitation" OutputProperty="*" Verb="Invoke" Noun="CreateEngagementInvitation" ShouldProcessTarget="EngagementIdentifier" PipelineParameter="EngagementIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateEngagementInvitation" OutputProperty="*" Verb="Invoke" Noun="CreateEngagementInvitation" ShouldProcessTarget="EngagementIdentifier" PipelineParameter="EngagementIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateOpportunity" OutputProperty="Id" Verb="Invoke" Noun="CreateOpportunity" ShouldProcessTarget="Customer_Account_CompanyName" PipelineParameter="Customer_Account_CompanyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateOpportunity" OutputProperty="Id" Verb="Invoke" Noun="CreateOpportunity" ShouldProcessTarget="Customer_Account_CompanyName" PipelineParameter="Customer_Account_CompanyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateResourceSnapshot" OutputProperty="*" Verb="Invoke" Noun="ResourceSnapshot" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateResourceSnapshot" OutputProperty="*" Verb="Invoke" Noun="ResourceSnapshot" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateResourceSnapshotJob" OutputProperty="*" Verb="Invoke" Noun="ResourceSnapshotJob" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateResourceSnapshotJob" OutputProperty="*" Verb="Invoke" Noun="ResourceSnapshotJob" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourceSnapshotJob" Verb="Remove" Noun="ResourceSnapshotJob" ShouldProcessTarget="ResourceSnapshotJobIdentifier" PipelineParameter="ResourceSnapshotJobIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteResourceSnapshotJob" Verb="Remove" Noun="ResourceSnapshotJob" ShouldProcessTarget="ResourceSnapshotJobIdentifier" PipelineParameter="ResourceSnapshotJobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateOpportunity" Verb="Invoke" Noun="DisassociateOpportunity" ShouldProcessTarget="OpportunityIdentifier" PipelineParameter="OpportunityIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateOpportunity" Verb="Invoke" Noun="DisassociateOpportunity" ShouldProcessTarget="OpportunityIdentifier" PipelineParameter="OpportunityIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAwsOpportunitySummary" OutputProperty="*" Verb="Get" Noun="AwsOpportunitySummary" PipelineParameter="RelatedOpportunityIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAwsOpportunitySummary" OutputProperty="*" Verb="Get" Noun="AwsOpportunitySummary" PipelineParameter="RelatedOpportunityIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEngagement" OutputProperty="*" Verb="Get" Noun="Engagement" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEngagement" OutputProperty="*" Verb="Get" Noun="Engagement" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEngagementInvitation" OutputProperty="*" Verb="Get" Noun="EngagementInvitation" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEngagementInvitation" OutputProperty="*" Verb="Get" Noun="EngagementInvitation" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOpportunity" OutputProperty="*" Verb="Get" Noun="Opportunity" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetOpportunity" OutputProperty="*" Verb="Get" Noun="Opportunity" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourceSnapshot" OutputProperty="*" Verb="Get" Noun="ResourceSnapshot" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetResourceSnapshot" OutputProperty="*" Verb="Get" Noun="ResourceSnapshot" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourceSnapshotJob" OutputProperty="*" Verb="Get" Noun="ResourceSnapshotJob" PipelineParameter="ResourceSnapshotJobIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetResourceSnapshotJob" OutputProperty="*" Verb="Get" Noun="ResourceSnapshotJob" PipelineParameter="ResourceSnapshotJobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSellingSystemSettings" OutputProperty="*" Verb="Get" Noun="SellingSystemSetting" PipelineParameter="Catalog" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSellingSystemSettings" OutputProperty="*" Verb="Get" Noun="SellingSystemSetting" PipelineParameter="Catalog" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEngagementByAcceptingInvitationTasks" OutputProperty="TaskSummaries" Verb="Get" Noun="EngagementByAcceptingInvitationTaskList" PipelineParameter="Catalog" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEngagementByAcceptingInvitationTasks" OutputProperty="TaskSummaries" Verb="Get" Noun="EngagementByAcceptingInvitationTaskList" PipelineParameter="Catalog" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEngagementFromOpportunityTasks" OutputProperty="TaskSummaries" Verb="Get" Noun="EngagementFromOpportunityTaskList" PipelineParameter="Catalog" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEngagementFromOpportunityTasks" OutputProperty="TaskSummaries" Verb="Get" Noun="EngagementFromOpportunityTaskList" PipelineParameter="Catalog" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEngagementInvitations" OutputProperty="EngagementInvitationSummaries" Verb="Get" Noun="EngagementInvitationList" PipelineParameter="NextToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEngagementInvitations" OutputProperty="EngagementInvitationSummaries" Verb="Get" Noun="EngagementInvitationList" PipelineParameter="NextToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEngagementMembers" OutputProperty="EngagementMemberList" Verb="Get" Noun="EngagementMemberList" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEngagementMembers" OutputProperty="EngagementMemberList" Verb="Get" Noun="EngagementMemberList" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEngagementResourceAssociations" OutputProperty="EngagementResourceAssociationSummaries" Verb="Get" Noun="EngagementResourceAssociationList" PipelineParameter="Catalog" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEngagementResourceAssociations" OutputProperty="EngagementResourceAssociationSummaries" Verb="Get" Noun="EngagementResourceAssociationList" PipelineParameter="Catalog" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEngagements" OutputProperty="EngagementSummaryList" Verb="Get" Noun="EngagementList" PipelineParameter="Catalog" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEngagements" OutputProperty="EngagementSummaryList" Verb="Get" Noun="EngagementList" PipelineParameter="Catalog" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOpportunities" OutputProperty="OpportunitySummaries" Verb="Get" Noun="OpportunityList" PipelineParameter="NextToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListOpportunities" OutputProperty="OpportunitySummaries" Verb="Get" Noun="OpportunityList" PipelineParameter="NextToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceSnapshotJobs" OutputProperty="ResourceSnapshotJobSummaries" Verb="Get" Noun="ResourceSnapshotJobList" PipelineParameter="Catalog" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResourceSnapshotJobs" OutputProperty="ResourceSnapshotJobSummaries" Verb="Get" Noun="ResourceSnapshotJobList" PipelineParameter="Catalog" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceSnapshots" OutputProperty="ResourceSnapshotSummaries" Verb="Get" Noun="ResourceSnapshotList" PipelineParameter="EngagementIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResourceSnapshots" OutputProperty="ResourceSnapshotSummaries" Verb="Get" Noun="ResourceSnapshotList" PipelineParameter="EngagementIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSolutions" OutputProperty="SolutionSummaries" Verb="Get" Noun="SolutionList" PipelineParameter="NextToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSolutions" OutputProperty="SolutionSummaries" Verb="Get" Noun="SolutionList" PipelineParameter="NextToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutSellingSystemSettings" OutputProperty="*" Verb="Write" Noun="SellingSystemSetting" ShouldProcessTarget="ResourceSnapshotJobRoleIdentifier" PipelineParameter="Catalog" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutSellingSystemSettings" OutputProperty="*" Verb="Write" Noun="SellingSystemSetting" ShouldProcessTarget="ResourceSnapshotJobRoleIdentifier" PipelineParameter="Catalog" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RejectEngagementInvitation" Verb="Invoke" Noun="RejectEngagementInvitation" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RejectEngagementInvitation" Verb="Invoke" Noun="RejectEngagementInvitation" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartEngagementByAcceptingInvitationTask" OutputProperty="*" Verb="Invoke" Noun="StartEngagementByAcceptingInvitationTask" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartEngagementByAcceptingInvitationTask" OutputProperty="*" Verb="Invoke" Noun="StartEngagementByAcceptingInvitationTask" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartEngagementFromOpportunityTask" OutputProperty="*" Verb="Invoke" Noun="StartEngagementFromOpportunityTask" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartEngagementFromOpportunityTask" OutputProperty="*" Verb="Invoke" Noun="StartEngagementFromOpportunityTask" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartResourceSnapshotJob" Verb="Start" Noun="ResourceSnapshotJob" ShouldProcessTarget="ResourceSnapshotJobIdentifier" PipelineParameter="ResourceSnapshotJobIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartResourceSnapshotJob" Verb="Start" Noun="ResourceSnapshotJob" ShouldProcessTarget="ResourceSnapshotJobIdentifier" PipelineParameter="ResourceSnapshotJobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopResourceSnapshotJob" Verb="Stop" Noun="ResourceSnapshotJob" ShouldProcessTarget="ResourceSnapshotJobIdentifier" PipelineParameter="ResourceSnapshotJobIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopResourceSnapshotJob" Verb="Stop" Noun="ResourceSnapshotJob" ShouldProcessTarget="ResourceSnapshotJobIdentifier" PipelineParameter="ResourceSnapshotJobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SubmitOpportunity" Verb="Submit" Noun="Opportunity" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SubmitOpportunity" Verb="Submit" Noun="Opportunity" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateOpportunity" OutputProperty="*" Verb="Update" Noun="Opportunity" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateOpportunity" OutputProperty="*" Verb="Update" Noun="Opportunity" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

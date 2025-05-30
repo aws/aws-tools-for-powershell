@@ -84,6 +84,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-AVPResourceTag', 
         'Get-AVPBatchGetPolicy', 
         'Get-AVPBatchIsAuthorizedWithToken', 
         'Get-AVPIdentitySource', 
@@ -94,6 +95,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-AVPPolicyStoreList', 
         'Get-AVPPolicyTemplate', 
         'Get-AVPPolicyTemplateList', 
+        'Get-AVPResourceTag', 
         'Get-AVPSchema', 
         'New-AVPIdentitySource', 
         'New-AVPPolicy', 
@@ -103,6 +105,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-AVPPolicy', 
         'Remove-AVPPolicyStore', 
         'Remove-AVPPolicyTemplate', 
+        'Remove-AVPResourceTag', 
         'Test-AVPAuthorization', 
         'Test-AVPBatchAuthorization', 
         'Test-AVPTokenAuthorization', 

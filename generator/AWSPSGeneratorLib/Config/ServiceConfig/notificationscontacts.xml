@@ -19,39 +19,39 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="ActivateEmailContact" Verb="Enable" Noun="EmailContact" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ActivateEmailContact" Verb="Enable" Noun="EmailContact" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEmailContact" OutputProperty="Arn" Verb="New" Noun="EmailContact" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateEmailContact" OutputProperty="Arn" Verb="New" Noun="EmailContact" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEmailContact" Verb="Remove" Noun="EmailContact" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEmailContact" Verb="Remove" Noun="EmailContact" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEmailContact" OutputProperty="EmailContact" Verb="Get" Noun="EmailContact" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEmailContact" OutputProperty="EmailContact" Verb="Get" Noun="EmailContact" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEmailContacts" OutputProperty="EmailContacts" Verb="Get" Noun="EmailContactList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEmailContacts" OutputProperty="EmailContacts" Verb="Get" Noun="EmailContactList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendActivationCode" Verb="Send" Noun="ActivationCode" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SendActivationCode" Verb="Send" Noun="ActivationCode" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

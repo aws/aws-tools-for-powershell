@@ -18,35 +18,35 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelResourceRequest" OutputProperty="ProgressEvent" Verb="Stop" Noun="ResourceRequest" ShouldProcessTarget="RequestToken" PipelineParameter="RequestToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelResourceRequest" OutputProperty="ProgressEvent" Verb="Stop" Noun="ResourceRequest" ShouldProcessTarget="RequestToken" PipelineParameter="RequestToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateResource" OutputProperty="ProgressEvent" Verb="New" Noun="Resource" ShouldProcessTarget="TypeName" PipelineParameter="TypeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateResource" OutputProperty="ProgressEvent" Verb="New" Noun="Resource" ShouldProcessTarget="TypeName" PipelineParameter="TypeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResource" OutputProperty="ProgressEvent" Verb="Remove" Noun="Resource" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteResource" OutputProperty="ProgressEvent" Verb="Remove" Noun="Resource" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResource" OutputProperty="*" Verb="Get" Noun="Resource" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetResource" OutputProperty="*" Verb="Get" Noun="Resource" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourceRequestStatus" OutputProperty="ProgressEvent" Verb="Get" Noun="ResourceRequestStatus" PipelineParameter="RequestToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetResourceRequestStatus" OutputProperty="ProgressEvent" Verb="Get" Noun="ResourceRequestStatus" PipelineParameter="RequestToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceRequests" OutputProperty="ResourceRequestStatusSummaries" Verb="Get" Noun="ResourceRequestList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResourceRequests" OutputProperty="ResourceRequestStatusSummaries" Verb="Get" Noun="ResourceRequestList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResources" OutputProperty="*" Verb="Get" Noun="ResourceList" PipelineParameter="TypeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResources" OutputProperty="*" Verb="Get" Noun="ResourceList" PipelineParameter="TypeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateResource" OutputProperty="ProgressEvent" Verb="Update" Noun="Resource" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateResource" OutputProperty="ProgressEvent" Verb="Update" Noun="Resource" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

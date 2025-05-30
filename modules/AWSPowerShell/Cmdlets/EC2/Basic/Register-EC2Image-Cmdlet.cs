@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create
     /// an AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use
-    /// encryption with Amazon EBS-backed AMIs</a> in the <i>Amazon EC2 User Guide</i>.
+    /// encryption with EBS-backed AMIs</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><para><b>Amazon Web Services Marketplace product codes</b></para><para>
     /// If any snapshots have Amazon Web Services Marketplace product codes, they are copied
     /// to the new AMI.
@@ -112,8 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// AMIs that include billable software and list them on the Amazon Web Services Marketplace.
         /// You must first register as a seller on the Amazon Web Services Marketplace. For more
         /// information, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/user-guide-for-sellers.html">Getting
-        /// started as a seller</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/ami-products.html">AMI-based
-        /// products</a> in the <i>Amazon Web Services Marketplace Seller Guide</i>.</para>
+        /// started as an Amazon Web Services Marketplace seller</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/ami-products.html">AMI-based
+        /// products in Amazon Web Services Marketplace</a> in the <i>Amazon Web Services Marketplace
+        /// Seller Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The block device mapping entries.</para><para>If you specify an Amazon EBS volume using the ID of an Amazon EBS snapshot, you can't
         /// specify the encryption state of the volume.</para><para>If you create an AMI on an Outpost, then all backing snapshots must be on the same
         /// Outpost or in the Region of that Outpost. AMIs on an Outpost that include local snapshots
-        /// can be used to launch instances on the same Outpost only. For more information, <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami">Amazon
-        /// EBS local snapshots on Outposts</a> in the <i>Amazon EBS User Guide</i>.</para>
+        /// can be used to launch instances on the same Outpost only. For more information, <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami">Create
+        /// AMIs from local snapshots</a> in the <i>Amazon EBS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The boot mode of the AMI. A value of <c>uefi-preferred</c> indicates that the AMI
         /// supports both UEFI and Legacy BIOS.</para><note><para>The operating system contained in the AMI must be configured to support the specified
-        /// boot mode.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot
-        /// modes</a> in the <i>Amazon EC2 User Guide</i>.</para>
+        /// boot mode.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Instance
+        /// launch behavior with Amazon EC2 boot modes</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The full path to your AMI manifest in Amazon S3 storage. The specified bucket must
         /// have the <c>aws-exec-read</c> canned access control list (ACL) to ensure that it can
         /// be accessed by Amazon EC2. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned
-        /// ACLs</a> in the <i>Amazon S3 Service Developer Guide</i>.</para>
+        /// ACL</a> in the <i>Amazon S3 Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -307,7 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// data, use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData">GetInstanceUefiData</a>
         /// command. You can inspect and modify the UEFI data by using the <a href="https://github.com/awslabs/python-uefivars">python-uefivars
         /// tool</a> on GitHub. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI
-        /// Secure Boot</a> in the <i>Amazon EC2 User Guide</i>.</para>
+        /// Secure Boot for Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

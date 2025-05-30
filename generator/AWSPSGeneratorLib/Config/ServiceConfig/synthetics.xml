@@ -22,87 +22,91 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateResource" Verb="Add" Noun="Resource" ShouldProcessTarget="GroupIdentifier" PipelineParameter="GroupIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateResource" Verb="Add" Noun="Resource" ShouldProcessTarget="GroupIdentifier" PipelineParameter="GroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCanary" OutputProperty="Canary" Verb="New" Noun="Canary" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCanary" OutputProperty="Canary" Verb="New" Noun="Canary" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGroup" OutputProperty="Group" Verb="New" Noun="Group" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateGroup" OutputProperty="Group" Verb="New" Noun="Group" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCanary" Verb="Remove" Noun="Canary" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCanary" Verb="Remove" Noun="Canary" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGroup" Verb="Remove" Noun="Group" ShouldProcessTarget="GroupIdentifier" PipelineParameter="GroupIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteGroup" Verb="Remove" Noun="Group" ShouldProcessTarget="GroupIdentifier" PipelineParameter="GroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCanaries" OutputProperty="Canaries" Verb="Get" Noun="CanaryList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCanaries" OutputProperty="Canaries" Verb="Get" Noun="CanaryList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCanariesLastRun" OutputProperty="CanariesLastRun" Verb="Get" Noun="CanariesLastRun" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCanariesLastRun" OutputProperty="CanariesLastRun" Verb="Get" Noun="CanariesLastRun" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRuntimeVersions" OutputProperty="RuntimeVersions" Verb="Get" Noun="RuntimeVersion" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeRuntimeVersions" OutputProperty="RuntimeVersions" Verb="Get" Noun="RuntimeVersion" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateResource" Verb="Remove" Noun="Resource" ShouldProcessTarget="GroupIdentifier" PipelineParameter="GroupIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateResource" Verb="Remove" Noun="Resource" ShouldProcessTarget="GroupIdentifier" PipelineParameter="GroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCanary" OutputProperty="Canary" Verb="Get" Noun="Canary" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCanary" OutputProperty="Canary" Verb="Get" Noun="Canary" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCanaryRuns" OutputProperty="CanaryRuns" Verb="Get" Noun="CanaryRun" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCanaryRuns" OutputProperty="CanaryRuns" Verb="Get" Noun="CanaryRun" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGroup" OutputProperty="Group" Verb="Get" Noun="Group" PipelineParameter="GroupIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetGroup" OutputProperty="Group" Verb="Get" Noun="Group" PipelineParameter="GroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssociatedGroups" OutputProperty="Groups" Verb="Get" Noun="AssociatedGroupList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAssociatedGroups" OutputProperty="Groups" Verb="Get" Noun="AssociatedGroupList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroupResources" OutputProperty="Resources" Verb="Get" Noun="GroupResourceList" PipelineParameter="GroupIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGroupResources" OutputProperty="Resources" Verb="Get" Noun="GroupResourceList" PipelineParameter="GroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroups" OutputProperty="Groups" Verb="Get" Noun="GroupList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGroups" OutputProperty="Groups" Verb="Get" Noun="GroupList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartCanary" Verb="Start" Noun="Canary" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartCanary" Verb="Start" Noun="Canary" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopCanary" Verb="Stop" Noun="Canary" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartCanaryDryRun" OutputProperty="DryRunConfig" Verb="Start" Noun="CanaryDryRun" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopCanary" Verb="Stop" Noun="Canary" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCanary" Verb="Update" Noun="Canary" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCanary" Verb="Update" Noun="Canary" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

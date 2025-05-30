@@ -63,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>One or more filters.</para><ul><li><para><c>client-token</c> - The idempotency token for the modification request.</para></li><li><para><c>create-date</c> - The time when the modification request was created.</para></li><li><para><c>effective-date</c> - The time when the modification becomes effective.</para></li><li><para><c>modification-result.reserved-instances-id</c> - The ID for the Reserved Instances
         /// created as part of the modification request. This ID is only available when the status
         /// of the modification is <c>fulfilled</c>.</para></li><li><para><c>modification-result.target-configuration.availability-zone</c> - The Availability
-        /// Zone for the new Reserved Instances.</para></li><li><para><c>modification-result.target-configuration.instance-count </c> - The number of new
+        /// Zone for the new Reserved Instances.</para></li><li><para><c>modification-result.target-configuration.availability-zone-id</c> - The ID of
+        /// the Availability Zone for the new Reserved Instances.</para></li><li><para><c>modification-result.target-configuration.instance-count </c> - The number of new
         /// Reserved Instances.</para></li><li><para><c>modification-result.target-configuration.instance-type</c> - The instance type
         /// of the new Reserved Instances.</para></li><li><para><c>reserved-instances-id</c> - The ID of the Reserved Instances modified.</para></li><li><para><c>reserved-instances-modification-id</c> - The ID of the modification request.</para></li><li><para><c>status</c> - The status of the Reserved Instances modification request (<c>processing</c>
         /// | <c>fulfilled</c> | <c>failed</c>).</para></li><li><para><c>status-message</c> - The reason for the status.</para></li><li><para><c>update-date</c> - The time when the modification request was last updated.</para></li></ul>

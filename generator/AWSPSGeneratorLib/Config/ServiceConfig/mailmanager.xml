@@ -18,243 +18,243 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateAddonInstance" OutputProperty="AddonInstanceId" Verb="New" Noun="AddonInstance" ShouldProcessTarget="AddonSubscriptionId" PipelineParameter="AddonSubscriptionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAddonInstance" OutputProperty="AddonInstanceId" Verb="New" Noun="AddonInstance" ShouldProcessTarget="AddonSubscriptionId" PipelineParameter="AddonSubscriptionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAddonSubscription" OutputProperty="AddonSubscriptionId" Verb="New" Noun="AddonSubscription" ShouldProcessTarget="AddonName" PipelineParameter="AddonName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAddonSubscription" OutputProperty="AddonSubscriptionId" Verb="New" Noun="AddonSubscription" ShouldProcessTarget="AddonName" PipelineParameter="AddonName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAddressList" OutputProperty="AddressListId" Verb="New" Noun="AddressList" AnonymousShouldProcessTarget="true" PipelineParameter="AddressListName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAddressList" OutputProperty="AddressListId" Verb="New" Noun="AddressList" AnonymousShouldProcessTarget="true" PipelineParameter="AddressListName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAddressListImportJob" OutputProperty="*" Verb="New" Noun="AddressListImportJob" ShouldProcessTarget="AddressListId" PipelineParameter="AddressListId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAddressListImportJob" OutputProperty="*" Verb="New" Noun="AddressListImportJob" ShouldProcessTarget="AddressListId" PipelineParameter="AddressListId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateArchive" OutputProperty="ArchiveId" Verb="New" Noun="Archive" ShouldProcessTarget="ArchiveName" PipelineParameter="ArchiveName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateArchive" OutputProperty="ArchiveId" Verb="New" Noun="Archive" ShouldProcessTarget="ArchiveName" PipelineParameter="ArchiveName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIngressPoint" OutputProperty="IngressPointId" Verb="New" Noun="IngressPoint" ShouldProcessTarget="IngressPointName" PipelineParameter="IngressPointName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateIngressPoint" OutputProperty="IngressPointId" Verb="New" Noun="IngressPoint" ShouldProcessTarget="IngressPointName" PipelineParameter="IngressPointName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRelay" OutputProperty="RelayId" Verb="New" Noun="Relay" ShouldProcessTarget="RelayName" PipelineParameter="RelayName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRelay" OutputProperty="RelayId" Verb="New" Noun="Relay" ShouldProcessTarget="RelayName" PipelineParameter="RelayName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRuleSet" OutputProperty="RuleSetId" Verb="New" Noun="RuleSet" ShouldProcessTarget="RuleSetName" PipelineParameter="RuleSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRuleSet" OutputProperty="RuleSetId" Verb="New" Noun="RuleSet" ShouldProcessTarget="RuleSetName" PipelineParameter="RuleSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTrafficPolicy" OutputProperty="TrafficPolicyId" Verb="New" Noun="TrafficPolicy" ShouldProcessTarget="TrafficPolicyName" PipelineParameter="TrafficPolicyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTrafficPolicy" OutputProperty="TrafficPolicyId" Verb="New" Noun="TrafficPolicy" ShouldProcessTarget="TrafficPolicyName" PipelineParameter="TrafficPolicyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAddonInstance" Verb="Remove" Noun="AddonInstance" ShouldProcessTarget="AddonInstanceId" PipelineParameter="AddonInstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAddonInstance" Verb="Remove" Noun="AddonInstance" ShouldProcessTarget="AddonInstanceId" PipelineParameter="AddonInstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAddonSubscription" Verb="Remove" Noun="AddonSubscription" ShouldProcessTarget="AddonSubscriptionId" PipelineParameter="AddonSubscriptionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAddonSubscription" Verb="Remove" Noun="AddonSubscription" ShouldProcessTarget="AddonSubscriptionId" PipelineParameter="AddonSubscriptionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAddressList" Verb="Remove" Noun="AddressList" ShouldProcessTarget="AddressListId" PipelineParameter="AddressListId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAddressList" Verb="Remove" Noun="AddressList" ShouldProcessTarget="AddressListId" PipelineParameter="AddressListId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteArchive" Verb="Remove" Noun="Archive" ShouldProcessTarget="ArchiveId" PipelineParameter="ArchiveId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteArchive" Verb="Remove" Noun="Archive" ShouldProcessTarget="ArchiveId" PipelineParameter="ArchiveId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIngressPoint" Verb="Remove" Noun="IngressPoint" ShouldProcessTarget="IngressPointId" PipelineParameter="IngressPointId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteIngressPoint" Verb="Remove" Noun="IngressPoint" ShouldProcessTarget="IngressPointId" PipelineParameter="IngressPointId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRelay" Verb="Remove" Noun="Relay" ShouldProcessTarget="RelayId" PipelineParameter="RelayId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRelay" Verb="Remove" Noun="Relay" ShouldProcessTarget="RelayId" PipelineParameter="RelayId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRuleSet" Verb="Remove" Noun="RuleSet" ShouldProcessTarget="RuleSetId" PipelineParameter="RuleSetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRuleSet" Verb="Remove" Noun="RuleSet" ShouldProcessTarget="RuleSetId" PipelineParameter="RuleSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTrafficPolicy" Verb="Remove" Noun="TrafficPolicy" ShouldProcessTarget="TrafficPolicyId" PipelineParameter="TrafficPolicyId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTrafficPolicy" Verb="Remove" Noun="TrafficPolicy" ShouldProcessTarget="TrafficPolicyId" PipelineParameter="TrafficPolicyId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterMemberFromAddressList" Verb="Remove" Noun="MemberFromAddressList" ShouldProcessTarget="Address" PipelineParameter="Address" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeregisterMemberFromAddressList" Verb="Remove" Noun="MemberFromAddressList" ShouldProcessTarget="Address" PipelineParameter="Address" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAddonInstance" OutputProperty="*" Verb="Get" Noun="AddonInstance" PipelineParameter="AddonInstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAddonInstance" OutputProperty="*" Verb="Get" Noun="AddonInstance" PipelineParameter="AddonInstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAddonSubscription" OutputProperty="*" Verb="Get" Noun="AddonSubscription" PipelineParameter="AddonSubscriptionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAddonSubscription" OutputProperty="*" Verb="Get" Noun="AddonSubscription" PipelineParameter="AddonSubscriptionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAddressList" OutputProperty="*" Verb="Get" Noun="AddressList" PipelineParameter="AddressListId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAddressList" OutputProperty="*" Verb="Get" Noun="AddressList" PipelineParameter="AddressListId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAddressListImportJob" OutputProperty="*" Verb="Get" Noun="AddressListImportJob" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAddressListImportJob" OutputProperty="*" Verb="Get" Noun="AddressListImportJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetArchive" OutputProperty="*" Verb="Get" Noun="Archive" PipelineParameter="ArchiveId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetArchive" OutputProperty="*" Verb="Get" Noun="Archive" PipelineParameter="ArchiveId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetArchiveExport" OutputProperty="*" Verb="Get" Noun="ArchiveExport" PipelineParameter="ExportId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetArchiveExport" OutputProperty="*" Verb="Get" Noun="ArchiveExport" PipelineParameter="ExportId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetArchiveMessage" OutputProperty="MessageDownloadLink" Verb="Get" Noun="ArchiveMessage" PipelineParameter="ArchivedMessageId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetArchiveMessage" OutputProperty="MessageDownloadLink" Verb="Get" Noun="ArchiveMessage" PipelineParameter="ArchivedMessageId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetArchiveMessageContent" OutputProperty="Body" Verb="Get" Noun="ArchiveMessageContent" PipelineParameter="ArchivedMessageId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetArchiveMessageContent" OutputProperty="Body" Verb="Get" Noun="ArchiveMessageContent" PipelineParameter="ArchivedMessageId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetArchiveSearch" OutputProperty="*" Verb="Get" Noun="ArchiveSearch" PipelineParameter="SearchId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetArchiveSearch" OutputProperty="*" Verb="Get" Noun="ArchiveSearch" PipelineParameter="SearchId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetArchiveSearchResults" OutputProperty="Rows" Verb="Get" Noun="ArchiveSearchResult" PipelineParameter="SearchId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetArchiveSearchResults" OutputProperty="Rows" Verb="Get" Noun="ArchiveSearchResult" PipelineParameter="SearchId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIngressPoint" OutputProperty="*" Verb="Get" Noun="IngressPoint" PipelineParameter="IngressPointId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetIngressPoint" OutputProperty="*" Verb="Get" Noun="IngressPoint" PipelineParameter="IngressPointId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMemberOfAddressList" OutputProperty="*" Verb="Get" Noun="MemberOfAddressList" PipelineParameter="Address" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMemberOfAddressList" OutputProperty="*" Verb="Get" Noun="MemberOfAddressList" PipelineParameter="Address" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRelay" OutputProperty="*" Verb="Get" Noun="Relay" PipelineParameter="RelayId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRelay" OutputProperty="*" Verb="Get" Noun="Relay" PipelineParameter="RelayId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRuleSet" OutputProperty="*" Verb="Get" Noun="RuleSet" PipelineParameter="RuleSetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRuleSet" OutputProperty="*" Verb="Get" Noun="RuleSet" PipelineParameter="RuleSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTrafficPolicy" OutputProperty="*" Verb="Get" Noun="TrafficPolicy" PipelineParameter="TrafficPolicyId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTrafficPolicy" OutputProperty="*" Verb="Get" Noun="TrafficPolicy" PipelineParameter="TrafficPolicyId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAddonInstances" OutputProperty="AddonInstances" Verb="Get" Noun="AddonInstanceList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAddonInstances" OutputProperty="AddonInstances" Verb="Get" Noun="AddonInstanceList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAddonSubscriptions" OutputProperty="AddonSubscriptions" Verb="Get" Noun="AddonSubscriptionList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAddonSubscriptions" OutputProperty="AddonSubscriptions" Verb="Get" Noun="AddonSubscriptionList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAddressListImportJobs" OutputProperty="ImportJobs" Verb="Get" Noun="AddressListImportJobList" PipelineParameter="AddressListId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAddressListImportJobs" OutputProperty="ImportJobs" Verb="Get" Noun="AddressListImportJobList" PipelineParameter="AddressListId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAddressLists" OutputProperty="AddressLists" Verb="Get" Noun="AddressListList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListAddressLists" OutputProperty="AddressLists" Verb="Get" Noun="AddressListList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListArchiveExports" OutputProperty="Exports" Verb="Get" Noun="ArchiveExportList" PipelineParameter="ArchiveId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListArchiveExports" OutputProperty="Exports" Verb="Get" Noun="ArchiveExportList" PipelineParameter="ArchiveId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListArchives" OutputProperty="Archives" Verb="Get" Noun="ArchiveList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListArchives" OutputProperty="Archives" Verb="Get" Noun="ArchiveList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListArchiveSearches" OutputProperty="Searches" Verb="Get" Noun="ArchiveSearchList" PipelineParameter="ArchiveId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListArchiveSearches" OutputProperty="Searches" Verb="Get" Noun="ArchiveSearchList" PipelineParameter="ArchiveId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIngressPoints" OutputProperty="IngressPoints" Verb="Get" Noun="IngressPointList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListIngressPoints" OutputProperty="IngressPoints" Verb="Get" Noun="IngressPointList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMembersOfAddressList" OutputProperty="Addresses" Verb="Get" Noun="MembersOfAddressListList" PipelineParameter="AddressListId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMembersOfAddressList" OutputProperty="Addresses" Verb="Get" Noun="MembersOfAddressListList" PipelineParameter="AddressListId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRelays" OutputProperty="Relays" Verb="Get" Noun="RelayList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRelays" OutputProperty="Relays" Verb="Get" Noun="RelayList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRuleSets" OutputProperty="RuleSets" Verb="Get" Noun="RuleSetList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRuleSets" OutputProperty="RuleSets" Verb="Get" Noun="RuleSetList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrafficPolicies" OutputProperty="TrafficPolicies" Verb="Get" Noun="TrafficPolicyList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTrafficPolicies" OutputProperty="TrafficPolicies" Verb="Get" Noun="TrafficPolicyList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterMemberToAddressList" Verb="Add" Noun="MemberToAddressList" ShouldProcessTarget="Address" PipelineParameter="Address" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterMemberToAddressList" Verb="Add" Noun="MemberToAddressList" ShouldProcessTarget="Address" PipelineParameter="Address" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartAddressListImportJob" Verb="Start" Noun="AddressListImportJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartAddressListImportJob" Verb="Start" Noun="AddressListImportJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartArchiveExport" OutputProperty="ExportId" Verb="Start" Noun="ArchiveExport" ShouldProcessTarget="ArchiveId" PipelineParameter="ArchiveId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartArchiveExport" OutputProperty="ExportId" Verb="Start" Noun="ArchiveExport" ShouldProcessTarget="ArchiveId" PipelineParameter="ArchiveId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartArchiveSearch" OutputProperty="SearchId" Verb="Start" Noun="ArchiveSearch" ShouldProcessTarget="ArchiveId" PipelineParameter="ArchiveId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartArchiveSearch" OutputProperty="SearchId" Verb="Start" Noun="ArchiveSearch" ShouldProcessTarget="ArchiveId" PipelineParameter="ArchiveId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopAddressListImportJob" Verb="Stop" Noun="AddressListImportJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopAddressListImportJob" Verb="Stop" Noun="AddressListImportJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopArchiveExport" Verb="Stop" Noun="ArchiveExport" ShouldProcessTarget="ExportId" PipelineParameter="ExportId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopArchiveExport" Verb="Stop" Noun="ArchiveExport" ShouldProcessTarget="ExportId" PipelineParameter="ExportId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopArchiveSearch" Verb="Stop" Noun="ArchiveSearch" ShouldProcessTarget="SearchId" PipelineParameter="SearchId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopArchiveSearch" Verb="Stop" Noun="ArchiveSearch" ShouldProcessTarget="SearchId" PipelineParameter="SearchId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateArchive" Verb="Update" Noun="Archive" ShouldProcessTarget="ArchiveId" PipelineParameter="ArchiveId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateArchive" Verb="Update" Noun="Archive" ShouldProcessTarget="ArchiveId" PipelineParameter="ArchiveId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIngressPoint" Verb="Update" Noun="IngressPoint" ShouldProcessTarget="IngressPointId" PipelineParameter="IngressPointId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateIngressPoint" Verb="Update" Noun="IngressPoint" ShouldProcessTarget="IngressPointId" PipelineParameter="IngressPointId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRelay" Verb="Update" Noun="Relay" ShouldProcessTarget="RelayId" PipelineParameter="RelayId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRelay" Verb="Update" Noun="Relay" ShouldProcessTarget="RelayId" PipelineParameter="RelayId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRuleSet" Verb="Update" Noun="RuleSet" ShouldProcessTarget="RuleSetId" PipelineParameter="RuleSetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRuleSet" Verb="Update" Noun="RuleSet" ShouldProcessTarget="RuleSetId" PipelineParameter="RuleSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTrafficPolicy" Verb="Update" Noun="TrafficPolicy" ShouldProcessTarget="TrafficPolicyId" PipelineParameter="TrafficPolicyId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTrafficPolicy" Verb="Update" Noun="TrafficPolicy" ShouldProcessTarget="TrafficPolicyId" PipelineParameter="TrafficPolicyId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

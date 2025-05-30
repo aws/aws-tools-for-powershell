@@ -93,13 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// that match your requirements.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int32? InstanceCount { get; set; }
         #endregion
         
@@ -113,13 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// Reserved Instances that match your computational needs.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.SageMaker.ReservedCapacityInstanceType")]
         public Amazon.SageMaker.ReservedCapacityInstanceType InstanceType { get; set; }
         #endregion
@@ -211,19 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #endif
             context.EndTimeBefore = this.EndTimeBefore;
             context.InstanceCount = this.InstanceCount;
-            #if MODULAR
-            if (this.InstanceCount == null && ParameterWasBound(nameof(this.InstanceCount)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InstanceCount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.InstanceType = this.InstanceType;
-            #if MODULAR
-            if (this.InstanceType == null && ParameterWasBound(nameof(this.InstanceType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InstanceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.StartTimeAfter = this.StartTimeAfter;
             if (this.TargetResource != null)
             {

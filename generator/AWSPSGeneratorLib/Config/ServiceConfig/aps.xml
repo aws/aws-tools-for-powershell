@@ -19,119 +19,135 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateAlertManagerDefinition" OutputProperty="Status" Verb="New" Noun="AlertManagerDefinition" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAlertManagerDefinition" OutputProperty="Status" Verb="New" Noun="AlertManagerDefinition" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLoggingConfiguration" OutputProperty="Status" Verb="New" Noun="LoggingConfiguration" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateLoggingConfiguration" OutputProperty="Status" Verb="New" Noun="LoggingConfiguration" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRuleGroupsNamespace" OutputProperty="*" Verb="New" Noun="RuleGroupsNamespace" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateQueryLoggingConfiguration" OutputProperty="Status" Verb="New" Noun="QueryLoggingConfiguration" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateScraper" OutputProperty="*" Verb="New" Noun="Scraper" ShouldProcessTarget="" PipelineParameter="Alias" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRuleGroupsNamespace" OutputProperty="*" Verb="New" Noun="RuleGroupsNamespace" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWorkspace" OutputProperty="*" Verb="New" Noun="Workspace" ShouldProcessTarget="Alias" PipelineParameter="Alias" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateScraper" OutputProperty="*" Verb="New" Noun="Scraper" ShouldProcessTarget="" PipelineParameter="Alias" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAlertManagerDefinition" Verb="Remove" Noun="AlertManagerDefinition" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateWorkspace" OutputProperty="*" Verb="New" Noun="Workspace" ShouldProcessTarget="Alias" PipelineParameter="Alias" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLoggingConfiguration" Verb="Remove" Noun="LoggingConfiguration" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAlertManagerDefinition" Verb="Remove" Noun="AlertManagerDefinition" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRuleGroupsNamespace" Verb="Remove" Noun="RuleGroupsNamespace" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteLoggingConfiguration" Verb="Remove" Noun="LoggingConfiguration" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteScraper" OutputProperty="*" Verb="Remove" Noun="Scraper" ShouldProcessTarget="ScraperId" PipelineParameter="ScraperId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteQueryLoggingConfiguration" Verb="Remove" Noun="QueryLoggingConfiguration" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWorkspace" Verb="Remove" Noun="Workspace" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRuleGroupsNamespace" Verb="Remove" Noun="RuleGroupsNamespace" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAlertManagerDefinition" OutputProperty="AlertManagerDefinition" Verb="Get" Noun="AlertManagerDefinition" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteScraper" OutputProperty="*" Verb="Remove" Noun="Scraper" ShouldProcessTarget="ScraperId" PipelineParameter="ScraperId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLoggingConfiguration" OutputProperty="LoggingConfiguration" Verb="Get" Noun="LoggingConfiguration" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteWorkspace" Verb="Remove" Noun="Workspace" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRuleGroupsNamespace" OutputProperty="RuleGroupsNamespace" Verb="Get" Noun="RuleGroupsNamespace" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAlertManagerDefinition" OutputProperty="AlertManagerDefinition" Verb="Get" Noun="AlertManagerDefinition" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScraper" OutputProperty="Scraper" Verb="Get" Noun="Scraper" PipelineParameter="ScraperId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLoggingConfiguration" OutputProperty="LoggingConfiguration" Verb="Get" Noun="LoggingConfiguration" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspace" OutputProperty="Workspace" Verb="Get" Noun="Workspace" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeQueryLoggingConfiguration" OutputProperty="QueryLoggingConfiguration" Verb="Get" Noun="QueryLoggingConfiguration" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspaceConfiguration" OutputProperty="WorkspaceConfiguration" Verb="Get" Noun="WorkspaceConfiguration" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRuleGroupsNamespace" OutputProperty="RuleGroupsNamespace" Verb="Get" Noun="RuleGroupsNamespace" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDefaultScraperConfiguration" OutputProperty="Configuration" Verb="Get" Noun="DefaultScraperConfiguration" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeScraper" OutputProperty="Scraper" Verb="Get" Noun="Scraper" PipelineParameter="ScraperId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRuleGroupsNamespaces" OutputProperty="RuleGroupsNamespaces" Verb="Get" Noun="RuleGroupsNamespaceList" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeWorkspace" OutputProperty="Workspace" Verb="Get" Noun="Workspace" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListScrapers" OutputProperty="Scrapers" Verb="Get" Noun="ScraperList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeWorkspaceConfiguration" OutputProperty="WorkspaceConfiguration" Verb="Get" Noun="WorkspaceConfiguration" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDefaultScraperConfiguration" OutputProperty="Configuration" Verb="Get" Noun="DefaultScraperConfiguration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkspaces" OutputProperty="Workspaces" Verb="Get" Noun="WorkspaceList" PipelineParameter="Alias" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRuleGroupsNamespaces" OutputProperty="RuleGroupsNamespaces" Verb="Get" Noun="RuleGroupsNamespaceList" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAlertManagerDefinition" OutputProperty="Status" Verb="Write" Noun="AlertManagerDefinition" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListScrapers" OutputProperty="Scrapers" Verb="Get" Noun="ScraperList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRuleGroupsNamespace" OutputProperty="*" Verb="Write" Noun="RuleGroupsNamespace" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListWorkspaces" OutputProperty="Workspaces" Verb="Get" Noun="WorkspaceList" PipelineParameter="Alias" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutAlertManagerDefinition" OutputProperty="Status" Verb="Write" Noun="AlertManagerDefinition" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLoggingConfiguration" OutputProperty="Status" Verb="Update" Noun="LoggingConfiguration" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutRuleGroupsNamespace" OutputProperty="*" Verb="Write" Noun="RuleGroupsNamespace" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateScraper" OutputProperty="*" Verb="Update" Noun="Scraper" ShouldProcessTarget="ScraperId" PipelineParameter="ScraperId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWorkspaceAlias" Verb="Update" Noun="WorkspaceAlias" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWorkspaceConfiguration" OutputProperty="Status" Verb="Update" Noun="WorkspaceConfiguration" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateLoggingConfiguration" OutputProperty="Status" Verb="Update" Noun="LoggingConfiguration" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQueryLoggingConfiguration" OutputProperty="Status" Verb="Update" Noun="QueryLoggingConfiguration" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateScraper" OutputProperty="*" Verb="Update" Noun="Scraper" ShouldProcessTarget="ScraperId" PipelineParameter="ScraperId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWorkspaceAlias" Verb="Update" Noun="WorkspaceAlias" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWorkspaceConfiguration" OutputProperty="Status" Verb="Update" Noun="WorkspaceConfiguration" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

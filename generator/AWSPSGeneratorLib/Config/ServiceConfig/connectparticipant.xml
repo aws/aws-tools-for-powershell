@@ -19,47 +19,47 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelParticipantAuthentication" Verb="Stop" Noun="ParticipantAuthentication" ShouldProcessTarget="SessionId" PipelineParameter="ConnectionToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelParticipantAuthentication" Verb="Stop" Noun="ParticipantAuthentication" ShouldProcessTarget="SessionId" PipelineParameter="ConnectionToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CompleteAttachmentUpload" Verb="Complete" Noun="AttachmentUpload" ShouldProcessTarget="ConnectionToken" PipelineParameter="ConnectionToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CompleteAttachmentUpload" Verb="Complete" Noun="AttachmentUpload" ShouldProcessTarget="ConnectionToken" PipelineParameter="ConnectionToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateParticipantConnection" OutputProperty="*" Verb="New" Noun="ParticipantConnection" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="ParticipantToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateParticipantConnection" OutputProperty="*" Verb="New" Noun="ParticipantConnection" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="ParticipantToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeView" OutputProperty="View" Verb="Get" Noun="View" PipelineParameter="ViewToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeView" OutputProperty="View" Verb="Get" Noun="View" PipelineParameter="ViewToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisconnectParticipant" Verb="Disconnect" Noun="Participant" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="ConnectionToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisconnectParticipant" Verb="Disconnect" Noun="Participant" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="ConnectionToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAttachment" OutputProperty="*" Verb="Get" Noun="Attachment" PipelineParameter="ConnectionToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAttachment" OutputProperty="*" Verb="Get" Noun="Attachment" PipelineParameter="ConnectionToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAuthenticationUrl" OutputProperty="AuthenticationUrl" Verb="Get" Noun="AuthenticationUrl" PipelineParameter="ConnectionToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAuthenticationUrl" OutputProperty="AuthenticationUrl" Verb="Get" Noun="AuthenticationUrl" PipelineParameter="ConnectionToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTranscript" OutputProperty="*" Verb="Get" Noun="Transcript" PipelineParameter="ConnectionToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTranscript" OutputProperty="*" Verb="Get" Noun="Transcript" PipelineParameter="ConnectionToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendEvent" OutputProperty="*" Verb="Send" Noun="Event" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="ConnectionToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SendEvent" OutputProperty="*" Verb="Send" Noun="Event" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="ConnectionToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendMessage" OutputProperty="*" Verb="Send" Noun="Message" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Content" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SendMessage" OutputProperty="*" Verb="Send" Noun="Message" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Content" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartAttachmentUpload" OutputProperty="*" Verb="Start" Noun="AttachmentUpload" ShouldProcessTarget="AttachmentName" PipelineParameter="ConnectionToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartAttachmentUpload" OutputProperty="*" Verb="Start" Noun="AttachmentUpload" ShouldProcessTarget="AttachmentName" PipelineParameter="ConnectionToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

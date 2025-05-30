@@ -19,299 +19,299 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptAdministratorInvitation" Verb="Receive" Noun="AdministratorInvitation" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AcceptAdministratorInvitation" Verb="Receive" Noun="AdministratorInvitation" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AcceptInvitation" Verb="Confirm" Noun="Invitation" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AcceptInvitation" Verb="Confirm" Noun="Invitation" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ArchiveFindings" Verb="Backup" Noun="Finding" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ArchiveFindings" Verb="Backup" Noun="Finding" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDetector" OutputProperty="DetectorId" Verb="New" Noun="Detector" ShouldProcessTarget="Enable" PipelineParameter="Enable" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDetector" OutputProperty="DetectorId" Verb="New" Noun="Detector" ShouldProcessTarget="Enable" PipelineParameter="Enable" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFilter" OutputProperty="Name" Verb="New" Noun="Filter" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateFilter" OutputProperty="Name" Verb="New" Noun="Filter" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIPSet" OutputProperty="IpSetId" Verb="New" Noun="IPSet" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateIPSet" OutputProperty="IpSetId" Verb="New" Noun="IPSet" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMalwareProtectionPlan" OutputProperty="MalwareProtectionPlanId" Verb="New" Noun="MalwareProtectionPlan" ShouldProcessTarget="ProtectedResource_S3Bucket_BucketName" PipelineParameter="Role" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMalwareProtectionPlan" OutputProperty="MalwareProtectionPlanId" Verb="New" Noun="MalwareProtectionPlan" ShouldProcessTarget="ProtectedResource_S3Bucket_BucketName" PipelineParameter="Role" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMembers" OutputProperty="UnprocessedAccounts" Verb="New" Noun="Member" ShouldProcessTarget="DetectorId" PipelineParameter="AccountDetails" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMembers" OutputProperty="UnprocessedAccounts" Verb="New" Noun="Member" ShouldProcessTarget="DetectorId" PipelineParameter="AccountDetails" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePublishingDestination" OutputProperty="DestinationId" Verb="New" Noun="PublishingDestination" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePublishingDestination" OutputProperty="DestinationId" Verb="New" Noun="PublishingDestination" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSampleFindings" Verb="New" Noun="SampleFinding" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateSampleFindings" Verb="New" Noun="SampleFinding" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateThreatIntelSet" OutputProperty="ThreatIntelSetId" Verb="New" Noun="ThreatIntelSet" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateThreatIntelSet" OutputProperty="ThreatIntelSetId" Verb="New" Noun="ThreatIntelSet" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeclineInvitations" OutputProperty="UnprocessedAccounts" Verb="Deny" Noun="Invitation" ShouldProcessTarget="AccountIds" PipelineParameter="AccountIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeclineInvitations" OutputProperty="UnprocessedAccounts" Verb="Deny" Noun="Invitation" ShouldProcessTarget="AccountIds" PipelineParameter="AccountIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDetector" Verb="Remove" Noun="Detector" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDetector" Verb="Remove" Noun="Detector" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFilter" Verb="Remove" Noun="Filter" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteFilter" Verb="Remove" Noun="Filter" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInvitations" OutputProperty="UnprocessedAccounts" Verb="Remove" Noun="Invitation" ShouldProcessTarget="AccountIds" PipelineParameter="AccountIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteInvitations" OutputProperty="UnprocessedAccounts" Verb="Remove" Noun="Invitation" ShouldProcessTarget="AccountIds" PipelineParameter="AccountIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIPSet" Verb="Remove" Noun="IPSet" ShouldProcessTarget="IpSetId" PipelineParameter="IpSetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteIPSet" Verb="Remove" Noun="IPSet" ShouldProcessTarget="IpSetId" PipelineParameter="IpSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMalwareProtectionPlan" Verb="Remove" Noun="MalwareProtectionPlan" ShouldProcessTarget="MalwareProtectionPlanId" PipelineParameter="MalwareProtectionPlanId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMalwareProtectionPlan" Verb="Remove" Noun="MalwareProtectionPlan" ShouldProcessTarget="MalwareProtectionPlanId" PipelineParameter="MalwareProtectionPlanId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMembers" OutputProperty="UnprocessedAccounts" Verb="Remove" Noun="Member" ShouldProcessTarget="DetectorId" PipelineParameter="AccountIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMembers" OutputProperty="UnprocessedAccounts" Verb="Remove" Noun="Member" ShouldProcessTarget="DetectorId" PipelineParameter="AccountIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePublishingDestination" Verb="Remove" Noun="PublishingDestination" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePublishingDestination" Verb="Remove" Noun="PublishingDestination" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteThreatIntelSet" Verb="Remove" Noun="ThreatIntelSet" ShouldProcessTarget="ThreatIntelSetId" PipelineParameter="ThreatIntelSetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteThreatIntelSet" Verb="Remove" Noun="ThreatIntelSet" ShouldProcessTarget="ThreatIntelSetId" PipelineParameter="ThreatIntelSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMalwareScans" OutputProperty="Scans" Verb="Get" Noun="MalwareScan" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeMalwareScans" OutputProperty="Scans" Verb="Get" Noun="MalwareScan" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOrganizationConfiguration" OutputProperty="*" Verb="Get" Noun="OrganizationConfiguration" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeOrganizationConfiguration" OutputProperty="*" Verb="Get" Noun="OrganizationConfiguration" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePublishingDestination" OutputProperty="*" Verb="Get" Noun="PublishingDestination" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribePublishingDestination" OutputProperty="*" Verb="Get" Noun="PublishingDestination" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableOrganizationAdminAccount" Verb="Disable" Noun="OrganizationAdminAccount" ShouldProcessTarget="AdminAccountId" PipelineParameter="AdminAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableOrganizationAdminAccount" Verb="Disable" Noun="OrganizationAdminAccount" ShouldProcessTarget="AdminAccountId" PipelineParameter="AdminAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateFromAdministratorAccount" Verb="Remove" Noun="FromAdministratorAccount" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateFromAdministratorAccount" Verb="Remove" Noun="FromAdministratorAccount" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateFromMasterAccount" Verb="Unregister" Noun="FromMasterAccount" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateFromMasterAccount" Verb="Unregister" Noun="FromMasterAccount" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateMembers" OutputProperty="UnprocessedAccounts" Verb="Unregister" Noun="Member" ShouldProcessTarget="DetectorId" PipelineParameter="AccountIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateMembers" OutputProperty="UnprocessedAccounts" Verb="Unregister" Noun="Member" ShouldProcessTarget="DetectorId" PipelineParameter="AccountIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableOrganizationAdminAccount" Verb="Enable" Noun="OrganizationAdminAccount" ShouldProcessTarget="AdminAccountId" PipelineParameter="AdminAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableOrganizationAdminAccount" Verb="Enable" Noun="OrganizationAdminAccount" ShouldProcessTarget="AdminAccountId" PipelineParameter="AdminAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAdministratorAccount" OutputProperty="Administrator" Verb="Get" Noun="AdministratorAccount" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAdministratorAccount" OutputProperty="Administrator" Verb="Get" Noun="AdministratorAccount" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCoverageStatistics" OutputProperty="CoverageStatistics" Verb="Get" Noun="CoverageStatistic" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCoverageStatistics" OutputProperty="CoverageStatistics" Verb="Get" Noun="CoverageStatistic" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDetector" OutputProperty="*" Verb="Get" Noun="Detector" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDetector" OutputProperty="*" Verb="Get" Noun="Detector" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFilter" OutputProperty="*" Verb="Get" Noun="Filter" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetFilter" OutputProperty="*" Verb="Get" Noun="Filter" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFindings" OutputProperty="Findings" Verb="Get" Noun="Finding" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetFindings" OutputProperty="Findings" Verb="Get" Noun="Finding" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFindingsStatistics" OutputProperty="FindingStatistics" Verb="Get" Noun="FindingStatistic" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetFindingsStatistics" OutputProperty="FindingStatistics" Verb="Get" Noun="FindingStatistic" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInvitationsCount" OutputProperty="InvitationsCount" Verb="Get" Noun="InvitationCount" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetInvitationsCount" OutputProperty="InvitationsCount" Verb="Get" Noun="InvitationCount" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIPSet" OutputProperty="*" Verb="Get" Noun="IPSet" PipelineParameter="IpSetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetIPSet" OutputProperty="*" Verb="Get" Noun="IPSet" PipelineParameter="IpSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMalwareProtectionPlan" OutputProperty="*" Verb="Get" Noun="MalwareProtectionPlan" PipelineParameter="MalwareProtectionPlanId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMalwareProtectionPlan" OutputProperty="*" Verb="Get" Noun="MalwareProtectionPlan" PipelineParameter="MalwareProtectionPlanId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMalwareScanSettings" OutputProperty="*" Verb="Get" Noun="MalwareScanSetting" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMalwareScanSettings" OutputProperty="*" Verb="Get" Noun="MalwareScanSetting" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMasterAccount" OutputProperty="Master" Verb="Get" Noun="MasterAccount" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMasterAccount" OutputProperty="Master" Verb="Get" Noun="MasterAccount" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMemberDetectors" OutputProperty="*" Verb="Get" Noun="MemberDetector" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMemberDetectors" OutputProperty="*" Verb="Get" Noun="MemberDetector" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMembers" OutputProperty="*" Verb="Get" Noun="Member" PipelineParameter="AccountIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMembers" OutputProperty="*" Verb="Get" Noun="Member" PipelineParameter="AccountIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOrganizationStatistics" OutputProperty="OrganizationDetails" Verb="Get" Noun="OrganizationStatistic" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetOrganizationStatistics" OutputProperty="OrganizationDetails" Verb="Get" Noun="OrganizationStatistic" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRemainingFreeTrialDays" OutputProperty="*" Verb="Get" Noun="RemainingFreeTrialDay" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRemainingFreeTrialDays" OutputProperty="*" Verb="Get" Noun="RemainingFreeTrialDay" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetThreatIntelSet" OutputProperty="*" Verb="Get" Noun="ThreatIntelSet" PipelineParameter="ThreatIntelSetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetThreatIntelSet" OutputProperty="*" Verb="Get" Noun="ThreatIntelSet" PipelineParameter="ThreatIntelSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUsageStatistics" OutputProperty="UsageStatistics" Verb="Get" Noun="UsageStatistic" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetUsageStatistics" OutputProperty="UsageStatistics" Verb="Get" Noun="UsageStatistic" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InviteMembers" OutputProperty="UnprocessedAccounts" Verb="Send" Noun="MemberInvitation" ShouldProcessTarget="DetectorId" PipelineParameter="AccountIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="InviteMembers" OutputProperty="UnprocessedAccounts" Verb="Send" Noun="MemberInvitation" ShouldProcessTarget="DetectorId" PipelineParameter="AccountIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCoverage" OutputProperty="Resources" Verb="Get" Noun="CoverageList" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCoverage" OutputProperty="Resources" Verb="Get" Noun="CoverageList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDetectors" OutputProperty="DetectorIds" Verb="Get" Noun="DetectorList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListDetectors" OutputProperty="DetectorIds" Verb="Get" Noun="DetectorList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFilters" OutputProperty="FilterNames" Verb="Get" Noun="FilterList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListFilters" OutputProperty="FilterNames" Verb="Get" Noun="FilterList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFindings" OutputProperty="FindingIds" Verb="Get" Noun="FindingList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListFindings" OutputProperty="FindingIds" Verb="Get" Noun="FindingList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInvitations" OutputProperty="Invitations" Verb="Get" Noun="InvitationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListInvitations" OutputProperty="Invitations" Verb="Get" Noun="InvitationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIPSets" OutputProperty="IpSetIds" Verb="Get" Noun="IPSetList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListIPSets" OutputProperty="IpSetIds" Verb="Get" Noun="IPSetList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMalwareProtectionPlans" OutputProperty="MalwareProtectionPlans" Verb="Get" Noun="MalwareProtectionPlanList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMalwareProtectionPlans" OutputProperty="MalwareProtectionPlans" Verb="Get" Noun="MalwareProtectionPlanList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMembers" OutputProperty="Members" Verb="Get" Noun="MemberList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListMembers" OutputProperty="Members" Verb="Get" Noun="MemberList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOrganizationAdminAccounts" OutputProperty="AdminAccounts" Verb="Get" Noun="OrganizationAdminAccountList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListOrganizationAdminAccounts" OutputProperty="AdminAccounts" Verb="Get" Noun="OrganizationAdminAccountList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPublishingDestinations" OutputProperty="Destinations" Verb="Get" Noun="PublishingDestinationList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListPublishingDestinations" OutputProperty="Destinations" Verb="Get" Noun="PublishingDestinationList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThreatIntelSets" OutputProperty="ThreatIntelSetIds" Verb="Get" Noun="ThreatIntelSetList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListThreatIntelSets" OutputProperty="ThreatIntelSetIds" Verb="Get" Noun="ThreatIntelSetList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMalwareScan" OutputProperty="ScanId" Verb="Start" Noun="MalwareScan" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartMalwareScan" OutputProperty="ScanId" Verb="Start" Noun="MalwareScan" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMonitoringMembers" OutputProperty="UnprocessedAccounts" Verb="Start" Noun="MonitoringMember" ShouldProcessTarget="DetectorId" PipelineParameter="AccountIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartMonitoringMembers" OutputProperty="UnprocessedAccounts" Verb="Start" Noun="MonitoringMember" ShouldProcessTarget="DetectorId" PipelineParameter="AccountIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopMonitoringMembers" OutputProperty="UnprocessedAccounts" Verb="Stop" Noun="MonitoringMember" ShouldProcessTarget="DetectorId" PipelineParameter="AccountIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopMonitoringMembers" OutputProperty="UnprocessedAccounts" Verb="Stop" Noun="MonitoringMember" ShouldProcessTarget="DetectorId" PipelineParameter="AccountIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UnarchiveFindings" Verb="Restore" Noun="Finding" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UnarchiveFindings" Verb="Restore" Noun="Finding" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDetector" Verb="Update" Noun="Detector" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDetector" Verb="Update" Noun="Detector" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFilter" OutputProperty="Name" Verb="Update" Noun="Filter" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateFilter" OutputProperty="Name" Verb="Update" Noun="Filter" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFindingsFeedback" Verb="Update" Noun="FindingFeedback" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateFindingsFeedback" Verb="Update" Noun="FindingFeedback" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIPSet" Verb="Update" Noun="IPSet" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateIPSet" Verb="Update" Noun="IPSet" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMalwareProtectionPlan" Verb="Update" Noun="MalwareProtectionPlan" ShouldProcessTarget="MalwareProtectionPlanId" PipelineParameter="MalwareProtectionPlanId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateMalwareProtectionPlan" Verb="Update" Noun="MalwareProtectionPlan" ShouldProcessTarget="MalwareProtectionPlanId" PipelineParameter="MalwareProtectionPlanId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMalwareScanSettings" Verb="Update" Noun="MalwareScanSetting" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateMalwareScanSettings" Verb="Update" Noun="MalwareScanSetting" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMemberDetectors" OutputProperty="UnprocessedAccounts" Verb="Update" Noun="MemberDetector" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateMemberDetectors" OutputProperty="UnprocessedAccounts" Verb="Update" Noun="MemberDetector" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateOrganizationConfiguration" Verb="Update" Noun="OrganizationConfiguration" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateOrganizationConfiguration" Verb="Update" Noun="OrganizationConfiguration" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePublishingDestination" Verb="Update" Noun="PublishingDestination" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePublishingDestination" Verb="Update" Noun="PublishingDestination" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateThreatIntelSet" Verb="Update" Noun="ThreatIntelSet" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateThreatIntelSet" Verb="Update" Noun="ThreatIntelSet" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

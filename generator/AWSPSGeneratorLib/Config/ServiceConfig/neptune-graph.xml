@@ -18,131 +18,131 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelExportTask" OutputProperty="*" Verb="Stop" Noun="ExportTask" ShouldProcessTarget="TaskIdentifier" PipelineParameter="TaskIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelExportTask" OutputProperty="*" Verb="Stop" Noun="ExportTask" ShouldProcessTarget="TaskIdentifier" PipelineParameter="TaskIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelImportTask" OutputProperty="*" Verb="Stop" Noun="ImportTask" ShouldProcessTarget="TaskIdentifier" PipelineParameter="TaskIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelImportTask" OutputProperty="*" Verb="Stop" Noun="ImportTask" ShouldProcessTarget="TaskIdentifier" PipelineParameter="TaskIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelQuery" Verb="Stop" Noun="Query" ShouldProcessTarget="QueryId" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelQuery" Verb="Stop" Noun="Query" ShouldProcessTarget="QueryId" PipelineParameter="GraphIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGraph" OutputProperty="*" Verb="New" Noun="Graph" ShouldProcessTarget="GraphName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateGraph" OutputProperty="*" Verb="New" Noun="Graph" ShouldProcessTarget="GraphName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGraphSnapshot" OutputProperty="*" Verb="New" Noun="GraphSnapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateGraphSnapshot" OutputProperty="*" Verb="New" Noun="GraphSnapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="GraphIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGraphUsingImportTask" OutputProperty="*" Verb="New" Noun="GraphUsingImportTask" ShouldProcessTarget="GraphName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateGraphUsingImportTask" OutputProperty="*" Verb="New" Noun="GraphUsingImportTask" ShouldProcessTarget="GraphName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePrivateGraphEndpoint" OutputProperty="*" Verb="New" Noun="PrivateGraphEndpoint" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePrivateGraphEndpoint" OutputProperty="*" Verb="New" Noun="PrivateGraphEndpoint" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGraph" OutputProperty="*" Verb="Remove" Noun="Graph" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteGraph" OutputProperty="*" Verb="Remove" Noun="Graph" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGraphSnapshot" OutputProperty="*" Verb="Remove" Noun="GraphSnapshot" ShouldProcessTarget="SnapshotIdentifier" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteGraphSnapshot" OutputProperty="*" Verb="Remove" Noun="GraphSnapshot" ShouldProcessTarget="SnapshotIdentifier" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePrivateGraphEndpoint" OutputProperty="*" Verb="Remove" Noun="PrivateGraphEndpoint" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePrivateGraphEndpoint" OutputProperty="*" Verb="Remove" Noun="PrivateGraphEndpoint" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteQuery" OutputProperty="Payload" Verb="Invoke" Noun="Query" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ExecuteQuery" OutputProperty="Payload" Verb="Invoke" Noun="Query" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetExportTask" OutputProperty="*" Verb="Get" Noun="ExportTask" PipelineParameter="TaskIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetExportTask" OutputProperty="*" Verb="Get" Noun="ExportTask" PipelineParameter="TaskIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGraph" OutputProperty="*" Verb="Get" Noun="Graph" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetGraph" OutputProperty="*" Verb="Get" Noun="Graph" PipelineParameter="GraphIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGraphSnapshot" OutputProperty="*" Verb="Get" Noun="GraphSnapshot" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetGraphSnapshot" OutputProperty="*" Verb="Get" Noun="GraphSnapshot" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGraphSummary" OutputProperty="*" Verb="Get" Noun="GraphSummary" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetGraphSummary" OutputProperty="*" Verb="Get" Noun="GraphSummary" PipelineParameter="GraphIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetImportTask" OutputProperty="*" Verb="Get" Noun="ImportTask" PipelineParameter="TaskIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetImportTask" OutputProperty="*" Verb="Get" Noun="ImportTask" PipelineParameter="TaskIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPrivateGraphEndpoint" OutputProperty="*" Verb="Get" Noun="PrivateGraphEndpoint" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPrivateGraphEndpoint" OutputProperty="*" Verb="Get" Noun="PrivateGraphEndpoint" PipelineParameter="GraphIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQuery" OutputProperty="*" Verb="Get" Noun="Query" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetQuery" OutputProperty="*" Verb="Get" Noun="Query" PipelineParameter="GraphIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExportTasks" OutputProperty="Tasks" Verb="Get" Noun="ExportTaskList" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListExportTasks" OutputProperty="Tasks" Verb="Get" Noun="ExportTaskList" PipelineParameter="GraphIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGraphs" OutputProperty="Graphs" Verb="Get" Noun="GraphList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGraphs" OutputProperty="Graphs" Verb="Get" Noun="GraphList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGraphSnapshots" OutputProperty="GraphSnapshots" Verb="Get" Noun="GraphSnapshotList" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGraphSnapshots" OutputProperty="GraphSnapshots" Verb="Get" Noun="GraphSnapshotList" PipelineParameter="GraphIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImportTasks" OutputProperty="Tasks" Verb="Get" Noun="ImportTaskList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListImportTasks" OutputProperty="Tasks" Verb="Get" Noun="ImportTaskList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPrivateGraphEndpoints" OutputProperty="PrivateGraphEndpoints" Verb="Get" Noun="PrivateGraphEndpointList" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPrivateGraphEndpoints" OutputProperty="PrivateGraphEndpoints" Verb="Get" Noun="PrivateGraphEndpointList" PipelineParameter="GraphIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQueries" OutputProperty="Queries" Verb="Get" Noun="QueryList" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListQueries" OutputProperty="Queries" Verb="Get" Noun="QueryList" PipelineParameter="GraphIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetGraph" OutputProperty="*" Verb="Reset" Noun="Graph" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ResetGraph" OutputProperty="*" Verb="Reset" Noun="Graph" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreGraphFromSnapshot" OutputProperty="*" Verb="Restore" Noun="GraphFromSnapshot" ShouldProcessTarget="SnapshotIdentifier" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RestoreGraphFromSnapshot" OutputProperty="*" Verb="Restore" Noun="GraphFromSnapshot" ShouldProcessTarget="SnapshotIdentifier" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartExportTask" OutputProperty="*" Verb="Start" Noun="ExportTask" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartExportTask" OutputProperty="*" Verb="Start" Noun="ExportTask" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartImportTask" OutputProperty="*" Verb="Start" Noun="ImportTask" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartImportTask" OutputProperty="*" Verb="Start" Noun="ImportTask" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGraph" OutputProperty="*" Verb="Update" Noun="Graph" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateGraph" OutputProperty="*" Verb="Update" Noun="Graph" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -291,6 +291,16 @@ $DMS_Completers = {
             break
         }
 
+        # Amazon.DatabaseMigrationService.MySQLAuthenticationMethod
+        {
+            ($_ -eq "Edit-DMSEndpoint/MySQLSettings_AuthenticationMethod") -Or
+            ($_ -eq "New-DMSEndpoint/MySQLSettings_AuthenticationMethod")
+        }
+        {
+            $v = "iam","password"
+            break
+        }
+
         # Amazon.DatabaseMigrationService.NestingLevelValue
         {
             ($_ -eq "Edit-DMSEndpoint/DocDbSettings_NestingLevel") -Or
@@ -340,6 +350,16 @@ $DMS_Completers = {
         }
         {
             $v = "no-preference","pglogical","test-decoding"
+            break
+        }
+
+        # Amazon.DatabaseMigrationService.PostgreSQLAuthenticationMethod
+        {
+            ($_ -eq "Edit-DMSEndpoint/PostgreSQLSettings_AuthenticationMethod") -Or
+            ($_ -eq "New-DMSEndpoint/PostgreSQLSettings_AuthenticationMethod")
+        }
+        {
+            $v = "iam","password"
             break
         }
 
@@ -477,12 +497,14 @@ $DMS_map = @{
     "MongoDbSettings_AuthType"=@("Edit-DMSDataProvider","Edit-DMSEndpoint","New-DMSDataProvider","New-DMSEndpoint")
     "MongoDbSettings_NestingLevel"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MongoDbSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
+    "MySQLSettings_AuthenticationMethod"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MySqlSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "MySQLSettings_TargetDbType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "OracleSettings_AuthenticationMethod"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "OracleSettings_CharLengthSemantic"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "OracleSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "Origin"=@("Start-DMSMetadataModelExportAsScript","Start-DMSMetadataModelImport")
+    "PostgreSQLSettings_AuthenticationMethod"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "PostgreSQLSettings_DatabaseMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "PostgreSQLSettings_MapLongVarcharAs"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "PostgreSQLSettings_PluginName"=@("Edit-DMSEndpoint","New-DMSEndpoint")

@@ -18,345 +18,345 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchGetCollaborationAnalysisTemplate" OutputProperty="*" Verb="Get" Noun="BatchCollaborationAnalysisTemplate" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetCollaborationAnalysisTemplate" OutputProperty="*" Verb="Get" Noun="BatchCollaborationAnalysisTemplate" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetSchema" OutputProperty="*" Verb="Get" Noun="BatchSchema" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetSchema" OutputProperty="*" Verb="Get" Noun="BatchSchema" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetSchemaAnalysisRule" OutputProperty="*" Verb="Get" Noun="BatchGetSchemaAnalysisRule" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetSchemaAnalysisRule" OutputProperty="*" Verb="Get" Noun="BatchGetSchemaAnalysisRule" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAnalysisTemplate" OutputProperty="AnalysisTemplate" Verb="New" Noun="AnalysisTemplate" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateAnalysisTemplate" OutputProperty="AnalysisTemplate" Verb="New" Noun="AnalysisTemplate" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCollaboration" OutputProperty="Collaboration" Verb="New" Noun="Collaboration" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateCollaboration" OutputProperty="Collaboration" Verb="New" Noun="Collaboration" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConfiguredAudienceModelAssociation" OutputProperty="ConfiguredAudienceModelAssociation" Verb="New" Noun="ConfiguredAudienceModelAssociation" ShouldProcessTarget="ConfiguredAudienceModelArn" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateConfiguredAudienceModelAssociation" OutputProperty="ConfiguredAudienceModelAssociation" Verb="New" Noun="ConfiguredAudienceModelAssociation" ShouldProcessTarget="ConfiguredAudienceModelArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConfiguredTable" OutputProperty="ConfiguredTable" Verb="New" Noun="ConfiguredTable" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateConfiguredTable" OutputProperty="ConfiguredTable" Verb="New" Noun="ConfiguredTable" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConfiguredTableAnalysisRule" OutputProperty="AnalysisRule" Verb="New" Noun="ConfiguredTableAnalysisRule" ShouldProcessTarget="ConfiguredTableIdentifier" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateConfiguredTableAnalysisRule" OutputProperty="AnalysisRule" Verb="New" Noun="ConfiguredTableAnalysisRule" ShouldProcessTarget="ConfiguredTableIdentifier" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConfiguredTableAssociation" OutputProperty="ConfiguredTableAssociation" Verb="New" Noun="ConfiguredTableAssociation" ShouldProcessTarget="Name" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateConfiguredTableAssociation" OutputProperty="ConfiguredTableAssociation" Verb="New" Noun="ConfiguredTableAssociation" ShouldProcessTarget="Name" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConfiguredTableAssociationAnalysisRule" OutputProperty="AnalysisRule" Verb="New" Noun="ConfiguredTableAssociationAnalysisRule" ShouldProcessTarget="ConfiguredTableAssociationIdentifier" PipelineParameter="ConfiguredTableAssociationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateConfiguredTableAssociationAnalysisRule" OutputProperty="AnalysisRule" Verb="New" Noun="ConfiguredTableAssociationAnalysisRule" ShouldProcessTarget="ConfiguredTableAssociationIdentifier" PipelineParameter="ConfiguredTableAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIdMappingTable" OutputProperty="IdMappingTable" Verb="New" Noun="IdMappingTable" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateIdMappingTable" OutputProperty="IdMappingTable" Verb="New" Noun="IdMappingTable" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIdNamespaceAssociation" OutputProperty="IdNamespaceAssociation" Verb="New" Noun="IdNamespaceAssociation" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateIdNamespaceAssociation" OutputProperty="IdNamespaceAssociation" Verb="New" Noun="IdNamespaceAssociation" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMembership" OutputProperty="Membership" Verb="New" Noun="Membership" ShouldProcessTarget="CollaborationIdentifier" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMembership" OutputProperty="Membership" Verb="New" Noun="Membership" ShouldProcessTarget="CollaborationIdentifier" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="DefaultJobResultConfiguration_OutputConfiguration_S3_Bucket" NewName="DefaultJobResultConfiguration_OutputConfiguration_S3_Bucket" Alias="Default_Job_S3_Bucket" />
                 <Param Name="DefaultJobResultConfiguration_OutputConfiguration_S3_KeyPrefix" NewName="DefaultJobResultConfiguration_OutputConfiguration_S3_KeyPrefix" Alias="Default_Job_S3_KeyPrefix" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePrivacyBudgetTemplate" OutputProperty="PrivacyBudgetTemplate" Verb="New" Noun="PrivacyBudgetTemplate" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreatePrivacyBudgetTemplate" OutputProperty="PrivacyBudgetTemplate" Verb="New" Noun="PrivacyBudgetTemplate" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAnalysisTemplate" Verb="Remove" Noun="AnalysisTemplate" ShouldProcessTarget="AnalysisTemplateIdentifier" PipelineParameter="AnalysisTemplateIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAnalysisTemplate" Verb="Remove" Noun="AnalysisTemplate" ShouldProcessTarget="AnalysisTemplateIdentifier" PipelineParameter="AnalysisTemplateIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCollaboration" Verb="Remove" Noun="Collaboration" ShouldProcessTarget="CollaborationIdentifier" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCollaboration" Verb="Remove" Noun="Collaboration" ShouldProcessTarget="CollaborationIdentifier" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConfiguredAudienceModelAssociation" Verb="Remove" Noun="ConfiguredAudienceModelAssociation" ShouldProcessTarget="ConfiguredAudienceModelAssociationIdentifier" PipelineParameter="ConfiguredAudienceModelAssociationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteConfiguredAudienceModelAssociation" Verb="Remove" Noun="ConfiguredAudienceModelAssociation" ShouldProcessTarget="ConfiguredAudienceModelAssociationIdentifier" PipelineParameter="ConfiguredAudienceModelAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConfiguredTable" Verb="Remove" Noun="ConfiguredTable" ShouldProcessTarget="ConfiguredTableIdentifier" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteConfiguredTable" Verb="Remove" Noun="ConfiguredTable" ShouldProcessTarget="ConfiguredTableIdentifier" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConfiguredTableAnalysisRule" Verb="Remove" Noun="ConfiguredTableAnalysisRule" ShouldProcessTarget="ConfiguredTableIdentifier" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteConfiguredTableAnalysisRule" Verb="Remove" Noun="ConfiguredTableAnalysisRule" ShouldProcessTarget="ConfiguredTableIdentifier" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConfiguredTableAssociation" Verb="Remove" Noun="ConfiguredTableAssociation" ShouldProcessTarget="ConfiguredTableAssociationIdentifier" PipelineParameter="ConfiguredTableAssociationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteConfiguredTableAssociation" Verb="Remove" Noun="ConfiguredTableAssociation" ShouldProcessTarget="ConfiguredTableAssociationIdentifier" PipelineParameter="ConfiguredTableAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConfiguredTableAssociationAnalysisRule" Verb="Remove" Noun="ConfiguredTableAssociationAnalysisRule" ShouldProcessTarget="ConfiguredTableAssociationIdentifier" PipelineParameter="ConfiguredTableAssociationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteConfiguredTableAssociationAnalysisRule" Verb="Remove" Noun="ConfiguredTableAssociationAnalysisRule" ShouldProcessTarget="ConfiguredTableAssociationIdentifier" PipelineParameter="ConfiguredTableAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIdMappingTable" Verb="Remove" Noun="IdMappingTable" ShouldProcessTarget="IdMappingTableIdentifier" PipelineParameter="IdMappingTableIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteIdMappingTable" Verb="Remove" Noun="IdMappingTable" ShouldProcessTarget="IdMappingTableIdentifier" PipelineParameter="IdMappingTableIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIdNamespaceAssociation" Verb="Remove" Noun="IdNamespaceAssociation" ShouldProcessTarget="IdNamespaceAssociationIdentifier" PipelineParameter="IdNamespaceAssociationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteIdNamespaceAssociation" Verb="Remove" Noun="IdNamespaceAssociation" ShouldProcessTarget="IdNamespaceAssociationIdentifier" PipelineParameter="IdNamespaceAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMember" Verb="Remove" Noun="Member" ShouldProcessTarget="AccountId" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMember" Verb="Remove" Noun="Member" ShouldProcessTarget="AccountId" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMembership" Verb="Remove" Noun="Membership" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMembership" Verb="Remove" Noun="Membership" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePrivacyBudgetTemplate" Verb="Remove" Noun="PrivacyBudgetTemplate" ShouldProcessTarget="PrivacyBudgetTemplateIdentifier" PipelineParameter="PrivacyBudgetTemplateIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePrivacyBudgetTemplate" Verb="Remove" Noun="PrivacyBudgetTemplate" ShouldProcessTarget="PrivacyBudgetTemplateIdentifier" PipelineParameter="PrivacyBudgetTemplateIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAnalysisTemplate" OutputProperty="AnalysisTemplate" Verb="Get" Noun="AnalysisTemplate" PipelineParameter="AnalysisTemplateIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAnalysisTemplate" OutputProperty="AnalysisTemplate" Verb="Get" Noun="AnalysisTemplate" PipelineParameter="AnalysisTemplateIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCollaboration" OutputProperty="Collaboration" Verb="Get" Noun="Collaboration" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCollaboration" OutputProperty="Collaboration" Verb="Get" Noun="Collaboration" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCollaborationAnalysisTemplate" OutputProperty="CollaborationAnalysisTemplate" Verb="Get" Noun="CollaborationAnalysisTemplate" PipelineParameter="AnalysisTemplateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCollaborationAnalysisTemplate" OutputProperty="CollaborationAnalysisTemplate" Verb="Get" Noun="CollaborationAnalysisTemplate" PipelineParameter="AnalysisTemplateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCollaborationConfiguredAudienceModelAssociation" OutputProperty="CollaborationConfiguredAudienceModelAssociation" Verb="Get" Noun="CollaborationConfiguredAudienceModelAssociation" PipelineParameter="ConfiguredAudienceModelAssociationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCollaborationConfiguredAudienceModelAssociation" OutputProperty="CollaborationConfiguredAudienceModelAssociation" Verb="Get" Noun="CollaborationConfiguredAudienceModelAssociation" PipelineParameter="ConfiguredAudienceModelAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCollaborationIdNamespaceAssociation" OutputProperty="CollaborationIdNamespaceAssociation" Verb="Get" Noun="CollaborationIdNamespaceAssociation" PipelineParameter="IdNamespaceAssociationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCollaborationIdNamespaceAssociation" OutputProperty="CollaborationIdNamespaceAssociation" Verb="Get" Noun="CollaborationIdNamespaceAssociation" PipelineParameter="IdNamespaceAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCollaborationPrivacyBudgetTemplate" OutputProperty="CollaborationPrivacyBudgetTemplate" Verb="Get" Noun="CollaborationPrivacyBudgetTemplate" PipelineParameter="PrivacyBudgetTemplateIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCollaborationPrivacyBudgetTemplate" OutputProperty="CollaborationPrivacyBudgetTemplate" Verb="Get" Noun="CollaborationPrivacyBudgetTemplate" PipelineParameter="PrivacyBudgetTemplateIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConfiguredAudienceModelAssociation" OutputProperty="ConfiguredAudienceModelAssociation" Verb="Get" Noun="ConfiguredAudienceModelAssociation" PipelineParameter="ConfiguredAudienceModelAssociationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetConfiguredAudienceModelAssociation" OutputProperty="ConfiguredAudienceModelAssociation" Verb="Get" Noun="ConfiguredAudienceModelAssociation" PipelineParameter="ConfiguredAudienceModelAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConfiguredTable" OutputProperty="ConfiguredTable" Verb="Get" Noun="ConfiguredTable" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetConfiguredTable" OutputProperty="ConfiguredTable" Verb="Get" Noun="ConfiguredTable" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConfiguredTableAnalysisRule" OutputProperty="AnalysisRule" Verb="Get" Noun="ConfiguredTableAnalysisRule" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetConfiguredTableAnalysisRule" OutputProperty="AnalysisRule" Verb="Get" Noun="ConfiguredTableAnalysisRule" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConfiguredTableAssociation" OutputProperty="ConfiguredTableAssociation" Verb="Get" Noun="ConfiguredTableAssociation" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetConfiguredTableAssociation" OutputProperty="ConfiguredTableAssociation" Verb="Get" Noun="ConfiguredTableAssociation" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConfiguredTableAssociationAnalysisRule" OutputProperty="AnalysisRule" Verb="Get" Noun="ConfiguredTableAssociationAnalysisRule" PipelineParameter="ConfiguredTableAssociationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetConfiguredTableAssociationAnalysisRule" OutputProperty="AnalysisRule" Verb="Get" Noun="ConfiguredTableAssociationAnalysisRule" PipelineParameter="ConfiguredTableAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIdMappingTable" OutputProperty="IdMappingTable" Verb="Get" Noun="IdMappingTable" PipelineParameter="IdMappingTableIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetIdMappingTable" OutputProperty="IdMappingTable" Verb="Get" Noun="IdMappingTable" PipelineParameter="IdMappingTableIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIdNamespaceAssociation" OutputProperty="IdNamespaceAssociation" Verb="Get" Noun="IdNamespaceAssociation" PipelineParameter="IdNamespaceAssociationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetIdNamespaceAssociation" OutputProperty="IdNamespaceAssociation" Verb="Get" Noun="IdNamespaceAssociation" PipelineParameter="IdNamespaceAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMembership" OutputProperty="Membership" Verb="Get" Noun="Membership" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMembership" OutputProperty="Membership" Verb="Get" Noun="Membership" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPrivacyBudgetTemplate" OutputProperty="PrivacyBudgetTemplate" Verb="Get" Noun="PrivacyBudgetTemplate" PipelineParameter="PrivacyBudgetTemplateIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPrivacyBudgetTemplate" OutputProperty="PrivacyBudgetTemplate" Verb="Get" Noun="PrivacyBudgetTemplate" PipelineParameter="PrivacyBudgetTemplateIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProtectedJob" OutputProperty="ProtectedJob" Verb="Get" Noun="ProtectedJob" PipelineParameter="ProtectedJobIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetProtectedJob" OutputProperty="ProtectedJob" Verb="Get" Noun="ProtectedJob" PipelineParameter="ProtectedJobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProtectedQuery" OutputProperty="ProtectedQuery" Verb="Get" Noun="ProtectedQuery" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetProtectedQuery" OutputProperty="ProtectedQuery" Verb="Get" Noun="ProtectedQuery" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSchema" OutputProperty="Schema" Verb="Get" Noun="Schema" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSchema" OutputProperty="Schema" Verb="Get" Noun="Schema" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSchemaAnalysisRule" OutputProperty="AnalysisRule" Verb="Get" Noun="SchemaAnalysisRule" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSchemaAnalysisRule" OutputProperty="AnalysisRule" Verb="Get" Noun="SchemaAnalysisRule" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAnalysisTemplates" OutputProperty="AnalysisTemplateSummaries" Verb="Get" Noun="AnalysisTemplateList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAnalysisTemplates" OutputProperty="AnalysisTemplateSummaries" Verb="Get" Noun="AnalysisTemplateList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCollaborationAnalysisTemplates" OutputProperty="CollaborationAnalysisTemplateSummaries" Verb="Get" Noun="CollaborationAnalysisTemplateList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCollaborationAnalysisTemplates" OutputProperty="CollaborationAnalysisTemplateSummaries" Verb="Get" Noun="CollaborationAnalysisTemplateList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCollaborationConfiguredAudienceModelAssociations" OutputProperty="CollaborationConfiguredAudienceModelAssociationSummaries" Verb="Get" Noun="CollaborationConfiguredAudienceModelAssociationList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCollaborationConfiguredAudienceModelAssociations" OutputProperty="CollaborationConfiguredAudienceModelAssociationSummaries" Verb="Get" Noun="CollaborationConfiguredAudienceModelAssociationList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCollaborationIdNamespaceAssociations" OutputProperty="CollaborationIdNamespaceAssociationSummaries" Verb="Get" Noun="CollaborationIdNamespaceAssociationList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCollaborationIdNamespaceAssociations" OutputProperty="CollaborationIdNamespaceAssociationSummaries" Verb="Get" Noun="CollaborationIdNamespaceAssociationList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCollaborationPrivacyBudgets" OutputProperty="CollaborationPrivacyBudgetSummaries" Verb="Get" Noun="CollaborationPrivacyBudgetList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCollaborationPrivacyBudgets" OutputProperty="CollaborationPrivacyBudgetSummaries" Verb="Get" Noun="CollaborationPrivacyBudgetList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCollaborationPrivacyBudgetTemplates" OutputProperty="CollaborationPrivacyBudgetTemplateSummaries" Verb="Get" Noun="CollaborationPrivacyBudgetTemplateList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCollaborationPrivacyBudgetTemplates" OutputProperty="CollaborationPrivacyBudgetTemplateSummaries" Verb="Get" Noun="CollaborationPrivacyBudgetTemplateList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCollaborations" OutputProperty="CollaborationList" Verb="Get" Noun="CollaborationList" PipelineParameter="MemberStatus" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCollaborations" OutputProperty="CollaborationList" Verb="Get" Noun="CollaborationList" PipelineParameter="MemberStatus" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfiguredAudienceModelAssociations" OutputProperty="ConfiguredAudienceModelAssociationSummaries" Verb="Get" Noun="ConfiguredAudienceModelAssociationList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListConfiguredAudienceModelAssociations" OutputProperty="ConfiguredAudienceModelAssociationSummaries" Verb="Get" Noun="ConfiguredAudienceModelAssociationList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfiguredTableAssociations" OutputProperty="ConfiguredTableAssociationSummaries" Verb="Get" Noun="ConfiguredTableAssociationList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListConfiguredTableAssociations" OutputProperty="ConfiguredTableAssociationSummaries" Verb="Get" Noun="ConfiguredTableAssociationList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfiguredTables" OutputProperty="ConfiguredTableSummaries" Verb="Get" Noun="ConfiguredTableList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListConfiguredTables" OutputProperty="ConfiguredTableSummaries" Verb="Get" Noun="ConfiguredTableList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIdMappingTables" OutputProperty="IdMappingTableSummaries" Verb="Get" Noun="IdMappingTableList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListIdMappingTables" OutputProperty="IdMappingTableSummaries" Verb="Get" Noun="IdMappingTableList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIdNamespaceAssociations" OutputProperty="IdNamespaceAssociationSummaries" Verb="Get" Noun="IdNamespaceAssociationList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListIdNamespaceAssociations" OutputProperty="IdNamespaceAssociationSummaries" Verb="Get" Noun="IdNamespaceAssociationList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMembers" OutputProperty="MemberSummaries" Verb="Get" Noun="MemberList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMembers" OutputProperty="MemberSummaries" Verb="Get" Noun="MemberList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMemberships" OutputProperty="MembershipSummaries" Verb="Get" Noun="MembershipList" PipelineParameter="Status" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMemberships" OutputProperty="MembershipSummaries" Verb="Get" Noun="MembershipList" PipelineParameter="Status" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPrivacyBudgets" OutputProperty="PrivacyBudgetSummaries" Verb="Get" Noun="PrivacyBudgetList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPrivacyBudgets" OutputProperty="PrivacyBudgetSummaries" Verb="Get" Noun="PrivacyBudgetList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPrivacyBudgetTemplates" OutputProperty="PrivacyBudgetTemplateSummaries" Verb="Get" Noun="PrivacyBudgetTemplateList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPrivacyBudgetTemplates" OutputProperty="PrivacyBudgetTemplateSummaries" Verb="Get" Noun="PrivacyBudgetTemplateList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProtectedJobs" OutputProperty="ProtectedJobs" Verb="Get" Noun="ProtectedJobList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProtectedJobs" OutputProperty="ProtectedJobs" Verb="Get" Noun="ProtectedJobList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProtectedQueries" OutputProperty="ProtectedQueries" Verb="Get" Noun="ProtectedQueryList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProtectedQueries" OutputProperty="ProtectedQueries" Verb="Get" Noun="ProtectedQueryList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSchemas" OutputProperty="SchemaSummaries" Verb="Get" Noun="SchemaList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSchemas" OutputProperty="SchemaSummaries" Verb="Get" Noun="SchemaList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PopulateIdMappingTable" OutputProperty="IdMappingJobId" Verb="Invoke" Noun="IdMappingTable" ShouldProcessTarget="IdMappingTableIdentifier" PipelineParameter="IdMappingTableIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PopulateIdMappingTable" OutputProperty="IdMappingJobId" Verb="Invoke" Noun="IdMappingTable" ShouldProcessTarget="IdMappingTableIdentifier" PipelineParameter="IdMappingTableIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PreviewPrivacyImpact" OutputProperty="PrivacyImpact" Verb="Test" Noun="PrivacyImpact" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PreviewPrivacyImpact" OutputProperty="PrivacyImpact" Verb="Test" Noun="PrivacyImpact" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartProtectedJob" OutputProperty="ProtectedJob" Verb="Start" Noun="ProtectedJob" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartProtectedJob" OutputProperty="ProtectedJob" Verb="Start" Noun="ProtectedJob" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartProtectedQuery" OutputProperty="ProtectedQuery" Verb="Start" Noun="ProtectedQuery" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartProtectedQuery" OutputProperty="ProtectedQuery" Verb="Start" Noun="ProtectedQuery" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAnalysisTemplate" OutputProperty="AnalysisTemplate" Verb="Update" Noun="AnalysisTemplate" ShouldProcessTarget="AnalysisTemplateIdentifier" PipelineParameter="AnalysisTemplateIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAnalysisTemplate" OutputProperty="AnalysisTemplate" Verb="Update" Noun="AnalysisTemplate" ShouldProcessTarget="AnalysisTemplateIdentifier" PipelineParameter="AnalysisTemplateIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCollaboration" OutputProperty="Collaboration" Verb="Update" Noun="Collaboration" ShouldProcessTarget="CollaborationIdentifier" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCollaboration" OutputProperty="Collaboration" Verb="Update" Noun="Collaboration" ShouldProcessTarget="CollaborationIdentifier" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConfiguredAudienceModelAssociation" OutputProperty="ConfiguredAudienceModelAssociation" Verb="Update" Noun="ConfiguredAudienceModelAssociation" ShouldProcessTarget="ConfiguredAudienceModelAssociationIdentifier" PipelineParameter="ConfiguredAudienceModelAssociationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateConfiguredAudienceModelAssociation" OutputProperty="ConfiguredAudienceModelAssociation" Verb="Update" Noun="ConfiguredAudienceModelAssociation" ShouldProcessTarget="ConfiguredAudienceModelAssociationIdentifier" PipelineParameter="ConfiguredAudienceModelAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConfiguredTable" OutputProperty="ConfiguredTable" Verb="Update" Noun="ConfiguredTable" ShouldProcessTarget="ConfiguredTableIdentifier" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateConfiguredTable" OutputProperty="ConfiguredTable" Verb="Update" Noun="ConfiguredTable" ShouldProcessTarget="ConfiguredTableIdentifier" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConfiguredTableAnalysisRule" OutputProperty="AnalysisRule" Verb="Update" Noun="ConfiguredTableAnalysisRule" ShouldProcessTarget="ConfiguredTableIdentifier" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateConfiguredTableAnalysisRule" OutputProperty="AnalysisRule" Verb="Update" Noun="ConfiguredTableAnalysisRule" ShouldProcessTarget="ConfiguredTableIdentifier" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConfiguredTableAssociation" OutputProperty="ConfiguredTableAssociation" Verb="Update" Noun="ConfiguredTableAssociation" ShouldProcessTarget="ConfiguredTableAssociationIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateConfiguredTableAssociation" OutputProperty="ConfiguredTableAssociation" Verb="Update" Noun="ConfiguredTableAssociation" ShouldProcessTarget="ConfiguredTableAssociationIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConfiguredTableAssociationAnalysisRule" OutputProperty="AnalysisRule" Verb="Update" Noun="ConfiguredTableAssociationAnalysisRule" ShouldProcessTarget="ConfiguredTableAssociationIdentifier" PipelineParameter="ConfiguredTableAssociationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateConfiguredTableAssociationAnalysisRule" OutputProperty="AnalysisRule" Verb="Update" Noun="ConfiguredTableAssociationAnalysisRule" ShouldProcessTarget="ConfiguredTableAssociationIdentifier" PipelineParameter="ConfiguredTableAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIdMappingTable" OutputProperty="IdMappingTable" Verb="Update" Noun="IdMappingTable" ShouldProcessTarget="IdMappingTableIdentifier" PipelineParameter="IdMappingTableIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateIdMappingTable" OutputProperty="IdMappingTable" Verb="Update" Noun="IdMappingTable" ShouldProcessTarget="IdMappingTableIdentifier" PipelineParameter="IdMappingTableIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIdNamespaceAssociation" OutputProperty="IdNamespaceAssociation" Verb="Update" Noun="IdNamespaceAssociation" ShouldProcessTarget="IdNamespaceAssociationIdentifier" PipelineParameter="IdNamespaceAssociationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateIdNamespaceAssociation" OutputProperty="IdNamespaceAssociation" Verb="Update" Noun="IdNamespaceAssociation" ShouldProcessTarget="IdNamespaceAssociationIdentifier" PipelineParameter="IdNamespaceAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMembership" OutputProperty="Membership" Verb="Update" Noun="Membership" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateMembership" OutputProperty="Membership" Verb="Update" Noun="Membership" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="DefaultJobResultConfiguration_OutputConfiguration_S3_Bucket" NewName="DefaultJobResultConfiguration_OutputConfiguration_S3_Bucket" Alias="Default_Job_S3_Bucket" />
                 <Param Name="DefaultJobResultConfiguration_OutputConfiguration_S3_KeyPrefix" NewName="DefaultJobResultConfiguration_OutputConfiguration_S3_KeyPrefix" Alias="Default_Job_S3_KeyPrefix" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePrivacyBudgetTemplate" OutputProperty="PrivacyBudgetTemplate" Verb="Update" Noun="PrivacyBudgetTemplate" ShouldProcessTarget="PrivacyBudgetTemplateIdentifier" PipelineParameter="PrivacyBudgetTemplateIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePrivacyBudgetTemplate" OutputProperty="PrivacyBudgetTemplate" Verb="Update" Noun="PrivacyBudgetTemplate" ShouldProcessTarget="PrivacyBudgetTemplateIdentifier" PipelineParameter="PrivacyBudgetTemplateIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProtectedJob" OutputProperty="ProtectedJob" Verb="Update" Noun="ProtectedJob" ShouldProcessTarget="ProtectedJobIdentifier" PipelineParameter="ProtectedJobIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateProtectedJob" OutputProperty="ProtectedJob" Verb="Update" Noun="ProtectedJob" ShouldProcessTarget="ProtectedJobIdentifier" PipelineParameter="ProtectedJobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProtectedQuery" OutputProperty="ProtectedQuery" Verb="Update" Noun="ProtectedQuery" ShouldProcessTarget="ProtectedQueryIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateProtectedQuery" OutputProperty="ProtectedQuery" Verb="Update" Noun="ProtectedQuery" ShouldProcessTarget="ProtectedQueryIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

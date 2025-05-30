@@ -80,6 +80,16 @@ $AMP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Amplify.BuildComputeType
+        {
+            ($_ -eq "New-AMPApp/JobConfig_BuildComputeType") -Or
+            ($_ -eq "Update-AMPApp/JobConfig_BuildComputeType")
+        }
+        {
+            $v = "LARGE_16GB","STANDARD_8GB","XLARGE_72GB"
+            break
+        }
+
         # Amazon.Amplify.CacheConfigType
         {
             ($_ -eq "New-AMPApp/CacheConfig_Type") -Or
@@ -148,6 +158,7 @@ $AMP_map = @{
     "AutoBranchCreationConfig_Stage"=@("New-AMPApp","Update-AMPApp")
     "CacheConfig_Type"=@("New-AMPApp","Update-AMPApp")
     "CertificateSettings_Type"=@("New-AMPDomainAssociation","Update-AMPDomainAssociation")
+    "JobConfig_BuildComputeType"=@("New-AMPApp","Update-AMPApp")
     "JobType"=@("Start-AMPJob")
     "Platform"=@("New-AMPApp","Update-AMPApp")
     "SourceUrlType"=@("Start-AMPDeployment")

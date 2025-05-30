@@ -1,0 +1,3 @@
+﻿# SSMGuiConnect
+
+Export-ModuleMember -Alias *

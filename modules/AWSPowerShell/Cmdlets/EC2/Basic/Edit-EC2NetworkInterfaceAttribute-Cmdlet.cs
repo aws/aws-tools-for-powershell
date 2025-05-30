@@ -69,6 +69,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Attachment_AttachmentId { get; set; }
         #endregion
         
+        #region Parameter Attachment_DefaultEnaQueueCount
+        /// <summary>
+        /// <para>
+        /// <para>The default number of the ENA queues.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Attachment_DefaultEnaQueueCount { get; set; }
+        #endregion
+        
         #region Parameter Attachment_DeleteOnTermination
         /// <summary>
         /// <para>
@@ -120,6 +130,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? EnablePrimaryIpv6 { get; set; }
+        #endregion
+        
+        #region Parameter Attachment_EnaQueueCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of ENA queues to be created with the instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Attachment_EnaQueueCount { get; set; }
         #endregion
         
         #region Parameter EnaSrdSpecification_EnaSrdEnabled
@@ -272,7 +292,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             context.AssociatePublicIpAddress = this.AssociatePublicIpAddress;
             context.Attachment_AttachmentId = this.Attachment_AttachmentId;
+            context.Attachment_DefaultEnaQueueCount = this.Attachment_DefaultEnaQueueCount;
             context.Attachment_DeleteOnTermination = this.Attachment_DeleteOnTermination;
+            context.Attachment_EnaQueueCount = this.Attachment_EnaQueueCount;
             context.ConnectionTrackingSpecification_TcpEstablishedTimeout = this.ConnectionTrackingSpecification_TcpEstablishedTimeout;
             context.ConnectionTrackingSpecification_UdpStreamTimeout = this.ConnectionTrackingSpecification_UdpStreamTimeout;
             context.ConnectionTrackingSpecification_UdpTimeout = this.ConnectionTrackingSpecification_UdpTimeout;
@@ -327,6 +349,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.Attachment.AttachmentId = requestAttachment_attachment_AttachmentId;
                 requestAttachmentIsNull = false;
             }
+            System.Boolean? requestAttachment_attachment_DefaultEnaQueueCount = null;
+            if (cmdletContext.Attachment_DefaultEnaQueueCount != null)
+            {
+                requestAttachment_attachment_DefaultEnaQueueCount = cmdletContext.Attachment_DefaultEnaQueueCount.Value;
+            }
+            if (requestAttachment_attachment_DefaultEnaQueueCount != null)
+            {
+                request.Attachment.DefaultEnaQueueCount = requestAttachment_attachment_DefaultEnaQueueCount.Value;
+                requestAttachmentIsNull = false;
+            }
             System.Boolean? requestAttachment_attachment_DeleteOnTermination = null;
             if (cmdletContext.Attachment_DeleteOnTermination != null)
             {
@@ -335,6 +367,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestAttachment_attachment_DeleteOnTermination != null)
             {
                 request.Attachment.DeleteOnTermination = requestAttachment_attachment_DeleteOnTermination.Value;
+                requestAttachmentIsNull = false;
+            }
+            System.Int32? requestAttachment_attachment_EnaQueueCount = null;
+            if (cmdletContext.Attachment_EnaQueueCount != null)
+            {
+                requestAttachment_attachment_EnaQueueCount = cmdletContext.Attachment_EnaQueueCount.Value;
+            }
+            if (requestAttachment_attachment_EnaQueueCount != null)
+            {
+                request.Attachment.EnaQueueCount = requestAttachment_attachment_EnaQueueCount.Value;
                 requestAttachmentIsNull = false;
             }
              // determine if request.Attachment should be set to null
@@ -506,7 +548,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Boolean? AssociatePublicIpAddress { get; set; }
             public System.String Attachment_AttachmentId { get; set; }
+            public System.Boolean? Attachment_DefaultEnaQueueCount { get; set; }
             public System.Boolean? Attachment_DeleteOnTermination { get; set; }
+            public System.Int32? Attachment_EnaQueueCount { get; set; }
             public System.Int32? ConnectionTrackingSpecification_TcpEstablishedTimeout { get; set; }
             public System.Int32? ConnectionTrackingSpecification_UdpStreamTimeout { get; set; }
             public System.Int32? ConnectionTrackingSpecification_UdpTimeout { get; set; }

@@ -118,8 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         /// <para>
         /// <para>License rules. The syntax is #name=value (for example, #allowedTenancy=EC2-DedicatedHost).
         /// The available rules vary by dimension, as follows.</para><ul><li><para><c>Cores</c> dimension: <c>allowedTenancy</c> | <c>licenseAffinityToHost</c> | <c>maximumCores</c>
-        /// | <c>minimumCores</c></para></li><li><para><c>Instances</c> dimension: <c>allowedTenancy</c> | <c>maximumCores</c> | <c>minimumCores</c>
-        /// | <c>maximumSockets</c> | <c>minimumSockets</c> | <c>maximumVcpus</c> | <c>minimumVcpus</c></para></li><li><para><c>Sockets</c> dimension: <c>allowedTenancy</c> | <c>licenseAffinityToHost</c> |
+        /// | <c>minimumCores</c></para></li><li><para><c>Instances</c> dimension: <c>allowedTenancy</c> | <c>maximumVcpus</c> | <c>minimumVcpus</c></para></li><li><para><c>Sockets</c> dimension: <c>allowedTenancy</c> | <c>licenseAffinityToHost</c> |
         /// <c>maximumSockets</c> | <c>minimumSockets</c></para></li><li><para><c>vCPUs</c> dimension: <c>allowedTenancy</c> | <c>honorVcpuOptimization</c> | <c>maximumVcpus</c>
         /// | <c>minimumVcpus</c></para></li></ul><para>The unit for <c>licenseAffinityToHost</c> is days and the range is 1 to 180. The possible
         /// values for <c>allowedTenancy</c> are <c>EC2-Default</c>, <c>EC2-DedicatedHost</c>,

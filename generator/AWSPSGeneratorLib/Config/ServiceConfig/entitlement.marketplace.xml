@@ -19,7 +19,7 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="GetEntitlements" OutputProperty="Entitlements" Verb="Get" Noun="EntitlementList" PipelineParameter="ProductCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="GetEntitlements" OutputProperty="Entitlements" Verb="Get" Noun="EntitlementList" PipelineParameter="ProductCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

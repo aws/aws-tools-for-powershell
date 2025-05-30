@@ -19,84 +19,84 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateSignalingChannel" OutputProperty="ChannelARN" Verb="New" Noun="SignalingChannel" ShouldProcessTarget="ChannelName" PipelineParameter="ChannelName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateSignalingChannel" OutputProperty="ChannelARN" Verb="New" Noun="SignalingChannel" ShouldProcessTarget="ChannelName" PipelineParameter="ChannelName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStream" OutputProperty="StreamARN" Verb="New" Noun="Stream" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateStream" OutputProperty="StreamARN" Verb="New" Noun="Stream" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEdgeConfiguration" Verb="Remove" Noun="EdgeConfiguration" ShouldProcessTarget="StreamName" PipelineParameter="StreamARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEdgeConfiguration" Verb="Remove" Noun="EdgeConfiguration" ShouldProcessTarget="StreamName" PipelineParameter="StreamARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSignalingChannel" Verb="Remove" Noun="SignalingChannel" ShouldProcessTarget="ChannelARN" PipelineParameter="ChannelARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSignalingChannel" Verb="Remove" Noun="SignalingChannel" ShouldProcessTarget="ChannelARN" PipelineParameter="ChannelARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStream" Verb="Remove" Noun="Stream" ShouldProcessTarget="StreamARN" PipelineParameter="StreamARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteStream" Verb="Remove" Noun="Stream" ShouldProcessTarget="StreamARN" PipelineParameter="StreamARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEdgeConfiguration" OutputProperty="*" Verb="Get" Noun="EdgeConfiguration" PipelineParameter="StreamARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEdgeConfiguration" OutputProperty="*" Verb="Get" Noun="EdgeConfiguration" PipelineParameter="StreamARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImageGenerationConfiguration" OutputProperty="ImageGenerationConfiguration" Verb="Get" Noun="ImageGenerationConfiguration" PipelineParameter="StreamARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeImageGenerationConfiguration" OutputProperty="ImageGenerationConfiguration" Verb="Get" Noun="ImageGenerationConfiguration" PipelineParameter="StreamARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMappedResourceConfiguration" OutputProperty="MappedResourceConfigurationList" Verb="Get" Noun="MappedResourceConfiguration" PipelineParameter="StreamARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeMappedResourceConfiguration" OutputProperty="MappedResourceConfigurationList" Verb="Get" Noun="MappedResourceConfiguration" PipelineParameter="StreamARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMediaStorageConfiguration" OutputProperty="MediaStorageConfiguration" Verb="Get" Noun="MediaStorageConfiguration" PipelineParameter="ChannelARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeMediaStorageConfiguration" OutputProperty="MediaStorageConfiguration" Verb="Get" Noun="MediaStorageConfiguration" PipelineParameter="ChannelARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNotificationConfiguration" OutputProperty="NotificationConfiguration" Verb="Get" Noun="NotificationConfiguration" PipelineParameter="StreamARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeNotificationConfiguration" OutputProperty="NotificationConfiguration" Verb="Get" Noun="NotificationConfiguration" PipelineParameter="StreamARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSignalingChannel" OutputProperty="ChannelInfo" Verb="Get" Noun="SignalingChannel" PipelineParameter="ChannelName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSignalingChannel" OutputProperty="ChannelInfo" Verb="Get" Noun="SignalingChannel" PipelineParameter="ChannelName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStream" OutputProperty="StreamInfo" Verb="Get" Noun="Stream" PipelineParameter="StreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeStream" OutputProperty="StreamInfo" Verb="Get" Noun="Stream" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataEndpoint" OutputProperty="DataEndpoint" Verb="Get" Noun="DataEndpoint" PipelineParameter="APIName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDataEndpoint" OutputProperty="DataEndpoint" Verb="Get" Noun="DataEndpoint" PipelineParameter="APIName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSignalingChannelEndpoint" OutputProperty="ResourceEndpointList" Verb="Get" Noun="SignalingChannelEndpoint" PipelineParameter="ChannelARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSignalingChannelEndpoint" OutputProperty="ResourceEndpointList" Verb="Get" Noun="SignalingChannelEndpoint" PipelineParameter="ChannelARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEdgeAgentConfigurations" OutputProperty="EdgeConfigs" Verb="Get" Noun="EdgeAgentConfigurationList" PipelineParameter="HubDeviceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEdgeAgentConfigurations" OutputProperty="EdgeConfigs" Verb="Get" Noun="EdgeAgentConfigurationList" PipelineParameter="HubDeviceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSignalingChannels" OutputProperty="ChannelInfoList" Verb="Get" Noun="SignalingChannelList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListSignalingChannels" OutputProperty="ChannelInfoList" Verb="Get" Noun="SignalingChannelList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreams" OutputProperty="StreamInfoList" Verb="Get" Noun="StreamList" PipelineParameter="StreamNameCondition" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListStreams" OutputProperty="StreamInfoList" Verb="Get" Noun="StreamList" PipelineParameter="StreamNameCondition" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForStream" OutputProperty="Tags" Verb="Get" Noun="TagsForStreamList" PipelineParameter="StreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForStream" OutputProperty="Tags" Verb="Get" Noun="TagsForStreamList" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartEdgeConfigurationUpdate" OutputProperty="*" Verb="Start" Noun="EdgeConfigurationUpdate" ShouldProcessTarget="StreamName" PipelineParameter="StreamARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartEdgeConfigurationUpdate" OutputProperty="*" Verb="Start" Noun="EdgeConfigurationUpdate" ShouldProcessTarget="StreamName" PipelineParameter="StreamARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="EdgeConfig_RecorderConfig_ScheduleConfig_DurationInSeconds" NewName="EdgeConfig_RecorderConfig_ScheduleConfig_DurationInSeconds" />
                 <Param Name="EdgeConfig_RecorderConfig_ScheduleConfig_ScheduleExpression" NewName="EdgeConfig_RecorderConfig_ScheduleConfig_ScheduleExpression" />
@@ -105,43 +105,43 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagStream" Verb="Add" Noun="StreamTag" ShouldProcessTarget="StreamName" PipelineParameter="Tags" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagStream" Verb="Add" Noun="StreamTag" ShouldProcessTarget="StreamName" PipelineParameter="Tags" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagStream" Verb="Remove" Noun="StreamTag" ShouldProcessTarget="StreamName" PipelineParameter="TagKeyList" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagStream" Verb="Remove" Noun="StreamTag" ShouldProcessTarget="StreamName" PipelineParameter="TagKeyList" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataRetention" Verb="Update" Noun="DataRetention" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDataRetention" Verb="Update" Noun="DataRetention" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateImageGenerationConfiguration" Verb="Update" Noun="ImageGenerationConfiguration" ShouldProcessTarget="StreamName" PipelineParameter="StreamARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateImageGenerationConfiguration" Verb="Update" Noun="ImageGenerationConfiguration" ShouldProcessTarget="StreamName" PipelineParameter="StreamARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMediaStorageConfiguration" Verb="Update" Noun="MediaStorageConfiguration" ShouldProcessTarget="ChannelARN" PipelineParameter="ChannelARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateMediaStorageConfiguration" Verb="Update" Noun="MediaStorageConfiguration" ShouldProcessTarget="ChannelARN" PipelineParameter="ChannelARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateNotificationConfiguration" Verb="Update" Noun="NotificationConfiguration" ShouldProcessTarget="StreamName" PipelineParameter="StreamARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateNotificationConfiguration" Verb="Update" Noun="NotificationConfiguration" ShouldProcessTarget="StreamName" PipelineParameter="StreamARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSignalingChannel" Verb="Update" Noun="SignalingChannel" ShouldProcessTarget="ChannelARN" PipelineParameter="ChannelARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateSignalingChannel" Verb="Update" Noun="SignalingChannel" ShouldProcessTarget="ChannelARN" PipelineParameter="ChannelARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStream" Verb="Update" Noun="Stream" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateStream" Verb="Update" Noun="Stream" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

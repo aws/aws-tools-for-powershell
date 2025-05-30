@@ -67,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The name space of the dataset. The available values are:</para><ul><li><para><b>asc</b> - For information on the Amazon Web Services Supply Chain supported datasets
+        /// <para>The namespace of the dataset, besides the custom defined namespace, every instance
+        /// comes with below pre-defined namespaces:</para><ul><li><para><b>asc</b> - For information on the Amazon Web Services Supply Chain supported datasets
         /// see <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</para></li><li><para><b>default</b> - For datasets with custom user-defined schemas.</para></li></ul>
         /// </para>
         /// </summary>

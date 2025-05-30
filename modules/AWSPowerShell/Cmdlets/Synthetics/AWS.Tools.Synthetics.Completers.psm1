@@ -83,6 +83,7 @@ $CWSYN_Completers = {
         # Amazon.Synthetics.EncryptionMode
         {
             ($_ -eq "New-CWSYNCanary/S3Encryption_EncryptionMode") -Or
+            ($_ -eq "Start-CWSYNCanaryDryRun/S3Encryption_EncryptionMode") -Or
             ($_ -eq "Update-CWSYNCanary/S3Encryption_EncryptionMode")
         }
         {
@@ -93,10 +94,18 @@ $CWSYN_Completers = {
         # Amazon.Synthetics.ProvisionedResourceCleanupSetting
         {
             ($_ -eq "New-CWSYNCanary/ProvisionedResourceCleanup") -Or
+            ($_ -eq "Start-CWSYNCanaryDryRun/ProvisionedResourceCleanup") -Or
             ($_ -eq "Update-CWSYNCanary/ProvisionedResourceCleanup")
         }
         {
             $v = "AUTOMATIC","OFF"
+            break
+        }
+
+        # Amazon.Synthetics.RunType
+        "Get-CWSYNCanaryRun/RunType"
+        {
+            $v = "CANARY_RUN","DRY_RUN"
             break
         }
 
@@ -109,8 +118,9 @@ $CWSYN_Completers = {
 }
 
 $CWSYN_map = @{
-    "ProvisionedResourceCleanup"=@("New-CWSYNCanary","Update-CWSYNCanary")
-    "S3Encryption_EncryptionMode"=@("New-CWSYNCanary","Update-CWSYNCanary")
+    "ProvisionedResourceCleanup"=@("New-CWSYNCanary","Start-CWSYNCanaryDryRun","Update-CWSYNCanary")
+    "RunType"=@("Get-CWSYNCanaryRun")
+    "S3Encryption_EncryptionMode"=@("New-CWSYNCanary","Start-CWSYNCanaryDryRun","Update-CWSYNCanary")
 }
 
 _awsArgumentCompleterRegistration $CWSYN_Completers $CWSYN_map
@@ -180,6 +190,7 @@ $CWSYN_SelectMap = @{
                "Get-CWSYNGroupList",
                "Get-CWSYNResourceTag",
                "Start-CWSYNCanary",
+               "Start-CWSYNCanaryDryRun",
                "Stop-CWSYNCanary",
                "Add-CWSYNResourceTag",
                "Remove-CWSYNResourceTag",

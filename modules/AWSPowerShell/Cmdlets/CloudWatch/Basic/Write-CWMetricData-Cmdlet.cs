@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// The new header, <c>X-Amzn-Failure-Message</c> is an enumeration of the following values:</para><ul><li><para><c>InvalidEntity</c> - The provided entity is invalid.</para></li><li><para><c>InvalidKeyAttributes</c> - The provided <c>KeyAttributes</c> of an entity is invalid.</para></li><li><para><c>InvalidAttributes</c> - The provided <c>Attributes</c> of an entity is invalid.</para></li><li><para><c>InvalidTypeValue</c> - The provided <c>Type</c> in the <c>KeyAttributes</c> of
         /// an entity is invalid.</para></li><li><para><c>EntitySizeTooLarge</c> - The number of <c>EntityMetricData</c> objects allowed
         /// is 2.</para></li><li><para><c>MissingRequiredFields</c> - There are missing required fields in the <c>KeyAttributes</c>
-        /// for the provided <c>Type</c>.</para></li></ul><para>For details of the requirements for specifying an entity, see <a href="https://docs.aws.amazon.com/adding-your-own-related-telemetry.html">How
+        /// for the provided <c>Type</c>.</para></li></ul><para>For details of the requirements for specifying an entity, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/adding-your-own-related-telemetry.html">How
         /// to add related information to telemetry</a> in the <i>CloudWatch User Guide</i>.</para></li></ul><para>This parameter is <i>required</i> when <c>EntityMetricData</c> is included.</para>
         /// </para>
         /// </summary>

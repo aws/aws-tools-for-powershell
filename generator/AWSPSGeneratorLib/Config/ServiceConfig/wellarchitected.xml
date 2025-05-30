@@ -18,293 +18,293 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateLenses" Verb="Register" Noun="Lens" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyAlias="Add-WATLense">
+        <ServiceOperation MethodName="AssociateLenses" Verb="Register" Noun="Lens" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyAlias="Add-WATLense" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateProfiles" Verb="Register" Noun="Profile" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateProfiles" Verb="Register" Noun="Profile" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLensShare" OutputProperty="ShareId" Verb="New" Noun="LensShare" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateLensShare" OutputProperty="ShareId" Verb="New" Noun="LensShare" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLensVersion" OutputProperty="*" Verb="New" Noun="LensVersion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateLensVersion" OutputProperty="*" Verb="New" Noun="LensVersion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMilestone" OutputProperty="*" Verb="New" Noun="Milestone" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMilestone" OutputProperty="*" Verb="New" Noun="Milestone" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProfile" OutputProperty="*" Verb="New" Noun="Profile" ShouldProcessTarget="ProfileName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateProfile" OutputProperty="*" Verb="New" Noun="Profile" ShouldProcessTarget="ProfileName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="ProfileName" NewName="Name" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProfileShare" OutputProperty="*" Verb="New" Noun="ProfileShare" ShouldProcessTarget="ProfileArn" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateProfileShare" OutputProperty="*" Verb="New" Noun="ProfileShare" ShouldProcessTarget="ProfileArn" PipelineParameter="ProfileArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateReviewTemplate" OutputProperty="TemplateArn" Verb="New" Noun="ReviewTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateReviewTemplate" OutputProperty="TemplateArn" Verb="New" Noun="ReviewTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTemplateShare" OutputProperty="*" Verb="New" Noun="TemplateShare" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTemplateShare" OutputProperty="*" Verb="New" Noun="TemplateShare" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWorkload" OutputProperty="*" Verb="New" Noun="Workload" ShouldProcessTarget="WorkloadName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateWorkload" OutputProperty="*" Verb="New" Noun="Workload" ShouldProcessTarget="WorkloadName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWorkloadShare" OutputProperty="*" Verb="New" Noun="WorkloadShare" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateWorkloadShare" OutputProperty="*" Verb="New" Noun="WorkloadShare" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLens" Verb="Remove" Noun="Lens" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteLens" Verb="Remove" Noun="Lens" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLensShare" Verb="Remove" Noun="LensShare" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteLensShare" Verb="Remove" Noun="LensShare" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProfile" Verb="Remove" Noun="Profile" ShouldProcessTarget="ProfileArn" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteProfile" Verb="Remove" Noun="Profile" ShouldProcessTarget="ProfileArn" PipelineParameter="ProfileArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProfileShare" Verb="Remove" Noun="ProfileShare" ShouldProcessTarget="ProfileArn" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteProfileShare" Verb="Remove" Noun="ProfileShare" ShouldProcessTarget="ProfileArn" PipelineParameter="ProfileArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteReviewTemplate" Verb="Remove" Noun="ReviewTemplate" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteReviewTemplate" Verb="Remove" Noun="ReviewTemplate" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTemplateShare" Verb="Remove" Noun="TemplateShare" ShouldProcessTarget="ShareId" PipelineParameter="ShareId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTemplateShare" Verb="Remove" Noun="TemplateShare" ShouldProcessTarget="ShareId" PipelineParameter="ShareId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWorkload" Verb="Remove" Noun="Workload" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteWorkload" Verb="Remove" Noun="Workload" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWorkloadShare" Verb="Remove" Noun="WorkloadShare" ShouldProcessTarget="ShareId" PipelineParameter="ShareId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteWorkloadShare" Verb="Remove" Noun="WorkloadShare" ShouldProcessTarget="ShareId" PipelineParameter="ShareId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateLenses" Verb="Unregister" Noun="Lens" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyAlias="Remove-WATLense">
+        <ServiceOperation MethodName="DisassociateLenses" Verb="Unregister" Noun="Lens" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyAlias="Remove-WATLense" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateProfiles" Verb="Unregister" Noun="Profile" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateProfiles" Verb="Unregister" Noun="Profile" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExportLens" OutputProperty="LensJSON" Verb="Export" Noun="Lens" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ExportLens" OutputProperty="LensJSON" Verb="Export" Noun="Lens" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAnswer" OutputProperty="*" Verb="Get" Noun="Answer" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAnswer" OutputProperty="*" Verb="Get" Noun="Answer" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConsolidatedReport" OutputProperty="*" Verb="Get" Noun="ConsolidatedReport" PipelineParameter="Format" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetConsolidatedReport" OutputProperty="*" Verb="Get" Noun="ConsolidatedReport" PipelineParameter="Format" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGlobalSettings" OutputProperty="*" Verb="Get" Noun="GlobalSetting" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetGlobalSettings" OutputProperty="*" Verb="Get" Noun="GlobalSetting" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLens" OutputProperty="Lens" Verb="Get" Noun="Lens" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetLens" OutputProperty="Lens" Verb="Get" Noun="Lens" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLensReview" OutputProperty="*" Verb="Get" Noun="LensReview" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetLensReview" OutputProperty="*" Verb="Get" Noun="LensReview" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLensReviewReport" OutputProperty="*" Verb="Get" Noun="LensReviewReport" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetLensReviewReport" OutputProperty="*" Verb="Get" Noun="LensReviewReport" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLensVersionDifference" OutputProperty="*" Verb="Get" Noun="LensVersionDifference" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetLensVersionDifference" OutputProperty="*" Verb="Get" Noun="LensVersionDifference" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMilestone" OutputProperty="*" Verb="Get" Noun="Milestone" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMilestone" OutputProperty="*" Verb="Get" Noun="Milestone" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProfile" OutputProperty="Profile" Verb="Get" Noun="Profile" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetProfile" OutputProperty="Profile" Verb="Get" Noun="Profile" PipelineParameter="ProfileArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProfileTemplate" OutputProperty="ProfileTemplate" Verb="Get" Noun="ProfileTemplate" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetProfileTemplate" OutputProperty="ProfileTemplate" Verb="Get" Noun="ProfileTemplate" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReviewTemplate" OutputProperty="ReviewTemplate" Verb="Get" Noun="ReviewTemplate" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetReviewTemplate" OutputProperty="ReviewTemplate" Verb="Get" Noun="ReviewTemplate" PipelineParameter="TemplateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReviewTemplateAnswer" OutputProperty="*" Verb="Get" Noun="ReviewTemplateAnswer" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetReviewTemplateAnswer" OutputProperty="*" Verb="Get" Noun="ReviewTemplateAnswer" PipelineParameter="TemplateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReviewTemplateLensReview" OutputProperty="*" Verb="Get" Noun="ReviewTemplateLensReview" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetReviewTemplateLensReview" OutputProperty="*" Verb="Get" Noun="ReviewTemplateLensReview" PipelineParameter="TemplateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWorkload" OutputProperty="Workload" Verb="Get" Noun="Workload" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetWorkload" OutputProperty="Workload" Verb="Get" Noun="Workload" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportLens" OutputProperty="*" Verb="Import" Noun="Lens" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ImportLens" OutputProperty="*" Verb="Import" Noun="Lens" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAnswers" OutputProperty="*" Verb="Get" Noun="AnswerList" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAnswers" OutputProperty="*" Verb="Get" Noun="AnswerList" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCheckDetails" OutputProperty="CheckDetails" Verb="Get" Noun="CheckDetailList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListCheckDetails" OutputProperty="CheckDetails" Verb="Get" Noun="CheckDetailList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCheckSummaries" OutputProperty="CheckSummaries" Verb="Get" Noun="CheckSummaryList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListCheckSummaries" OutputProperty="CheckSummaries" Verb="Get" Noun="CheckSummaryList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLenses" OutputProperty="LensSummaries" Verb="Get" Noun="LensList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-WATLenseList">
+        <ServiceOperation MethodName="ListLenses" OutputProperty="LensSummaries" Verb="Get" Noun="LensList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-WATLenseList" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLensReviewImprovements" OutputProperty="*" Verb="Get" Noun="LensReviewImprovementList" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLensReviewImprovements" OutputProperty="*" Verb="Get" Noun="LensReviewImprovementList" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLensReviews" OutputProperty="*" Verb="Get" Noun="LensReviewList" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLensReviews" OutputProperty="*" Verb="Get" Noun="LensReviewList" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLensShares" OutputProperty="LensShareSummaries" Verb="Get" Noun="LensShareList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListLensShares" OutputProperty="LensShareSummaries" Verb="Get" Noun="LensShareList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMilestones" OutputProperty="*" Verb="Get" Noun="MilestoneList" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMilestones" OutputProperty="*" Verb="Get" Noun="MilestoneList" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNotifications" OutputProperty="NotificationSummaries" Verb="Get" Noun="NotificationList" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListNotifications" OutputProperty="NotificationSummaries" Verb="Get" Noun="NotificationList" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProfileNotifications" OutputProperty="NotificationSummaries" Verb="Get" Noun="ProfileNotificationList" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProfileNotifications" OutputProperty="NotificationSummaries" Verb="Get" Noun="ProfileNotificationList" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProfiles" OutputProperty="ProfileSummaries" Verb="Get" Noun="ProfileList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListProfiles" OutputProperty="ProfileSummaries" Verb="Get" Noun="ProfileList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProfileShares" OutputProperty="ProfileShareSummaries" Verb="Get" Noun="ProfileShareList" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProfileShares" OutputProperty="ProfileShareSummaries" Verb="Get" Noun="ProfileShareList" PipelineParameter="ProfileArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReviewTemplateAnswers" OutputProperty="*" Verb="Get" Noun="ReviewTemplateAnswerList" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListReviewTemplateAnswers" OutputProperty="*" Verb="Get" Noun="ReviewTemplateAnswerList" PipelineParameter="TemplateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReviewTemplates" OutputProperty="ReviewTemplates" Verb="Get" Noun="ReviewTemplateList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListReviewTemplates" OutputProperty="ReviewTemplates" Verb="Get" Noun="ReviewTemplateList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListShareInvitations" OutputProperty="ShareInvitationSummaries" Verb="Get" Noun="ShareInvitationList" PipelineParameter="WorkloadNamePrefix" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListShareInvitations" OutputProperty="ShareInvitationSummaries" Verb="Get" Noun="ShareInvitationList" PipelineParameter="WorkloadNamePrefix" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="WorkloadArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="WorkloadArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTemplateShares" OutputProperty="*" Verb="Get" Noun="TemplateShareList" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTemplateShares" OutputProperty="*" Verb="Get" Noun="TemplateShareList" PipelineParameter="TemplateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkloads" OutputProperty="WorkloadSummaries" Verb="Get" Noun="WorkloadList" PipelineParameter="WorkloadNamePrefix" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListWorkloads" OutputProperty="WorkloadSummaries" Verb="Get" Noun="WorkloadList" PipelineParameter="WorkloadNamePrefix" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkloadShares" OutputProperty="*" Verb="Get" Noun="WorkloadShareList" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListWorkloadShares" OutputProperty="*" Verb="Get" Noun="WorkloadShareList" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="WorkloadArn" PipelineParameter="WorkloadArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="WorkloadArn" PipelineParameter="WorkloadArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="WorkloadArn" PipelineParameter="WorkloadArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="WorkloadArn" PipelineParameter="WorkloadArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAnswer" OutputProperty="*" Verb="Update" Noun="Answer" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAnswer" OutputProperty="*" Verb="Update" Noun="Answer" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGlobalSettings" Verb="Update" Noun="GlobalSetting" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateGlobalSettings" Verb="Update" Noun="GlobalSetting" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIntegration" Verb="Update" Noun="Integration" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateIntegration" Verb="Update" Noun="Integration" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLensReview" OutputProperty="*" Verb="Update" Noun="LensReview" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateLensReview" OutputProperty="*" Verb="Update" Noun="LensReview" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProfile" OutputProperty="Profile" Verb="Update" Noun="Profile" ShouldProcessTarget="ProfileArn" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateProfile" OutputProperty="Profile" Verb="Update" Noun="Profile" ShouldProcessTarget="ProfileArn" PipelineParameter="ProfileArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateReviewTemplate" OutputProperty="ReviewTemplate" Verb="Update" Noun="ReviewTemplate" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateReviewTemplate" OutputProperty="ReviewTemplate" Verb="Update" Noun="ReviewTemplate" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateReviewTemplateAnswer" OutputProperty="*" Verb="Update" Noun="ReviewTemplateAnswer" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateReviewTemplateAnswer" OutputProperty="*" Verb="Update" Noun="ReviewTemplateAnswer" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateReviewTemplateLensReview" OutputProperty="*" Verb="Update" Noun="ReviewTemplateLensReview" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateReviewTemplateLensReview" OutputProperty="*" Verb="Update" Noun="ReviewTemplateLensReview" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateShareInvitation" OutputProperty="ShareInvitation" Verb="Update" Noun="ShareInvitation" ShouldProcessTarget="ShareInvitationId" PipelineParameter="ShareInvitationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateShareInvitation" OutputProperty="ShareInvitation" Verb="Update" Noun="ShareInvitation" ShouldProcessTarget="ShareInvitationId" PipelineParameter="ShareInvitationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWorkload" OutputProperty="Workload" Verb="Update" Noun="Workload" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateWorkload" OutputProperty="Workload" Verb="Update" Noun="Workload" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWorkloadShare" OutputProperty="*" Verb="Update" Noun="WorkloadShare" ShouldProcessTarget="ShareId" PipelineParameter="ShareId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateWorkloadShare" OutputProperty="*" Verb="Update" Noun="WorkloadShare" ShouldProcessTarget="ShareId" PipelineParameter="ShareId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpgradeLensReview" Verb="Convert" Noun="LensReview" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpgradeLensReview" Verb="Convert" Noun="LensReview" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpgradeProfileVersion" Verb="Update" Noun="ProfileVersion" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpgradeProfileVersion" Verb="Update" Noun="ProfileVersion" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpgradeReviewTemplateLensReview" Verb="Convert" Noun="ReviewTemplateLensReview" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpgradeReviewTemplateLensReview" Verb="Convert" Noun="ReviewTemplateLensReview" ShouldProcessTarget="TemplateArn" PipelineParameter="TemplateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

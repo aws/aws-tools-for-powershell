@@ -19,11 +19,11 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="QueryForecast" OutputProperty="Forecast" Verb="Select" Noun="Forecast" ShouldProcessTarget="ForecastArn" PipelineParameter="ForecastArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="QueryForecast" OutputProperty="Forecast" Verb="Select" Noun="Forecast" ShouldProcessTarget="ForecastArn" PipelineParameter="ForecastArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="QueryWhatIfForecast" OutputProperty="Forecast" Verb="Select" Noun="WhatIfForecast" ShouldProcessTarget="WhatIfForecastArn" PipelineParameter="WhatIfForecastArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="QueryWhatIfForecast" OutputProperty="Forecast" Verb="Select" Noun="WhatIfForecast" ShouldProcessTarget="WhatIfForecastArn" PipelineParameter="WhatIfForecastArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

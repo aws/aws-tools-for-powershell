@@ -19,182 +19,190 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateAnomalyMonitor" OutputProperty="MonitorArn" Verb="New" Noun="AnomalyMonitor" ShouldProcessTarget="AnomalyMonitor_MonitorName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateAnomalyMonitor" OutputProperty="MonitorArn" Verb="New" Noun="AnomalyMonitor" ShouldProcessTarget="AnomalyMonitor_MonitorName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAnomalySubscription" OutputProperty="SubscriptionArn" Verb="New" Noun="AnomalySubscription" ShouldProcessTarget="AnomalySubscription_SubscriptionName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateAnomalySubscription" OutputProperty="SubscriptionArn" Verb="New" Noun="AnomalySubscription" ShouldProcessTarget="AnomalySubscription_SubscriptionName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCostCategoryDefinition" OutputProperty="*" Verb="New" Noun="CostCategoryDefinition" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCostCategoryDefinition" OutputProperty="*" Verb="New" Noun="CostCategoryDefinition" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAnomalyMonitor" Verb="Remove" Noun="AnomalyMonitor" ShouldProcessTarget="MonitorArn" PipelineParameter="MonitorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAnomalyMonitor" Verb="Remove" Noun="AnomalyMonitor" ShouldProcessTarget="MonitorArn" PipelineParameter="MonitorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAnomalySubscription" Verb="Remove" Noun="AnomalySubscription" ShouldProcessTarget="SubscriptionArn" PipelineParameter="SubscriptionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAnomalySubscription" Verb="Remove" Noun="AnomalySubscription" ShouldProcessTarget="SubscriptionArn" PipelineParameter="SubscriptionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCostCategoryDefinition" OutputProperty="*" Verb="Remove" Noun="CostCategoryDefinition" ShouldProcessTarget="CostCategoryArn" PipelineParameter="CostCategoryArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCostCategoryDefinition" OutputProperty="*" Verb="Remove" Noun="CostCategoryDefinition" ShouldProcessTarget="CostCategoryArn" PipelineParameter="CostCategoryArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCostCategoryDefinition" OutputProperty="CostCategory" Verb="Get" Noun="CostCategoryDefinition" PipelineParameter="CostCategoryArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCostCategoryDefinition" OutputProperty="CostCategory" Verb="Get" Noun="CostCategoryDefinition" PipelineParameter="CostCategoryArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAnomalies" OutputProperty="Anomalies" Verb="Get" Noun="Anomaly" PipelineParameter="DateInterval_StartDate" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAnomalies" OutputProperty="Anomalies" Verb="Get" Noun="Anomaly" PipelineParameter="DateInterval_StartDate" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAnomalyMonitors" OutputProperty="AnomalyMonitors" Verb="Get" Noun="AnomalyMonitor" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAnomalyMonitors" OutputProperty="AnomalyMonitors" Verb="Get" Noun="AnomalyMonitor" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAnomalySubscriptions" OutputProperty="AnomalySubscriptions" Verb="Get" Noun="AnomalySubscription" PipelineParameter="MonitorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAnomalySubscriptions" OutputProperty="AnomalySubscriptions" Verb="Get" Noun="AnomalySubscription" PipelineParameter="MonitorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApproximateUsageRecords" OutputProperty="*" Verb="Get" Noun="ApproximateUsageRecord" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetApproximateUsageRecords" OutputProperty="*" Verb="Get" Noun="ApproximateUsageRecord" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCommitmentPurchaseAnalysis" OutputProperty="*" Verb="Get" Noun="CommitmentPurchaseAnalysis" PipelineParameter="AnalysisId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCommitmentPurchaseAnalysis" OutputProperty="*" Verb="Get" Noun="CommitmentPurchaseAnalysis" PipelineParameter="AnalysisId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCostAndUsage" OutputProperty="*" Verb="Get" Noun="CostAndUsage" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="GetCostAndUsage" OutputProperty="*" Verb="Get" Noun="CostAndUsage" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCostAndUsageWithResources" OutputProperty="*" Verb="Get" Noun="CostAndUsageWithResource" PipelineParameter="TimePeriod" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCostAndUsageComparisons" OutputProperty="*" Verb="Get" Noun="CostAndUsageComparison" PipelineParameter="MetricForComparison" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCostCategories" OutputProperty="*" Verb="Get" Noun="CostCategory" PipelineParameter="TimePeriod" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCostAndUsageWithResources" OutputProperty="*" Verb="Get" Noun="CostAndUsageWithResource" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCostForecast" OutputProperty="*" Verb="Get" Noun="CostForecast" PipelineParameter="TimePeriod" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCostCategories" OutputProperty="*" Verb="Get" Noun="CostCategory" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDimensionValues" OutputProperty="*" Verb="Get" Noun="DimensionValue" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="GetCostComparisonDrivers" OutputProperty="CostComparisonDrivers" Verb="Get" Noun="CostComparisonDriver" PipelineParameter="MetricForComparison" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReservationCoverage" OutputProperty="*" Verb="Get" Noun="ReservationCoverage" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="GetCostForecast" OutputProperty="*" Verb="Get" Noun="CostForecast" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReservationPurchaseRecommendation" OutputProperty="*" Verb="Get" Noun="ReservationPurchaseRecommendation" PipelineParameter="Service" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="GetDimensionValues" OutputProperty="*" Verb="Get" Noun="DimensionValue" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReservationUtilization" OutputProperty="*" Verb="Get" Noun="ReservationUtilization" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="GetReservationCoverage" OutputProperty="*" Verb="Get" Noun="ReservationCoverage" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRightsizingRecommendation" OutputProperty="*" Verb="Get" Noun="RightsizingRecommendation" PipelineParameter="Service" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="GetReservationPurchaseRecommendation" OutputProperty="*" Verb="Get" Noun="ReservationPurchaseRecommendation" PipelineParameter="Service" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSavingsPlanPurchaseRecommendationDetails" OutputProperty="*" Verb="Get" Noun="SavingsPlanPurchaseRecommendationDetail" PipelineParameter="RecommendationDetailId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetReservationUtilization" OutputProperty="*" Verb="Get" Noun="ReservationUtilization" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSavingsPlansCoverage" OutputProperty="SavingsPlansCoverages" Verb="Get" Noun="SavingsPlansCoverage" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
-            <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="GetSavingsPlansPurchaseRecommendation" OutputProperty="*" Verb="Get" Noun="SavingsPlansPurchaseRecommendation" PipelineParameter="PaymentOption" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRightsizingRecommendation" OutputProperty="*" Verb="Get" Noun="RightsizingRecommendation" PipelineParameter="Service" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSavingsPlansUtilization" OutputProperty="*" Verb="Get" Noun="SavingsPlansUtilization" PipelineParameter="TimePeriod" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSavingsPlanPurchaseRecommendationDetails" OutputProperty="*" Verb="Get" Noun="SavingsPlanPurchaseRecommendationDetail" PipelineParameter="RecommendationDetailId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSavingsPlansUtilizationDetails" OutputProperty="SavingsPlansUtilizationDetails" Verb="Get" Noun="SavingsPlansUtilizationDetail" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="GetSavingsPlansCoverage" OutputProperty="SavingsPlansCoverages" Verb="Get" Noun="SavingsPlansCoverage" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTags" OutputProperty="*" Verb="Get" Noun="Tag" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="GetSavingsPlansPurchaseRecommendation" OutputProperty="*" Verb="Get" Noun="SavingsPlansPurchaseRecommendation" PipelineParameter="PaymentOption" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUsageForecast" OutputProperty="*" Verb="Get" Noun="UsageForecast" PipelineParameter="Metric" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSavingsPlansUtilization" OutputProperty="*" Verb="Get" Noun="SavingsPlansUtilization" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCommitmentPurchaseAnalyses" OutputProperty="AnalysisSummaryList" Verb="Get" Noun="CommitmentPurchaseAnalysisList" PipelineParameter="AnalysisStatus" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSavingsPlansUtilizationDetails" OutputProperty="SavingsPlansUtilizationDetails" Verb="Get" Noun="SavingsPlansUtilizationDetail" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTags" OutputProperty="*" Verb="Get" Noun="Tag" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCostAllocationTagBackfillHistory" OutputProperty="BackfillRequests" Verb="Get" Noun="CostAllocationTagBackfillHistoryList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetUsageForecast" OutputProperty="*" Verb="Get" Noun="UsageForecast" PipelineParameter="Metric" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCostAllocationTags" OutputProperty="CostAllocationTags" Verb="Get" Noun="CostAllocationTagList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListCommitmentPurchaseAnalyses" OutputProperty="AnalysisSummaryList" Verb="Get" Noun="CommitmentPurchaseAnalysisList" PipelineParameter="AnalysisStatus" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCostCategoryDefinitions" OutputProperty="CostCategoryReferences" Verb="Get" Noun="CostCategoryDefinitionList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListCostAllocationTagBackfillHistory" OutputProperty="BackfillRequests" Verb="Get" Noun="CostAllocationTagBackfillHistoryList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCostAllocationTags" OutputProperty="CostAllocationTags" Verb="Get" Noun="CostAllocationTagList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCostCategoryDefinitions" OutputProperty="CostCategoryReferences" Verb="Get" Noun="CostCategoryDefinitionList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSavingsPlansPurchaseRecommendationGeneration" OutputProperty="GenerationSummaryList" Verb="Get" Noun="SavingsPlansPurchaseRecommendationGenerationList" PipelineParameter="GenerationStatus" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSavingsPlansPurchaseRecommendationGeneration" OutputProperty="GenerationSummaryList" Verb="Get" Noun="SavingsPlansPurchaseRecommendationGenerationList" PipelineParameter="GenerationStatus" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="ResourceTags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="ResourceTags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ProvideAnomalyFeedback" OutputProperty="AnomalyId" Verb="Set" Noun="AnomalyFeedback" ShouldProcessTarget="AnomalyId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ProvideAnomalyFeedback" OutputProperty="AnomalyId" Verb="Set" Noun="AnomalyFeedback" ShouldProcessTarget="AnomalyId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartCommitmentPurchaseAnalysis" OutputProperty="*" Verb="Start" Noun="CommitmentPurchaseAnalysis" ShouldProcessTarget="CommitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_AccountId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartCommitmentPurchaseAnalysis" OutputProperty="*" Verb="Start" Noun="CommitmentPurchaseAnalysis" ShouldProcessTarget="CommitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_AccountId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartCostAllocationTagBackfill" OutputProperty="BackfillRequest" Verb="Start" Noun="CostAllocationTagBackfill" ShouldProcessTarget="BackfillFrom" PipelineParameter="BackfillFrom" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartCostAllocationTagBackfill" OutputProperty="BackfillRequest" Verb="Start" Noun="CostAllocationTagBackfill" ShouldProcessTarget="BackfillFrom" PipelineParameter="BackfillFrom" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSavingsPlansPurchaseRecommendationGeneration" OutputProperty="*" Verb="Start" Noun="SavingsPlansPurchaseRecommendationGeneration" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartSavingsPlansPurchaseRecommendationGeneration" OutputProperty="*" Verb="Start" Noun="SavingsPlansPurchaseRecommendationGeneration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAnomalyMonitor" OutputProperty="MonitorArn" Verb="Update" Noun="AnomalyMonitor" ShouldProcessTarget="MonitorArn" PipelineParameter="MonitorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAnomalyMonitor" OutputProperty="MonitorArn" Verb="Update" Noun="AnomalyMonitor" ShouldProcessTarget="MonitorArn" PipelineParameter="MonitorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAnomalySubscription" OutputProperty="SubscriptionArn" Verb="Update" Noun="AnomalySubscription" ShouldProcessTarget="SubscriptionArn" PipelineParameter="SubscriptionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAnomalySubscription" OutputProperty="SubscriptionArn" Verb="Update" Noun="AnomalySubscription" ShouldProcessTarget="SubscriptionArn" PipelineParameter="SubscriptionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCostAllocationTagsStatus" OutputProperty="Errors" Verb="Update" Noun="CostAllocationTagsStatus" ShouldProcessTarget="CostAllocationTagsStatus" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateCostAllocationTagsStatus" OutputProperty="Errors" Verb="Update" Noun="CostAllocationTagsStatus" ShouldProcessTarget="CostAllocationTagsStatus" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCostCategoryDefinition" OutputProperty="*" Verb="Update" Noun="CostCategoryDefinition" ShouldProcessTarget="CostCategoryArn" PipelineParameter="CostCategoryArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCostCategoryDefinition" OutputProperty="*" Verb="Update" Noun="CostCategoryDefinition" ShouldProcessTarget="CostCategoryArn" PipelineParameter="CostCategoryArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

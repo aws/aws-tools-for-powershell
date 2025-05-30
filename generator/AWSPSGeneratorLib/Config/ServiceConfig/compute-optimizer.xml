@@ -19,115 +19,115 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DeleteRecommendationPreferences" Verb="Remove" Noun="RecommendationPreference" ShouldProcessTarget="Scope_Name" PipelineParameter="ResourceType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRecommendationPreferences" Verb="Remove" Noun="RecommendationPreference" ShouldProcessTarget="Scope_Name" PipelineParameter="ResourceType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRecommendationExportJobs" OutputProperty="RecommendationExportJobs" Verb="Get" Noun="RecommendationExportJob" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRecommendationExportJobs" OutputProperty="RecommendationExportJobs" Verb="Get" Noun="RecommendationExportJob" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExportAutoScalingGroupRecommendations" OutputProperty="*" Verb="Export" Noun="AutoScalingGroupRecommendation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ExportAutoScalingGroupRecommendations" OutputProperty="*" Verb="Export" Noun="AutoScalingGroupRecommendation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExportEBSVolumeRecommendations" OutputProperty="*" Verb="Export" Noun="EBSVolumeRecommendation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ExportEBSVolumeRecommendations" OutputProperty="*" Verb="Export" Noun="EBSVolumeRecommendation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExportEC2InstanceRecommendations" OutputProperty="*" Verb="Export" Noun="EC2InstanceRecommendation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ExportEC2InstanceRecommendations" OutputProperty="*" Verb="Export" Noun="EC2InstanceRecommendation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExportECSServiceRecommendations" OutputProperty="*" Verb="Export" Noun="ECSServiceRecommendation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ExportECSServiceRecommendations" OutputProperty="*" Verb="Export" Noun="ECSServiceRecommendation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExportIdleRecommendations" OutputProperty="*" Verb="Export" Noun="IdleRecommendation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ExportIdleRecommendations" OutputProperty="*" Verb="Export" Noun="IdleRecommendation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExportLambdaFunctionRecommendations" OutputProperty="*" Verb="Export" Noun="LambdaFunctionRecommendation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ExportLambdaFunctionRecommendations" OutputProperty="*" Verb="Export" Noun="LambdaFunctionRecommendation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExportLicenseRecommendations" OutputProperty="*" Verb="Export" Noun="LicenseRecommendation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ExportLicenseRecommendations" OutputProperty="*" Verb="Export" Noun="LicenseRecommendation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExportRDSDatabaseRecommendations" OutputProperty="*" Verb="Export" Noun="RDSDatabaseRecommendation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ExportRDSDatabaseRecommendations" OutputProperty="*" Verb="Export" Noun="RDSDatabaseRecommendation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAutoScalingGroupRecommendations" OutputProperty="AutoScalingGroupRecommendations" Verb="Get" Noun="AutoScalingGroupRecommendation" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAutoScalingGroupRecommendations" OutputProperty="AutoScalingGroupRecommendations" Verb="Get" Noun="AutoScalingGroupRecommendation" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEBSVolumeRecommendations" OutputProperty="*" Verb="Get" Noun="EBSVolumeRecommendation" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEBSVolumeRecommendations" OutputProperty="*" Verb="Get" Noun="EBSVolumeRecommendation" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEC2InstanceRecommendations" OutputProperty="*" Verb="Get" Noun="EC2InstanceRecommendation" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEC2InstanceRecommendations" OutputProperty="*" Verb="Get" Noun="EC2InstanceRecommendation" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEC2RecommendationProjectedMetrics" OutputProperty="RecommendedOptionProjectedMetrics" Verb="Get" Noun="EC2RecommendationProjectedMetric" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEC2RecommendationProjectedMetrics" OutputProperty="RecommendedOptionProjectedMetrics" Verb="Get" Noun="EC2RecommendationProjectedMetric" PipelineParameter="InstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetECSServiceRecommendationProjectedMetrics" OutputProperty="RecommendedOptionProjectedMetrics" Verb="Get" Noun="ECSServiceRecommendationProjectedMetric" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetECSServiceRecommendationProjectedMetrics" OutputProperty="RecommendedOptionProjectedMetrics" Verb="Get" Noun="ECSServiceRecommendationProjectedMetric" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetECSServiceRecommendations" OutputProperty="*" Verb="Get" Noun="ECSServiceRecommendation" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetECSServiceRecommendations" OutputProperty="*" Verb="Get" Noun="ECSServiceRecommendation" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEffectiveRecommendationPreferences" OutputProperty="EnhancedInfrastructureMetrics" Verb="Get" Noun="EffectiveRecommendationPreference" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEffectiveRecommendationPreferences" OutputProperty="EnhancedInfrastructureMetrics" Verb="Get" Noun="EffectiveRecommendationPreference" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEnrollmentStatus" OutputProperty="*" Verb="Get" Noun="EnrollmentStatus" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEnrollmentStatus" OutputProperty="*" Verb="Get" Noun="EnrollmentStatus" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEnrollmentStatusesForOrganization" OutputProperty="AccountEnrollmentStatuses" Verb="Get" Noun="EnrollmentStatusesForOrganization" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEnrollmentStatusesForOrganization" OutputProperty="AccountEnrollmentStatuses" Verb="Get" Noun="EnrollmentStatusesForOrganization" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIdleRecommendations" OutputProperty="*" Verb="Get" Noun="IdleRecommendation" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetIdleRecommendations" OutputProperty="*" Verb="Get" Noun="IdleRecommendation" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLambdaFunctionRecommendations" OutputProperty="LambdaFunctionRecommendations" Verb="Get" Noun="LambdaFunctionRecommendation" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetLambdaFunctionRecommendations" OutputProperty="LambdaFunctionRecommendations" Verb="Get" Noun="LambdaFunctionRecommendation" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLicenseRecommendations" OutputProperty="*" Verb="Get" Noun="LicenseRecommendation" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetLicenseRecommendations" OutputProperty="*" Verb="Get" Noun="LicenseRecommendation" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRDSDatabaseRecommendationProjectedMetrics" OutputProperty="RecommendedOptionProjectedMetrics" Verb="Get" Noun="RDSDatabaseRecommendationProjectedMetric" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetRDSDatabaseRecommendationProjectedMetrics" OutputProperty="RecommendedOptionProjectedMetrics" Verb="Get" Noun="RDSDatabaseRecommendationProjectedMetric" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRDSDatabaseRecommendations" OutputProperty="*" Verb="Get" Noun="RDSDatabaseRecommendation" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRDSDatabaseRecommendations" OutputProperty="*" Verb="Get" Noun="RDSDatabaseRecommendation" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRecommendationPreferences" OutputProperty="RecommendationPreferencesDetails" Verb="Get" Noun="RecommendationPreference" PipelineParameter="ResourceType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRecommendationPreferences" OutputProperty="RecommendationPreferencesDetails" Verb="Get" Noun="RecommendationPreference" PipelineParameter="ResourceType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRecommendationSummaries" OutputProperty="RecommendationSummaries" Verb="Get" Noun="RecommendationSummary" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRecommendationSummaries" OutputProperty="RecommendationSummaries" Verb="Get" Noun="RecommendationSummary" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRecommendationPreferences" Verb="Write" Noun="RecommendationPreference" ShouldProcessTarget="Scope_Name" PipelineParameter="ResourceType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutRecommendationPreferences" Verb="Write" Noun="RecommendationPreference" ShouldProcessTarget="Scope_Name" PipelineParameter="ResourceType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEnrollmentStatus" OutputProperty="*" Verb="Update" Noun="EnrollmentStatus" ShouldProcessTarget="Status" PipelineParameter="Status" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateEnrollmentStatus" OutputProperty="*" Verb="Update" Noun="EnrollmentStatus" ShouldProcessTarget="Status" PipelineParameter="Status" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

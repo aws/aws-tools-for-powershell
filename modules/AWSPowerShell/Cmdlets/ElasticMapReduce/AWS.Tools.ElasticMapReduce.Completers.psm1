@@ -141,6 +141,13 @@ $EMR_Completers = {
             break
         }
 
+        # Amazon.ElasticMapReduce.OnClusterAppUIType
+        "Get-EMROnClusterAppUIPresignedURL/OnClusterAppUIType"
+        {
+            $v = "ApplicationMaster","JobHistoryServer","ResourceManager","SparkHistoryServer","TezUI","YarnTimelineService"
+            break
+        }
+
         # Amazon.ElasticMapReduce.OnDemandCapacityReservationPreference
         {
             ($_ -eq "Add-EMRInstanceFleet/CapacityReservationOptions_CapacityReservationPreference") -Or
@@ -178,6 +185,20 @@ $EMR_Completers = {
         "Start-EMRNotebookExecution/OutputNotebookFormat"
         {
             $v = "HTML"
+            break
+        }
+
+        # Amazon.ElasticMapReduce.PersistentAppUIType
+        "Get-EMRPersistentAppUIPresignedURL/PersistentAppUIType"
+        {
+            $v = "SHS","TEZ","YTS"
+            break
+        }
+
+        # Amazon.ElasticMapReduce.ProfilerType
+        "New-EMRPersistentAppUI/ProfilerType"
+        {
+            $v = "SHS","TEZUI","YTS"
             break
         }
 
@@ -251,9 +272,12 @@ $EMR_map = @{
     "InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_UsageStrategy"=@("Add-EMRInstanceFleet")
     "InstanceFleetType"=@("Get-EMRInstanceList")
     "ManagedScalingPolicy_ScalingStrategy"=@("Start-EMRJobFlow","Write-EMRManagedScalingPolicy")
+    "OnClusterAppUIType"=@("Get-EMROnClusterAppUIPresignedURL")
     "OnDemandResizeSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet","Edit-EMRInstanceFleet")
     "OnDemandSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet")
     "OutputNotebookFormat"=@("Start-EMRNotebookExecution")
+    "PersistentAppUIType"=@("Get-EMRPersistentAppUIPresignedURL")
+    "ProfilerType"=@("New-EMRPersistentAppUI")
     "RepoUpgradeOnBoot"=@("Start-EMRJobFlow")
     "ScaleDownBehavior"=@("Start-EMRJobFlow")
     "SpotResizeSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet","Edit-EMRInstanceFleet")
@@ -318,6 +342,7 @@ $EMR_SelectMap = @{
                "Add-EMRJobFlowStep",
                "Add-EMRResourceTag",
                "Stop-EMRStep",
+               "New-EMRPersistentAppUI",
                "New-EMRSecurityConfiguration",
                "New-EMRStudio",
                "New-EMRStudioSessionMapping",
@@ -327,6 +352,7 @@ $EMR_SelectMap = @{
                "Get-EMRCluster",
                "Get-EMRJobFlow",
                "Get-EMRNotebookExecution",
+               "Get-EMRPersistentAppUI",
                "Get-EMRReleaseLabel",
                "Get-EMRSecurityConfiguration",
                "Get-EMRStep",
@@ -335,6 +361,8 @@ $EMR_SelectMap = @{
                "Get-EMRBlockPublicAccessConfiguration",
                "Get-EMRClusterSessionCredential",
                "Get-EMRManagedScalingPolicy",
+               "Get-EMROnClusterAppUIPresignedURL",
+               "Get-EMRPersistentAppUIPresignedURL",
                "Get-EMRStudioSessionMapping",
                "Get-EMRBootstrapActionList",
                "Get-EMRClusterList",

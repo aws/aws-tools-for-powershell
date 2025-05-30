@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// 
     ///  
     /// <para>
-    /// For a description of each historical metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical
-    /// Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.
+    /// For a description of each historical metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics
+    /// definitions</a> in the <i>Amazon Connect Administrator Guide</i>.
     /// </para><note><para>
     /// We recommend using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html">GetMetricDataV2</a>
     /// API. It provides more flexibility, features, and the ability to query longer time
@@ -107,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>
         /// <para>The metrics to retrieve. Specify the name, unit, and statistic for each metric. The
         /// following historical metrics are available. For a description of each metric, see
-        /// <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical
-        /// Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</para><note><para>This API does not support a contacts incoming metric (there's no CONTACTS_INCOMING
+        /// <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics
+        /// definition</a> in the <i>Amazon Connect Administrator Guide</i>.</para><note><para>This API does not support a contacts incoming metric (there's no CONTACTS_INCOMING
         /// metric missing from the documented list). </para></note><dl><dt>ABANDON_TIME</dt><dd><para>Unit: SECONDS</para><para>Statistic: AVG</para></dd><dt>AFTER_CONTACT_WORK_TIME</dt><dd><para>Unit: SECONDS</para><para>Statistic: AVG</para></dd><dt>API_CONTACTS_HANDLED</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CALLBACK_CONTACTS_HANDLED</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_ABANDONED</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_AGENT_HUNG_UP_FIRST</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_CONSULTED</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_HANDLED</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_HANDLED_INCOMING</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_HANDLED_OUTBOUND</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_HOLD_ABANDONS</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_MISSED</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_QUEUED</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_TRANSFERRED_IN</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_TRANSFERRED_IN_FROM_QUEUE</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_TRANSFERRED_OUT</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>HANDLE_TIME</dt><dd><para>Unit: SECONDS</para><para>Statistic: AVG</para></dd><dt>HOLD_TIME</dt><dd><para>Unit: SECONDS</para><para>Statistic: AVG</para></dd><dt>INTERACTION_AND_HOLD_TIME</dt><dd><para>Unit: SECONDS</para><para>Statistic: AVG</para></dd><dt>INTERACTION_TIME</dt><dd><para>Unit: SECONDS</para><para>Statistic: AVG</para></dd><dt>OCCUPANCY</dt><dd><para>Unit: PERCENT</para><para>Statistic: AVG</para></dd><dt>QUEUE_ANSWER_TIME</dt><dd><para>Unit: SECONDS</para><para>Statistic: AVG</para></dd><dt>QUEUED_TIME</dt><dd><para>Unit: SECONDS</para><para>Statistic: MAX</para></dd><dt>SERVICE_LEVEL</dt><dd><para>You can include up to 20 SERVICE_LEVEL metrics in a request.</para><para>Unit: PERCENT</para><para>Statistic: AVG</para><para>Threshold: For <c>ThresholdValue</c>, enter any whole number from 1 to 604800 (inclusive),
         /// in seconds. For <c>Comparison</c>, you must enter <c>LT</c> (for "Less than"). </para></dd></dl>
         /// </para>

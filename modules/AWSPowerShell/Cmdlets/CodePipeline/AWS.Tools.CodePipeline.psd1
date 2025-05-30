@@ -94,6 +94,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CPActionExecutionList', 
         'Get-CPActionType', 
         'Get-CPActionTypeDeclaration', 
+        'Get-CPDeployActionExecutionTargetList', 
         'Get-CPJobDetail', 
         'Get-CPPipeline', 
         'Get-CPPipelineExecution', 

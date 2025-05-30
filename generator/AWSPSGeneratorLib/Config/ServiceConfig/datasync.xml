@@ -19,72 +19,68 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddStorageSystem" OutputProperty="StorageSystemArn" Verb="Add" Noun="StorageSystem" ShouldProcessTarget="" PipelineParameter="SystemType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelTaskExecution" Verb="Stop" Noun="TaskExecution" ShouldProcessTarget="TaskExecutionArn" PipelineParameter="TaskExecutionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelTaskExecution" Verb="Stop" Noun="TaskExecution" ShouldProcessTarget="TaskExecutionArn" PipelineParameter="TaskExecutionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAgent" OutputProperty="AgentArn" Verb="New" Noun="Agent" ShouldProcessTarget="AgentName" PipelineParameter="ActivationKey" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAgent" OutputProperty="AgentArn" Verb="New" Noun="Agent" ShouldProcessTarget="AgentName" PipelineParameter="ActivationKey" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateLocationAzureBlob" OutputProperty="LocationArn" Verb="New" Noun="LocationAzureBlob" ShouldProcessTarget="ContainerUrl" PipelineParameter="ContainerUrl" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLocationAzureBlob" OutputProperty="LocationArn" Verb="New" Noun="LocationAzureBlob" ShouldProcessTarget="ContainerUrl" PipelineParameter="ContainerUrl" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateLocationEfs" OutputProperty="LocationArn" Verb="New" Noun="LocationEfs" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLocationEfs" OutputProperty="LocationArn" Verb="New" Noun="LocationEfs" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateLocationFsxLustre" OutputProperty="LocationArn" Verb="New" Noun="LocationFsxLustre" ShouldProcessTarget="FsxFilesystemArn" PipelineParameter="FsxFilesystemArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLocationFsxLustre" OutputProperty="LocationArn" Verb="New" Noun="LocationFsxLustre" ShouldProcessTarget="FsxFilesystemArn" PipelineParameter="FsxFilesystemArn" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="CreateLocationFsxOntap" OutputProperty="LocationArn" Verb="New" Noun="LocationFsxOntap" ShouldProcessTarget="StorageVirtualMachineArn" PipelineParameter="StorageVirtualMachineArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateLocationFsxOntap" OutputProperty="LocationArn" Verb="New" Noun="LocationFsxOntap" ShouldProcessTarget="StorageVirtualMachineArn" PipelineParameter="StorageVirtualMachineArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Protocol_NFS_MountOptions_Version" NewName="Protocol_NFS_MountOptions_Version" />
                 <Param Name="Protocol_SMB_MountOptions_Version" NewName="Protocol_SMB_MountOptions_Version" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLocationFsxOpenZfs" OutputProperty="LocationArn" Verb="New" Noun="LocationFsxOpenZf" ShouldProcessTarget="FsxFilesystemArn" PipelineParameter="FsxFilesystemArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateLocationFsxOpenZfs" OutputProperty="LocationArn" Verb="New" Noun="LocationFsxOpenZf" ShouldProcessTarget="FsxFilesystemArn" PipelineParameter="FsxFilesystemArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Protocol_NFS_MountOptions_Version" NewName="MountOptions_Version" />
                 <Param Name="Protocol_SMB_MountOptions_Version" NewName="Protocol_SMB_MountOptions_Version" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLocationFsxWindows" OutputProperty="LocationArn" Verb="New" Noun="LocationFsxWindow" ShouldProcessTarget="FsxFilesystemArn" PipelineParameter="FsxFilesystemArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateLocationFsxWindows" OutputProperty="LocationArn" Verb="New" Noun="LocationFsxWindow" ShouldProcessTarget="FsxFilesystemArn" PipelineParameter="FsxFilesystemArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLocationHdfs" OutputProperty="LocationArn" Verb="New" Noun="LocationHdf" ShouldProcessTarget="AuthenticationType" PipelineParameter="AuthenticationType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateLocationHdfs" OutputProperty="LocationArn" Verb="New" Noun="LocationHdf" ShouldProcessTarget="AuthenticationType" PipelineParameter="AuthenticationType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLocationNfs" OutputProperty="LocationArn" Verb="New" Noun="LocationNfs" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateLocationNfs" OutputProperty="LocationArn" Verb="New" Noun="LocationNfs" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLocationObjectStorage" OutputProperty="LocationArn" Verb="New" Noun="LocationObjectStorage" ShouldProcessTarget="BucketName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateLocationObjectStorage" OutputProperty="LocationArn" Verb="New" Noun="LocationObjectStorage" ShouldProcessTarget="BucketName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="AccessKey" NewName="BucketAccessKey" AutoApplyAlias="false" />
                 <Param Name="SecretKey" NewName="BucketSecretKey" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLocationS3" OutputProperty="LocationArn" Verb="New" Noun="LocationS3" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateLocationS3" OutputProperty="LocationArn" Verb="New" Noun="LocationS3" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLocationSmb" OutputProperty="LocationArn" Verb="New" Noun="LocationSmb" ShouldProcessTarget="ServerHostname" PipelineParameter="ServerHostname" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateLocationSmb" OutputProperty="LocationArn" Verb="New" Noun="LocationSmb" ShouldProcessTarget="ServerHostname" PipelineParameter="ServerHostname" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTask" OutputProperty="TaskArn" Verb="New" Noun="Task" ShouldProcessTarget="SourceLocationArn" PipelineParameter="SourceLocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTask" OutputProperty="TaskArn" Verb="New" Noun="Task" ShouldProcessTarget="SourceLocationArn" PipelineParameter="SourceLocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="ManifestConfig_Source_S3_S3BucketArn" NewName="ManifestConfig_Source_S3_S3BucketArn" />
                 <Param Name="TaskReportConfig_Destination_S3_S3BucketArn" NewName="TaskReportConfig_Destination_S3_S3BucketArn" />
@@ -93,131 +89,95 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAgent" Verb="Remove" Noun="Agent" ShouldProcessTarget="AgentArn" PipelineParameter="AgentArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAgent" Verb="Remove" Noun="Agent" ShouldProcessTarget="AgentArn" PipelineParameter="AgentArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLocation" Verb="Remove" Noun="Location" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteLocation" Verb="Remove" Noun="Location" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTask" Verb="Remove" Noun="Task" ShouldProcessTarget="TaskArn" PipelineParameter="TaskArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTask" Verb="Remove" Noun="Task" ShouldProcessTarget="TaskArn" PipelineParameter="TaskArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAgent" OutputProperty="*" Verb="Get" Noun="Agent" PipelineParameter="AgentArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAgent" OutputProperty="*" Verb="Get" Noun="Agent" PipelineParameter="AgentArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDiscoveryJob" OutputProperty="*" Verb="Get" Noun="DiscoveryJob" PipelineParameter="DiscoveryJobArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLocationAzureBlob" OutputProperty="*" Verb="Get" Noun="LocationAzureBlob" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocationAzureBlob" OutputProperty="*" Verb="Get" Noun="LocationAzureBlob" PipelineParameter="LocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLocationEfs" OutputProperty="*" Verb="Get" Noun="LocationEfs" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocationEfs" OutputProperty="*" Verb="Get" Noun="LocationEfs" PipelineParameter="LocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLocationFsxLustre" OutputProperty="*" Verb="Get" Noun="LocationFsxLustre" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocationFsxLustre" OutputProperty="*" Verb="Get" Noun="LocationFsxLustre" PipelineParameter="LocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLocationFsxOntap" OutputProperty="*" Verb="Get" Noun="LocationFsxOntap" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocationFsxOntap" OutputProperty="*" Verb="Get" Noun="LocationFsxOntap" PipelineParameter="LocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLocationFsxOpenZfs" OutputProperty="*" Verb="Get" Noun="LocationFsxOpenZf" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocationFsxOpenZfs" OutputProperty="*" Verb="Get" Noun="LocationFsxOpenZf" PipelineParameter="LocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLocationFsxWindows" OutputProperty="*" Verb="Get" Noun="LocationFsxWindow" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocationFsxWindows" OutputProperty="*" Verb="Get" Noun="LocationFsxWindow" PipelineParameter="LocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLocationHdfs" OutputProperty="*" Verb="Get" Noun="LocationHdf" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocationHdfs" OutputProperty="*" Verb="Get" Noun="LocationHdf" PipelineParameter="LocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLocationNfs" OutputProperty="*" Verb="Get" Noun="LocationNfs" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocationNfs" OutputProperty="*" Verb="Get" Noun="LocationNfs" PipelineParameter="LocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLocationObjectStorage" OutputProperty="*" Verb="Get" Noun="LocationObjectStorage" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocationObjectStorage" OutputProperty="*" Verb="Get" Noun="LocationObjectStorage" PipelineParameter="LocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLocationS3" OutputProperty="*" Verb="Get" Noun="LocationS3" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocationS3" OutputProperty="*" Verb="Get" Noun="LocationS3" PipelineParameter="LocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLocationSmb" OutputProperty="*" Verb="Get" Noun="LocationSmb" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocationSmb" OutputProperty="*" Verb="Get" Noun="LocationSmb" PipelineParameter="LocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTask" OutputProperty="*" Verb="Get" Noun="Task" PipelineParameter="TaskArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStorageSystem" OutputProperty="*" Verb="Get" Noun="StorageSystem" PipelineParameter="StorageSystemArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTaskExecution" OutputProperty="*" Verb="Get" Noun="TaskExecution" PipelineParameter="TaskExecutionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStorageSystemResourceMetrics" OutputProperty="Metrics" Verb="Get" Noun="StorageSystemResourceMetric" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAgents" OutputProperty="Agents" Verb="Get" Noun="AgentList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStorageSystemResources" OutputProperty="ResourceDetails" Verb="Get" Noun="StorageSystemResource" PipelineParameter="DiscoveryJobArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLocations" OutputProperty="Locations" Verb="Get" Noun="LocationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTask" OutputProperty="*" Verb="Get" Noun="Task" PipelineParameter="TaskArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTaskExecution" OutputProperty="*" Verb="Get" Noun="TaskExecution" PipelineParameter="TaskExecutionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTaskExecutions" OutputProperty="TaskExecutions" Verb="Get" Noun="TaskExecutionList" PipelineParameter="TaskArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateRecommendations" Verb="New" Noun="Recommendation" ShouldProcessTarget="DiscoveryJobArn" PipelineParameter="DiscoveryJobArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTasks" OutputProperty="Tasks" Verb="Get" Noun="TaskList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAgents" OutputProperty="Agents" Verb="Get" Noun="AgentList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListDiscoveryJobs" OutputProperty="DiscoveryJobs" Verb="Get" Noun="DiscoveryJobList" PipelineParameter="StorageSystemArn" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListLocations" OutputProperty="Locations" Verb="Get" Noun="LocationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListStorageSystems" OutputProperty="StorageSystems" Verb="Get" Noun="StorageSystemList" PipelineParameter="" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListTaskExecutions" OutputProperty="TaskExecutions" Verb="Get" Noun="TaskExecutionList" PipelineParameter="TaskArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListTasks" OutputProperty="Tasks" Verb="Get" Noun="TaskList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="RemoveStorageSystem" Verb="Remove" Noun="StorageSystem" ShouldProcessTarget="StorageSystemArn" PipelineParameter="StorageSystemArn" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="StartDiscoveryJob" OutputProperty="DiscoveryJobArn" Verb="Start" Noun="DiscoveryJob" ShouldProcessTarget="StorageSystemArn" PipelineParameter="StorageSystemArn" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="StartTaskExecution" OutputProperty="TaskExecutionArn" Verb="Start" Noun="TaskExecution" ShouldProcessTarget="TaskArn" PipelineParameter="TaskArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartTaskExecution" OutputProperty="TaskExecutionArn" Verb="Start" Noun="TaskExecution" ShouldProcessTarget="TaskArn" PipelineParameter="TaskArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="ManifestConfig_Source_S3_S3BucketArn" NewName="ManifestConfig_Source_S3_S3BucketArn" />
                 <Param Name="TaskReportConfig_Destination_S3_S3BucketArn" NewName="TaskReportConfig_Destination_S3_S3BucketArn" />
@@ -226,84 +186,72 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopDiscoveryJob" Verb="Stop" Noun="DiscoveryJob" ShouldProcessTarget="DiscoveryJobArn" PipelineParameter="DiscoveryJobArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAgent" Verb="Update" Noun="Agent" ShouldProcessTarget="AgentArn" PipelineParameter="AgentArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAgent" Verb="Update" Noun="Agent" ShouldProcessTarget="AgentArn" PipelineParameter="AgentArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateLocationAzureBlob" Verb="Update" Noun="LocationAzureBlob" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDiscoveryJob" Verb="Update" Noun="DiscoveryJob" ShouldProcessTarget="DiscoveryJobArn" PipelineParameter="DiscoveryJobArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateLocationEfs" Verb="Update" Noun="LocationEfs" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLocationAzureBlob" Verb="Update" Noun="LocationAzureBlob" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateLocationFsxLustre" Verb="Update" Noun="LocationFsxLustre" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLocationEfs" Verb="Update" Noun="LocationEfs" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLocationFsxLustre" Verb="Update" Noun="LocationFsxLustre" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLocationFsxOntap" Verb="Update" Noun="LocationFsxOntap" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateLocationFsxOntap" Verb="Update" Noun="LocationFsxOntap" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Protocol_NFS_MountOptions_Version" NewName="Protocol_NFS_MountOptions_Version" />
                 <Param Name="Protocol_SMB_MountOptions_Version" NewName="Protocol_SMB_MountOptions_Version" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLocationFsxOpenZfs" Verb="Update" Noun="LocationFsxOpenZf" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateLocationFsxOpenZfs" Verb="Update" Noun="LocationFsxOpenZf" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Protocol_NFS_MountOptions_Version" NewName="Protocol_NFS_MountOptions_Version" />
                 <Param Name="Protocol_SMB_MountOptions_Version" NewName="Protocol_SMB_MountOptions_Version" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLocationFsxWindows" Verb="Update" Noun="LocationFsxWindow" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateLocationFsxWindows" Verb="Update" Noun="LocationFsxWindow" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLocationHdfs" Verb="Update" Noun="LocationHdf" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateLocationHdfs" Verb="Update" Noun="LocationHdf" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLocationNfs" Verb="Update" Noun="LocationNfs" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateLocationNfs" Verb="Update" Noun="LocationNfs" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLocationObjectStorage" Verb="Update" Noun="LocationObjectStorage" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateLocationObjectStorage" Verb="Update" Noun="LocationObjectStorage" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="AccessKey" NewName="BucketAccessKey" AutoApplyAlias="false" />
                 <Param Name="SecretKey" NewName="BucketSecretKey" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLocationS3" Verb="Update" Noun="LocationS3" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateLocationS3" Verb="Update" Noun="LocationS3" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLocationSmb" Verb="Update" Noun="LocationSmb" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateLocationSmb" Verb="Update" Noun="LocationSmb" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStorageSystem" Verb="Update" Noun="StorageSystem" ShouldProcessTarget="StorageSystemArn" PipelineParameter="StorageSystemArn" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTask" Verb="Update" Noun="Task" ShouldProcessTarget="TaskArn" PipelineParameter="TaskArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTask" Verb="Update" Noun="Task" ShouldProcessTarget="TaskArn" PipelineParameter="TaskArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="ManifestConfig_Source_S3_S3BucketArn" NewName="ManifestConfig_Source_S3_S3BucketArn" />
                 <Param Name="TaskReportConfig_Destination_S3_S3BucketArn" NewName="TaskReportConfig_Destination_S3_S3BucketArn" />
@@ -312,7 +260,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTaskExecution" Verb="Update" Noun="TaskExecution" ShouldProcessTarget="TaskExecutionArn" PipelineParameter="TaskExecutionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTaskExecution" Verb="Update" Noun="TaskExecution" ShouldProcessTarget="TaskExecutionArn" PipelineParameter="TaskExecutionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

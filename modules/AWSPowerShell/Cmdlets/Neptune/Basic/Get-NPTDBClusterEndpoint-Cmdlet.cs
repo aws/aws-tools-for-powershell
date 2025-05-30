@@ -94,9 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para> An optional pagination token provided by a previous <c>DescribeDBClusterEndpoints</c>
+        /// <para>An optional pagination token provided by a previous <c>DescribeDBClusterEndpoints</c>
         /// request. If this parameter is specified, the response includes only records beyond
-        /// the marker, up to the value specified by <c>MaxRecords</c>. </para>
+        /// the marker, up to the value specified by <c>MaxRecords</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
         /// the specified <c>MaxRecords</c> value, a pagination token called a marker is included
-        /// in the response so you can retrieve the remaining results. </para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
+        /// in the response so you can retrieve the remaining results.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

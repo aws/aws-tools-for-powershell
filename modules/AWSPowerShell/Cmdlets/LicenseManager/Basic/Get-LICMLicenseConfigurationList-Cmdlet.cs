@@ -49,10 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         /// <summary>
         /// <para>
         /// <para>Filters to scope the results. The following filters and logical operators are supported:</para><ul><li><para><c>licenseCountingType</c> - The dimension for which licenses are counted. Possible
-        /// values are <c>vCPU</c> | <c>Instance</c> | <c>Core</c> | <c>Socket</c>. Logical operators
-        /// are <c>EQUALS</c> | <c>NOT_EQUALS</c>.</para></li><li><para><c>enforceLicenseCount</c> - A Boolean value that indicates whether hard license
-        /// enforcement is used. Logical operators are <c>EQUALS</c> | <c>NOT_EQUALS</c>.</para></li><li><para><c>usagelimitExceeded</c> - A Boolean value that indicates whether the available
-        /// licenses have been exceeded. Logical operators are <c>EQUALS</c> | <c>NOT_EQUALS</c>.</para></li></ul>
+        /// values are <c>vCPU</c> | <c>Instance</c> | <c>Core</c> | <c>Socket</c>.</para></li><li><para><c>enforceLicenseCount</c> - A Boolean value that indicates whether hard license
+        /// enforcement is used.</para></li><li><para><c>usagelimitExceeded</c> - A Boolean value that indicates whether the available
+        /// licenses have been exceeded.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -96,6 +96,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-INS2CisScanResultDetail', 
         'Get-INS2CisScanResultsAggregatedByCheckList', 
         'Get-INS2CisScanResultsAggregatedByTargetResourceList', 
+        'Get-INS2ClustersForImage', 
         'Get-INS2Configuration', 
         'Get-INS2CoverageList', 
         'Get-INS2CoverageStatisticList', 

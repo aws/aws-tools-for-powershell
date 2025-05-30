@@ -281,6 +281,16 @@ $ADC_Completers = {
             break
         }
 
+        # Amazon.Deadline.TagPropagationMode
+        {
+            ($_ -eq "New-ADCFleet/CustomerManaged_TagPropagationMode") -Or
+            ($_ -eq "Update-ADCFleet/CustomerManaged_TagPropagationMode")
+        }
+        {
+            $v = "NO_PROPAGATION","PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH"
+            break
+        }
+
         # Amazon.Deadline.TaskTargetRunStatus
         "Update-ADCTask/TargetRunStatus"
         {
@@ -327,6 +337,7 @@ $ADC_Completers = {
 $ADC_map = @{
     "Attachments_FileSystem"=@("New-ADCJob")
     "CustomerManaged_Mode"=@("New-ADCFleet","Update-ADCFleet")
+    "CustomerManaged_TagPropagationMode"=@("New-ADCFleet","Update-ADCFleet")
     "DefaultBudgetAction"=@("New-ADCQueue","Update-ADCQueue")
     "FilterExpressions_Operator"=@("Search-ADCJob","Search-ADCStep","Search-ADCTask","Search-ADCWorker")
     "InstanceCapabilities_CpuArchitectureType"=@("New-ADCFleet","Update-ADCFleet")

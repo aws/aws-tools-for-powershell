@@ -19,35 +19,35 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchDescribeEntities" OutputProperty="*" Verb="Get" Noun="BatchEntity" PipelineParameter="EntityRequestList" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchDescribeEntities" OutputProperty="*" Verb="Get" Noun="BatchEntity" PipelineParameter="EntityRequestList" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelChangeSet" OutputProperty="*" Verb="Stop" Noun="ChangeSet" ShouldProcessTarget="ChangeSetId" PipelineParameter="ChangeSetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelChangeSet" OutputProperty="*" Verb="Stop" Noun="ChangeSet" ShouldProcessTarget="ChangeSetId" PipelineParameter="ChangeSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeChangeSet" OutputProperty="*" Verb="Get" Noun="ChangeSet" PipelineParameter="ChangeSetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeChangeSet" OutputProperty="*" Verb="Get" Noun="ChangeSet" PipelineParameter="ChangeSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEntity" OutputProperty="*" Verb="Get" Noun="Entity" PipelineParameter="EntityId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEntity" OutputProperty="*" Verb="Get" Noun="Entity" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListChangeSets" OutputProperty="ChangeSetSummaryList" Verb="Get" Noun="ChangeSetList" PipelineParameter="Catalog" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListChangeSets" OutputProperty="ChangeSetSummaryList" Verb="Get" Noun="ChangeSetList" PipelineParameter="Catalog" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEntities" OutputProperty="EntitySummaryList" Verb="Get" Noun="EntityList" PipelineParameter="Catalog" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEntities" OutputProperty="EntitySummaryList" Verb="Get" Noun="EntityList" PipelineParameter="Catalog" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="EntityTypeFilters_AmiProductFilters_EntityId_ValueList" NewName="EntityTypeFilters_AmiProductFilters_EntityId_ValueList" />
                 <Param Name="EntityTypeFilters_AmiProductFilters_ProductTitle_ValueList" NewName="EntityTypeFilters_AmiProductFilters_ProductTitle_ValueList" />
@@ -139,23 +139,23 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutResourcePolicy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutResourcePolicy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartChangeSet" OutputProperty="*" Verb="Start" Noun="ChangeSet" ShouldProcessTarget="ChangeSetName" PipelineParameter="Catalog" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartChangeSet" OutputProperty="*" Verb="Start" Noun="ChangeSet" ShouldProcessTarget="ChangeSetName" PipelineParameter="Catalog" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

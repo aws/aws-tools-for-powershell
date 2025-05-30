@@ -430,7 +430,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The name of an existing placement group into which to launch your instances. To remove
         /// the placement group setting, pass an empty string for <c>placement-group</c>. For
         /// more information about placement groups, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
-        /// groups</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><note><para>A <i>cluster</i> placement group is a logical grouping of instances within a single
+        /// groups</a> in the <i>Amazon EC2 User Guide</i>.</para><note><para>A <i>cluster</i> placement group is a logical grouping of instances within a single
         /// Availability Zone. You cannot specify multiple Availability Zones and a cluster placement
         /// group. </para></note>
         /// </para>

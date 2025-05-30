@@ -125,6 +125,13 @@ $CT_Completers = {
             break
         }
 
+        # Amazon.CloudTrail.MaxEventSize
+        "Write-CTEventConfiguration/MaxEventSize"
+        {
+            $v = "Large","Standard"
+            break
+        }
+
         # Amazon.CloudTrail.QueryStatus
         "Get-CTQuerySummary/QueryStatus"
         {
@@ -167,6 +174,7 @@ $CT_map = @{
     "Frequency_Unit"=@("New-CTDashboard","Update-CTDashboard")
     "ImportStatus"=@("Get-CTImportList")
     "InsightType"=@("Get-CTInsightsMetricData")
+    "MaxEventSize"=@("Write-CTEventConfiguration")
     "QueryStatus"=@("Get-CTQuerySummary")
     "RefreshSchedule_Status"=@("New-CTDashboard","Update-CTDashboard")
     "Type"=@("Get-CTDashboardSummary")
@@ -241,6 +249,7 @@ $CT_SelectMap = @{
                "Invoke-CTGenerateQuery",
                "Get-CTChannel",
                "Get-CTDashboard",
+               "Get-CTEventConfiguration",
                "Get-CTEventDataStore",
                "Get-CTEventSelector",
                "Get-CTImport",
@@ -260,6 +269,7 @@ $CT_SelectMap = @{
                "Get-CTResourceTag",
                "Get-CTTrailSummary",
                "Find-CTEvent",
+               "Write-CTEventConfiguration",
                "Write-CTEventSelector",
                "Write-CTInsightSelector",
                "Write-CTResourcePolicy",

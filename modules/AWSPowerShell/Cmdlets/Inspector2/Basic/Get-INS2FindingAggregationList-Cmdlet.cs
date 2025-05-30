@@ -218,6 +218,29 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.MapFilter[] Ec2InstanceAggregation_InstanceTag { get; set; }
         #endregion
         
+        #region Parameter AwsEcrContainerAggregation_InUseCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of Amazon ECS tasks or Amazon EKS pods where the Amazon ECR container image
+        /// is in use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_AwsEcrContainerAggregation_InUseCount")]
+        public Amazon.Inspector2.Model.NumberFilter[] AwsEcrContainerAggregation_InUseCount { get; set; }
+        #endregion
+        
+        #region Parameter AwsEcrContainerAggregation_LastInUseAt
+        /// <summary>
+        /// <para>
+        /// <para>The last time an Amazon ECR image was used in an Amazon ECS task or Amazon EKS pod.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_AwsEcrContainerAggregation_LastInUseAt")]
+        public Amazon.Inspector2.Model.DateFilter[] AwsEcrContainerAggregation_LastInUseAt { get; set; }
+        #endregion
+        
         #region Parameter LambdaLayerAggregation_LayerArn
         /// <summary>
         /// <para>
@@ -755,6 +778,14 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (this.AwsEcrContainerAggregation_ImageTag != null)
             {
                 context.AwsEcrContainerAggregation_ImageTag = new List<Amazon.Inspector2.Model.StringFilter>(this.AwsEcrContainerAggregation_ImageTag);
+            }
+            if (this.AwsEcrContainerAggregation_InUseCount != null)
+            {
+                context.AwsEcrContainerAggregation_InUseCount = new List<Amazon.Inspector2.Model.NumberFilter>(this.AwsEcrContainerAggregation_InUseCount);
+            }
+            if (this.AwsEcrContainerAggregation_LastInUseAt != null)
+            {
+                context.AwsEcrContainerAggregation_LastInUseAt = new List<Amazon.Inspector2.Model.DateFilter>(this.AwsEcrContainerAggregation_LastInUseAt);
             }
             if (this.AwsEcrContainerAggregation_Repository != null)
             {
@@ -1526,6 +1557,26 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 requestAggregationRequest_aggregationRequest_AwsEcrContainerAggregation.ImageTags = requestAggregationRequest_aggregationRequest_AwsEcrContainerAggregation_awsEcrContainerAggregation_ImageTag;
                 requestAggregationRequest_aggregationRequest_AwsEcrContainerAggregationIsNull = false;
             }
+            List<Amazon.Inspector2.Model.NumberFilter> requestAggregationRequest_aggregationRequest_AwsEcrContainerAggregation_awsEcrContainerAggregation_InUseCount = null;
+            if (cmdletContext.AwsEcrContainerAggregation_InUseCount != null)
+            {
+                requestAggregationRequest_aggregationRequest_AwsEcrContainerAggregation_awsEcrContainerAggregation_InUseCount = cmdletContext.AwsEcrContainerAggregation_InUseCount;
+            }
+            if (requestAggregationRequest_aggregationRequest_AwsEcrContainerAggregation_awsEcrContainerAggregation_InUseCount != null)
+            {
+                requestAggregationRequest_aggregationRequest_AwsEcrContainerAggregation.InUseCount = requestAggregationRequest_aggregationRequest_AwsEcrContainerAggregation_awsEcrContainerAggregation_InUseCount;
+                requestAggregationRequest_aggregationRequest_AwsEcrContainerAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.DateFilter> requestAggregationRequest_aggregationRequest_AwsEcrContainerAggregation_awsEcrContainerAggregation_LastInUseAt = null;
+            if (cmdletContext.AwsEcrContainerAggregation_LastInUseAt != null)
+            {
+                requestAggregationRequest_aggregationRequest_AwsEcrContainerAggregation_awsEcrContainerAggregation_LastInUseAt = cmdletContext.AwsEcrContainerAggregation_LastInUseAt;
+            }
+            if (requestAggregationRequest_aggregationRequest_AwsEcrContainerAggregation_awsEcrContainerAggregation_LastInUseAt != null)
+            {
+                requestAggregationRequest_aggregationRequest_AwsEcrContainerAggregation.LastInUseAt = requestAggregationRequest_aggregationRequest_AwsEcrContainerAggregation_awsEcrContainerAggregation_LastInUseAt;
+                requestAggregationRequest_aggregationRequest_AwsEcrContainerAggregationIsNull = false;
+            }
             List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_AwsEcrContainerAggregation_awsEcrContainerAggregation_Repository = null;
             if (cmdletContext.AwsEcrContainerAggregation_Repository != null)
             {
@@ -1659,6 +1710,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public List<Amazon.Inspector2.Model.StringFilter> AwsEcrContainerAggregation_Architecture { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> AwsEcrContainerAggregation_ImageSha { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> AwsEcrContainerAggregation_ImageTag { get; set; }
+            public List<Amazon.Inspector2.Model.NumberFilter> AwsEcrContainerAggregation_InUseCount { get; set; }
+            public List<Amazon.Inspector2.Model.DateFilter> AwsEcrContainerAggregation_LastInUseAt { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> AwsEcrContainerAggregation_Repository { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> AwsEcrContainerAggregation_ResourceId { get; set; }
             public Amazon.Inspector2.AwsEcrContainerSortBy AwsEcrContainerAggregation_SortBy { get; set; }

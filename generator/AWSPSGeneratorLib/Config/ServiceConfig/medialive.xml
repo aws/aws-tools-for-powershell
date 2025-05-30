@@ -19,453 +19,453 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptInputDeviceTransfer" Verb="Receive" Noun="InputDeviceTransfer" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AcceptInputDeviceTransfer" Verb="Receive" Noun="InputDeviceTransfer" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDelete" OutputProperty="*" Verb="Remove" Noun="ResourceBatch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="BatchDelete" OutputProperty="*" Verb="Remove" Noun="ResourceBatch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchStart" OutputProperty="*" Verb="Start" Noun="ResourceBatch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="BatchStart" OutputProperty="*" Verb="Start" Noun="ResourceBatch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchStop" OutputProperty="*" Verb="Stop" Noun="ResourceBatch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="BatchStop" OutputProperty="*" Verb="Stop" Noun="ResourceBatch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchUpdateSchedule" OutputProperty="*" Verb="Update" Noun="ScheduleBatch" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchUpdateSchedule" OutputProperty="*" Verb="Update" Noun="ScheduleBatch" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelInputDeviceTransfer" Verb="Stop" Noun="InputDeviceTransfer" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelInputDeviceTransfer" Verb="Stop" Noun="InputDeviceTransfer" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ClaimDevice" Verb="Request" Noun="Device" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ClaimDevice" Verb="Request" Noun="Device" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateChannel" OutputProperty="Channel" Verb="New" Noun="Channel" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateChannel" OutputProperty="Channel" Verb="New" Noun="Channel" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateChannelPlacementGroup" OutputProperty="*" Verb="New" Noun="ChannelPlacementGroup" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateChannelPlacementGroup" OutputProperty="*" Verb="New" Noun="ChannelPlacementGroup" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCloudWatchAlarmTemplate" OutputProperty="*" Verb="New" Noun="CloudWatchAlarmTemplate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCloudWatchAlarmTemplate" OutputProperty="*" Verb="New" Noun="CloudWatchAlarmTemplate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCloudWatchAlarmTemplateGroup" OutputProperty="*" Verb="New" Noun="CloudWatchAlarmTemplateGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCloudWatchAlarmTemplateGroup" OutputProperty="*" Verb="New" Noun="CloudWatchAlarmTemplateGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCluster" OutputProperty="*" Verb="New" Noun="Cluster" ShouldProcessTarget="InstanceRoleArn" PipelineParameter="InstanceRoleArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCluster" OutputProperty="*" Verb="New" Noun="Cluster" ShouldProcessTarget="InstanceRoleArn" PipelineParameter="InstanceRoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEventBridgeRuleTemplate" OutputProperty="*" Verb="New" Noun="EventBridgeRuleTemplate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateEventBridgeRuleTemplate" OutputProperty="*" Verb="New" Noun="EventBridgeRuleTemplate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEventBridgeRuleTemplateGroup" OutputProperty="*" Verb="New" Noun="EventBridgeRuleTemplateGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateEventBridgeRuleTemplateGroup" OutputProperty="*" Verb="New" Noun="EventBridgeRuleTemplateGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInput" OutputProperty="Input" Verb="New" Noun="Input" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateInput" OutputProperty="Input" Verb="New" Noun="Input" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInputSecurityGroup" OutputProperty="SecurityGroup" Verb="New" Noun="InputSecurityGroup" ShouldProcessTarget="WhitelistRules" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateInputSecurityGroup" OutputProperty="SecurityGroup" Verb="New" Noun="InputSecurityGroup" ShouldProcessTarget="WhitelistRules" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMultiplex" OutputProperty="Multiplex" Verb="New" Noun="Multiplex" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMultiplex" OutputProperty="Multiplex" Verb="New" Noun="Multiplex" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMultiplexProgram" OutputProperty="MultiplexProgram" Verb="New" Noun="MultiplexProgram" ShouldProcessTarget="ProgramName" PipelineParameter="ProgramName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMultiplexProgram" OutputProperty="MultiplexProgram" Verb="New" Noun="MultiplexProgram" ShouldProcessTarget="ProgramName" PipelineParameter="ProgramName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateNetwork" OutputProperty="*" Verb="New" Noun="Network" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateNetwork" OutputProperty="*" Verb="New" Noun="Network" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateNode" OutputProperty="*" Verb="New" Noun="Node" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateNode" OutputProperty="*" Verb="New" Noun="Node" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateNodeRegistrationScript" OutputProperty="NodeRegistrationScript" Verb="New" Noun="NodeRegistrationScript" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateNodeRegistrationScript" OutputProperty="NodeRegistrationScript" Verb="New" Noun="NodeRegistrationScript" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePartnerInput" OutputProperty="Input" Verb="New" Noun="PartnerInput" ShouldProcessTarget="InputId" PipelineParameter="InputId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePartnerInput" OutputProperty="Input" Verb="New" Noun="PartnerInput" ShouldProcessTarget="InputId" PipelineParameter="InputId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSdiSource" OutputProperty="SdiSource" Verb="New" Noun="SdiSource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateSdiSource" OutputProperty="SdiSource" Verb="New" Noun="SdiSource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSignalMap" OutputProperty="*" Verb="New" Noun="SignalMap" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateSignalMap" OutputProperty="*" Verb="New" Noun="SignalMap" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteChannel" OutputProperty="*" Verb="Remove" Noun="Channel" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteChannel" OutputProperty="*" Verb="Remove" Noun="Channel" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteChannelPlacementGroup" OutputProperty="*" Verb="Remove" Noun="ChannelPlacementGroup" ShouldProcessTarget="ChannelPlacementGroupId" PipelineParameter="ChannelPlacementGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteChannelPlacementGroup" OutputProperty="*" Verb="Remove" Noun="ChannelPlacementGroup" ShouldProcessTarget="ChannelPlacementGroupId" PipelineParameter="ChannelPlacementGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCloudWatchAlarmTemplate" Verb="Remove" Noun="CloudWatchAlarmTemplate" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCloudWatchAlarmTemplate" Verb="Remove" Noun="CloudWatchAlarmTemplate" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCloudWatchAlarmTemplateGroup" Verb="Remove" Noun="CloudWatchAlarmTemplateGroup" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCloudWatchAlarmTemplateGroup" Verb="Remove" Noun="CloudWatchAlarmTemplateGroup" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCluster" OutputProperty="*" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCluster" OutputProperty="*" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEventBridgeRuleTemplate" Verb="Remove" Noun="EventBridgeRuleTemplate" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEventBridgeRuleTemplate" Verb="Remove" Noun="EventBridgeRuleTemplate" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEventBridgeRuleTemplateGroup" Verb="Remove" Noun="EventBridgeRuleTemplateGroup" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEventBridgeRuleTemplateGroup" Verb="Remove" Noun="EventBridgeRuleTemplateGroup" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInput" Verb="Remove" Noun="Input" ShouldProcessTarget="InputId" PipelineParameter="InputId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteInput" Verb="Remove" Noun="Input" ShouldProcessTarget="InputId" PipelineParameter="InputId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInputSecurityGroup" Verb="Remove" Noun="InputSecurityGroup" ShouldProcessTarget="InputSecurityGroupId" PipelineParameter="InputSecurityGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteInputSecurityGroup" Verb="Remove" Noun="InputSecurityGroup" ShouldProcessTarget="InputSecurityGroupId" PipelineParameter="InputSecurityGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMultiplex" OutputProperty="*" Verb="Remove" Noun="Multiplex" ShouldProcessTarget="MultiplexId" PipelineParameter="MultiplexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMultiplex" OutputProperty="*" Verb="Remove" Noun="Multiplex" ShouldProcessTarget="MultiplexId" PipelineParameter="MultiplexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMultiplexProgram" OutputProperty="*" Verb="Remove" Noun="MultiplexProgram" ShouldProcessTarget="ProgramName" PipelineParameter="ProgramName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMultiplexProgram" OutputProperty="*" Verb="Remove" Noun="MultiplexProgram" ShouldProcessTarget="ProgramName" PipelineParameter="ProgramName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteNetwork" OutputProperty="*" Verb="Remove" Noun="Network" ShouldProcessTarget="NetworkId" PipelineParameter="NetworkId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteNetwork" OutputProperty="*" Verb="Remove" Noun="Network" ShouldProcessTarget="NetworkId" PipelineParameter="NetworkId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteNode" OutputProperty="*" Verb="Remove" Noun="Node" ShouldProcessTarget="NodeId" PipelineParameter="NodeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteNode" OutputProperty="*" Verb="Remove" Noun="Node" ShouldProcessTarget="NodeId" PipelineParameter="NodeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteReservation" OutputProperty="*" Verb="Remove" Noun="Reservation" ShouldProcessTarget="ReservationId" PipelineParameter="ReservationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteReservation" OutputProperty="*" Verb="Remove" Noun="Reservation" ShouldProcessTarget="ReservationId" PipelineParameter="ReservationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSchedule" Verb="Remove" Noun="Schedule" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSchedule" Verb="Remove" Noun="Schedule" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSdiSource" OutputProperty="SdiSource" Verb="Remove" Noun="SdiSource" ShouldProcessTarget="SdiSourceId" PipelineParameter="SdiSourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSdiSource" OutputProperty="SdiSource" Verb="Remove" Noun="SdiSource" ShouldProcessTarget="SdiSourceId" PipelineParameter="SdiSourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSignalMap" Verb="Remove" Noun="SignalMap" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSignalMap" Verb="Remove" Noun="SignalMap" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountConfiguration" OutputProperty="AccountConfiguration" Verb="Get" Noun="AccountConfiguration" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAccountConfiguration" OutputProperty="AccountConfiguration" Verb="Get" Noun="AccountConfiguration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeChannel" OutputProperty="*" Verb="Get" Noun="Channel" PipelineParameter="ChannelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeChannel" OutputProperty="*" Verb="Get" Noun="Channel" PipelineParameter="ChannelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeChannelPlacementGroup" OutputProperty="*" Verb="Get" Noun="ChannelPlacementGroup" PipelineParameter="ChannelPlacementGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeChannelPlacementGroup" OutputProperty="*" Verb="Get" Noun="ChannelPlacementGroup" PipelineParameter="ChannelPlacementGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCluster" OutputProperty="*" Verb="Get" Noun="Cluster" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCluster" OutputProperty="*" Verb="Get" Noun="Cluster" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInput" OutputProperty="*" Verb="Get" Noun="Input" PipelineParameter="InputId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeInput" OutputProperty="*" Verb="Get" Noun="Input" PipelineParameter="InputId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInputDevice" OutputProperty="*" Verb="Get" Noun="InputDevice" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeInputDevice" OutputProperty="*" Verb="Get" Noun="InputDevice" PipelineParameter="InputDeviceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInputDeviceThumbnail" OutputProperty="Body" Verb="Get" Noun="InputDeviceThumbnail" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeInputDeviceThumbnail" OutputProperty="Body" Verb="Get" Noun="InputDeviceThumbnail" PipelineParameter="InputDeviceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInputSecurityGroup" OutputProperty="*" Verb="Get" Noun="InputSecurityGroup" PipelineParameter="InputSecurityGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeInputSecurityGroup" OutputProperty="*" Verb="Get" Noun="InputSecurityGroup" PipelineParameter="InputSecurityGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMultiplex" OutputProperty="*" Verb="Get" Noun="Multiplex" PipelineParameter="MultiplexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeMultiplex" OutputProperty="*" Verb="Get" Noun="Multiplex" PipelineParameter="MultiplexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMultiplexProgram" OutputProperty="*" Verb="Get" Noun="MultiplexProgram" PipelineParameter="ProgramName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeMultiplexProgram" OutputProperty="*" Verb="Get" Noun="MultiplexProgram" PipelineParameter="ProgramName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNetwork" OutputProperty="*" Verb="Get" Noun="Network" PipelineParameter="NetworkId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeNetwork" OutputProperty="*" Verb="Get" Noun="Network" PipelineParameter="NetworkId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNode" OutputProperty="*" Verb="Get" Noun="Node" PipelineParameter="NodeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeNode" OutputProperty="*" Verb="Get" Noun="Node" PipelineParameter="NodeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOffering" OutputProperty="*" Verb="Get" Noun="Offering" PipelineParameter="OfferingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeOffering" OutputProperty="*" Verb="Get" Noun="Offering" PipelineParameter="OfferingId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservation" OutputProperty="*" Verb="Get" Noun="Reservation" PipelineParameter="ReservationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeReservation" OutputProperty="*" Verb="Get" Noun="Reservation" PipelineParameter="ReservationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSchedule" OutputProperty="ScheduleActions" Verb="Get" Noun="Schedule" PipelineParameter="ChannelId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeSchedule" OutputProperty="ScheduleActions" Verb="Get" Noun="Schedule" PipelineParameter="ChannelId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSdiSource" OutputProperty="SdiSource" Verb="Get" Noun="SdiSource" PipelineParameter="SdiSourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSdiSource" OutputProperty="SdiSource" Verb="Get" Noun="SdiSource" PipelineParameter="SdiSourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeThumbnails" OutputProperty="ThumbnailDetails" Verb="Get" Noun="Thumbnail" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeThumbnails" OutputProperty="ThumbnailDetails" Verb="Get" Noun="Thumbnail" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCloudWatchAlarmTemplate" OutputProperty="*" Verb="Get" Noun="CloudWatchAlarmTemplate" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCloudWatchAlarmTemplate" OutputProperty="*" Verb="Get" Noun="CloudWatchAlarmTemplate" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCloudWatchAlarmTemplateGroup" OutputProperty="*" Verb="Get" Noun="CloudWatchAlarmTemplateGroup" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCloudWatchAlarmTemplateGroup" OutputProperty="*" Verb="Get" Noun="CloudWatchAlarmTemplateGroup" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEventBridgeRuleTemplate" OutputProperty="*" Verb="Get" Noun="EventBridgeRuleTemplate" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEventBridgeRuleTemplate" OutputProperty="*" Verb="Get" Noun="EventBridgeRuleTemplate" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEventBridgeRuleTemplateGroup" OutputProperty="*" Verb="Get" Noun="EventBridgeRuleTemplateGroup" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEventBridgeRuleTemplateGroup" OutputProperty="*" Verb="Get" Noun="EventBridgeRuleTemplateGroup" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSignalMap" OutputProperty="*" Verb="Get" Noun="SignalMap" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSignalMap" OutputProperty="*" Verb="Get" Noun="SignalMap" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListChannelPlacementGroups" OutputProperty="ChannelPlacementGroups" Verb="Get" Noun="ChannelPlacementGroupList" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListChannelPlacementGroups" OutputProperty="ChannelPlacementGroups" Verb="Get" Noun="ChannelPlacementGroupList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCloudWatchAlarmTemplateGroups" OutputProperty="CloudWatchAlarmTemplateGroups" Verb="Get" Noun="CloudWatchAlarmTemplateGroupList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListCloudWatchAlarmTemplateGroups" OutputProperty="CloudWatchAlarmTemplateGroups" Verb="Get" Noun="CloudWatchAlarmTemplateGroupList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCloudWatchAlarmTemplates" OutputProperty="CloudWatchAlarmTemplates" Verb="Get" Noun="CloudWatchAlarmTemplateList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListCloudWatchAlarmTemplates" OutputProperty="CloudWatchAlarmTemplates" Verb="Get" Noun="CloudWatchAlarmTemplateList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEventBridgeRuleTemplateGroups" OutputProperty="EventBridgeRuleTemplateGroups" Verb="Get" Noun="EventBridgeRuleTemplateGroupList" PipelineParameter="SignalMapIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEventBridgeRuleTemplateGroups" OutputProperty="EventBridgeRuleTemplateGroups" Verb="Get" Noun="EventBridgeRuleTemplateGroupList" PipelineParameter="SignalMapIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEventBridgeRuleTemplates" OutputProperty="EventBridgeRuleTemplates" Verb="Get" Noun="EventBridgeRuleTemplateList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListEventBridgeRuleTemplates" OutputProperty="EventBridgeRuleTemplates" Verb="Get" Noun="EventBridgeRuleTemplateList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInputDevices" OutputProperty="InputDevices" Verb="Get" Noun="InputDeviceList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListInputDevices" OutputProperty="InputDevices" Verb="Get" Noun="InputDeviceList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInputDeviceTransfers" OutputProperty="InputDeviceTransfers" Verb="Get" Noun="InputDeviceTransferList" PipelineParameter="TransferType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListInputDeviceTransfers" OutputProperty="InputDeviceTransfers" Verb="Get" Noun="InputDeviceTransferList" PipelineParameter="TransferType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInputs" OutputProperty="Inputs" Verb="Get" Noun="InputList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListInputs" OutputProperty="Inputs" Verb="Get" Noun="InputList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInputSecurityGroups" OutputProperty="InputSecurityGroups" Verb="Get" Noun="InputSecurityGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListInputSecurityGroups" OutputProperty="InputSecurityGroups" Verb="Get" Noun="InputSecurityGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMultiplexes" OutputProperty="Multiplexes" Verb="Get" Noun="MultiplexList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListMultiplexes" OutputProperty="Multiplexes" Verb="Get" Noun="MultiplexList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMultiplexPrograms" OutputProperty="MultiplexPrograms" Verb="Get" Noun="MultiplexProgramList" PipelineParameter="MultiplexId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListMultiplexPrograms" OutputProperty="MultiplexPrograms" Verb="Get" Noun="MultiplexProgramList" PipelineParameter="MultiplexId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNetworks" OutputProperty="Networks" Verb="Get" Noun="NetworkList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListNetworks" OutputProperty="Networks" Verb="Get" Noun="NetworkList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNodes" OutputProperty="Nodes" Verb="Get" Noun="NodeList" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListNodes" OutputProperty="Nodes" Verb="Get" Noun="NodeList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOfferings" OutputProperty="Offerings" Verb="Get" Noun="OfferingList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListOfferings" OutputProperty="Offerings" Verb="Get" Noun="OfferingList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReservations" OutputProperty="Reservations" Verb="Get" Noun="ReservationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListReservations" OutputProperty="Reservations" Verb="Get" Noun="ReservationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSdiSources" OutputProperty="SdiSources" Verb="Get" Noun="SdiSourceList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSdiSources" OutputProperty="SdiSources" Verb="Get" Noun="SdiSourceList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSignalMaps" OutputProperty="SignalMaps" Verb="Get" Noun="SignalMapList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListSignalMaps" OutputProperty="SignalMaps" Verb="Get" Noun="SignalMapList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVersions" OutputProperty="Versions" Verb="Get" Noun="VersionList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListVersions" OutputProperty="Versions" Verb="Get" Noun="VersionList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PurchaseOffering" OutputProperty="Reservation" Verb="New" Noun="OfferingPurchase" ShouldProcessTarget="OfferingId" PipelineParameter="OfferingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PurchaseOffering" OutputProperty="Reservation" Verb="New" Noun="OfferingPurchase" ShouldProcessTarget="OfferingId" PipelineParameter="OfferingId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RebootInputDevice" Verb="Restart" Noun="InputDevice" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RebootInputDevice" Verb="Restart" Noun="InputDevice" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Force" NewName="IgnoreStreaming" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RejectInputDeviceTransfer" Verb="Deny" Noun="InputDeviceTransfer" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RejectInputDeviceTransfer" Verb="Deny" Noun="InputDeviceTransfer" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestartChannelPipelines" OutputProperty="*" Verb="Restart" Noun="ChannelPipeline" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RestartChannelPipelines" OutputProperty="*" Verb="Restart" Noun="ChannelPipeline" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartChannel" OutputProperty="*" Verb="Start" Noun="Channel" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartChannel" OutputProperty="*" Verb="Start" Noun="Channel" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDeleteMonitorDeployment" OutputProperty="*" Verb="Start" Noun="DeleteMonitorDeployment" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartDeleteMonitorDeployment" OutputProperty="*" Verb="Start" Noun="DeleteMonitorDeployment" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartInputDevice" Verb="Start" Noun="InputDevice" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartInputDevice" Verb="Start" Noun="InputDevice" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartInputDeviceMaintenanceWindow" Verb="Start" Noun="InputDeviceMaintenanceWindow" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartInputDeviceMaintenanceWindow" Verb="Start" Noun="InputDeviceMaintenanceWindow" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMonitorDeployment" OutputProperty="*" Verb="Start" Noun="MonitorDeployment" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartMonitorDeployment" OutputProperty="*" Verb="Start" Noun="MonitorDeployment" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMultiplex" OutputProperty="*" Verb="Start" Noun="Multiplex" ShouldProcessTarget="MultiplexId" PipelineParameter="MultiplexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartMultiplex" OutputProperty="*" Verb="Start" Noun="Multiplex" ShouldProcessTarget="MultiplexId" PipelineParameter="MultiplexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartUpdateSignalMap" OutputProperty="*" Verb="Start" Noun="UpdateSignalMap" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartUpdateSignalMap" OutputProperty="*" Verb="Start" Noun="UpdateSignalMap" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopChannel" OutputProperty="*" Verb="Stop" Noun="Channel" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopChannel" OutputProperty="*" Verb="Stop" Noun="Channel" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopInputDevice" Verb="Stop" Noun="InputDevice" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopInputDevice" Verb="Stop" Noun="InputDevice" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopMultiplex" OutputProperty="*" Verb="Stop" Noun="Multiplex" ShouldProcessTarget="MultiplexId" PipelineParameter="MultiplexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopMultiplex" OutputProperty="*" Verb="Stop" Noun="Multiplex" ShouldProcessTarget="MultiplexId" PipelineParameter="MultiplexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TransferInputDevice" Verb="Move" Noun="InputDevice" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TransferInputDevice" Verb="Move" Noun="InputDevice" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAccountConfiguration" OutputProperty="AccountConfiguration" Verb="Update" Noun="AccountConfiguration" ShouldProcessTarget="AccountConfiguration_KmsKeyId" PipelineParameter="AccountConfiguration_KmsKeyId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAccountConfiguration" OutputProperty="AccountConfiguration" Verb="Update" Noun="AccountConfiguration" ShouldProcessTarget="AccountConfiguration_KmsKeyId" PipelineParameter="AccountConfiguration_KmsKeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateChannel" OutputProperty="Channel" Verb="Update" Noun="Channel" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateChannel" OutputProperty="Channel" Verb="Update" Noun="Channel" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateChannelClass" OutputProperty="Channel" Verb="Update" Noun="ChannelClass" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateChannelClass" OutputProperty="Channel" Verb="Update" Noun="ChannelClass" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateChannelPlacementGroup" OutputProperty="*" Verb="Update" Noun="ChannelPlacementGroup" ShouldProcessTarget="ChannelPlacementGroupId" PipelineParameter="ChannelPlacementGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateChannelPlacementGroup" OutputProperty="*" Verb="Update" Noun="ChannelPlacementGroup" ShouldProcessTarget="ChannelPlacementGroupId" PipelineParameter="ChannelPlacementGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCloudWatchAlarmTemplate" OutputProperty="*" Verb="Update" Noun="CloudWatchAlarmTemplate" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCloudWatchAlarmTemplate" OutputProperty="*" Verb="Update" Noun="CloudWatchAlarmTemplate" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCloudWatchAlarmTemplateGroup" OutputProperty="*" Verb="Update" Noun="CloudWatchAlarmTemplateGroup" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCloudWatchAlarmTemplateGroup" OutputProperty="*" Verb="Update" Noun="CloudWatchAlarmTemplateGroup" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCluster" OutputProperty="*" Verb="Update" Noun="Cluster" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCluster" OutputProperty="*" Verb="Update" Noun="Cluster" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEventBridgeRuleTemplate" OutputProperty="*" Verb="Update" Noun="EventBridgeRuleTemplate" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateEventBridgeRuleTemplate" OutputProperty="*" Verb="Update" Noun="EventBridgeRuleTemplate" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEventBridgeRuleTemplateGroup" OutputProperty="*" Verb="Update" Noun="EventBridgeRuleTemplateGroup" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateEventBridgeRuleTemplateGroup" OutputProperty="*" Verb="Update" Noun="EventBridgeRuleTemplateGroup" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateInput" OutputProperty="Input" Verb="Update" Noun="Input" ShouldProcessTarget="InputId" PipelineParameter="InputId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateInput" OutputProperty="Input" Verb="Update" Noun="Input" ShouldProcessTarget="InputId" PipelineParameter="InputId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateInputDevice" OutputProperty="*" Verb="Update" Noun="InputDevice" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateInputDevice" OutputProperty="*" Verb="Update" Noun="InputDevice" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="HdDeviceSettings_MediaconnectSettings_FlowArn" NewName="HdDeviceSettings_MediaconnectSettings_FlowArn" />
                 <Param Name="HdDeviceSettings_MediaconnectSettings_RoleArn" NewName="HdDeviceSettings_MediaconnectSettings_RoleArn" />
@@ -478,35 +478,35 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateInputSecurityGroup" OutputProperty="SecurityGroup" Verb="Update" Noun="InputSecurityGroup" ShouldProcessTarget="InputSecurityGroupId" PipelineParameter="InputSecurityGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateInputSecurityGroup" OutputProperty="SecurityGroup" Verb="Update" Noun="InputSecurityGroup" ShouldProcessTarget="InputSecurityGroupId" PipelineParameter="InputSecurityGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMultiplex" OutputProperty="Multiplex" Verb="Update" Noun="Multiplex" ShouldProcessTarget="MultiplexId" PipelineParameter="MultiplexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateMultiplex" OutputProperty="Multiplex" Verb="Update" Noun="Multiplex" ShouldProcessTarget="MultiplexId" PipelineParameter="MultiplexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMultiplexProgram" OutputProperty="MultiplexProgram" Verb="Update" Noun="MultiplexProgram" ShouldProcessTarget="ProgramName" PipelineParameter="ProgramName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateMultiplexProgram" OutputProperty="MultiplexProgram" Verb="Update" Noun="MultiplexProgram" ShouldProcessTarget="ProgramName" PipelineParameter="ProgramName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateNetwork" OutputProperty="*" Verb="Update" Noun="Network" ShouldProcessTarget="NetworkId" PipelineParameter="NetworkId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateNetwork" OutputProperty="*" Verb="Update" Noun="Network" ShouldProcessTarget="NetworkId" PipelineParameter="NetworkId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateNode" OutputProperty="*" Verb="Update" Noun="Node" ShouldProcessTarget="NodeId" PipelineParameter="NodeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateNode" OutputProperty="*" Verb="Update" Noun="Node" ShouldProcessTarget="NodeId" PipelineParameter="NodeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateNodeState" OutputProperty="*" Verb="Update" Noun="NodeState" ShouldProcessTarget="NodeId" PipelineParameter="NodeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateNodeState" OutputProperty="*" Verb="Update" Noun="NodeState" ShouldProcessTarget="NodeId" PipelineParameter="NodeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateReservation" OutputProperty="Reservation" Verb="Update" Noun="Reservation" ShouldProcessTarget="ReservationId" PipelineParameter="ReservationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateReservation" OutputProperty="Reservation" Verb="Update" Noun="Reservation" ShouldProcessTarget="ReservationId" PipelineParameter="ReservationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSdiSource" OutputProperty="SdiSource" Verb="Update" Noun="SdiSource" ShouldProcessTarget="SdiSourceId" PipelineParameter="SdiSourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateSdiSource" OutputProperty="SdiSource" Verb="Update" Noun="SdiSource" ShouldProcessTarget="SdiSourceId" PipelineParameter="SdiSourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

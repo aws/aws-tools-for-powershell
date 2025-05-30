@@ -18,15 +18,15 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DescribeAgreement" OutputProperty="*" Verb="Get" Noun="Agreement" PipelineParameter="AgreementId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAgreement" OutputProperty="*" Verb="Get" Noun="Agreement" PipelineParameter="AgreementId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAgreementTerms" OutputProperty="AcceptedTerms" Verb="Get" Noun="AgreementTerm" PipelineParameter="AgreementId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAgreementTerms" OutputProperty="AcceptedTerms" Verb="Get" Noun="AgreementTerm" PipelineParameter="AgreementId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchAgreements" OutputProperty="*" Verb="Search" Noun="Agreement" ShouldProcessTarget="Catalog" PipelineParameter="Catalog" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchAgreements" OutputProperty="*" Verb="Search" Noun="Agreement" ShouldProcessTarget="Catalog" PipelineParameter="Catalog" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

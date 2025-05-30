@@ -175,6 +175,8 @@ $CB_Completers = {
             ($_ -eq "Update-CBFleet/ComputeType") -Or
             ($_ -eq "Start-CBBatch/ComputeTypeOverride") -Or
             ($_ -eq "Start-CBBuild/ComputeTypeOverride") -Or
+            ($_ -eq "New-CBProject/DockerServer_ComputeType") -Or
+            ($_ -eq "Update-CBProject/DockerServer_ComputeType") -Or
             ($_ -eq "New-CBProject/Environment_ComputeType") -Or
             ($_ -eq "Update-CBProject/Environment_ComputeType")
         }
@@ -484,6 +486,7 @@ $CB_map = @{
     "ComputeConfiguration_MachineType"=@("New-CBFleet","New-CBProject","Update-CBFleet","Update-CBProject")
     "ComputeType"=@("New-CBFleet","Update-CBFleet")
     "ComputeTypeOverride"=@("Start-CBBatch","Start-CBBuild")
+    "DockerServer_ComputeType"=@("New-CBProject","Update-CBProject")
     "Environment_ComputeType"=@("New-CBProject","Update-CBProject")
     "Environment_ImagePullCredentialsType"=@("New-CBProject","Update-CBProject")
     "Environment_Type"=@("New-CBProject","Update-CBProject")

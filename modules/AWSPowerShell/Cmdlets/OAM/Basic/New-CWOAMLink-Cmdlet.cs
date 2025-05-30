@@ -110,7 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
         /// <para>
         /// <para>Specify a friendly human-readable name to use to identify this source account when
         /// you are viewing data from it in the monitoring account.</para><para>You can use a custom label or use the following variables:</para><ul><li><para><c>$AccountName</c> is the name of the account</para></li><li><para><c>$AccountEmail</c> is the globally unique email address of the account</para></li><li><para><c>$AccountEmailNoDomain</c> is the email address of the account without the domain
-        /// name</para></li></ul>
+        /// name</para></li></ul><note><para>In the Amazon Web Services GovCloud (US-East) and Amazon Web Services GovCloud (US-West)
+        /// Regions, the only supported option is to use custom labels, and the <c>$AccountName</c>,
+        /// <c>$AccountEmail</c>, and <c>$AccountEmailNoDomain</c> variables all resolve as <i>account-id</i>
+        /// instead of the specified variable.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

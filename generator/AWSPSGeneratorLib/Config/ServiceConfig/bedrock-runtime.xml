@@ -18,35 +18,35 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="ApplyGuardrail" OutputProperty="*" Verb="Invoke" Noun="Guardrail" ShouldProcessTarget="GuardrailIdentifier" PipelineParameter="GuardrailIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ApplyGuardrail" OutputProperty="*" Verb="Invoke" Noun="Guardrail" ShouldProcessTarget="GuardrailIdentifier" PipelineParameter="GuardrailIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Converse" OutputProperty="*" Verb="Invoke" Noun="Converse" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="Converse" OutputProperty="*" Verb="Invoke" Noun="Converse" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ConverseStream" OutputProperty="Stream" Verb="Invoke" Noun="ConverseStream" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ConverseStream" OutputProperty="Stream" Verb="Invoke" Noun="ConverseStream" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAsyncInvoke" OutputProperty="*" Verb="Get" Noun="AsyncInvoke" PipelineParameter="InvocationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAsyncInvoke" OutputProperty="*" Verb="Get" Noun="AsyncInvoke" PipelineParameter="InvocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InvokeModel" OutputProperty="*" Verb="Invoke" Noun="Model" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="InvokeModel" OutputProperty="*" Verb="Invoke" Noun="Model" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InvokeModelWithResponseStream" OutputProperty="*" Verb="Invoke" Noun="ModelWithResponseStream" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="InvokeModelWithResponseStream" OutputProperty="*" Verb="Invoke" Noun="ModelWithResponseStream" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAsyncInvokes" OutputProperty="AsyncInvokeSummaries" Verb="Get" Noun="AsyncInvokeList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListAsyncInvokes" OutputProperty="AsyncInvokeSummaries" Verb="Get" Noun="AsyncInvokeList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartAsyncInvoke" OutputProperty="InvocationArn" Verb="Start" Noun="AsyncInvoke" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartAsyncInvoke" OutputProperty="InvocationArn" Verb="Start" Noun="AsyncInvoke" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

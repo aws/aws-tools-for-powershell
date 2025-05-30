@@ -99,6 +99,17 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         public Amazon.VerifiedPermissions.ValidationMode ValidationSettings_Mode { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The list of key-value pairs to associate with the policy store.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -167,6 +178,14 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             context.ClientToken = this.ClientToken;
             context.DeletionProtection = this.DeletionProtection;
             context.Description = this.Description;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             context.ValidationSettings_Mode = this.ValidationSettings_Mode;
             #if MODULAR
             if (this.ValidationSettings_Mode == null && ParameterWasBound(nameof(this.ValidationSettings_Mode)))
@@ -201,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
              // populate ValidationSettings
@@ -279,6 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             public System.String ClientToken { get; set; }
             public Amazon.VerifiedPermissions.DeletionProtection DeletionProtection { get; set; }
             public System.String Description { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.VerifiedPermissions.ValidationMode ValidationSettings_Mode { get; set; }
             public System.Func<Amazon.VerifiedPermissions.Model.CreatePolicyStoreResponse, NewAVPPolicyStoreCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

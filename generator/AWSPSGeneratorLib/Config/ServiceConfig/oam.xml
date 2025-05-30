@@ -18,63 +18,63 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateLink" OutputProperty="*" Verb="New" Noun="Link" ShouldProcessTarget="SinkIdentifier" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateLink" OutputProperty="*" Verb="New" Noun="Link" ShouldProcessTarget="SinkIdentifier" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSink" OutputProperty="*" Verb="New" Noun="Sink" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateSink" OutputProperty="*" Verb="New" Noun="Sink" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLink" Verb="Remove" Noun="Link" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteLink" Verb="Remove" Noun="Link" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSink" Verb="Remove" Noun="Sink" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSink" Verb="Remove" Noun="Sink" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLink" OutputProperty="*" Verb="Get" Noun="Link" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetLink" OutputProperty="*" Verb="Get" Noun="Link" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSink" OutputProperty="*" Verb="Get" Noun="Sink" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSink" OutputProperty="*" Verb="Get" Noun="Sink" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSinkPolicy" OutputProperty="*" Verb="Get" Noun="SinkPolicy" PipelineParameter="SinkIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSinkPolicy" OutputProperty="*" Verb="Get" Noun="SinkPolicy" PipelineParameter="SinkIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAttachedLinks" OutputProperty="Items" Verb="Get" Noun="AttachedLinkList" PipelineParameter="SinkIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAttachedLinks" OutputProperty="Items" Verb="Get" Noun="AttachedLinkList" PipelineParameter="SinkIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLinks" OutputProperty="Items" Verb="Get" Noun="LinkList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLinks" OutputProperty="Items" Verb="Get" Noun="LinkList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSinks" OutputProperty="Items" Verb="Get" Noun="SinkList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSinks" OutputProperty="Items" Verb="Get" Noun="SinkList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutSinkPolicy" OutputProperty="*" Verb="Write" Noun="SinkPolicy" ShouldProcessTarget="SinkIdentifier" PipelineParameter="SinkIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutSinkPolicy" OutputProperty="*" Verb="Write" Noun="SinkPolicy" ShouldProcessTarget="SinkIdentifier" PipelineParameter="SinkIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLink" OutputProperty="*" Verb="Update" Noun="Link" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateLink" OutputProperty="*" Verb="Update" Noun="Link" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

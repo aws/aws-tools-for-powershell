@@ -19,255 +19,255 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateAutoPredictor" OutputProperty="PredictorArn" Verb="New" Noun="AutoPredictor" ShouldProcessTarget="PredictorName" PipelineParameter="PredictorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAutoPredictor" OutputProperty="PredictorArn" Verb="New" Noun="AutoPredictor" ShouldProcessTarget="PredictorName" PipelineParameter="PredictorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataset" OutputProperty="DatasetArn" Verb="New" Noun="Dataset" ShouldProcessTarget="DatasetName" PipelineParameter="DatasetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDataset" OutputProperty="DatasetArn" Verb="New" Noun="Dataset" ShouldProcessTarget="DatasetName" PipelineParameter="DatasetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDatasetGroup" OutputProperty="DatasetGroupArn" Verb="New" Noun="DatasetGroup" ShouldProcessTarget="DatasetGroupName" PipelineParameter="DatasetGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDatasetGroup" OutputProperty="DatasetGroupArn" Verb="New" Noun="DatasetGroup" ShouldProcessTarget="DatasetGroupName" PipelineParameter="DatasetGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDatasetImportJob" OutputProperty="DatasetImportJobArn" Verb="New" Noun="DatasetImportJob" ShouldProcessTarget="DatasetImportJobName" PipelineParameter="DatasetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDatasetImportJob" OutputProperty="DatasetImportJobArn" Verb="New" Noun="DatasetImportJob" ShouldProcessTarget="DatasetImportJobName" PipelineParameter="DatasetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateExplainability" OutputProperty="ExplainabilityArn" Verb="New" Noun="Explainability" ShouldProcessTarget="ExplainabilityName" PipelineParameter="ExplainabilityName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateExplainability" OutputProperty="ExplainabilityArn" Verb="New" Noun="Explainability" ShouldProcessTarget="ExplainabilityName" PipelineParameter="ExplainabilityName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateExplainabilityExport" OutputProperty="ExplainabilityExportArn" Verb="New" Noun="ExplainabilityExport" ShouldProcessTarget="ExplainabilityArn" PipelineParameter="ExplainabilityArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateExplainabilityExport" OutputProperty="ExplainabilityExportArn" Verb="New" Noun="ExplainabilityExport" ShouldProcessTarget="ExplainabilityArn" PipelineParameter="ExplainabilityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateForecast" OutputProperty="ForecastArn" Verb="New" Noun="Forecast" ShouldProcessTarget="ForecastName" PipelineParameter="PredictorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateForecast" OutputProperty="ForecastArn" Verb="New" Noun="Forecast" ShouldProcessTarget="ForecastName" PipelineParameter="PredictorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateForecastExportJob" OutputProperty="ForecastExportJobArn" Verb="New" Noun="ForecastExportJob" ShouldProcessTarget="ForecastExportJobName" PipelineParameter="ForecastArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateForecastExportJob" OutputProperty="ForecastExportJobArn" Verb="New" Noun="ForecastExportJob" ShouldProcessTarget="ForecastExportJobName" PipelineParameter="ForecastArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMonitor" OutputProperty="MonitorArn" Verb="New" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMonitor" OutputProperty="MonitorArn" Verb="New" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePredictor" OutputProperty="PredictorArn" Verb="New" Noun="Predictor" ShouldProcessTarget="PredictorName" PipelineParameter="PredictorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePredictor" OutputProperty="PredictorArn" Verb="New" Noun="Predictor" ShouldProcessTarget="PredictorName" PipelineParameter="PredictorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePredictorBacktestExportJob" OutputProperty="PredictorBacktestExportJobArn" Verb="New" Noun="PredictorBacktestExportJob" ShouldProcessTarget="PredictorBacktestExportJobName" PipelineParameter="PredictorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePredictorBacktestExportJob" OutputProperty="PredictorBacktestExportJobArn" Verb="New" Noun="PredictorBacktestExportJob" ShouldProcessTarget="PredictorBacktestExportJobName" PipelineParameter="PredictorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWhatIfAnalysis" OutputProperty="WhatIfAnalysisArn" Verb="New" Noun="WhatIfAnalysis" ShouldProcessTarget="WhatIfAnalysisName" PipelineParameter="WhatIfAnalysisName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateWhatIfAnalysis" OutputProperty="WhatIfAnalysisArn" Verb="New" Noun="WhatIfAnalysis" ShouldProcessTarget="WhatIfAnalysisName" PipelineParameter="WhatIfAnalysisName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWhatIfForecast" OutputProperty="WhatIfForecastArn" Verb="New" Noun="WhatIfForecast" ShouldProcessTarget="WhatIfForecastName" PipelineParameter="WhatIfForecastName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateWhatIfForecast" OutputProperty="WhatIfForecastArn" Verb="New" Noun="WhatIfForecast" ShouldProcessTarget="WhatIfForecastName" PipelineParameter="WhatIfForecastName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWhatIfForecastExport" OutputProperty="WhatIfForecastExportArn" Verb="New" Noun="WhatIfForecastExport" ShouldProcessTarget="WhatIfForecastExportName" PipelineParameter="WhatIfForecastExportName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateWhatIfForecastExport" OutputProperty="WhatIfForecastExportArn" Verb="New" Noun="WhatIfForecastExport" ShouldProcessTarget="WhatIfForecastExportName" PipelineParameter="WhatIfForecastExportName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataset" Verb="Remove" Noun="Dataset" ShouldProcessTarget="DatasetArn" PipelineParameter="DatasetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDataset" Verb="Remove" Noun="Dataset" ShouldProcessTarget="DatasetArn" PipelineParameter="DatasetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDatasetGroup" Verb="Remove" Noun="DatasetGroup" ShouldProcessTarget="DatasetGroupArn" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDatasetGroup" Verb="Remove" Noun="DatasetGroup" ShouldProcessTarget="DatasetGroupArn" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDatasetImportJob" Verb="Remove" Noun="DatasetImportJob" ShouldProcessTarget="DatasetImportJobArn" PipelineParameter="DatasetImportJobArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDatasetImportJob" Verb="Remove" Noun="DatasetImportJob" ShouldProcessTarget="DatasetImportJobArn" PipelineParameter="DatasetImportJobArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteExplainability" Verb="Remove" Noun="Explainability" ShouldProcessTarget="ExplainabilityArn" PipelineParameter="ExplainabilityArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteExplainability" Verb="Remove" Noun="Explainability" ShouldProcessTarget="ExplainabilityArn" PipelineParameter="ExplainabilityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteExplainabilityExport" Verb="Remove" Noun="ExplainabilityExport" ShouldProcessTarget="ExplainabilityExportArn" PipelineParameter="ExplainabilityExportArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteExplainabilityExport" Verb="Remove" Noun="ExplainabilityExport" ShouldProcessTarget="ExplainabilityExportArn" PipelineParameter="ExplainabilityExportArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteForecast" Verb="Remove" Noun="Forecast" ShouldProcessTarget="ForecastArn" PipelineParameter="ForecastArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteForecast" Verb="Remove" Noun="Forecast" ShouldProcessTarget="ForecastArn" PipelineParameter="ForecastArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteForecastExportJob" Verb="Remove" Noun="ForecastExportJob" ShouldProcessTarget="ForecastExportJobArn" PipelineParameter="ForecastExportJobArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteForecastExportJob" Verb="Remove" Noun="ForecastExportJob" ShouldProcessTarget="ForecastExportJobArn" PipelineParameter="ForecastExportJobArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMonitor" Verb="Remove" Noun="Monitor" ShouldProcessTarget="MonitorArn" PipelineParameter="MonitorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMonitor" Verb="Remove" Noun="Monitor" ShouldProcessTarget="MonitorArn" PipelineParameter="MonitorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePredictor" Verb="Remove" Noun="Predictor" ShouldProcessTarget="PredictorArn" PipelineParameter="PredictorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePredictor" Verb="Remove" Noun="Predictor" ShouldProcessTarget="PredictorArn" PipelineParameter="PredictorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePredictorBacktestExportJob" Verb="Remove" Noun="PredictorBacktestExportJob" ShouldProcessTarget="PredictorBacktestExportJobArn" PipelineParameter="PredictorBacktestExportJobArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePredictorBacktestExportJob" Verb="Remove" Noun="PredictorBacktestExportJob" ShouldProcessTarget="PredictorBacktestExportJobArn" PipelineParameter="PredictorBacktestExportJobArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourceTree" Verb="Remove" Noun="ResourceTree" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteResourceTree" Verb="Remove" Noun="ResourceTree" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWhatIfAnalysis" Verb="Remove" Noun="WhatIfAnalysis" ShouldProcessTarget="WhatIfAnalysisArn" PipelineParameter="WhatIfAnalysisArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteWhatIfAnalysis" Verb="Remove" Noun="WhatIfAnalysis" ShouldProcessTarget="WhatIfAnalysisArn" PipelineParameter="WhatIfAnalysisArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWhatIfForecast" Verb="Remove" Noun="WhatIfForecast" ShouldProcessTarget="WhatIfForecastArn" PipelineParameter="WhatIfForecastArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteWhatIfForecast" Verb="Remove" Noun="WhatIfForecast" ShouldProcessTarget="WhatIfForecastArn" PipelineParameter="WhatIfForecastArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWhatIfForecastExport" Verb="Remove" Noun="WhatIfForecastExport" ShouldProcessTarget="WhatIfForecastExportArn" PipelineParameter="WhatIfForecastExportArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteWhatIfForecastExport" Verb="Remove" Noun="WhatIfForecastExport" ShouldProcessTarget="WhatIfForecastExportArn" PipelineParameter="WhatIfForecastExportArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAutoPredictor" OutputProperty="*" Verb="Get" Noun="AutoPredictor" PipelineParameter="PredictorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAutoPredictor" OutputProperty="*" Verb="Get" Noun="AutoPredictor" PipelineParameter="PredictorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDataset" OutputProperty="*" Verb="Get" Noun="Dataset" PipelineParameter="DatasetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDataset" OutputProperty="*" Verb="Get" Noun="Dataset" PipelineParameter="DatasetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDatasetGroup" OutputProperty="*" Verb="Get" Noun="DatasetGroup" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDatasetGroup" OutputProperty="*" Verb="Get" Noun="DatasetGroup" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDatasetImportJob" OutputProperty="*" Verb="Get" Noun="DatasetImportJob" PipelineParameter="DatasetImportJobArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDatasetImportJob" OutputProperty="*" Verb="Get" Noun="DatasetImportJob" PipelineParameter="DatasetImportJobArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeExplainability" OutputProperty="*" Verb="Get" Noun="Explainability" PipelineParameter="ExplainabilityArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeExplainability" OutputProperty="*" Verb="Get" Noun="Explainability" PipelineParameter="ExplainabilityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeExplainabilityExport" OutputProperty="*" Verb="Get" Noun="ExplainabilityExport" PipelineParameter="ExplainabilityExportArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeExplainabilityExport" OutputProperty="*" Verb="Get" Noun="ExplainabilityExport" PipelineParameter="ExplainabilityExportArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeForecast" OutputProperty="*" Verb="Get" Noun="Forecast" PipelineParameter="ForecastArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeForecast" OutputProperty="*" Verb="Get" Noun="Forecast" PipelineParameter="ForecastArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeForecastExportJob" OutputProperty="*" Verb="Get" Noun="ForecastExportJob" PipelineParameter="ForecastExportJobArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeForecastExportJob" OutputProperty="*" Verb="Get" Noun="ForecastExportJob" PipelineParameter="ForecastExportJobArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMonitor" OutputProperty="*" Verb="Get" Noun="Monitor" PipelineParameter="MonitorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeMonitor" OutputProperty="*" Verb="Get" Noun="Monitor" PipelineParameter="MonitorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePredictor" OutputProperty="*" Verb="Get" Noun="Predictor" PipelineParameter="PredictorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribePredictor" OutputProperty="*" Verb="Get" Noun="Predictor" PipelineParameter="PredictorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePredictorBacktestExportJob" OutputProperty="*" Verb="Get" Noun="PredictorBacktestExportJob" PipelineParameter="PredictorBacktestExportJobArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribePredictorBacktestExportJob" OutputProperty="*" Verb="Get" Noun="PredictorBacktestExportJob" PipelineParameter="PredictorBacktestExportJobArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWhatIfAnalysis" OutputProperty="*" Verb="Get" Noun="WhatIfAnalysis" PipelineParameter="WhatIfAnalysisArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeWhatIfAnalysis" OutputProperty="*" Verb="Get" Noun="WhatIfAnalysis" PipelineParameter="WhatIfAnalysisArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWhatIfForecast" OutputProperty="*" Verb="Get" Noun="WhatIfForecast" PipelineParameter="WhatIfForecastArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeWhatIfForecast" OutputProperty="*" Verb="Get" Noun="WhatIfForecast" PipelineParameter="WhatIfForecastArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWhatIfForecastExport" OutputProperty="*" Verb="Get" Noun="WhatIfForecastExport" PipelineParameter="WhatIfForecastExportArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeWhatIfForecastExport" OutputProperty="*" Verb="Get" Noun="WhatIfForecastExport" PipelineParameter="WhatIfForecastExportArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccuracyMetrics" OutputProperty="PredictorEvaluationResults" Verb="Get" Noun="AccuracyMetric" PipelineParameter="PredictorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAccuracyMetrics" OutputProperty="PredictorEvaluationResults" Verb="Get" Noun="AccuracyMetric" PipelineParameter="PredictorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasetGroups" OutputProperty="DatasetGroups" Verb="Get" Noun="DatasetGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListDatasetGroups" OutputProperty="DatasetGroups" Verb="Get" Noun="DatasetGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasetImportJobs" OutputProperty="DatasetImportJobs" Verb="Get" Noun="DatasetImportJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListDatasetImportJobs" OutputProperty="DatasetImportJobs" Verb="Get" Noun="DatasetImportJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasets" OutputProperty="Datasets" Verb="Get" Noun="DatasetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListDatasets" OutputProperty="Datasets" Verb="Get" Noun="DatasetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExplainabilities" OutputProperty="Explainabilities" Verb="Get" Noun="ExplainabilityList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListExplainabilities" OutputProperty="Explainabilities" Verb="Get" Noun="ExplainabilityList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExplainabilityExports" OutputProperty="ExplainabilityExports" Verb="Get" Noun="ExplainabilityExportList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListExplainabilityExports" OutputProperty="ExplainabilityExports" Verb="Get" Noun="ExplainabilityExportList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListForecastExportJobs" OutputProperty="ForecastExportJobs" Verb="Get" Noun="ForecastExportJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListForecastExportJobs" OutputProperty="ForecastExportJobs" Verb="Get" Noun="ForecastExportJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListForecasts" OutputProperty="Forecasts" Verb="Get" Noun="ForecastList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListForecasts" OutputProperty="Forecasts" Verb="Get" Noun="ForecastList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMonitorEvaluations" OutputProperty="*" Verb="Get" Noun="MonitorEvaluationList" PipelineParameter="MonitorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMonitorEvaluations" OutputProperty="*" Verb="Get" Noun="MonitorEvaluationList" PipelineParameter="MonitorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMonitors" OutputProperty="Monitors" Verb="Get" Noun="MonitorList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMonitors" OutputProperty="Monitors" Verb="Get" Noun="MonitorList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPredictorBacktestExportJobs" OutputProperty="PredictorBacktestExportJobs" Verb="Get" Noun="PredictorBacktestExportJobList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPredictorBacktestExportJobs" OutputProperty="PredictorBacktestExportJobs" Verb="Get" Noun="PredictorBacktestExportJobList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPredictors" OutputProperty="Predictors" Verb="Get" Noun="PredictorList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListPredictors" OutputProperty="Predictors" Verb="Get" Noun="PredictorList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWhatIfAnalyses" OutputProperty="WhatIfAnalyses" Verb="Get" Noun="WhatIfAnalysisList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListWhatIfAnalyses" OutputProperty="WhatIfAnalyses" Verb="Get" Noun="WhatIfAnalysisList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWhatIfForecastExports" OutputProperty="WhatIfForecastExports" Verb="Get" Noun="WhatIfForecastExportList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListWhatIfForecastExports" OutputProperty="WhatIfForecastExports" Verb="Get" Noun="WhatIfForecastExportList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWhatIfForecasts" OutputProperty="WhatIfForecasts" Verb="Get" Noun="WhatIfForecastList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListWhatIfForecasts" OutputProperty="WhatIfForecasts" Verb="Get" Noun="WhatIfForecastList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResumeResource" Verb="Resume" Noun="Resource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ResumeResource" Verb="Resume" Noun="Resource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopResource" Verb="Stop" Noun="Resource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopResource" Verb="Stop" Noun="Resource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDatasetGroup" Verb="Update" Noun="DatasetGroup" ShouldProcessTarget="DatasetGroupArn" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDatasetGroup" Verb="Update" Noun="DatasetGroup" ShouldProcessTarget="DatasetGroupArn" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

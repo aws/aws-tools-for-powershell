@@ -48,10 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
     /// 
     /// </para><important><para>
-    /// Do not include any security-sensitive information including account access IDs, secrets
-    /// or tokens in any hyperparameter field. If the use of security-sensitive credentials
-    /// are detected, SageMaker will reject your training job request and return an exception
-    /// error.
+    /// Do not include any security-sensitive information including account access IDs, secrets,
+    /// or tokens in any hyperparameter fields. As part of the shared responsibility model,
+    /// you are responsible for any potential exposure, unauthorized access, or compromise
+    /// of your sensitive data if caused by security-sensitive information included in the
+    /// request hyperparameter variable or plain text fields.
     /// </para></important></li><li><para><c>InputDataConfig</c> - Describes the input required by the training job and the
     /// Amazon S3, EFS, or FSx location where it is stored.
     /// </para></li><li><para><c>OutputDataConfig</c> - Identifies the Amazon S3 bucket where you want SageMaker
@@ -70,7 +71,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// to set a time limit for training. Use <c>MaxWaitTimeInSeconds</c> to specify how long
     /// a managed spot training job has to complete. 
     /// </para></li><li><para><c>Environment</c> - The environment variables to set in the Docker container.
-    /// </para></li><li><para><c>RetryStrategy</c> - The number of times to retry the job when the job fails due
+    /// </para><important><para>
+    /// Do not include any security-sensitive information including account access IDs, secrets,
+    /// or tokens in any environment fields. As part of the shared responsibility model, you
+    /// are responsible for any potential exposure, unauthorized access, or compromise of
+    /// your sensitive data if caused by security-sensitive information included in the request
+    /// environment variable or plain text fields.
+    /// </para></important></li><li><para><c>RetryStrategy</c> - The number of times to retry the job when the job fails due
     /// to an <c>InternalServerError</c>.
     /// </para></li></ul><para>
     ///  For more information about SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How
@@ -226,7 +233,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Environment
         /// <summary>
         /// <para>
-        /// <para>The environment variables to set in the Docker container.</para>
+        /// <para>The environment variables to set in the Docker container.</para><important><para>Do not include any security-sensitive information including account access IDs, secrets,
+        /// or tokens in any environment fields. As part of the shared responsibility model, you
+        /// are responsible for any potential exposure, unauthorized access, or compromise of
+        /// your sensitive data if caused by security-sensitive information included in the request
+        /// environment variable or plain text fields.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -262,10 +273,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// algorithm provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
         /// </para><para>You can specify a maximum of 100 hyperparameters. Each hyperparameter is a key-value
         /// pair. Each key and value is limited to 256 characters, as specified by the <c>Length
-        /// Constraint</c>. </para><important><para>Do not include any security-sensitive information including account access IDs, secrets
-        /// or tokens in any hyperparameter field. If the use of security-sensitive credentials
-        /// are detected, SageMaker will reject your training job request and return an exception
-        /// error.</para></important>
+        /// Constraint</c>. </para><important><para>Do not include any security-sensitive information including account access IDs, secrets,
+        /// or tokens in any hyperparameter fields. As part of the shared responsibility model,
+        /// you are responsible for any potential exposure, unauthorized access, or compromise
+        /// of your sensitive data if caused by any security-sensitive information included in
+        /// the request hyperparameter variable or plain text fields.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -572,7 +584,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
         /// resources in different ways, for example, by purpose, owner, or environment. For more
         /// information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// Amazon Web Services Resources</a>.</para>
+        /// Amazon Web Services Resources</a>.</para><important><para>Do not include any security-sensitive information including account access IDs, secrets,
+        /// or tokens in any tags. As part of the shared responsibility model, you are responsible
+        /// for any potential exposure, unauthorized access, or compromise of your sensitive data
+        /// if caused by any security-sensitive information included in the request tag variable
+        /// or plain text fields.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -160,7 +160,7 @@ $QBUS_Completers = {
         # Amazon.QBusiness.IdentityType
         "New-QBUSApplication/IdentityType"
         {
-            $v = "AWS_IAM_IDC","AWS_IAM_IDP_OIDC","AWS_IAM_IDP_SAML","AWS_QUICKSIGHT_IDP"
+            $v = "ANONYMOUS","AWS_IAM_IDC","AWS_IAM_IDP_OIDC","AWS_IAM_IDP_SAML","AWS_QUICKSIGHT_IDP"
             break
         }
 
@@ -382,6 +382,7 @@ $QBUS_SelectMap = @{
                "Stop-QBUSSubscription",
                "Set-QBUSChatSync",
                "Get-QBUSDocumentAccess",
+               "New-QBUSAnonymousWebExperienceUrl",
                "New-QBUSApplication",
                "New-QBUSDataAccessor",
                "New-QBUSDataSource",

@@ -36,7 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     /// <para>
     /// You can't use this operation to update the tags of an existing canary. To change the
     /// tags of an existing canary, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_TagResource.html">TagResource</a>.
-    /// </para>
+    /// </para><note><para>
+    /// When you use the <c>dryRunId</c> field when updating a canary, the only other field
+    /// you can provide is the <c>Schedule</c>. Adding any other field will thrown an exception.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "CWSYNCanary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -71,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <para>
         /// <para>The location in Amazon S3 where Synthetics stores artifacts from the test runs of
         /// this canary. Artifacts include the log file, screenshots, and HAR files. The name
-        /// of the S3 bucket can't include a period (.).</para>
+        /// of the Amazon S3 bucket can't include a period (.).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,6 +109,18 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("VisualReference_BaseScreenshots")]
         public Amazon.Synthetics.Model.BaseScreenshot[] VisualReference_BaseScreenshot { get; set; }
+        #endregion
+        
+        #region Parameter DryRunId
+        /// <summary>
+        /// <para>
+        /// <para>Update the existing canary using the updated configurations from the DryRun associated
+        /// with the DryRunId.</para><note><para>When you use the <c>dryRunId</c> field when updating a canary, the only other field
+        /// you can provide is the <c>Schedule</c>. Adding any other field will thrown an exception.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DryRunId { get; set; }
         #endregion
         
         #region Parameter Schedule_DurationInSecond
@@ -143,13 +158,28 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// environment variables cannot exceed 4 KB. You can't specify any Lambda reserved environment
         /// variables as the keys for your environment variables. For more information about reserved
         /// keys, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime">
-        /// Runtime environment variables</a>.</para><important><para>The environment variables keys and values are not encrypted. Do not store sensitive
-        /// information in this field.</para></important>
+        /// Runtime environment variables</a>.</para><important><para>Environment variable keys and values are encrypted at rest using Amazon Web Services
+        /// owned KMS keys. However, the environment variables are not encrypted on the client
+        /// side. Do not store sensitive information in them.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RunConfig_EnvironmentVariables")]
         public System.Collections.Hashtable RunConfig_EnvironmentVariable { get; set; }
+        #endregion
+        
+        #region Parameter RunConfig_EphemeralStorage
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the amount of ephemeral storage (in MB) to allocate for the canary run during
+        /// execution. This temporary storage is used for storing canary run artifacts (which
+        /// are uploaded to an Amazon S3 bucket at the end of the run), and any canary browser
+        /// operations. This temporary storage is cleared after the run is completed. Default
+        /// storage value is 1024 MB.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? RunConfig_EphemeralStorage { get; set; }
         #endregion
         
         #region Parameter ExecutionRoleArn
@@ -185,7 +215,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter FailureRetentionPeriodInDay
         /// <summary>
         /// <para>
-        /// <para>The number of days to retain data about failed runs of this canary.</para>
+        /// <para>The number of days to retain data about failed runs of this canary.</para><para>This setting affects the range of information returned by <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html">GetCanaryRuns</a>,
+        /// as well as the range of information displayed in the Synthetics console. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,6 +258,17 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ArtifactConfig_S3Encryption_KmsKeyArn")]
         public System.String S3Encryption_KmsKeyArn { get; set; }
+        #endregion
+        
+        #region Parameter RetryConfig_MaxRetry
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of retries. The value must be less than or equal to 2.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Schedule_RetryConfig_MaxRetries")]
+        public System.Int32? RetryConfig_MaxRetry { get; set; }
         #endregion
         
         #region Parameter RunConfig_MemoryInMB
@@ -287,8 +329,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter Code_S3Bucket
         /// <summary>
         /// <para>
-        /// <para>If your canary script is located in S3, specify the bucket name here. Do not include
-        /// <c>s3://</c> as the start of the bucket name.</para>
+        /// <para>If your canary script is located in Amazon S3, specify the bucket name here. Do not
+        /// include <c>s3://</c> as the start of the bucket name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -298,7 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter Code_S3Key
         /// <summary>
         /// <para>
-        /// <para>The S3 key of your script. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html">Working
+        /// <para>The Amazon S3 key of your script. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html">Working
         /// with Amazon S3 Objects</a>.</para>
         /// </para>
         /// </summary>
@@ -309,7 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter Code_S3Version
         /// <summary>
         /// <para>
-        /// <para>The S3 version ID of your script.</para>
+        /// <para>The Amazon S3 version ID of your script.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -341,7 +383,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter SuccessRetentionPeriodInDay
         /// <summary>
         /// <para>
-        /// <para>The number of days to retain data about successful runs of this canary.</para>
+        /// <para>The number of days to retain data about successful runs of this canary.</para><para>This setting affects the range of information returned by <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html">GetCanaryRuns</a>,
+        /// as well as the range of information displayed in the Synthetics console. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -366,9 +409,9 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>If you input your canary script directly into the canary instead of referring to an
-        /// S3 location, the value of this parameter is the base64-encoded contents of the .zip
-        /// file that contains the script. It must be smaller than 225 Kb.</para><para>For large canary scripts, we recommend that you use an S3 location instead of inputting
-        /// it directly with this parameter.</para>
+        /// Amazon S3 location, the value of this parameter is the base64-encoded contents of
+        /// the .zip file that contains the script. It must be smaller than 225 Kb.</para><para>For large canary scripts, we recommend that you use an Amazon S3 location instead
+        /// of inputting it directly with this parameter.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -430,6 +473,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             context.Code_S3Key = this.Code_S3Key;
             context.Code_S3Version = this.Code_S3Version;
             context.Code_ZipFile = this.Code_ZipFile;
+            context.DryRunId = this.DryRunId;
             context.ExecutionRoleArn = this.ExecutionRoleArn;
             context.FailureRetentionPeriodInDay = this.FailureRetentionPeriodInDay;
             context.Name = this.Name;
@@ -449,11 +493,13 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                     context.RunConfig_EnvironmentVariable.Add((String)hashKey, (System.String)(this.RunConfig_EnvironmentVariable[hashKey]));
                 }
             }
+            context.RunConfig_EphemeralStorage = this.RunConfig_EphemeralStorage;
             context.RunConfig_MemoryInMB = this.RunConfig_MemoryInMB;
             context.RunConfig_TimeoutInSecond = this.RunConfig_TimeoutInSecond;
             context.RuntimeVersion = this.RuntimeVersion;
             context.Schedule_DurationInSecond = this.Schedule_DurationInSecond;
             context.Schedule_Expression = this.Schedule_Expression;
+            context.RetryConfig_MaxRetry = this.RetryConfig_MaxRetry;
             context.SuccessRetentionPeriodInDay = this.SuccessRetentionPeriodInDay;
             context.VisualReference_BaseCanaryRunId = this.VisualReference_BaseCanaryRunId;
             if (this.VisualReference_BaseScreenshot != null)
@@ -597,6 +643,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 {
                     request.Code = null;
                 }
+                if (cmdletContext.DryRunId != null)
+                {
+                    request.DryRunId = cmdletContext.DryRunId;
+                }
                 if (cmdletContext.ExecutionRoleArn != null)
                 {
                     request.ExecutionRoleArn = cmdletContext.ExecutionRoleArn;
@@ -635,6 +685,16 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 if (requestRunConfig_runConfig_EnvironmentVariable != null)
                 {
                     request.RunConfig.EnvironmentVariables = requestRunConfig_runConfig_EnvironmentVariable;
+                    requestRunConfigIsNull = false;
+                }
+                System.Int32? requestRunConfig_runConfig_EphemeralStorage = null;
+                if (cmdletContext.RunConfig_EphemeralStorage != null)
+                {
+                    requestRunConfig_runConfig_EphemeralStorage = cmdletContext.RunConfig_EphemeralStorage.Value;
+                }
+                if (requestRunConfig_runConfig_EphemeralStorage != null)
+                {
+                    request.RunConfig.EphemeralStorage = requestRunConfig_runConfig_EphemeralStorage.Value;
                     requestRunConfigIsNull = false;
                 }
                 System.Int32? requestRunConfig_runConfig_MemoryInMB = null;
@@ -688,6 +748,31 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 if (requestSchedule_schedule_Expression != null)
                 {
                     request.Schedule.Expression = requestSchedule_schedule_Expression;
+                    requestScheduleIsNull = false;
+                }
+                Amazon.Synthetics.Model.RetryConfigInput requestSchedule_schedule_RetryConfig = null;
+                
+                 // populate RetryConfig
+                var requestSchedule_schedule_RetryConfigIsNull = true;
+                requestSchedule_schedule_RetryConfig = new Amazon.Synthetics.Model.RetryConfigInput();
+                System.Int32? requestSchedule_schedule_RetryConfig_retryConfig_MaxRetry = null;
+                if (cmdletContext.RetryConfig_MaxRetry != null)
+                {
+                    requestSchedule_schedule_RetryConfig_retryConfig_MaxRetry = cmdletContext.RetryConfig_MaxRetry.Value;
+                }
+                if (requestSchedule_schedule_RetryConfig_retryConfig_MaxRetry != null)
+                {
+                    requestSchedule_schedule_RetryConfig.MaxRetries = requestSchedule_schedule_RetryConfig_retryConfig_MaxRetry.Value;
+                    requestSchedule_schedule_RetryConfigIsNull = false;
+                }
+                 // determine if requestSchedule_schedule_RetryConfig should be set to null
+                if (requestSchedule_schedule_RetryConfigIsNull)
+                {
+                    requestSchedule_schedule_RetryConfig = null;
+                }
+                if (requestSchedule_schedule_RetryConfig != null)
+                {
+                    request.Schedule.RetryConfig = requestSchedule_schedule_RetryConfig;
                     requestScheduleIsNull = false;
                 }
                  // determine if request.Schedule should be set to null
@@ -838,17 +923,20 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             public System.String Code_S3Key { get; set; }
             public System.String Code_S3Version { get; set; }
             public byte[] Code_ZipFile { get; set; }
+            public System.String DryRunId { get; set; }
             public System.String ExecutionRoleArn { get; set; }
             public System.Int32? FailureRetentionPeriodInDay { get; set; }
             public System.String Name { get; set; }
             public Amazon.Synthetics.ProvisionedResourceCleanupSetting ProvisionedResourceCleanup { get; set; }
             public System.Boolean? RunConfig_ActiveTracing { get; set; }
             public Dictionary<System.String, System.String> RunConfig_EnvironmentVariable { get; set; }
+            public System.Int32? RunConfig_EphemeralStorage { get; set; }
             public System.Int32? RunConfig_MemoryInMB { get; set; }
             public System.Int32? RunConfig_TimeoutInSecond { get; set; }
             public System.String RuntimeVersion { get; set; }
             public System.Int64? Schedule_DurationInSecond { get; set; }
             public System.String Schedule_Expression { get; set; }
+            public System.Int32? RetryConfig_MaxRetry { get; set; }
             public System.Int32? SuccessRetentionPeriodInDay { get; set; }
             public System.String VisualReference_BaseCanaryRunId { get; set; }
             public List<Amazon.Synthetics.Model.BaseScreenshot> VisualReference_BaseScreenshot { get; set; }

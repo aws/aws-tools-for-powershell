@@ -21,63 +21,63 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelQuery" OutputProperty="CancellationMessage" Verb="Stop" Noun="Query" ShouldProcessTarget="QueryId" PipelineParameter="QueryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelQuery" OutputProperty="CancellationMessage" Verb="Stop" Noun="Query" ShouldProcessTarget="QueryId" PipelineParameter="QueryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateScheduledQuery" OutputProperty="Arn" Verb="New" Noun="ScheduledQuery" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateScheduledQuery" OutputProperty="Arn" Verb="New" Noun="ScheduledQuery" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteScheduledQuery" Verb="Remove" Noun="ScheduledQuery" ShouldProcessTarget="ScheduledQueryArn" PipelineParameter="ScheduledQueryArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteScheduledQuery" Verb="Remove" Noun="ScheduledQuery" ShouldProcessTarget="ScheduledQueryArn" PipelineParameter="ScheduledQueryArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountSettings" OutputProperty="*" Verb="Get" Noun="AccountSetting" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAccountSettings" OutputProperty="*" Verb="Get" Noun="AccountSetting" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="EndpointList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="EndpointList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScheduledQuery" OutputProperty="ScheduledQuery" Verb="Get" Noun="ScheduledQuery" PipelineParameter="ScheduledQueryArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeScheduledQuery" OutputProperty="ScheduledQuery" Verb="Get" Noun="ScheduledQuery" PipelineParameter="ScheduledQueryArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteScheduledQuery" Verb="Start" Noun="ScheduledQuery" ShouldProcessTarget="ScheduledQueryArn" PipelineParameter="ScheduledQueryArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ExecuteScheduledQuery" Verb="Start" Noun="ScheduledQuery" ShouldProcessTarget="ScheduledQueryArn" PipelineParameter="ScheduledQueryArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListScheduledQueries" OutputProperty="ScheduledQueries" Verb="Get" Noun="ScheduledQueryList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListScheduledQueries" OutputProperty="ScheduledQueries" Verb="Get" Noun="ScheduledQueryList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PrepareQuery" OutputProperty="*" Verb="Initialize" Noun="Query" ShouldProcessTarget="QueryString" PipelineParameter="QueryString" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PrepareQuery" OutputProperty="*" Verb="Initialize" Noun="Query" ShouldProcessTarget="QueryString" PipelineParameter="QueryString" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Query" OutputProperty="Rows" Verb="Invoke" Noun="Query" IgnoreSupportsShouldProcess="true" PipelineParameter="QueryString" NoPipelineParameter="false">
+        <ServiceOperation MethodName="Query" OutputProperty="Rows" Verb="Invoke" Noun="Query" IgnoreSupportsShouldProcess="true" PipelineParameter="QueryString" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAccountSettings" OutputProperty="*" Verb="Update" Noun="AccountSetting" ShouldProcessTarget="MaxQueryTCU" PipelineParameter="MaxQueryTCU" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAccountSettings" OutputProperty="*" Verb="Update" Noun="AccountSetting" ShouldProcessTarget="MaxQueryTCU" PipelineParameter="MaxQueryTCU" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateScheduledQuery" Verb="Update" Noun="ScheduledQuery" ShouldProcessTarget="ScheduledQueryArn" PipelineParameter="ScheduledQueryArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateScheduledQuery" Verb="Update" Noun="ScheduledQuery" ShouldProcessTarget="ScheduledQueryArn" PipelineParameter="ScheduledQueryArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

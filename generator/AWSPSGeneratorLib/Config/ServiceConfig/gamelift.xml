@@ -19,475 +19,475 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptMatch" Verb="Confirm" Noun="Match" ShouldProcessTarget="TicketId" PipelineParameter="TicketId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AcceptMatch" Verb="Confirm" Noun="Match" ShouldProcessTarget="TicketId" PipelineParameter="TicketId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ClaimGameServer" OutputProperty="GameServer" Verb="Request" Noun="GameServer" ShouldProcessTarget="GameServerGroupName" PipelineParameter="GameServerGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ClaimGameServer" OutputProperty="GameServer" Verb="Request" Noun="GameServer" ShouldProcessTarget="GameServerGroupName" PipelineParameter="GameServerGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAlias" OutputProperty="Alias" Verb="New" Noun="Alias" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAlias" OutputProperty="Alias" Verb="New" Noun="Alias" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBuild" OutputProperty="*" Verb="New" Noun="Build" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateBuild" OutputProperty="*" Verb="New" Noun="Build" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateContainerFleet" OutputProperty="ContainerFleet" Verb="New" Noun="ContainerFleet" ShouldProcessTarget="FleetRoleArn" PipelineParameter="FleetRoleArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateContainerFleet" OutputProperty="ContainerFleet" Verb="New" Noun="ContainerFleet" ShouldProcessTarget="FleetRoleArn" PipelineParameter="FleetRoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateContainerGroupDefinition" OutputProperty="ContainerGroupDefinition" Verb="New" Noun="ContainerGroupDefinition" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateContainerGroupDefinition" OutputProperty="ContainerGroupDefinition" Verb="New" Noun="ContainerGroupDefinition" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFleet" OutputProperty="FleetAttributes" Verb="New" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="BuildId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateFleet" OutputProperty="FleetAttributes" Verb="New" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="BuildId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFleetLocations" OutputProperty="*" Verb="New" Noun="FleetLocation" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateFleetLocations" OutputProperty="*" Verb="New" Noun="FleetLocation" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGameServerGroup" OutputProperty="GameServerGroup" Verb="New" Noun="GameServerGroup" ShouldProcessTarget="GameServerGroupName" PipelineParameter="GameServerGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateGameServerGroup" OutputProperty="GameServerGroup" Verb="New" Noun="GameServerGroup" ShouldProcessTarget="GameServerGroupName" PipelineParameter="GameServerGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGameSession" OutputProperty="GameSession" Verb="New" Noun="GameSession" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateGameSession" OutputProperty="GameSession" Verb="New" Noun="GameSession" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGameSessionQueue" OutputProperty="GameSessionQueue" Verb="New" Noun="GameSessionQueue" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateGameSessionQueue" OutputProperty="GameSessionQueue" Verb="New" Noun="GameSessionQueue" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLocation" OutputProperty="Location" Verb="New" Noun="Location" ShouldProcessTarget="LocationName" PipelineParameter="LocationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateLocation" OutputProperty="Location" Verb="New" Noun="Location" ShouldProcessTarget="LocationName" PipelineParameter="LocationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMatchmakingConfiguration" OutputProperty="Configuration" Verb="New" Noun="MatchmakingConfiguration" ShouldProcessTarget="RuleSetName" PipelineParameter="RuleSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMatchmakingConfiguration" OutputProperty="Configuration" Verb="New" Noun="MatchmakingConfiguration" ShouldProcessTarget="RuleSetName" PipelineParameter="RuleSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMatchmakingRuleSet" OutputProperty="RuleSet" Verb="New" Noun="MatchmakingRuleSet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMatchmakingRuleSet" OutputProperty="RuleSet" Verb="New" Noun="MatchmakingRuleSet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePlayerSession" Verb="" Noun="" Exclude="true" ShouldProcessTarget="PlayerId" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePlayerSession" Verb="" Noun="" Exclude="true" ShouldProcessTarget="PlayerId" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePlayerSessions" OutputProperty="PlayerSessions" Verb="New" Noun="PlayerSession" ShouldProcessTarget="GameSessionId" PipelineParameter="GameSessionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePlayerSessions" OutputProperty="PlayerSessions" Verb="New" Noun="PlayerSession" ShouldProcessTarget="GameSessionId" PipelineParameter="GameSessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateScript" OutputProperty="Script" Verb="New" Noun="Script" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateScript" OutputProperty="Script" Verb="New" Noun="Script" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVpcPeeringAuthorization" OutputProperty="VpcPeeringAuthorization" Verb="New" Noun="VpcPeeringAuthorization" ShouldProcessTarget="PeerVpcId" PipelineParameter="PeerVpcId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateVpcPeeringAuthorization" OutputProperty="VpcPeeringAuthorization" Verb="New" Noun="VpcPeeringAuthorization" ShouldProcessTarget="PeerVpcId" PipelineParameter="PeerVpcId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVpcPeeringConnection" Verb="New" Noun="VpcPeeringConnection" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateVpcPeeringConnection" Verb="New" Noun="VpcPeeringConnection" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAlias" Verb="Remove" Noun="Alias" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAlias" Verb="Remove" Noun="Alias" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBuild" Verb="Remove" Noun="Build" ShouldProcessTarget="BuildId" PipelineParameter="BuildId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBuild" Verb="Remove" Noun="Build" ShouldProcessTarget="BuildId" PipelineParameter="BuildId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteContainerFleet" Verb="Remove" Noun="ContainerFleet" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteContainerFleet" Verb="Remove" Noun="ContainerFleet" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteContainerGroupDefinition" Verb="Remove" Noun="ContainerGroupDefinition" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteContainerGroupDefinition" Verb="Remove" Noun="ContainerGroupDefinition" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFleet" Verb="Remove" Noun="Fleet" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteFleet" Verb="Remove" Noun="Fleet" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFleetLocations" OutputProperty="*" Verb="Remove" Noun="FleetLocation" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteFleetLocations" OutputProperty="*" Verb="Remove" Noun="FleetLocation" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGameServerGroup" OutputProperty="GameServerGroup" Verb="Remove" Noun="GameServerGroup" ShouldProcessTarget="GameServerGroupName" PipelineParameter="GameServerGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteGameServerGroup" OutputProperty="GameServerGroup" Verb="Remove" Noun="GameServerGroup" ShouldProcessTarget="GameServerGroupName" PipelineParameter="GameServerGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGameSessionQueue" Verb="Remove" Noun="GameSessionQueue" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteGameSessionQueue" Verb="Remove" Noun="GameSessionQueue" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLocation" Verb="Remove" Noun="Location" ShouldProcessTarget="LocationName" PipelineParameter="LocationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteLocation" Verb="Remove" Noun="Location" ShouldProcessTarget="LocationName" PipelineParameter="LocationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMatchmakingConfiguration" Verb="Remove" Noun="MatchmakingConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMatchmakingConfiguration" Verb="Remove" Noun="MatchmakingConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMatchmakingRuleSet" Verb="Remove" Noun="MatchmakingRuleSet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMatchmakingRuleSet" Verb="Remove" Noun="MatchmakingRuleSet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteScalingPolicy" Verb="Remove" Noun="ScalingPolicy" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteScalingPolicy" Verb="Remove" Noun="ScalingPolicy" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteScript" Verb="Remove" Noun="Script" ShouldProcessTarget="ScriptId" PipelineParameter="ScriptId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteScript" Verb="Remove" Noun="Script" ShouldProcessTarget="ScriptId" PipelineParameter="ScriptId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVpcPeeringAuthorization" Verb="Remove" Noun="VpcPeeringAuthorization" ShouldProcessTarget="PeerVpcId" PipelineParameter="PeerVpcId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteVpcPeeringAuthorization" Verb="Remove" Noun="VpcPeeringAuthorization" ShouldProcessTarget="PeerVpcId" PipelineParameter="PeerVpcId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVpcPeeringConnection" Verb="Remove" Noun="VpcPeeringConnection" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteVpcPeeringConnection" Verb="Remove" Noun="VpcPeeringConnection" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterCompute" Verb="Unregister" Noun="Compute" ShouldProcessTarget="ComputeName" PipelineParameter="ComputeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeregisterCompute" Verb="Unregister" Noun="Compute" ShouldProcessTarget="ComputeName" PipelineParameter="ComputeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterGameServer" Verb="Unregister" Noun="GameServer" ShouldProcessTarget="GameServerId" PipelineParameter="GameServerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeregisterGameServer" Verb="Unregister" Noun="GameServer" ShouldProcessTarget="GameServerId" PipelineParameter="GameServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAlias" OutputProperty="Alias" Verb="Get" Noun="AliasDetail" PipelineParameter="AliasId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAlias" OutputProperty="Alias" Verb="Get" Noun="AliasDetail" PipelineParameter="AliasId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBuild" OutputProperty="Build" Verb="Get" Noun="BuildDetail" PipelineParameter="BuildId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeBuild" OutputProperty="Build" Verb="Get" Noun="BuildDetail" PipelineParameter="BuildId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCompute" OutputProperty="Compute" Verb="Get" Noun="Compute" PipelineParameter="ComputeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCompute" OutputProperty="Compute" Verb="Get" Noun="Compute" PipelineParameter="ComputeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeContainerFleet" OutputProperty="ContainerFleet" Verb="Get" Noun="ContainerFleet" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeContainerFleet" OutputProperty="ContainerFleet" Verb="Get" Noun="ContainerFleet" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeContainerGroupDefinition" OutputProperty="ContainerGroupDefinition" Verb="Get" Noun="ContainerGroupDefinition" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeContainerGroupDefinition" OutputProperty="ContainerGroupDefinition" Verb="Get" Noun="ContainerGroupDefinition" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEC2InstanceLimits" OutputProperty="EC2InstanceLimits" Verb="Get" Noun="EC2InstanceLimit" PipelineParameter="EC2InstanceType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEC2InstanceLimits" OutputProperty="EC2InstanceLimits" Verb="Get" Noun="EC2InstanceLimit" PipelineParameter="EC2InstanceType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleetAttributes" OutputProperty="FleetAttributes" Verb="Get" Noun="FleetAttribute" PipelineParameter="FleetIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeFleetAttributes" OutputProperty="FleetAttributes" Verb="Get" Noun="FleetAttribute" PipelineParameter="FleetIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleetCapacity" OutputProperty="FleetCapacity" Verb="Get" Noun="FleetCapacity" PipelineParameter="FleetIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeFleetCapacity" OutputProperty="FleetCapacity" Verb="Get" Noun="FleetCapacity" PipelineParameter="FleetIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleetDeployment" OutputProperty="*" Verb="Get" Noun="FleetDeployment" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFleetDeployment" OutputProperty="*" Verb="Get" Noun="FleetDeployment" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleetEvents" OutputProperty="Events" Verb="Get" Noun="FleetEvent" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeFleetEvents" OutputProperty="Events" Verb="Get" Noun="FleetEvent" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleetLocationAttributes" OutputProperty="*" Verb="Get" Noun="FleetLocationAttribute" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFleetLocationAttributes" OutputProperty="*" Verb="Get" Noun="FleetLocationAttribute" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleetLocationCapacity" OutputProperty="FleetCapacity" Verb="Get" Noun="FleetLocationCapacity" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFleetLocationCapacity" OutputProperty="FleetCapacity" Verb="Get" Noun="FleetLocationCapacity" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleetLocationUtilization" OutputProperty="FleetUtilization" Verb="Get" Noun="FleetLocationUtilization" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFleetLocationUtilization" OutputProperty="FleetUtilization" Verb="Get" Noun="FleetLocationUtilization" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleetPortSettings" OutputProperty="InboundPermissions" Verb="Get" Noun="FleetPortSetting" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFleetPortSettings" OutputProperty="InboundPermissions" Verb="Get" Noun="FleetPortSetting" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleetUtilization" OutputProperty="FleetUtilization" Verb="Get" Noun="FleetUtilization" PipelineParameter="FleetIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeFleetUtilization" OutputProperty="FleetUtilization" Verb="Get" Noun="FleetUtilization" PipelineParameter="FleetIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGameServer" OutputProperty="GameServer" Verb="Get" Noun="GameServer" PipelineParameter="GameServerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeGameServer" OutputProperty="GameServer" Verb="Get" Noun="GameServer" PipelineParameter="GameServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGameServerGroup" OutputProperty="GameServerGroup" Verb="Get" Noun="GameServerGroup" PipelineParameter="GameServerGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeGameServerGroup" OutputProperty="GameServerGroup" Verb="Get" Noun="GameServerGroup" PipelineParameter="GameServerGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGameServerInstances" OutputProperty="*" Verb="Get" Noun="GameServerInstance" PipelineParameter="GameServerGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeGameServerInstances" OutputProperty="*" Verb="Get" Noun="GameServerInstance" PipelineParameter="GameServerGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGameSessionDetails" OutputProperty="GameSessionDetails" Verb="Get" Noun="GameSessionDetail" PipelineParameter="GameSessionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeGameSessionDetails" OutputProperty="GameSessionDetails" Verb="Get" Noun="GameSessionDetail" PipelineParameter="GameSessionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGameSessionPlacement" OutputProperty="GameSessionPlacement" Verb="Get" Noun="GameSessionPlacement" PipelineParameter="PlacementId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeGameSessionPlacement" OutputProperty="GameSessionPlacement" Verb="Get" Noun="GameSessionPlacement" PipelineParameter="PlacementId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGameSessionQueues" OutputProperty="GameSessionQueues" Verb="Get" Noun="GameSessionQueue" PipelineParameter="Names" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeGameSessionQueues" OutputProperty="GameSessionQueues" Verb="Get" Noun="GameSessionQueue" PipelineParameter="Names" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGameSessions" OutputProperty="GameSessions" Verb="Get" Noun="GameSession" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeGameSessions" OutputProperty="GameSessions" Verb="Get" Noun="GameSession" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstances" OutputProperty="Instances" Verb="Get" Noun="Instance" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeInstances" OutputProperty="Instances" Verb="Get" Noun="Instance" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMatchmaking" OutputProperty="TicketList" Verb="Get" Noun="Matchmaking" PipelineParameter="TicketIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeMatchmaking" OutputProperty="TicketList" Verb="Get" Noun="Matchmaking" PipelineParameter="TicketIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMatchmakingConfigurations" OutputProperty="Configurations" Verb="Get" Noun="MatchmakingConfiguration" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeMatchmakingConfigurations" OutputProperty="Configurations" Verb="Get" Noun="MatchmakingConfiguration" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMatchmakingRuleSets" OutputProperty="RuleSets" Verb="Get" Noun="MatchmakingRuleSet" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeMatchmakingRuleSets" OutputProperty="RuleSets" Verb="Get" Noun="MatchmakingRuleSet" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePlayerSessions" OutputProperty="PlayerSessions" Verb="Get" Noun="PlayerSession" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribePlayerSessions" OutputProperty="PlayerSessions" Verb="Get" Noun="PlayerSession" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRuntimeConfiguration" OutputProperty="RuntimeConfiguration" Verb="Get" Noun="RuntimeConfiguration" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRuntimeConfiguration" OutputProperty="RuntimeConfiguration" Verb="Get" Noun="RuntimeConfiguration" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalingPolicies" OutputProperty="ScalingPolicies" Verb="Get" Noun="ScalingPolicy" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeScalingPolicies" OutputProperty="ScalingPolicies" Verb="Get" Noun="ScalingPolicy" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScript" OutputProperty="Script" Verb="Get" Noun="Script" PipelineParameter="ScriptId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeScript" OutputProperty="Script" Verb="Get" Noun="Script" PipelineParameter="ScriptId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcPeeringAuthorizations" OutputProperty="VpcPeeringAuthorizations" Verb="Get" Noun="VpcPeeringAuthorization" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeVpcPeeringAuthorizations" OutputProperty="VpcPeeringAuthorizations" Verb="Get" Noun="VpcPeeringAuthorization" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcPeeringConnections" OutputProperty="VpcPeeringConnections" Verb="Get" Noun="VpcPeeringConnection" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeVpcPeeringConnections" OutputProperty="VpcPeeringConnections" Verb="Get" Noun="VpcPeeringConnection" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetComputeAccess" OutputProperty="*" Verb="Get" Noun="ComputeAccess" PipelineParameter="ComputeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetComputeAccess" OutputProperty="*" Verb="Get" Noun="ComputeAccess" PipelineParameter="ComputeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetComputeAuthToken" OutputProperty="*" Verb="Get" Noun="ComputeAuthToken" PipelineParameter="ComputeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetComputeAuthToken" OutputProperty="*" Verb="Get" Noun="ComputeAuthToken" PipelineParameter="ComputeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGameSessionLogUrl" OutputProperty="PreSignedUrl" Verb="Get" Noun="GameSessionLogUrl" PipelineParameter="GameSessionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetGameSessionLogUrl" OutputProperty="PreSignedUrl" Verb="Get" Noun="GameSessionLogUrl" PipelineParameter="GameSessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInstanceAccess" OutputProperty="InstanceAccess" Verb="Get" Noun="InstanceAccess" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetInstanceAccess" OutputProperty="InstanceAccess" Verb="Get" Noun="InstanceAccess" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAliases" OutputProperty="Aliases" Verb="Get" Noun="Alias" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListAliases" OutputProperty="Aliases" Verb="Get" Noun="Alias" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBuilds" OutputProperty="Builds" Verb="Get" Noun="Build" PipelineParameter="Status" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListBuilds" OutputProperty="Builds" Verb="Get" Noun="Build" PipelineParameter="Status" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCompute" OutputProperty="ComputeList" Verb="Get" Noun="ComputeList" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCompute" OutputProperty="ComputeList" Verb="Get" Noun="ComputeList" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListContainerFleets" OutputProperty="ContainerFleets" Verb="Get" Noun="ContainerFleetList" PipelineParameter="ContainerGroupDefinitionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListContainerFleets" OutputProperty="ContainerFleets" Verb="Get" Noun="ContainerFleetList" PipelineParameter="ContainerGroupDefinitionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListContainerGroupDefinitions" OutputProperty="ContainerGroupDefinitions" Verb="Get" Noun="ContainerGroupDefinitionList" PipelineParameter="ContainerGroupType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListContainerGroupDefinitions" OutputProperty="ContainerGroupDefinitions" Verb="Get" Noun="ContainerGroupDefinitionList" PipelineParameter="ContainerGroupType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListContainerGroupDefinitionVersions" OutputProperty="ContainerGroupDefinitions" Verb="Get" Noun="ContainerGroupDefinitionVersionList" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListContainerGroupDefinitionVersions" OutputProperty="ContainerGroupDefinitions" Verb="Get" Noun="ContainerGroupDefinitionVersionList" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFleetDeployments" OutputProperty="FleetDeployments" Verb="Get" Noun="FleetDeploymentList" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFleetDeployments" OutputProperty="FleetDeployments" Verb="Get" Noun="FleetDeploymentList" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFleets" OutputProperty="FleetIds" Verb="Get" Noun="Fleet" PipelineParameter="BuildId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListFleets" OutputProperty="FleetIds" Verb="Get" Noun="Fleet" PipelineParameter="BuildId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGameServerGroups" OutputProperty="GameServerGroups" Verb="Get" Noun="GameServerGroupList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGameServerGroups" OutputProperty="GameServerGroups" Verb="Get" Noun="GameServerGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGameServers" OutputProperty="GameServers" Verb="Get" Noun="GameServerList" PipelineParameter="GameServerGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGameServers" OutputProperty="GameServers" Verb="Get" Noun="GameServerList" PipelineParameter="GameServerGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLocations" OutputProperty="Locations" Verb="Get" Noun="LocationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLocations" OutputProperty="Locations" Verb="Get" Noun="LocationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListScripts" OutputProperty="Scripts" Verb="Get" Noun="ScriptList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListScripts" OutputProperty="Scripts" Verb="Get" Noun="ScriptList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutScalingPolicy" OutputProperty="Name" Verb="Write" Noun="ScalingPolicy" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutScalingPolicy" OutputProperty="Name" Verb="Write" Noun="ScalingPolicy" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterCompute" OutputProperty="Compute" Verb="Register" Noun="Compute" ShouldProcessTarget="ComputeName" PipelineParameter="ComputeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterCompute" OutputProperty="Compute" Verb="Register" Noun="Compute" ShouldProcessTarget="ComputeName" PipelineParameter="ComputeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterGameServer" OutputProperty="GameServer" Verb="Register" Noun="GameServer" ShouldProcessTarget="GameServerId" PipelineParameter="GameServerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterGameServer" OutputProperty="GameServer" Verb="Register" Noun="GameServer" ShouldProcessTarget="GameServerId" PipelineParameter="GameServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RequestUploadCredentials" OutputProperty="*" Verb="Request" Noun="UploadCredential" ShouldProcessTarget="BuildId" PipelineParameter="BuildId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RequestUploadCredentials" OutputProperty="*" Verb="Request" Noun="UploadCredential" ShouldProcessTarget="BuildId" PipelineParameter="BuildId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResolveAlias" OutputProperty="FleetId" Verb="Resolve" Noun="Alias" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ResolveAlias" OutputProperty="FleetId" Verb="Resolve" Noun="Alias" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResumeGameServerGroup" OutputProperty="GameServerGroup" Verb="Resume" Noun="GameServerGroup" ShouldProcessTarget="GameServerGroupName" PipelineParameter="GameServerGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ResumeGameServerGroup" OutputProperty="GameServerGroup" Verb="Resume" Noun="GameServerGroup" ShouldProcessTarget="GameServerGroupName" PipelineParameter="GameServerGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchGameSessions" OutputProperty="GameSessions" Verb="Find" Noun="GameSession" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="SearchGameSessions" OutputProperty="GameSessions" Verb="Find" Noun="GameSession" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartFleetActions" OutputProperty="*" Verb="Start" Noun="FleetAction" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartFleetActions" OutputProperty="*" Verb="Start" Noun="FleetAction" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartGameSessionPlacement" OutputProperty="GameSessionPlacement" Verb="Start" Noun="GameSessionPlacement" ShouldProcessTarget="GameSessionName" PipelineParameter="GameSessionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartGameSessionPlacement" OutputProperty="GameSessionPlacement" Verb="Start" Noun="GameSessionPlacement" ShouldProcessTarget="GameSessionName" PipelineParameter="GameSessionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMatchBackfill" OutputProperty="MatchmakingTicket" Verb="Start" Noun="MatchBackfill" ShouldProcessTarget="GameSessionArn" PipelineParameter="GameSessionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartMatchBackfill" OutputProperty="MatchmakingTicket" Verb="Start" Noun="MatchBackfill" ShouldProcessTarget="GameSessionArn" PipelineParameter="GameSessionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMatchmaking" OutputProperty="MatchmakingTicket" Verb="Start" Noun="Matchmaking" ShouldProcessTarget="ConfigurationName" PipelineParameter="ConfigurationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartMatchmaking" OutputProperty="MatchmakingTicket" Verb="Start" Noun="Matchmaking" ShouldProcessTarget="ConfigurationName" PipelineParameter="ConfigurationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopFleetActions" OutputProperty="*" Verb="Stop" Noun="FleetAction" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopFleetActions" OutputProperty="*" Verb="Stop" Noun="FleetAction" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopGameSessionPlacement" OutputProperty="GameSessionPlacement" Verb="Stop" Noun="GameSessionPlacement" ShouldProcessTarget="PlacementId" PipelineParameter="PlacementId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopGameSessionPlacement" OutputProperty="GameSessionPlacement" Verb="Stop" Noun="GameSessionPlacement" ShouldProcessTarget="PlacementId" PipelineParameter="PlacementId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopMatchmaking" Verb="Stop" Noun="Matchmaking" ShouldProcessTarget="TicketId" PipelineParameter="TicketId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopMatchmaking" Verb="Stop" Noun="Matchmaking" ShouldProcessTarget="TicketId" PipelineParameter="TicketId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SuspendGameServerGroup" OutputProperty="GameServerGroup" Verb="Suspend" Noun="GameServerGroup" ShouldProcessTarget="GameServerGroupName" PipelineParameter="GameServerGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SuspendGameServerGroup" OutputProperty="GameServerGroup" Verb="Suspend" Noun="GameServerGroup" ShouldProcessTarget="GameServerGroupName" PipelineParameter="GameServerGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TerminateGameSession" OutputProperty="GameSession" Verb="Stop" Noun="GameSession" ShouldProcessTarget="GameSessionId" PipelineParameter="GameSessionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TerminateGameSession" OutputProperty="GameSession" Verb="Stop" Noun="GameSession" ShouldProcessTarget="GameSessionId" PipelineParameter="GameSessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAlias" OutputProperty="Alias" Verb="Update" Noun="Alias" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAlias" OutputProperty="Alias" Verb="Update" Noun="Alias" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBuild" OutputProperty="Build" Verb="Update" Noun="Build" ShouldProcessTarget="BuildId" PipelineParameter="BuildId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateBuild" OutputProperty="Build" Verb="Update" Noun="Build" ShouldProcessTarget="BuildId" PipelineParameter="BuildId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateContainerFleet" OutputProperty="ContainerFleet" Verb="Update" Noun="ContainerFleet" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateContainerFleet" OutputProperty="ContainerFleet" Verb="Update" Noun="ContainerFleet" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateContainerGroupDefinition" OutputProperty="ContainerGroupDefinition" Verb="Update" Noun="ContainerGroupDefinition" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateContainerGroupDefinition" OutputProperty="ContainerGroupDefinition" Verb="Update" Noun="ContainerGroupDefinition" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFleetAttributes" OutputProperty="FleetId" Verb="Update" Noun="FleetAttribute" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateFleetAttributes" OutputProperty="FleetId" Verb="Update" Noun="FleetAttribute" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFleetCapacity" OutputProperty="FleetId" Verb="Update" Noun="FleetCapacity" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateFleetCapacity" OutputProperty="FleetId" Verb="Update" Noun="FleetCapacity" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFleetPortSettings" OutputProperty="FleetId" Verb="Update" Noun="FleetPortSetting" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateFleetPortSettings" OutputProperty="FleetId" Verb="Update" Noun="FleetPortSetting" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGameServer" OutputProperty="GameServer" Verb="Update" Noun="GameServer" ShouldProcessTarget="GameServerId" PipelineParameter="GameServerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateGameServer" OutputProperty="GameServer" Verb="Update" Noun="GameServer" ShouldProcessTarget="GameServerId" PipelineParameter="GameServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGameServerGroup" OutputProperty="GameServerGroup" Verb="Update" Noun="GameServerGroup" ShouldProcessTarget="GameServerGroupName" PipelineParameter="GameServerGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateGameServerGroup" OutputProperty="GameServerGroup" Verb="Update" Noun="GameServerGroup" ShouldProcessTarget="GameServerGroupName" PipelineParameter="GameServerGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGameSession" OutputProperty="GameSession" Verb="Update" Noun="GameSession" ShouldProcessTarget="GameSessionId" PipelineParameter="GameSessionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateGameSession" OutputProperty="GameSession" Verb="Update" Noun="GameSession" ShouldProcessTarget="GameSessionId" PipelineParameter="GameSessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGameSessionQueue" OutputProperty="GameSessionQueue" Verb="Update" Noun="GameSessionQueue" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateGameSessionQueue" OutputProperty="GameSessionQueue" Verb="Update" Noun="GameSessionQueue" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMatchmakingConfiguration" OutputProperty="Configuration" Verb="Update" Noun="MatchmakingConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateMatchmakingConfiguration" OutputProperty="Configuration" Verb="Update" Noun="MatchmakingConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRuntimeConfiguration" OutputProperty="RuntimeConfiguration" Verb="Update" Noun="RuntimeConfiguration" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRuntimeConfiguration" OutputProperty="RuntimeConfiguration" Verb="Update" Noun="RuntimeConfiguration" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateScript" OutputProperty="Script" Verb="Update" Noun="Script" ShouldProcessTarget="ScriptId" PipelineParameter="ScriptId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateScript" OutputProperty="Script" Verb="Update" Noun="Script" ShouldProcessTarget="ScriptId" PipelineParameter="ScriptId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ValidateMatchmakingRuleSet" OutputProperty="Valid" Verb="Test" Noun="MatchmakingRuleSetValidity" PipelineParameter="RuleSetBody" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ValidateMatchmakingRuleSet" OutputProperty="Valid" Verb="Test" Noun="MatchmakingRuleSetValidity" PipelineParameter="RuleSetBody" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

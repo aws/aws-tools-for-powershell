@@ -18,11 +18,11 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="SendSerialConsoleSSHPublicKey" OutputProperty="Success" Verb="Send" Noun="SerialConsoleSSHPublicKey" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SendSerialConsoleSSHPublicKey" OutputProperty="Success" Verb="Send" Noun="SerialConsoleSSHPublicKey" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendSSHPublicKey" OutputProperty="Success" Verb="Send" Noun="SSHPublicKey" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SendSSHPublicKey" OutputProperty="Success" Verb="Send" Noun="SSHPublicKey" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -163,7 +163,7 @@ $SSM_Completers = {
         # Amazon.SimpleSystemsManagement.DocumentType
         "New-SSMDocument/DocumentType"
         {
-            $v = "ApplicationConfiguration","ApplicationConfigurationSchema","Automation","Automation.ChangeTemplate","ChangeCalendar","CloudFormation","Command","ConformancePackTemplate","DeploymentStrategy","Package","Policy","ProblemAnalysis","ProblemAnalysisTemplate","QuickSetup","Session"
+            $v = "ApplicationConfiguration","ApplicationConfigurationSchema","AutoApprovalPolicy","Automation","Automation.ChangeTemplate","ChangeCalendar","CloudFormation","Command","ConformancePackTemplate","DeploymentStrategy","ManualApprovalPolicy","Package","Policy","ProblemAnalysis","ProblemAnalysisTemplate","QuickSetup","Session"
             break
         }
 
@@ -236,7 +236,7 @@ $SSM_Completers = {
         # Amazon.SimpleSystemsManagement.OpsItemStatus
         "Update-SSMOpsItem/Status"
         {
-            $v = "Approved","Cancelled","Cancelling","ChangeCalendarOverrideApproved","ChangeCalendarOverrideRejected","Closed","CompletedWithFailure","CompletedWithSuccess","Failed","InProgress","Open","Pending","PendingApproval","PendingChangeCalendarOverride","Rejected","Resolved","RunbookInProgress","Scheduled","TimedOut"
+            $v = "Approved","Cancelled","Cancelling","ChangeCalendarOverrideApproved","ChangeCalendarOverrideRejected","Closed","CompletedWithFailure","CompletedWithSuccess","Failed","InProgress","Open","Pending","PendingApproval","PendingChangeCalendarOverride","Rejected","Resolved","Revoked","RunbookInProgress","Scheduled","TimedOut"
             break
         }
 
@@ -329,7 +329,7 @@ $SSM_Completers = {
         # Amazon.SimpleSystemsManagement.SignalType
         "Send-SSMAutomationSignal/SignalType"
         {
-            $v = "Approve","Reject","Resume","StartStep","StopStep"
+            $v = "Approve","Reject","Resume","Revoke","StartStep","StopStep"
             break
         }
 
@@ -497,6 +497,7 @@ $SSM_SelectMap = @{
                "Get-SSMPatchProperty",
                "Get-SSMSession",
                "Unregister-SSMOpsItemRelatedItem",
+               "Get-SSMAccessToken",
                "Get-SSMAutomationExecution",
                "Get-SSMCalendarState",
                "Get-SSMCommandInvocationDetail",
@@ -556,6 +557,7 @@ $SSM_SelectMap = @{
                "Resume-SSMSession",
                "Send-SSMAutomationSignal",
                "Send-SSMCommand",
+               "Start-SSMAccessRequest",
                "Start-SSMAssociationsOnce",
                "Start-SSMAutomationExecution",
                "Start-SSMChangeRequestExecution",

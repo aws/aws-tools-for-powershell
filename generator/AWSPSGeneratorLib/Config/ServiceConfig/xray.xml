@@ -19,155 +19,155 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchGetTraces" OutputProperty="*" Verb="Get" Noun="TraceBatch" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="BatchGetTraces" OutputProperty="*" Verb="Get" Noun="TraceBatch" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelTraceRetrieval" Verb="Stop" Noun="TraceRetrieval" ShouldProcessTarget="RetrievalToken" PipelineParameter="RetrievalToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelTraceRetrieval" Verb="Stop" Noun="TraceRetrieval" ShouldProcessTarget="RetrievalToken" PipelineParameter="RetrievalToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGroup" OutputProperty="Group" Verb="New" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateGroup" OutputProperty="Group" Verb="New" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSamplingRule" OutputProperty="SamplingRuleRecord" Verb="New" Noun="SamplingRule" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateSamplingRule" OutputProperty="SamplingRuleRecord" Verb="New" Noun="SamplingRule" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGroup" Verb="Remove" Noun="Group" ShouldProcessTarget="GroupARN" PipelineParameter="GroupARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteGroup" Verb="Remove" Noun="Group" ShouldProcessTarget="GroupARN" PipelineParameter="GroupARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSamplingRule" OutputProperty="SamplingRuleRecord" Verb="Remove" Noun="SamplingRule" AnonymousShouldProcessTarget="true" PipelineParameter="RuleName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSamplingRule" OutputProperty="SamplingRuleRecord" Verb="Remove" Noun="SamplingRule" AnonymousShouldProcessTarget="true" PipelineParameter="RuleName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEncryptionConfig" OutputProperty="EncryptionConfig" Verb="Get" Noun="EncryptionConfig" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEncryptionConfig" OutputProperty="EncryptionConfig" Verb="Get" Noun="EncryptionConfig" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGroup" OutputProperty="Group" Verb="Get" Noun="Group" PipelineParameter="GroupARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetGroup" OutputProperty="Group" Verb="Get" Noun="Group" PipelineParameter="GroupARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGroups" OutputProperty="Groups" Verb="Get" Noun="GroupSummary" PipelineParameter="NextToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetGroups" OutputProperty="Groups" Verb="Get" Noun="GroupSummary" PipelineParameter="NextToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIndexingRules" OutputProperty="IndexingRules" Verb="Get" Noun="IndexingRule" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetIndexingRules" OutputProperty="IndexingRules" Verb="Get" Noun="IndexingRule" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInsight" OutputProperty="Insight" Verb="Get" Noun="Insight" PipelineParameter="InsightId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetInsight" OutputProperty="Insight" Verb="Get" Noun="Insight" PipelineParameter="InsightId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInsightEvents" OutputProperty="InsightEvents" Verb="Get" Noun="InsightEvent" PipelineParameter="InsightId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetInsightEvents" OutputProperty="InsightEvents" Verb="Get" Noun="InsightEvent" PipelineParameter="InsightId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInsightImpactGraph" OutputProperty="*" Verb="Get" Noun="InsightImpactGraph" PipelineParameter="InsightId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetInsightImpactGraph" OutputProperty="*" Verb="Get" Noun="InsightImpactGraph" PipelineParameter="InsightId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInsightSummaries" OutputProperty="InsightSummaries" Verb="Get" Noun="InsightSummary" PipelineParameter="StartTime" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetInsightSummaries" OutputProperty="InsightSummaries" Verb="Get" Noun="InsightSummary" PipelineParameter="StartTime" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRetrievedTracesGraph" OutputProperty="*" Verb="Get" Noun="RetrievedTracesGraph" PipelineParameter="RetrievalToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRetrievedTracesGraph" OutputProperty="*" Verb="Get" Noun="RetrievedTracesGraph" PipelineParameter="RetrievalToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSamplingRules" OutputProperty="SamplingRuleRecords" Verb="Get" Noun="SamplingRule" PipelineParameter="NextToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSamplingRules" OutputProperty="SamplingRuleRecords" Verb="Get" Noun="SamplingRule" PipelineParameter="NextToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSamplingStatisticSummaries" OutputProperty="SamplingStatisticSummaries" Verb="Get" Noun="SamplingStatisticSummary" PipelineParameter="NextToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSamplingStatisticSummaries" OutputProperty="SamplingStatisticSummaries" Verb="Get" Noun="SamplingStatisticSummary" PipelineParameter="NextToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSamplingTargets" OutputProperty="*" Verb="Get" Noun="SamplingTarget" PipelineParameter="SamplingStatisticsDocuments" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSamplingTargets" OutputProperty="*" Verb="Get" Noun="SamplingTarget" PipelineParameter="SamplingStatisticsDocuments" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetServiceGraph" OutputProperty="*" Verb="Get" Noun="ServiceGraph" PipelineParameter="StartTime" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="GetServiceGraph" OutputProperty="*" Verb="Get" Noun="ServiceGraph" PipelineParameter="StartTime" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTimeSeriesServiceStatistics" OutputProperty="TimeSeriesServiceStatistics" Verb="Get" Noun="TimeSeriesServiceStatistic" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetTimeSeriesServiceStatistics" OutputProperty="TimeSeriesServiceStatistics" Verb="Get" Noun="TimeSeriesServiceStatistic" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTraceGraph" OutputProperty="Services" Verb="Get" Noun="TraceGraph" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetTraceGraph" OutputProperty="Services" Verb="Get" Noun="TraceGraph" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTraceSegmentDestination" OutputProperty="*" Verb="Get" Noun="TraceSegmentDestination" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTraceSegmentDestination" OutputProperty="*" Verb="Get" Noun="TraceSegmentDestination" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTraceSummaries" OutputProperty="*" Verb="Get" Noun="TraceSummary" PipelineParameter="StartTime" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="GetTraceSummaries" OutputProperty="*" Verb="Get" Noun="TraceSummary" PipelineParameter="StartTime" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourcePolicies" OutputProperty="ResourcePolicies" Verb="Get" Noun="ResourcePolicyList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResourcePolicies" OutputProperty="ResourcePolicies" Verb="Get" Noun="ResourcePolicyList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRetrievedTraces" OutputProperty="*" Verb="Get" Noun="RetrievedTraceList" PipelineParameter="RetrievalToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRetrievedTraces" OutputProperty="*" Verb="Get" Noun="RetrievedTraceList" PipelineParameter="RetrievalToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutEncryptionConfig" OutputProperty="EncryptionConfig" Verb="Write" Noun="EncryptionConfig" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutEncryptionConfig" OutputProperty="EncryptionConfig" Verb="Write" Noun="EncryptionConfig" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="ResourcePolicy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="ResourcePolicy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutTelemetryRecords" Verb="Write" Noun="TelemetryRecord" ShouldProcessTarget="EC2InstanceId" PipelineParameter="EC2InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutTelemetryRecords" Verb="Write" Noun="TelemetryRecord" ShouldProcessTarget="EC2InstanceId" PipelineParameter="EC2InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutTraceSegments" OutputProperty="UnprocessedTraceSegments" Verb="Write" Noun="TraceSegment" ShouldProcessTarget="TraceSegmentDocuments" PipelineParameter="TraceSegmentDocuments" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutTraceSegments" OutputProperty="UnprocessedTraceSegments" Verb="Write" Noun="TraceSegment" ShouldProcessTarget="TraceSegmentDocuments" PipelineParameter="TraceSegmentDocuments" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartTraceRetrieval" OutputProperty="RetrievalToken" Verb="Start" Noun="TraceRetrieval" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartTraceRetrieval" OutputProperty="RetrievalToken" Verb="Start" Noun="TraceRetrieval" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGroup" OutputProperty="Group" Verb="Update" Noun="Group" ShouldProcessTarget="GroupARN" PipelineParameter="GroupARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateGroup" OutputProperty="Group" Verb="Update" Noun="Group" ShouldProcessTarget="GroupARN" PipelineParameter="GroupARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIndexingRule" OutputProperty="IndexingRule" Verb="Update" Noun="IndexingRule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateIndexingRule" OutputProperty="IndexingRule" Verb="Update" Noun="IndexingRule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSamplingRule" OutputProperty="SamplingRuleRecord" Verb="Update" Noun="SamplingRule" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateSamplingRule" OutputProperty="SamplingRuleRecord" Verb="Update" Noun="SamplingRule" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTraceSegmentDestination" OutputProperty="*" Verb="Update" Noun="TraceSegmentDestination" ShouldProcessTarget="Destination" PipelineParameter="Destination" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTraceSegmentDestination" OutputProperty="*" Verb="Update" Noun="TraceSegmentDestination" ShouldProcessTarget="Destination" PipelineParameter="Destination" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

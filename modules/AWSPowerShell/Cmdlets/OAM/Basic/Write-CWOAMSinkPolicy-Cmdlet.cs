@@ -36,9 +36,11 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
     /// 
     ///  
     /// <para>
-    /// You can also use a sink policy to limit the types of data that is shared. The three
-    /// types that you can allow or deny are:
-    /// </para><ul><li><para><b>Metrics</b> - Specify with <c>AWS::CloudWatch::Metric</c></para></li><li><para><b>Log groups</b> - Specify with <c>AWS::Logs::LogGroup</c></para></li><li><para><b>Traces</b> - Specify with <c>AWS::XRay::Trace</c></para></li><li><para><b>Application Insights - Applications</b> - Specify with <c>AWS::ApplicationInsights::Application</c></para></li></ul><para>
+    /// You can also use a sink policy to limit the types of data that is shared. The six
+    /// types of services with their respective resource types that you can allow or deny
+    /// are:
+    /// </para><ul><li><para><b>Metrics</b> - Specify with <c>AWS::CloudWatch::Metric</c></para></li><li><para><b>Log groups</b> - Specify with <c>AWS::Logs::LogGroup</c></para></li><li><para><b>Traces</b> - Specify with <c>AWS::XRay::Trace</c></para></li><li><para><b>Application Insights - Applications</b> - Specify with <c>AWS::ApplicationInsights::Application</c></para></li><li><para><b>Internet Monitor</b> - Specify with <c>AWS::InternetMonitor::Monitor</c></para></li><li><para><b>Application Signals</b> - Specify with <c>AWS::ApplicationSignals::Service</c>
+    /// and <c>AWS::ApplicationSignals::ServiceLevelObjective</c></para></li></ul><para>
     /// See the examples in this section to see how to specify permitted source accounts and
     /// data types.
     /// </para>

@@ -44,11 +44,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 31 days can be viewed.
     /// </para><para>
     /// To use this API, you must have the required permissions. For more information, see
-    /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions
-    /// for storing and restoring AMIs using Amazon S3</a> in the <i>Amazon EC2 User Guide</i>.
+    /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-ami-store-restore.html#ami-s3-permissions">Permissions
+    /// for storing and restoring AMIs using S3</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store
-    /// and restore an AMI using Amazon S3</a> in the <i>Amazon EC2 User Guide</i>.
+    /// and restore an AMI using S3</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2StoreImageTask")]

@@ -69,6 +69,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String InternetKeyExchangeVersion { get; set; }
         #endregion
         
+        #region Parameter SampleType
+        /// <summary>
+        /// <para>
+        /// <para>The type of sample configuration to generate. Valid values are "compatibility" (includes
+        /// IKEv1) or "recommended" (throws UnsupportedOperationException for IKEv1).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SampleType { get; set; }
+        #endregion
+        
         #region Parameter VpnConnectionDeviceTypeId
         /// <summary>
         /// <para>
@@ -136,6 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             context.DryRun = this.DryRun;
             context.InternetKeyExchangeVersion = this.InternetKeyExchangeVersion;
+            context.SampleType = this.SampleType;
             context.VpnConnectionDeviceTypeId = this.VpnConnectionDeviceTypeId;
             #if MODULAR
             if (this.VpnConnectionDeviceTypeId == null && ParameterWasBound(nameof(this.VpnConnectionDeviceTypeId)))
@@ -173,6 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.InternetKeyExchangeVersion != null)
             {
                 request.InternetKeyExchangeVersion = cmdletContext.InternetKeyExchangeVersion;
+            }
+            if (cmdletContext.SampleType != null)
+            {
+                request.SampleType = cmdletContext.SampleType;
             }
             if (cmdletContext.VpnConnectionDeviceTypeId != null)
             {
@@ -239,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Boolean? DryRun { get; set; }
             public System.String InternetKeyExchangeVersion { get; set; }
+            public System.String SampleType { get; set; }
             public System.String VpnConnectionDeviceTypeId { get; set; }
             public System.String VpnConnectionId { get; set; }
             public System.Func<Amazon.EC2.Model.GetVpnConnectionDeviceSampleConfigurationResponse, GetEC2VpnConnectionDeviceSampleConfigurationCmdlet, object> Select { get; set; } =

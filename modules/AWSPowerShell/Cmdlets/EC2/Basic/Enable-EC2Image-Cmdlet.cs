@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Only the AMI owner can re-enable a disabled AMI.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html">Disable
-    /// an AMI</a> in the <i>Amazon EC2 User Guide</i>.
+    /// an Amazon EC2 AMI</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "EC2Image", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

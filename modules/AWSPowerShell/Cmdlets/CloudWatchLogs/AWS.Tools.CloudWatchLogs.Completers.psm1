@@ -124,10 +124,11 @@ $CWL_Completers = {
         # Amazon.CloudWatchLogs.LogGroupClass
         {
             ($_ -eq "Get-CWLLogGroup/LogGroupClass") -Or
+            ($_ -eq "Get-CWLLogGroupList/LogGroupClass") -Or
             ($_ -eq "New-CWLLogGroup/LogGroupClass")
         }
         {
-            $v = "INFREQUENT_ACCESS","STANDARD"
+            $v = "DELIVERY","INFREQUENT_ACCESS","STANDARD"
             break
         }
 
@@ -216,7 +217,7 @@ $CWL_map = @{
     "EvaluationFrequency"=@("New-CWLLogAnomalyDetector","Update-CWLLogAnomalyDetector")
     "IntegrationStatus"=@("Get-CWLIntegrationList")
     "IntegrationType"=@("Get-CWLIntegrationList","Write-CWLIntegration")
-    "LogGroupClass"=@("Get-CWLLogGroup","New-CWLLogGroup")
+    "LogGroupClass"=@("Get-CWLLogGroup","Get-CWLLogGroupList","New-CWLLogGroup")
     "OrderBy"=@("Get-CWLLogStream")
     "OutputFormat"=@("Write-CWLDeliveryDestination")
     "PolicyType"=@("Get-CWLAccountPolicy","Remove-CWLAccountPolicy","Write-CWLAccountPolicy")
@@ -337,6 +338,7 @@ $CWL_SelectMap = @{
                "Get-CWLAnomalyList",
                "Get-CWLIntegrationList",
                "Get-CWLLogAnomalyDetectorList",
+               "Get-CWLLogGroupList",
                "Get-CWLLogGroupsForQueryList",
                "Get-CWLResourceTag",
                "Get-CWLLogGroupTag",

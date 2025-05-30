@@ -21,37 +21,37 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddTags" OutputProperty="*" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Add-MLTag">
+        <ServiceOperation MethodName="AddTags" OutputProperty="*" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Add-MLTag" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBatchPrediction" OutputProperty="BatchPredictionId" Verb="New" Noun="BatchPrediction" ShouldProcessTarget="MLModelId" PipelineParameter="MLModelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateBatchPrediction" OutputProperty="BatchPredictionId" Verb="New" Noun="BatchPrediction" ShouldProcessTarget="MLModelId" PipelineParameter="MLModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="BatchPredictionName" Alias="Name" />
                 <Param Name="MLModelId" Alias="ModelId" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataSourceFromRDS" OutputProperty="DataSourceId" Verb="New" Noun="DataSourceFromRDS" ShouldProcessTarget="DataSourceName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateDataSourceFromRDS" OutputProperty="DataSourceId" Verb="New" Noun="DataSourceFromRDS" ShouldProcessTarget="DataSourceName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataSourceFromRedshift" OutputProperty="DataSourceId" Verb="New" Noun="DataSourceFromRedshift" ShouldProcessTarget="DataSourceName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateDataSourceFromRedshift" OutputProperty="DataSourceId" Verb="New" Noun="DataSourceFromRedshift" ShouldProcessTarget="DataSourceName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataSourceFromS3" OutputProperty="DataSourceId" Verb="New" Noun="DataSourceFromS3" ShouldProcessTarget="DataSourceName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateDataSourceFromS3" OutputProperty="DataSourceId" Verb="New" Noun="DataSourceFromS3" ShouldProcessTarget="DataSourceName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEvaluation" OutputProperty="EvaluationId" Verb="New" Noun="Evaluation" ShouldProcessTarget="MLModelId" PipelineParameter="MLModelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateEvaluation" OutputProperty="EvaluationId" Verb="New" Noun="Evaluation" ShouldProcessTarget="MLModelId" PipelineParameter="MLModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="EvaluationName" Alias="Name" />
                 <Param Name="MLModelId" Alias="ModelId" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMLModel" OutputProperty="MLModelId" Verb="New" Noun="Model" ShouldProcessTarget="MLModelId" PipelineParameter="MLModelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMLModel" OutputProperty="MLModelId" Verb="New" Noun="Model" ShouldProcessTarget="MLModelId" PipelineParameter="MLModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="MLModelId" Alias="ModelId" />
                 <Param Name="MLModelName" Alias="Name" />
@@ -59,106 +59,106 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRealtimeEndpoint" OutputProperty="*" Verb="New" Noun="RealtimeEndpoint" ShouldProcessTarget="MLModelId" PipelineParameter="MLModelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRealtimeEndpoint" OutputProperty="*" Verb="New" Noun="RealtimeEndpoint" ShouldProcessTarget="MLModelId" PipelineParameter="MLModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="MLModelId" Alias="ModelId" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBatchPrediction" OutputProperty="BatchPredictionId" Verb="Remove" Noun="BatchPrediction" ShouldProcessTarget="BatchPredictionId" PipelineParameter="BatchPredictionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBatchPrediction" OutputProperty="BatchPredictionId" Verb="Remove" Noun="BatchPrediction" ShouldProcessTarget="BatchPredictionId" PipelineParameter="BatchPredictionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataSource" OutputProperty="DataSourceId" Verb="Remove" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDataSource" OutputProperty="DataSourceId" Verb="Remove" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEvaluation" OutputProperty="EvaluationId" Verb="Remove" Noun="Evaluation" ShouldProcessTarget="EvaluationId" PipelineParameter="EvaluationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEvaluation" OutputProperty="EvaluationId" Verb="Remove" Noun="Evaluation" ShouldProcessTarget="EvaluationId" PipelineParameter="EvaluationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMLModel" OutputProperty="MLModelId" Verb="Remove" Noun="Model" ShouldProcessTarget="MLModelId" PipelineParameter="MLModelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMLModel" OutputProperty="MLModelId" Verb="Remove" Noun="Model" ShouldProcessTarget="MLModelId" PipelineParameter="MLModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="MLModelId" Alias="ModelId" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRealtimeEndpoint" OutputProperty="*" Verb="Remove" Noun="RealtimeEndpoint" ShouldProcessTarget="MLModelId" PipelineParameter="MLModelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRealtimeEndpoint" OutputProperty="*" Verb="Remove" Noun="RealtimeEndpoint" ShouldProcessTarget="MLModelId" PipelineParameter="MLModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="MLModelId" Alias="ModelId" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTags" OutputProperty="*" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Remove-MLTag">
+        <ServiceOperation MethodName="DeleteTags" OutputProperty="*" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Remove-MLTag" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBatchPredictions" OutputProperty="Results" Verb="Get" Noun="BatchPredictionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-MLBatchPredictions">
+        <ServiceOperation MethodName="DescribeBatchPredictions" OutputProperty="Results" Verb="Get" Noun="BatchPredictionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-MLBatchPredictions" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDataSources" OutputProperty="Results" Verb="Get" Noun="DataSourceList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-MLDataSources">
+        <ServiceOperation MethodName="DescribeDataSources" OutputProperty="Results" Verb="Get" Noun="DataSourceList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-MLDataSources" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEvaluations" OutputProperty="Results" Verb="Get" Noun="EvaluationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-MLEvaluations">
+        <ServiceOperation MethodName="DescribeEvaluations" OutputProperty="Results" Verb="Get" Noun="EvaluationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-MLEvaluations" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMLModels" OutputProperty="Results" Verb="Get" Noun="ModelList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-MLModels">
+        <ServiceOperation MethodName="DescribeMLModels" OutputProperty="Results" Verb="Get" Noun="ModelList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-MLModels" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTags" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Get-MLTag">
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Get-MLTag" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBatchPrediction" OutputProperty="*" Verb="Get" Noun="BatchPrediction" PipelineParameter="BatchPredictionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetBatchPrediction" OutputProperty="*" Verb="Get" Noun="BatchPrediction" PipelineParameter="BatchPredictionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataSource" OutputProperty="*" Verb="Get" Noun="DataSource" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetDataSource" OutputProperty="*" Verb="Get" Noun="DataSource" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Verbose" NewName="VerboseResponse" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEvaluation" OutputProperty="*" Verb="Get" Noun="Evaluation" PipelineParameter="EvaluationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEvaluation" OutputProperty="*" Verb="Get" Noun="Evaluation" PipelineParameter="EvaluationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMLModel" OutputProperty="*" Verb="Get" Noun="Model" PipelineParameter="MLModelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMLModel" OutputProperty="*" Verb="Get" Noun="Model" PipelineParameter="MLModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="MLModelId" Alias="ModelId" />
                 <Param Name="Verbose" NewName="VerboseResponse" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Predict" OutputProperty="Prediction" Verb="Get" Noun="Prediction" PipelineParameter="MLModelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="Predict" OutputProperty="Prediction" Verb="Get" Noun="Prediction" PipelineParameter="MLModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="MLModelId" Alias="ModelId" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBatchPrediction" OutputProperty="BatchPredictionId" Verb="Update" Noun="BatchPrediction" ShouldProcessTarget="BatchPredictionName" PipelineParameter="BatchPredictionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateBatchPrediction" OutputProperty="BatchPredictionId" Verb="Update" Noun="BatchPrediction" ShouldProcessTarget="BatchPredictionName" PipelineParameter="BatchPredictionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="BatchPredictionName" Alias="Name" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataSource" OutputProperty="DataSourceId" Verb="Update" Noun="DataSource" ShouldProcessTarget="DataSourceName" PipelineParameter="DataSourceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDataSource" OutputProperty="DataSourceId" Verb="Update" Noun="DataSource" ShouldProcessTarget="DataSourceName" PipelineParameter="DataSourceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="DataSourceName" Alias="Name" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEvaluation" OutputProperty="EvaluationId" Verb="Update" Noun="Evaluation" ShouldProcessTarget="EvaluationName" PipelineParameter="EvaluationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateEvaluation" OutputProperty="EvaluationId" Verb="Update" Noun="Evaluation" ShouldProcessTarget="EvaluationName" PipelineParameter="EvaluationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="EvaluationName" Alias="Name" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMLModel" OutputProperty="MLModelId" Verb="Update" Noun="MLModel" ShouldProcessTarget="MLModelId" PipelineParameter="MLModelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateMLModel" OutputProperty="MLModelId" Verb="Update" Noun="MLModel" ShouldProcessTarget="MLModelId" PipelineParameter="MLModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="MLModelId" Alias="ModelId" />
             </Params>

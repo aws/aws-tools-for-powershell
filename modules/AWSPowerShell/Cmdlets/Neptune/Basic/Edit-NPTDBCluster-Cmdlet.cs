@@ -286,7 +286,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>The storage type to associate with the DB cluster.</para><para>Valid Values:</para><ul><li><para><c>standard | iopt1</c></para></li></ul><para>Default:</para><ul><li><para><c>standard</c></para></li></ul>
+        /// <para>The storage type to associate with the DB cluster.</para><para>Valid Values:</para><ul><li><para><b><c>standard</c></b>   –   ( <i>the default</i> ) Configures cost-effective database
+        /// storage for applications with moderate to small I/O usage.</para></li><li><para><b><c>iopt1</c></b>   –   Enables <a href="https://docs.aws.amazon.com/neptune/latest/userguide/storage-types.html#provisioned-iops-storage">I/O-Optimized
+        /// storage</a> that's designed to meet the needs of I/O-intensive graph workloads that
+        /// require predictable pricing with low I/O latency and consistent I/O throughput.</para><para>Neptune I/O-Optimized storage is only available starting with engine release 1.3.0.0.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

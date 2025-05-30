@@ -18,203 +18,203 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateEnvironment" OutputProperty="*" Verb="New" Noun="Environment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateEnvironment" OutputProperty="*" Verb="New" Noun="Environment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateKxChangeset" OutputProperty="*" Verb="New" Noun="KxChangeset" ShouldProcessTarget="DatabaseName" PipelineParameter="DatabaseName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateKxChangeset" OutputProperty="*" Verb="New" Noun="KxChangeset" ShouldProcessTarget="DatabaseName" PipelineParameter="DatabaseName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateKxCluster" OutputProperty="*" Verb="New" Noun="KxCluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateKxCluster" OutputProperty="*" Verb="New" Noun="KxCluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateKxDatabase" OutputProperty="*" Verb="New" Noun="KxDatabase" ShouldProcessTarget="DatabaseName" PipelineParameter="DatabaseName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateKxDatabase" OutputProperty="*" Verb="New" Noun="KxDatabase" ShouldProcessTarget="DatabaseName" PipelineParameter="DatabaseName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateKxDataview" OutputProperty="*" Verb="New" Noun="KxDataview" ShouldProcessTarget="DataviewName" PipelineParameter="DataviewName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateKxDataview" OutputProperty="*" Verb="New" Noun="KxDataview" ShouldProcessTarget="DataviewName" PipelineParameter="DataviewName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateKxEnvironment" OutputProperty="*" Verb="New" Noun="KxEnvironment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateKxEnvironment" OutputProperty="*" Verb="New" Noun="KxEnvironment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateKxScalingGroup" OutputProperty="*" Verb="New" Noun="KxScalingGroup" ShouldProcessTarget="ScalingGroupName" PipelineParameter="ScalingGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateKxScalingGroup" OutputProperty="*" Verb="New" Noun="KxScalingGroup" ShouldProcessTarget="ScalingGroupName" PipelineParameter="ScalingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateKxUser" OutputProperty="*" Verb="New" Noun="KxUser" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateKxUser" OutputProperty="*" Verb="New" Noun="KxUser" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateKxVolume" OutputProperty="*" Verb="New" Noun="KxVolume" ShouldProcessTarget="VolumeName" PipelineParameter="VolumeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateKxVolume" OutputProperty="*" Verb="New" Noun="KxVolume" ShouldProcessTarget="VolumeName" PipelineParameter="VolumeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEnvironment" Verb="Remove" Noun="Environment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEnvironment" Verb="Remove" Noun="Environment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteKxCluster" Verb="Remove" Noun="KxCluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteKxCluster" Verb="Remove" Noun="KxCluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteKxClusterNode" Verb="Remove" Noun="KxClusterNode" ShouldProcessTarget="NodeId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteKxClusterNode" Verb="Remove" Noun="KxClusterNode" ShouldProcessTarget="NodeId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteKxDatabase" Verb="Remove" Noun="KxDatabase" ShouldProcessTarget="DatabaseName" PipelineParameter="DatabaseName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteKxDatabase" Verb="Remove" Noun="KxDatabase" ShouldProcessTarget="DatabaseName" PipelineParameter="DatabaseName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteKxDataview" Verb="Remove" Noun="KxDataview" ShouldProcessTarget="DataviewName" PipelineParameter="DataviewName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteKxDataview" Verb="Remove" Noun="KxDataview" ShouldProcessTarget="DataviewName" PipelineParameter="DataviewName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteKxEnvironment" Verb="Remove" Noun="KxEnvironment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteKxEnvironment" Verb="Remove" Noun="KxEnvironment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteKxScalingGroup" Verb="Remove" Noun="KxScalingGroup" ShouldProcessTarget="ScalingGroupName" PipelineParameter="ScalingGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteKxScalingGroup" Verb="Remove" Noun="KxScalingGroup" ShouldProcessTarget="ScalingGroupName" PipelineParameter="ScalingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteKxUser" Verb="Remove" Noun="KxUser" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteKxUser" Verb="Remove" Noun="KxUser" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteKxVolume" Verb="Remove" Noun="KxVolume" ShouldProcessTarget="VolumeName" PipelineParameter="VolumeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteKxVolume" Verb="Remove" Noun="KxVolume" ShouldProcessTarget="VolumeName" PipelineParameter="VolumeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEnvironment" OutputProperty="Environment" Verb="Get" Noun="Environment" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEnvironment" OutputProperty="Environment" Verb="Get" Noun="Environment" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetKxChangeset" OutputProperty="*" Verb="Get" Noun="KxChangeset" PipelineParameter="ChangesetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetKxChangeset" OutputProperty="*" Verb="Get" Noun="KxChangeset" PipelineParameter="ChangesetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetKxCluster" OutputProperty="*" Verb="Get" Noun="KxCluster" PipelineParameter="ClusterName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetKxCluster" OutputProperty="*" Verb="Get" Noun="KxCluster" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetKxConnectionString" OutputProperty="SignedConnectionString" Verb="Get" Noun="KxConnectionString" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetKxConnectionString" OutputProperty="SignedConnectionString" Verb="Get" Noun="KxConnectionString" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetKxDatabase" OutputProperty="*" Verb="Get" Noun="KxDatabase" PipelineParameter="DatabaseName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetKxDatabase" OutputProperty="*" Verb="Get" Noun="KxDatabase" PipelineParameter="DatabaseName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetKxDataview" OutputProperty="*" Verb="Get" Noun="KxDataview" PipelineParameter="DataviewName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetKxDataview" OutputProperty="*" Verb="Get" Noun="KxDataview" PipelineParameter="DataviewName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetKxEnvironment" OutputProperty="*" Verb="Get" Noun="KxEnvironment" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetKxEnvironment" OutputProperty="*" Verb="Get" Noun="KxEnvironment" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetKxScalingGroup" OutputProperty="*" Verb="Get" Noun="KxScalingGroup" PipelineParameter="ScalingGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetKxScalingGroup" OutputProperty="*" Verb="Get" Noun="KxScalingGroup" PipelineParameter="ScalingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetKxUser" OutputProperty="*" Verb="Get" Noun="KxUser" PipelineParameter="UserName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetKxUser" OutputProperty="*" Verb="Get" Noun="KxUser" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetKxVolume" OutputProperty="*" Verb="Get" Noun="KxVolume" PipelineParameter="VolumeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetKxVolume" OutputProperty="*" Verb="Get" Noun="KxVolume" PipelineParameter="VolumeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEnvironments" OutputProperty="Environments" Verb="Get" Noun="EnvironmentList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEnvironments" OutputProperty="Environments" Verb="Get" Noun="EnvironmentList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKxChangesets" OutputProperty="KxChangesets" Verb="Get" Noun="KxChangesetList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListKxChangesets" OutputProperty="KxChangesets" Verb="Get" Noun="KxChangesetList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKxClusterNodes" OutputProperty="Nodes" Verb="Get" Noun="KxClusterNodeList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListKxClusterNodes" OutputProperty="Nodes" Verb="Get" Noun="KxClusterNodeList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKxClusters" OutputProperty="KxClusterSummaries" Verb="Get" Noun="KxClusterList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListKxClusters" OutputProperty="KxClusterSummaries" Verb="Get" Noun="KxClusterList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKxDatabases" OutputProperty="KxDatabases" Verb="Get" Noun="KxDatabasisList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListKxDatabases" OutputProperty="KxDatabases" Verb="Get" Noun="KxDatabasisList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKxDataviews" OutputProperty="KxDataviews" Verb="Get" Noun="KxDataviewList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListKxDataviews" OutputProperty="KxDataviews" Verb="Get" Noun="KxDataviewList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKxEnvironments" OutputProperty="Environments" Verb="Get" Noun="KxEnvironmentList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListKxEnvironments" OutputProperty="Environments" Verb="Get" Noun="KxEnvironmentList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKxScalingGroups" OutputProperty="ScalingGroups" Verb="Get" Noun="KxScalingGroupList" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListKxScalingGroups" OutputProperty="ScalingGroups" Verb="Get" Noun="KxScalingGroupList" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKxUsers" OutputProperty="Users" Verb="Get" Noun="KxUserList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListKxUsers" OutputProperty="Users" Verb="Get" Noun="KxUserList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKxVolumes" OutputProperty="KxVolumeSummaries" Verb="Get" Noun="KxVolumeList" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListKxVolumes" OutputProperty="KxVolumeSummaries" Verb="Get" Noun="KxVolumeList" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEnvironment" OutputProperty="Environment" Verb="Update" Noun="Environment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateEnvironment" OutputProperty="Environment" Verb="Update" Noun="Environment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateKxClusterCodeConfiguration" Verb="Update" Noun="KxClusterCodeConfiguration" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateKxClusterCodeConfiguration" Verb="Update" Noun="KxClusterCodeConfiguration" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateKxClusterDatabases" Verb="Update" Noun="KxClusterDatabasis" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateKxClusterDatabases" Verb="Update" Noun="KxClusterDatabasis" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateKxDatabase" OutputProperty="*" Verb="Update" Noun="KxDatabase" ShouldProcessTarget="DatabaseName" PipelineParameter="DatabaseName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateKxDatabase" OutputProperty="*" Verb="Update" Noun="KxDatabase" ShouldProcessTarget="DatabaseName" PipelineParameter="DatabaseName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateKxDataview" OutputProperty="*" Verb="Update" Noun="KxDataview" ShouldProcessTarget="DataviewName" PipelineParameter="DataviewName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateKxDataview" OutputProperty="*" Verb="Update" Noun="KxDataview" ShouldProcessTarget="DataviewName" PipelineParameter="DataviewName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateKxEnvironment" OutputProperty="*" Verb="Update" Noun="KxEnvironment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateKxEnvironment" OutputProperty="*" Verb="Update" Noun="KxEnvironment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateKxEnvironmentNetwork" OutputProperty="*" Verb="Update" Noun="KxEnvironmentNetwork" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateKxEnvironmentNetwork" OutputProperty="*" Verb="Update" Noun="KxEnvironmentNetwork" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateKxUser" OutputProperty="*" Verb="Update" Noun="KxUser" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateKxUser" OutputProperty="*" Verb="Update" Noun="KxUser" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateKxVolume" OutputProperty="*" Verb="Update" Noun="KxVolume" ShouldProcessTarget="VolumeName" PipelineParameter="VolumeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateKxVolume" OutputProperty="*" Verb="Update" Noun="KxVolume" ShouldProcessTarget="VolumeName" PipelineParameter="VolumeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

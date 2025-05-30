@@ -19,363 +19,363 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateAssets" Verb="Connect" Noun="Asset" ShouldProcessTarget="AssetId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AssociateAssets" Verb="Connect" Noun="Asset" ShouldProcessTarget="AssetId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateTimeSeriesToAssetProperty" Verb="Add" Noun="TimeSeriesToAssetProperty" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AssociateTimeSeriesToAssetProperty" Verb="Add" Noun="TimeSeriesToAssetProperty" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchAssociateProjectAssets" OutputProperty="Errors" Verb="Connect" Noun="AssociateProjectAsset" ShouldProcessTarget="ProjectId" PipelineParameter="ProjectId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchAssociateProjectAssets" OutputProperty="Errors" Verb="Connect" Noun="AssociateProjectAsset" ShouldProcessTarget="ProjectId" PipelineParameter="ProjectId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDisassociateProjectAssets" OutputProperty="Errors" Verb="Disconnect" Noun="DisassociateProjectAsset" ShouldProcessTarget="ProjectId" PipelineParameter="ProjectId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchDisassociateProjectAssets" OutputProperty="Errors" Verb="Disconnect" Noun="DisassociateProjectAsset" ShouldProcessTarget="ProjectId" PipelineParameter="ProjectId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetAssetPropertyAggregates" OutputProperty="*" Verb="Get" Noun="BatchAssetPropertyAggregate" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetAssetPropertyAggregates" OutputProperty="*" Verb="Get" Noun="BatchAssetPropertyAggregate" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetAssetPropertyValue" OutputProperty="*" Verb="Get" Noun="BatchAssetPropertyValue" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetAssetPropertyValue" OutputProperty="*" Verb="Get" Noun="BatchAssetPropertyValue" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetAssetPropertyValueHistory" OutputProperty="*" Verb="Get" Noun="BatchAssetPropertyValueHistory" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetAssetPropertyValueHistory" OutputProperty="*" Verb="Get" Noun="BatchAssetPropertyValueHistory" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchPutAssetPropertyValue" OutputProperty="ErrorEntries" Verb="Import" Noun="PutAssetPropertyValue" ShouldProcessTarget="Entries" PipelineParameter="EnablePartialEntryProcessing" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchPutAssetPropertyValue" OutputProperty="ErrorEntries" Verb="Import" Noun="PutAssetPropertyValue" ShouldProcessTarget="Entries" PipelineParameter="EnablePartialEntryProcessing" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAccessPolicy" OutputProperty="*" Verb="New" Noun="AccessPolicy" ShouldProcessTarget="" PipelineParameter="AccessPolicyPermission" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAccessPolicy" OutputProperty="*" Verb="New" Noun="AccessPolicy" ShouldProcessTarget="" PipelineParameter="AccessPolicyPermission" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAsset" OutputProperty="*" Verb="New" Noun="Asset" AnonymousShouldProcessTarget="true" PipelineParameter="AssetModelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAsset" OutputProperty="*" Verb="New" Noun="Asset" AnonymousShouldProcessTarget="true" PipelineParameter="AssetModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAssetModel" OutputProperty="*" Verb="New" Noun="AssetModel" ShouldProcessTarget="AssetModelName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateAssetModel" OutputProperty="*" Verb="New" Noun="AssetModel" ShouldProcessTarget="AssetModelName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAssetModelCompositeModel" OutputProperty="*" Verb="New" Noun="AssetModelCompositeModel" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateAssetModelCompositeModel" OutputProperty="*" Verb="New" Noun="AssetModelCompositeModel" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBulkImportJob" OutputProperty="*" Verb="New" Noun="BulkImportJob" ShouldProcessTarget="JobName" PipelineParameter="JobName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateBulkImportJob" OutputProperty="*" Verb="New" Noun="BulkImportJob" ShouldProcessTarget="JobName" PipelineParameter="JobName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDashboard" OutputProperty="*" Verb="New" Noun="Dashboard" AnonymousShouldProcessTarget="true" PipelineParameter="ProjectId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDashboard" OutputProperty="*" Verb="New" Noun="Dashboard" AnonymousShouldProcessTarget="true" PipelineParameter="ProjectId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataset" OutputProperty="*" Verb="New" Noun="Dataset" ShouldProcessTarget="DatasetName" PipelineParameter="DatasetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDataset" OutputProperty="*" Verb="New" Noun="Dataset" ShouldProcessTarget="DatasetName" PipelineParameter="DatasetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGateway" OutputProperty="*" Verb="New" Noun="Gateway" ShouldProcessTarget="GatewayName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateGateway" OutputProperty="*" Verb="New" Noun="Gateway" ShouldProcessTarget="GatewayName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePortal" OutputProperty="*" Verb="New" Noun="Portal" ShouldProcessTarget="PortalName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreatePortal" OutputProperty="*" Verb="New" Noun="Portal" ShouldProcessTarget="PortalName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProject" OutputProperty="*" Verb="New" Noun="Project" AnonymousShouldProcessTarget="true" PipelineParameter="PortalId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateProject" OutputProperty="*" Verb="New" Noun="Project" AnonymousShouldProcessTarget="true" PipelineParameter="PortalId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccessPolicy" Verb="Remove" Noun="AccessPolicy" ShouldProcessTarget="AccessPolicyId" PipelineParameter="AccessPolicyId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAccessPolicy" Verb="Remove" Noun="AccessPolicy" ShouldProcessTarget="AccessPolicyId" PipelineParameter="AccessPolicyId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAsset" OutputProperty="AssetStatus" Verb="Remove" Noun="Asset" ShouldProcessTarget="AssetId" PipelineParameter="AssetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAsset" OutputProperty="AssetStatus" Verb="Remove" Noun="Asset" ShouldProcessTarget="AssetId" PipelineParameter="AssetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAssetModel" OutputProperty="AssetModelStatus" Verb="Remove" Noun="AssetModel" ShouldProcessTarget="AssetModelId" PipelineParameter="AssetModelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAssetModel" OutputProperty="AssetModelStatus" Verb="Remove" Noun="AssetModel" ShouldProcessTarget="AssetModelId" PipelineParameter="AssetModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAssetModelCompositeModel" OutputProperty="AssetModelStatus" Verb="Remove" Noun="AssetModelCompositeModel" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteAssetModelCompositeModel" OutputProperty="AssetModelStatus" Verb="Remove" Noun="AssetModelCompositeModel" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDashboard" Verb="Remove" Noun="Dashboard" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDashboard" Verb="Remove" Noun="Dashboard" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataset" OutputProperty="DatasetStatus" Verb="Remove" Noun="Dataset" ShouldProcessTarget="DatasetId" PipelineParameter="DatasetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDataset" OutputProperty="DatasetStatus" Verb="Remove" Noun="Dataset" ShouldProcessTarget="DatasetId" PipelineParameter="DatasetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGateway" Verb="Remove" Noun="Gateway" ShouldProcessTarget="GatewayId" PipelineParameter="GatewayId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteGateway" Verb="Remove" Noun="Gateway" ShouldProcessTarget="GatewayId" PipelineParameter="GatewayId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePortal" OutputProperty="PortalStatus" Verb="Remove" Noun="Portal" ShouldProcessTarget="PortalId" PipelineParameter="PortalId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePortal" OutputProperty="PortalStatus" Verb="Remove" Noun="Portal" ShouldProcessTarget="PortalId" PipelineParameter="PortalId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProject" Verb="Remove" Noun="Project" ShouldProcessTarget="ProjectId" PipelineParameter="ProjectId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteProject" Verb="Remove" Noun="Project" ShouldProcessTarget="ProjectId" PipelineParameter="ProjectId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTimeSeries" Verb="Remove" Noun="TimeSeries" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteTimeSeries" Verb="Remove" Noun="TimeSeries" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccessPolicy" OutputProperty="*" Verb="Get" Noun="AccessPolicy" PipelineParameter="AccessPolicyId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAccessPolicy" OutputProperty="*" Verb="Get" Noun="AccessPolicy" PipelineParameter="AccessPolicyId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAction" OutputProperty="*" Verb="Get" Noun="Action" PipelineParameter="ActionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAction" OutputProperty="*" Verb="Get" Noun="Action" PipelineParameter="ActionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAsset" OutputProperty="*" Verb="Get" Noun="Asset" PipelineParameter="AssetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAsset" OutputProperty="*" Verb="Get" Noun="Asset" PipelineParameter="AssetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAssetCompositeModel" OutputProperty="*" Verb="Get" Noun="AssetCompositeModel" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeAssetCompositeModel" OutputProperty="*" Verb="Get" Noun="AssetCompositeModel" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAssetModel" OutputProperty="*" Verb="Get" Noun="AssetModel" PipelineParameter="AssetModelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAssetModel" OutputProperty="*" Verb="Get" Noun="AssetModel" PipelineParameter="AssetModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAssetModelCompositeModel" OutputProperty="*" Verb="Get" Noun="AssetModelCompositeModel" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeAssetModelCompositeModel" OutputProperty="*" Verb="Get" Noun="AssetModelCompositeModel" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAssetProperty" OutputProperty="*" Verb="Get" Noun="AssetProperty" PipelineParameter="AssetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAssetProperty" OutputProperty="*" Verb="Get" Noun="AssetProperty" PipelineParameter="AssetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBulkImportJob" OutputProperty="*" Verb="Get" Noun="BulkImportJob" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeBulkImportJob" OutputProperty="*" Verb="Get" Noun="BulkImportJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDashboard" OutputProperty="*" Verb="Get" Noun="Dashboard" PipelineParameter="DashboardId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDashboard" OutputProperty="*" Verb="Get" Noun="Dashboard" PipelineParameter="DashboardId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDataset" OutputProperty="*" Verb="Get" Noun="Dataset" PipelineParameter="DatasetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDataset" OutputProperty="*" Verb="Get" Noun="Dataset" PipelineParameter="DatasetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDefaultEncryptionConfiguration" OutputProperty="*" Verb="Get" Noun="DefaultEncryptionConfiguration" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDefaultEncryptionConfiguration" OutputProperty="*" Verb="Get" Noun="DefaultEncryptionConfiguration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGateway" OutputProperty="*" Verb="Get" Noun="Gateway" PipelineParameter="GatewayId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeGateway" OutputProperty="*" Verb="Get" Noun="Gateway" PipelineParameter="GatewayId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGatewayCapabilityConfiguration" OutputProperty="*" Verb="Get" Noun="GatewayCapabilityConfiguration" PipelineParameter="GatewayId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeGatewayCapabilityConfiguration" OutputProperty="*" Verb="Get" Noun="GatewayCapabilityConfiguration" PipelineParameter="GatewayId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLoggingOptions" OutputProperty="LoggingOptions" Verb="Get" Noun="LoggingOption" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLoggingOptions" OutputProperty="LoggingOptions" Verb="Get" Noun="LoggingOption" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePortal" OutputProperty="*" Verb="Get" Noun="Portal" PipelineParameter="PortalId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribePortal" OutputProperty="*" Verb="Get" Noun="Portal" PipelineParameter="PortalId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProject" OutputProperty="*" Verb="Get" Noun="Project" PipelineParameter="ProjectId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeProject" OutputProperty="*" Verb="Get" Noun="Project" PipelineParameter="ProjectId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStorageConfiguration" OutputProperty="*" Verb="Get" Noun="StorageConfiguration" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeStorageConfiguration" OutputProperty="*" Verb="Get" Noun="StorageConfiguration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTimeSeries" OutputProperty="*" Verb="Get" Noun="TimeSeries" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeTimeSeries" OutputProperty="*" Verb="Get" Noun="TimeSeries" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateAssets" Verb="Disconnect" Noun="Asset" ShouldProcessTarget="AssetId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DisassociateAssets" Verb="Disconnect" Noun="Asset" ShouldProcessTarget="AssetId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateTimeSeriesFromAssetProperty" Verb="Remove" Noun="TimeSeriesFromAssetProperty" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DisassociateTimeSeriesFromAssetProperty" Verb="Remove" Noun="TimeSeriesFromAssetProperty" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteAction" OutputProperty="ActionId" Verb="Start" Noun="Action" ShouldProcessTarget="ActionDefinitionId" PipelineParameter="ActionDefinitionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ExecuteAction" OutputProperty="ActionId" Verb="Start" Noun="Action" ShouldProcessTarget="ActionDefinitionId" PipelineParameter="ActionDefinitionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteQuery" OutputProperty="*" Verb="Start" Noun="Query" ShouldProcessTarget="QueryStatement" PipelineParameter="QueryStatement" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ExecuteQuery" OutputProperty="*" Verb="Start" Noun="Query" ShouldProcessTarget="QueryStatement" PipelineParameter="QueryStatement" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAssetPropertyAggregates" OutputProperty="AggregatedValues" Verb="Get" Noun="AssetPropertyAggregate" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetAssetPropertyAggregates" OutputProperty="AggregatedValues" Verb="Get" Noun="AssetPropertyAggregate" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAssetPropertyValue" OutputProperty="PropertyValue" Verb="Get" Noun="AssetPropertyValue" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetAssetPropertyValue" OutputProperty="PropertyValue" Verb="Get" Noun="AssetPropertyValue" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAssetPropertyValueHistory" OutputProperty="AssetPropertyValueHistory" Verb="Get" Noun="AssetPropertyValueHistory" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetAssetPropertyValueHistory" OutputProperty="AssetPropertyValueHistory" Verb="Get" Noun="AssetPropertyValueHistory" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInterpolatedAssetPropertyValues" OutputProperty="InterpolatedAssetPropertyValues" Verb="Get" Noun="InterpolatedAssetPropertyValue" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetInterpolatedAssetPropertyValues" OutputProperty="InterpolatedAssetPropertyValues" Verb="Get" Noun="InterpolatedAssetPropertyValue" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InvokeAssistant" OutputProperty="*" Verb="Invoke" Noun="Assistant" ShouldProcessTarget="ConversationId" PipelineParameter="Message" NoPipelineParameter="false">
+        <ServiceOperation MethodName="InvokeAssistant" OutputProperty="*" Verb="Invoke" Noun="Assistant" ShouldProcessTarget="ConversationId" PipelineParameter="Message" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccessPolicies" OutputProperty="AccessPolicySummaries" Verb="Get" Noun="AccessPolicyList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListAccessPolicies" OutputProperty="AccessPolicySummaries" Verb="Get" Noun="AccessPolicyList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListActions" OutputProperty="ActionSummaries" Verb="Get" Noun="ActionList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListActions" OutputProperty="ActionSummaries" Verb="Get" Noun="ActionList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssetModelCompositeModels" OutputProperty="AssetModelCompositeModelSummaries" Verb="Get" Noun="AssetModelCompositeModelList" PipelineParameter="AssetModelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAssetModelCompositeModels" OutputProperty="AssetModelCompositeModelSummaries" Verb="Get" Noun="AssetModelCompositeModelList" PipelineParameter="AssetModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssetModelProperties" OutputProperty="AssetModelPropertySummaries" Verb="Get" Noun="AssetModelPropertyList" PipelineParameter="AssetModelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAssetModelProperties" OutputProperty="AssetModelPropertySummaries" Verb="Get" Noun="AssetModelPropertyList" PipelineParameter="AssetModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssetModels" OutputProperty="AssetModelSummaries" Verb="Get" Noun="AssetModelList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListAssetModels" OutputProperty="AssetModelSummaries" Verb="Get" Noun="AssetModelList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssetProperties" OutputProperty="AssetPropertySummaries" Verb="Get" Noun="AssetPropertyList" PipelineParameter="AssetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAssetProperties" OutputProperty="AssetPropertySummaries" Verb="Get" Noun="AssetPropertyList" PipelineParameter="AssetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssetRelationships" OutputProperty="AssetRelationshipSummaries" Verb="Get" Noun="AssetRelationshipList" PipelineParameter="AssetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAssetRelationships" OutputProperty="AssetRelationshipSummaries" Verb="Get" Noun="AssetRelationshipList" PipelineParameter="AssetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssets" OutputProperty="AssetSummaries" Verb="Get" Noun="AssetList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListAssets" OutputProperty="AssetSummaries" Verb="Get" Noun="AssetList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssociatedAssets" OutputProperty="AssetSummaries" Verb="Get" Noun="AssociatedAssetList" PipelineParameter="AssetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAssociatedAssets" OutputProperty="AssetSummaries" Verb="Get" Noun="AssociatedAssetList" PipelineParameter="AssetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBulkImportJobs" OutputProperty="JobSummaries" Verb="Get" Noun="BulkImportJobList" PipelineParameter="Filter" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBulkImportJobs" OutputProperty="JobSummaries" Verb="Get" Noun="BulkImportJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCompositionRelationships" OutputProperty="CompositionRelationshipSummaries" Verb="Get" Noun="CompositionRelationshipList" PipelineParameter="AssetModelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCompositionRelationships" OutputProperty="CompositionRelationshipSummaries" Verb="Get" Noun="CompositionRelationshipList" PipelineParameter="AssetModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDashboards" OutputProperty="DashboardSummaries" Verb="Get" Noun="DashboardList" PipelineParameter="ProjectId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDashboards" OutputProperty="DashboardSummaries" Verb="Get" Noun="DashboardList" PipelineParameter="ProjectId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasets" OutputProperty="DatasetSummaries" Verb="Get" Noun="DatasetList" PipelineParameter="SourceType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDatasets" OutputProperty="DatasetSummaries" Verb="Get" Noun="DatasetList" PipelineParameter="SourceType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGateways" OutputProperty="GatewaySummaries" Verb="Get" Noun="GatewayList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGateways" OutputProperty="GatewaySummaries" Verb="Get" Noun="GatewayList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPortals" OutputProperty="PortalSummaries" Verb="Get" Noun="PortalList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPortals" OutputProperty="PortalSummaries" Verb="Get" Noun="PortalList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProjectAssets" OutputProperty="AssetIds" Verb="Get" Noun="ProjectAssetList" PipelineParameter="ProjectId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProjectAssets" OutputProperty="AssetIds" Verb="Get" Noun="ProjectAssetList" PipelineParameter="ProjectId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProjects" OutputProperty="ProjectSummaries" Verb="Get" Noun="ProjectList" PipelineParameter="PortalId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProjects" OutputProperty="ProjectSummaries" Verb="Get" Noun="ProjectList" PipelineParameter="PortalId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTimeSeries" OutputProperty="TimeSeriesSummaries" Verb="Get" Noun="TimeSeriesList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListTimeSeries" OutputProperty="TimeSeriesSummaries" Verb="Get" Noun="TimeSeriesList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutDefaultEncryptionConfiguration" OutputProperty="*" Verb="Write" Noun="DefaultEncryptionConfiguration" ShouldProcessTarget="KmsKeyId" PipelineParameter="EncryptionType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutDefaultEncryptionConfiguration" OutputProperty="*" Verb="Write" Noun="DefaultEncryptionConfiguration" ShouldProcessTarget="KmsKeyId" PipelineParameter="EncryptionType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutLoggingOptions" Verb="Write" Noun="LoggingOption" ShouldProcessTarget="LoggingOptions_Level" PipelineParameter="LoggingOptions_Level" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutLoggingOptions" Verb="Write" Noun="LoggingOption" ShouldProcessTarget="LoggingOptions_Level" PipelineParameter="LoggingOptions_Level" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutStorageConfiguration" OutputProperty="*" Verb="Write" Noun="StorageConfiguration" ShouldProcessTarget="" PipelineParameter="StorageType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutStorageConfiguration" OutputProperty="*" Verb="Write" Noun="StorageConfiguration" ShouldProcessTarget="" PipelineParameter="StorageType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAccessPolicy" Verb="Update" Noun="AccessPolicy" ShouldProcessTarget="AccessPolicyId" PipelineParameter="AccessPolicyId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAccessPolicy" Verb="Update" Noun="AccessPolicy" ShouldProcessTarget="AccessPolicyId" PipelineParameter="AccessPolicyId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAsset" OutputProperty="AssetStatus" Verb="Update" Noun="Asset" ShouldProcessTarget="AssetId" PipelineParameter="AssetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAsset" OutputProperty="AssetStatus" Verb="Update" Noun="Asset" ShouldProcessTarget="AssetId" PipelineParameter="AssetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAssetModel" OutputProperty="AssetModelStatus" Verb="Update" Noun="AssetModel" ShouldProcessTarget="AssetModelId" PipelineParameter="AssetModelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAssetModel" OutputProperty="AssetModelStatus" Verb="Update" Noun="AssetModel" ShouldProcessTarget="AssetModelId" PipelineParameter="AssetModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAssetModelCompositeModel" OutputProperty="*" Verb="Update" Noun="AssetModelCompositeModel" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateAssetModelCompositeModel" OutputProperty="*" Verb="Update" Noun="AssetModelCompositeModel" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAssetProperty" Verb="Update" Noun="AssetProperty" ShouldProcessTarget="AssetId" PipelineParameter="AssetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAssetProperty" Verb="Update" Noun="AssetProperty" ShouldProcessTarget="AssetId" PipelineParameter="AssetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDashboard" Verb="Update" Noun="Dashboard" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDashboard" Verb="Update" Noun="Dashboard" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataset" OutputProperty="*" Verb="Update" Noun="Dataset" ShouldProcessTarget="DatasetId" PipelineParameter="DatasetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDataset" OutputProperty="*" Verb="Update" Noun="Dataset" ShouldProcessTarget="DatasetId" PipelineParameter="DatasetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGateway" Verb="Update" Noun="Gateway" ShouldProcessTarget="GatewayId" PipelineParameter="GatewayId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateGateway" Verb="Update" Noun="Gateway" ShouldProcessTarget="GatewayId" PipelineParameter="GatewayId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGatewayCapabilityConfiguration" OutputProperty="*" Verb="Update" Noun="GatewayCapabilityConfiguration" ShouldProcessTarget="GatewayId" PipelineParameter="GatewayId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateGatewayCapabilityConfiguration" OutputProperty="*" Verb="Update" Noun="GatewayCapabilityConfiguration" ShouldProcessTarget="GatewayId" PipelineParameter="GatewayId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePortal" OutputProperty="PortalStatus" Verb="Update" Noun="Portal" ShouldProcessTarget="PortalId" PipelineParameter="PortalId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePortal" OutputProperty="PortalStatus" Verb="Update" Noun="Portal" ShouldProcessTarget="PortalId" PipelineParameter="PortalId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProject" Verb="Update" Noun="Project" ShouldProcessTarget="ProjectId" PipelineParameter="ProjectId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateProject" Verb="Update" Noun="Project" ShouldProcessTarget="ProjectId" PipelineParameter="ProjectId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

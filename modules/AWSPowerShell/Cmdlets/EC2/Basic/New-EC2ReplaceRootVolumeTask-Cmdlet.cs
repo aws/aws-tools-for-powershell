@@ -132,6 +132,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
         #endregion
         
+        #region Parameter VolumeInitializationRate
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization
+        /// rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the replacement
+        /// root volume. This is also known as <i>volume initialization</i>. Specifying a volume
+        /// initialization rate ensures that the volume is initialized at a predictable and consistent
+        /// rate after creation.</para><para>Omit this parameter if:</para><ul><li><para>You want to create the volume using fast snapshot restore. You must specify a snapshot
+        /// that is enabled for fast snapshot restore. In this case, the volume is fully initialized
+        /// at creation.</para><note><para>If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization
+        /// rate, the volume will be initialized at the specified rate instead of fast snapshot
+        /// restore.</para></note></li><li><para>You want to create a volume that is initialized at the default rate.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html">
+        /// Initialize Amazon EBS volumes</a> in the <i>Amazon EC2 User Guide</i>.</para><para>Valid range: 100 - 300 MiB/s</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? VolumeInitializationRate { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -207,6 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
             }
+            context.VolumeInitializationRate = this.VolumeInitializationRate;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -250,6 +270,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.TagSpecification != null)
             {
                 request.TagSpecifications = cmdletContext.TagSpecification;
+            }
+            if (cmdletContext.VolumeInitializationRate != null)
+            {
+                request.VolumeInitializationRate = cmdletContext.VolumeInitializationRate.Value;
             }
             
             CmdletOutput output;
@@ -313,6 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String InstanceId { get; set; }
             public System.String SnapshotId { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
+            public System.Int64? VolumeInitializationRate { get; set; }
             public System.Func<Amazon.EC2.Model.CreateReplaceRootVolumeTaskResponse, NewEC2ReplaceRootVolumeTaskCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ReplaceRootVolumeTask;
         }

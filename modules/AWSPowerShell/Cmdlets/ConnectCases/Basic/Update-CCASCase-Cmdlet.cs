@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     public partial class UpdateCCASCaseCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
@@ -69,6 +71,16 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String CaseId { get; set; }
+        #endregion
+        
+        #region Parameter PerformedBy_CustomEntity
+        /// <summary>
+        /// <para>
+        /// <para>Any provided entity.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PerformedBy_CustomEntity { get; set; }
         #endregion
         
         #region Parameter DomainId
@@ -186,6 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
                 WriteWarning("You are passing $null as a value for parameter Field which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PerformedBy_CustomEntity = this.PerformedBy_CustomEntity;
             context.PerformedBy_UserArn = this.PerformedBy_UserArn;
             
             // allow further manipulation of loaded context prior to processing
@@ -219,6 +232,16 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
              // populate PerformedBy
             var requestPerformedByIsNull = true;
             request.PerformedBy = new Amazon.ConnectCases.Model.UserUnion();
+            System.String requestPerformedBy_performedBy_CustomEntity = null;
+            if (cmdletContext.PerformedBy_CustomEntity != null)
+            {
+                requestPerformedBy_performedBy_CustomEntity = cmdletContext.PerformedBy_CustomEntity;
+            }
+            if (requestPerformedBy_performedBy_CustomEntity != null)
+            {
+                request.PerformedBy.CustomEntity = requestPerformedBy_performedBy_CustomEntity;
+                requestPerformedByIsNull = false;
+            }
             System.String requestPerformedBy_performedBy_UserArn = null;
             if (cmdletContext.PerformedBy_UserArn != null)
             {
@@ -292,6 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             public System.String CaseId { get; set; }
             public System.String DomainId { get; set; }
             public List<Amazon.ConnectCases.Model.FieldValue> Field { get; set; }
+            public System.String PerformedBy_CustomEntity { get; set; }
             public System.String PerformedBy_UserArn { get; set; }
             public System.Func<Amazon.ConnectCases.Model.UpdateCaseResponse, UpdateCCASCaseCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

@@ -100,6 +100,26 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public System.String FlowOperationId { get; set; }
         #endregion
         
+        #region Parameter VpcEndpointAssociationArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of a VPC endpoint association.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VpcEndpointAssociationArn { get; set; }
+        #endregion
+        
+        #region Parameter VpcEndpointId
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for the primary endpoint associated with a firewall.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VpcEndpointId { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -174,6 +194,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.VpcEndpointAssociationArn = this.VpcEndpointAssociationArn;
+            context.VpcEndpointId = this.VpcEndpointId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -209,6 +231,14 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.VpcEndpointAssociationArn != null)
+            {
+                request.VpcEndpointAssociationArn = cmdletContext.VpcEndpointAssociationArn;
+            }
+            if (cmdletContext.VpcEndpointId != null)
+            {
+                request.VpcEndpointId = cmdletContext.VpcEndpointId;
             }
             
             CmdletOutput output;
@@ -270,6 +300,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public System.String FlowOperationId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String VpcEndpointAssociationArn { get; set; }
+            public System.String VpcEndpointId { get; set; }
             public System.Func<Amazon.NetworkFirewall.Model.ListFlowOperationResultsResponse, GetNWFWFlowOperationResultListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

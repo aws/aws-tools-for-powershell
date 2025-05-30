@@ -18,127 +18,127 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateUserToPermissionGroup" OutputProperty="StatusCode" Verb="Add" Noun="UserToPermissionGroup" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AssociateUserToPermissionGroup" OutputProperty="StatusCode" Verb="Add" Noun="UserToPermissionGroup" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateChangeset" OutputProperty="*" Verb="New" Noun="Changeset" ShouldProcessTarget="DatasetId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateChangeset" OutputProperty="*" Verb="New" Noun="Changeset" ShouldProcessTarget="DatasetId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataset" OutputProperty="DatasetId" Verb="New" Noun="Dataset" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateDataset" OutputProperty="DatasetId" Verb="New" Noun="Dataset" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataView" OutputProperty="*" Verb="New" Noun="DataView" ShouldProcessTarget="DatasetId" PipelineParameter="DatasetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDataView" OutputProperty="*" Verb="New" Noun="DataView" ShouldProcessTarget="DatasetId" PipelineParameter="DatasetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePermissionGroup" OutputProperty="PermissionGroupId" Verb="New" Noun="PermissionGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePermissionGroup" OutputProperty="PermissionGroupId" Verb="New" Noun="PermissionGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUser" OutputProperty="UserId" Verb="New" Noun="User" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateUser" OutputProperty="UserId" Verb="New" Noun="User" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataset" OutputProperty="DatasetId" Verb="Remove" Noun="Dataset" ShouldProcessTarget="DatasetId" PipelineParameter="DatasetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDataset" OutputProperty="DatasetId" Verb="Remove" Noun="Dataset" ShouldProcessTarget="DatasetId" PipelineParameter="DatasetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePermissionGroup" OutputProperty="PermissionGroupId" Verb="Remove" Noun="PermissionGroup" ShouldProcessTarget="PermissionGroupId" PipelineParameter="PermissionGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePermissionGroup" OutputProperty="PermissionGroupId" Verb="Remove" Noun="PermissionGroup" ShouldProcessTarget="PermissionGroupId" PipelineParameter="PermissionGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableUser" OutputProperty="UserId" Verb="Disable" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableUser" OutputProperty="UserId" Verb="Disable" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateUserFromPermissionGroup" OutputProperty="StatusCode" Verb="Remove" Noun="UserFromPermissionGroup" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DisassociateUserFromPermissionGroup" OutputProperty="StatusCode" Verb="Remove" Noun="UserFromPermissionGroup" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableUser" OutputProperty="UserId" Verb="Enable" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableUser" OutputProperty="UserId" Verb="Enable" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetChangeset" OutputProperty="*" Verb="Get" Noun="Changeset" PipelineParameter="DatasetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetChangeset" OutputProperty="*" Verb="Get" Noun="Changeset" PipelineParameter="DatasetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataset" OutputProperty="*" Verb="Get" Noun="Dataset" PipelineParameter="DatasetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDataset" OutputProperty="*" Verb="Get" Noun="Dataset" PipelineParameter="DatasetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataView" OutputProperty="*" Verb="Get" Noun="DataView" PipelineParameter="DatasetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDataView" OutputProperty="*" Verb="Get" Noun="DataView" PipelineParameter="DatasetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetExternalDataViewAccessDetails" OutputProperty="*" Verb="Get" Noun="ExternalDataViewAccessDetail" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetExternalDataViewAccessDetails" OutputProperty="*" Verb="Get" Noun="ExternalDataViewAccessDetail" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPermissionGroup" OutputProperty="PermissionGroup" Verb="Get" Noun="PermissionGroup" PipelineParameter="PermissionGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPermissionGroup" OutputProperty="PermissionGroup" Verb="Get" Noun="PermissionGroup" PipelineParameter="PermissionGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProgrammaticAccessCredentials" OutputProperty="*" Verb="Get" Noun="ProgrammaticAccessCredential" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetProgrammaticAccessCredentials" OutputProperty="*" Verb="Get" Noun="ProgrammaticAccessCredential" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUser" OutputProperty="*" Verb="Get" Noun="User" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetUser" OutputProperty="*" Verb="Get" Noun="User" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWorkingLocation" OutputProperty="*" Verb="Get" Noun="WorkingLocation" PipelineParameter="LocationType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetWorkingLocation" OutputProperty="*" Verb="Get" Noun="WorkingLocation" PipelineParameter="LocationType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListChangesets" OutputProperty="Changesets" Verb="Get" Noun="ChangesetList" PipelineParameter="DatasetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListChangesets" OutputProperty="Changesets" Verb="Get" Noun="ChangesetList" PipelineParameter="DatasetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasets" OutputProperty="Datasets" Verb="Get" Noun="DatasetList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListDatasets" OutputProperty="Datasets" Verb="Get" Noun="DatasetList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataViews" OutputProperty="DataViews" Verb="Get" Noun="DataViewList" PipelineParameter="DatasetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDataViews" OutputProperty="DataViews" Verb="Get" Noun="DataViewList" PipelineParameter="DatasetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPermissionGroups" OutputProperty="PermissionGroups" Verb="Get" Noun="PermissionGroupList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPermissionGroups" OutputProperty="PermissionGroups" Verb="Get" Noun="PermissionGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPermissionGroupsByUser" OutputProperty="PermissionGroups" Verb="Get" Noun="PermissionGroupsByUserList" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPermissionGroupsByUser" OutputProperty="PermissionGroups" Verb="Get" Noun="PermissionGroupsByUserList" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsersByPermissionGroup" OutputProperty="Users" Verb="Get" Noun="UsersByPermissionGroupList" PipelineParameter="PermissionGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUsersByPermissionGroup" OutputProperty="Users" Verb="Get" Noun="UsersByPermissionGroupList" PipelineParameter="PermissionGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetUserPassword" OutputProperty="*" Verb="Reset" Noun="UserPassword" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ResetUserPassword" OutputProperty="*" Verb="Reset" Noun="UserPassword" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateChangeset" OutputProperty="*" Verb="Update" Noun="Changeset" ShouldProcessTarget="DatasetId" PipelineParameter="DatasetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateChangeset" OutputProperty="*" Verb="Update" Noun="Changeset" ShouldProcessTarget="DatasetId" PipelineParameter="DatasetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataset" OutputProperty="DatasetId" Verb="Update" Noun="Dataset" ShouldProcessTarget="DatasetId" PipelineParameter="DatasetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDataset" OutputProperty="DatasetId" Verb="Update" Noun="Dataset" ShouldProcessTarget="DatasetId" PipelineParameter="DatasetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePermissionGroup" OutputProperty="PermissionGroupId" Verb="Update" Noun="PermissionGroup" ShouldProcessTarget="PermissionGroupId" PipelineParameter="PermissionGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePermissionGroup" OutputProperty="PermissionGroupId" Verb="Update" Noun="PermissionGroup" ShouldProcessTarget="PermissionGroupId" PipelineParameter="PermissionGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUser" OutputProperty="UserId" Verb="Update" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateUser" OutputProperty="UserId" Verb="Update" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

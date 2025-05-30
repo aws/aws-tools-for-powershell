@@ -30,7 +30,7 @@ using Amazon.PinpointSMSVoiceV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
-    /// Create or update a RuleSetNumberOverride and associate it with a protect configuration.
+    /// Create or update a phone number rule override and associate it with a protect configuration.
     /// </summary>
     [Cmdlet("Write", "SMSVProtectConfigurationRuleSetNumberOverride", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.PutProtectConfigurationRuleSetNumberOverrideResponse")]

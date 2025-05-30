@@ -19,324 +19,324 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateAppBlockBuilderAppBlock" OutputProperty="AppBlockBuilderAppBlockAssociation" Verb="Add" Noun="AppBlockBuilderAppBlock" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AssociateAppBlockBuilderAppBlock" OutputProperty="AppBlockBuilderAppBlockAssociation" Verb="Add" Noun="AppBlockBuilderAppBlock" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateApplicationFleet" OutputProperty="ApplicationFleetAssociation" Verb="Register" Noun="ApplicationFleet" ShouldProcessTarget="FleetName" PipelineParameter="FleetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateApplicationFleet" OutputProperty="ApplicationFleetAssociation" Verb="Register" Noun="ApplicationFleet" ShouldProcessTarget="FleetName" PipelineParameter="FleetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateApplicationToEntitlement" Verb="Add" Noun="ApplicationToEntitlement" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateApplicationToEntitlement" Verb="Add" Noun="ApplicationToEntitlement" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateFleet" Verb="Register" Noun="Fleet" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateFleet" Verb="Register" Noun="Fleet" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchAssociateUserStack" OutputProperty="Errors" Verb="Register" Noun="UserStackBatch" ShouldProcessTarget="UserStackAssociations" PipelineParameter="UserStackAssociations" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchAssociateUserStack" OutputProperty="Errors" Verb="Register" Noun="UserStackBatch" ShouldProcessTarget="UserStackAssociations" PipelineParameter="UserStackAssociations" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDisassociateUserStack" OutputProperty="Errors" Verb="Unregister" Noun="UserStackBatch" ShouldProcessTarget="UserStackAssociations" PipelineParameter="UserStackAssociations" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchDisassociateUserStack" OutputProperty="Errors" Verb="Unregister" Noun="UserStackBatch" ShouldProcessTarget="UserStackAssociations" PipelineParameter="UserStackAssociations" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopyImage" OutputProperty="DestinationImageName" Verb="Copy" Noun="Image" ShouldProcessTarget="SourceImageName" PipelineParameter="SourceImageName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CopyImage" OutputProperty="DestinationImageName" Verb="Copy" Noun="Image" ShouldProcessTarget="SourceImageName" PipelineParameter="SourceImageName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAppBlock" OutputProperty="AppBlock" Verb="New" Noun="AppBlock" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAppBlock" OutputProperty="AppBlock" Verb="New" Noun="AppBlock" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="PostSetupScriptDetails_ScriptS3Location_S3Bucket" NewName="PostSetupScriptDetails_ScriptS3Location_S3Bucket" />
                 <Param Name="PostSetupScriptDetails_ScriptS3Location_S3Key" NewName="PostSetupScriptDetails_ScriptS3Location_S3Key" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAppBlockBuilder" OutputProperty="AppBlockBuilder" Verb="New" Noun="AppBlockBuilder" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateAppBlockBuilder" OutputProperty="AppBlockBuilder" Verb="New" Noun="AppBlockBuilder" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAppBlockBuilderStreamingURL" OutputProperty="*" Verb="New" Noun="AppBlockBuilderStreamingURL" ShouldProcessTarget="AppBlockBuilderName" PipelineParameter="AppBlockBuilderName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAppBlockBuilderStreamingURL" OutputProperty="*" Verb="New" Noun="AppBlockBuilderStreamingURL" ShouldProcessTarget="AppBlockBuilderName" PipelineParameter="AppBlockBuilderName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateApplication" OutputProperty="Application" Verb="New" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateApplication" OutputProperty="Application" Verb="New" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDirectoryConfig" OutputProperty="DirectoryConfig" Verb="New" Noun="DirectoryConfig" ShouldProcessTarget="DirectoryName" PipelineParameter="DirectoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDirectoryConfig" OutputProperty="DirectoryConfig" Verb="New" Noun="DirectoryConfig" ShouldProcessTarget="DirectoryName" PipelineParameter="DirectoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEntitlement" OutputProperty="Entitlement" Verb="New" Noun="Entitlement" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateEntitlement" OutputProperty="Entitlement" Verb="New" Noun="Entitlement" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFleet" OutputProperty="Fleet" Verb="New" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateFleet" OutputProperty="Fleet" Verb="New" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateImageBuilder" OutputProperty="ImageBuilder" Verb="New" Noun="ImageBuilder" ShouldProcessTarget="ImageName" PipelineParameter="ImageName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateImageBuilder" OutputProperty="ImageBuilder" Verb="New" Noun="ImageBuilder" ShouldProcessTarget="ImageName" PipelineParameter="ImageName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateImageBuilderStreamingURL" OutputProperty="*" Verb="New" Noun="ImageBuilderStreamingURL" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateImageBuilderStreamingURL" OutputProperty="*" Verb="New" Noun="ImageBuilderStreamingURL" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStack" OutputProperty="Stack" Verb="New" Noun="Stack" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateStack" OutputProperty="Stack" Verb="New" Noun="Stack" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStreamingURL" OutputProperty="*" Verb="New" Noun="StreamingURL" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateStreamingURL" OutputProperty="*" Verb="New" Noun="StreamingURL" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateThemeForStack" OutputProperty="Theme" Verb="New" Noun="ThemeForStack" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateThemeForStack" OutputProperty="Theme" Verb="New" Noun="ThemeForStack" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUpdatedImage" OutputProperty="*" Verb="New" Noun="UpdatedImage" ShouldProcessTarget="ExistingImageName" PipelineParameter="NewImageName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateUpdatedImage" OutputProperty="*" Verb="New" Noun="UpdatedImage" ShouldProcessTarget="ExistingImageName" PipelineParameter="NewImageName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUsageReportSubscription" OutputProperty="*" Verb="New" Noun="UsageReportSubscription" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateUsageReportSubscription" OutputProperty="*" Verb="New" Noun="UsageReportSubscription" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUser" Verb="New" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateUser" Verb="New" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAppBlock" Verb="Remove" Noun="AppBlock" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAppBlock" Verb="Remove" Noun="AppBlock" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAppBlockBuilder" Verb="Remove" Noun="AppBlockBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAppBlockBuilder" Verb="Remove" Noun="AppBlockBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDirectoryConfig" Verb="Remove" Noun="DirectoryConfig" ShouldProcessTarget="DirectoryName" PipelineParameter="DirectoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDirectoryConfig" Verb="Remove" Noun="DirectoryConfig" ShouldProcessTarget="DirectoryName" PipelineParameter="DirectoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEntitlement" Verb="Remove" Noun="Entitlement" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEntitlement" Verb="Remove" Noun="Entitlement" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFleet" Verb="Remove" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteFleet" Verb="Remove" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteImage" OutputProperty="Image" Verb="Remove" Noun="Image" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteImage" OutputProperty="Image" Verb="Remove" Noun="Image" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteImageBuilder" OutputProperty="ImageBuilder" Verb="Remove" Noun="ImageBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteImageBuilder" OutputProperty="ImageBuilder" Verb="Remove" Noun="ImageBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteImagePermissions" Verb="Remove" Noun="ImagePermission" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteImagePermissions" Verb="Remove" Noun="ImagePermission" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStack" Verb="Remove" Noun="Stack" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteStack" Verb="Remove" Noun="Stack" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteThemeForStack" Verb="Remove" Noun="ThemeForStack" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteThemeForStack" Verb="Remove" Noun="ThemeForStack" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUsageReportSubscription" Verb="Remove" Noun="UsageReportSubscription" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteUsageReportSubscription" Verb="Remove" Noun="UsageReportSubscription" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAppBlockBuilderAppBlockAssociations" OutputProperty="AppBlockBuilderAppBlockAssociations" Verb="Get" Noun="AppBlockBuilderAppBlockAssociation" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeAppBlockBuilderAppBlockAssociations" OutputProperty="AppBlockBuilderAppBlockAssociations" Verb="Get" Noun="AppBlockBuilderAppBlockAssociation" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAppBlockBuilders" OutputProperty="AppBlockBuilders" Verb="Get" Noun="AppBlockBuilder" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAppBlockBuilders" OutputProperty="AppBlockBuilders" Verb="Get" Noun="AppBlockBuilder" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAppBlocks" OutputProperty="AppBlocks" Verb="Get" Noun="AppBlock" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAppBlocks" OutputProperty="AppBlocks" Verb="Get" Noun="AppBlock" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeApplicationFleetAssociations" OutputProperty="ApplicationFleetAssociations" Verb="Get" Noun="ApplicationFleetAssociation" PipelineParameter="FleetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeApplicationFleetAssociations" OutputProperty="ApplicationFleetAssociations" Verb="Get" Noun="ApplicationFleetAssociation" PipelineParameter="FleetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeApplications" OutputProperty="Applications" Verb="Get" Noun="Application" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeApplications" OutputProperty="Applications" Verb="Get" Noun="Application" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectoryConfigs" OutputProperty="DirectoryConfigs" Verb="Get" Noun="DirectoryConfigList" PipelineParameter="DirectoryNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
-            <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEntitlements" OutputProperty="Entitlements" Verb="Get" Noun="Entitlement" PipelineParameter="StackName" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleets" OutputProperty="Fleets" Verb="Get" Noun="FleetList" PipelineParameter="Names" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImageBuilders" OutputProperty="ImageBuilders" Verb="Get" Noun="ImageBuilderList" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImagePermissions" OutputProperty="SharedImagePermissionsList" Verb="Get" Noun="ImagePermission" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDirectoryConfigs" OutputProperty="DirectoryConfigs" Verb="Get" Noun="DirectoryConfigList" PipelineParameter="DirectoryNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImages" OutputProperty="Images" Verb="Get" Noun="ImageList" PipelineParameter="Names" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEntitlements" OutputProperty="Entitlements" Verb="Get" Noun="Entitlement" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSessions" OutputProperty="Sessions" Verb="Get" Noun="SessionList" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFleets" OutputProperty="Fleets" Verb="Get" Noun="FleetList" PipelineParameter="Names" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStacks" OutputProperty="Stacks" Verb="Get" Noun="StackList" PipelineParameter="Names" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeImageBuilders" OutputProperty="ImageBuilders" Verb="Get" Noun="ImageBuilderList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeThemeForStack" OutputProperty="Theme" Verb="Get" Noun="ThemeForStack" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeImagePermissions" OutputProperty="SharedImagePermissionsList" Verb="Get" Noun="ImagePermission" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeImages" OutputProperty="Images" Verb="Get" Noun="ImageList" PipelineParameter="Names" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeUsageReportSubscriptions" OutputProperty="UsageReportSubscriptions" Verb="Get" Noun="UsageReportSubscription" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeSessions" OutputProperty="Sessions" Verb="Get" Noun="SessionList" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeUsers" OutputProperty="Users" Verb="Get" Noun="User" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeStacks" OutputProperty="Stacks" Verb="Get" Noun="StackList" PipelineParameter="Names" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeUserStackAssociations" OutputProperty="UserStackAssociations" Verb="Get" Noun="UserStackAssociation" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeThemeForStack" OutputProperty="Theme" Verb="Get" Noun="ThemeForStack" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableUser" Verb="Disable" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeUsageReportSubscriptions" OutputProperty="UsageReportSubscriptions" Verb="Get" Noun="UsageReportSubscription" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateAppBlockBuilderAppBlock" Verb="Remove" Noun="AppBlockBuilderAppBlock" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeUsers" OutputProperty="Users" Verb="Get" Noun="User" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateApplicationFleet" Verb="Unregister" Noun="ApplicationFleet" ShouldProcessTarget="FleetName" PipelineParameter="FleetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeUserStackAssociations" OutputProperty="UserStackAssociations" Verb="Get" Noun="UserStackAssociation" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateApplicationFromEntitlement" Verb="Remove" Noun="ApplicationFromEntitlement" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableUser" Verb="Disable" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateFleet" Verb="Unregister" Noun="Fleet" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateAppBlockBuilderAppBlock" Verb="Remove" Noun="AppBlockBuilderAppBlock" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableUser" Verb="Enable" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateApplicationFleet" Verb="Unregister" Noun="ApplicationFleet" ShouldProcessTarget="FleetName" PipelineParameter="FleetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExpireSession" Verb="Revoke" Noun="Session" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateApplicationFromEntitlement" Verb="Remove" Noun="ApplicationFromEntitlement" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssociatedFleets" OutputProperty="Names" Verb="Get" Noun="AssociatedFleetList" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateFleet" Verb="Unregister" Noun="Fleet" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssociatedStacks" OutputProperty="Names" Verb="Get" Noun="AssociatedStackList" PipelineParameter="FleetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableUser" Verb="Enable" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEntitledApplications" OutputProperty="EntitledApplications" Verb="Get" Noun="EntitledApplicationList" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ExpireSession" Verb="Revoke" Noun="Session" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="TagsForResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAssociatedFleets" OutputProperty="Names" Verb="Get" Noun="AssociatedFleetList" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartAppBlockBuilder" OutputProperty="AppBlockBuilder" Verb="Start" Noun="AppBlockBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAssociatedStacks" OutputProperty="Names" Verb="Get" Noun="AssociatedStackList" PipelineParameter="FleetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartFleet" Verb="Start" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEntitledApplications" OutputProperty="EntitledApplications" Verb="Get" Noun="EntitledApplicationList" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartImageBuilder" OutputProperty="ImageBuilder" Verb="Start" Noun="ImageBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="TagsForResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopAppBlockBuilder" OutputProperty="AppBlockBuilder" Verb="Stop" Noun="AppBlockBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartAppBlockBuilder" OutputProperty="AppBlockBuilder" Verb="Start" Noun="AppBlockBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopFleet" Verb="Stop" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartFleet" Verb="Start" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopImageBuilder" OutputProperty="ImageBuilder" Verb="Stop" Noun="ImageBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartImageBuilder" OutputProperty="ImageBuilder" Verb="Start" Noun="ImageBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="Tags" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopAppBlockBuilder" OutputProperty="AppBlockBuilder" Verb="Stop" Noun="AppBlockBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="TagKeys" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopFleet" Verb="Stop" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAppBlockBuilder" OutputProperty="AppBlockBuilder" Verb="Update" Noun="AppBlockBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopImageBuilder" OutputProperty="ImageBuilder" Verb="Stop" Noun="ImageBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApplication" OutputProperty="Application" Verb="Update" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="Tags" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDirectoryConfig" OutputProperty="DirectoryConfig" Verb="Update" Noun="DirectoryConfig" ShouldProcessTarget="DirectoryName" PipelineParameter="DirectoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="TagKeys" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEntitlement" OutputProperty="Entitlement" Verb="Update" Noun="Entitlement" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAppBlockBuilder" OutputProperty="AppBlockBuilder" Verb="Update" Noun="AppBlockBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFleet" OutputProperty="Fleet" Verb="Update" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateApplication" OutputProperty="Application" Verb="Update" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateImagePermissions" Verb="Update" Noun="ImagePermission" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDirectoryConfig" OutputProperty="DirectoryConfig" Verb="Update" Noun="DirectoryConfig" ShouldProcessTarget="DirectoryName" PipelineParameter="DirectoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStack" OutputProperty="Stack" Verb="Update" Noun="Stack" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateEntitlement" OutputProperty="Entitlement" Verb="Update" Noun="Entitlement" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateThemeForStack" OutputProperty="Theme" Verb="Update" Noun="ThemeForStack" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateFleet" OutputProperty="Fleet" Verb="Update" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateImagePermissions" Verb="Update" Noun="ImagePermission" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateStack" OutputProperty="Stack" Verb="Update" Noun="Stack" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateThemeForStack" OutputProperty="Theme" Verb="Update" Noun="ThemeForStack" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

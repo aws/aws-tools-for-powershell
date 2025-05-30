@@ -18,87 +18,103 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateInvocation" OutputProperty="*" Verb="New" Noun="Invocation" ShouldProcessTarget="SessionIdentifier" PipelineParameter="SessionIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateInvocation" OutputProperty="*" Verb="New" Noun="Invocation" ShouldProcessTarget="SessionIdentifier" PipelineParameter="SessionIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSession" OutputProperty="*" Verb="New" Noun="Session" ShouldProcessTarget="EncryptionKeyArn" PipelineParameter="EncryptionKeyArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateSession" OutputProperty="*" Verb="New" Noun="Session" ShouldProcessTarget="EncryptionKeyArn" PipelineParameter="EncryptionKeyArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAgentMemory" Verb="Remove" Noun="AgentMemory" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteAgentMemory" Verb="Remove" Noun="AgentMemory" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSession" Verb="Remove" Noun="Session" ShouldProcessTarget="SessionIdentifier" PipelineParameter="SessionIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSession" Verb="Remove" Noun="Session" ShouldProcessTarget="SessionIdentifier" PipelineParameter="SessionIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EndSession" OutputProperty="*" Verb="Close" Noun="Session" ShouldProcessTarget="SessionIdentifier" PipelineParameter="SessionIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EndSession" OutputProperty="*" Verb="Close" Noun="Session" ShouldProcessTarget="SessionIdentifier" PipelineParameter="SessionIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateQuery" OutputProperty="Queries" Verb="Invoke" Noun="GenerateQuery" ShouldProcessTarget="TransformationConfiguration_TextToSqlConfiguration_KnowledgeBaseConfiguration_KnowledgeBaseArn" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GenerateQuery" OutputProperty="Queries" Verb="Invoke" Noun="GenerateQuery" ShouldProcessTarget="TransformationConfiguration_TextToSqlConfiguration_KnowledgeBaseConfiguration_KnowledgeBaseArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAgentMemory" OutputProperty="MemoryContents" Verb="Get" Noun="AgentMemory" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetAgentMemory" OutputProperty="MemoryContents" Verb="Get" Noun="AgentMemory" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInvocationStep" OutputProperty="InvocationStep" Verb="Get" Noun="InvocationStep" PipelineParameter="SessionIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetExecutionFlowSnapshot" OutputProperty="*" Verb="Get" Noun="ExecutionFlowSnapshot" PipelineParameter="ExecutionIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSession" OutputProperty="*" Verb="Get" Noun="Session" PipelineParameter="SessionIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetFlowExecution" OutputProperty="*" Verb="Get" Noun="FlowExecution" PipelineParameter="ExecutionIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InvokeAgent" OutputProperty="*" Verb="Invoke" Noun="Agent" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetInvocationStep" OutputProperty="InvocationStep" Verb="Get" Noun="InvocationStep" PipelineParameter="SessionIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InvokeFlow" OutputProperty="ResponseStream" Verb="Invoke" Noun="Flow" ShouldProcessTarget="FlowAliasIdentifier" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetSession" OutputProperty="*" Verb="Get" Noun="Session" PipelineParameter="SessionIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InvokeInlineAgent" OutputProperty="*" Verb="Invoke" Noun="InlineAgent" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="InvokeAgent" OutputProperty="*" Verb="Invoke" Noun="Agent" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInvocations" OutputProperty="InvocationSummaries" Verb="Get" Noun="InvocationList" PipelineParameter="SessionIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="InvokeFlow" OutputProperty="ResponseStream" Verb="Invoke" Noun="Flow" ShouldProcessTarget="FlowAliasIdentifier" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInvocationSteps" OutputProperty="InvocationStepSummaries" Verb="Get" Noun="InvocationStepList" PipelineParameter="SessionIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="InvokeInlineAgent" OutputProperty="*" Verb="Invoke" Noun="InlineAgent" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSessions" OutputProperty="SessionSummaries" Verb="Get" Noun="SessionList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFlowExecutionEvents" OutputProperty="FlowExecutionEvents" Verb="Get" Noun="FlowExecutionEventList" PipelineParameter="ExecutionIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFlowExecutions" OutputProperty="FlowExecutionSummaries" Verb="Get" Noun="FlowExecutionList" PipelineParameter="FlowIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="OptimizePrompt" OutputProperty="OptimizedPrompt" Verb="Get" Noun="OptimizePrompt" ShouldProcessTarget="" PipelineParameter="TargetModelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListInvocations" OutputProperty="InvocationSummaries" Verb="Get" Noun="InvocationList" PipelineParameter="SessionIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutInvocationStep" OutputProperty="InvocationStepId" Verb="Write" Noun="InvocationStep" ShouldProcessTarget="SessionIdentifier" PipelineParameter="SessionIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListInvocationSteps" OutputProperty="InvocationStepSummaries" Verb="Get" Noun="InvocationStepList" PipelineParameter="SessionIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Rerank" OutputProperty="*" Verb="Invoke" Noun="Rerank" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListSessions" OutputProperty="SessionSummaries" Verb="Get" Noun="SessionList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Retrieve" OutputProperty="*" Verb="Invoke" Noun="Retrieve" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RetrieveAndGenerate" OutputProperty="*" Verb="Invoke" Noun="RetrieveAndGenerate" ShouldProcessTarget="SessionId" PipelineParameter="Input_Text" NoPipelineParameter="false">
+        <ServiceOperation MethodName="OptimizePrompt" OutputProperty="OptimizedPrompt" Verb="Get" Noun="OptimizePrompt" ShouldProcessTarget="" PipelineParameter="TargetModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutInvocationStep" OutputProperty="InvocationStepId" Verb="Write" Noun="InvocationStep" ShouldProcessTarget="SessionIdentifier" PipelineParameter="SessionIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Rerank" OutputProperty="*" Verb="Invoke" Noun="Rerank" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Retrieve" OutputProperty="*" Verb="Invoke" Noun="Retrieve" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RetrieveAndGenerate" OutputProperty="*" Verb="Invoke" Noun="RetrieveAndGenerate" ShouldProcessTarget="SessionId" PipelineParameter="Input_Text" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate_TextPromptTemplate" NewName="ExternalSource_PromptTemplate_TextPromptTemplate" />
                 <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields" NewName="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields" />
@@ -121,7 +137,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RetrieveAndGenerateStream" OutputProperty="*" Verb="Invoke" Noun="RetrieveAndGenerateStream" ShouldProcessTarget="SessionId" PipelineParameter="Input_Text" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RetrieveAndGenerateStream" OutputProperty="*" Verb="Invoke" Noun="RetrieveAndGenerateStream" ShouldProcessTarget="SessionId" PipelineParameter="Input_Text" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields" NewName="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields" />
                 <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId" NewName="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId" />
@@ -142,15 +158,23 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartFlowExecution" OutputProperty="ExecutionArn" Verb="Start" Noun="FlowExecution" ShouldProcessTarget="FlowIdentifier" PipelineParameter="FlowIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopFlowExecution" OutputProperty="*" Verb="Stop" Noun="FlowExecution" ShouldProcessTarget="ExecutionIdentifier" PipelineParameter="ExecutionIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSession" OutputProperty="*" Verb="Update" Noun="Session" ShouldProcessTarget="SessionIdentifier" PipelineParameter="SessionIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSession" OutputProperty="*" Verb="Update" Noun="Session" ShouldProcessTarget="SessionIdentifier" PipelineParameter="SessionIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

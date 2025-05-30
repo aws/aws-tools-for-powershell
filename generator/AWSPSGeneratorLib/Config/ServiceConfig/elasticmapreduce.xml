@@ -27,7 +27,7 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddInstanceFleet" OutputProperty="*" Verb="Add" Noun="InstanceFleet" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddInstanceFleet" OutputProperty="*" Verb="Add" Noun="InstanceFleet" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="InstanceFleet_LaunchSpecifications_OnDemandSpecification_CapacityReservationOptions_CapacityReservationResourceGroupArn" NewName="CapacityReservationOptions_CapacityReservationResourceGroupArn" />
                 <Param Name="InstanceFleet_LaunchSpecifications_OnDemandSpecification_CapacityReservationOptions_UsageStrategy" NewName="CapacityReservationOptions_UsageStrategy" />
@@ -38,187 +38,203 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddInstanceGroups" OutputProperty="*" Verb="Add" Noun="InstanceGroup" ShouldProcessTarget="JobFlowId" PositionalParameters="InstanceGroups" PipelineParameter="JobFlowId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddInstanceGroups" OutputProperty="*" Verb="Add" Noun="InstanceGroup" ShouldProcessTarget="JobFlowId" PositionalParameters="InstanceGroups" PipelineParameter="JobFlowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddJobFlowSteps" OutputProperty="StepIds" Verb="Add" Noun="JobFlowStep" ShouldProcessTarget="JobFlowId" PositionalParameters="Steps" PipelineParameter="JobFlowId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddJobFlowSteps" OutputProperty="StepIds" Verb="Add" Noun="JobFlowStep" ShouldProcessTarget="JobFlowId" PositionalParameters="Steps" PipelineParameter="JobFlowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PositionalParameters="Tags" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Add-EMRTag">
+        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PositionalParameters="Tags" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Add-EMRTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelSteps" OutputProperty="CancelStepsInfoList" Verb="Stop" Noun="Step" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyAlias="Stop-EMRSteps">
+        <ServiceOperation MethodName="CancelSteps" OutputProperty="CancelStepsInfoList" Verb="Stop" Noun="Step" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Stop-EMRSteps">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSecurityConfiguration" OutputProperty="*" Verb="New" Noun="SecurityConfiguration" ShouldProcessTarget="Name" PipelineParameter="SecurityConfiguration" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePersistentAppUI" OutputProperty="*" Verb="New" Noun="PersistentAppUI" ShouldProcessTarget="TargetResourceArn" PipelineParameter="TargetResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStudio" OutputProperty="*" Verb="New" Noun="Studio" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateSecurityConfiguration" OutputProperty="*" Verb="New" Noun="SecurityConfiguration" ShouldProcessTarget="Name" PipelineParameter="SecurityConfiguration" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStudioSessionMapping" Verb="New" Noun="StudioSessionMapping" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateStudio" OutputProperty="*" Verb="New" Noun="Studio" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSecurityConfiguration" Verb="Remove" Noun="SecurityConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateStudioSessionMapping" Verb="New" Noun="StudioSessionMapping" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStudio" Verb="Remove" Noun="Studio" ShouldProcessTarget="StudioId" PipelineParameter="StudioId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSecurityConfiguration" Verb="Remove" Noun="SecurityConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStudioSessionMapping" Verb="Remove" Noun="StudioSessionMapping" ShouldProcessTarget="StudioId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteStudio" Verb="Remove" Noun="Studio" ShouldProcessTarget="StudioId" PipelineParameter="StudioId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCluster" OutputProperty="Cluster" Verb="Get" Noun="Cluster" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteStudioSessionMapping" Verb="Remove" Noun="StudioSessionMapping" ShouldProcessTarget="StudioId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeJobFlows" OutputProperty="JobFlows" Verb="Get" Noun="JobFlow" PipelineParameter="JobFlowIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCluster" OutputProperty="Cluster" Verb="Get" Noun="Cluster" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNotebookExecution" OutputProperty="NotebookExecution" Verb="Get" Noun="NotebookExecution" PipelineParameter="NotebookExecutionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeJobFlows" OutputProperty="JobFlows" Verb="Get" Noun="JobFlow" PipelineParameter="JobFlowIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReleaseLabel" OutputProperty="*" Verb="Get" Noun="ReleaseLabel" PipelineParameter="ReleaseLabel" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeNotebookExecution" OutputProperty="NotebookExecution" Verb="Get" Noun="NotebookExecution" PipelineParameter="NotebookExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSecurityConfiguration" OutputProperty="*" Verb="Get" Noun="SecurityConfiguration" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribePersistentAppUI" OutputProperty="PersistentAppUI" Verb="Get" Noun="PersistentAppUI" PipelineParameter="PersistentAppUIId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStep" OutputProperty="Step" Verb="Get" Noun="Step" PositionalParameters="ClusterId" PipelineParameter="StepId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeReleaseLabel" OutputProperty="*" Verb="Get" Noun="ReleaseLabel" PipelineParameter="ReleaseLabel" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStudio" OutputProperty="Studio" Verb="Get" Noun="Studio" PipelineParameter="StudioId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSecurityConfiguration" OutputProperty="*" Verb="Get" Noun="SecurityConfiguration" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAutoTerminationPolicy" OutputProperty="AutoTerminationPolicy" Verb="Get" Noun="AutoTerminationPolicy" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeStep" OutputProperty="Step" Verb="Get" Noun="Step" PositionalParameters="ClusterId" PipelineParameter="StepId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBlockPublicAccessConfiguration" OutputProperty="*" Verb="Get" Noun="BlockPublicAccessConfiguration" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeStudio" OutputProperty="Studio" Verb="Get" Noun="Studio" PipelineParameter="StudioId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetClusterSessionCredentials" OutputProperty="*" Verb="Get" Noun="ClusterSessionCredential" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAutoTerminationPolicy" OutputProperty="AutoTerminationPolicy" Verb="Get" Noun="AutoTerminationPolicy" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetManagedScalingPolicy" OutputProperty="ManagedScalingPolicy" Verb="Get" Noun="ManagedScalingPolicy" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetBlockPublicAccessConfiguration" OutputProperty="*" Verb="Get" Noun="BlockPublicAccessConfiguration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStudioSessionMapping" OutputProperty="SessionMapping" Verb="Get" Noun="StudioSessionMapping" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetClusterSessionCredentials" OutputProperty="*" Verb="Get" Noun="ClusterSessionCredential" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBootstrapActions" OutputProperty="BootstrapActions" Verb="Get" Noun="BootstrapActionList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyAlias="Get-EMRBootstrapActions">
+        <ServiceOperation MethodName="GetManagedScalingPolicy" OutputProperty="ManagedScalingPolicy" Verb="Get" Noun="ManagedScalingPolicy" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-EMRClusters">
+        <ServiceOperation MethodName="GetOnClusterAppUIPresignedURL" OutputProperty="*" Verb="Get" Noun="OnClusterAppUIPresignedURL" PipelineParameter="ClusterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInstanceFleets" OutputProperty="InstanceFleets" Verb="Get" Noun="InstanceFleetList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyAlias="Get-EMRInstanceFleets">
+        <ServiceOperation MethodName="GetPersistentAppUIPresignedURL" OutputProperty="*" Verb="Get" Noun="PersistentAppUIPresignedURL" PipelineParameter="PersistentAppUIId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInstanceGroups" OutputProperty="InstanceGroups" Verb="Get" Noun="InstanceGroupList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyAlias="Get-EMRInstanceGroups">
+        <ServiceOperation MethodName="GetStudioSessionMapping" OutputProperty="SessionMapping" Verb="Get" Noun="StudioSessionMapping" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInstances" OutputProperty="Instances" Verb="Get" Noun="InstanceList" PositionalParameters="ClusterId;InstanceGroupTypes" PipelineParameter="InstanceGroupId" NoPipelineParameter="false" LegacyAlias="Get-EMRInstances">
+        <ServiceOperation MethodName="ListBootstrapActions" OutputProperty="BootstrapActions" Verb="Get" Noun="BootstrapActionList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-EMRBootstrapActions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNotebookExecutions" OutputProperty="NotebookExecutions" Verb="Get" Noun="NotebookExecutionList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyAlias="Get-EMRClusters">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReleaseLabels" OutputProperty="ReleaseLabels" Verb="Find" Noun="ReleaseLabel" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListInstanceFleets" OutputProperty="InstanceFleets" Verb="Get" Noun="InstanceFleetList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-EMRInstanceFleets">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSecurityConfigurations" OutputProperty="SecurityConfigurations" Verb="Get" Noun="SecurityConfigurationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListInstanceGroups" OutputProperty="InstanceGroups" Verb="Get" Noun="InstanceGroupList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-EMRInstanceGroups">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSteps" OutputProperty="Steps" Verb="Get" Noun="StepList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyAlias="Get-EMRSteps">
+        <ServiceOperation MethodName="ListInstances" OutputProperty="Instances" Verb="Get" Noun="InstanceList" PositionalParameters="ClusterId;InstanceGroupTypes" PipelineParameter="InstanceGroupId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-EMRInstances">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStudios" OutputProperty="Studios" Verb="Get" Noun="StudioList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListNotebookExecutions" OutputProperty="NotebookExecutions" Verb="Get" Noun="NotebookExecutionList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStudioSessionMappings" OutputProperty="SessionMappings" Verb="Get" Noun="StudioSessionMappingList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListReleaseLabels" OutputProperty="ReleaseLabels" Verb="Find" Noun="ReleaseLabel" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSupportedInstanceTypes" OutputProperty="SupportedInstanceTypes" Verb="Get" Noun="SupportedInstanceType" PipelineParameter="ReleaseLabel" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSecurityConfigurations" OutputProperty="SecurityConfigurations" Verb="Get" Noun="SecurityConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyCluster" OutputProperty="StepConcurrencyLevel" Verb="Edit" Noun="Cluster" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSteps" OutputProperty="Steps" Verb="Get" Noun="StepList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-EMRSteps">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyInstanceFleet" Verb="Edit" Noun="InstanceFleet" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListStudios" OutputProperty="Studios" Verb="Get" Noun="StudioList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyInstanceGroups" Verb="Edit" Noun="InstanceGroup" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListStudioSessionMappings" OutputProperty="SessionMappings" Verb="Get" Noun="StudioSessionMappingList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAutoScalingPolicy" OutputProperty="*" Verb="Write" Noun="AutoScalingPolicy" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSupportedInstanceTypes" OutputProperty="SupportedInstanceTypes" Verb="Get" Noun="SupportedInstanceType" PipelineParameter="ReleaseLabel" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAutoTerminationPolicy" Verb="Write" Noun="AutoTerminationPolicy" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyCluster" OutputProperty="StepConcurrencyLevel" Verb="Edit" Noun="Cluster" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBlockPublicAccessConfiguration" Verb="Write" Noun="BlockPublicAccessConfiguration" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ModifyInstanceFleet" Verb="Edit" Noun="InstanceFleet" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutManagedScalingPolicy" Verb="Write" Noun="ManagedScalingPolicy" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyInstanceGroups" Verb="Edit" Noun="InstanceGroup" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveAutoScalingPolicy" Verb="Remove" Noun="AutoScalingPolicy" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutAutoScalingPolicy" OutputProperty="*" Verb="Write" Noun="AutoScalingPolicy" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveAutoTerminationPolicy" Verb="Remove" Noun="AutoTerminationPolicy" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutAutoTerminationPolicy" Verb="Write" Noun="AutoTerminationPolicy" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveManagedScalingPolicy" Verb="Remove" Noun="ManagedScalingPolicy" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutBlockPublicAccessConfiguration" Verb="Write" Noun="BlockPublicAccessConfiguration" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="TagKeys" PositionalParameters="TagKeys" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Remove-EMRTag">
+        <ServiceOperation MethodName="PutManagedScalingPolicy" Verb="Write" Noun="ManagedScalingPolicy" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RunJobFlow" OutputProperty="JobFlowId" Verb="Start" Noun="JobFlow" ShouldProcessTarget="Name" PositionalParameters="LogUri" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveAutoScalingPolicy" Verb="Remove" Noun="AutoScalingPolicy" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveAutoTerminationPolicy" Verb="Remove" Noun="AutoTerminationPolicy" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveManagedScalingPolicy" Verb="Remove" Noun="ManagedScalingPolicy" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="TagKeys" PositionalParameters="TagKeys" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Remove-EMRTag">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RunJobFlow" OutputProperty="JobFlowId" Verb="Start" Noun="JobFlow" ShouldProcessTarget="Name" PositionalParameters="LogUri" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Instances_Placement_AvailabilityZone" AutoRename="false" />
                 <Param Name="Instances_Placement_AvailabilityZones" AutoRename="false" />
@@ -227,39 +243,39 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetKeepJobFlowAliveWhenNoSteps" Verb="Set" Noun="KeepJobFlowAliveWhenNoStep" ShouldProcessTarget="KeepJobFlowAliveWhenNoSteps" PipelineParameter="KeepJobFlowAliveWhenNoSteps" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetKeepJobFlowAliveWhenNoSteps" Verb="Set" Noun="KeepJobFlowAliveWhenNoStep" ShouldProcessTarget="KeepJobFlowAliveWhenNoSteps" PipelineParameter="KeepJobFlowAliveWhenNoSteps" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetTerminationProtection" Verb="Set" Noun="TerminationProtection" ShouldProcessTarget="JobFlowIds" PositionalParameters="TerminationProtected" PipelineParameter="JobFlowIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetTerminationProtection" Verb="Set" Noun="TerminationProtection" ShouldProcessTarget="JobFlowIds" PositionalParameters="TerminationProtected" PipelineParameter="JobFlowIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetUnhealthyNodeReplacement" Verb="Set" Noun="UnhealthyNodeReplacement" ShouldProcessTarget="UnhealthyNodeReplacement" PipelineParameter="UnhealthyNodeReplacement" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetUnhealthyNodeReplacement" Verb="Set" Noun="UnhealthyNodeReplacement" ShouldProcessTarget="UnhealthyNodeReplacement" PipelineParameter="UnhealthyNodeReplacement" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetVisibleToAllUsers" Verb="Set" Noun="VisibleToAllUser" ShouldProcessTarget="JobFlowIds" PositionalParameters="VisibleToAllUsers" PipelineParameter="JobFlowIds" NoPipelineParameter="false" LegacyAlias="Set-EMRVisibleToAllUsers">
+        <ServiceOperation MethodName="SetVisibleToAllUsers" Verb="Set" Noun="VisibleToAllUser" ShouldProcessTarget="JobFlowIds" PositionalParameters="VisibleToAllUsers" PipelineParameter="JobFlowIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Set-EMRVisibleToAllUsers">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartNotebookExecution" OutputProperty="NotebookExecutionId" Verb="Start" Noun="NotebookExecution" ShouldProcessTarget="EditorId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartNotebookExecution" OutputProperty="NotebookExecutionId" Verb="Start" Noun="NotebookExecution" ShouldProcessTarget="EditorId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopNotebookExecution" Verb="Stop" Noun="NotebookExecution" ShouldProcessTarget="NotebookExecutionId" PipelineParameter="NotebookExecutionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopNotebookExecution" Verb="Stop" Noun="NotebookExecution" ShouldProcessTarget="NotebookExecutionId" PipelineParameter="NotebookExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TerminateJobFlows" Verb="Stop" Noun="JobFlow" ShouldProcessTarget="JobFlowIds" PipelineParameter="JobFlowIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TerminateJobFlows" Verb="Stop" Noun="JobFlow" ShouldProcessTarget="JobFlowIds" PipelineParameter="JobFlowIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStudio" Verb="Update" Noun="Studio" ShouldProcessTarget="StudioId" PipelineParameter="StudioId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateStudio" Verb="Update" Noun="Studio" ShouldProcessTarget="StudioId" PipelineParameter="StudioId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStudioSessionMapping" Verb="Update" Noun="StudioSessionMapping" ShouldProcessTarget="StudioId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateStudioSessionMapping" Verb="Update" Noun="StudioSessionMapping" ShouldProcessTarget="StudioId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

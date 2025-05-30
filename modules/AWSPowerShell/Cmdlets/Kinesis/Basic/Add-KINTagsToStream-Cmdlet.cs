@@ -79,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A set of up to 10 key-value pairs to use to create the tags.</para>
+        /// <para>A set of up to 50 key-value pairs to use to create the tags. A tag consists of a required
+        /// key and an optional value. You can add up to 50 tags per resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

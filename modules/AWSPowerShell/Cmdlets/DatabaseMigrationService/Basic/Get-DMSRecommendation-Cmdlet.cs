@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Filters applied to the target engine recommendations described in the form of key-value
-        /// pairs.</para>
+        /// pairs.</para><para>Valid filter names: <c>database-id</c> | <c>engine-name</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

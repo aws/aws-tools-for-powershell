@@ -34,6 +34,16 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     /// memory (GiB) you’ll need to assemble the digital assets held within a particular instance.
     /// You can specify certain instance types to use, or let the worker know which instances
     /// types to exclude.
+    /// 
+    ///  
+    /// <para>
+    /// Deadline Cloud limits the number of workers to less than or equal to the fleet's maximum
+    /// worker count. The service maintains eventual consistency for the worker count. If
+    /// you make multiple rapid calls to <c>CreateWorker</c> before the field updates, you
+    /// might exceed your fleet's maximum worker count. For example, if your <c>maxWorkerCount</c>
+    /// is 10 and you currently have 9 workers, making two quick <c>CreateWorker</c> calls
+    /// might successfully create 2 workers instead of 1, resulting in 11 total workers.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "ADCWorker", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -112,6 +122,18 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("HostProperties_IpAddresses_IpV6Addresses")]
         public System.String[] IpAddresses_IpV6Address { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Each tag consists of a tag key and a tag value. Tag keys and values are both required,
+        /// but tag values can be empty strings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -193,6 +215,14 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             if (this.IpAddresses_IpV6Address != null)
             {
                 context.IpAddresses_IpV6Address = new List<System.String>(this.IpAddresses_IpV6Address);
+            }
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -276,6 +306,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             {
                 request.HostProperties = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -337,6 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public System.String HostProperties_HostName { get; set; }
             public List<System.String> IpAddresses_IpV4Address { get; set; }
             public List<System.String> IpAddresses_IpV6Address { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Deadline.Model.CreateWorkerResponse, NewADCWorkerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.WorkerId;
         }

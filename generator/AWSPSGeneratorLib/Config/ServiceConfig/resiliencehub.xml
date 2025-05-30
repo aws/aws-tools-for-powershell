@@ -19,255 +19,255 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptResourceGroupingRecommendations" OutputProperty="*" Verb="Approve" Noun="ResourceGroupingRecommendation" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AcceptResourceGroupingRecommendations" OutputProperty="*" Verb="Approve" Noun="ResourceGroupingRecommendation" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddDraftAppVersionResourceMappings" OutputProperty="*" Verb="Add" Noun="DraftAppVersionResourceMapping" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddDraftAppVersionResourceMappings" OutputProperty="*" Verb="Add" Noun="DraftAppVersionResourceMapping" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchUpdateRecommendationStatus" OutputProperty="*" Verb="Set" Noun="UpdateRecommendationStatus" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchUpdateRecommendationStatus" OutputProperty="*" Verb="Set" Noun="UpdateRecommendationStatus" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateApp" OutputProperty="App" Verb="New" Noun="App" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateApp" OutputProperty="App" Verb="New" Noun="App" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAppVersionAppComponent" OutputProperty="*" Verb="New" Noun="AppVersionAppComponent" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAppVersionAppComponent" OutputProperty="*" Verb="New" Noun="AppVersionAppComponent" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAppVersionResource" OutputProperty="*" Verb="New" Noun="AppVersionResource" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAppVersionResource" OutputProperty="*" Verb="New" Noun="AppVersionResource" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRecommendationTemplate" OutputProperty="RecommendationTemplate" Verb="New" Noun="RecommendationTemplate" ShouldProcessTarget="AssessmentArn" PipelineParameter="AssessmentArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRecommendationTemplate" OutputProperty="RecommendationTemplate" Verb="New" Noun="RecommendationTemplate" ShouldProcessTarget="AssessmentArn" PipelineParameter="AssessmentArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateResiliencyPolicy" OutputProperty="Policy" Verb="New" Noun="ResiliencyPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateResiliencyPolicy" OutputProperty="Policy" Verb="New" Noun="ResiliencyPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApp" OutputProperty="AppArn" Verb="Remove" Noun="App" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApp" OutputProperty="AppArn" Verb="Remove" Noun="App" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAppAssessment" OutputProperty="*" Verb="Remove" Noun="AppAssessment" ShouldProcessTarget="AssessmentArn" PipelineParameter="AssessmentArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAppAssessment" OutputProperty="*" Verb="Remove" Noun="AppAssessment" ShouldProcessTarget="AssessmentArn" PipelineParameter="AssessmentArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAppInputSource" OutputProperty="*" Verb="Remove" Noun="AppInputSource" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAppInputSource" OutputProperty="*" Verb="Remove" Noun="AppInputSource" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAppVersionAppComponent" OutputProperty="*" Verb="Remove" Noun="AppVersionAppComponent" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAppVersionAppComponent" OutputProperty="*" Verb="Remove" Noun="AppVersionAppComponent" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAppVersionResource" OutputProperty="*" Verb="Remove" Noun="AppVersionResource" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAppVersionResource" OutputProperty="*" Verb="Remove" Noun="AppVersionResource" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRecommendationTemplate" OutputProperty="*" Verb="Remove" Noun="RecommendationTemplate" ShouldProcessTarget="RecommendationTemplateArn" PipelineParameter="RecommendationTemplateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRecommendationTemplate" OutputProperty="*" Verb="Remove" Noun="RecommendationTemplate" ShouldProcessTarget="RecommendationTemplateArn" PipelineParameter="RecommendationTemplateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResiliencyPolicy" OutputProperty="PolicyArn" Verb="Remove" Noun="ResiliencyPolicy" ShouldProcessTarget="PolicyArn" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteResiliencyPolicy" OutputProperty="PolicyArn" Verb="Remove" Noun="ResiliencyPolicy" ShouldProcessTarget="PolicyArn" PipelineParameter="PolicyArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeApp" OutputProperty="App" Verb="Get" Noun="App" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeApp" OutputProperty="App" Verb="Get" Noun="App" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAppAssessment" OutputProperty="Assessment" Verb="Get" Noun="AppAssessment" PipelineParameter="AssessmentArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAppAssessment" OutputProperty="Assessment" Verb="Get" Noun="AppAssessment" PipelineParameter="AssessmentArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAppVersion" OutputProperty="*" Verb="Get" Noun="AppVersion" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAppVersion" OutputProperty="*" Verb="Get" Noun="AppVersion" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAppVersionAppComponent" OutputProperty="*" Verb="Get" Noun="AppVersionAppComponent" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAppVersionAppComponent" OutputProperty="*" Verb="Get" Noun="AppVersionAppComponent" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAppVersionResource" OutputProperty="*" Verb="Get" Noun="AppVersionResource" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAppVersionResource" OutputProperty="*" Verb="Get" Noun="AppVersionResource" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAppVersionResourcesResolutionStatus" OutputProperty="*" Verb="Get" Noun="AppVersionResourcesResolutionStatus" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAppVersionResourcesResolutionStatus" OutputProperty="*" Verb="Get" Noun="AppVersionResourcesResolutionStatus" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAppVersionTemplate" OutputProperty="*" Verb="Get" Noun="AppVersionTemplate" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAppVersionTemplate" OutputProperty="*" Verb="Get" Noun="AppVersionTemplate" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDraftAppVersionResourcesImportStatus" OutputProperty="*" Verb="Get" Noun="DraftAppVersionResourcesImportStatus" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDraftAppVersionResourcesImportStatus" OutputProperty="*" Verb="Get" Noun="DraftAppVersionResourcesImportStatus" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMetricsExport" OutputProperty="*" Verb="Get" Noun="MetricsExport" PipelineParameter="MetricsExportId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeMetricsExport" OutputProperty="*" Verb="Get" Noun="MetricsExport" PipelineParameter="MetricsExportId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeResiliencyPolicy" OutputProperty="Policy" Verb="Get" Noun="ResiliencyPolicy" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeResiliencyPolicy" OutputProperty="Policy" Verb="Get" Noun="ResiliencyPolicy" PipelineParameter="PolicyArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeResourceGroupingRecommendationTask" OutputProperty="*" Verb="Get" Noun="ResourceGroupingRecommendationTask" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeResourceGroupingRecommendationTask" OutputProperty="*" Verb="Get" Noun="ResourceGroupingRecommendationTask" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportResourcesToDraftAppVersion" OutputProperty="*" Verb="Import" Noun="ResourcesToDraftAppVersion" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ImportResourcesToDraftAppVersion" OutputProperty="*" Verb="Import" Noun="ResourcesToDraftAppVersion" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAlarmRecommendations" OutputProperty="AlarmRecommendations" Verb="Get" Noun="AlarmRecommendationList" PipelineParameter="AssessmentArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAlarmRecommendations" OutputProperty="AlarmRecommendations" Verb="Get" Noun="AlarmRecommendationList" PipelineParameter="AssessmentArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAppAssessmentComplianceDrifts" OutputProperty="ComplianceDrifts" Verb="Get" Noun="AppAssessmentComplianceDriftList" PipelineParameter="AssessmentArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAppAssessmentComplianceDrifts" OutputProperty="ComplianceDrifts" Verb="Get" Noun="AppAssessmentComplianceDriftList" PipelineParameter="AssessmentArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAppAssessmentResourceDrifts" OutputProperty="ResourceDrifts" Verb="Get" Noun="AppAssessmentResourceDriftList" PipelineParameter="AssessmentArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAppAssessmentResourceDrifts" OutputProperty="ResourceDrifts" Verb="Get" Noun="AppAssessmentResourceDriftList" PipelineParameter="AssessmentArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAppAssessments" OutputProperty="AssessmentSummaries" Verb="Get" Noun="AppAssessmentList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListAppAssessments" OutputProperty="AssessmentSummaries" Verb="Get" Noun="AppAssessmentList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAppComponentCompliances" OutputProperty="ComponentCompliances" Verb="Get" Noun="AppComponentComplianceList" PipelineParameter="AssessmentArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAppComponentCompliances" OutputProperty="ComponentCompliances" Verb="Get" Noun="AppComponentComplianceList" PipelineParameter="AssessmentArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAppComponentRecommendations" OutputProperty="ComponentRecommendations" Verb="Get" Noun="AppComponentRecommendationList" PipelineParameter="AssessmentArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAppComponentRecommendations" OutputProperty="ComponentRecommendations" Verb="Get" Noun="AppComponentRecommendationList" PipelineParameter="AssessmentArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAppInputSources" OutputProperty="AppInputSources" Verb="Get" Noun="AppInputSourceList" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAppInputSources" OutputProperty="AppInputSources" Verb="Get" Noun="AppInputSourceList" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApps" OutputProperty="AppSummaries" Verb="Get" Noun="AppList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListApps" OutputProperty="AppSummaries" Verb="Get" Noun="AppList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAppVersionAppComponents" OutputProperty="*" Verb="Get" Noun="AppVersionAppComponentList" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAppVersionAppComponents" OutputProperty="*" Verb="Get" Noun="AppVersionAppComponentList" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAppVersionResourceMappings" OutputProperty="ResourceMappings" Verb="Get" Noun="AppVersionResourceMappingList" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAppVersionResourceMappings" OutputProperty="ResourceMappings" Verb="Get" Noun="AppVersionResourceMappingList" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAppVersionResources" OutputProperty="*" Verb="Get" Noun="AppVersionResourceList" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAppVersionResources" OutputProperty="*" Verb="Get" Noun="AppVersionResourceList" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAppVersions" OutputProperty="AppVersions" Verb="Get" Noun="AppVersionList" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAppVersions" OutputProperty="AppVersions" Verb="Get" Noun="AppVersionList" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMetrics" OutputProperty="Rows" Verb="Get" Noun="MetricList" PipelineParameter="DataSource" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMetrics" OutputProperty="Rows" Verb="Get" Noun="MetricList" PipelineParameter="DataSource" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecommendationTemplates" OutputProperty="RecommendationTemplates" Verb="Get" Noun="RecommendationTemplateList" PipelineParameter="AssessmentArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRecommendationTemplates" OutputProperty="RecommendationTemplates" Verb="Get" Noun="RecommendationTemplateList" PipelineParameter="AssessmentArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResiliencyPolicies" OutputProperty="ResiliencyPolicies" Verb="Get" Noun="ResiliencyPolicyList" PipelineParameter="PolicyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResiliencyPolicies" OutputProperty="ResiliencyPolicies" Verb="Get" Noun="ResiliencyPolicyList" PipelineParameter="PolicyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceGroupingRecommendations" OutputProperty="*" Verb="Get" Noun="ResourceGroupingRecommendationList" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResourceGroupingRecommendations" OutputProperty="*" Verb="Get" Noun="ResourceGroupingRecommendationList" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSopRecommendations" OutputProperty="SopRecommendations" Verb="Get" Noun="SopRecommendationList" PipelineParameter="AssessmentArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSopRecommendations" OutputProperty="SopRecommendations" Verb="Get" Noun="SopRecommendationList" PipelineParameter="AssessmentArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSuggestedResiliencyPolicies" OutputProperty="ResiliencyPolicies" Verb="Get" Noun="SuggestedResiliencyPolicyList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSuggestedResiliencyPolicies" OutputProperty="ResiliencyPolicies" Verb="Get" Noun="SuggestedResiliencyPolicyList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTestRecommendations" OutputProperty="TestRecommendations" Verb="Get" Noun="TestRecommendationList" PipelineParameter="AssessmentArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTestRecommendations" OutputProperty="TestRecommendations" Verb="Get" Noun="TestRecommendationList" PipelineParameter="AssessmentArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUnsupportedAppVersionResources" OutputProperty="*" Verb="Get" Noun="UnsupportedAppVersionResourceList" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUnsupportedAppVersionResources" OutputProperty="*" Verb="Get" Noun="UnsupportedAppVersionResourceList" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PublishAppVersion" OutputProperty="*" Verb="Publish" Noun="AppVersion" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PublishAppVersion" OutputProperty="*" Verb="Publish" Noun="AppVersion" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutDraftAppVersionTemplate" OutputProperty="*" Verb="Write" Noun="DraftAppVersionTemplate" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutDraftAppVersionTemplate" OutputProperty="*" Verb="Write" Noun="DraftAppVersionTemplate" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RejectResourceGroupingRecommendations" OutputProperty="*" Verb="Deny" Noun="ResourceGroupingRecommendation" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RejectResourceGroupingRecommendations" OutputProperty="*" Verb="Deny" Noun="ResourceGroupingRecommendation" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveDraftAppVersionResourceMappings" OutputProperty="*" Verb="Remove" Noun="DraftAppVersionResourceMapping" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveDraftAppVersionResourceMappings" OutputProperty="*" Verb="Remove" Noun="DraftAppVersionResourceMapping" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResolveAppVersionResources" OutputProperty="*" Verb="Resolve" Noun="AppVersionResource" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ResolveAppVersionResources" OutputProperty="*" Verb="Resolve" Noun="AppVersionResource" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartAppAssessment" OutputProperty="Assessment" Verb="Start" Noun="AppAssessment" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartAppAssessment" OutputProperty="Assessment" Verb="Start" Noun="AppAssessment" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMetricsExport" OutputProperty="*" Verb="Start" Noun="MetricsExport" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartMetricsExport" OutputProperty="*" Verb="Start" Noun="MetricsExport" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartResourceGroupingRecommendationTask" OutputProperty="*" Verb="Start" Noun="ResourceGroupingRecommendationTask" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartResourceGroupingRecommendationTask" OutputProperty="*" Verb="Start" Noun="ResourceGroupingRecommendationTask" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApp" OutputProperty="App" Verb="Update" Noun="App" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateApp" OutputProperty="App" Verb="Update" Noun="App" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAppVersion" OutputProperty="*" Verb="Update" Noun="AppVersion" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAppVersion" OutputProperty="*" Verb="Update" Noun="AppVersion" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAppVersionAppComponent" OutputProperty="*" Verb="Update" Noun="AppVersionAppComponent" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAppVersionAppComponent" OutputProperty="*" Verb="Update" Noun="AppVersionAppComponent" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAppVersionResource" OutputProperty="*" Verb="Update" Noun="AppVersionResource" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAppVersionResource" OutputProperty="*" Verb="Update" Noun="AppVersionResource" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateResiliencyPolicy" OutputProperty="Policy" Verb="Update" Noun="ResiliencyPolicy" ShouldProcessTarget="PolicyArn" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateResiliencyPolicy" OutputProperty="Policy" Verb="Update" Noun="ResiliencyPolicy" ShouldProcessTarget="PolicyArn" PipelineParameter="PolicyArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

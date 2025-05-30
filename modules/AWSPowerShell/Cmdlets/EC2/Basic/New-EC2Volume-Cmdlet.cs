@@ -220,6 +220,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? Throughput { get; set; }
         #endregion
         
+        #region Parameter VolumeInitializationRate
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization
+        /// rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume.
+        /// This is also known as <i>volume initialization</i>. Specifying a volume initialization
+        /// rate ensures that the volume is initialized at a predictable and consistent rate after
+        /// creation.</para><para>This parameter is supported only for volumes created from snapshots. Omit this parameter
+        /// if:</para><ul><li><para>You want to create the volume using fast snapshot restore. You must specify a snapshot
+        /// that is enabled for fast snapshot restore. In this case, the volume is fully initialized
+        /// at creation.</para><note><para>If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization
+        /// rate, the volume will be initialized at the specified rate instead of fast snapshot
+        /// restore.</para></note></li><li><para>You want to create a volume that is initialized at the default rate.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html">
+        /// Initialize Amazon EBS volumes</a> in the <i>Amazon EC2 User Guide</i>.</para><para>Valid range: 100 - 300 MiB/s</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? VolumeInitializationRate { get; set; }
+        #endregion
+        
         #region Parameter VolumeType
         /// <summary>
         /// <para>
@@ -313,6 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
             }
             context.Throughput = this.Throughput;
+            context.VolumeInitializationRate = this.VolumeInitializationRate;
             context.VolumeType = this.VolumeType;
             
             // allow further manipulation of loaded context prior to processing
@@ -397,6 +418,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.Throughput = cmdletContext.Throughput.Value;
             }
+            if (cmdletContext.VolumeInitializationRate != null)
+            {
+                request.VolumeInitializationRate = cmdletContext.VolumeInitializationRate.Value;
+            }
             if (cmdletContext.VolumeType != null)
             {
                 request.VolumeType = cmdletContext.VolumeType;
@@ -469,6 +494,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String SnapshotId { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Int32? Throughput { get; set; }
+            public System.Int32? VolumeInitializationRate { get; set; }
             public Amazon.EC2.VolumeType VolumeType { get; set; }
             public System.Func<Amazon.EC2.Model.CreateVolumeResponse, NewEC2VolumeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Volume;

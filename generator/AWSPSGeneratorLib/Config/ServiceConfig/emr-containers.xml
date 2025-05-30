@@ -18,95 +18,95 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelJobRun" OutputProperty="*" Verb="Stop" Noun="JobRun" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelJobRun" OutputProperty="*" Verb="Stop" Noun="JobRun" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateJobTemplate" OutputProperty="*" Verb="New" Noun="JobTemplate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateJobTemplate" OutputProperty="*" Verb="New" Noun="JobTemplate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateManagedEndpoint" OutputProperty="*" Verb="New" Noun="ManagedEndpoint" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateManagedEndpoint" OutputProperty="*" Verb="New" Noun="ManagedEndpoint" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSecurityConfiguration" OutputProperty="*" Verb="New" Noun="SecurityConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateSecurityConfiguration" OutputProperty="*" Verb="New" Noun="SecurityConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVirtualCluster" OutputProperty="*" Verb="New" Noun="VirtualCluster" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateVirtualCluster" OutputProperty="*" Verb="New" Noun="VirtualCluster" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteJobTemplate" OutputProperty="Id" Verb="Remove" Noun="JobTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteJobTemplate" OutputProperty="Id" Verb="Remove" Noun="JobTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteManagedEndpoint" OutputProperty="*" Verb="Remove" Noun="ManagedEndpoint" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteManagedEndpoint" OutputProperty="*" Verb="Remove" Noun="ManagedEndpoint" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVirtualCluster" OutputProperty="Id" Verb="Remove" Noun="VirtualCluster" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteVirtualCluster" OutputProperty="Id" Verb="Remove" Noun="VirtualCluster" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeJobRun" OutputProperty="JobRun" Verb="Get" Noun="JobRun" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeJobRun" OutputProperty="JobRun" Verb="Get" Noun="JobRun" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeJobTemplate" OutputProperty="JobTemplate" Verb="Get" Noun="JobTemplate" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeJobTemplate" OutputProperty="JobTemplate" Verb="Get" Noun="JobTemplate" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeManagedEndpoint" OutputProperty="Endpoint" Verb="Get" Noun="ManagedEndpoint" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeManagedEndpoint" OutputProperty="Endpoint" Verb="Get" Noun="ManagedEndpoint" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSecurityConfiguration" OutputProperty="SecurityConfiguration" Verb="Get" Noun="SecurityConfiguration" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSecurityConfiguration" OutputProperty="SecurityConfiguration" Verb="Get" Noun="SecurityConfiguration" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVirtualCluster" OutputProperty="VirtualCluster" Verb="Get" Noun="VirtualCluster" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeVirtualCluster" OutputProperty="VirtualCluster" Verb="Get" Noun="VirtualCluster" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetManagedEndpointSessionCredentials" OutputProperty="*" Verb="Get" Noun="ManagedEndpointSessionCredential" PipelineParameter="EndpointIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetManagedEndpointSessionCredentials" OutputProperty="*" Verb="Get" Noun="ManagedEndpointSessionCredential" PipelineParameter="EndpointIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobRuns" OutputProperty="JobRuns" Verb="Get" Noun="JobRunList" PipelineParameter="VirtualClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListJobRuns" OutputProperty="JobRuns" Verb="Get" Noun="JobRunList" PipelineParameter="VirtualClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobTemplates" OutputProperty="Templates" Verb="Get" Noun="JobTemplateList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListJobTemplates" OutputProperty="Templates" Verb="Get" Noun="JobTemplateList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListManagedEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="ManagedEndpointList" PipelineParameter="VirtualClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListManagedEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="ManagedEndpointList" PipelineParameter="VirtualClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSecurityConfigurations" OutputProperty="SecurityConfigurations" Verb="Get" Noun="SecurityConfigurationList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListSecurityConfigurations" OutputProperty="SecurityConfigurations" Verb="Get" Noun="SecurityConfigurationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVirtualClusters" OutputProperty="VirtualClusters" Verb="Get" Noun="VirtualClusterList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListVirtualClusters" OutputProperty="VirtualClusters" Verb="Get" Noun="VirtualClusterList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartJobRun" OutputProperty="*" Verb="Start" Noun="JobRun" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="VirtualClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartJobRun" OutputProperty="*" Verb="Start" Noun="JobRun" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="VirtualClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

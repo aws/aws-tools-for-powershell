@@ -30,9 +30,10 @@ using Amazon.PinpointSMSVoiceV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
-    /// Update a country rule set to <c>ALLOW</c> or <c>BLOCK</c> messages to be sent to the
-    /// specified destination counties. You can update one or multiple countries at a time.
-    /// The updates are only applied to the specified NumberCapability type.
+    /// Update a country rule set to <c>ALLOW</c>, <c>BLOCK</c>, <c>MONITOR</c>, or <c>FILTER</c>
+    /// messages to be sent to the specified destination counties. You can update one or multiple
+    /// countries at a time. The updates are only applied to the specified NumberCapability
+    /// type.
     /// </summary>
     [Cmdlet("Update", "SMSVProtectConfigurationCountryRuleSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.UpdateProtectConfigurationCountryRuleSetResponse")]
@@ -52,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <para>A map of ProtectConfigurationCountryRuleSetInformation objects that contain the details
         /// for the requested NumberCapability. The Key is the two-letter ISO country code. For
         /// a list of supported ISO country codes, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported
-        /// countries and regions (SMS channel)</a> in the AWS End User Messaging SMS User Guide.</para>
+        /// countries and regions (SMS channel)</a> in the AWS End User Messaging SMS User Guide.</para><para>For example, to set the United States as allowed and Canada as blocked, the <c>CountryRuleSetUpdates</c>
+        /// would be formatted as: <c>"CountryRuleSetUpdates": { "US" : { "ProtectStatus": "ALLOW"
+        /// } "CA" : { "ProtectStatus": "BLOCK" } }</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

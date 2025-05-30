@@ -28,207 +28,207 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddListenerCertificates" OutputProperty="Certificates" Verb="Add" Noun="ListenerCertificate" ShouldProcessTarget="ListenerArn" PipelineParameter="Certificates" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddListenerCertificates" OutputProperty="Certificates" Verb="Add" Noun="ListenerCertificate" ShouldProcessTarget="ListenerArn" PipelineParameter="Certificates" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="Tag" ShouldProcessTarget="ResourceArns" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="Tag" ShouldProcessTarget="ResourceArns" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddTrustStoreRevocations" OutputProperty="TrustStoreRevocations" Verb="Add" Noun="TrustStoreRevocation" ShouldProcessTarget="TrustStoreArn" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddTrustStoreRevocations" OutputProperty="TrustStoreRevocations" Verb="Add" Noun="TrustStoreRevocation" ShouldProcessTarget="TrustStoreArn" PipelineParameter="TrustStoreArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateListener" OutputProperty="Listeners" Verb="New" Noun="Listener" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateListener" OutputProperty="Listeners" Verb="New" Noun="Listener" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLoadBalancer" OutputProperty="LoadBalancers" Verb="New" Noun="LoadBalancer" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateLoadBalancer" OutputProperty="LoadBalancers" Verb="New" Noun="LoadBalancer" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRule" OutputProperty="Rules" Verb="New" Noun="Rule" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRule" OutputProperty="Rules" Verb="New" Noun="Rule" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTargetGroup" OutputProperty="TargetGroups" Verb="New" Noun="TargetGroup" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateTargetGroup" OutputProperty="TargetGroups" Verb="New" Noun="TargetGroup" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTrustStore" OutputProperty="TrustStores" Verb="New" Noun="TrustStore" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateTrustStore" OutputProperty="TrustStores" Verb="New" Noun="TrustStore" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteListener" Verb="Remove" Noun="Listener" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteListener" Verb="Remove" Noun="Listener" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLoadBalancer" Verb="Remove" Noun="LoadBalancer" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteLoadBalancer" Verb="Remove" Noun="LoadBalancer" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRule" Verb="Remove" Noun="Rule" ShouldProcessTarget="RuleArn" PipelineParameter="RuleArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRule" Verb="Remove" Noun="Rule" ShouldProcessTarget="RuleArn" PipelineParameter="RuleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSharedTrustStoreAssociation" Verb="Remove" Noun="SharedTrustStoreAssociation" ShouldProcessTarget="TrustStoreArn" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSharedTrustStoreAssociation" Verb="Remove" Noun="SharedTrustStoreAssociation" ShouldProcessTarget="TrustStoreArn" PipelineParameter="TrustStoreArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTargetGroup" Verb="Remove" Noun="TargetGroup" ShouldProcessTarget="TargetGroupArn" PipelineParameter="TargetGroupArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTargetGroup" Verb="Remove" Noun="TargetGroup" ShouldProcessTarget="TargetGroupArn" PipelineParameter="TargetGroupArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTrustStore" Verb="Remove" Noun="TrustStore" ShouldProcessTarget="TrustStoreArn" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTrustStore" Verb="Remove" Noun="TrustStore" ShouldProcessTarget="TrustStoreArn" PipelineParameter="TrustStoreArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterTargets" Verb="Unregister" Noun="Target" ShouldProcessTarget="TargetGroupArn" PipelineParameter="TargetGroupArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeregisterTargets" Verb="Unregister" Noun="Target" ShouldProcessTarget="TargetGroupArn" PipelineParameter="TargetGroupArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountLimits" OutputProperty="Limits" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeAccountLimits" OutputProperty="Limits" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCapacityReservation" OutputProperty="*" Verb="Get" Noun="CapacityReservation" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCapacityReservation" OutputProperty="*" Verb="Get" Noun="CapacityReservation" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeListenerAttributes" OutputProperty="Attributes" Verb="Get" Noun="ListenerAttribute" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeListenerAttributes" OutputProperty="Attributes" Verb="Get" Noun="ListenerAttribute" PipelineParameter="ListenerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeListenerCertificates" OutputProperty="Certificates" Verb="Get" Noun="ListenerCertificate" PipelineParameter="ListenerArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeListenerCertificates" OutputProperty="Certificates" Verb="Get" Noun="ListenerCertificate" PipelineParameter="ListenerArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeListeners" OutputProperty="Listeners" Verb="Get" Noun="Listener" PipelineParameter="ListenerArns" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeListeners" OutputProperty="Listeners" Verb="Get" Noun="Listener" PipelineParameter="ListenerArns" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLoadBalancerAttributes" OutputProperty="Attributes" Verb="Get" Noun="LoadBalancerAttribute" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLoadBalancerAttributes" OutputProperty="Attributes" Verb="Get" Noun="LoadBalancerAttribute" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLoadBalancers" OutputProperty="LoadBalancers" Verb="Get" Noun="LoadBalancer" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeLoadBalancers" OutputProperty="LoadBalancers" Verb="Get" Noun="LoadBalancer" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRules" OutputProperty="Rules" Verb="Get" Noun="Rule" PipelineParameter="ListenerArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeRules" OutputProperty="Rules" Verb="Get" Noun="Rule" PipelineParameter="ListenerArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSSLPolicies" OutputProperty="SslPolicies" Verb="Get" Noun="SSLPolicy" PipelineParameter="Names" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeSSLPolicies" OutputProperty="SslPolicies" Verb="Get" Noun="SSLPolicy" PipelineParameter="Names" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTags" OutputProperty="TagDescriptions" Verb="Get" Noun="Tag" PipelineParameter="ResourceArns" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="TagDescriptions" Verb="Get" Noun="Tag" PipelineParameter="ResourceArns" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTargetGroupAttributes" OutputProperty="Attributes" Verb="Get" Noun="TargetGroupAttribute" PipelineParameter="TargetGroupArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTargetGroupAttributes" OutputProperty="Attributes" Verb="Get" Noun="TargetGroupAttribute" PipelineParameter="TargetGroupArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTargetGroups" OutputProperty="TargetGroups" Verb="Get" Noun="TargetGroup" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeTargetGroups" OutputProperty="TargetGroups" Verb="Get" Noun="TargetGroup" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTargetHealth" OutputProperty="TargetHealthDescriptions" Verb="Get" Noun="TargetHealth" PipelineParameter="TargetGroupArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTargetHealth" OutputProperty="TargetHealthDescriptions" Verb="Get" Noun="TargetHealth" PipelineParameter="TargetGroupArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTrustStoreAssociations" OutputProperty="TrustStoreAssociations" Verb="Get" Noun="TrustStoreAssociation" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTrustStoreAssociations" OutputProperty="TrustStoreAssociations" Verb="Get" Noun="TrustStoreAssociation" PipelineParameter="TrustStoreArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTrustStoreRevocations" OutputProperty="TrustStoreRevocations" Verb="Get" Noun="TrustStoreRevocation" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTrustStoreRevocations" OutputProperty="TrustStoreRevocations" Verb="Get" Noun="TrustStoreRevocation" PipelineParameter="TrustStoreArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTrustStores" OutputProperty="TrustStores" Verb="Get" Noun="TrustStore" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTrustStores" OutputProperty="TrustStores" Verb="Get" Noun="TrustStore" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTrustStoreCaCertificatesBundle" OutputProperty="Location" Verb="Get" Noun="TrustStoreCaCertificatesBundle" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTrustStoreCaCertificatesBundle" OutputProperty="Location" Verb="Get" Noun="TrustStoreCaCertificatesBundle" PipelineParameter="TrustStoreArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTrustStoreRevocationContent" OutputProperty="Location" Verb="Get" Noun="TrustStoreRevocationContent" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTrustStoreRevocationContent" OutputProperty="Location" Verb="Get" Noun="TrustStoreRevocationContent" PipelineParameter="TrustStoreArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyCapacityReservation" OutputProperty="*" Verb="Edit" Noun="CapacityReservation" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyCapacityReservation" OutputProperty="*" Verb="Edit" Noun="CapacityReservation" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyIpPools" OutputProperty="IpamPools" Verb="Edit" Noun="IpPool" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyIpPools" OutputProperty="IpamPools" Verb="Edit" Noun="IpPool" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyListener" OutputProperty="Listeners" Verb="Edit" Noun="Listener" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyListener" OutputProperty="Listeners" Verb="Edit" Noun="Listener" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyListenerAttributes" OutputProperty="Attributes" Verb="Edit" Noun="ListenerAttribute" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyListenerAttributes" OutputProperty="Attributes" Verb="Edit" Noun="ListenerAttribute" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyLoadBalancerAttributes" OutputProperty="Attributes" Verb="Edit" Noun="LoadBalancerAttribute" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyLoadBalancerAttributes" OutputProperty="Attributes" Verb="Edit" Noun="LoadBalancerAttribute" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyRule" OutputProperty="Rules" Verb="Edit" Noun="Rule" ShouldProcessTarget="RuleArn" PipelineParameter="RuleArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyRule" OutputProperty="Rules" Verb="Edit" Noun="Rule" ShouldProcessTarget="RuleArn" PipelineParameter="RuleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyTargetGroup" OutputProperty="TargetGroups" Verb="Edit" Noun="TargetGroup" ShouldProcessTarget="TargetGroupArn" PipelineParameter="TargetGroupArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyTargetGroup" OutputProperty="TargetGroups" Verb="Edit" Noun="TargetGroup" ShouldProcessTarget="TargetGroupArn" PipelineParameter="TargetGroupArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyTargetGroupAttributes" OutputProperty="Attributes" Verb="Edit" Noun="TargetGroupAttribute" ShouldProcessTarget="TargetGroupArn" PipelineParameter="TargetGroupArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyTargetGroupAttributes" OutputProperty="Attributes" Verb="Edit" Noun="TargetGroupAttribute" ShouldProcessTarget="TargetGroupArn" PipelineParameter="TargetGroupArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyTrustStore" OutputProperty="TrustStores" Verb="Edit" Noun="TrustStore" ShouldProcessTarget="TrustStoreArn" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyTrustStore" OutputProperty="TrustStores" Verb="Edit" Noun="TrustStore" ShouldProcessTarget="TrustStoreArn" PipelineParameter="TrustStoreArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterTargets" Verb="Register" Noun="Target" ShouldProcessTarget="TargetGroupArn" PipelineParameter="TargetGroupArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterTargets" Verb="Register" Noun="Target" ShouldProcessTarget="TargetGroupArn" PipelineParameter="TargetGroupArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveListenerCertificates" Verb="Remove" Noun="ListenerCertificate" ShouldProcessTarget="ListenerArn" PipelineParameter="Certificates" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveListenerCertificates" Verb="Remove" Noun="ListenerCertificate" ShouldProcessTarget="ListenerArn" PipelineParameter="Certificates" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="Tag" ShouldProcessTarget="ResourceArns" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="Tag" ShouldProcessTarget="ResourceArns" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTrustStoreRevocations" Verb="Remove" Noun="TrustStoreRevocation" ShouldProcessTarget="TrustStoreArn" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveTrustStoreRevocations" Verb="Remove" Noun="TrustStoreRevocation" ShouldProcessTarget="TrustStoreArn" PipelineParameter="TrustStoreArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetIpAddressType" OutputProperty="IpAddressType" Verb="Set" Noun="IpAddressType" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetIpAddressType" OutputProperty="IpAddressType" Verb="Set" Noun="IpAddressType" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetRulePriorities" OutputProperty="Rules" Verb="Set" Noun="RulePriority" ShouldProcessTarget="RulePriorities" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="SetRulePriorities" OutputProperty="Rules" Verb="Set" Noun="RulePriority" ShouldProcessTarget="RulePriorities" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetSecurityGroups" OutputProperty="SecurityGroupIds" Verb="Set" Noun="SecurityGroup" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetSecurityGroups" OutputProperty="SecurityGroupIds" Verb="Set" Noun="SecurityGroup" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetSubnets" OutputProperty="AvailabilityZones" Verb="Set" Noun="Subnet" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetSubnets" OutputProperty="AvailabilityZones" Verb="Set" Noun="Subnet" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

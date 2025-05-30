@@ -18,55 +18,55 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelTask" OutputProperty="TaskId" Verb="Stop" Noun="Task" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelTask" OutputProperty="TaskId" Verb="Stop" Noun="Task" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTask" OutputProperty="TaskId" Verb="New" Noun="Task" ShouldProcessTarget="Description" PipelineParameter="Description" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTask" OutputProperty="TaskId" Verb="New" Noun="Task" ShouldProcessTarget="Description" PipelineParameter="Description" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDevice" OutputProperty="*" Verb="Get" Noun="Device" PipelineParameter="ManagedDeviceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDevice" OutputProperty="*" Verb="Get" Noun="Device" PipelineParameter="ManagedDeviceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDeviceEc2Instances" OutputProperty="Instances" Verb="Get" Noun="DeviceEc2Instance" PipelineParameter="ManagedDeviceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDeviceEc2Instances" OutputProperty="Instances" Verb="Get" Noun="DeviceEc2Instance" PipelineParameter="ManagedDeviceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeExecution" OutputProperty="*" Verb="Get" Noun="Execution" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeExecution" OutputProperty="*" Verb="Get" Noun="Execution" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTask" OutputProperty="*" Verb="Get" Noun="Task" PipelineParameter="TaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTask" OutputProperty="*" Verb="Get" Noun="Task" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeviceResources" OutputProperty="Resources" Verb="Get" Noun="DeviceResourceList" PipelineParameter="ManagedDeviceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDeviceResources" OutputProperty="Resources" Verb="Get" Noun="DeviceResourceList" PipelineParameter="ManagedDeviceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDevices" OutputProperty="Devices" Verb="Get" Noun="DeviceList" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDevices" OutputProperty="Devices" Verb="Get" Noun="DeviceList" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExecutions" OutputProperty="Executions" Verb="Get" Noun="ExecutionList" PipelineParameter="TaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListExecutions" OutputProperty="Executions" Verb="Get" Noun="ExecutionList" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTasks" OutputProperty="Tasks" Verb="Get" Noun="TaskList" PipelineParameter="State" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTasks" OutputProperty="Tasks" Verb="Get" Noun="TaskList" PipelineParameter="State" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

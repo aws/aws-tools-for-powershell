@@ -18,509 +18,509 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateApp" OutputProperty="ApplicationResponse" Verb="New" Noun="App" ShouldProcessTarget="CreateApplicationRequest_Name" PipelineParameter="CreateApplicationRequest_Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateApp" OutputProperty="ApplicationResponse" Verb="New" Noun="App" ShouldProcessTarget="CreateApplicationRequest_Name" PipelineParameter="CreateApplicationRequest_Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCampaign" OutputProperty="CampaignResponse" Verb="New" Noun="Campaign" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCampaign" OutputProperty="CampaignResponse" Verb="New" Noun="Campaign" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEmailTemplate" OutputProperty="CreateTemplateMessageBody" Verb="New" Noun="EmailTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateEmailTemplate" OutputProperty="CreateTemplateMessageBody" Verb="New" Noun="EmailTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateExportJob" OutputProperty="ExportJobResponse" Verb="New" Noun="ExportJob" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateExportJob" OutputProperty="ExportJobResponse" Verb="New" Noun="ExportJob" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateImportJob" OutputProperty="ImportJobResponse" Verb="New" Noun="ImportJob" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateImportJob" OutputProperty="ImportJobResponse" Verb="New" Noun="ImportJob" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInAppTemplate" OutputProperty="TemplateCreateMessageBody" Verb="New" Noun="InAppTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateInAppTemplate" OutputProperty="TemplateCreateMessageBody" Verb="New" Noun="InAppTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateJourney" OutputProperty="JourneyResponse" Verb="New" Noun="Journey" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateJourney" OutputProperty="JourneyResponse" Verb="New" Noun="Journey" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePushTemplate" OutputProperty="CreateTemplateMessageBody" Verb="New" Noun="PushTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePushTemplate" OutputProperty="CreateTemplateMessageBody" Verb="New" Noun="PushTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRecommenderConfiguration" OutputProperty="RecommenderConfigurationResponse" Verb="New" Noun="RecommenderConfiguration" ShouldProcessTarget="CreateRecommenderConfiguration_RecommendationProviderUri" PipelineParameter="CreateRecommenderConfiguration_RecommendationProviderUri" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRecommenderConfiguration" OutputProperty="RecommenderConfigurationResponse" Verb="New" Noun="RecommenderConfiguration" ShouldProcessTarget="CreateRecommenderConfiguration_RecommendationProviderUri" PipelineParameter="CreateRecommenderConfiguration_RecommendationProviderUri" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSegment" OutputProperty="SegmentResponse" Verb="New" Noun="Segment" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateSegment" OutputProperty="SegmentResponse" Verb="New" Noun="Segment" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSmsTemplate" OutputProperty="CreateTemplateMessageBody" Verb="New" Noun="SmsTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateSmsTemplate" OutputProperty="CreateTemplateMessageBody" Verb="New" Noun="SmsTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVoiceTemplate" OutputProperty="CreateTemplateMessageBody" Verb="New" Noun="VoiceTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateVoiceTemplate" OutputProperty="CreateTemplateMessageBody" Verb="New" Noun="VoiceTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAdmChannel" OutputProperty="ADMChannelResponse" Verb="Remove" Noun="AdmChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAdmChannel" OutputProperty="ADMChannelResponse" Verb="Remove" Noun="AdmChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApnsChannel" OutputProperty="APNSChannelResponse" Verb="Remove" Noun="ApnsChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApnsChannel" OutputProperty="APNSChannelResponse" Verb="Remove" Noun="ApnsChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApnsSandboxChannel" OutputProperty="APNSSandboxChannelResponse" Verb="Remove" Noun="ApnsSandboxChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApnsSandboxChannel" OutputProperty="APNSSandboxChannelResponse" Verb="Remove" Noun="ApnsSandboxChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApnsVoipChannel" OutputProperty="APNSVoipChannelResponse" Verb="Remove" Noun="ApnsVoipChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApnsVoipChannel" OutputProperty="APNSVoipChannelResponse" Verb="Remove" Noun="ApnsVoipChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApnsVoipSandboxChannel" OutputProperty="APNSVoipSandboxChannelResponse" Verb="Remove" Noun="ApnsVoipSandboxChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApnsVoipSandboxChannel" OutputProperty="APNSVoipSandboxChannelResponse" Verb="Remove" Noun="ApnsVoipSandboxChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApp" OutputProperty="ApplicationResponse" Verb="Remove" Noun="App" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApp" OutputProperty="ApplicationResponse" Verb="Remove" Noun="App" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBaiduChannel" OutputProperty="BaiduChannelResponse" Verb="Remove" Noun="BaiduChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBaiduChannel" OutputProperty="BaiduChannelResponse" Verb="Remove" Noun="BaiduChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCampaign" OutputProperty="CampaignResponse" Verb="Remove" Noun="Campaign" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCampaign" OutputProperty="CampaignResponse" Verb="Remove" Noun="Campaign" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEmailChannel" OutputProperty="EmailChannelResponse" Verb="Remove" Noun="EmailChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEmailChannel" OutputProperty="EmailChannelResponse" Verb="Remove" Noun="EmailChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEmailTemplate" OutputProperty="MessageBody" Verb="Remove" Noun="EmailTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEmailTemplate" OutputProperty="MessageBody" Verb="Remove" Noun="EmailTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEndpoint" OutputProperty="EndpointResponse" Verb="Remove" Noun="Endpoint" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEndpoint" OutputProperty="EndpointResponse" Verb="Remove" Noun="Endpoint" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEventStream" OutputProperty="EventStream" Verb="Remove" Noun="EventStream" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEventStream" OutputProperty="EventStream" Verb="Remove" Noun="EventStream" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGcmChannel" OutputProperty="GCMChannelResponse" Verb="Remove" Noun="GcmChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteGcmChannel" OutputProperty="GCMChannelResponse" Verb="Remove" Noun="GcmChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInAppTemplate" OutputProperty="MessageBody" Verb="Remove" Noun="InAppTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteInAppTemplate" OutputProperty="MessageBody" Verb="Remove" Noun="InAppTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteJourney" OutputProperty="JourneyResponse" Verb="Remove" Noun="Journey" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteJourney" OutputProperty="JourneyResponse" Verb="Remove" Noun="Journey" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePushTemplate" OutputProperty="MessageBody" Verb="Remove" Noun="PushTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePushTemplate" OutputProperty="MessageBody" Verb="Remove" Noun="PushTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRecommenderConfiguration" OutputProperty="RecommenderConfigurationResponse" Verb="Remove" Noun="RecommenderConfiguration" ShouldProcessTarget="RecommenderId" PipelineParameter="RecommenderId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRecommenderConfiguration" OutputProperty="RecommenderConfigurationResponse" Verb="Remove" Noun="RecommenderConfiguration" ShouldProcessTarget="RecommenderId" PipelineParameter="RecommenderId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSegment" OutputProperty="SegmentResponse" Verb="Remove" Noun="Segment" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSegment" OutputProperty="SegmentResponse" Verb="Remove" Noun="Segment" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSmsChannel" OutputProperty="SMSChannelResponse" Verb="Remove" Noun="SmsChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSmsChannel" OutputProperty="SMSChannelResponse" Verb="Remove" Noun="SmsChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSmsTemplate" OutputProperty="MessageBody" Verb="Remove" Noun="SmsTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSmsTemplate" OutputProperty="MessageBody" Verb="Remove" Noun="SmsTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUserEndpoints" OutputProperty="EndpointsResponse" Verb="Remove" Noun="UserEndpoint" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteUserEndpoints" OutputProperty="EndpointsResponse" Verb="Remove" Noun="UserEndpoint" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVoiceChannel" OutputProperty="VoiceChannelResponse" Verb="Remove" Noun="VoiceChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteVoiceChannel" OutputProperty="VoiceChannelResponse" Verb="Remove" Noun="VoiceChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVoiceTemplate" OutputProperty="MessageBody" Verb="Remove" Noun="VoiceTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteVoiceTemplate" OutputProperty="MessageBody" Verb="Remove" Noun="VoiceTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAdmChannel" OutputProperty="ADMChannelResponse" Verb="Get" Noun="AdmChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAdmChannel" OutputProperty="ADMChannelResponse" Verb="Get" Noun="AdmChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApnsChannel" OutputProperty="APNSChannelResponse" Verb="Get" Noun="ApnsChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApnsChannel" OutputProperty="APNSChannelResponse" Verb="Get" Noun="ApnsChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApnsSandboxChannel" OutputProperty="APNSSandboxChannelResponse" Verb="Get" Noun="ApnsSandboxChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApnsSandboxChannel" OutputProperty="APNSSandboxChannelResponse" Verb="Get" Noun="ApnsSandboxChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApnsVoipChannel" OutputProperty="APNSVoipChannelResponse" Verb="Get" Noun="ApnsVoipChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApnsVoipChannel" OutputProperty="APNSVoipChannelResponse" Verb="Get" Noun="ApnsVoipChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApnsVoipSandboxChannel" OutputProperty="APNSVoipSandboxChannelResponse" Verb="Get" Noun="ApnsVoipSandboxChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApnsVoipSandboxChannel" OutputProperty="APNSVoipSandboxChannelResponse" Verb="Get" Noun="ApnsVoipSandboxChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApp" OutputProperty="ApplicationResponse" Verb="Get" Noun="App" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApp" OutputProperty="ApplicationResponse" Verb="Get" Noun="App" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApplicationDateRangeKpi" OutputProperty="ApplicationDateRangeKpiResponse" Verb="Get" Noun="ApplicationDateRangeKpi" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApplicationDateRangeKpi" OutputProperty="ApplicationDateRangeKpiResponse" Verb="Get" Noun="ApplicationDateRangeKpi" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="ApplicationDateRangeKpiResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApplicationSettings" OutputProperty="ApplicationSettingsResource" Verb="Get" Noun="ApplicationSettingList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApplicationSettings" OutputProperty="ApplicationSettingsResource" Verb="Get" Noun="ApplicationSettingList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApps" OutputProperty="ApplicationsResponse" Verb="Get" Noun="AppList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetApps" OutputProperty="ApplicationsResponse" Verb="Get" Noun="AppList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="Token" Next="ApplicationsResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBaiduChannel" OutputProperty="BaiduChannelResponse" Verb="Get" Noun="BaiduChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetBaiduChannel" OutputProperty="BaiduChannelResponse" Verb="Get" Noun="BaiduChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCampaign" OutputProperty="CampaignResponse" Verb="Get" Noun="Campaign" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCampaign" OutputProperty="CampaignResponse" Verb="Get" Noun="Campaign" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCampaignActivities" OutputProperty="ActivitiesResponse" Verb="Get" Noun="CampaignActivityList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCampaignActivities" OutputProperty="ActivitiesResponse" Verb="Get" Noun="CampaignActivityList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="Token" Next="ActivitiesResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCampaignDateRangeKpi" OutputProperty="CampaignDateRangeKpiResponse" Verb="Get" Noun="CampaignDateRangeKpi" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCampaignDateRangeKpi" OutputProperty="CampaignDateRangeKpiResponse" Verb="Get" Noun="CampaignDateRangeKpi" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="CampaignDateRangeKpiResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCampaigns" OutputProperty="CampaignsResponse" Verb="Get" Noun="CampaignList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCampaigns" OutputProperty="CampaignsResponse" Verb="Get" Noun="CampaignList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="Token" Next="CampaignsResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCampaignVersion" OutputProperty="CampaignResponse" Verb="Get" Noun="CampaignVersion" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCampaignVersion" OutputProperty="CampaignResponse" Verb="Get" Noun="CampaignVersion" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCampaignVersions" OutputProperty="CampaignsResponse" Verb="Get" Noun="CampaignVersionList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCampaignVersions" OutputProperty="CampaignsResponse" Verb="Get" Noun="CampaignVersionList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="Token" Next="CampaignsResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetChannels" OutputProperty="ChannelsResponse" Verb="Get" Noun="Channel" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetChannels" OutputProperty="ChannelsResponse" Verb="Get" Noun="Channel" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEmailChannel" OutputProperty="EmailChannelResponse" Verb="Get" Noun="EmailChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEmailChannel" OutputProperty="EmailChannelResponse" Verb="Get" Noun="EmailChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEmailTemplate" OutputProperty="EmailTemplateResponse" Verb="Get" Noun="EmailTemplate" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEmailTemplate" OutputProperty="EmailTemplateResponse" Verb="Get" Noun="EmailTemplate" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEndpoint" OutputProperty="EndpointResponse" Verb="Get" Noun="Endpoint" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEndpoint" OutputProperty="EndpointResponse" Verb="Get" Noun="Endpoint" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEventStream" OutputProperty="EventStream" Verb="Get" Noun="EventStream" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEventStream" OutputProperty="EventStream" Verb="Get" Noun="EventStream" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetExportJob" OutputProperty="ExportJobResponse" Verb="Get" Noun="ExportJob" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetExportJob" OutputProperty="ExportJobResponse" Verb="Get" Noun="ExportJob" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetExportJobs" OutputProperty="ExportJobsResponse" Verb="Get" Noun="ExportJobList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetExportJobs" OutputProperty="ExportJobsResponse" Verb="Get" Noun="ExportJobList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="Token" Next="ExportJobsResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGcmChannel" OutputProperty="GCMChannelResponse" Verb="Get" Noun="GcmChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetGcmChannel" OutputProperty="GCMChannelResponse" Verb="Get" Noun="GcmChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetImportJob" OutputProperty="ImportJobResponse" Verb="Get" Noun="ImportJob" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetImportJob" OutputProperty="ImportJobResponse" Verb="Get" Noun="ImportJob" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetImportJobs" OutputProperty="ImportJobsResponse" Verb="Get" Noun="ImportJobList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetImportJobs" OutputProperty="ImportJobsResponse" Verb="Get" Noun="ImportJobList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="Token" Next="ImportJobsResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInAppMessages" OutputProperty="InAppMessagesResponse" Verb="Get" Noun="InAppMessage" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetInAppMessages" OutputProperty="InAppMessagesResponse" Verb="Get" Noun="InAppMessage" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInAppTemplate" OutputProperty="InAppTemplateResponse" Verb="Get" Noun="InAppTemplate" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetInAppTemplate" OutputProperty="InAppTemplateResponse" Verb="Get" Noun="InAppTemplate" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJourney" OutputProperty="JourneyResponse" Verb="Get" Noun="Journey" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetJourney" OutputProperty="JourneyResponse" Verb="Get" Noun="Journey" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJourneyDateRangeKpi" OutputProperty="JourneyDateRangeKpiResponse" Verb="Get" Noun="JourneyDateRangeKpi" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetJourneyDateRangeKpi" OutputProperty="JourneyDateRangeKpiResponse" Verb="Get" Noun="JourneyDateRangeKpi" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="JourneyDateRangeKpiResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJourneyExecutionActivityMetrics" OutputProperty="JourneyExecutionActivityMetricsResponse" Verb="Get" Noun="JourneyExecutionActivityMetric" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetJourneyExecutionActivityMetrics" OutputProperty="JourneyExecutionActivityMetricsResponse" Verb="Get" Noun="JourneyExecutionActivityMetric" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJourneyExecutionMetrics" OutputProperty="JourneyExecutionMetricsResponse" Verb="Get" Noun="JourneyExecutionMetric" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetJourneyExecutionMetrics" OutputProperty="JourneyExecutionMetricsResponse" Verb="Get" Noun="JourneyExecutionMetric" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJourneyRunExecutionActivityMetrics" OutputProperty="JourneyRunExecutionActivityMetricsResponse" Verb="Get" Noun="JourneyRunExecutionActivityMetric" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetJourneyRunExecutionActivityMetrics" OutputProperty="JourneyRunExecutionActivityMetricsResponse" Verb="Get" Noun="JourneyRunExecutionActivityMetric" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJourneyRunExecutionMetrics" OutputProperty="JourneyRunExecutionMetricsResponse" Verb="Get" Noun="JourneyRunExecutionMetric" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetJourneyRunExecutionMetrics" OutputProperty="JourneyRunExecutionMetricsResponse" Verb="Get" Noun="JourneyRunExecutionMetric" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJourneyRuns" OutputProperty="JourneyRunsResponse" Verb="Get" Noun="JourneyRun" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetJourneyRuns" OutputProperty="JourneyRunsResponse" Verb="Get" Noun="JourneyRun" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPushTemplate" OutputProperty="PushNotificationTemplateResponse" Verb="Get" Noun="PushTemplate" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPushTemplate" OutputProperty="PushNotificationTemplateResponse" Verb="Get" Noun="PushTemplate" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRecommenderConfiguration" OutputProperty="RecommenderConfigurationResponse" Verb="Get" Noun="RecommenderConfiguration" PipelineParameter="RecommenderId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRecommenderConfiguration" OutputProperty="RecommenderConfigurationResponse" Verb="Get" Noun="RecommenderConfiguration" PipelineParameter="RecommenderId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRecommenderConfigurations" OutputProperty="ListRecommenderConfigurationsResponse" Verb="Get" Noun="RecommenderConfigurationList" PipelineParameter="Token" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRecommenderConfigurations" OutputProperty="ListRecommenderConfigurationsResponse" Verb="Get" Noun="RecommenderConfigurationList" PipelineParameter="Token" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="Token" Next="ListRecommenderConfigurationsResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSegment" OutputProperty="SegmentResponse" Verb="Get" Noun="Segment" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSegment" OutputProperty="SegmentResponse" Verb="Get" Noun="Segment" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSegmentExportJobs" OutputProperty="ExportJobsResponse" Verb="Get" Noun="SegmentExportJobList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSegmentExportJobs" OutputProperty="ExportJobsResponse" Verb="Get" Noun="SegmentExportJobList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSegmentImportJobs" OutputProperty="ImportJobsResponse" Verb="Get" Noun="SegmentImportJobList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSegmentImportJobs" OutputProperty="ImportJobsResponse" Verb="Get" Noun="SegmentImportJobList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="Token" Next="ImportJobsResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSegments" OutputProperty="SegmentsResponse" Verb="Get" Noun="SegmentList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSegments" OutputProperty="SegmentsResponse" Verb="Get" Noun="SegmentList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="Token" Next="SegmentsResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSegmentVersion" OutputProperty="SegmentResponse" Verb="Get" Noun="SegmentVersion" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSegmentVersion" OutputProperty="SegmentResponse" Verb="Get" Noun="SegmentVersion" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSegmentVersions" OutputProperty="SegmentsResponse" Verb="Get" Noun="SegmentVersionList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSegmentVersions" OutputProperty="SegmentsResponse" Verb="Get" Noun="SegmentVersionList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="Token" Next="SegmentsResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSmsChannel" OutputProperty="SMSChannelResponse" Verb="Get" Noun="SmsChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSmsChannel" OutputProperty="SMSChannelResponse" Verb="Get" Noun="SmsChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSmsTemplate" OutputProperty="SMSTemplateResponse" Verb="Get" Noun="SmsTemplate" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSmsTemplate" OutputProperty="SMSTemplateResponse" Verb="Get" Noun="SmsTemplate" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUserEndpoints" OutputProperty="EndpointsResponse" Verb="Get" Noun="UserEndpoint" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetUserEndpoints" OutputProperty="EndpointsResponse" Verb="Get" Noun="UserEndpoint" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVoiceChannel" OutputProperty="VoiceChannelResponse" Verb="Get" Noun="VoiceChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetVoiceChannel" OutputProperty="VoiceChannelResponse" Verb="Get" Noun="VoiceChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVoiceTemplate" OutputProperty="VoiceTemplateResponse" Verb="Get" Noun="VoiceTemplate" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetVoiceTemplate" OutputProperty="VoiceTemplateResponse" Verb="Get" Noun="VoiceTemplate" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJourneys" OutputProperty="JourneysResponse" Verb="Get" Noun="JourneyList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListJourneys" OutputProperty="JourneysResponse" Verb="Get" Noun="JourneyList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="Token" Next="JourneysResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="TagsModel" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="TagsModel" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTemplates" OutputProperty="TemplatesResponse" Verb="Get" Noun="TemplateList" PipelineParameter="Prefix" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTemplates" OutputProperty="TemplatesResponse" Verb="Get" Noun="TemplateList" PipelineParameter="Prefix" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="TemplatesResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTemplateVersions" OutputProperty="TemplateVersionsResponse" Verb="Get" Noun="TemplateVersionList" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTemplateVersions" OutputProperty="TemplateVersionsResponse" Verb="Get" Noun="TemplateVersionList" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="TemplateVersionsResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PhoneNumberValidate" OutputProperty="NumberValidateResponse" Verb="Confirm" Noun="PhoneNumber" ShouldProcessTarget="NumberValidateRequest" PipelineParameter="NumberValidateRequest" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PhoneNumberValidate" OutputProperty="NumberValidateResponse" Verb="Confirm" Noun="PhoneNumber" ShouldProcessTarget="NumberValidateRequest" PipelineParameter="NumberValidateRequest" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="NumberValidateRequest" NewName="PhoneNumber" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutEvents" OutputProperty="EventsResponse" Verb="Write" Noun="Event" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutEvents" OutputProperty="EventsResponse" Verb="Write" Noun="Event" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutEventStream" OutputProperty="EventStream" Verb="Write" Noun="EventStream" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutEventStream" OutputProperty="EventStream" Verb="Write" Noun="EventStream" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveAttributes" OutputProperty="AttributesResource" Verb="Remove" Noun="Attribute" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveAttributes" OutputProperty="AttributesResource" Verb="Remove" Noun="Attribute" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendMessages" OutputProperty="MessageResponse" Verb="Send" Noun="Message" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SendMessages" OutputProperty="MessageResponse" Verb="Send" Noun="Message" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendOTPMessage" OutputProperty="MessageResponse" Verb="Send" Noun="OTPMessage" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SendOTPMessage" OutputProperty="MessageResponse" Verb="Send" Noun="OTPMessage" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendUsersMessages" OutputProperty="SendUsersMessageResponse" Verb="Send" Noun="UserMessageBatch" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SendUsersMessages" OutputProperty="SendUsersMessageResponse" Verb="Send" Noun="UserMessageBatch" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAdmChannel" OutputProperty="ADMChannelResponse" Verb="Update" Noun="AdmChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAdmChannel" OutputProperty="ADMChannelResponse" Verb="Update" Noun="AdmChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApnsChannel" OutputProperty="APNSChannelResponse" Verb="Update" Noun="ApnsChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateApnsChannel" OutputProperty="APNSChannelResponse" Verb="Update" Noun="ApnsChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApnsSandboxChannel" OutputProperty="APNSSandboxChannelResponse" Verb="Update" Noun="ApnsSandboxChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateApnsSandboxChannel" OutputProperty="APNSSandboxChannelResponse" Verb="Update" Noun="ApnsSandboxChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApnsVoipChannel" OutputProperty="APNSVoipChannelResponse" Verb="Update" Noun="ApnsVoipChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateApnsVoipChannel" OutputProperty="APNSVoipChannelResponse" Verb="Update" Noun="ApnsVoipChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApnsVoipSandboxChannel" OutputProperty="APNSVoipSandboxChannelResponse" Verb="Update" Noun="ApnsVoipSandboxChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateApnsVoipSandboxChannel" OutputProperty="APNSVoipSandboxChannelResponse" Verb="Update" Noun="ApnsVoipSandboxChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApplicationSettings" OutputProperty="ApplicationSettingsResource" Verb="Update" Noun="ApplicationSettingList" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateApplicationSettings" OutputProperty="ApplicationSettingsResource" Verb="Update" Noun="ApplicationSettingList" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBaiduChannel" OutputProperty="BaiduChannelResponse" Verb="Update" Noun="BaiduChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateBaiduChannel" OutputProperty="BaiduChannelResponse" Verb="Update" Noun="BaiduChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCampaign" OutputProperty="CampaignResponse" Verb="Update" Noun="Campaign" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCampaign" OutputProperty="CampaignResponse" Verb="Update" Noun="Campaign" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEmailChannel" OutputProperty="EmailChannelResponse" Verb="Update" Noun="EmailChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateEmailChannel" OutputProperty="EmailChannelResponse" Verb="Update" Noun="EmailChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEmailTemplate" OutputProperty="MessageBody" Verb="Update" Noun="EmailTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateEmailTemplate" OutputProperty="MessageBody" Verb="Update" Noun="EmailTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEndpoint" OutputProperty="MessageBody" Verb="Update" Noun="Endpoint" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateEndpoint" OutputProperty="MessageBody" Verb="Update" Noun="Endpoint" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEndpointsBatch" OutputProperty="MessageBody" Verb="Update" Noun="EndpointsBatch" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateEndpointsBatch" OutputProperty="MessageBody" Verb="Update" Noun="EndpointsBatch" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGcmChannel" OutputProperty="GCMChannelResponse" Verb="Update" Noun="GcmChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateGcmChannel" OutputProperty="GCMChannelResponse" Verb="Update" Noun="GcmChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateInAppTemplate" OutputProperty="MessageBody" Verb="Update" Noun="InAppTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateInAppTemplate" OutputProperty="MessageBody" Verb="Update" Noun="InAppTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateJourney" OutputProperty="JourneyResponse" Verb="Update" Noun="Journey" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateJourney" OutputProperty="JourneyResponse" Verb="Update" Noun="Journey" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateJourneyState" OutputProperty="JourneyResponse" Verb="Update" Noun="JourneyState" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateJourneyState" OutputProperty="JourneyResponse" Verb="Update" Noun="JourneyState" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePushTemplate" OutputProperty="MessageBody" Verb="Update" Noun="PushTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePushTemplate" OutputProperty="MessageBody" Verb="Update" Noun="PushTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRecommenderConfiguration" OutputProperty="RecommenderConfigurationResponse" Verb="Update" Noun="RecommenderConfiguration" ShouldProcessTarget="RecommenderId" PipelineParameter="RecommenderId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRecommenderConfiguration" OutputProperty="RecommenderConfigurationResponse" Verb="Update" Noun="RecommenderConfiguration" ShouldProcessTarget="RecommenderId" PipelineParameter="RecommenderId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSegment" OutputProperty="SegmentResponse" Verb="Update" Noun="Segment" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateSegment" OutputProperty="SegmentResponse" Verb="Update" Noun="Segment" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSmsChannel" OutputProperty="SMSChannelResponse" Verb="Update" Noun="SmsChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateSmsChannel" OutputProperty="SMSChannelResponse" Verb="Update" Noun="SmsChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSmsTemplate" OutputProperty="MessageBody" Verb="Update" Noun="SmsTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateSmsTemplate" OutputProperty="MessageBody" Verb="Update" Noun="SmsTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTemplateActiveVersion" OutputProperty="MessageBody" Verb="Update" Noun="TemplateActiveVersion" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTemplateActiveVersion" OutputProperty="MessageBody" Verb="Update" Noun="TemplateActiveVersion" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateVoiceChannel" OutputProperty="VoiceChannelResponse" Verb="Update" Noun="VoiceChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateVoiceChannel" OutputProperty="VoiceChannelResponse" Verb="Update" Noun="VoiceChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateVoiceTemplate" OutputProperty="MessageBody" Verb="Update" Noun="VoiceTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateVoiceTemplate" OutputProperty="MessageBody" Verb="Update" Noun="VoiceTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="VerifyOTPMessage" OutputProperty="VerificationResponse" Verb="Confirm" Noun="OTPMessage" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="VerifyOTPMessage" OutputProperty="VerificationResponse" Verb="Confirm" Noun="OTPMessage" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -19,31 +19,31 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateWebACL" Verb="Add" Noun="WebACLToResource" ShouldProcessTarget="WebACLArn" PipelineParameter="WebACLArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateWebACL" Verb="Add" Noun="WebACLToResource" ShouldProcessTarget="WebACLArn" PipelineParameter="WebACLArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CheckCapacity" OutputProperty="Capacity" Verb="Test" Noun="Capacity" PipelineParameter="Scope" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CheckCapacity" OutputProperty="Capacity" Verb="Test" Noun="Capacity" PipelineParameter="Scope" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAPIKey" OutputProperty="APIKey" Verb="New" Noun="APIKey" ShouldProcessTarget="Scope" PipelineParameter="Scope" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAPIKey" OutputProperty="APIKey" Verb="New" Noun="APIKey" ShouldProcessTarget="Scope" PipelineParameter="Scope" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIPSet" OutputProperty="Summary" Verb="New" Noun="IPSet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateIPSet" OutputProperty="Summary" Verb="New" Noun="IPSet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRegexPatternSet" OutputProperty="Summary" Verb="New" Noun="RegexPatternSet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRegexPatternSet" OutputProperty="Summary" Verb="New" Noun="RegexPatternSet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRuleGroup" OutputProperty="Summary" Verb="New" Noun="RuleGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRuleGroup" OutputProperty="Summary" Verb="New" Noun="RuleGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWebACL" OutputProperty="Summary" Verb="New" Noun="WebACL" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateWebACL" OutputProperty="Summary" Verb="New" Noun="WebACL" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="CaptchaConfig_ImmunityTimeProperty_ImmunityTime" NewName="CaptchaConfig_ImmunityTimeProperty_ImmunityTime" Alias="ImmunityTimeProperty_ImmunityTime" />
                 <Param Name="ChallengeConfig_ImmunityTimeProperty_ImmunityTime" NewName="ChallengeConfig_ImmunityTimeProperty_ImmunityTime" />
@@ -53,191 +53,191 @@
                 <Type>Amazon.WAFV2.Model.BlockAction</Type>
             </TypesNotToFlatten>
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAPIKey" Verb="Remove" Noun="APIKey" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="APIKey" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAPIKey" Verb="Remove" Noun="APIKey" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="APIKey" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFirewallManagerRuleGroups" OutputProperty="NextWebACLLockToken" Verb="Remove" Noun="FirewallManagerRuleGroup" ShouldProcessTarget="WebACLArn" PipelineParameter="WebACLArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteFirewallManagerRuleGroups" OutputProperty="NextWebACLLockToken" Verb="Remove" Noun="FirewallManagerRuleGroup" ShouldProcessTarget="WebACLArn" PipelineParameter="WebACLArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIPSet" Verb="Remove" Noun="IPSet" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteIPSet" Verb="Remove" Noun="IPSet" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLoggingConfiguration" Verb="Remove" Noun="LoggingConfiguration" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteLoggingConfiguration" Verb="Remove" Noun="LoggingConfiguration" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePermissionPolicy" Verb="Remove" Noun="PermissionPolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePermissionPolicy" Verb="Remove" Noun="PermissionPolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRegexPatternSet" Verb="Remove" Noun="RegexPatternSet" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRegexPatternSet" Verb="Remove" Noun="RegexPatternSet" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRuleGroup" Verb="Remove" Noun="RuleGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRuleGroup" Verb="Remove" Noun="RuleGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWebACL" Verb="Remove" Noun="WebACL" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteWebACL" Verb="Remove" Noun="WebACL" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAllManagedProducts" OutputProperty="ManagedProducts" Verb="Get" Noun="AllManagedProduct" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeAllManagedProducts" OutputProperty="ManagedProducts" Verb="Get" Noun="AllManagedProduct" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeManagedProductsByVendor" OutputProperty="ManagedProducts" Verb="Get" Noun="ManagedProductsByVendor" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeManagedProductsByVendor" OutputProperty="ManagedProducts" Verb="Get" Noun="ManagedProductsByVendor" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeManagedRuleGroup" OutputProperty="*" Verb="Get" Noun="ManagedRuleGroup" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeManagedRuleGroup" OutputProperty="*" Verb="Get" Noun="ManagedRuleGroup" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateWebACL" Verb="Remove" Noun="WebACLFromResource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateWebACL" Verb="Remove" Noun="WebACLFromResource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateMobileSdkReleaseUrl" OutputProperty="Url" Verb="New" Noun="MobileSdkReleaseUrl" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GenerateMobileSdkReleaseUrl" OutputProperty="Url" Verb="New" Noun="MobileSdkReleaseUrl" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDecryptedAPIKey" OutputProperty="*" Verb="Get" Noun="DecryptedAPIKey" PipelineParameter="APIKey" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDecryptedAPIKey" OutputProperty="*" Verb="Get" Noun="DecryptedAPIKey" PipelineParameter="APIKey" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIPSet" OutputProperty="*" Verb="Get" Noun="IPSet" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetIPSet" OutputProperty="*" Verb="Get" Noun="IPSet" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLoggingConfiguration" OutputProperty="LoggingConfiguration" Verb="Get" Noun="LoggingConfiguration" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetLoggingConfiguration" OutputProperty="LoggingConfiguration" Verb="Get" Noun="LoggingConfiguration" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetManagedRuleSet" OutputProperty="*" Verb="Get" Noun="ManagedRuleSet" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetManagedRuleSet" OutputProperty="*" Verb="Get" Noun="ManagedRuleSet" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMobileSdkRelease" OutputProperty="MobileSdkRelease" Verb="Get" Noun="MobileSdkRelease" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetMobileSdkRelease" OutputProperty="MobileSdkRelease" Verb="Get" Noun="MobileSdkRelease" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPermissionPolicy" OutputProperty="Policy" Verb="Get" Noun="PermissionPolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPermissionPolicy" OutputProperty="Policy" Verb="Get" Noun="PermissionPolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRateBasedStatementManagedKeys" OutputProperty="*" Verb="Get" Noun="RateBasedStatementManagedKey" PipelineParameter="RuleName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRateBasedStatementManagedKeys" OutputProperty="*" Verb="Get" Noun="RateBasedStatementManagedKey" PipelineParameter="RuleName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRegexPatternSet" OutputProperty="*" Verb="Get" Noun="RegexPatternSet" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRegexPatternSet" OutputProperty="*" Verb="Get" Noun="RegexPatternSet" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRuleGroup" OutputProperty="*" Verb="Get" Noun="RuleGroup" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRuleGroup" OutputProperty="*" Verb="Get" Noun="RuleGroup" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSampledRequests" OutputProperty="*" Verb="Get" Noun="SampledRequest" PipelineParameter="RuleMetricName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSampledRequests" OutputProperty="*" Verb="Get" Noun="SampledRequest" PipelineParameter="RuleMetricName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWebACL" OutputProperty="*" Verb="Get" Noun="WebACL" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetWebACL" OutputProperty="*" Verb="Get" Noun="WebACL" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWebACLForResource" OutputProperty="WebACL" Verb="Get" Noun="WebACLForResource" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetWebACLForResource" OutputProperty="WebACL" Verb="Get" Noun="WebACLForResource" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAPIKeys" OutputProperty="*" Verb="Get" Noun="APIKeyList" PipelineParameter="Scope" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAPIKeys" OutputProperty="*" Verb="Get" Noun="APIKeyList" PipelineParameter="Scope" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAvailableManagedRuleGroups" OutputProperty="ManagedRuleGroups" Verb="Get" Noun="AvailableManagedRuleGroupList" PipelineParameter="Scope" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAvailableManagedRuleGroups" OutputProperty="ManagedRuleGroups" Verb="Get" Noun="AvailableManagedRuleGroupList" PipelineParameter="Scope" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAvailableManagedRuleGroupVersions" OutputProperty="Versions" Verb="Get" Noun="AvailableManagedRuleGroupVersionList" PipelineParameter="Scope" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAvailableManagedRuleGroupVersions" OutputProperty="Versions" Verb="Get" Noun="AvailableManagedRuleGroupVersionList" PipelineParameter="Scope" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIPSets" OutputProperty="IPSets" Verb="Get" Noun="IPSetList" PipelineParameter="Scope" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListIPSets" OutputProperty="IPSets" Verb="Get" Noun="IPSetList" PipelineParameter="Scope" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLoggingConfigurations" OutputProperty="LoggingConfigurations" Verb="Get" Noun="LoggingConfigurationList" PipelineParameter="Scope" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLoggingConfigurations" OutputProperty="LoggingConfigurations" Verb="Get" Noun="LoggingConfigurationList" PipelineParameter="Scope" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListManagedRuleSets" OutputProperty="ManagedRuleSets" Verb="Get" Noun="ManagedRuleSetList" PipelineParameter="Scope" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListManagedRuleSets" OutputProperty="ManagedRuleSets" Verb="Get" Noun="ManagedRuleSetList" PipelineParameter="Scope" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMobileSdkReleases" OutputProperty="ReleaseSummaries" Verb="Get" Noun="MobileSdkReleaseList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListMobileSdkReleases" OutputProperty="ReleaseSummaries" Verb="Get" Noun="MobileSdkReleaseList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRegexPatternSets" OutputProperty="RegexPatternSets" Verb="Get" Noun="RegexPatternSetList" PipelineParameter="Scope" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRegexPatternSets" OutputProperty="RegexPatternSets" Verb="Get" Noun="RegexPatternSetList" PipelineParameter="Scope" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourcesForWebACL" OutputProperty="ResourceArns" Verb="Get" Noun="ResourcesForWebACLList" PipelineParameter="WebACLArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResourcesForWebACL" OutputProperty="ResourceArns" Verb="Get" Noun="ResourcesForWebACLList" PipelineParameter="WebACLArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRuleGroups" OutputProperty="RuleGroups" Verb="Get" Noun="RuleGroupList" PipelineParameter="Scope" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRuleGroups" OutputProperty="RuleGroups" Verb="Get" Noun="RuleGroupList" PipelineParameter="Scope" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="TagInfoForResource" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="TagInfoForResource" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWebACLs" OutputProperty="WebACLs" Verb="Get" Noun="WebACLsList" PipelineParameter="Scope" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListWebACLs" OutputProperty="WebACLs" Verb="Get" Noun="WebACLsList" PipelineParameter="Scope" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutLoggingConfiguration" OutputProperty="LoggingConfiguration" Verb="Write" Noun="LoggingConfiguration" ShouldProcessTarget="LoggingConfiguration_ResourceArn" PipelineParameter="LoggingConfiguration_ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutLoggingConfiguration" OutputProperty="LoggingConfiguration" Verb="Write" Noun="LoggingConfiguration" ShouldProcessTarget="LoggingConfiguration_ResourceArn" PipelineParameter="LoggingConfiguration_ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutManagedRuleSetVersions" OutputProperty="NextLockToken" Verb="Write" Noun="ManagedRuleSetVersion" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutManagedRuleSetVersions" OutputProperty="NextLockToken" Verb="Write" Noun="ManagedRuleSetVersion" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutPermissionPolicy" Verb="Write" Noun="PermissionPolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutPermissionPolicy" Verb="Write" Noun="PermissionPolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIPSet" OutputProperty="NextLockToken" Verb="Update" Noun="IPSet" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateIPSet" OutputProperty="NextLockToken" Verb="Update" Noun="IPSet" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateManagedRuleSetVersionExpiryDate" OutputProperty="*" Verb="Update" Noun="ManagedRuleSetVersionExpiryDate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateManagedRuleSetVersionExpiryDate" OutputProperty="*" Verb="Update" Noun="ManagedRuleSetVersionExpiryDate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRegexPatternSet" OutputProperty="NextLockToken" Verb="Update" Noun="RegexPatternSet" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRegexPatternSet" OutputProperty="NextLockToken" Verb="Update" Noun="RegexPatternSet" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRuleGroup" OutputProperty="NextLockToken" Verb="Update" Noun="RuleGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRuleGroup" OutputProperty="NextLockToken" Verb="Update" Noun="RuleGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWebACL" OutputProperty="NextLockToken" Verb="Update" Noun="WebACL" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateWebACL" OutputProperty="NextLockToken" Verb="Update" Noun="WebACL" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="CaptchaConfig_ImmunityTimeProperty_ImmunityTime" NewName="CaptchaConfig_ImmunityTimeProperty_ImmunityTime" Alias="ImmunityTimeProperty_ImmunityTime" />
                 <Param Name="ChallengeConfig_ImmunityTimeProperty_ImmunityTime" NewName="ChallengeConfig_ImmunityTimeProperty_ImmunityTime" />

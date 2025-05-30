@@ -87,6 +87,13 @@ $BAR_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentRuntime.FlowExecutionEventType
+        "Get-BARFlowExecutionEventList/EventType"
+        {
+            $v = "Flow","Node"
+            break
+        }
+
         # Amazon.BedrockAgentRuntime.InputQueryType
         "Invoke-BARGenerateQuery/QueryGenerationInput_Type"
         {
@@ -101,6 +108,13 @@ $BAR_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentRuntime.OrchestrationType
+        "Invoke-BARInlineAgent/OrchestrationType"
+        {
+            $v = "CUSTOM_ORCHESTRATION","DEFAULT"
+            break
+        }
+
         # Amazon.BedrockAgentRuntime.PerformanceConfigLatency
         {
             ($_ -eq "Invoke-BARRetrieveAndGenerate/ExternalSourcesConfig_PerformanceConfig_Latency") -Or
@@ -109,6 +123,7 @@ $BAR_Completers = {
             ($_ -eq "Invoke-BARAgent/PerformanceConfig_Latency") -Or
             ($_ -eq "Invoke-BARFlow/PerformanceConfig_Latency") -Or
             ($_ -eq "Invoke-BARInlineAgent/PerformanceConfig_Latency") -Or
+            ($_ -eq "Start-BARFlowExecution/PerformanceConfig_Latency") -Or
             ($_ -eq "Invoke-BARRetrieveAndGenerateStream/Stream_ExternalSourcesConfig_PerformanceConfig_Latency") -Or
             ($_ -eq "Invoke-BARRetrieveAndGenerateStream/Stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency") -Or
             ($_ -eq "Invoke-BARRetrieveAndGenerateStream/Stream_KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency")
@@ -202,12 +217,14 @@ $BAR_Completers = {
 
 $BAR_map = @{
     "AgentCollaboration"=@("Invoke-BARInlineAgent")
+    "EventType"=@("Get-BARFlowExecutionEventList")
     "ExternalSourcesConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
     "KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
     "KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
     "MemoryType"=@("Get-BARAgentMemory")
     "MetadataConfiguration_SelectionMode"=@("Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
-    "PerformanceConfig_Latency"=@("Invoke-BARAgent","Invoke-BARFlow","Invoke-BARInlineAgent")
+    "OrchestrationType"=@("Invoke-BARInlineAgent")
+    "PerformanceConfig_Latency"=@("Invoke-BARAgent","Invoke-BARFlow","Invoke-BARInlineAgent","Start-BARFlowExecution")
     "QueryGenerationInput_Type"=@("Invoke-BARGenerateQuery")
     "QueryTransformationConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
     "RerankingConfiguration_Type"=@("Invoke-BARRerank","Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
@@ -277,11 +294,15 @@ $BAR_SelectMap = @{
                "Close-BARSession",
                "Invoke-BARGenerateQuery",
                "Get-BARAgentMemory",
+               "Get-BARExecutionFlowSnapshot",
+               "Get-BARFlowExecution",
                "Get-BARInvocationStep",
                "Get-BARSession",
                "Invoke-BARAgent",
                "Invoke-BARFlow",
                "Invoke-BARInlineAgent",
+               "Get-BARFlowExecutionEventList",
+               "Get-BARFlowExecutionList",
                "Get-BARInvocationList",
                "Get-BARInvocationStepList",
                "Get-BARSessionList",
@@ -292,6 +313,8 @@ $BAR_SelectMap = @{
                "Invoke-BARRetrieve",
                "Invoke-BARRetrieveAndGenerate",
                "Invoke-BARRetrieveAndGenerateStream",
+               "Start-BARFlowExecution",
+               "Stop-BARFlowExecution",
                "Add-BARResourceTag",
                "Remove-BARResourceTag",
                "Update-BARSession")

@@ -18,119 +18,119 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateFraudster" OutputProperty="Fraudster" Verb="Add" Noun="FraudsterAssociation" ShouldProcessTarget="WatchlistId" PipelineParameter="WatchlistId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateFraudster" OutputProperty="Fraudster" Verb="Add" Noun="FraudsterAssociation" ShouldProcessTarget="WatchlistId" PipelineParameter="WatchlistId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDomain" OutputProperty="Domain" Verb="New" Noun="Domain" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDomain" OutputProperty="Domain" Verb="New" Noun="Domain" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWatchlist" OutputProperty="Watchlist" Verb="New" Noun="Watchlist" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateWatchlist" OutputProperty="Watchlist" Verb="New" Noun="Watchlist" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDomain" Verb="Remove" Noun="Domain" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDomain" Verb="Remove" Noun="Domain" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFraudster" Verb="Remove" Noun="Fraudster" ShouldProcessTarget="FraudsterId" PipelineParameter="FraudsterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteFraudster" Verb="Remove" Noun="Fraudster" ShouldProcessTarget="FraudsterId" PipelineParameter="FraudsterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSpeaker" Verb="Remove" Noun="Speaker" ShouldProcessTarget="SpeakerId" PipelineParameter="SpeakerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSpeaker" Verb="Remove" Noun="Speaker" ShouldProcessTarget="SpeakerId" PipelineParameter="SpeakerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWatchlist" Verb="Remove" Noun="Watchlist" ShouldProcessTarget="WatchlistId" PipelineParameter="WatchlistId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteWatchlist" Verb="Remove" Noun="Watchlist" ShouldProcessTarget="WatchlistId" PipelineParameter="WatchlistId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDomain" OutputProperty="Domain" Verb="Get" Noun="Domain" PipelineParameter="DomainId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDomain" OutputProperty="Domain" Verb="Get" Noun="Domain" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFraudster" OutputProperty="Fraudster" Verb="Get" Noun="Fraudster" PipelineParameter="FraudsterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFraudster" OutputProperty="Fraudster" Verb="Get" Noun="Fraudster" PipelineParameter="FraudsterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFraudsterRegistrationJob" OutputProperty="Job" Verb="Get" Noun="FraudsterRegistrationJob" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFraudsterRegistrationJob" OutputProperty="Job" Verb="Get" Noun="FraudsterRegistrationJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSpeaker" OutputProperty="Speaker" Verb="Get" Noun="Speaker" PipelineParameter="SpeakerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSpeaker" OutputProperty="Speaker" Verb="Get" Noun="Speaker" PipelineParameter="SpeakerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSpeakerEnrollmentJob" OutputProperty="Job" Verb="Get" Noun="SpeakerEnrollmentJob" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSpeakerEnrollmentJob" OutputProperty="Job" Verb="Get" Noun="SpeakerEnrollmentJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWatchlist" OutputProperty="Watchlist" Verb="Get" Noun="Watchlist" PipelineParameter="WatchlistId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeWatchlist" OutputProperty="Watchlist" Verb="Get" Noun="Watchlist" PipelineParameter="WatchlistId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateFraudster" OutputProperty="Fraudster" Verb="Remove" Noun="FraudsterAssociation" ShouldProcessTarget="WatchlistId" PipelineParameter="WatchlistId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateFraudster" OutputProperty="Fraudster" Verb="Remove" Noun="FraudsterAssociation" ShouldProcessTarget="WatchlistId" PipelineParameter="WatchlistId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EvaluateSession" OutputProperty="*" Verb="Get" Noun="SessionEvaluation" PipelineParameter="SessionNameOrId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EvaluateSession" OutputProperty="*" Verb="Get" Noun="SessionEvaluation" PipelineParameter="SessionNameOrId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomains" OutputProperty="DomainSummaries" Verb="Get" Noun="DomainList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListDomains" OutputProperty="DomainSummaries" Verb="Get" Noun="DomainList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFraudsterRegistrationJobs" OutputProperty="JobSummaries" Verb="Get" Noun="FraudsterRegistrationJobList" PipelineParameter="DomainId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFraudsterRegistrationJobs" OutputProperty="JobSummaries" Verb="Get" Noun="FraudsterRegistrationJobList" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFraudsters" OutputProperty="FraudsterSummaries" Verb="Get" Noun="FraudsterList" PipelineParameter="DomainId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFraudsters" OutputProperty="FraudsterSummaries" Verb="Get" Noun="FraudsterList" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSpeakerEnrollmentJobs" OutputProperty="JobSummaries" Verb="Get" Noun="SpeakerEnrollmentJobList" PipelineParameter="DomainId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSpeakerEnrollmentJobs" OutputProperty="JobSummaries" Verb="Get" Noun="SpeakerEnrollmentJobList" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSpeakers" OutputProperty="SpeakerSummaries" Verb="Get" Noun="SpeakerList" PipelineParameter="DomainId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSpeakers" OutputProperty="SpeakerSummaries" Verb="Get" Noun="SpeakerList" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWatchlists" OutputProperty="WatchlistSummaries" Verb="Get" Noun="WatchlistList" PipelineParameter="DomainId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListWatchlists" OutputProperty="WatchlistSummaries" Verb="Get" Noun="WatchlistList" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="OptOutSpeaker" OutputProperty="Speaker" Verb="Set" Noun="OptOutSpeaker" ShouldProcessTarget="SpeakerId" PipelineParameter="SpeakerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="OptOutSpeaker" OutputProperty="Speaker" Verb="Set" Noun="OptOutSpeaker" ShouldProcessTarget="SpeakerId" PipelineParameter="SpeakerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartFraudsterRegistrationJob" OutputProperty="Job" Verb="Start" Noun="FraudsterRegistrationJob" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartFraudsterRegistrationJob" OutputProperty="Job" Verb="Start" Noun="FraudsterRegistrationJob" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSpeakerEnrollmentJob" OutputProperty="Job" Verb="Start" Noun="SpeakerEnrollmentJob" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartSpeakerEnrollmentJob" OutputProperty="Job" Verb="Start" Noun="SpeakerEnrollmentJob" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDomain" OutputProperty="Domain" Verb="Edit" Noun="Domain" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDomain" OutputProperty="Domain" Verb="Edit" Noun="Domain" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWatchlist" OutputProperty="Watchlist" Verb="Update" Noun="Watchlist" ShouldProcessTarget="WatchlistId" PipelineParameter="WatchlistId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateWatchlist" OutputProperty="Watchlist" Verb="Update" Noun="Watchlist" ShouldProcessTarget="WatchlistId" PipelineParameter="WatchlistId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

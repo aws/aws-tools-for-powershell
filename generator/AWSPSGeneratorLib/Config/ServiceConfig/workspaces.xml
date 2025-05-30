@@ -21,376 +21,376 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptAccountLinkInvitation" OutputProperty="AccountLink" Verb="Approve" Noun="AccountLinkInvitation" ShouldProcessTarget="LinkId" PipelineParameter="LinkId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AcceptAccountLinkInvitation" OutputProperty="AccountLink" Verb="Approve" Noun="AccountLinkInvitation" ShouldProcessTarget="LinkId" PipelineParameter="LinkId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateConnectionAlias" OutputProperty="ConnectionIdentifier" Verb="Register" Noun="ConnectionAlias" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateConnectionAlias" OutputProperty="ConnectionIdentifier" Verb="Register" Noun="ConnectionAlias" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateIpGroups" Verb="Register" Noun="IpGroup" ShouldProcessTarget="GroupIds" PipelineParameter="GroupIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateIpGroups" Verb="Register" Noun="IpGroup" ShouldProcessTarget="GroupIds" PipelineParameter="GroupIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateWorkspaceApplication" OutputProperty="Association" Verb="Register" Noun="WorkspaceApplication" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateWorkspaceApplication" OutputProperty="Association" Verb="Register" Noun="WorkspaceApplication" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AuthorizeIpRules" Verb="Approve" Noun="IpRule" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AuthorizeIpRules" Verb="Approve" Noun="IpRule" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopyWorkspaceImage" OutputProperty="ImageId" Verb="Copy" Noun="WorkspaceImage" ShouldProcessTarget="SourceImageId" PipelineParameter="SourceImageId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CopyWorkspaceImage" OutputProperty="ImageId" Verb="Copy" Noun="WorkspaceImage" ShouldProcessTarget="SourceImageId" PipelineParameter="SourceImageId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAccountLinkInvitation" OutputProperty="AccountLink" Verb="New" Noun="AccountLinkInvitation" ShouldProcessTarget="TargetAccountId" PipelineParameter="TargetAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAccountLinkInvitation" OutputProperty="AccountLink" Verb="New" Noun="AccountLinkInvitation" ShouldProcessTarget="TargetAccountId" PipelineParameter="TargetAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConnectClientAddIn" OutputProperty="AddInId" Verb="New" Noun="ConnectClientAddIn" ShouldProcessTarget="Name" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateConnectClientAddIn" OutputProperty="AddInId" Verb="New" Noun="ConnectClientAddIn" ShouldProcessTarget="Name" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConnectionAlias" OutputProperty="AliasId" Verb="New" Noun="ConnectionAlias" ShouldProcessTarget="ConnectionString" PipelineParameter="ConnectionString" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateConnectionAlias" OutputProperty="AliasId" Verb="New" Noun="ConnectionAlias" ShouldProcessTarget="ConnectionString" PipelineParameter="ConnectionString" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIpGroup" OutputProperty="GroupId" Verb="New" Noun="IpGroup" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateIpGroup" OutputProperty="GroupId" Verb="New" Noun="IpGroup" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStandbyWorkspaces" OutputProperty="*" Verb="New" Noun="StandbyWorkspace" ShouldProcessTarget="PrimaryRegion" PipelineParameter="PrimaryRegion" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateStandbyWorkspaces" OutputProperty="*" Verb="New" Noun="StandbyWorkspace" ShouldProcessTarget="PrimaryRegion" PipelineParameter="PrimaryRegion" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTags" Verb="New" Noun="Tag" ShouldProcessTarget="ResourceId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateTags" Verb="New" Noun="Tag" ShouldProcessTarget="ResourceId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="ResourceId" NewName="WorkspaceId" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUpdatedWorkspaceImage" OutputProperty="ImageId" Verb="New" Noun="UpdatedWorkspaceImage" ShouldProcessTarget="SourceImageId" PipelineParameter="SourceImageId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateUpdatedWorkspaceImage" OutputProperty="ImageId" Verb="New" Noun="UpdatedWorkspaceImage" ShouldProcessTarget="SourceImageId" PipelineParameter="SourceImageId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWorkspaceBundle" OutputProperty="WorkspaceBundle" Verb="New" Noun="WorkspaceBundle" ShouldProcessTarget="BundleName" PipelineParameter="BundleName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateWorkspaceBundle" OutputProperty="WorkspaceBundle" Verb="New" Noun="WorkspaceBundle" ShouldProcessTarget="BundleName" PipelineParameter="BundleName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWorkspaceImage" OutputProperty="*" Verb="New" Noun="WorkspaceImage" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateWorkspaceImage" OutputProperty="*" Verb="New" Noun="WorkspaceImage" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWorkspaces" OutputProperty="*" Verb="New" Noun="Workspace" ShouldProcessTarget="Workspaces" PipelineParameter="Workspaces" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateWorkspaces" OutputProperty="*" Verb="New" Noun="Workspace" ShouldProcessTarget="Workspaces" PipelineParameter="Workspaces" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWorkspacesPool" OutputProperty="WorkspacesPool" Verb="New" Noun="WorkspacesPool" AnonymousShouldProcessTarget="true" PipelineParameter="PoolName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateWorkspacesPool" OutputProperty="WorkspacesPool" Verb="New" Noun="WorkspacesPool" AnonymousShouldProcessTarget="true" PipelineParameter="PoolName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccountLinkInvitation" OutputProperty="AccountLink" Verb="Remove" Noun="AccountLinkInvitation" ShouldProcessTarget="LinkId" PipelineParameter="LinkId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAccountLinkInvitation" OutputProperty="AccountLink" Verb="Remove" Noun="AccountLinkInvitation" ShouldProcessTarget="LinkId" PipelineParameter="LinkId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteClientBranding" Verb="Remove" Noun="ClientBranding" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteClientBranding" Verb="Remove" Noun="ClientBranding" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConnectClientAddIn" Verb="Remove" Noun="ConnectClientAddIn" ShouldProcessTarget="AddInId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteConnectClientAddIn" Verb="Remove" Noun="ConnectClientAddIn" ShouldProcessTarget="AddInId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConnectionAlias" Verb="Remove" Noun="ConnectionAlias" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteConnectionAlias" Verb="Remove" Noun="ConnectionAlias" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIpGroup" Verb="Remove" Noun="IpGroup" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteIpGroup" Verb="Remove" Noun="IpGroup" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTags" Verb="Remove" Noun="Tag" ShouldProcessTarget="ResourceId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteTags" Verb="Remove" Noun="Tag" ShouldProcessTarget="ResourceId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWorkspaceBundle" Verb="Remove" Noun="WorkspaceBundle" ShouldProcessTarget="BundleId" PipelineParameter="BundleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteWorkspaceBundle" Verb="Remove" Noun="WorkspaceBundle" ShouldProcessTarget="BundleId" PipelineParameter="BundleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWorkspaceImage" Verb="Remove" Noun="WorkspaceImage" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteWorkspaceImage" Verb="Remove" Noun="WorkspaceImage" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeployWorkspaceApplications" OutputProperty="Deployment" Verb="Publish" Noun="WorkspaceApplication" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeployWorkspaceApplications" OutputProperty="Deployment" Verb="Publish" Noun="WorkspaceApplication" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Force" NewName="ForceDeployment" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterWorkspaceDirectory" Verb="Unregister" Noun="WorkspaceDirectory" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeregisterWorkspaceDirectory" Verb="Unregister" Noun="WorkspaceDirectory" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccount" OutputProperty="*" Verb="Get" Noun="Account" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAccount" OutputProperty="*" Verb="Get" Noun="Account" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountModifications" OutputProperty="AccountModifications" Verb="Get" Noun="AccountModification" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAccountModifications" OutputProperty="AccountModifications" Verb="Get" Noun="AccountModification" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeApplicationAssociations" OutputProperty="Associations" Verb="Get" Noun="ApplicationAssociation" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeApplicationAssociations" OutputProperty="Associations" Verb="Get" Noun="ApplicationAssociation" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeApplications" OutputProperty="Applications" Verb="Get" Noun="Application" PipelineParameter="LicenseType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeApplications" OutputProperty="Applications" Verb="Get" Noun="Application" PipelineParameter="LicenseType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBundleAssociations" OutputProperty="Associations" Verb="Get" Noun="BundleAssociation" PipelineParameter="BundleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeBundleAssociations" OutputProperty="Associations" Verb="Get" Noun="BundleAssociation" PipelineParameter="BundleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClientBranding" OutputProperty="*" Verb="Get" Noun="ClientBranding" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeClientBranding" OutputProperty="*" Verb="Get" Noun="ClientBranding" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClientProperties" OutputProperty="ClientPropertiesList" Verb="Get" Noun="ClientProperty" PipelineParameter="ResourceIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeClientProperties" OutputProperty="ClientPropertiesList" Verb="Get" Noun="ClientProperty" PipelineParameter="ResourceIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConnectClientAddIns" OutputProperty="AddIns" Verb="Get" Noun="ConnectClientAddIn" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeConnectClientAddIns" OutputProperty="AddIns" Verb="Get" Noun="ConnectClientAddIn" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConnectionAliases" OutputProperty="ConnectionAliases" Verb="Get" Noun="ConnectionAlias" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeConnectionAliases" OutputProperty="ConnectionAliases" Verb="Get" Noun="ConnectionAlias" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConnectionAliasPermissions" OutputProperty="*" Verb="Get" Noun="ConnectionAliasPermission" PipelineParameter="AliasId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeConnectionAliasPermissions" OutputProperty="*" Verb="Get" Noun="ConnectionAliasPermission" PipelineParameter="AliasId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImageAssociations" OutputProperty="Associations" Verb="Get" Noun="ImageAssociation" PipelineParameter="ImageId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeImageAssociations" OutputProperty="Associations" Verb="Get" Noun="ImageAssociation" PipelineParameter="ImageId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIpGroups" OutputProperty="Result" Verb="Get" Noun="IpGroup" PipelineParameter="GroupIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeIpGroups" OutputProperty="Result" Verb="Get" Noun="IpGroup" PipelineParameter="GroupIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTags" OutputProperty="TagList" Verb="Get" Noun="Tag" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="TagList" Verb="Get" Noun="Tag" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="ResourceId" NewName="WorkspaceId" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspaceAssociations" OutputProperty="Associations" Verb="Get" Noun="WorkspaceAssociation" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeWorkspaceAssociations" OutputProperty="Associations" Verb="Get" Noun="WorkspaceAssociation" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspaceBundles" OutputProperty="Bundles" Verb="Get" Noun="WorkspaceBundle" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-WKSWorkspaceBundles">
+        <ServiceOperation MethodName="DescribeWorkspaceBundles" OutputProperty="Bundles" Verb="Get" Noun="WorkspaceBundle" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-WKSWorkspaceBundles" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspaceDirectories" OutputProperty="Directories" Verb="Get" Noun="WorkspaceDirectory" PipelineParameter="DirectoryIds" NoPipelineParameter="false" LegacyAlias="Get-WKSWorkspaceDirectories">
+        <ServiceOperation MethodName="DescribeWorkspaceDirectories" OutputProperty="Directories" Verb="Get" Noun="WorkspaceDirectory" PipelineParameter="DirectoryIds" NoPipelineParameter="false" LegacyAlias="Get-WKSWorkspaceDirectories" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspaceImagePermissions" OutputProperty="*" Verb="Get" Noun="WorkspaceImagePermission" PipelineParameter="ImageId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeWorkspaceImagePermissions" OutputProperty="*" Verb="Get" Noun="WorkspaceImagePermission" PipelineParameter="ImageId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspaceImages" OutputProperty="Images" Verb="Get" Noun="WorkspaceImage" PipelineParameter="ImageIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeWorkspaceImages" OutputProperty="Images" Verb="Get" Noun="WorkspaceImage" PipelineParameter="ImageIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspaces" OutputProperty="Workspaces" Verb="Get" Noun="Workspace" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-WKSWorkspaces">
+        <ServiceOperation MethodName="DescribeWorkspaces" OutputProperty="Workspaces" Verb="Get" Noun="Workspace" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-WKSWorkspaces" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspacesConnectionStatus" OutputProperty="WorkspacesConnectionStatus" Verb="Get" Noun="WorkspacesConnectionStatus" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeWorkspacesConnectionStatus" OutputProperty="WorkspacesConnectionStatus" Verb="Get" Noun="WorkspacesConnectionStatus" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspaceSnapshots" OutputProperty="*" Verb="Get" Noun="WorkspaceSnapshot" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeWorkspaceSnapshots" OutputProperty="*" Verb="Get" Noun="WorkspaceSnapshot" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspacesPools" OutputProperty="WorkspacesPools" Verb="Get" Noun="WorkspacesPool" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeWorkspacesPools" OutputProperty="WorkspacesPools" Verb="Get" Noun="WorkspacesPool" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspacesPoolSessions" OutputProperty="Sessions" Verb="Get" Noun="WorkspacesPoolSession" PipelineParameter="PoolId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeWorkspacesPoolSessions" OutputProperty="Sessions" Verb="Get" Noun="WorkspacesPoolSession" PipelineParameter="PoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateConnectionAlias" Verb="Unregister" Noun="ConnectionAlias" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateConnectionAlias" Verb="Unregister" Noun="ConnectionAlias" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateIpGroups" Verb="Unregister" Noun="IpGroup" ShouldProcessTarget="GroupIds" PipelineParameter="GroupIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateIpGroups" Verb="Unregister" Noun="IpGroup" ShouldProcessTarget="GroupIds" PipelineParameter="GroupIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateWorkspaceApplication" OutputProperty="Association" Verb="Unregister" Noun="WorkspaceApplication" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateWorkspaceApplication" OutputProperty="Association" Verb="Unregister" Noun="WorkspaceApplication" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccountLink" OutputProperty="AccountLink" Verb="Get" Noun="AccountLink" PipelineParameter="LinkId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAccountLink" OutputProperty="AccountLink" Verb="Get" Noun="AccountLink" PipelineParameter="LinkId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportClientBranding" OutputProperty="*" Verb="Import" Noun="ClientBranding" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ImportClientBranding" OutputProperty="*" Verb="Import" Noun="ClientBranding" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportWorkspaceImage" OutputProperty="ImageId" Verb="Import" Noun="WorkspaceImage" ShouldProcessTarget="ImageName" PipelineParameter="ImageName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ImportWorkspaceImage" OutputProperty="ImageId" Verb="Import" Noun="WorkspaceImage" ShouldProcessTarget="ImageName" PipelineParameter="ImageName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccountLinks" OutputProperty="AccountLinks" Verb="Get" Noun="AccountLinkList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAccountLinks" OutputProperty="AccountLinks" Verb="Get" Noun="AccountLinkList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAvailableManagementCidrRanges" OutputProperty="ManagementCidrRanges" Verb="Get" Noun="AvailableManagementCidrRangeList" PipelineParameter="ManagementCidrRangeConstraint" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListAvailableManagementCidrRanges" OutputProperty="ManagementCidrRanges" Verb="Get" Noun="AvailableManagementCidrRangeList" PipelineParameter="ManagementCidrRangeConstraint" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="MigrateWorkspace" OutputProperty="*" Verb="Start" Noun="WorkspaceMigration" ShouldProcessTarget="SourceWorkspaceId" PipelineParameter="SourceWorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="MigrateWorkspace" OutputProperty="*" Verb="Start" Noun="WorkspaceMigration" ShouldProcessTarget="SourceWorkspaceId" PipelineParameter="SourceWorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyAccount" Verb="Edit" Noun="Account" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ModifyAccount" Verb="Edit" Noun="Account" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyCertificateBasedAuthProperties" Verb="Edit" Noun="CertificateBasedAuthProperty" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyCertificateBasedAuthProperties" Verb="Edit" Noun="CertificateBasedAuthProperty" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyClientProperties" Verb="Edit" Noun="ClientProperty" ShouldProcessTarget="ResourceId" PipelineParameter="ClientProperties_ReconnectEnabled" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyClientProperties" Verb="Edit" Noun="ClientProperty" ShouldProcessTarget="ResourceId" PipelineParameter="ClientProperties_ReconnectEnabled" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyEndpointEncryptionMode" Verb="Edit" Noun="EndpointEncryptionMode" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyEndpointEncryptionMode" Verb="Edit" Noun="EndpointEncryptionMode" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifySamlProperties" Verb="Edit" Noun="SamlProperty" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifySamlProperties" Verb="Edit" Noun="SamlProperty" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifySelfservicePermissions" Verb="Edit" Noun="SelfservicePermission" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifySelfservicePermissions" Verb="Edit" Noun="SelfservicePermission" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyStreamingProperties" Verb="Edit" Noun="StreamingProperty" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyStreamingProperties" Verb="Edit" Noun="StreamingProperty" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyWorkspaceAccessProperties" Verb="Edit" Noun="WorkspaceAccessProperty" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyWorkspaceAccessProperties" Verb="Edit" Noun="WorkspaceAccessProperty" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyWorkspaceCreationProperties" Verb="Edit" Noun="WorkspaceCreationProperty" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyWorkspaceCreationProperties" Verb="Edit" Noun="WorkspaceCreationProperty" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyWorkspaceProperties" Verb="Edit" Noun="WorkspaceProperty" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyWorkspaceProperties" Verb="Edit" Noun="WorkspaceProperty" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyWorkspaceState" Verb="Edit" Noun="WorkspaceState" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyWorkspaceState" Verb="Edit" Noun="WorkspaceState" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RebootWorkspaces" OutputProperty="FailedRequests" Verb="Restart" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="RebootWorkspaceRequests" NoPipelineParameter="false" DefaultParameterSet="IdFromRequestObject">
+        <ServiceOperation MethodName="RebootWorkspaces" OutputProperty="FailedRequests" Verb="Restart" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="RebootWorkspaceRequests" NoPipelineParameter="false" DefaultParameterSet="IdFromRequestObject" LegacyV4Pagination="true">
             <Params>
                 <Param Name="RebootWorkspaceRequests" NewName="Request" Alias="RebootWorkspaceRequest" ParameterSetName="IdFromRequestObject" Mandatory="true" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RebuildWorkspaces" OutputProperty="FailedRequests" Verb="Reset" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="RebuildWorkspaceRequests" NoPipelineParameter="false" DefaultParameterSet="IdFromRequestObject">
+        <ServiceOperation MethodName="RebuildWorkspaces" OutputProperty="FailedRequests" Verb="Reset" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="RebuildWorkspaceRequests" NoPipelineParameter="false" DefaultParameterSet="IdFromRequestObject" LegacyV4Pagination="true">
             <Params>
                 <Param Name="RebuildWorkspaceRequests" NewName="Request" Alias="RebuildWorkspaceRequest" ParameterSetName="IdFromRequestObject" Mandatory="true" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterWorkspaceDirectory" OutputProperty="*" Verb="Register" Noun="WorkspaceDirectory" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterWorkspaceDirectory" OutputProperty="*" Verb="Register" Noun="WorkspaceDirectory" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RejectAccountLinkInvitation" OutputProperty="AccountLink" Verb="Deny" Noun="AccountLinkInvitation" ShouldProcessTarget="LinkId" PipelineParameter="LinkId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RejectAccountLinkInvitation" OutputProperty="AccountLink" Verb="Deny" Noun="AccountLinkInvitation" ShouldProcessTarget="LinkId" PipelineParameter="LinkId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreWorkspace" Verb="Restore" Noun="Workspace" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RestoreWorkspace" Verb="Restore" Noun="Workspace" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RevokeIpRules" Verb="Revoke" Noun="IpRule" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RevokeIpRules" Verb="Revoke" Noun="IpRule" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartWorkspaces" OutputProperty="FailedRequests" Verb="Start" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="StartWorkspaceRequests" NoPipelineParameter="false" DefaultParameterSet="IdFromRequestObject">
+        <ServiceOperation MethodName="StartWorkspaces" OutputProperty="FailedRequests" Verb="Start" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="StartWorkspaceRequests" NoPipelineParameter="false" DefaultParameterSet="IdFromRequestObject" LegacyV4Pagination="true">
             <Params>
                 <Param Name="StartWorkspaceRequests" NewName="Request" Alias="StartWorkspaceRequest" ParameterSetName="IdFromRequestObject" Mandatory="true" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartWorkspacesPool" Verb="Start" Noun="WorkspacesPool" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartWorkspacesPool" Verb="Start" Noun="WorkspacesPool" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopWorkspaces" OutputProperty="FailedRequests" Verb="Stop" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="StopWorkspaceRequests" NoPipelineParameter="false" DefaultParameterSet="IdFromRequestObject">
+        <ServiceOperation MethodName="StopWorkspaces" OutputProperty="FailedRequests" Verb="Stop" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="StopWorkspaceRequests" NoPipelineParameter="false" DefaultParameterSet="IdFromRequestObject" LegacyV4Pagination="true">
             <Params>
                 <Param Name="StopWorkspaceRequests" NewName="Request" Alias="StopWorkspaceRequest" ParameterSetName="IdFromRequestObject" Mandatory="true" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopWorkspacesPool" Verb="Stop" Noun="WorkspacesPool" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopWorkspacesPool" Verb="Stop" Noun="WorkspacesPool" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TerminateWorkspaces" OutputProperty="FailedRequests" Verb="Remove" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="TerminateWorkspaceRequests" NoPipelineParameter="false" DefaultParameterSet="IdFromRequestObject">
+        <ServiceOperation MethodName="TerminateWorkspaces" OutputProperty="FailedRequests" Verb="Remove" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="TerminateWorkspaceRequests" NoPipelineParameter="false" DefaultParameterSet="IdFromRequestObject" LegacyV4Pagination="true">
             <Params>
                 <Param Name="TerminateWorkspaceRequests" NewName="Request" Alias="TerminateWorkspaceRequest" ParameterSetName="IdFromRequestObject" Mandatory="true" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TerminateWorkspacesPool" Verb="Remove" Noun="WorkspacesPool" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TerminateWorkspacesPool" Verb="Remove" Noun="WorkspacesPool" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TerminateWorkspacesPoolSession" Verb="Remove" Noun="WorkspacesPoolSession" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TerminateWorkspacesPoolSession" Verb="Remove" Noun="WorkspacesPoolSession" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConnectClientAddIn" Verb="Update" Noun="ConnectClientAddIn" ShouldProcessTarget="AddInId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateConnectClientAddIn" Verb="Update" Noun="ConnectClientAddIn" ShouldProcessTarget="AddInId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConnectionAliasPermission" Verb="Update" Noun="ConnectionAliasPermission" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateConnectionAliasPermission" Verb="Update" Noun="ConnectionAliasPermission" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRulesOfIpGroup" Verb="Update" Noun="RulesOfIpGroup" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRulesOfIpGroup" Verb="Update" Noun="RulesOfIpGroup" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWorkspaceBundle" Verb="Update" Noun="WorkspaceBundle" ShouldProcessTarget="BundleId" PipelineParameter="BundleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateWorkspaceBundle" Verb="Update" Noun="WorkspaceBundle" ShouldProcessTarget="BundleId" PipelineParameter="BundleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWorkspaceImagePermission" Verb="Update" Noun="WorkspaceImagePermission" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateWorkspaceImagePermission" Verb="Update" Noun="WorkspaceImagePermission" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWorkspacesPool" OutputProperty="WorkspacesPool" Verb="Update" Noun="WorkspacesPool" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateWorkspacesPool" OutputProperty="WorkspacesPool" Verb="Update" Noun="WorkspacesPool" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

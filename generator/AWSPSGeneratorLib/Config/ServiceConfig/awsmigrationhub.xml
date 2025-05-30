@@ -19,87 +19,87 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateCreatedArtifact" Verb="Add" Noun="CreatedArtifact" ShouldProcessTarget="MigrationTaskName" PipelineParameter="CreatedArtifact" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateCreatedArtifact" Verb="Add" Noun="CreatedArtifact" ShouldProcessTarget="MigrationTaskName" PipelineParameter="CreatedArtifact" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateDiscoveredResource" Verb="Add" Noun="DiscoveredResource" ShouldProcessTarget="MigrationTaskName" PipelineParameter="DiscoveredResource" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateDiscoveredResource" Verb="Add" Noun="DiscoveredResource" ShouldProcessTarget="MigrationTaskName" PipelineParameter="DiscoveredResource" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateSourceResource" Verb="Add" Noun="SourceResource" ShouldProcessTarget="MigrationTaskName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AssociateSourceResource" Verb="Add" Noun="SourceResource" ShouldProcessTarget="MigrationTaskName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProgressUpdateStream" Verb="New" Noun="ProgressUpdateStream" ShouldProcessTarget="ProgressUpdateStreamName" PipelineParameter="ProgressUpdateStreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateProgressUpdateStream" Verb="New" Noun="ProgressUpdateStream" ShouldProcessTarget="ProgressUpdateStreamName" PipelineParameter="ProgressUpdateStreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProgressUpdateStream" Verb="Remove" Noun="ProgressUpdateStream" ShouldProcessTarget="ProgressUpdateStreamName" PipelineParameter="ProgressUpdateStreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteProgressUpdateStream" Verb="Remove" Noun="ProgressUpdateStream" ShouldProcessTarget="ProgressUpdateStreamName" PipelineParameter="ProgressUpdateStreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeApplicationState" OutputProperty="*" Verb="Get" Noun="ApplicationState" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeApplicationState" OutputProperty="*" Verb="Get" Noun="ApplicationState" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMigrationTask" OutputProperty="MigrationTask" Verb="Get" Noun="MigrationTask" PipelineParameter="MigrationTaskName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeMigrationTask" OutputProperty="MigrationTask" Verb="Get" Noun="MigrationTask" PipelineParameter="MigrationTaskName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateCreatedArtifact" Verb="Remove" Noun="CreatedArtifact" ShouldProcessTarget="CreatedArtifactName" PipelineParameter="CreatedArtifactName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateCreatedArtifact" Verb="Remove" Noun="CreatedArtifact" ShouldProcessTarget="CreatedArtifactName" PipelineParameter="CreatedArtifactName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateDiscoveredResource" Verb="Remove" Noun="DiscoveredResource" ShouldProcessTarget="ConfigurationId" PipelineParameter="ConfigurationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateDiscoveredResource" Verb="Remove" Noun="DiscoveredResource" ShouldProcessTarget="ConfigurationId" PipelineParameter="ConfigurationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateSourceResource" Verb="Remove" Noun="SourceResource" ShouldProcessTarget="MigrationTaskName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DisassociateSourceResource" Verb="Remove" Noun="SourceResource" ShouldProcessTarget="MigrationTaskName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportMigrationTask" Verb="Import" Noun="MigrationTask" ShouldProcessTarget="MigrationTaskName" PipelineParameter="MigrationTaskName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ImportMigrationTask" Verb="Import" Noun="MigrationTask" ShouldProcessTarget="MigrationTaskName" PipelineParameter="MigrationTaskName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplicationStates" OutputProperty="ApplicationStateList" Verb="Get" Noun="ApplicationStateList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApplicationStates" OutputProperty="ApplicationStateList" Verb="Get" Noun="ApplicationStateList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCreatedArtifacts" OutputProperty="CreatedArtifactList" Verb="Get" Noun="CreatedArtifactList" PipelineParameter="MigrationTaskName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListCreatedArtifacts" OutputProperty="CreatedArtifactList" Verb="Get" Noun="CreatedArtifactList" PipelineParameter="MigrationTaskName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDiscoveredResources" OutputProperty="DiscoveredResourceList" Verb="Get" Noun="DiscoveredResourceList" PipelineParameter="MigrationTaskName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListDiscoveredResources" OutputProperty="DiscoveredResourceList" Verb="Get" Noun="DiscoveredResourceList" PipelineParameter="MigrationTaskName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMigrationTasks" OutputProperty="MigrationTaskSummaryList" Verb="Get" Noun="MigrationTaskList" PipelineParameter="ResourceName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListMigrationTasks" OutputProperty="MigrationTaskSummaryList" Verb="Get" Noun="MigrationTaskList" PipelineParameter="ResourceName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMigrationTaskUpdates" OutputProperty="MigrationTaskUpdateList" Verb="Get" Noun="MigrationTaskUpdateList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListMigrationTaskUpdates" OutputProperty="MigrationTaskUpdateList" Verb="Get" Noun="MigrationTaskUpdateList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProgressUpdateStreams" OutputProperty="ProgressUpdateStreamSummaryList" Verb="Get" Noun="ProgressUpdateStream" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListProgressUpdateStreams" OutputProperty="ProgressUpdateStreamSummaryList" Verb="Get" Noun="ProgressUpdateStream" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSourceResources" OutputProperty="SourceResourceList" Verb="Get" Noun="SourceResourceList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListSourceResources" OutputProperty="SourceResourceList" Verb="Get" Noun="SourceResourceList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="NotifyApplicationState" Verb="Send" Noun="ApplicationStateNotification" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="NotifyApplicationState" Verb="Send" Noun="ApplicationStateNotification" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="NotifyMigrationTaskState" Verb="Send" Noun="MigrationTaskStateNotification" ShouldProcessTarget="MigrationTaskName" PipelineParameter="Task" NoPipelineParameter="false">
+        <ServiceOperation MethodName="NotifyMigrationTaskState" Verb="Send" Noun="MigrationTaskStateNotification" ShouldProcessTarget="MigrationTaskName" PipelineParameter="Task" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutResourceAttributes" Verb="Set" Noun="ResourceAttribute" ShouldProcessTarget="MigrationTaskName" PipelineParameter="MigrationTaskName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutResourceAttributes" Verb="Set" Noun="ResourceAttribute" ShouldProcessTarget="MigrationTaskName" PipelineParameter="MigrationTaskName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

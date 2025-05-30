@@ -34,195 +34,195 @@
         <Property>AscendingOrder</Property>
     </MetadataProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptCertificateTransfer" Verb="Confirm" Noun="CertificateTransfer" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AcceptCertificateTransfer" Verb="Confirm" Noun="CertificateTransfer" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddThingToBillingGroup" Verb="Add" Noun="ThingToBillingGroup" ShouldProcessTarget="ThingArn" PipelineParameter="ThingArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddThingToBillingGroup" Verb="Add" Noun="ThingToBillingGroup" ShouldProcessTarget="ThingArn" PipelineParameter="ThingArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddThingToThingGroup" Verb="Add" Noun="ThingToThingGroup" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddThingToThingGroup" Verb="Add" Noun="ThingToThingGroup" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateSbomWithPackageVersion" OutputProperty="*" Verb="Add" Noun="SbomWithPackageVersion" ShouldProcessTarget="VersionName" PipelineParameter="VersionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateSbomWithPackageVersion" OutputProperty="*" Verb="Add" Noun="SbomWithPackageVersion" ShouldProcessTarget="VersionName" PipelineParameter="VersionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateTargetsWithJob" OutputProperty="*" Verb="Add" Noun="TargetsWithJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateTargetsWithJob" OutputProperty="*" Verb="Add" Noun="TargetsWithJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AttachPolicy" Verb="Add" Noun="Policy" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AttachPolicy" Verb="Add" Noun="Policy" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AttachPrincipalPolicy" Verb="Add" Noun="PrincipalPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="Principal" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AttachPrincipalPolicy" Verb="Add" Noun="PrincipalPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="Principal" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AttachSecurityProfile" Verb="Mount" Noun="SecurityProfile" ShouldProcessTarget="SecurityProfileName" PipelineParameter="SecurityProfileName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AttachSecurityProfile" Verb="Mount" Noun="SecurityProfile" ShouldProcessTarget="SecurityProfileName" PipelineParameter="SecurityProfileName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AttachThingPrincipal" Verb="Add" Noun="ThingPrincipal" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AttachThingPrincipal" Verb="Add" Noun="ThingPrincipal" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelAuditMitigationActionsTask" Verb="Stop" Noun="AuditMitigationActionsTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelAuditMitigationActionsTask" Verb="Stop" Noun="AuditMitigationActionsTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelAuditTask" Verb="Stop" Noun="AuditTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelAuditTask" Verb="Stop" Noun="AuditTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelCertificateTransfer" Verb="Stop" Noun="CertificateTransfer" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelCertificateTransfer" Verb="Stop" Noun="CertificateTransfer" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelDetectMitigationActionsTask" Verb="Stop" Noun="DetectMitigationActionsTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelDetectMitigationActionsTask" Verb="Stop" Noun="DetectMitigationActionsTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelJob" OutputProperty="*" Verb="Stop" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelJob" OutputProperty="*" Verb="Stop" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelJobExecution" Verb="Stop" Noun="JobExecution" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelJobExecution" Verb="Stop" Noun="JobExecution" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ClearDefaultAuthorizer" Verb="Clear" Noun="DefaultAuthorizer" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ClearDefaultAuthorizer" Verb="Clear" Noun="DefaultAuthorizer" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ConfirmTopicRuleDestination" Verb="Confirm" Noun="TopicRuleDestination" ShouldProcessTarget="ConfirmationToken" PipelineParameter="ConfirmationToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ConfirmTopicRuleDestination" Verb="Confirm" Noun="TopicRuleDestination" ShouldProcessTarget="ConfirmationToken" PipelineParameter="ConfirmationToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAuditSuppression" Verb="New" Noun="AuditSuppression" ShouldProcessTarget="CheckName" PipelineParameter="CheckName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAuditSuppression" Verb="New" Noun="AuditSuppression" ShouldProcessTarget="CheckName" PipelineParameter="CheckName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAuthorizer" OutputProperty="*" Verb="New" Noun="Authorizer" ShouldProcessTarget="AuthorizerName" PipelineParameter="AuthorizerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAuthorizer" OutputProperty="*" Verb="New" Noun="Authorizer" ShouldProcessTarget="AuthorizerName" PipelineParameter="AuthorizerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBillingGroup" OutputProperty="*" Verb="New" Noun="BillingGroup" ShouldProcessTarget="BillingGroupName" PipelineParameter="BillingGroupProperties_BillingGroupDescription" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateBillingGroup" OutputProperty="*" Verb="New" Noun="BillingGroup" ShouldProcessTarget="BillingGroupName" PipelineParameter="BillingGroupProperties_BillingGroupDescription" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCertificateFromCsr" OutputProperty="*" Verb="New" Noun="CertificateFromCsr" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateCertificateFromCsr" OutputProperty="*" Verb="New" Noun="CertificateFromCsr" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCertificateProvider" OutputProperty="*" Verb="New" Noun="CertificateProvider" ShouldProcessTarget="CertificateProviderName" PipelineParameter="CertificateProviderName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCertificateProvider" OutputProperty="*" Verb="New" Noun="CertificateProvider" ShouldProcessTarget="CertificateProviderName" PipelineParameter="CertificateProviderName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCommand" OutputProperty="*" Verb="New" Noun="Command" ShouldProcessTarget="CommandId" PipelineParameter="CommandId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCommand" OutputProperty="*" Verb="New" Noun="Command" ShouldProcessTarget="CommandId" PipelineParameter="CommandId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCustomMetric" OutputProperty="*" Verb="New" Noun="CustomMetric" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCustomMetric" OutputProperty="*" Verb="New" Noun="CustomMetric" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDimension" OutputProperty="*" Verb="New" Noun="Dimension" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateDimension" OutputProperty="*" Verb="New" Noun="Dimension" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDomainConfiguration" OutputProperty="*" Verb="New" Noun="DomainConfiguration" ShouldProcessTarget="DomainConfigurationName" PipelineParameter="DomainConfigurationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDomainConfiguration" OutputProperty="*" Verb="New" Noun="DomainConfiguration" ShouldProcessTarget="DomainConfigurationName" PipelineParameter="DomainConfigurationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDynamicThingGroup" OutputProperty="*" Verb="New" Noun="DynamicThingGroup" ShouldProcessTarget="ThingGroupName" PipelineParameter="ThingGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDynamicThingGroup" OutputProperty="*" Verb="New" Noun="DynamicThingGroup" ShouldProcessTarget="ThingGroupName" PipelineParameter="ThingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFleetMetric" OutputProperty="*" Verb="New" Noun="FleetMetric" ShouldProcessTarget="MetricName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateFleetMetric" OutputProperty="*" Verb="New" Noun="FleetMetric" ShouldProcessTarget="MetricName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateJob" OutputProperty="*" Verb="New" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateJob" OutputProperty="*" Verb="New" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateJobTemplate" OutputProperty="*" Verb="New" Noun="JobTemplate" ShouldProcessTarget="JobTemplateId" PipelineParameter="JobTemplateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateJobTemplate" OutputProperty="*" Verb="New" Noun="JobTemplate" ShouldProcessTarget="JobTemplateId" PipelineParameter="JobTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateKeysAndCertificate" OutputProperty="*" Verb="New" Noun="KeysAndCertificate" ShouldProcessTarget="SetAsActive" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateKeysAndCertificate" OutputProperty="*" Verb="New" Noun="KeysAndCertificate" ShouldProcessTarget="SetAsActive" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMitigationAction" OutputProperty="*" Verb="New" Noun="MitigationAction" ShouldProcessTarget="ActionName" PipelineParameter="ActionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMitigationAction" OutputProperty="*" Verb="New" Noun="MitigationAction" ShouldProcessTarget="ActionName" PipelineParameter="ActionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateOTAUpdate" OutputProperty="*" Verb="New" Noun="OTAUpdate" ShouldProcessTarget="OtaUpdateId" PipelineParameter="OtaUpdateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateOTAUpdate" OutputProperty="*" Verb="New" Noun="OTAUpdate" ShouldProcessTarget="OtaUpdateId" PipelineParameter="OtaUpdateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePackage" OutputProperty="*" Verb="New" Noun="Package" ShouldProcessTarget="PackageName" PipelineParameter="PackageName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePackage" OutputProperty="*" Verb="New" Noun="Package" ShouldProcessTarget="PackageName" PipelineParameter="PackageName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePackageVersion" OutputProperty="*" Verb="New" Noun="PackageVersion" ShouldProcessTarget="VersionName" PipelineParameter="VersionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePackageVersion" OutputProperty="*" Verb="New" Noun="PackageVersion" ShouldProcessTarget="VersionName" PipelineParameter="VersionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePolicy" OutputProperty="*" Verb="New" Noun="Policy" ShouldProcessTarget="PolicyName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreatePolicy" OutputProperty="*" Verb="New" Noun="Policy" ShouldProcessTarget="PolicyName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePolicyVersion" OutputProperty="*" Verb="New" Noun="PolicyVersion" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePolicyVersion" OutputProperty="*" Verb="New" Noun="PolicyVersion" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProvisioningClaim" OutputProperty="*" Verb="New" Noun="ProvisioningClaim" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateProvisioningClaim" OutputProperty="*" Verb="New" Noun="ProvisioningClaim" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProvisioningTemplate" OutputProperty="*" Verb="New" Noun="ProvisioningTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateBody" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateProvisioningTemplate" OutputProperty="*" Verb="New" Noun="ProvisioningTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateBody" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProvisioningTemplateVersion" OutputProperty="*" Verb="New" Noun="ProvisioningTemplateVersion" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateBody" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateProvisioningTemplateVersion" OutputProperty="*" Verb="New" Noun="ProvisioningTemplateVersion" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateBody" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRoleAlias" OutputProperty="*" Verb="New" Noun="RoleAlias" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRoleAlias" OutputProperty="*" Verb="New" Noun="RoleAlias" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateScheduledAudit" OutputProperty="ScheduledAuditArn" Verb="New" Noun="ScheduledAudit" ShouldProcessTarget="ScheduledAuditName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateScheduledAudit" OutputProperty="ScheduledAuditArn" Verb="New" Noun="ScheduledAudit" ShouldProcessTarget="ScheduledAuditName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSecurityProfile" OutputProperty="*" Verb="New" Noun="SecurityProfile" ShouldProcessTarget="SecurityProfileName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateSecurityProfile" OutputProperty="*" Verb="New" Noun="SecurityProfile" ShouldProcessTarget="SecurityProfileName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStream" OutputProperty="*" Verb="New" Noun="Stream" ShouldProcessTarget="StreamId" PipelineParameter="StreamId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateStream" OutputProperty="*" Verb="New" Noun="Stream" ShouldProcessTarget="StreamId" PipelineParameter="StreamId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateThing" OutputProperty="*" Verb="New" Noun="Thing" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateThing" OutputProperty="*" Verb="New" Noun="Thing" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateThingGroup" OutputProperty="*" Verb="New" Noun="ThingGroup" ShouldProcessTarget="ThingGroupName" PipelineParameter="ThingGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateThingGroup" OutputProperty="*" Verb="New" Noun="ThingGroup" ShouldProcessTarget="ThingGroupName" PipelineParameter="ThingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateThingType" OutputProperty="*" Verb="New" Noun="ThingType" ShouldProcessTarget="ThingTypeName" PipelineParameter="ThingTypeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateThingType" OutputProperty="*" Verb="New" Noun="ThingType" ShouldProcessTarget="ThingTypeName" PipelineParameter="ThingTypeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Mqtt5Configuration_PropagatingAttributes_ConnectionAttributes" NewName="Mqtt5Configuration_PropagatingAttributes_ConnectionAttributes" />
                 <Param Name="Mqtt5Configuration_PropagatingAttributes_ThingAttributes" NewName="Mqtt5Configuration_PropagatingAttributes_ThingAttributes" />
@@ -231,7 +231,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTopicRule" Verb="New" Noun="TopicRule" ShouldProcessTarget="RuleName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateTopicRule" Verb="New" Noun="TopicRule" ShouldProcessTarget="RuleName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="TopicRulePayload_ErrorAction_Location_Timestamp_Value" NewName="TopicRulePayload_ErrorAction_Location_Timestamp_Value" />
                 <Param Name="TopicRulePayload_ErrorAction_Timestream_Timestamp_Value" NewName="Timestamp_Value" />
@@ -240,750 +240,750 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTopicRuleDestination" OutputProperty="TopicRuleDestination" Verb="New" Noun="TopicRuleDestination" ShouldProcessTarget="DestinationConfiguration_HttpUrlConfiguration_ConfirmationUrl" PipelineParameter="DestinationConfiguration_HttpUrlConfiguration_ConfirmationUrl" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTopicRuleDestination" OutputProperty="TopicRuleDestination" Verb="New" Noun="TopicRuleDestination" ShouldProcessTarget="DestinationConfiguration_HttpUrlConfiguration_ConfirmationUrl" PipelineParameter="DestinationConfiguration_HttpUrlConfiguration_ConfirmationUrl" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccountAuditConfiguration" Verb="Remove" Noun="AccountAuditConfiguration" ShouldProcessTarget="DeleteScheduledAudits" PipelineParameter="DeleteScheduledAudits" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAccountAuditConfiguration" Verb="Remove" Noun="AccountAuditConfiguration" ShouldProcessTarget="DeleteScheduledAudits" PipelineParameter="DeleteScheduledAudits" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAuditSuppression" Verb="Remove" Noun="AuditSuppression" ShouldProcessTarget="CheckName" PipelineParameter="CheckName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAuditSuppression" Verb="Remove" Noun="AuditSuppression" ShouldProcessTarget="CheckName" PipelineParameter="CheckName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAuthorizer" Verb="Remove" Noun="Authorizer" ShouldProcessTarget="AuthorizerName" PipelineParameter="AuthorizerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAuthorizer" Verb="Remove" Noun="Authorizer" ShouldProcessTarget="AuthorizerName" PipelineParameter="AuthorizerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBillingGroup" Verb="Remove" Noun="BillingGroup" ShouldProcessTarget="BillingGroupName" PipelineParameter="BillingGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBillingGroup" Verb="Remove" Noun="BillingGroup" ShouldProcessTarget="BillingGroupName" PipelineParameter="BillingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCACertificate" Verb="Remove" Noun="CACertificate" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCACertificate" Verb="Remove" Noun="CACertificate" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCertificate" Verb="Remove" Noun="Certificate" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCertificate" Verb="Remove" Noun="Certificate" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="ForceDelete" NewName="DeleteWithForce" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCertificateProvider" Verb="Remove" Noun="CertificateProvider" ShouldProcessTarget="CertificateProviderName" PipelineParameter="CertificateProviderName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCertificateProvider" Verb="Remove" Noun="CertificateProvider" ShouldProcessTarget="CertificateProviderName" PipelineParameter="CertificateProviderName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCommand" OutputProperty="StatusCode" Verb="Remove" Noun="Command" ShouldProcessTarget="CommandId" PipelineParameter="CommandId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCommand" OutputProperty="StatusCode" Verb="Remove" Noun="Command" ShouldProcessTarget="CommandId" PipelineParameter="CommandId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCommandExecution" Verb="Remove" Noun="CommandExecution" ShouldProcessTarget="ExecutionId" PipelineParameter="ExecutionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCommandExecution" Verb="Remove" Noun="CommandExecution" ShouldProcessTarget="ExecutionId" PipelineParameter="ExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCustomMetric" Verb="Remove" Noun="CustomMetric" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCustomMetric" Verb="Remove" Noun="CustomMetric" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDimension" Verb="Remove" Noun="Dimension" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDimension" Verb="Remove" Noun="Dimension" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDomainConfiguration" Verb="Remove" Noun="DomainConfiguration" ShouldProcessTarget="DomainConfigurationName" PipelineParameter="DomainConfigurationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDomainConfiguration" Verb="Remove" Noun="DomainConfiguration" ShouldProcessTarget="DomainConfigurationName" PipelineParameter="DomainConfigurationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDynamicThingGroup" Verb="Remove" Noun="DynamicThingGroup" ShouldProcessTarget="ThingGroupName" PipelineParameter="ThingGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDynamicThingGroup" Verb="Remove" Noun="DynamicThingGroup" ShouldProcessTarget="ThingGroupName" PipelineParameter="ThingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFleetMetric" Verb="Remove" Noun="FleetMetric" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteFleetMetric" Verb="Remove" Noun="FleetMetric" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteJob" Verb="Remove" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteJob" Verb="Remove" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteJobExecution" Verb="Remove" Noun="JobExecution" ShouldProcessTarget="ExecutionNumber" PipelineParameter="ExecutionNumber" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteJobExecution" Verb="Remove" Noun="JobExecution" ShouldProcessTarget="ExecutionNumber" PipelineParameter="ExecutionNumber" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteJobTemplate" Verb="Remove" Noun="JobTemplate" ShouldProcessTarget="JobTemplateId" PipelineParameter="JobTemplateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteJobTemplate" Verb="Remove" Noun="JobTemplate" ShouldProcessTarget="JobTemplateId" PipelineParameter="JobTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMitigationAction" Verb="Remove" Noun="MitigationAction" ShouldProcessTarget="ActionName" PipelineParameter="ActionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMitigationAction" Verb="Remove" Noun="MitigationAction" ShouldProcessTarget="ActionName" PipelineParameter="ActionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteOTAUpdate" Verb="Remove" Noun="OTAUpdate" ShouldProcessTarget="OtaUpdateId" PipelineParameter="OtaUpdateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteOTAUpdate" Verb="Remove" Noun="OTAUpdate" ShouldProcessTarget="OtaUpdateId" PipelineParameter="OtaUpdateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePackage" Verb="Remove" Noun="Package" ShouldProcessTarget="PackageName" PipelineParameter="PackageName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePackage" Verb="Remove" Noun="Package" ShouldProcessTarget="PackageName" PipelineParameter="PackageName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePackageVersion" Verb="Remove" Noun="PackageVersion" ShouldProcessTarget="VersionName" PipelineParameter="VersionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePackageVersion" Verb="Remove" Noun="PackageVersion" ShouldProcessTarget="VersionName" PipelineParameter="VersionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePolicy" Verb="Remove" Noun="Policy" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePolicy" Verb="Remove" Noun="Policy" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePolicyVersion" Verb="Remove" Noun="PolicyVersion" ShouldProcessTarget="PolicyVersionId" PipelineParameter="PolicyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePolicyVersion" Verb="Remove" Noun="PolicyVersion" ShouldProcessTarget="PolicyVersionId" PipelineParameter="PolicyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProvisioningTemplate" Verb="Remove" Noun="ProvisioningTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteProvisioningTemplate" Verb="Remove" Noun="ProvisioningTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProvisioningTemplateVersion" Verb="Remove" Noun="ProvisioningTemplateVersion" ShouldProcessTarget="VersionId" PipelineParameter="VersionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteProvisioningTemplateVersion" Verb="Remove" Noun="ProvisioningTemplateVersion" ShouldProcessTarget="VersionId" PipelineParameter="VersionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRegistrationCode" Verb="Remove" Noun="RegistrationCode" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRegistrationCode" Verb="Remove" Noun="RegistrationCode" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRoleAlias" Verb="Remove" Noun="RoleAlias" ShouldProcessTarget="RoleAlias" PipelineParameter="RoleAlias" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRoleAlias" Verb="Remove" Noun="RoleAlias" ShouldProcessTarget="RoleAlias" PipelineParameter="RoleAlias" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteScheduledAudit" Verb="Remove" Noun="ScheduledAudit" ShouldProcessTarget="ScheduledAuditName" PipelineParameter="ScheduledAuditName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteScheduledAudit" Verb="Remove" Noun="ScheduledAudit" ShouldProcessTarget="ScheduledAuditName" PipelineParameter="ScheduledAuditName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSecurityProfile" Verb="Remove" Noun="SecurityProfile" ShouldProcessTarget="SecurityProfileName" PipelineParameter="SecurityProfileName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSecurityProfile" Verb="Remove" Noun="SecurityProfile" ShouldProcessTarget="SecurityProfileName" PipelineParameter="SecurityProfileName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStream" Verb="Remove" Noun="Stream" ShouldProcessTarget="StreamId" PipelineParameter="StreamId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteStream" Verb="Remove" Noun="Stream" ShouldProcessTarget="StreamId" PipelineParameter="StreamId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteThing" Verb="Remove" Noun="Thing" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteThing" Verb="Remove" Noun="Thing" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteThingGroup" Verb="Remove" Noun="ThingGroup" ShouldProcessTarget="ThingGroupName" PipelineParameter="ThingGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteThingGroup" Verb="Remove" Noun="ThingGroup" ShouldProcessTarget="ThingGroupName" PipelineParameter="ThingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteThingType" Verb="Remove" Noun="ThingType" ShouldProcessTarget="ThingTypeName" PipelineParameter="ThingTypeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteThingType" Verb="Remove" Noun="ThingType" ShouldProcessTarget="ThingTypeName" PipelineParameter="ThingTypeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTopicRule" Verb="Remove" Noun="TopicRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTopicRule" Verb="Remove" Noun="TopicRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTopicRuleDestination" Verb="Remove" Noun="TopicRuleDestination" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTopicRuleDestination" Verb="Remove" Noun="TopicRuleDestination" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteV2LoggingLevel" Verb="Remove" Noun="V2LoggingLevel" ShouldProcessTarget="TargetName" PipelineParameter="TargetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteV2LoggingLevel" Verb="Remove" Noun="V2LoggingLevel" ShouldProcessTarget="TargetName" PipelineParameter="TargetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeprecateThingType" Verb="Set" Noun="ThingTypeDeprecation" ShouldProcessTarget="ThingTypeName" PipelineParameter="ThingTypeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeprecateThingType" Verb="Set" Noun="ThingTypeDeprecation" ShouldProcessTarget="ThingTypeName" PipelineParameter="ThingTypeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountAuditConfiguration" OutputProperty="*" Verb="Get" Noun="AccountAuditConfiguration" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAccountAuditConfiguration" OutputProperty="*" Verb="Get" Noun="AccountAuditConfiguration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAuditFinding" OutputProperty="Finding" Verb="Get" Noun="AuditFinding" PipelineParameter="FindingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAuditFinding" OutputProperty="Finding" Verb="Get" Noun="AuditFinding" PipelineParameter="FindingId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAuditMitigationActionsTask" OutputProperty="*" Verb="Get" Noun="AuditMitigationActionsTask" PipelineParameter="TaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAuditMitigationActionsTask" OutputProperty="*" Verb="Get" Noun="AuditMitigationActionsTask" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAuditSuppression" OutputProperty="*" Verb="Get" Noun="AuditSuppression" PipelineParameter="CheckName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAuditSuppression" OutputProperty="*" Verb="Get" Noun="AuditSuppression" PipelineParameter="CheckName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAuditTask" OutputProperty="*" Verb="Get" Noun="AuditTask" PipelineParameter="TaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAuditTask" OutputProperty="*" Verb="Get" Noun="AuditTask" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAuthorizer" OutputProperty="AuthorizerDescription" Verb="Get" Noun="Authorizer" PipelineParameter="AuthorizerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAuthorizer" OutputProperty="AuthorizerDescription" Verb="Get" Noun="Authorizer" PipelineParameter="AuthorizerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBillingGroup" OutputProperty="*" Verb="Get" Noun="BillingGroup" PipelineParameter="BillingGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeBillingGroup" OutputProperty="*" Verb="Get" Noun="BillingGroup" PipelineParameter="BillingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCACertificate" OutputProperty="*" Verb="Get" Noun="CACertificate" PipelineParameter="CertificateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCACertificate" OutputProperty="*" Verb="Get" Noun="CACertificate" PipelineParameter="CertificateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCertificate" OutputProperty="CertificateDescription" Verb="Get" Noun="Certificate" PipelineParameter="CertificateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCertificate" OutputProperty="CertificateDescription" Verb="Get" Noun="Certificate" PipelineParameter="CertificateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCertificateProvider" OutputProperty="*" Verb="Get" Noun="CertificateProvider" PipelineParameter="CertificateProviderName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCertificateProvider" OutputProperty="*" Verb="Get" Noun="CertificateProvider" PipelineParameter="CertificateProviderName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCustomMetric" OutputProperty="*" Verb="Get" Noun="CustomMetric" PipelineParameter="MetricName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCustomMetric" OutputProperty="*" Verb="Get" Noun="CustomMetric" PipelineParameter="MetricName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDefaultAuthorizer" OutputProperty="AuthorizerDescription" Verb="Get" Noun="DefaultAuthorizer" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDefaultAuthorizer" OutputProperty="AuthorizerDescription" Verb="Get" Noun="DefaultAuthorizer" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDetectMitigationActionsTask" OutputProperty="TaskSummary" Verb="Get" Noun="DetectMitigationActionsTask" PipelineParameter="TaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDetectMitigationActionsTask" OutputProperty="TaskSummary" Verb="Get" Noun="DetectMitigationActionsTask" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDimension" OutputProperty="*" Verb="Get" Noun="Dimension" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDimension" OutputProperty="*" Verb="Get" Noun="Dimension" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDomainConfiguration" OutputProperty="*" Verb="Get" Noun="DomainConfiguration" PipelineParameter="DomainConfigurationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDomainConfiguration" OutputProperty="*" Verb="Get" Noun="DomainConfiguration" PipelineParameter="DomainConfigurationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEndpoint" OutputProperty="EndpointAddress" Verb="Get" Noun="Endpoint" PipelineParameter="EndpointType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEndpoint" OutputProperty="EndpointAddress" Verb="Get" Noun="Endpoint" PipelineParameter="EndpointType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEventConfigurations" OutputProperty="*" Verb="Get" Noun="EventConfiguration" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEventConfigurations" OutputProperty="*" Verb="Get" Noun="EventConfiguration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleetMetric" OutputProperty="*" Verb="Get" Noun="FleetMetric" PipelineParameter="MetricName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFleetMetric" OutputProperty="*" Verb="Get" Noun="FleetMetric" PipelineParameter="MetricName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIndex" OutputProperty="*" Verb="Get" Noun="Index" PipelineParameter="IndexName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeIndex" OutputProperty="*" Verb="Get" Noun="Index" PipelineParameter="IndexName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeJob" OutputProperty="*" Verb="Get" Noun="Job" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeJob" OutputProperty="*" Verb="Get" Noun="Job" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeJobExecution" OutputProperty="Execution" Verb="Get" Noun="JobExecution" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeJobExecution" OutputProperty="Execution" Verb="Get" Noun="JobExecution" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeJobTemplate" OutputProperty="*" Verb="Get" Noun="JobTemplate" PipelineParameter="JobTemplateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeJobTemplate" OutputProperty="*" Verb="Get" Noun="JobTemplate" PipelineParameter="JobTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeManagedJobTemplate" OutputProperty="*" Verb="Get" Noun="ManagedJobTemplate" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeManagedJobTemplate" OutputProperty="*" Verb="Get" Noun="ManagedJobTemplate" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMitigationAction" OutputProperty="*" Verb="Get" Noun="MitigationAction" PipelineParameter="ActionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeMitigationAction" OutputProperty="*" Verb="Get" Noun="MitigationAction" PipelineParameter="ActionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProvisioningTemplate" OutputProperty="*" Verb="Get" Noun="ProvisioningTemplate" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeProvisioningTemplate" OutputProperty="*" Verb="Get" Noun="ProvisioningTemplate" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProvisioningTemplateVersion" OutputProperty="*" Verb="Get" Noun="ProvisioningTemplateVersion" PipelineParameter="VersionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeProvisioningTemplateVersion" OutputProperty="*" Verb="Get" Noun="ProvisioningTemplateVersion" PipelineParameter="VersionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRoleAlias" OutputProperty="RoleAliasDescription" Verb="Get" Noun="RoleAlias" PipelineParameter="RoleAlias" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRoleAlias" OutputProperty="RoleAliasDescription" Verb="Get" Noun="RoleAlias" PipelineParameter="RoleAlias" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScheduledAudit" OutputProperty="*" Verb="Get" Noun="ScheduledAudit" PipelineParameter="ScheduledAuditName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeScheduledAudit" OutputProperty="*" Verb="Get" Noun="ScheduledAudit" PipelineParameter="ScheduledAuditName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSecurityProfile" OutputProperty="*" Verb="Get" Noun="SecurityProfile" PipelineParameter="SecurityProfileName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSecurityProfile" OutputProperty="*" Verb="Get" Noun="SecurityProfile" PipelineParameter="SecurityProfileName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStream" OutputProperty="StreamInfo" Verb="Get" Noun="Stream" PipelineParameter="StreamId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeStream" OutputProperty="StreamInfo" Verb="Get" Noun="Stream" PipelineParameter="StreamId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeThing" OutputProperty="*" Verb="Get" Noun="Thing" PipelineParameter="ThingName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeThing" OutputProperty="*" Verb="Get" Noun="Thing" PipelineParameter="ThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeThingGroup" OutputProperty="*" Verb="Get" Noun="ThingGroup" PipelineParameter="ThingGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeThingGroup" OutputProperty="*" Verb="Get" Noun="ThingGroup" PipelineParameter="ThingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeThingRegistrationTask" OutputProperty="*" Verb="Get" Noun="ThingRegistrationTask" PipelineParameter="TaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeThingRegistrationTask" OutputProperty="*" Verb="Get" Noun="ThingRegistrationTask" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeThingType" OutputProperty="*" Verb="Get" Noun="ThingType" PipelineParameter="ThingTypeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeThingType" OutputProperty="*" Verb="Get" Noun="ThingType" PipelineParameter="ThingTypeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetachPolicy" Verb="Dismount" Noun="Policy" ShouldProcessTarget="PolicyName" PipelineParameter="Target" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DetachPolicy" Verb="Dismount" Noun="Policy" ShouldProcessTarget="PolicyName" PipelineParameter="Target" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetachPrincipalPolicy" Verb="Remove" Noun="PrincipalPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DetachPrincipalPolicy" Verb="Remove" Noun="PrincipalPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetachSecurityProfile" Verb="Dismount" Noun="SecurityProfile" ShouldProcessTarget="SecurityProfileName" PipelineParameter="SecurityProfileName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DetachSecurityProfile" Verb="Dismount" Noun="SecurityProfile" ShouldProcessTarget="SecurityProfileName" PipelineParameter="SecurityProfileName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetachThingPrincipal" Verb="Remove" Noun="ThingPrincipal" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DetachThingPrincipal" Verb="Remove" Noun="ThingPrincipal" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableTopicRule" Verb="Disable" Noun="TopicRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableTopicRule" Verb="Disable" Noun="TopicRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateSbomFromPackageVersion" Verb="Remove" Noun="SbomFromPackageVersion" ShouldProcessTarget="VersionName" PipelineParameter="VersionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateSbomFromPackageVersion" Verb="Remove" Noun="SbomFromPackageVersion" ShouldProcessTarget="VersionName" PipelineParameter="VersionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableTopicRule" Verb="Enable" Noun="TopicRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableTopicRule" Verb="Enable" Noun="TopicRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBehaviorModelTrainingSummaries" OutputProperty="Summaries" Verb="Get" Noun="BehaviorModelTrainingSummary" PipelineParameter="SecurityProfileName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetBehaviorModelTrainingSummaries" OutputProperty="Summaries" Verb="Get" Noun="BehaviorModelTrainingSummary" PipelineParameter="SecurityProfileName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBucketsAggregation" OutputProperty="*" Verb="Get" Noun="BucketsAggregation" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetBucketsAggregation" OutputProperty="*" Verb="Get" Noun="BucketsAggregation" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCardinality" OutputProperty="Cardinality" Verb="Get" Noun="Cardinality" PipelineParameter="QueryString" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCardinality" OutputProperty="Cardinality" Verb="Get" Noun="Cardinality" PipelineParameter="QueryString" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCommand" OutputProperty="*" Verb="Get" Noun="Command" PipelineParameter="CommandId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCommand" OutputProperty="*" Verb="Get" Noun="Command" PipelineParameter="CommandId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCommandExecution" OutputProperty="*" Verb="Get" Noun="CommandExecution" PipelineParameter="ExecutionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCommandExecution" OutputProperty="*" Verb="Get" Noun="CommandExecution" PipelineParameter="ExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEffectivePolicies" OutputProperty="EffectivePolicies" Verb="Get" Noun="EffectivePolicy" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetEffectivePolicies" OutputProperty="EffectivePolicies" Verb="Get" Noun="EffectivePolicy" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIndexingConfiguration" OutputProperty="*" Verb="Get" Noun="IndexingConfiguration" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetIndexingConfiguration" OutputProperty="*" Verb="Get" Noun="IndexingConfiguration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJobDocument" OutputProperty="Document" Verb="Get" Noun="JobDocument" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetJobDocument" OutputProperty="Document" Verb="Get" Noun="JobDocument" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLoggingOptions" OutputProperty="*" Verb="Get" Noun="LoggingOption" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-IOTLoggingOptions">
+        <ServiceOperation MethodName="GetLoggingOptions" OutputProperty="*" Verb="Get" Noun="LoggingOption" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-IOTLoggingOptions" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOTAUpdate" OutputProperty="OtaUpdateInfo" Verb="Get" Noun="OTAUpdate" PipelineParameter="OtaUpdateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetOTAUpdate" OutputProperty="OtaUpdateInfo" Verb="Get" Noun="OTAUpdate" PipelineParameter="OtaUpdateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPackage" OutputProperty="*" Verb="Get" Noun="Package" PipelineParameter="PackageName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPackage" OutputProperty="*" Verb="Get" Noun="Package" PipelineParameter="PackageName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPackageConfiguration" OutputProperty="*" Verb="Get" Noun="PackageConfiguration" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetPackageConfiguration" OutputProperty="*" Verb="Get" Noun="PackageConfiguration" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPackageVersion" OutputProperty="*" Verb="Get" Noun="PackageVersion" PipelineParameter="VersionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPackageVersion" OutputProperty="*" Verb="Get" Noun="PackageVersion" PipelineParameter="VersionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPercentiles" OutputProperty="Percentiles" Verb="Get" Noun="Percentile" PipelineParameter="QueryString" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPercentiles" OutputProperty="Percentiles" Verb="Get" Noun="Percentile" PipelineParameter="QueryString" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPolicy" OutputProperty="*" Verb="Get" Noun="Policy" PipelineParameter="PolicyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPolicy" OutputProperty="*" Verb="Get" Noun="Policy" PipelineParameter="PolicyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPolicyVersion" OutputProperty="*" Verb="Get" Noun="PolicyVersion" PipelineParameter="PolicyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPolicyVersion" OutputProperty="*" Verb="Get" Noun="PolicyVersion" PipelineParameter="PolicyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRegistrationCode" OutputProperty="RegistrationCode" Verb="Get" Noun="RegistrationCode" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRegistrationCode" OutputProperty="RegistrationCode" Verb="Get" Noun="RegistrationCode" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStatistics" OutputProperty="Statistics" Verb="Get" Noun="Statistic" PipelineParameter="QueryString" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetStatistics" OutputProperty="Statistics" Verb="Get" Noun="Statistic" PipelineParameter="QueryString" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetThingConnectivityData" OutputProperty="*" Verb="Get" Noun="ThingConnectivityData" PipelineParameter="ThingName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetThingConnectivityData" OutputProperty="*" Verb="Get" Noun="ThingConnectivityData" PipelineParameter="ThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTopicRule" OutputProperty="*" Verb="Get" Noun="TopicRule" PipelineParameter="RuleName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTopicRule" OutputProperty="*" Verb="Get" Noun="TopicRule" PipelineParameter="RuleName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTopicRuleDestination" OutputProperty="TopicRuleDestination" Verb="Get" Noun="TopicRuleDestination" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTopicRuleDestination" OutputProperty="TopicRuleDestination" Verb="Get" Noun="TopicRuleDestination" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetV2LoggingOptions" OutputProperty="*" Verb="Get" Noun="V2LoggingOption" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetV2LoggingOptions" OutputProperty="*" Verb="Get" Noun="V2LoggingOption" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListActiveViolations" OutputProperty="ActiveViolations" Verb="Get" Noun="ActiveViolationList" PipelineParameter="SecurityProfileName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListActiveViolations" OutputProperty="ActiveViolations" Verb="Get" Noun="ActiveViolationList" PipelineParameter="SecurityProfileName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAttachedPolicies" OutputProperty="Policies" Verb="Get" Noun="AttachedPolicyList" PipelineParameter="Target" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListAttachedPolicies" OutputProperty="Policies" Verb="Get" Noun="AttachedPolicyList" PipelineParameter="Target" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAuditFindings" OutputProperty="Findings" Verb="Get" Noun="AuditFindingList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListAuditFindings" OutputProperty="Findings" Verb="Get" Noun="AuditFindingList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAuditMitigationActionsExecutions" OutputProperty="ActionsExecutions" Verb="Get" Noun="AuditMitigationActionsExecutionList" PipelineParameter="FindingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAuditMitigationActionsExecutions" OutputProperty="ActionsExecutions" Verb="Get" Noun="AuditMitigationActionsExecutionList" PipelineParameter="FindingId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAuditMitigationActionsTasks" OutputProperty="Tasks" Verb="Get" Noun="AuditMitigationActionsTaskList" PipelineParameter="FindingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAuditMitigationActionsTasks" OutputProperty="Tasks" Verb="Get" Noun="AuditMitigationActionsTaskList" PipelineParameter="FindingId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAuditSuppressions" OutputProperty="Suppressions" Verb="Get" Noun="AuditSuppressionList" PipelineParameter="CheckName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAuditSuppressions" OutputProperty="Suppressions" Verb="Get" Noun="AuditSuppressionList" PipelineParameter="CheckName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAuditTasks" OutputProperty="Tasks" Verb="Get" Noun="TaskList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListAuditTasks" OutputProperty="Tasks" Verb="Get" Noun="TaskList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
 			<Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAuthorizers" OutputProperty="Authorizers" Verb="Get" Noun="AuthorizerList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListAuthorizers" OutputProperty="Authorizers" Verb="Get" Noun="AuthorizerList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBillingGroups" OutputProperty="BillingGroups" Verb="Get" Noun="BillingGroupList" PipelineParameter="NamePrefixFilter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListBillingGroups" OutputProperty="BillingGroups" Verb="Get" Noun="BillingGroupList" PipelineParameter="NamePrefixFilter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCACertificates" OutputProperty="Certificates" Verb="Get" Noun="CACertificateList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListCACertificates" OutputProperty="Certificates" Verb="Get" Noun="CACertificateList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCertificateProviders" OutputProperty="CertificateProviders" Verb="Get" Noun="CertificateProviderList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCertificateProviders" OutputProperty="CertificateProviders" Verb="Get" Noun="CertificateProviderList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCertificates" OutputProperty="Certificates" Verb="Get" Noun="CertificateList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
-            <Params />
-            <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListCertificatesByCA" OutputProperty="Certificates" Verb="Get" Noun="CertificateListByCA" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListCertificates" OutputProperty="Certificates" Verb="Get" Noun="CertificateList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCommandExecutions" OutputProperty="CommandExecutions" Verb="Get" Noun="CommandExecutionList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListCertificatesByCA" OutputProperty="Certificates" Verb="Get" Noun="CertificateListByCA" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+            <Params />
+            <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCommandExecutions" OutputProperty="CommandExecutions" Verb="Get" Noun="CommandExecutionList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCommands" OutputProperty="Commands" Verb="Get" Noun="CommandList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListCommands" OutputProperty="Commands" Verb="Get" Noun="CommandList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCustomMetrics" OutputProperty="MetricNames" Verb="Get" Noun="CustomMetricList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCustomMetrics" OutputProperty="MetricNames" Verb="Get" Noun="CustomMetricList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDetectMitigationActionsExecutions" OutputProperty="ActionsExecutions" Verb="Get" Noun="DetectMitigationActionsExecutionList" PipelineParameter="TaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDetectMitigationActionsExecutions" OutputProperty="ActionsExecutions" Verb="Get" Noun="DetectMitigationActionsExecutionList" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDetectMitigationActionsTasks" OutputProperty="Tasks" Verb="Get" Noun="DetectMitigationActionsTaskList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListDetectMitigationActionsTasks" OutputProperty="Tasks" Verb="Get" Noun="DetectMitigationActionsTaskList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDimensions" OutputProperty="DimensionNames" Verb="Get" Noun="DimensionList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDimensions" OutputProperty="DimensionNames" Verb="Get" Noun="DimensionList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomainConfigurations" OutputProperty="DomainConfigurations" Verb="Get" Noun="DomainConfigurationList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListDomainConfigurations" OutputProperty="DomainConfigurations" Verb="Get" Noun="DomainConfigurationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFleetMetrics" OutputProperty="FleetMetrics" Verb="Get" Noun="FleetMetricList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFleetMetrics" OutputProperty="FleetMetrics" Verb="Get" Noun="FleetMetricList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIndices" OutputProperty="IndexNames" Verb="Get" Noun="IndexList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
-            <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListJobExecutionsForJob" OutputProperty="ExecutionSummaries" Verb="Get" Noun="JobExecutionsForJobList" PipelineParameter="JobId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListIndices" OutputProperty="IndexNames" Verb="Get" Noun="IndexList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobExecutionsForThing" OutputProperty="ExecutionSummaries" Verb="Get" Noun="JobExecutionsForThingList" PipelineParameter="ThingName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListJobExecutionsForJob" OutputProperty="ExecutionSummaries" Verb="Get" Noun="JobExecutionsForJobList" PipelineParameter="JobId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListJobExecutionsForThing" OutputProperty="ExecutionSummaries" Verb="Get" Noun="JobExecutionsForThingList" PipelineParameter="ThingName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobTemplates" OutputProperty="JobTemplates" Verb="Get" Noun="JobTemplateList" PipelineParameter="" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListManagedJobTemplates" OutputProperty="ManagedJobTemplates" Verb="Get" Noun="ManagedJobTemplateList" PipelineParameter="TemplateName" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListMetricValues" OutputProperty="MetricDatumList" Verb="Get" Noun="MetricValueList" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListMitigationActions" OutputProperty="ActionIdentifiers" Verb="Get" Noun="MitigationActionList" PipelineParameter="ActionType" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListOTAUpdates" OutputProperty="OtaUpdates" Verb="Get" Noun="OTAUpdateList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOutgoingCertificates" OutputProperty="OutgoingCertificates" Verb="Get" Noun="OutgoingCertificate" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListJobTemplates" OutputProperty="JobTemplates" Verb="Get" Noun="JobTemplateList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListManagedJobTemplates" OutputProperty="ManagedJobTemplates" Verb="Get" Noun="ManagedJobTemplateList" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMetricValues" OutputProperty="MetricDatumList" Verb="Get" Noun="MetricValueList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMitigationActions" OutputProperty="ActionIdentifiers" Verb="Get" Noun="MitigationActionList" PipelineParameter="ActionType" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOTAUpdates" OutputProperty="OtaUpdates" Verb="Get" Noun="OTAUpdateList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOutgoingCertificates" OutputProperty="OutgoingCertificates" Verb="Get" Noun="OutgoingCertificate" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPackages" OutputProperty="PackageSummaries" Verb="Get" Noun="PackageList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListPackages" OutputProperty="PackageSummaries" Verb="Get" Noun="PackageList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPackageVersions" OutputProperty="PackageVersionSummaries" Verb="Get" Noun="PackageVersionList" PipelineParameter="PackageName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPackageVersions" OutputProperty="PackageVersionSummaries" Verb="Get" Noun="PackageVersionList" PipelineParameter="PackageName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPolicies" OutputProperty="Policies" Verb="Get" Noun="PolicyList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
-            <Params />
-            <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListPolicyPrincipals" OutputProperty="Principals" Verb="Get" Noun="PolicyPrincipalList" PipelineParameter="PolicyName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListPolicies" OutputProperty="Policies" Verb="Get" Noun="PolicyList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPolicyVersions" OutputProperty="PolicyVersions" Verb="Get" Noun="PolicyVersionList" PipelineParameter="PolicyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPolicyPrincipals" OutputProperty="Principals" Verb="Get" Noun="PolicyPrincipalList" PipelineParameter="PolicyName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPrincipalPolicies" OutputProperty="Policies" Verb="Get" Noun="PrincipalPolicyList" PipelineParameter="Principal" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListPolicyVersions" OutputProperty="PolicyVersions" Verb="Get" Noun="PolicyVersionList" PipelineParameter="PolicyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPrincipalThings" OutputProperty="Things" Verb="Get" Noun="PrincipalThingList" PipelineParameter="Principal" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListPrincipalPolicies" OutputProperty="Policies" Verb="Get" Noun="PrincipalPolicyList" PipelineParameter="Principal" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+            <Params />
+            <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPrincipalThings" OutputProperty="Things" Verb="Get" Noun="PrincipalThingList" PipelineParameter="Principal" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPrincipalThingsV2" OutputProperty="PrincipalThingObjects" Verb="Get" Noun="PrincipalThingsV2List" PipelineParameter="Principal" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPrincipalThingsV2" OutputProperty="PrincipalThingObjects" Verb="Get" Noun="PrincipalThingsV2List" PipelineParameter="Principal" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProvisioningTemplates" OutputProperty="Templates" Verb="Get" Noun="ProvisioningTemplateList" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListProvisioningTemplateVersions" OutputProperty="Versions" Verb="Get" Noun="ProvisioningTemplateVersionList" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProvisioningTemplates" OutputProperty="Templates" Verb="Get" Noun="ProvisioningTemplateList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRelatedResourcesForAuditFinding" OutputProperty="RelatedResources" Verb="Get" Noun="RelatedResourcesForAuditFindingList" PipelineParameter="FindingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProvisioningTemplateVersions" OutputProperty="Versions" Verb="Get" Noun="ProvisioningTemplateVersionList" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRelatedResourcesForAuditFinding" OutputProperty="RelatedResources" Verb="Get" Noun="RelatedResourcesForAuditFindingList" PipelineParameter="FindingId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRoleAliases" OutputProperty="RoleAliases" Verb="Get" Noun="RoleAliasList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListRoleAliases" OutputProperty="RoleAliases" Verb="Get" Noun="RoleAliasList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSbomValidationResults" OutputProperty="ValidationResultSummaries" Verb="Get" Noun="SbomValidationResultList" PipelineParameter="VersionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSbomValidationResults" OutputProperty="ValidationResultSummaries" Verb="Get" Noun="SbomValidationResultList" PipelineParameter="VersionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListScheduledAudits" OutputProperty="ScheduledAudits" Verb="Get" Noun="ScheduledAuditList" PipelineParameter="NextToken" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
-            <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListSecurityProfiles" OutputProperty="SecurityProfileIdentifiers" Verb="Get" Noun="SecurityProfileList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListScheduledAudits" OutputProperty="ScheduledAudits" Verb="Get" Noun="ScheduledAuditList" PipelineParameter="NextToken" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSecurityProfilesForTarget" OutputProperty="SecurityProfileTargetMappings" Verb="Get" Noun="SecurityProfilesForTargetList" PipelineParameter="SecurityProfileTargetArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListSecurityProfiles" OutputProperty="SecurityProfileIdentifiers" Verb="Get" Noun="SecurityProfileList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreams" OutputProperty="Streams" Verb="Get" Noun="StreamList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListSecurityProfilesForTarget" OutputProperty="SecurityProfileTargetMappings" Verb="Get" Noun="SecurityProfilesForTargetList" PipelineParameter="SecurityProfileTargetArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="TagListForResource" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListStreams" OutputProperty="Streams" Verb="Get" Noun="StreamList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="TagListForResource" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTargetsForPolicy" OutputProperty="Targets" Verb="Get" Noun="TargetsForPolicyList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListTargetsForPolicy" OutputProperty="Targets" Verb="Get" Noun="TargetsForPolicyList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTargetsForSecurityProfile" OutputProperty="SecurityProfileTargets" Verb="Get" Noun="TargetsForSecurityProfileList" PipelineParameter="SecurityProfileName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListTargetsForSecurityProfile" OutputProperty="SecurityProfileTargets" Verb="Get" Noun="TargetsForSecurityProfileList" PipelineParameter="SecurityProfileName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThingGroups" OutputProperty="ThingGroups" Verb="Get" Noun="ThingGroupList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListThingGroups" OutputProperty="ThingGroups" Verb="Get" Noun="ThingGroupList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThingGroupsForThing" OutputProperty="ThingGroups" Verb="Get" Noun="ThingGroupsForThingList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListThingGroupsForThing" OutputProperty="ThingGroups" Verb="Get" Noun="ThingGroupsForThingList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThingPrincipals" OutputProperty="Principals" Verb="Get" Noun="ThingPrincipalList" PipelineParameter="ThingName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListThingPrincipals" OutputProperty="Principals" Verb="Get" Noun="ThingPrincipalList" PipelineParameter="ThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThingPrincipalsV2" OutputProperty="ThingPrincipalObjects" Verb="Get" Noun="ThingPrincipalsV2List" PipelineParameter="ThingName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListThingPrincipalsV2" OutputProperty="ThingPrincipalObjects" Verb="Get" Noun="ThingPrincipalsV2List" PipelineParameter="ThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThingRegistrationTaskReports" OutputProperty="ResourceLinks" Verb="Get" Noun="ThingRegistrationTaskReportList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
-            <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListThingRegistrationTasks" OutputProperty="TaskIds" Verb="Get" Noun="ThingRegistrationTaskList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListThingRegistrationTaskReports" OutputProperty="ResourceLinks" Verb="Get" Noun="ThingRegistrationTaskReportList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThings" OutputProperty="Things" Verb="Get" Noun="ThingList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListThingsInBillingGroup" OutputProperty="Things" Verb="Get" Noun="ThingsInBillingGroupList" PipelineParameter="BillingGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListThingRegistrationTasks" OutputProperty="TaskIds" Verb="Get" Noun="ThingRegistrationTaskList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThingsInThingGroup" OutputProperty="Things" Verb="Get" Noun="ThingsInThingGroupList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListThings" OutputProperty="Things" Verb="Get" Noun="ThingList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListThingsInBillingGroup" OutputProperty="Things" Verb="Get" Noun="ThingsInBillingGroupList" PipelineParameter="BillingGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThingTypes" OutputProperty="ThingTypes" Verb="Get" Noun="ThingTypeList" PipelineParameter="ThingTypeName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListThingsInThingGroup" OutputProperty="Things" Verb="Get" Noun="ThingsInThingGroupList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTopicRuleDestinations" OutputProperty="DestinationSummaries" Verb="Get" Noun="TopicRuleDestinationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListThingTypes" OutputProperty="ThingTypes" Verb="Get" Noun="ThingTypeList" PipelineParameter="ThingTypeName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTopicRuleDestinations" OutputProperty="DestinationSummaries" Verb="Get" Noun="TopicRuleDestinationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTopicRules" OutputProperty="Rules" Verb="Get" Noun="TopicRuleList" PipelineParameter="Topic" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListTopicRules" OutputProperty="Rules" Verb="Get" Noun="TopicRuleList" PipelineParameter="Topic" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListV2LoggingLevels" OutputProperty="LogTargetConfigurations" Verb="Get" Noun="V2LoggingLevelList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListV2LoggingLevels" OutputProperty="LogTargetConfigurations" Verb="Get" Noun="V2LoggingLevelList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListViolationEvents" OutputProperty="ViolationEvents" Verb="Get" Noun="ViolationEventList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListViolationEvents" OutputProperty="ViolationEvents" Verb="Get" Noun="ViolationEventList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
 			<Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutVerificationStateOnViolation" Verb="Write" Noun="VerificationStateOnViolation" ShouldProcessTarget="ViolationId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="PutVerificationStateOnViolation" Verb="Write" Noun="VerificationStateOnViolation" ShouldProcessTarget="ViolationId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterCACertificate" OutputProperty="*" Verb="Register" Noun="CACertificate" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="RegisterCACertificate" OutputProperty="*" Verb="Register" Noun="CACertificate" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterCertificate" OutputProperty="*" Verb="Register" Noun="Certificate" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="RegisterCertificate" OutputProperty="*" Verb="Register" Noun="Certificate" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterCertificateWithoutCA" OutputProperty="*" Verb="Register" Noun="CertificateWithoutCA" ShouldProcessTarget="CertificatePem" PipelineParameter="CertificatePem" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterCertificateWithoutCA" OutputProperty="*" Verb="Register" Noun="CertificateWithoutCA" ShouldProcessTarget="CertificatePem" PipelineParameter="CertificatePem" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterThing" OutputProperty="*" Verb="Register" Noun="Thing" AnonymousShouldProcessTarget="true" PipelineParameter="TemplateBody" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterThing" OutputProperty="*" Verb="Register" Noun="Thing" AnonymousShouldProcessTarget="true" PipelineParameter="TemplateBody" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RejectCertificateTransfer" Verb="Deny" Noun="CertificateTransfer" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RejectCertificateTransfer" Verb="Deny" Noun="CertificateTransfer" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveThingFromBillingGroup" Verb="Remove" Noun="ThingFromBillingGroup" AnonymousShouldProcessTarget="true" PipelineParameter="ThingArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveThingFromBillingGroup" Verb="Remove" Noun="ThingFromBillingGroup" AnonymousShouldProcessTarget="true" PipelineParameter="ThingArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveThingFromThingGroup" Verb="Remove" Noun="ThingFromThingGroup" ShouldProcessTarget="ThingGroupName" PipelineParameter="ThingName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveThingFromThingGroup" Verb="Remove" Noun="ThingFromThingGroup" ShouldProcessTarget="ThingGroupName" PipelineParameter="ThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReplaceTopicRule" Verb="Set" Noun="TopicRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ReplaceTopicRule" Verb="Set" Noun="TopicRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="TopicRulePayload_ErrorAction_Location_Timestamp_Value" NewName="TopicRulePayload_ErrorAction_Location_Timestamp_Value" />
                 <Param Name="TopicRulePayload_ErrorAction_Timestream_Timestamp_Value" NewName="Timestamp_Value" />
@@ -992,191 +992,191 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchIndex" OutputProperty="*" Verb="Search" Noun="Index" ShouldProcessTarget="IndexName" PipelineParameter="QueryString" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchIndex" OutputProperty="*" Verb="Search" Noun="Index" ShouldProcessTarget="IndexName" PipelineParameter="QueryString" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetDefaultAuthorizer" OutputProperty="*" Verb="Set" Noun="DefaultAuthorizer" ShouldProcessTarget="AuthorizerName" PipelineParameter="AuthorizerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetDefaultAuthorizer" OutputProperty="*" Verb="Set" Noun="DefaultAuthorizer" ShouldProcessTarget="AuthorizerName" PipelineParameter="AuthorizerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetDefaultPolicyVersion" Verb="Set" Noun="DefaultPolicyVersion" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetDefaultPolicyVersion" Verb="Set" Noun="DefaultPolicyVersion" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetLoggingOptions" Verb="Set" Noun="LoggingOption" ShouldProcessTarget="LoggingOptionsPayload_RoleArn" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Set-IOTLoggingOptions">
+        <ServiceOperation MethodName="SetLoggingOptions" Verb="Set" Noun="LoggingOption" ShouldProcessTarget="LoggingOptionsPayload_RoleArn" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Set-IOTLoggingOptions" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetV2LoggingLevel" Verb="Set" Noun="V2LoggingLevel" ShouldProcessTarget="LogTarget_TargetName" PipelineParameter="LogLevel" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetV2LoggingLevel" Verb="Set" Noun="V2LoggingLevel" ShouldProcessTarget="LogTarget_TargetName" PipelineParameter="LogLevel" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetV2LoggingOptions" Verb="Set" Noun="V2LoggingOption" ShouldProcessTarget="RoleArn" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="SetV2LoggingOptions" Verb="Set" Noun="V2LoggingOption" ShouldProcessTarget="RoleArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartAuditMitigationActionsTask" OutputProperty="TaskId" Verb="Start" Noun="AuditMitigationActionsTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartAuditMitigationActionsTask" OutputProperty="TaskId" Verb="Start" Noun="AuditMitigationActionsTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDetectMitigationActionsTask" OutputProperty="TaskId" Verb="Start" Noun="DetectMitigationActionsTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartDetectMitigationActionsTask" OutputProperty="TaskId" Verb="Start" Noun="DetectMitigationActionsTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartOnDemandAuditTask" OutputProperty="TaskId" Verb="Start" Noun="OnDemandAuditTask" ShouldProcessTarget="TargetCheckNames" PipelineParameter="TargetCheckNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartOnDemandAuditTask" OutputProperty="TaskId" Verb="Start" Noun="OnDemandAuditTask" ShouldProcessTarget="TargetCheckNames" PipelineParameter="TargetCheckNames" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartThingRegistrationTask" OutputProperty="TaskId" Verb="Start" Noun="ThingRegistrationTask" ShouldProcessTarget="RoleArn" PipelineParameter="TemplateBody" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartThingRegistrationTask" OutputProperty="TaskId" Verb="Start" Noun="ThingRegistrationTask" ShouldProcessTarget="RoleArn" PipelineParameter="TemplateBody" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopThingRegistrationTask" Verb="Stop" Noun="ThingRegistrationTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopThingRegistrationTask" Verb="Stop" Noun="ThingRegistrationTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestAuthorization" OutputProperty="AuthResults" Verb="Test" Noun="Authorization" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="TestAuthorization" OutputProperty="AuthResults" Verb="Test" Noun="Authorization" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestInvokeAuthorizer" OutputProperty="*" Verb="Test" Noun="InvokeAuthorizer" PipelineParameter="TokenSignature" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TestInvokeAuthorizer" OutputProperty="*" Verb="Test" Noun="InvokeAuthorizer" PipelineParameter="TokenSignature" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TransferCertificate" OutputProperty="TransferredCertificateArn" Verb="Request" Noun="CertificateTransfer" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TransferCertificate" OutputProperty="TransferredCertificateArn" Verb="Request" Noun="CertificateTransfer" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAccountAuditConfiguration" Verb="Update" Noun="AccountAuditConfiguration" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAccountAuditConfiguration" Verb="Update" Noun="AccountAuditConfiguration" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAuditSuppression" Verb="Update" Noun="AuditSuppression" ShouldProcessTarget="CheckName" PipelineParameter="CheckName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAuditSuppression" Verb="Update" Noun="AuditSuppression" ShouldProcessTarget="CheckName" PipelineParameter="CheckName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAuthorizer" OutputProperty="*" Verb="Update" Noun="Authorizer" ShouldProcessTarget="AuthorizerName" PipelineParameter="AuthorizerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAuthorizer" OutputProperty="*" Verb="Update" Noun="Authorizer" ShouldProcessTarget="AuthorizerName" PipelineParameter="AuthorizerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBillingGroup" OutputProperty="Version" Verb="Update" Noun="BillingGroup" ShouldProcessTarget="BillingGroupName" PipelineParameter="BillingGroupProperties_BillingGroupDescription" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateBillingGroup" OutputProperty="Version" Verb="Update" Noun="BillingGroup" ShouldProcessTarget="BillingGroupName" PipelineParameter="BillingGroupProperties_BillingGroupDescription" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCACertificate" Verb="Update" Noun="CACertificate" ShouldProcessTarget="CertificateId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateCACertificate" Verb="Update" Noun="CACertificate" ShouldProcessTarget="CertificateId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCertificate" Verb="Update" Noun="Certificate" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCertificate" Verb="Update" Noun="Certificate" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCertificateProvider" OutputProperty="*" Verb="Update" Noun="CertificateProvider" ShouldProcessTarget="CertificateProviderName" PipelineParameter="CertificateProviderName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCertificateProvider" OutputProperty="*" Verb="Update" Noun="CertificateProvider" ShouldProcessTarget="CertificateProviderName" PipelineParameter="CertificateProviderName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCommand" OutputProperty="*" Verb="Update" Noun="Command" ShouldProcessTarget="CommandId" PipelineParameter="CommandId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCommand" OutputProperty="*" Verb="Update" Noun="Command" ShouldProcessTarget="CommandId" PipelineParameter="CommandId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCustomMetric" OutputProperty="*" Verb="Update" Noun="CustomMetric" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCustomMetric" OutputProperty="*" Verb="Update" Noun="CustomMetric" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDimension" OutputProperty="*" Verb="Update" Noun="Dimension" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDimension" OutputProperty="*" Verb="Update" Noun="Dimension" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDomainConfiguration" OutputProperty="*" Verb="Update" Noun="DomainConfiguration" ShouldProcessTarget="DomainConfigurationName" PipelineParameter="DomainConfigurationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDomainConfiguration" OutputProperty="*" Verb="Update" Noun="DomainConfiguration" ShouldProcessTarget="DomainConfigurationName" PipelineParameter="DomainConfigurationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDynamicThingGroup" OutputProperty="Version" Verb="Update" Noun="DynamicThingGroup" ShouldProcessTarget="ThingGroupName" PipelineParameter="ThingGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDynamicThingGroup" OutputProperty="Version" Verb="Update" Noun="DynamicThingGroup" ShouldProcessTarget="ThingGroupName" PipelineParameter="ThingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEventConfigurations" Verb="Update" Noun="EventConfiguration" ShouldProcessTarget="EventConfigurations" PipelineParameter="EventConfigurations" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateEventConfigurations" Verb="Update" Noun="EventConfiguration" ShouldProcessTarget="EventConfigurations" PipelineParameter="EventConfigurations" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFleetMetric" Verb="Update" Noun="FleetMetric" ShouldProcessTarget="MetricName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateFleetMetric" Verb="Update" Noun="FleetMetric" ShouldProcessTarget="MetricName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIndexingConfiguration" Verb="Update" Noun="IndexingConfiguration" ShouldProcessTarget="ThingIndexingConfiguration_ThingIndexingMode" PipelineParameter="ThingIndexingConfiguration_ThingIndexingMode" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateIndexingConfiguration" Verb="Update" Noun="IndexingConfiguration" ShouldProcessTarget="ThingIndexingConfiguration_ThingIndexingMode" PipelineParameter="ThingIndexingConfiguration_ThingIndexingMode" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateJob" Verb="Update" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateJob" Verb="Update" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMitigationAction" OutputProperty="*" Verb="Update" Noun="MitigationAction" ShouldProcessTarget="ActionName" PipelineParameter="ActionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateMitigationAction" OutputProperty="*" Verb="Update" Noun="MitigationAction" ShouldProcessTarget="ActionName" PipelineParameter="ActionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePackage" Verb="Update" Noun="Package" ShouldProcessTarget="PackageName" PipelineParameter="PackageName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePackage" Verb="Update" Noun="Package" ShouldProcessTarget="PackageName" PipelineParameter="PackageName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePackageConfiguration" Verb="Update" Noun="PackageConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdatePackageConfiguration" Verb="Update" Noun="PackageConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePackageVersion" Verb="Update" Noun="PackageVersion" ShouldProcessTarget="VersionName" PipelineParameter="VersionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePackageVersion" Verb="Update" Noun="PackageVersion" ShouldProcessTarget="VersionName" PipelineParameter="VersionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProvisioningTemplate" Verb="Update" Noun="ProvisioningTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateProvisioningTemplate" Verb="Update" Noun="ProvisioningTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRoleAlias" OutputProperty="*" Verb="Update" Noun="RoleAlias" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRoleAlias" OutputProperty="*" Verb="Update" Noun="RoleAlias" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateScheduledAudit" OutputProperty="ScheduledAuditArn" Verb="Update" Noun="ScheduledAudit" ShouldProcessTarget="ScheduledAuditName" PipelineParameter="ScheduledAuditName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateScheduledAudit" OutputProperty="ScheduledAuditArn" Verb="Update" Noun="ScheduledAudit" ShouldProcessTarget="ScheduledAuditName" PipelineParameter="ScheduledAuditName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSecurityProfile" OutputProperty="*" Verb="Update" Noun="SecurityProfile" ShouldProcessTarget="SecurityProfileName" PipelineParameter="SecurityProfileName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateSecurityProfile" OutputProperty="*" Verb="Update" Noun="SecurityProfile" ShouldProcessTarget="SecurityProfileName" PipelineParameter="SecurityProfileName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStream" OutputProperty="*" Verb="Update" Noun="Stream" ShouldProcessTarget="StreamId" PipelineParameter="StreamId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateStream" OutputProperty="*" Verb="Update" Noun="Stream" ShouldProcessTarget="StreamId" PipelineParameter="StreamId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateThing" Verb="Update" Noun="Thing" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateThing" Verb="Update" Noun="Thing" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateThingGroup" OutputProperty="Version" Verb="Update" Noun="ThingGroup" ShouldProcessTarget="ThingGroupName" PipelineParameter="ThingGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateThingGroup" OutputProperty="Version" Verb="Update" Noun="ThingGroup" ShouldProcessTarget="ThingGroupName" PipelineParameter="ThingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateThingGroupsForThing" Verb="Update" Noun="ThingGroupsForThing" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateThingGroupsForThing" Verb="Update" Noun="ThingGroupsForThing" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateThingType" Verb="Update" Noun="ThingType" ShouldProcessTarget="ThingTypeName" PipelineParameter="ThingTypeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateThingType" Verb="Update" Noun="ThingType" ShouldProcessTarget="ThingTypeName" PipelineParameter="ThingTypeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTopicRuleDestination" Verb="Update" Noun="TopicRuleDestination" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTopicRuleDestination" Verb="Update" Noun="TopicRuleDestination" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ValidateSecurityProfileBehaviors" OutputProperty="*" Verb="Test" Noun="ValidSecurityProfileBehavior" PipelineParameter="Behaviors" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ValidateSecurityProfileBehaviors" OutputProperty="*" Verb="Test" Noun="ValidSecurityProfileBehavior" PipelineParameter="Behaviors" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

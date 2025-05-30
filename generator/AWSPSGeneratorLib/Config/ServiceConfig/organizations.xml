@@ -19,223 +19,223 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptHandshake" OutputProperty="Handshake" Verb="Confirm" Noun="Handshake" ShouldProcessTarget="HandshakeId" PipelineParameter="HandshakeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AcceptHandshake" OutputProperty="Handshake" Verb="Confirm" Noun="Handshake" ShouldProcessTarget="HandshakeId" PipelineParameter="HandshakeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AttachPolicy" Verb="Add" Noun="Policy" ShouldProcessTarget="PolicyId" PipelineParameter="PolicyId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AttachPolicy" Verb="Add" Noun="Policy" ShouldProcessTarget="PolicyId" PipelineParameter="PolicyId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelHandshake" OutputProperty="Handshake" Verb="Stop" Noun="Handshake" ShouldProcessTarget="HandshakeId" PipelineParameter="HandshakeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelHandshake" OutputProperty="Handshake" Verb="Stop" Noun="Handshake" ShouldProcessTarget="HandshakeId" PipelineParameter="HandshakeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CloseAccount" Verb="Close" Noun="Account" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CloseAccount" Verb="Close" Noun="Account" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAccount" OutputProperty="CreateAccountStatus" Verb="New" Noun="Account" ShouldProcessTarget="AccountName" PipelineParameter="AccountName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAccount" OutputProperty="CreateAccountStatus" Verb="New" Noun="Account" ShouldProcessTarget="AccountName" PipelineParameter="AccountName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGovCloudAccount" OutputProperty="CreateAccountStatus" Verb="New" Noun="GovCloudAccount" ShouldProcessTarget="Email" PipelineParameter="Email" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateGovCloudAccount" OutputProperty="CreateAccountStatus" Verb="New" Noun="GovCloudAccount" ShouldProcessTarget="Email" PipelineParameter="Email" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateOrganization" OutputProperty="Organization" Verb="New" Noun="Organization" ShouldProcessTarget="FeatureSet" PipelineParameter="FeatureSet" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateOrganization" OutputProperty="Organization" Verb="New" Noun="Organization" ShouldProcessTarget="FeatureSet" PipelineParameter="FeatureSet" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateOrganizationalUnit" OutputProperty="OrganizationalUnit" Verb="New" Noun="OrganizationalUnit" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateOrganizationalUnit" OutputProperty="OrganizationalUnit" Verb="New" Noun="OrganizationalUnit" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePolicy" OutputProperty="Policy" Verb="New" Noun="Policy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePolicy" OutputProperty="Policy" Verb="New" Noun="Policy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeclineHandshake" OutputProperty="Handshake" Verb="Deny" Noun="Handshake" ShouldProcessTarget="HandshakeId" PipelineParameter="HandshakeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeclineHandshake" OutputProperty="Handshake" Verb="Deny" Noun="Handshake" ShouldProcessTarget="HandshakeId" PipelineParameter="HandshakeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteOrganization" Verb="Remove" Noun="Organization" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteOrganization" Verb="Remove" Noun="Organization" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteOrganizationalUnit" Verb="Remove" Noun="OrganizationalUnit" ShouldProcessTarget="OrganizationalUnitId" PipelineParameter="OrganizationalUnitId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteOrganizationalUnit" Verb="Remove" Noun="OrganizationalUnit" ShouldProcessTarget="OrganizationalUnitId" PipelineParameter="OrganizationalUnitId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePolicy" Verb="Remove" Noun="Policy" ShouldProcessTarget="PolicyId" PipelineParameter="PolicyId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePolicy" Verb="Remove" Noun="Policy" ShouldProcessTarget="PolicyId" PipelineParameter="PolicyId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterDelegatedAdministrator" Verb="Unregister" Noun="DelegatedAdministrator" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeregisterDelegatedAdministrator" Verb="Unregister" Noun="DelegatedAdministrator" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccount" OutputProperty="Account" Verb="Get" Noun="Account" PipelineParameter="AccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAccount" OutputProperty="Account" Verb="Get" Noun="Account" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCreateAccountStatus" OutputProperty="CreateAccountStatus" Verb="Get" Noun="AccountCreationStatus" PipelineParameter="CreateAccountRequestId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCreateAccountStatus" OutputProperty="CreateAccountStatus" Verb="Get" Noun="AccountCreationStatus" PipelineParameter="CreateAccountRequestId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEffectivePolicy" OutputProperty="EffectivePolicy" Verb="Get" Noun="EffectivePolicy" PipelineParameter="PolicyType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEffectivePolicy" OutputProperty="EffectivePolicy" Verb="Get" Noun="EffectivePolicy" PipelineParameter="PolicyType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeHandshake" OutputProperty="Handshake" Verb="Get" Noun="Handshake" PipelineParameter="HandshakeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeHandshake" OutputProperty="Handshake" Verb="Get" Noun="Handshake" PipelineParameter="HandshakeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOrganization" OutputProperty="Organization" Verb="Get" Noun="Organization" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeOrganization" OutputProperty="Organization" Verb="Get" Noun="Organization" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOrganizationalUnit" OutputProperty="OrganizationalUnit" Verb="Get" Noun="OrganizationalUnit" PipelineParameter="OrganizationalUnitId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeOrganizationalUnit" OutputProperty="OrganizationalUnit" Verb="Get" Noun="OrganizationalUnit" PipelineParameter="OrganizationalUnitId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePolicy" OutputProperty="Policy" Verb="Get" Noun="Policy" PipelineParameter="PolicyId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribePolicy" OutputProperty="Policy" Verb="Get" Noun="Policy" PipelineParameter="PolicyId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeResourcePolicy" OutputProperty="ResourcePolicy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeResourcePolicy" OutputProperty="ResourcePolicy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetachPolicy" Verb="Dismount" Noun="Policy" ShouldProcessTarget="PolicyId" PipelineParameter="PolicyId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DetachPolicy" Verb="Dismount" Noun="Policy" ShouldProcessTarget="PolicyId" PipelineParameter="PolicyId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableAWSServiceAccess" Verb="Disable" Noun="AWSServiceAccess" ShouldProcessTarget="ServicePrincipal" PipelineParameter="ServicePrincipal" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableAWSServiceAccess" Verb="Disable" Noun="AWSServiceAccess" ShouldProcessTarget="ServicePrincipal" PipelineParameter="ServicePrincipal" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisablePolicyType" OutputProperty="Root" Verb="Disable" Noun="PolicyType" ShouldProcessTarget="RootId" PipelineParameter="PolicyType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisablePolicyType" OutputProperty="Root" Verb="Disable" Noun="PolicyType" ShouldProcessTarget="RootId" PipelineParameter="PolicyType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableAllFeatures" OutputProperty="Handshake" Verb="Enable" Noun="AllFeature" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Enable-ORGAllFeatures">
+        <ServiceOperation MethodName="EnableAllFeatures" OutputProperty="Handshake" Verb="Enable" Noun="AllFeature" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Enable-ORGAllFeatures" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableAWSServiceAccess" Verb="Enable" Noun="AWSServiceAccess" ShouldProcessTarget="ServicePrincipal" PipelineParameter="ServicePrincipal" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableAWSServiceAccess" Verb="Enable" Noun="AWSServiceAccess" ShouldProcessTarget="ServicePrincipal" PipelineParameter="ServicePrincipal" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnablePolicyType" OutputProperty="Root" Verb="Enable" Noun="PolicyType" ShouldProcessTarget="RootId" PipelineParameter="PolicyType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnablePolicyType" OutputProperty="Root" Verb="Enable" Noun="PolicyType" ShouldProcessTarget="RootId" PipelineParameter="PolicyType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InviteAccountToOrganization" OutputProperty="Handshake" Verb="New" Noun="AccountInvitation" ShouldProcessTarget="Target_Id" PipelineParameter="Target_Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="InviteAccountToOrganization" OutputProperty="Handshake" Verb="New" Noun="AccountInvitation" ShouldProcessTarget="Target_Id" PipelineParameter="Target_Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="LeaveOrganization" Verb="Remove" Noun="OrganizationAssociation" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="LeaveOrganization" Verb="Remove" Noun="OrganizationAssociation" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccounts" OutputProperty="Accounts" Verb="Get" Noun="AccountList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListAccounts" OutputProperty="Accounts" Verb="Get" Noun="AccountList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccountsForParent" OutputProperty="Accounts" Verb="Get" Noun="AccountForParent" PipelineParameter="ParentId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListAccountsForParent" OutputProperty="Accounts" Verb="Get" Noun="AccountForParent" PipelineParameter="ParentId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAWSServiceAccessForOrganization" OutputProperty="EnabledServicePrincipals" Verb="Get" Noun="AWSServiceAccessForOrganization" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListAWSServiceAccessForOrganization" OutputProperty="EnabledServicePrincipals" Verb="Get" Noun="AWSServiceAccessForOrganization" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListChildren" OutputProperty="Children" Verb="Get" Noun="Child" PipelineParameter="ParentId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListChildren" OutputProperty="Children" Verb="Get" Noun="Child" PipelineParameter="ParentId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCreateAccountStatus" OutputProperty="CreateAccountStatuses" Verb="Get" Noun="AccountCreationStatusList" PipelineParameter="States" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListCreateAccountStatus" OutputProperty="CreateAccountStatuses" Verb="Get" Noun="AccountCreationStatusList" PipelineParameter="States" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDelegatedAdministrators" OutputProperty="DelegatedAdministrators" Verb="Get" Noun="DelegatedAdministratorList" PipelineParameter="ServicePrincipal" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDelegatedAdministrators" OutputProperty="DelegatedAdministrators" Verb="Get" Noun="DelegatedAdministratorList" PipelineParameter="ServicePrincipal" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDelegatedServicesForAccount" OutputProperty="DelegatedServices" Verb="Get" Noun="DelegatedServicesForAccountList" PipelineParameter="AccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDelegatedServicesForAccount" OutputProperty="DelegatedServices" Verb="Get" Noun="DelegatedServicesForAccountList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHandshakesForAccount" OutputProperty="Handshakes" Verb="Get" Noun="AccountHandshakeList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListHandshakesForAccount" OutputProperty="Handshakes" Verb="Get" Noun="AccountHandshakeList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHandshakesForOrganization" OutputProperty="Handshakes" Verb="Get" Noun="OrganizationHandshakeList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListHandshakesForOrganization" OutputProperty="Handshakes" Verb="Get" Noun="OrganizationHandshakeList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOrganizationalUnitsForParent" OutputProperty="OrganizationalUnits" Verb="Get" Noun="OrganizationalUnitList" PipelineParameter="ParentId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListOrganizationalUnitsForParent" OutputProperty="OrganizationalUnits" Verb="Get" Noun="OrganizationalUnitList" PipelineParameter="ParentId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListParents" OutputProperty="Parents" Verb="Get" Noun="Parent" PipelineParameter="ChildId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListParents" OutputProperty="Parents" Verb="Get" Noun="Parent" PipelineParameter="ChildId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPolicies" OutputProperty="Policies" Verb="Get" Noun="PolicyList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListPolicies" OutputProperty="Policies" Verb="Get" Noun="PolicyList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPoliciesForTarget" OutputProperty="Policies" Verb="Get" Noun="PolicyForTarget" PipelineParameter="TargetId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListPoliciesForTarget" OutputProperty="Policies" Verb="Get" Noun="PolicyForTarget" PipelineParameter="TargetId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRoots" OutputProperty="Roots" Verb="Get" Noun="Root" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListRoots" OutputProperty="Roots" Verb="Get" Noun="Root" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTargetsForPolicy" OutputProperty="Targets" Verb="Get" Noun="TargetForPolicy" PipelineParameter="PolicyId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListTargetsForPolicy" OutputProperty="Targets" Verb="Get" Noun="TargetForPolicy" PipelineParameter="PolicyId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="MoveAccount" Verb="Move" Noun="Account" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="MoveAccount" Verb="Move" Noun="Account" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="ResourcePolicy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="Content" PipelineParameter="Content" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="ResourcePolicy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="Content" PipelineParameter="Content" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterDelegatedAdministrator" Verb="Register" Noun="DelegatedAdministrator" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterDelegatedAdministrator" Verb="Register" Noun="DelegatedAdministrator" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveAccountFromOrganization" Verb="Remove" Noun="AccountFromOrganization" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveAccountFromOrganization" Verb="Remove" Noun="AccountFromOrganization" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateOrganizationalUnit" OutputProperty="OrganizationalUnit" Verb="Update" Noun="OrganizationalUnit" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateOrganizationalUnit" OutputProperty="OrganizationalUnit" Verb="Update" Noun="OrganizationalUnit" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePolicy" OutputProperty="Policy" Verb="Update" Noun="Policy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePolicy" OutputProperty="Policy" Verb="Update" Noun="Policy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

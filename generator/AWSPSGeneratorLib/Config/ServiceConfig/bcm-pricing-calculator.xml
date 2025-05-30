@@ -18,147 +18,147 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchCreateBillScenarioCommitmentModification" OutputProperty="*" Verb="New" Noun="CreateBillScenarioCommitmentModification" ShouldProcessTarget="BillScenarioId" PipelineParameter="BillScenarioId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchCreateBillScenarioCommitmentModification" OutputProperty="*" Verb="New" Noun="CreateBillScenarioCommitmentModification" ShouldProcessTarget="BillScenarioId" PipelineParameter="BillScenarioId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchCreateBillScenarioUsageModification" OutputProperty="*" Verb="New" Noun="CreateBillScenarioUsageModification" ShouldProcessTarget="BillScenarioId" PipelineParameter="BillScenarioId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchCreateBillScenarioUsageModification" OutputProperty="*" Verb="New" Noun="CreateBillScenarioUsageModification" ShouldProcessTarget="BillScenarioId" PipelineParameter="BillScenarioId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchCreateWorkloadEstimateUsage" OutputProperty="*" Verb="New" Noun="CreateWorkloadEstimateUsage" ShouldProcessTarget="WorkloadEstimateId" PipelineParameter="WorkloadEstimateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchCreateWorkloadEstimateUsage" OutputProperty="*" Verb="New" Noun="CreateWorkloadEstimateUsage" ShouldProcessTarget="WorkloadEstimateId" PipelineParameter="WorkloadEstimateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDeleteBillScenarioCommitmentModification" OutputProperty="Errors" Verb="New" Noun="DeleteBillScenarioCommitmentModification" ShouldProcessTarget="BillScenarioId" PipelineParameter="BillScenarioId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchDeleteBillScenarioCommitmentModification" OutputProperty="Errors" Verb="New" Noun="DeleteBillScenarioCommitmentModification" ShouldProcessTarget="BillScenarioId" PipelineParameter="BillScenarioId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDeleteBillScenarioUsageModification" OutputProperty="Errors" Verb="New" Noun="DeleteBillScenarioUsageModification" ShouldProcessTarget="BillScenarioId" PipelineParameter="BillScenarioId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchDeleteBillScenarioUsageModification" OutputProperty="Errors" Verb="New" Noun="DeleteBillScenarioUsageModification" ShouldProcessTarget="BillScenarioId" PipelineParameter="BillScenarioId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDeleteWorkloadEstimateUsage" OutputProperty="Errors" Verb="New" Noun="DeleteWorkloadEstimateUsage" ShouldProcessTarget="WorkloadEstimateId" PipelineParameter="WorkloadEstimateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchDeleteWorkloadEstimateUsage" OutputProperty="Errors" Verb="New" Noun="DeleteWorkloadEstimateUsage" ShouldProcessTarget="WorkloadEstimateId" PipelineParameter="WorkloadEstimateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchUpdateBillScenarioCommitmentModification" OutputProperty="*" Verb="New" Noun="UpdateBillScenarioCommitmentModification" ShouldProcessTarget="BillScenarioId" PipelineParameter="BillScenarioId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchUpdateBillScenarioCommitmentModification" OutputProperty="*" Verb="New" Noun="UpdateBillScenarioCommitmentModification" ShouldProcessTarget="BillScenarioId" PipelineParameter="BillScenarioId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchUpdateBillScenarioUsageModification" OutputProperty="*" Verb="New" Noun="UpdateBillScenarioUsageModification" ShouldProcessTarget="BillScenarioId" PipelineParameter="BillScenarioId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchUpdateBillScenarioUsageModification" OutputProperty="*" Verb="New" Noun="UpdateBillScenarioUsageModification" ShouldProcessTarget="BillScenarioId" PipelineParameter="BillScenarioId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchUpdateWorkloadEstimateUsage" OutputProperty="*" Verb="New" Noun="UpdateWorkloadEstimateUsage" ShouldProcessTarget="WorkloadEstimateId" PipelineParameter="WorkloadEstimateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchUpdateWorkloadEstimateUsage" OutputProperty="*" Verb="New" Noun="UpdateWorkloadEstimateUsage" ShouldProcessTarget="WorkloadEstimateId" PipelineParameter="WorkloadEstimateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBillEstimate" OutputProperty="*" Verb="New" Noun="BillEstimate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateBillEstimate" OutputProperty="*" Verb="New" Noun="BillEstimate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBillScenario" OutputProperty="*" Verb="New" Noun="BillScenario" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateBillScenario" OutputProperty="*" Verb="New" Noun="BillScenario" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWorkloadEstimate" OutputProperty="*" Verb="New" Noun="WorkloadEstimate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateWorkloadEstimate" OutputProperty="*" Verb="New" Noun="WorkloadEstimate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBillEstimate" Verb="Remove" Noun="BillEstimate" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBillEstimate" Verb="Remove" Noun="BillEstimate" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBillScenario" Verb="Remove" Noun="BillScenario" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBillScenario" Verb="Remove" Noun="BillScenario" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWorkloadEstimate" Verb="Remove" Noun="WorkloadEstimate" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteWorkloadEstimate" Verb="Remove" Noun="WorkloadEstimate" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBillEstimate" OutputProperty="*" Verb="Get" Noun="BillEstimate" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetBillEstimate" OutputProperty="*" Verb="Get" Noun="BillEstimate" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBillScenario" OutputProperty="*" Verb="Get" Noun="BillScenario" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetBillScenario" OutputProperty="*" Verb="Get" Noun="BillScenario" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPreferences" OutputProperty="*" Verb="Get" Noun="Preference" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPreferences" OutputProperty="*" Verb="Get" Noun="Preference" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWorkloadEstimate" OutputProperty="*" Verb="Get" Noun="WorkloadEstimate" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetWorkloadEstimate" OutputProperty="*" Verb="Get" Noun="WorkloadEstimate" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBillEstimateCommitments" OutputProperty="Items" Verb="Get" Noun="BillEstimateCommitmentList" PipelineParameter="BillEstimateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBillEstimateCommitments" OutputProperty="Items" Verb="Get" Noun="BillEstimateCommitmentList" PipelineParameter="BillEstimateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBillEstimateInputCommitmentModifications" OutputProperty="Items" Verb="Get" Noun="BillEstimateInputCommitmentModificationList" PipelineParameter="BillEstimateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBillEstimateInputCommitmentModifications" OutputProperty="Items" Verb="Get" Noun="BillEstimateInputCommitmentModificationList" PipelineParameter="BillEstimateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBillEstimateInputUsageModifications" OutputProperty="Items" Verb="Get" Noun="BillEstimateInputUsageModificationList" PipelineParameter="BillEstimateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBillEstimateInputUsageModifications" OutputProperty="Items" Verb="Get" Noun="BillEstimateInputUsageModificationList" PipelineParameter="BillEstimateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBillEstimateLineItems" OutputProperty="Items" Verb="Get" Noun="BillEstimateLineItemList" PipelineParameter="BillEstimateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBillEstimateLineItems" OutputProperty="Items" Verb="Get" Noun="BillEstimateLineItemList" PipelineParameter="BillEstimateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBillEstimates" OutputProperty="Items" Verb="Get" Noun="BillEstimateList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListBillEstimates" OutputProperty="Items" Verb="Get" Noun="BillEstimateList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBillScenarioCommitmentModifications" OutputProperty="Items" Verb="Get" Noun="BillScenarioCommitmentModificationList" PipelineParameter="BillScenarioId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBillScenarioCommitmentModifications" OutputProperty="Items" Verb="Get" Noun="BillScenarioCommitmentModificationList" PipelineParameter="BillScenarioId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBillScenarios" OutputProperty="Items" Verb="Get" Noun="BillScenarioList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListBillScenarios" OutputProperty="Items" Verb="Get" Noun="BillScenarioList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBillScenarioUsageModifications" OutputProperty="Items" Verb="Get" Noun="BillScenarioUsageModificationList" PipelineParameter="BillScenarioId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBillScenarioUsageModifications" OutputProperty="Items" Verb="Get" Noun="BillScenarioUsageModificationList" PipelineParameter="BillScenarioId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkloadEstimates" OutputProperty="Items" Verb="Get" Noun="WorkloadEstimateList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListWorkloadEstimates" OutputProperty="Items" Verb="Get" Noun="WorkloadEstimateList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkloadEstimateUsage" OutputProperty="Items" Verb="Get" Noun="WorkloadEstimateUsageList" PipelineParameter="WorkloadEstimateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListWorkloadEstimateUsage" OutputProperty="Items" Verb="Get" Noun="WorkloadEstimateUsageList" PipelineParameter="WorkloadEstimateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBillEstimate" OutputProperty="*" Verb="Update" Noun="BillEstimate" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateBillEstimate" OutputProperty="*" Verb="Update" Noun="BillEstimate" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBillScenario" OutputProperty="*" Verb="Update" Noun="BillScenario" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateBillScenario" OutputProperty="*" Verb="Update" Noun="BillScenario" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePreferences" OutputProperty="*" Verb="Update" Noun="Preference" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePreferences" OutputProperty="*" Verb="Update" Noun="Preference" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWorkloadEstimate" OutputProperty="*" Verb="Update" Noun="WorkloadEstimate" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateWorkloadEstimate" OutputProperty="*" Verb="Update" Noun="WorkloadEstimate" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

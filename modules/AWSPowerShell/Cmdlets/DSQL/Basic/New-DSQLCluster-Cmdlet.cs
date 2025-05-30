@@ -30,7 +30,41 @@ using Amazon.DSQL.Model;
 namespace Amazon.PowerShell.Cmdlets.DSQL
 {
     /// <summary>
-    /// Creates a cluster in Amazon Aurora DSQL.
+    /// The CreateCluster API allows you to create both single-region clusters and multi-Region
+    /// clusters. With the addition of the <i>multiRegionProperties</i> parameter, you can
+    /// create a cluster with witness Region support and establish peer relationships with
+    /// clusters in other Regions during creation.
+    /// 
+    ///  <note><para>
+    /// Creating multi-Region clusters requires additional IAM permissions beyond those needed
+    /// for single-Region clusters, as detailed in the <b>Required permissions</b> section
+    /// below.
+    /// </para></note><para><b>Required permissions</b></para><dl><dt>dsql:CreateCluster</dt><dd><para>
+    /// Required to create a cluster.
+    /// </para><para>
+    /// Resources: <c>arn:aws:dsql:region:account-id:cluster/*</c></para></dd><dt>dsql:TagResource</dt><dd><para>
+    /// Permission to add tags to a resource.
+    /// </para><para>
+    /// Resources: <c>arn:aws:dsql:region:account-id:cluster/*</c></para></dd><dt>dsql:PutMultiRegionProperties</dt><dd><para>
+    /// Permission to configure multi-region properties for a cluster.
+    /// </para><para>
+    /// Resources: <c>arn:aws:dsql:region:account-id:cluster/*</c></para></dd><dt>dsql:AddPeerCluster</dt><dd><para>
+    /// When specifying <c>multiRegionProperties.clusters</c>, permission to add peer clusters.
+    /// </para><para>
+    /// Resources:
+    /// </para><ul><li><para>
+    /// Local cluster: <c>arn:aws:dsql:region:account-id:cluster/*</c></para></li><li><para>
+    /// Each peer cluster: exact ARN of each specified peer cluster
+    /// </para></li></ul></dd><dt>dsql:PutWitnessRegion</dt><dd><para>
+    /// When specifying <c>multiRegionProperties.witnessRegion</c>, permission to set a witness
+    /// Region. This permission is checked both in the cluster Region and in the witness Region.
+    /// </para><para>
+    /// Resources: <c>arn:aws:dsql:region:account-id:cluster/*</c></para><para>
+    /// Condition Keys: <c>dsql:WitnessRegion</c> (matching the specified witness region)
+    /// </para></dd></dl><important><ul><li><para>
+    /// The witness Region specified in <c>multiRegionProperties.witnessRegion</c> cannot
+    /// be the same as the cluster's Region.
+    /// </para></li></ul></important>
     /// </summary>
     [Cmdlet("New", "DSQLCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DSQL.Model.CreateClusterResponse")]
@@ -44,6 +78,18 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter MultiRegionProperties_Cluster
+        /// <summary>
+        /// <para>
+        /// <para>The set of linked clusters that form the multi-Region cluster configuration. Each
+        /// linked cluster represents a database instance in a different Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MultiRegionProperties_Clusters")]
+        public System.String[] MultiRegionProperties_Cluster { get; set; }
+        #endregion
+        
         #region Parameter DeletionProtectionEnabled
         /// <summary>
         /// <para>
@@ -55,6 +101,18 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
         public System.Boolean? DeletionProtectionEnabled { get; set; }
         #endregion
         
+        #region Parameter KmsEncryptionKey
+        /// <summary>
+        /// <para>
+        /// <para>The KMS key that encrypts and protects the data on your cluster. You can specify the
+        /// ARN, ID, or alias of an existing key or have Amazon Web Services create a default
+        /// key for you.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsEncryptionKey { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -64,6 +122,17 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter MultiRegionProperties_WitnessRegion
+        /// <summary>
+        /// <para>
+        /// <para>The that serves as the witness region for a multi-Region cluster. The witness region
+        /// helps maintain cluster consistency and quorum.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MultiRegionProperties_WitnessRegion { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -129,6 +198,12 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
             }
             context.ClientToken = this.ClientToken;
             context.DeletionProtectionEnabled = this.DeletionProtectionEnabled;
+            context.KmsEncryptionKey = this.KmsEncryptionKey;
+            if (this.MultiRegionProperties_Cluster != null)
+            {
+                context.MultiRegionProperties_Cluster = new List<System.String>(this.MultiRegionProperties_Cluster);
+            }
+            context.MultiRegionProperties_WitnessRegion = this.MultiRegionProperties_WitnessRegion;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -160,6 +235,39 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
             if (cmdletContext.DeletionProtectionEnabled != null)
             {
                 request.DeletionProtectionEnabled = cmdletContext.DeletionProtectionEnabled.Value;
+            }
+            if (cmdletContext.KmsEncryptionKey != null)
+            {
+                request.KmsEncryptionKey = cmdletContext.KmsEncryptionKey;
+            }
+            
+             // populate MultiRegionProperties
+            var requestMultiRegionPropertiesIsNull = true;
+            request.MultiRegionProperties = new Amazon.DSQL.Model.MultiRegionProperties();
+            List<System.String> requestMultiRegionProperties_multiRegionProperties_Cluster = null;
+            if (cmdletContext.MultiRegionProperties_Cluster != null)
+            {
+                requestMultiRegionProperties_multiRegionProperties_Cluster = cmdletContext.MultiRegionProperties_Cluster;
+            }
+            if (requestMultiRegionProperties_multiRegionProperties_Cluster != null)
+            {
+                request.MultiRegionProperties.Clusters = requestMultiRegionProperties_multiRegionProperties_Cluster;
+                requestMultiRegionPropertiesIsNull = false;
+            }
+            System.String requestMultiRegionProperties_multiRegionProperties_WitnessRegion = null;
+            if (cmdletContext.MultiRegionProperties_WitnessRegion != null)
+            {
+                requestMultiRegionProperties_multiRegionProperties_WitnessRegion = cmdletContext.MultiRegionProperties_WitnessRegion;
+            }
+            if (requestMultiRegionProperties_multiRegionProperties_WitnessRegion != null)
+            {
+                request.MultiRegionProperties.WitnessRegion = requestMultiRegionProperties_multiRegionProperties_WitnessRegion;
+                requestMultiRegionPropertiesIsNull = false;
+            }
+             // determine if request.MultiRegionProperties should be set to null
+            if (requestMultiRegionPropertiesIsNull)
+            {
+                request.MultiRegionProperties = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -222,6 +330,9 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
         {
             public System.String ClientToken { get; set; }
             public System.Boolean? DeletionProtectionEnabled { get; set; }
+            public System.String KmsEncryptionKey { get; set; }
+            public List<System.String> MultiRegionProperties_Cluster { get; set; }
+            public System.String MultiRegionProperties_WitnessRegion { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.DSQL.Model.CreateClusterResponse, NewDSQLClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

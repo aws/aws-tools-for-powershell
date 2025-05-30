@@ -114,8 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies your Kerberos key table (keytab) file, which includes mappings between your
-        /// Kerberos principal and encryption keys.</para><para>The file must be base64 encoded. If you're using the CLI, the encoding is done for
-        /// you.</para><para>To avoid task execution errors, make sure that the Kerberos principal that you use
+        /// Kerberos principal and encryption keys.</para><para>To avoid task execution errors, make sure that the Kerberos principal that you use
         /// to create the keytab file matches exactly what you specify for <c>KerberosPrincipal</c>.
         /// </para>
         /// </para>

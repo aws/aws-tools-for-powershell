@@ -105,11 +105,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ParentImage
         /// <summary>
         /// <para>
-        /// <para>The base image of the image recipe. The value of the string can be the ARN of the
-        /// base image or an AMI ID. The format for the ARN follows this example: <c>arn:aws:imagebuilder:us-west-2:aws:image/windows-server-2016-english-full-base-x86/x.x.x</c>.
-        /// You can provide the specific version that you want to use, or you can use a wildcard
-        /// in all of the fields. If you enter an AMI ID for the string value, you must have access
-        /// to the AMI, and the AMI must be in the same Region in which you are using Image Builder.</para>
+        /// <para>The base image for customizations specified in the image recipe. You can specify the
+        /// parent image using one of the following options:</para><ul><li><para>AMI ID</para></li><li><para>Image Builder image Amazon Resource Name (ARN)</para></li><li><para>Amazon Web Services Systems Manager (SSM) Parameter Store Parameter, prefixed by <c>ssm:</c>,
+        /// followed by the parameter name or ARN.</para></li><li><para>Amazon Web Services Marketplace product ID</para></li></ul><para>If you enter an AMI ID or an SSM parameter that contains the AMI ID, you must have
+        /// access to the AMI, and the AMI must be in the source Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

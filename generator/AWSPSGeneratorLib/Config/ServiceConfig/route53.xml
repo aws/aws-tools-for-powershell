@@ -30,305 +30,305 @@
         <Property>MaxItems</Property>
     </MetadataProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="ActivateKeySigningKey" OutputProperty="ChangeInfo" Verb="Enable" Noun="KeySigningKey" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ActivateKeySigningKey" OutputProperty="ChangeInfo" Verb="Enable" Noun="KeySigningKey" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateVPCWithHostedZone" OutputProperty="ChangeInfo" Verb="Register" Noun="VPCWithHostedZone" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateVPCWithHostedZone" OutputProperty="ChangeInfo" Verb="Register" Noun="VPCWithHostedZone" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="HostedZoneId" Alias="Id" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ChangeCidrCollection" OutputProperty="Id" Verb="Edit" Noun="CidrCollection" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ChangeCidrCollection" OutputProperty="Id" Verb="Edit" Noun="CidrCollection" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ChangeResourceRecordSets" OutputProperty="ChangeInfo" Verb="Edit" Noun="ResourceRecordSet" ShouldProcessTarget="HostedZoneId" PositionalParameters="ChangeBatch_Comment;ChangeBatch_Changes" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ChangeResourceRecordSets" OutputProperty="ChangeInfo" Verb="Edit" Noun="ResourceRecordSet" ShouldProcessTarget="HostedZoneId" PositionalParameters="ChangeBatch_Comment;ChangeBatch_Changes" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="HostedZoneId" Alias="Id" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ChangeTagsForResource" Verb="Edit" Noun="TagsForResource" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ChangeTagsForResource" Verb="Edit" Noun="TagsForResource" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCidrCollection" OutputProperty="*" Verb="New" Noun="CidrCollection" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCidrCollection" OutputProperty="*" Verb="New" Noun="CidrCollection" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateHealthCheck" OutputProperty="*" Verb="New" Noun="HealthCheck" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="CallerReference" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateHealthCheck" OutputProperty="*" Verb="New" Noun="HealthCheck" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="CallerReference" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateHostedZone" OutputProperty="*" Verb="New" Noun="HostedZone" ShouldProcessTarget="Name" PositionalParameters="CallerReference;HostedZoneConfig_Comment" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateHostedZone" OutputProperty="*" Verb="New" Noun="HostedZone" ShouldProcessTarget="Name" PositionalParameters="CallerReference;HostedZoneConfig_Comment" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateKeySigningKey" OutputProperty="*" Verb="New" Noun="KeySigningKey" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateKeySigningKey" OutputProperty="*" Verb="New" Noun="KeySigningKey" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateQueryLoggingConfig" OutputProperty="*" Verb="New" Noun="QueryLoggingConfig" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateQueryLoggingConfig" OutputProperty="*" Verb="New" Noun="QueryLoggingConfig" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateReusableDelegationSet" OutputProperty="*" Verb="New" Noun="ReusableDelegationSet" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateReusableDelegationSet" OutputProperty="*" Verb="New" Noun="ReusableDelegationSet" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="HostedZoneId" Alias="Id" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTrafficPolicy" OutputProperty="*" Verb="New" Noun="TrafficPolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTrafficPolicy" OutputProperty="*" Verb="New" Noun="TrafficPolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTrafficPolicyInstance" OutputProperty="*" Verb="New" Noun="TrafficPolicyInstance" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTrafficPolicyInstance" OutputProperty="*" Verb="New" Noun="TrafficPolicyInstance" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTrafficPolicyVersion" OutputProperty="*" Verb="New" Noun="TrafficPolicyVersion" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTrafficPolicyVersion" OutputProperty="*" Verb="New" Noun="TrafficPolicyVersion" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVPCAssociationAuthorization" OutputProperty="*" Verb="New" Noun="VPCAssociationAuthorization" ShouldProcessTarget="VPC_VPCId" PipelineParameter="VPC_VPCId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateVPCAssociationAuthorization" OutputProperty="*" Verb="New" Noun="VPCAssociationAuthorization" ShouldProcessTarget="VPC_VPCId" PipelineParameter="VPC_VPCId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeactivateKeySigningKey" OutputProperty="ChangeInfo" Verb="Disable" Noun="KeySigningKey" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeactivateKeySigningKey" OutputProperty="ChangeInfo" Verb="Disable" Noun="KeySigningKey" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCidrCollection" Verb="Remove" Noun="CidrCollection" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCidrCollection" Verb="Remove" Noun="CidrCollection" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteHealthCheck" Verb="Remove" Noun="HealthCheck" ShouldProcessTarget="HealthCheckId" PipelineParameter="HealthCheckId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteHealthCheck" Verb="Remove" Noun="HealthCheck" ShouldProcessTarget="HealthCheckId" PipelineParameter="HealthCheckId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteHostedZone" OutputProperty="ChangeInfo" Verb="Remove" Noun="HostedZone" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteHostedZone" OutputProperty="ChangeInfo" Verb="Remove" Noun="HostedZone" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteKeySigningKey" OutputProperty="ChangeInfo" Verb="Remove" Noun="KeySigningKey" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteKeySigningKey" OutputProperty="ChangeInfo" Verb="Remove" Noun="KeySigningKey" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteQueryLoggingConfig" Verb="Remove" Noun="QueryLoggingConfig" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteQueryLoggingConfig" Verb="Remove" Noun="QueryLoggingConfig" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteReusableDelegationSet" Verb="Remove" Noun="ReusableDelegationSet" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteReusableDelegationSet" Verb="Remove" Noun="ReusableDelegationSet" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTrafficPolicy" Verb="Remove" Noun="TrafficPolicy" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTrafficPolicy" Verb="Remove" Noun="TrafficPolicy" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTrafficPolicyInstance" Verb="Remove" Noun="TrafficPolicyInstance" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTrafficPolicyInstance" Verb="Remove" Noun="TrafficPolicyInstance" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVPCAssociationAuthorization" Verb="Remove" Noun="VPCAssociationAuthorization" ShouldProcessTarget="VPC_VPCId" PipelineParameter="VPC_VPCId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteVPCAssociationAuthorization" Verb="Remove" Noun="VPCAssociationAuthorization" ShouldProcessTarget="VPC_VPCId" PipelineParameter="VPC_VPCId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableHostedZoneDNSSEC" OutputProperty="ChangeInfo" Verb="Disable" Noun="HostedZoneDNSSEC" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableHostedZoneDNSSEC" OutputProperty="ChangeInfo" Verb="Disable" Noun="HostedZoneDNSSEC" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateVPCFromHostedZone" OutputProperty="ChangeInfo" Verb="Unregister" Noun="VPCFromHostedZone" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateVPCFromHostedZone" OutputProperty="ChangeInfo" Verb="Unregister" Noun="VPCFromHostedZone" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="HostedZoneId" Alias="Id" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableHostedZoneDNSSEC" OutputProperty="ChangeInfo" Verb="Enable" Noun="HostedZoneDNSSEC" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableHostedZoneDNSSEC" OutputProperty="ChangeInfo" Verb="Enable" Noun="HostedZoneDNSSEC" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccountLimit" OutputProperty="Count" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetAccountLimit" OutputProperty="Count" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetChange" OutputProperty="ChangeInfo" Verb="Get" Noun="Change" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetChange" OutputProperty="ChangeInfo" Verb="Get" Noun="Change" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCheckerIpRanges" OutputProperty="CheckerIpRanges" Verb="Get" Noun="CheckerIpRange" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-R53CheckerIpRanges">
+        <ServiceOperation MethodName="GetCheckerIpRanges" OutputProperty="CheckerIpRanges" Verb="Get" Noun="CheckerIpRange" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-R53CheckerIpRanges" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDNSSEC" OutputProperty="*" Verb="Get" Noun="DNSSEC" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDNSSEC" OutputProperty="*" Verb="Get" Noun="DNSSEC" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGeoLocation" OutputProperty="GeoLocationDetails" Verb="Get" Noun="GeoLocation" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetGeoLocation" OutputProperty="GeoLocationDetails" Verb="Get" Noun="GeoLocation" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHealthCheck" OutputProperty="HealthCheck" Verb="Get" Noun="HealthCheck" PipelineParameter="HealthCheckId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetHealthCheck" OutputProperty="HealthCheck" Verb="Get" Noun="HealthCheck" PipelineParameter="HealthCheckId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHealthCheckCount" OutputProperty="HealthCheckCount" Verb="Get" Noun="HealthCheckCount" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetHealthCheckCount" OutputProperty="HealthCheckCount" Verb="Get" Noun="HealthCheckCount" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHealthCheckLastFailureReason" OutputProperty="HealthCheckObservations" Verb="Get" Noun="HealthCheckLastFailureReason" PipelineParameter="HealthCheckId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetHealthCheckLastFailureReason" OutputProperty="HealthCheckObservations" Verb="Get" Noun="HealthCheckLastFailureReason" PipelineParameter="HealthCheckId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHealthCheckStatus" OutputProperty="HealthCheckObservations" Verb="Get" Noun="HealthCheckStatus" PipelineParameter="HealthCheckId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetHealthCheckStatus" OutputProperty="HealthCheckObservations" Verb="Get" Noun="HealthCheckStatus" PipelineParameter="HealthCheckId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHostedZone" OutputProperty="*" Verb="Get" Noun="HostedZone" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetHostedZone" OutputProperty="*" Verb="Get" Noun="HostedZone" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHostedZoneCount" OutputProperty="HostedZoneCount" Verb="Get" Noun="HostedZoneCount" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetHostedZoneCount" OutputProperty="HostedZoneCount" Verb="Get" Noun="HostedZoneCount" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHostedZoneLimit" OutputProperty="Limit.Value" Verb="Get" Noun="HostedZoneLimit" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetHostedZoneLimit" OutputProperty="Limit.Value" Verb="Get" Noun="HostedZoneLimit" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQueryLoggingConfig" OutputProperty="QueryLoggingConfig" Verb="Get" Noun="QueryLoggingConfig" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetQueryLoggingConfig" OutputProperty="QueryLoggingConfig" Verb="Get" Noun="QueryLoggingConfig" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReusableDelegationSet" OutputProperty="DelegationSet" Verb="Get" Noun="ReusableDelegationSet" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetReusableDelegationSet" OutputProperty="DelegationSet" Verb="Get" Noun="ReusableDelegationSet" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReusableDelegationSetLimit" OutputProperty="Count" Verb="Get" Noun="ReusableDelegationSetLimit" PipelineParameter="DelegationSetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetReusableDelegationSetLimit" OutputProperty="Count" Verb="Get" Noun="ReusableDelegationSetLimit" PipelineParameter="DelegationSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTrafficPolicy" OutputProperty="TrafficPolicy" Verb="Get" Noun="TrafficPolicy" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTrafficPolicy" OutputProperty="TrafficPolicy" Verb="Get" Noun="TrafficPolicy" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTrafficPolicyInstance" OutputProperty="TrafficPolicyInstance" Verb="Get" Noun="TrafficPolicyInstance" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTrafficPolicyInstance" OutputProperty="TrafficPolicyInstance" Verb="Get" Noun="TrafficPolicyInstance" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTrafficPolicyInstanceCount" OutputProperty="TrafficPolicyInstanceCount" Verb="Get" Noun="TrafficPolicyInstanceCount" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTrafficPolicyInstanceCount" OutputProperty="TrafficPolicyInstanceCount" Verb="Get" Noun="TrafficPolicyInstanceCount" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCidrBlocks" OutputProperty="CidrBlocks" Verb="Get" Noun="CidrBlockList" PipelineParameter="CollectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCidrBlocks" OutputProperty="CidrBlocks" Verb="Get" Noun="CidrBlockList" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCidrCollections" OutputProperty="CidrCollections" Verb="Get" Noun="CidrCollectionList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCidrCollections" OutputProperty="CidrCollections" Verb="Get" Noun="CidrCollectionList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCidrLocations" OutputProperty="CidrLocations" Verb="Get" Noun="CidrLocationList" PipelineParameter="CollectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCidrLocations" OutputProperty="CidrLocations" Verb="Get" Noun="CidrLocationList" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGeoLocations" OutputProperty="*" Verb="Get" Noun="GeoLocationList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-R53GeoLocations">
+        <ServiceOperation MethodName="ListGeoLocations" OutputProperty="*" Verb="Get" Noun="GeoLocationList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-R53GeoLocations" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHealthChecks" OutputProperty="HealthChecks" Verb="Get" Noun="HealthCheckList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-R53HealthChecks">
+        <ServiceOperation MethodName="ListHealthChecks" OutputProperty="HealthChecks" Verb="Get" Noun="HealthCheckList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-R53HealthChecks" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHostedZones" OutputProperty="HostedZones" Verb="Get" Noun="HostedZoneList" PipelineParameter="DelegationSetId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-R53HostedZones">
+        <ServiceOperation MethodName="ListHostedZones" OutputProperty="HostedZones" Verb="Get" Noun="HostedZoneList" PipelineParameter="DelegationSetId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-R53HostedZones" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHostedZonesByName" OutputProperty="HostedZones" Verb="Get" Noun="HostedZonesByName" Exclude="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListHostedZonesByName" OutputProperty="HostedZones" Verb="Get" Noun="HostedZonesByName" Exclude="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="HostedZoneId" Alias="Id" />
             </Params>
             <AutoIterate Start="DNSName;HostedZoneId" Next="NextDNSName;NextHostedZoneId" EmitLimit="MaxItems" ServicePageSize="100" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHostedZonesByVPC" OutputProperty="HostedZoneSummaries" Verb="Get" Noun="HostedZonesByVPC" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListHostedZonesByVPC" OutputProperty="HostedZoneSummaries" Verb="Get" Noun="HostedZonesByVPC" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQueryLoggingConfigs" OutputProperty="QueryLoggingConfigs" Verb="Get" Noun="QueryLoggingConfigList" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListQueryLoggingConfigs" OutputProperty="QueryLoggingConfigs" Verb="Get" Noun="QueryLoggingConfigList" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="100" PageSizeIsRequired="true" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceRecordSets" OutputProperty="*" Verb="Get" Noun="ResourceRecordSet" PositionalParameters="StartRecordName;StartRecordType" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="ListResourceRecordSets" OutputProperty="*" Verb="Get" Noun="ResourceRecordSet" PositionalParameters="StartRecordName;StartRecordType" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
             <Params>
                 <Param Name="HostedZoneId" Alias="Id" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReusableDelegationSets" OutputProperty="DelegationSets" Verb="Get" Noun="ReusableDelegationSetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-R53ReusableDelegationSets">
+        <ServiceOperation MethodName="ListReusableDelegationSets" OutputProperty="DelegationSets" Verb="Get" Noun="ReusableDelegationSetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-R53ReusableDelegationSets" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="ResourceTagSet" Verb="Get" Noun="TagsForResource" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="ResourceTagSet" Verb="Get" Noun="TagsForResource" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResources" OutputProperty="ResourceTagSets" Verb="Get" Noun="TagsForResourceList" PipelineParameter="ResourceIds" NoPipelineParameter="false" LegacyAlias="Get-R53TagsForResources">
+        <ServiceOperation MethodName="ListTagsForResources" OutputProperty="ResourceTagSets" Verb="Get" Noun="TagsForResourceList" PipelineParameter="ResourceIds" NoPipelineParameter="false" LegacyAlias="Get-R53TagsForResources" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrafficPolicies" OutputProperty="TrafficPolicySummaries" Verb="Get" Noun="TrafficPolicyList" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-R53TrafficPolicies">
+        <ServiceOperation MethodName="ListTrafficPolicies" OutputProperty="TrafficPolicySummaries" Verb="Get" Noun="TrafficPolicyList" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-R53TrafficPolicies" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="TrafficPolicyIdMarker" Next="TrafficPolicyIdMarker" EmitLimit="MaxItems" ServicePageSize="100" PageSizeIsRequired="true" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrafficPolicyInstances" OutputProperty="*" Verb="Get" Noun="TrafficPolicyInstanceList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyAlias="Get-R53TrafficPolicyInstances">
+        <ServiceOperation MethodName="ListTrafficPolicyInstances" OutputProperty="*" Verb="Get" Noun="TrafficPolicyInstanceList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyAlias="Get-R53TrafficPolicyInstances" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrafficPolicyInstancesByHostedZone" OutputProperty="*" Verb="Get" Noun="TrafficPolicyInstancesByHostedZone" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="ListTrafficPolicyInstancesByHostedZone" OutputProperty="*" Verb="Get" Noun="TrafficPolicyInstancesByHostedZone" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
             <Params>
                 <Param Name="HostedZoneId" Alias="Id" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrafficPolicyInstancesByPolicy" OutputProperty="*" Verb="Get" Noun="TrafficPolicyInstancesByPolicy" PipelineParameter="TrafficPolicyId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="ListTrafficPolicyInstancesByPolicy" OutputProperty="*" Verb="Get" Noun="TrafficPolicyInstancesByPolicy" PipelineParameter="TrafficPolicyId" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrafficPolicyVersions" OutputProperty="TrafficPolicies" Verb="Get" Noun="TrafficPolicyVersionList" ShouldProcessTarget="" PipelineParameter="Id" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-R53TrafficPolicyVersions">
+        <ServiceOperation MethodName="ListTrafficPolicyVersions" OutputProperty="TrafficPolicies" Verb="Get" Noun="TrafficPolicyVersionList" ShouldProcessTarget="" PipelineParameter="Id" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-R53TrafficPolicyVersions" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="TrafficPolicyVersionMarker" Next="TrafficPolicyVersionMarker" EmitLimit="MaxItems" ServicePageSize="100" PageSizeIsRequired="true" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVPCAssociationAuthorizations" OutputProperty="*" Verb="Get" Noun="VPCAssociationAuthorizationList" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListVPCAssociationAuthorizations" OutputProperty="*" Verb="Get" Noun="VPCAssociationAuthorizationList" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="HostedZoneId" Alias="Id" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestDNSAnswer" OutputProperty="*" Verb="Test" Noun="DNSAnswer" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TestDNSAnswer" OutputProperty="*" Verb="Test" Noun="DNSAnswer" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateHealthCheck" OutputProperty="HealthCheck" Verb="Update" Noun="HealthCheck" ShouldProcessTarget="HealthCheckId" PipelineParameter="HealthCheckId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateHealthCheck" OutputProperty="HealthCheck" Verb="Update" Noun="HealthCheck" ShouldProcessTarget="HealthCheckId" PipelineParameter="HealthCheckId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Regions" NewName="HealthCheckRegion" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateHostedZoneComment" OutputProperty="HostedZone" Verb="Update" Noun="HostedZoneComment" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateHostedZoneComment" OutputProperty="HostedZone" Verb="Update" Noun="HostedZoneComment" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTrafficPolicyComment" OutputProperty="TrafficPolicy" Verb="Update" Noun="TrafficPolicyComment" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTrafficPolicyComment" OutputProperty="TrafficPolicy" Verb="Update" Noun="TrafficPolicyComment" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTrafficPolicyInstance" OutputProperty="TrafficPolicyInstance" Verb="Update" Noun="TrafficPolicyInstance" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTrafficPolicyInstance" OutputProperty="TrafficPolicyInstance" Verb="Update" Noun="TrafficPolicyInstance" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

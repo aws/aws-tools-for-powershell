@@ -33,371 +33,371 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="ActivateOrganizationsAccess" Verb="Enable" Noun="OrganizationsAccess" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ActivateOrganizationsAccess" Verb="Enable" Noun="OrganizationsAccess" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ActivateType" OutputProperty="Arn" Verb="Enable" Noun="Type" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ActivateType" OutputProperty="Arn" Verb="Enable" Noun="Type" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDescribeTypeConfigurations" OutputProperty="*" Verb="Get" Noun="DescribeTypeConfiguration" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchDescribeTypeConfigurations" OutputProperty="*" Verb="Get" Noun="DescribeTypeConfiguration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelUpdateStack" Verb="Stop" Noun="UpdateStack" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelUpdateStack" Verb="Stop" Noun="UpdateStack" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ContinueUpdateRollback" Verb="Resume" Noun="UpdateRollback" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ContinueUpdateRollback" Verb="Resume" Noun="UpdateRollback" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateChangeSet" OutputProperty="Id" Verb="New" Noun="ChangeSet" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateChangeSet" OutputProperty="Id" Verb="New" Noun="ChangeSet" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten>
                 <Type>Amazon.CloudFormation.Model.RollbackConfiguration</Type>
             </TypesNotToFlatten>
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGeneratedTemplate" OutputProperty="GeneratedTemplateId" Verb="New" Noun="GeneratedTemplate" ShouldProcessTarget="GeneratedTemplateName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateGeneratedTemplate" OutputProperty="GeneratedTemplateId" Verb="New" Noun="GeneratedTemplate" ShouldProcessTarget="GeneratedTemplateName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStack" OutputProperty="StackId" Verb="New" Noun="Stack" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateStack" OutputProperty="StackId" Verb="New" Noun="Stack" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="TimeoutInMinutes" AutoRename="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStackInstances" OutputProperty="OperationId" Verb="New" Noun="StackInstance" ShouldProcessTarget="StackSetName" PipelineParameter="StackSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateStackInstances" OutputProperty="OperationId" Verb="New" Noun="StackInstance" ShouldProcessTarget="StackSetName" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Regions" NewName="StackInstanceRegion" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStackRefactor" OutputProperty="StackRefactorId" Verb="New" Noun="CFNStackRefactor" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateStackRefactor" OutputProperty="StackRefactorId" Verb="New" Noun="CFNStackRefactor" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStackSet" OutputProperty="StackSetId" Verb="New" Noun="StackSet" ShouldProcessTarget="StackSetName" PipelineParameter="StackSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateStackSet" OutputProperty="StackSetId" Verb="New" Noun="StackSet" ShouldProcessTarget="StackSetName" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeactivateOrganizationsAccess" Verb="Disable" Noun="OrganizationsAccess" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeactivateOrganizationsAccess" Verb="Disable" Noun="OrganizationsAccess" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeactivateType" Verb="Disable" Noun="Type" ShouldProcessTarget="Arn" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeactivateType" Verb="Disable" Noun="Type" ShouldProcessTarget="Arn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteChangeSet" Verb="Remove" Noun="ChangeSet" ShouldProcessTarget="ChangeSetName" PositionalParameters="StackName" PipelineParameter="ChangeSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteChangeSet" Verb="Remove" Noun="ChangeSet" ShouldProcessTarget="ChangeSetName" PositionalParameters="StackName" PipelineParameter="ChangeSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGeneratedTemplate" Verb="Remove" Noun="GeneratedTemplate" ShouldProcessTarget="GeneratedTemplateName" PipelineParameter="GeneratedTemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteGeneratedTemplate" Verb="Remove" Noun="GeneratedTemplate" ShouldProcessTarget="GeneratedTemplateName" PipelineParameter="GeneratedTemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStack" Verb="Remove" Noun="Stack" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteStack" Verb="Remove" Noun="Stack" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStackInstances" OutputProperty="OperationId" Verb="Remove" Noun="StackInstance" ShouldProcessTarget="StackSetName" PipelineParameter="StackSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteStackInstances" OutputProperty="OperationId" Verb="Remove" Noun="StackInstance" ShouldProcessTarget="StackSetName" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Regions" NewName="StackInstanceRegion" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStackSet" Verb="Remove" Noun="StackSet" ShouldProcessTarget="StackSetName" PipelineParameter="StackSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteStackSet" Verb="Remove" Noun="StackSet" ShouldProcessTarget="StackSetName" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterType" Verb="Unregister" Noun="Type" ShouldProcessTarget="TypeName" PipelineParameter="TypeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeregisterType" Verb="Unregister" Noun="Type" ShouldProcessTarget="TypeName" PipelineParameter="TypeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountLimits" OutputProperty="AccountLimits" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-CFNAccountLimits">
+        <ServiceOperation MethodName="DescribeAccountLimits" OutputProperty="AccountLimits" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-CFNAccountLimits" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeChangeSet" OutputProperty="*" Verb="Get" Noun="ChangeSet" PositionalParameters="StackName" PipelineParameter="ChangeSetName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="DescribeChangeSet" OutputProperty="*" Verb="Get" Noun="ChangeSet" PositionalParameters="StackName" PipelineParameter="ChangeSetName" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeChangeSetHooks" OutputProperty="*" Verb="Get" Noun="ChangeSetHook" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeChangeSetHooks" OutputProperty="*" Verb="Get" Noun="ChangeSetHook" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGeneratedTemplate" OutputProperty="*" Verb="Get" Noun="GeneratedTemplateInformation" PipelineParameter="GeneratedTemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeGeneratedTemplate" OutputProperty="*" Verb="Get" Noun="GeneratedTemplateInformation" PipelineParameter="GeneratedTemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOrganizationsAccess" OutputProperty="Status" Verb="Get" Noun="OrganizationsAccess" PipelineParameter="CallAs" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeOrganizationsAccess" OutputProperty="Status" Verb="Get" Noun="OrganizationsAccess" PipelineParameter="CallAs" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePublisher" OutputProperty="*" Verb="Get" Noun="Publisher" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribePublisher" OutputProperty="*" Verb="Get" Noun="Publisher" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeResourceScan" OutputProperty="*" Verb="Get" Noun="ResourceScan" PipelineParameter="ResourceScanId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeResourceScan" OutputProperty="*" Verb="Get" Noun="ResourceScan" PipelineParameter="ResourceScanId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStackDriftDetectionStatus" OutputProperty="*" Verb="Get" Noun="StackDriftDetectionStatus" PipelineParameter="StackDriftDetectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeStackDriftDetectionStatus" OutputProperty="*" Verb="Get" Noun="StackDriftDetectionStatus" PipelineParameter="StackDriftDetectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStackEvents" OutputProperty="StackEvents" Verb="Get" Noun="StackEvent" PipelineParameter="StackName" NoPipelineParameter="false" LegacyAlias="Get-CFNStackEvents">
+        <ServiceOperation MethodName="DescribeStackEvents" OutputProperty="StackEvents" Verb="Get" Noun="StackEvent" PipelineParameter="StackName" NoPipelineParameter="false" LegacyAlias="Get-CFNStackEvents" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStackInstance" OutputProperty="StackInstance" Verb="Get" Noun="StackInstance" PipelineParameter="StackSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeStackInstance" OutputProperty="StackInstance" Verb="Get" Noun="StackInstance" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStackRefactor" OutputProperty="*" Verb="Get" Noun="CFNStackRefactor" PipelineParameter="StackRefactorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeStackRefactor" OutputProperty="*" Verb="Get" Noun="CFNStackRefactor" PipelineParameter="StackRefactorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStackResource" OutputProperty="StackResourceDetail" Verb="Get" Noun="StackResource" PositionalParameters="LogicalResourceId" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeStackResource" OutputProperty="StackResourceDetail" Verb="Get" Noun="StackResource" PositionalParameters="LogicalResourceId" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStackResourceDrifts" OutputProperty="StackResourceDrifts" Verb="Get" Noun="DetectedStackResourceDrift" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeStackResourceDrifts" OutputProperty="StackResourceDrifts" Verb="Get" Noun="DetectedStackResourceDrift" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStackResources" OutputProperty="StackResources" Verb="Get" Noun="StackResourceList" PipelineParameter="StackName" NoPipelineParameter="false" LegacyAlias="Get-CFNStackResources">
+        <ServiceOperation MethodName="DescribeStackResources" OutputProperty="StackResources" Verb="Get" Noun="StackResourceList" PipelineParameter="StackName" NoPipelineParameter="false" LegacyAlias="Get-CFNStackResources" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStacks" OutputProperty="Stacks" Verb="Get" Noun="Stack" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeStacks" OutputProperty="Stacks" Verb="Get" Noun="Stack" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStackSet" OutputProperty="StackSet" Verb="Get" Noun="StackSet" PipelineParameter="StackSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeStackSet" OutputProperty="StackSet" Verb="Get" Noun="StackSet" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStackSetOperation" OutputProperty="StackSetOperation" Verb="Get" Noun="StackSetOperation" PipelineParameter="OperationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeStackSetOperation" OutputProperty="StackSetOperation" Verb="Get" Noun="StackSetOperation" PipelineParameter="OperationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeType" OutputProperty="*" Verb="Get" Noun="Type" PipelineParameter="TypeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeType" OutputProperty="*" Verb="Get" Noun="Type" PipelineParameter="TypeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTypeRegistration" OutputProperty="*" Verb="Get" Noun="TypeRegistration" PipelineParameter="RegistrationToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTypeRegistration" OutputProperty="*" Verb="Get" Noun="TypeRegistration" PipelineParameter="RegistrationToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectStackDrift" OutputProperty="StackDriftDetectionId" Verb="Start" Noun="StackDriftDetection" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DetectStackDrift" OutputProperty="StackDriftDetectionId" Verb="Start" Noun="StackDriftDetection" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectStackResourceDrift" OutputProperty="StackResourceDrift" Verb="Get" Noun="StackResourceDrift" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DetectStackResourceDrift" OutputProperty="StackResourceDrift" Verb="Get" Noun="StackResourceDrift" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectStackSetDrift" OutputProperty="OperationId" Verb="Start" Noun="StackSetDriftDetection" ShouldProcessTarget="StackSetName" PipelineParameter="StackSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DetectStackSetDrift" OutputProperty="OperationId" Verb="Start" Noun="StackSetDriftDetection" ShouldProcessTarget="StackSetName" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EstimateTemplateCost" OutputProperty="Url" Verb="Measure" Noun="TemplateCost" ShouldProcessTarget="TemplateBody" PipelineParameter="TemplateBody" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EstimateTemplateCost" OutputProperty="Url" Verb="Measure" Noun="TemplateCost" ShouldProcessTarget="TemplateBody" PipelineParameter="TemplateBody" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteChangeSet" Verb="Start" Noun="ChangeSet" ShouldProcessTarget="ChangeSetName" PositionalParameters="StackName" PipelineParameter="ChangeSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ExecuteChangeSet" Verb="Start" Noun="ChangeSet" ShouldProcessTarget="ChangeSetName" PositionalParameters="StackName" PipelineParameter="ChangeSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteStackRefactor" Verb="Start" Noun="CFNStackRefactor" ShouldProcessTarget="StackRefactorId" PipelineParameter="StackRefactorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ExecuteStackRefactor" Verb="Start" Noun="CFNStackRefactor" ShouldProcessTarget="StackRefactorId" PipelineParameter="StackRefactorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGeneratedTemplate" OutputProperty="*" Verb="Get" Noun="GeneratedTemplate" PipelineParameter="GeneratedTemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetGeneratedTemplate" OutputProperty="*" Verb="Get" Noun="GeneratedTemplate" PipelineParameter="GeneratedTemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStackPolicy" OutputProperty="StackPolicyBody" Verb="Get" Noun="StackPolicy" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetStackPolicy" OutputProperty="StackPolicyBody" Verb="Get" Noun="StackPolicy" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTemplate" OutputProperty="TemplateBody" Verb="Get" Noun="Template" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTemplate" OutputProperty="TemplateBody" Verb="Get" Noun="Template" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTemplateSummary" OutputProperty="*" Verb="Get" Noun="TemplateSummary" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTemplateSummary" OutputProperty="*" Verb="Get" Noun="TemplateSummary" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportStacksToStackSet" OutputProperty="OperationId" Verb="Import" Noun="StacksToStackSet" ShouldProcessTarget="StackSetName" PipelineParameter="StackSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ImportStacksToStackSet" OutputProperty="OperationId" Verb="Import" Noun="StacksToStackSet" ShouldProcessTarget="StackSetName" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListChangeSets" OutputProperty="Summaries" Verb="Get" Noun="ChangeSetList" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListChangeSets" OutputProperty="Summaries" Verb="Get" Noun="ChangeSetList" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExports" OutputProperty="Exports" Verb="Get" Noun="Export" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListExports" OutputProperty="Exports" Verb="Get" Noun="Export" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGeneratedTemplates" OutputProperty="Summaries" Verb="Get" Noun="GeneratedTemplateList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGeneratedTemplates" OutputProperty="Summaries" Verb="Get" Noun="GeneratedTemplateList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHookResults" OutputProperty="*" Verb="Get" Noun="HookResult" PipelineParameter="TargetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListHookResults" OutputProperty="*" Verb="Get" Noun="HookResult" PipelineParameter="TargetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImports" OutputProperty="Imports" Verb="Get" Noun="ImportList" PipelineParameter="ExportName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListImports" OutputProperty="Imports" Verb="Get" Noun="ImportList" PipelineParameter="ExportName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceScanRelatedResources" OutputProperty="RelatedResources" Verb="Get" Noun="ResourceScanRelatedResource" PipelineParameter="ResourceScanId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResourceScanRelatedResources" OutputProperty="RelatedResources" Verb="Get" Noun="ResourceScanRelatedResource" PipelineParameter="ResourceScanId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceScanResources" OutputProperty="Resources" Verb="Get" Noun="ResourceScanResource" PipelineParameter="ResourceScanId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResourceScanResources" OutputProperty="Resources" Verb="Get" Noun="ResourceScanResource" PipelineParameter="ResourceScanId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceScans" OutputProperty="ResourceScanSummaries" Verb="Get" Noun="ResourceScanList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListResourceScans" OutputProperty="ResourceScanSummaries" Verb="Get" Noun="ResourceScanList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStackInstanceResourceDrifts" OutputProperty="Summaries" Verb="Get" Noun="StackInstanceResourceDrift" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListStackInstanceResourceDrifts" OutputProperty="Summaries" Verb="Get" Noun="StackInstanceResourceDrift" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStackInstances" OutputProperty="Summaries" Verb="Get" Noun="StackInstanceList" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
-            <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListStackRefactorActions" OutputProperty="StackRefactorActions" Verb="Get" Noun="CFNStackRefactorActionList" PipelineParameter="StackRefactorId" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListStackRefactors" OutputProperty="StackRefactorSummaries" Verb="Get" Noun="CFNStackRefactorList" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListStackResources" OutputProperty="StackResourceSummaries" Verb="Get" Noun="StackResourceSummary" PipelineParameter="StackName" NoPipelineParameter="false" LegacyAlias="Get-CFNStackResourceSummaries">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListStacks" OutputProperty="StackSummaries" Verb="Get" Noun="StackSummary" PipelineParameter="StackStatusFilter" NoPipelineParameter="false" LegacyAlias="Get-CFNStackSummaries">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListStackSetAutoDeploymentTargets" OutputProperty="Summaries" Verb="Get" Noun="StackSetAutoDeploymentTarget" PipelineParameter="StackSetName" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListStackSetOperationResults" OutputProperty="Summaries" Verb="Get" Noun="StackSetOperationResultList" PipelineParameter="OperationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListStackInstances" OutputProperty="Summaries" Verb="Get" Noun="StackInstanceList" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStackSetOperations" OutputProperty="Summaries" Verb="Get" Noun="StackSetOperationList" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListStackRefactorActions" OutputProperty="StackRefactorActions" Verb="Get" Noun="CFNStackRefactorActionList" PipelineParameter="StackRefactorId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStackRefactors" OutputProperty="StackRefactorSummaries" Verb="Get" Noun="CFNStackRefactorList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStackResources" OutputProperty="StackResourceSummaries" Verb="Get" Noun="StackResourceSummary" PipelineParameter="StackName" NoPipelineParameter="false" LegacyAlias="Get-CFNStackResourceSummaries" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStacks" OutputProperty="StackSummaries" Verb="Get" Noun="StackSummary" PipelineParameter="StackStatusFilter" NoPipelineParameter="false" LegacyAlias="Get-CFNStackSummaries" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStackSetAutoDeploymentTargets" OutputProperty="Summaries" Verb="Get" Noun="StackSetAutoDeploymentTarget" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStackSetOperationResults" OutputProperty="Summaries" Verb="Get" Noun="StackSetOperationResultList" PipelineParameter="OperationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStackSets" OutputProperty="Summaries" Verb="Get" Noun="StackSetList" PipelineParameter="Status" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListStackSetOperations" OutputProperty="Summaries" Verb="Get" Noun="StackSetOperationList" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTypeRegistrations" OutputProperty="RegistrationTokenList" Verb="Get" Noun="TypeRegistrationList" PipelineParameter="TypeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListStackSets" OutputProperty="Summaries" Verb="Get" Noun="StackSetList" PipelineParameter="Status" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTypeRegistrations" OutputProperty="RegistrationTokenList" Verb="Get" Noun="TypeRegistrationList" PipelineParameter="TypeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTypes" OutputProperty="TypeSummaries" Verb="Get" Noun="TypeList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListTypes" OutputProperty="TypeSummaries" Verb="Get" Noun="TypeList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTypeVersions" OutputProperty="TypeVersionSummaries" Verb="Get" Noun="TypeVersion" PipelineParameter="TypeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTypeVersions" OutputProperty="TypeVersionSummaries" Verb="Get" Noun="TypeVersion" PipelineParameter="TypeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PublishType" OutputProperty="PublicTypeArn" Verb="Publish" Noun="Type" ShouldProcessTarget="Arn" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="PublishType" OutputProperty="PublicTypeArn" Verb="Publish" Noun="Type" ShouldProcessTarget="Arn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RecordHandlerProgress" Verb="Write" Noun="HandlerProgress" ShouldProcessTarget="OperationStatus" PipelineParameter="OperationStatus" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RecordHandlerProgress" Verb="Write" Noun="HandlerProgress" ShouldProcessTarget="OperationStatus" PipelineParameter="OperationStatus" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterPublisher" OutputProperty="PublisherId" Verb="Register" Noun="Publisher" ShouldProcessTarget="ConnectionArn" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="RegisterPublisher" OutputProperty="PublisherId" Verb="Register" Noun="Publisher" ShouldProcessTarget="ConnectionArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterType" OutputProperty="RegistrationToken" Verb="Register" Noun="Type" ShouldProcessTarget="TypeName" PipelineParameter="TypeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterType" OutputProperty="RegistrationToken" Verb="Register" Noun="Type" ShouldProcessTarget="TypeName" PipelineParameter="TypeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RollbackStack" OutputProperty="StackId" Verb="Undo" Noun="Stack" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RollbackStack" OutputProperty="StackId" Verb="Undo" Noun="Stack" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetStackPolicy" Verb="Set" Noun="StackPolicy" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetStackPolicy" Verb="Set" Noun="StackPolicy" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetTypeConfiguration" OutputProperty="ConfigurationArn" Verb="Set" Noun="TypeConfiguration" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="SetTypeConfiguration" OutputProperty="ConfigurationArn" Verb="Set" Noun="TypeConfiguration" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetTypeDefaultVersion" Verb="Set" Noun="TypeDefaultVersion" ShouldProcessTarget="TypeName" PipelineParameter="TypeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetTypeDefaultVersion" Verb="Set" Noun="TypeDefaultVersion" ShouldProcessTarget="TypeName" PipelineParameter="TypeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SignalResource" Verb="Send" Noun="ResourceSignal" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SignalResource" Verb="Send" Noun="ResourceSignal" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartResourceScan" OutputProperty="ResourceScanId" Verb="Start" Noun="ResourceScan" ShouldProcessTarget="ClientRequestToken" PipelineParameter="ClientRequestToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartResourceScan" OutputProperty="ResourceScanId" Verb="Start" Noun="ResourceScan" ShouldProcessTarget="ClientRequestToken" PipelineParameter="ClientRequestToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopStackSetOperation" Verb="Stop" Noun="StackSetOperation" ShouldProcessTarget="StackSetName" PipelineParameter="StackSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopStackSetOperation" Verb="Stop" Noun="StackSetOperation" ShouldProcessTarget="StackSetName" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestType" OutputProperty="TypeVersionArn" Verb="Test" Noun="Type" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="TestType" OutputProperty="TypeVersionArn" Verb="Test" Noun="Type" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGeneratedTemplate" OutputProperty="GeneratedTemplateId" Verb="Update" Noun="GeneratedTemplate" ShouldProcessTarget="GeneratedTemplateName" PipelineParameter="GeneratedTemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateGeneratedTemplate" OutputProperty="GeneratedTemplateId" Verb="Update" Noun="GeneratedTemplate" ShouldProcessTarget="GeneratedTemplateName" PipelineParameter="GeneratedTemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStack" OutputProperty="StackId" Verb="Update" Noun="Stack" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateStack" OutputProperty="StackId" Verb="Update" Noun="Stack" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStackInstances" OutputProperty="OperationId" Verb="Update" Noun="StackInstance" ShouldProcessTarget="StackSetName" PipelineParameter="StackSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateStackInstances" OutputProperty="OperationId" Verb="Update" Noun="StackInstance" ShouldProcessTarget="StackSetName" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Regions" NewName="StackInstanceRegion" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStackSet" OutputProperty="OperationId" Verb="Update" Noun="StackSet" ShouldProcessTarget="StackSetName" PipelineParameter="StackSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateStackSet" OutputProperty="OperationId" Verb="Update" Noun="StackSet" ShouldProcessTarget="StackSetName" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Regions" NewName="StackRegion" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTerminationProtection" OutputProperty="StackId" Verb="Update" Noun="TerminationProtection" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTerminationProtection" OutputProperty="StackId" Verb="Update" Noun="TerminationProtection" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ValidateTemplate" OutputProperty="*" Verb="Test" Noun="Template" PipelineParameter="TemplateBody" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ValidateTemplate" OutputProperty="*" Verb="Test" Noun="Template" PipelineParameter="TemplateBody" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

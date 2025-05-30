@@ -115,6 +115,20 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         public System.String BasicAuthCredential { get; set; }
         #endregion
         
+        #region Parameter JobConfig_BuildComputeType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the size of the build instance. Amplify supports three instance sizes: <c>STANDARD_8GB</c>,
+        /// <c>LARGE_16GB</c>, and <c>XLARGE_72GB</c>. If you don't specify a value, Amplify uses
+        /// the <c>STANDARD_8GB</c> default.</para><para>The following list describes the CPU, memory, and storage capacity for each build
+        /// instance type:</para><dl><dt>STANDARD_8GB</dt><dd><ul><li><para>vCPUs: 4</para></li><li><para>Memory: 8 GiB</para></li><li><para>Disk space: 128 GB</para></li></ul></dd><dt>LARGE_16GB</dt><dd><ul><li><para>vCPUs: 8</para></li><li><para>Memory: 16 GiB</para></li><li><para>Disk space: 128 GB</para></li></ul></dd><dt>XLARGE_72GB</dt><dd><ul><li><para>vCPUs: 36</para></li><li><para>Memory: 72 GiB</para></li><li><para>Disk space: 256 GB</para></li></ul></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Amplify.BuildComputeType")]
+        public Amazon.Amplify.BuildComputeType JobConfig_BuildComputeType { get; set; }
+        #endregion
+        
         #region Parameter AutoBranchCreationConfig_BuildSpec
         /// <summary>
         /// <para>
@@ -492,6 +506,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
                 }
             }
             context.IamServiceRoleArn = this.IamServiceRoleArn;
+            context.JobConfig_BuildComputeType = this.JobConfig_BuildComputeType;
             context.Name = this.Name;
             context.OauthToken = this.OauthToken;
             context.Platform = this.Platform;
@@ -700,6 +715,25 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             {
                 request.IamServiceRoleArn = cmdletContext.IamServiceRoleArn;
             }
+            
+             // populate JobConfig
+            var requestJobConfigIsNull = true;
+            request.JobConfig = new Amazon.Amplify.Model.JobConfig();
+            Amazon.Amplify.BuildComputeType requestJobConfig_jobConfig_BuildComputeType = null;
+            if (cmdletContext.JobConfig_BuildComputeType != null)
+            {
+                requestJobConfig_jobConfig_BuildComputeType = cmdletContext.JobConfig_BuildComputeType;
+            }
+            if (requestJobConfig_jobConfig_BuildComputeType != null)
+            {
+                request.JobConfig.BuildComputeType = requestJobConfig_jobConfig_BuildComputeType;
+                requestJobConfigIsNull = false;
+            }
+             // determine if request.JobConfig should be set to null
+            if (requestJobConfigIsNull)
+            {
+                request.JobConfig = null;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -797,6 +831,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             public System.Boolean? EnableBranchAutoDeletion { get; set; }
             public Dictionary<System.String, System.String> EnvironmentVariable { get; set; }
             public System.String IamServiceRoleArn { get; set; }
+            public Amazon.Amplify.BuildComputeType JobConfig_BuildComputeType { get; set; }
             public System.String Name { get; set; }
             public System.String OauthToken { get; set; }
             public Amazon.Amplify.Platform Platform { get; set; }

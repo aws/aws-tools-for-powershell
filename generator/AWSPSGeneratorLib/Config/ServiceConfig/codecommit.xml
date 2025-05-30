@@ -19,319 +19,319 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateApprovalRuleTemplateWithRepository" Verb="Add" Noun="ApprovalRuleTemplateToRepository" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateApprovalRuleTemplateWithRepository" Verb="Add" Noun="ApprovalRuleTemplateToRepository" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchAssociateApprovalRuleTemplateWithRepositories" OutputProperty="*" Verb="Add" Noun="ApprovalRuleTemplateToRepositoryBatch" ShouldProcessTarget="ApprovalRuleTemplateName" PipelineParameter="ApprovalRuleTemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchAssociateApprovalRuleTemplateWithRepositories" OutputProperty="*" Verb="Add" Noun="ApprovalRuleTemplateToRepositoryBatch" ShouldProcessTarget="ApprovalRuleTemplateName" PipelineParameter="ApprovalRuleTemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDescribeMergeConflicts" OutputProperty="*" Verb="Get" Noun="FileMergeConflictBatch" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="BatchDescribeMergeConflicts" OutputProperty="*" Verb="Get" Noun="FileMergeConflictBatch" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDisassociateApprovalRuleTemplateFromRepositories" OutputProperty="*" Verb="Remove" Noun="ApprovalRuleTemplateFromRepositoryBatch" ShouldProcessTarget="ApprovalRuleTemplateName" PipelineParameter="ApprovalRuleTemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchDisassociateApprovalRuleTemplateFromRepositories" OutputProperty="*" Verb="Remove" Noun="ApprovalRuleTemplateFromRepositoryBatch" ShouldProcessTarget="ApprovalRuleTemplateName" PipelineParameter="ApprovalRuleTemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetCommits" OutputProperty="*" Verb="Get" Noun="CommitBatch" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetCommits" OutputProperty="*" Verb="Get" Noun="CommitBatch" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetRepositories" OutputProperty="*" Verb="Get" Noun="RepositoryBatch" PipelineParameter="RepositoryNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetRepositories" OutputProperty="*" Verb="Get" Noun="RepositoryBatch" PipelineParameter="RepositoryNames" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateApprovalRuleTemplate" OutputProperty="ApprovalRuleTemplate" Verb="New" Noun="ApprovalRuleTemplate" ShouldProcessTarget="ApprovalRuleTemplateName" PipelineParameter="ApprovalRuleTemplateContent" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateApprovalRuleTemplate" OutputProperty="ApprovalRuleTemplate" Verb="New" Noun="ApprovalRuleTemplate" ShouldProcessTarget="ApprovalRuleTemplateName" PipelineParameter="ApprovalRuleTemplateContent" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBranch" Verb="New" Noun="Branch" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateBranch" Verb="New" Noun="Branch" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCommit" OutputProperty="*" Verb="New" Noun="Commit" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCommit" OutputProperty="*" Verb="New" Noun="Commit" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePullRequest" OutputProperty="PullRequest" Verb="New" Noun="PullRequest" ShouldProcessTarget="Title" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreatePullRequest" OutputProperty="PullRequest" Verb="New" Noun="PullRequest" ShouldProcessTarget="Title" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePullRequestApprovalRule" OutputProperty="ApprovalRule" Verb="New" Noun="PullRequestApprovalRule" ShouldProcessTarget="ApprovalRuleName" PipelineParameter="ApprovalRuleContent" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePullRequestApprovalRule" OutputProperty="ApprovalRule" Verb="New" Noun="PullRequestApprovalRule" ShouldProcessTarget="ApprovalRuleName" PipelineParameter="ApprovalRuleContent" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRepository" OutputProperty="RepositoryMetadata" Verb="New" Noun="Repository" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRepository" OutputProperty="RepositoryMetadata" Verb="New" Noun="Repository" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUnreferencedMergeCommit" OutputProperty="*" Verb="New" Noun="UnreferencedMergeCommit" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateUnreferencedMergeCommit" OutputProperty="*" Verb="New" Noun="UnreferencedMergeCommit" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApprovalRuleTemplate" OutputProperty="ApprovalRuleTemplateId" Verb="Remove" Noun="ApprovalRuleTemplate" ShouldProcessTarget="ApprovalRuleTemplateName" PipelineParameter="ApprovalRuleTemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApprovalRuleTemplate" OutputProperty="ApprovalRuleTemplateId" Verb="Remove" Noun="ApprovalRuleTemplate" ShouldProcessTarget="ApprovalRuleTemplateName" PipelineParameter="ApprovalRuleTemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBranch" OutputProperty="DeletedBranch" Verb="Remove" Noun="Branch" ShouldProcessTarget="BranchName" PipelineParameter="BranchName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBranch" OutputProperty="DeletedBranch" Verb="Remove" Noun="Branch" ShouldProcessTarget="BranchName" PipelineParameter="BranchName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCommentContent" OutputProperty="Comment" Verb="Remove" Noun="CommentContent" ShouldProcessTarget="CommentId" PipelineParameter="CommentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCommentContent" OutputProperty="Comment" Verb="Remove" Noun="CommentContent" ShouldProcessTarget="CommentId" PipelineParameter="CommentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFile" OutputProperty="*" Verb="Remove" Noun="File" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteFile" OutputProperty="*" Verb="Remove" Noun="File" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePullRequestApprovalRule" OutputProperty="ApprovalRuleId" Verb="Remove" Noun="PullRequestApprovalRule" ShouldProcessTarget="ApprovalRuleName" PipelineParameter="ApprovalRuleName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePullRequestApprovalRule" OutputProperty="ApprovalRuleId" Verb="Remove" Noun="PullRequestApprovalRule" ShouldProcessTarget="ApprovalRuleName" PipelineParameter="ApprovalRuleName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRepository" OutputProperty="RepositoryId" Verb="Remove" Noun="Repository" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRepository" OutputProperty="RepositoryId" Verb="Remove" Noun="Repository" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMergeConflicts" OutputProperty="*" Verb="Get" Noun="FileMergeConflict" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="DescribeMergeConflicts" OutputProperty="*" Verb="Get" Noun="FileMergeConflict" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePullRequestEvents" OutputProperty="PullRequestEvents" Verb="Get" Noun="PullRequestEvent" PipelineParameter="PullRequestId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribePullRequestEvents" OutputProperty="PullRequestEvents" Verb="Get" Noun="PullRequestEvent" PipelineParameter="PullRequestId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateApprovalRuleTemplateFromRepository" Verb="Remove" Noun="ApprovalRuleTemplateFromRepository" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateApprovalRuleTemplateFromRepository" Verb="Remove" Noun="ApprovalRuleTemplateFromRepository" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EvaluatePullRequestApprovalRules" OutputProperty="Evaluation" Verb="Invoke" Noun="PullRequestApprovalRule" ShouldProcessTarget="PullRequestId" PipelineParameter="PullRequestId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EvaluatePullRequestApprovalRules" OutputProperty="Evaluation" Verb="Invoke" Noun="PullRequestApprovalRule" ShouldProcessTarget="PullRequestId" PipelineParameter="PullRequestId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApprovalRuleTemplate" OutputProperty="ApprovalRuleTemplate" Verb="Get" Noun="ApprovalRuleTemplate" PipelineParameter="ApprovalRuleTemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApprovalRuleTemplate" OutputProperty="ApprovalRuleTemplate" Verb="Get" Noun="ApprovalRuleTemplate" PipelineParameter="ApprovalRuleTemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBlob" OutputProperty="Content" Verb="Get" Noun="Blob" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetBlob" OutputProperty="Content" Verb="Get" Noun="Blob" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBranch" OutputProperty="Branch" Verb="Get" Noun="Branch" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetBranch" OutputProperty="Branch" Verb="Get" Noun="Branch" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetComment" OutputProperty="Comment" Verb="Get" Noun="Comment" PipelineParameter="CommentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetComment" OutputProperty="Comment" Verb="Get" Noun="Comment" PipelineParameter="CommentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCommentReactions" OutputProperty="ReactionsForComment" Verb="Get" Noun="CommentReaction" PipelineParameter="CommentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCommentReactions" OutputProperty="ReactionsForComment" Verb="Get" Noun="CommentReaction" PipelineParameter="CommentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCommentsForComparedCommit" OutputProperty="CommentsForComparedCommitData" Verb="Get" Noun="CommentsForComparedCommit" PipelineParameter="AfterCommitId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCommentsForComparedCommit" OutputProperty="CommentsForComparedCommitData" Verb="Get" Noun="CommentsForComparedCommit" PipelineParameter="AfterCommitId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCommentsForPullRequest" OutputProperty="CommentsForPullRequestData" Verb="Get" Noun="CommentsForPullRequest" PipelineParameter="PullRequestId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCommentsForPullRequest" OutputProperty="CommentsForPullRequestData" Verb="Get" Noun="CommentsForPullRequest" PipelineParameter="PullRequestId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCommit" OutputProperty="Commit" Verb="Get" Noun="Commit" PipelineParameter="CommitId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCommit" OutputProperty="Commit" Verb="Get" Noun="Commit" PipelineParameter="CommitId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDifferences" OutputProperty="Differences" Verb="Get" Noun="DifferenceList" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDifferences" OutputProperty="Differences" Verb="Get" Noun="DifferenceList" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFile" OutputProperty="*" Verb="Get" Noun="File" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetFile" OutputProperty="*" Verb="Get" Noun="File" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFolder" OutputProperty="*" Verb="Get" Noun="Folder" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetFolder" OutputProperty="*" Verb="Get" Noun="Folder" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMergeCommit" OutputProperty="*" Verb="Get" Noun="MergeCommit" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMergeCommit" OutputProperty="*" Verb="Get" Noun="MergeCommit" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMergeConflicts" OutputProperty="*" Verb="Get" Noun="MergeConflict" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="GetMergeConflicts" OutputProperty="*" Verb="Get" Noun="MergeConflict" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMergeOptions" OutputProperty="*" Verb="Get" Noun="MergeOption" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMergeOptions" OutputProperty="*" Verb="Get" Noun="MergeOption" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPullRequest" OutputProperty="PullRequest" Verb="Get" Noun="PullRequest" PipelineParameter="PullRequestId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPullRequest" OutputProperty="PullRequest" Verb="Get" Noun="PullRequest" PipelineParameter="PullRequestId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPullRequestApprovalStates" OutputProperty="Approvals" Verb="Get" Noun="PullRequestApprovalState" PipelineParameter="PullRequestId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPullRequestApprovalStates" OutputProperty="Approvals" Verb="Get" Noun="PullRequestApprovalState" PipelineParameter="PullRequestId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPullRequestOverrideState" OutputProperty="*" Verb="Get" Noun="PullRequestOverrideState" PipelineParameter="PullRequestId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPullRequestOverrideState" OutputProperty="*" Verb="Get" Noun="PullRequestOverrideState" PipelineParameter="PullRequestId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRepository" OutputProperty="RepositoryMetadata" Verb="Get" Noun="Repository" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRepository" OutputProperty="RepositoryMetadata" Verb="Get" Noun="Repository" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRepositoryTriggers" OutputProperty="*" Verb="Get" Noun="RepositoryTrigger" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRepositoryTriggers" OutputProperty="*" Verb="Get" Noun="RepositoryTrigger" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApprovalRuleTemplates" OutputProperty="ApprovalRuleTemplateNames" Verb="Get" Noun="ApprovalRuleTemplateList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListApprovalRuleTemplates" OutputProperty="ApprovalRuleTemplateNames" Verb="Get" Noun="ApprovalRuleTemplateList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssociatedApprovalRuleTemplatesForRepository" OutputProperty="ApprovalRuleTemplateNames" Verb="Get" Noun="AssociatedApprovalRuleTemplatesForRepositoryList" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAssociatedApprovalRuleTemplatesForRepository" OutputProperty="ApprovalRuleTemplateNames" Verb="Get" Noun="AssociatedApprovalRuleTemplatesForRepositoryList" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBranches" OutputProperty="Branches" Verb="Get" Noun="BranchList" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBranches" OutputProperty="Branches" Verb="Get" Noun="BranchList" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFileCommitHistory" OutputProperty="RevisionDag" Verb="Get" Noun="FileCommitHistoryList" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFileCommitHistory" OutputProperty="RevisionDag" Verb="Get" Noun="FileCommitHistoryList" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPullRequests" OutputProperty="PullRequestIds" Verb="Get" Noun="PullRequestList" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPullRequests" OutputProperty="PullRequestIds" Verb="Get" Noun="PullRequestList" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRepositories" OutputProperty="Repositories" Verb="Get" Noun="RepositoryList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListRepositories" OutputProperty="Repositories" Verb="Get" Noun="RepositoryList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRepositoriesForApprovalRuleTemplate" OutputProperty="RepositoryNames" Verb="Get" Noun="RepositoriesForApprovalRuleTemplateList" PipelineParameter="ApprovalRuleTemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRepositoriesForApprovalRuleTemplate" OutputProperty="RepositoryNames" Verb="Get" Noun="RepositoriesForApprovalRuleTemplateList" PipelineParameter="ApprovalRuleTemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="MergeBranchesByFastForward" OutputProperty="*" Verb="Merge" Noun="BranchesByFastForward" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="MergeBranchesByFastForward" OutputProperty="*" Verb="Merge" Noun="BranchesByFastForward" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="MergeBranchesBySquash" OutputProperty="*" Verb="Merge" Noun="BranchesBySquash" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="MergeBranchesBySquash" OutputProperty="*" Verb="Merge" Noun="BranchesBySquash" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="MergeBranchesByThreeWay" OutputProperty="*" Verb="Merge" Noun="BranchesByThreeWay" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="MergeBranchesByThreeWay" OutputProperty="*" Verb="Merge" Noun="BranchesByThreeWay" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="MergePullRequestByFastForward" OutputProperty="PullRequest" Verb="Merge" Noun="PullRequestByFastForward" ShouldProcessTarget="PullRequestId" PipelineParameter="PullRequestId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="MergePullRequestByFastForward" OutputProperty="PullRequest" Verb="Merge" Noun="PullRequestByFastForward" ShouldProcessTarget="PullRequestId" PipelineParameter="PullRequestId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="MergePullRequestBySquash" OutputProperty="PullRequest" Verb="Merge" Noun="PullRequestBySquash" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="MergePullRequestBySquash" OutputProperty="PullRequest" Verb="Merge" Noun="PullRequestBySquash" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="MergePullRequestByThreeWay" OutputProperty="PullRequest" Verb="Merge" Noun="PullRequestByThreeWay" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="MergePullRequestByThreeWay" OutputProperty="PullRequest" Verb="Merge" Noun="PullRequestByThreeWay" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="OverridePullRequestApprovalRules" Verb="Skip" Noun="PullRequestApprovalRule" ShouldProcessTarget="PullRequestId" PipelineParameter="PullRequestId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="OverridePullRequestApprovalRules" Verb="Skip" Noun="PullRequestApprovalRule" ShouldProcessTarget="PullRequestId" PipelineParameter="PullRequestId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PostCommentForComparedCommit" OutputProperty="*" Verb="Send" Noun="CommentForComparedCommit" ShouldProcessTarget="AfterCommitId" PipelineParameter="Content" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PostCommentForComparedCommit" OutputProperty="*" Verb="Send" Noun="CommentForComparedCommit" ShouldProcessTarget="AfterCommitId" PipelineParameter="Content" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PostCommentForPullRequest" OutputProperty="*" Verb="Send" Noun="CommentForPullRequest" ShouldProcessTarget="PullRequestId" PipelineParameter="Content" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PostCommentForPullRequest" OutputProperty="*" Verb="Send" Noun="CommentForPullRequest" ShouldProcessTarget="PullRequestId" PipelineParameter="Content" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PostCommentReply" OutputProperty="Comment" Verb="Send" Noun="CommentReply" ShouldProcessTarget="Content" PipelineParameter="Content" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PostCommentReply" OutputProperty="Comment" Verb="Send" Noun="CommentReply" ShouldProcessTarget="Content" PipelineParameter="Content" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutCommentReaction" Verb="Write" Noun="CommentReaction" ShouldProcessTarget="CommentId" PipelineParameter="CommentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutCommentReaction" Verb="Write" Noun="CommentReaction" ShouldProcessTarget="CommentId" PipelineParameter="CommentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutFile" OutputProperty="*" Verb="Write" Noun="File" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutFile" OutputProperty="*" Verb="Write" Noun="File" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRepositoryTriggers" OutputProperty="ConfigurationId" Verb="Set" Noun="RepositoryTrigger" ShouldProcessTarget="RepositoryName" PipelineParameter="Triggers" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutRepositoryTriggers" OutputProperty="ConfigurationId" Verb="Set" Noun="RepositoryTrigger" ShouldProcessTarget="RepositoryName" PipelineParameter="Triggers" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestRepositoryTriggers" OutputProperty="*" Verb="Test" Noun="RepositoryTrigger" PipelineParameter="Triggers" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TestRepositoryTriggers" OutputProperty="*" Verb="Test" Noun="RepositoryTrigger" PipelineParameter="Triggers" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApprovalRuleTemplateContent" OutputProperty="ApprovalRuleTemplate" Verb="Update" Noun="ApprovalRuleTemplateContent" ShouldProcessTarget="ApprovalRuleTemplateName" PipelineParameter="NewRuleContent" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateApprovalRuleTemplateContent" OutputProperty="ApprovalRuleTemplate" Verb="Update" Noun="ApprovalRuleTemplateContent" ShouldProcessTarget="ApprovalRuleTemplateName" PipelineParameter="NewRuleContent" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApprovalRuleTemplateDescription" OutputProperty="ApprovalRuleTemplate" Verb="Update" Noun="ApprovalRuleTemplateDescription" ShouldProcessTarget="ApprovalRuleTemplateName" PipelineParameter="ApprovalRuleTemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateApprovalRuleTemplateDescription" OutputProperty="ApprovalRuleTemplate" Verb="Update" Noun="ApprovalRuleTemplateDescription" ShouldProcessTarget="ApprovalRuleTemplateName" PipelineParameter="ApprovalRuleTemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApprovalRuleTemplateName" OutputProperty="ApprovalRuleTemplate" Verb="Update" Noun="ApprovalRuleTemplateName" ShouldProcessTarget="OldApprovalRuleTemplateName" PipelineParameter="OldApprovalRuleTemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateApprovalRuleTemplateName" OutputProperty="ApprovalRuleTemplate" Verb="Update" Noun="ApprovalRuleTemplateName" ShouldProcessTarget="OldApprovalRuleTemplateName" PipelineParameter="OldApprovalRuleTemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateComment" OutputProperty="Comment" Verb="Update" Noun="Comment" ShouldProcessTarget="CommentId" PipelineParameter="Content" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateComment" OutputProperty="Comment" Verb="Update" Noun="Comment" ShouldProcessTarget="CommentId" PipelineParameter="Content" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDefaultBranch" Verb="Update" Noun="DefaultBranch" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDefaultBranch" Verb="Update" Noun="DefaultBranch" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePullRequestApprovalRuleContent" OutputProperty="ApprovalRule" Verb="Update" Noun="PullRequestApprovalRuleContent" ShouldProcessTarget="PullRequestId" PipelineParameter="NewRuleContent" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePullRequestApprovalRuleContent" OutputProperty="ApprovalRule" Verb="Update" Noun="PullRequestApprovalRuleContent" ShouldProcessTarget="PullRequestId" PipelineParameter="NewRuleContent" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePullRequestApprovalState" Verb="Update" Noun="PullRequestApprovalState" ShouldProcessTarget="PullRequestId" PipelineParameter="PullRequestId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePullRequestApprovalState" Verb="Update" Noun="PullRequestApprovalState" ShouldProcessTarget="PullRequestId" PipelineParameter="PullRequestId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePullRequestDescription" OutputProperty="PullRequest" Verb="Update" Noun="PullRequestDescription" ShouldProcessTarget="PullRequestId" PipelineParameter="Description" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePullRequestDescription" OutputProperty="PullRequest" Verb="Update" Noun="PullRequestDescription" ShouldProcessTarget="PullRequestId" PipelineParameter="Description" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePullRequestStatus" OutputProperty="PullRequest" Verb="Update" Noun="PullRequestStatus" ShouldProcessTarget="PullRequestId" PipelineParameter="PullRequestStatus" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePullRequestStatus" OutputProperty="PullRequest" Verb="Update" Noun="PullRequestStatus" ShouldProcessTarget="PullRequestId" PipelineParameter="PullRequestStatus" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePullRequestTitle" OutputProperty="PullRequest" Verb="Update" Noun="PullRequestTitle" ShouldProcessTarget="PullRequestId" PipelineParameter="Title" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePullRequestTitle" OutputProperty="PullRequest" Verb="Update" Noun="PullRequestTitle" ShouldProcessTarget="PullRequestId" PipelineParameter="Title" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRepositoryDescription" Verb="Update" Noun="RepositoryDescription" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRepositoryDescription" Verb="Update" Noun="RepositoryDescription" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRepositoryEncryptionKey" OutputProperty="*" Verb="Update" Noun="RepositoryEncryptionKey" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRepositoryEncryptionKey" OutputProperty="*" Verb="Update" Noun="RepositoryEncryptionKey" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRepositoryName" Verb="Update" Noun="RepositoryName" ShouldProcessTarget="OldName" PipelineParameter="OldName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRepositoryName" Verb="Update" Noun="RepositoryName" ShouldProcessTarget="OldName" PipelineParameter="OldName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

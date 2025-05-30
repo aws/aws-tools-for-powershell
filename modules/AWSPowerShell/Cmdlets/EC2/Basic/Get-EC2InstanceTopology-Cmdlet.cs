@@ -44,11 +44,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Local Zone
     /// </para></li></ul></li><li><para>
     /// Supported instance types
+    /// </para><ul><li><para>
+    /// Returns 3 network nodes in the response
     /// </para><ul><li><para><c>hpc6a.48xlarge</c> | <c>hpc6id.32xlarge</c> | <c>hpc7a.12xlarge</c> | <c>hpc7a.24xlarge</c>
     /// | <c>hpc7a.48xlarge</c> | <c>hpc7a.96xlarge</c> | <c>hpc7g.4xlarge</c> | <c>hpc7g.8xlarge</c>
     /// | <c>hpc7g.16xlarge</c></para></li><li><para><c>p3dn.24xlarge</c> | <c>p4d.24xlarge</c> | <c>p4de.24xlarge</c> | <c>p5.48xlarge</c>
     /// | <c>p5e.48xlarge</c> | <c>p5en.48xlarge</c></para></li><li><para><c>trn1.2xlarge</c> | <c>trn1.32xlarge</c> | <c>trn1n.32xlarge</c> | <c>trn2.48xlarge</c>
-    /// | <c>trn2u.48xlarge</c></para></li></ul></li></ul><para>
+    /// | <c>trn2u.48xlarge</c></para></li></ul></li><li><para>
+    /// Returns 4 network nodes in the response
+    /// </para><ul><li><para><c>p6-b200.48xlarge</c></para></li></ul></li></ul></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html">Amazon
     /// EC2 instance topology</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
