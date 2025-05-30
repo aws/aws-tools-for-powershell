@@ -94,7 +94,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEngagementInvitations" OutputProperty="EngagementInvitationSummaries" Verb="Get" Noun="EngagementInvitationList" PipelineParameter="NextToken" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEngagementInvitations" OutputProperty="EngagementInvitationSummaries" Verb="Get" Noun="EngagementInvitationList" PipelineParameter="EngagementIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -110,7 +110,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOpportunities" OutputProperty="OpportunitySummaries" Verb="Get" Noun="OpportunityList" PipelineParameter="NextToken" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListOpportunities" OutputProperty="OpportunitySummaries" Verb="Get" Noun="OpportunityList" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -122,7 +122,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSolutions" OutputProperty="SolutionSummaries" Verb="Get" Noun="SolutionList" PipelineParameter="NextToken" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSolutions" OutputProperty="SolutionSummaries" Verb="Get" Noun="SolutionList" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

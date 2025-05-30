@@ -1379,7 +1379,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMacModificationTasks" OutputProperty="MacModificationTasks" Verb="Get" Noun="MacModificationTask" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeMacModificationTasks" OutputProperty="MacModificationTasks" Verb="Get" Noun="MacModificationTask" PipelineParameter="DryRun" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1427,7 +1427,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOutpostLags" OutputProperty="OutpostLags" Verb="Get" Noun="OutpostLag" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeOutpostLags" OutputProperty="OutpostLags" Verb="Get" Noun="OutpostLag" PipelineParameter="DryRun" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1513,7 +1513,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeServiceLinkVirtualInterfaces" OutputProperty="ServiceLinkVirtualInterfaces" Verb="Get" Noun="ServiceLinkVirtualInterface" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeServiceLinkVirtualInterfaces" OutputProperty="ServiceLinkVirtualInterfaces" Verb="Get" Noun="ServiceLinkVirtualInterface" PipelineParameter="DryRun" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
