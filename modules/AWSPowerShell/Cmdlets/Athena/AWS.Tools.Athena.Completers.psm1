@@ -135,6 +135,13 @@ $ATH_Completers = {
             break
         }
 
+        # Amazon.Athena.QueryResultType
+        "Get-ATHQueryResult/QueryResultType"
+        {
+            $v = "DATA_MANIFEST","DATA_ROWS"
+            break
+        }
+
         # Amazon.Athena.S3AclOption
         {
             ($_ -eq "New-ATHWorkGroup/AclConfiguration_S3AclOption") -Or
@@ -173,6 +180,7 @@ $ATH_map = @{
     "EncryptionConfiguration_EncryptionOption"=@("New-ATHWorkGroup","Start-ATHQueryExecution","Update-ATHWorkGroup")
     "ExecutorStateFilter"=@("Get-ATHExecutorList")
     "QueryResultsS3AccessGrantsConfiguration_AuthenticationType"=@("New-ATHWorkGroup","Update-ATHWorkGroup")
+    "QueryResultType"=@("Get-ATHQueryResult")
     "State"=@("Update-ATHWorkGroup")
     "StateFilter"=@("Get-ATHCalculationExecutionList","Get-ATHSessionList")
     "Type"=@("Import-ATHNotebook","New-ATHDataCatalog","Update-ATHDataCatalog","Update-ATHNotebook")

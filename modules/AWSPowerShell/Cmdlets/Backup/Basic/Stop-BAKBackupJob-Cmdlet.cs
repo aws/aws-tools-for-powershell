@@ -32,11 +32,26 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     /// 
     ///  
     /// <para>
-    /// This action is not supported for the following services: Amazon FSx for Windows File
-    /// Server, Amazon FSx for Lustre, Amazon FSx for NetApp ONTAP, Amazon FSx for OpenZFS,
-    /// Amazon DocumentDB (with MongoDB compatibility), Amazon RDS, Amazon Aurora, and Amazon
-    /// Neptune.
-    /// </para>
+    /// This action is not supported for the following services:
+    /// </para><ul><li><para>
+    /// Amazon Aurora
+    /// </para></li><li><para>
+    /// Amazon DocumentDB (with MongoDB compatibility)
+    /// </para></li><li><para>
+    /// Amazon FSx for Lustre
+    /// </para></li><li><para>
+    /// Amazon FSx for NetApp ONTAP
+    /// </para></li><li><para>
+    /// Amazon FSx for OpenZFS
+    /// </para></li><li><para>
+    /// Amazon FSx for Windows File Server
+    /// </para></li><li><para>
+    /// Amazon Neptune
+    /// </para></li><li><para>
+    /// SAP HANA databases on Amazon EC2 instances
+    /// </para></li><li><para>
+    /// Amazon RDS
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Stop", "BAKBackupJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

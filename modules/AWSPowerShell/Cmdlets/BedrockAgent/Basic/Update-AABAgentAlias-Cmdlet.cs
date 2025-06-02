@@ -93,6 +93,20 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String AgentId { get; set; }
         #endregion
         
+        #region Parameter AliasInvocationState
+        /// <summary>
+        /// <para>
+        /// <para>The invocation state for the agent alias. To pause the agent alias, set the value
+        /// to <c>REJECT_INVOCATIONS</c>. To start the agent alias running again, set the value
+        /// to <c>ACCEPT_INVOCATIONS</c>. Use the <c>GetAgentAlias</c>, or <c>ListAgentAliases</c>,
+        /// operation to get the invocation state of an agent alias.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgent.AliasInvocationState")]
+        public Amazon.BedrockAgent.AliasInvocationState AliasInvocationState { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -196,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 WriteWarning("You are passing $null as a value for parameter AgentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AliasInvocationState = this.AliasInvocationState;
             context.Description = this.Description;
             if (this.RoutingConfiguration != null)
             {
@@ -228,6 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (cmdletContext.AgentId != null)
             {
                 request.AgentId = cmdletContext.AgentId;
+            }
+            if (cmdletContext.AliasInvocationState != null)
+            {
+                request.AliasInvocationState = cmdletContext.AliasInvocationState;
             }
             if (cmdletContext.Description != null)
             {
@@ -301,6 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.String AgentAliasId { get; set; }
             public System.String AgentAliasName { get; set; }
             public System.String AgentId { get; set; }
+            public Amazon.BedrockAgent.AliasInvocationState AliasInvocationState { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.BedrockAgent.Model.AgentAliasRoutingConfigurationListItem> RoutingConfiguration { get; set; }
             public System.Func<Amazon.BedrockAgent.Model.UpdateAgentAliasResponse, UpdateAABAgentAliasCmdlet, object> Select { get; set; } =

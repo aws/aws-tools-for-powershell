@@ -134,7 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter RestoreTestingPlan_ScheduleExpression
         /// <summary>
         /// <para>
-        /// <para>A CRON expression in specified timezone when a restore testing plan is executed.</para>
+        /// <para>A CRON expression in specified timezone when a restore testing plan is executed. When
+        /// no CRON expression is provided, Backup will use the default expression <c>cron(0 5
+        /// ? * * *)</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,8 +28,8 @@ using Amazon.EntityResolution.Model;
 namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
-    /// Gets the status, metrics, and errors (if there are any) that are associated with a
-    /// job.
+    /// Returns the status, metrics, and errors (if there are any) that are associated with
+    /// a job.
     /// </summary>
     [Cmdlet("Get", "ERESMatchingJob")]
     [OutputType("Amazon.EntityResolution.Model.GetMatchingJobResponse")]

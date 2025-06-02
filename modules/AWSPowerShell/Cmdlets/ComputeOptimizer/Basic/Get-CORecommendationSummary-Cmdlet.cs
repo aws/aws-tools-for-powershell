@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
     /// Amazon EC2 instances in an account that are <c>Underprovisioned</c>, <c>Overprovisioned</c>,
     /// or <c>Optimized</c>.
     /// </para></li><li><para>
-    /// Auto Scaling groups in an account that are <c>NotOptimized</c>, or <c>Optimized</c>.
+    /// EC2Auto Scaling groups in an account that are <c>NotOptimized</c>, or <c>Optimized</c>.
     /// </para></li><li><para>
     /// Amazon EBS volumes in an account that are <c>NotOptimized</c>, or <c>Optimized</c>.
     /// </para></li><li><para>
@@ -45,6 +45,12 @@ namespace Amazon.PowerShell.Cmdlets.CO
     /// </para></li><li><para>
     /// Amazon ECS services in an account that are <c>Underprovisioned</c>, <c>Overprovisioned</c>,
     /// or <c>Optimized</c>.
+    /// </para></li><li><para>
+    /// Commercial software licenses in an account that are <c>InsufficientMetrics</c>, <c>NotOptimized</c>
+    /// or <c>Optimized</c>.
+    /// </para></li><li><para>
+    /// Amazon Aurora and Amazon RDS databases in an account that are <c>Underprovisioned</c>,
+    /// <c>Overprovisioned</c>, <c>Optimized</c>, or <c>NotOptimized</c>.
     /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CORecommendationSummary")]

@@ -12252,6 +12252,8 @@ Set-Alias -Name Delete-ERESPolicyStatement -Value Remove-ERESPolicyStatement
 Set-Alias -Name ERES-DeletePolicyStatement -Value Remove-ERESPolicyStatement
 Set-Alias -Name Delete-ERESSchemaMapping -Value Remove-ERESSchemaMapping
 Set-Alias -Name ERES-DeleteSchemaMapping -Value Remove-ERESSchemaMapping
+Set-Alias -Name Generate-ERESMatchId -Value Set-ERESMatchId
+Set-Alias -Name ERES-GenerateMatchId -Value Set-ERESMatchId
 Set-Alias -Name ERES-GetIdMappingJob -Value Get-ERESIdMappingJob
 Set-Alias -Name ERES-GetIdMappingWorkflow -Value Get-ERESIdMappingWorkflow
 Set-Alias -Name ERES-GetIdNamespace -Value Get-ERESIdNamespace

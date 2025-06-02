@@ -75,6 +75,21 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.String QueryExecutionId { get; set; }
         #endregion
         
+        #region Parameter QueryResultType
+        /// <summary>
+        /// <para>
+        /// <para> When you set this to <c>DATA_ROWS</c> or empty, <c>GetQueryResults</c> returns the
+        /// query results in rows. If set to <c>DATA_MANIFEST</c>, it returns the manifest file
+        /// in rows. Only the query types <c>CREATE TABLE AS SELECT</c>, <c>UNLOAD</c>, and <c>INSERT</c>
+        /// can generate a manifest file. If you use <c>DATA_MANIFEST</c> for other query types,
+        /// the query will fail. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Athena.QueryResultType")]
+        public Amazon.Athena.QueryResultType QueryResultType { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -181,6 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
                 WriteWarning("You are passing $null as a value for parameter QueryExecutionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.QueryResultType = this.QueryResultType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -209,6 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             if (cmdletContext.QueryExecutionId != null)
             {
                 request.QueryExecutionId = cmdletContext.QueryExecutionId;
+            }
+            if (cmdletContext.QueryResultType != null)
+            {
+                request.QueryResultType = cmdletContext.QueryResultType;
             }
             
             // Initialize loop variant and commence piping
@@ -268,6 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             if (cmdletContext.QueryExecutionId != null)
             {
                 request.QueryExecutionId = cmdletContext.QueryExecutionId;
+            }
+            if (cmdletContext.QueryResultType != null)
+            {
+                request.QueryResultType = cmdletContext.QueryResultType;
             }
             
             // Initialize loop variants and commence piping
@@ -391,6 +415,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String QueryExecutionId { get; set; }
+            public Amazon.Athena.QueryResultType QueryResultType { get; set; }
             public System.Func<Amazon.Athena.Model.GetQueryResultsResponse, GetATHQueryResultCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ResultSet;
         }

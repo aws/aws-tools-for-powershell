@@ -114,6 +114,17 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.String EngineVersion_EffectiveEngineVersion { get; set; }
         #endregion
         
+        #region Parameter ManagedQueryResultsConfigurationUpdates_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>If set to true, specifies that Athena manages query results in Athena owned storage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigurationUpdates_ManagedQueryResultsConfigurationUpdates_Enabled")]
+        public System.Boolean? ManagedQueryResultsConfigurationUpdates_Enabled { get; set; }
+        #endregion
+        
         #region Parameter ConfigurationUpdates_EnableMinimumEncryptionConfiguration
         /// <summary>
         /// <para>
@@ -211,15 +222,25 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.String CustomerContentEncryptionConfiguration_KmsKey { get; set; }
         #endregion
         
-        #region Parameter EncryptionConfiguration_KmsKey
+        #region Parameter ConfigurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration_KmsKey
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of an KMS key for encrypting managed query results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConfigurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration_KmsKey { get; set; }
+        #endregion
+        
+        #region Parameter ConfigurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_KmsKey
         /// <summary>
         /// <para>
         /// <para>For <c>SSE_KMS</c> and <c>CSE_KMS</c>, this is the KMS key ARN or ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ConfigurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_KmsKey")]
-        public System.String EncryptionConfiguration_KmsKey { get; set; }
+        [Alias("EncryptionConfiguration_KmsKey")]
+        public System.String ConfigurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_KmsKey { get; set; }
         #endregion
         
         #region Parameter ResultConfigurationUpdates_OutputLocation
@@ -282,6 +303,19 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? ConfigurationUpdates_RemoveCustomerContentEncryptionConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter ManagedQueryResultsConfigurationUpdates_RemoveEncryptionConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>If set to true, it removes workgroup from Athena owned storage. The existing query
+        /// results are cleaned up after 24hrs. You must provide query results in location specified
+        /// under <c>ResultConfiguration$OutputLocation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigurationUpdates_ManagedQueryResultsConfigurationUpdates_RemoveEncryptionConfiguration")]
+        public System.Boolean? ManagedQueryResultsConfigurationUpdates_RemoveEncryptionConfiguration { get; set; }
         #endregion
         
         #region Parameter ResultConfigurationUpdates_RemoveEncryptionConfiguration
@@ -476,6 +510,9 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             context.EngineVersion_EffectiveEngineVersion = this.EngineVersion_EffectiveEngineVersion;
             context.EngineVersion_SelectedEngineVersion = this.EngineVersion_SelectedEngineVersion;
             context.ConfigurationUpdates_ExecutionRole = this.ConfigurationUpdates_ExecutionRole;
+            context.ManagedQueryResultsConfigurationUpdates_Enabled = this.ManagedQueryResultsConfigurationUpdates_Enabled;
+            context.ConfigurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration_KmsKey = this.ConfigurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration_KmsKey;
+            context.ManagedQueryResultsConfigurationUpdates_RemoveEncryptionConfiguration = this.ManagedQueryResultsConfigurationUpdates_RemoveEncryptionConfiguration;
             context.ConfigurationUpdates_PublishCloudWatchMetricsEnabled = this.ConfigurationUpdates_PublishCloudWatchMetricsEnabled;
             context.QueryResultsS3AccessGrantsConfiguration_AuthenticationType = this.QueryResultsS3AccessGrantsConfiguration_AuthenticationType;
             context.QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix = this.QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix;
@@ -485,7 +522,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             context.ConfigurationUpdates_RequesterPaysEnabled = this.ConfigurationUpdates_RequesterPaysEnabled;
             context.AclConfiguration_S3AclOption = this.AclConfiguration_S3AclOption;
             context.EncryptionConfiguration_EncryptionOption = this.EncryptionConfiguration_EncryptionOption;
-            context.EncryptionConfiguration_KmsKey = this.EncryptionConfiguration_KmsKey;
+            context.ConfigurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_KmsKey = this.ConfigurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_KmsKey;
             context.ResultConfigurationUpdates_ExpectedBucketOwner = this.ResultConfigurationUpdates_ExpectedBucketOwner;
             context.ResultConfigurationUpdates_OutputLocation = this.ResultConfigurationUpdates_OutputLocation;
             context.ResultConfigurationUpdates_RemoveAclConfiguration = this.ResultConfigurationUpdates_RemoveAclConfiguration;
@@ -671,6 +708,66 @@ namespace Amazon.PowerShell.Cmdlets.ATH
                 request.ConfigurationUpdates.EngineVersion = requestConfigurationUpdates_configurationUpdates_EngineVersion;
                 requestConfigurationUpdatesIsNull = false;
             }
+            Amazon.Athena.Model.ManagedQueryResultsConfigurationUpdates requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates = null;
+            
+             // populate ManagedQueryResultsConfigurationUpdates
+            var requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdatesIsNull = true;
+            requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates = new Amazon.Athena.Model.ManagedQueryResultsConfigurationUpdates();
+            System.Boolean? requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_managedQueryResultsConfigurationUpdates_Enabled = null;
+            if (cmdletContext.ManagedQueryResultsConfigurationUpdates_Enabled != null)
+            {
+                requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_managedQueryResultsConfigurationUpdates_Enabled = cmdletContext.ManagedQueryResultsConfigurationUpdates_Enabled.Value;
+            }
+            if (requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_managedQueryResultsConfigurationUpdates_Enabled != null)
+            {
+                requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates.Enabled = requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_managedQueryResultsConfigurationUpdates_Enabled.Value;
+                requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdatesIsNull = false;
+            }
+            System.Boolean? requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_managedQueryResultsConfigurationUpdates_RemoveEncryptionConfiguration = null;
+            if (cmdletContext.ManagedQueryResultsConfigurationUpdates_RemoveEncryptionConfiguration != null)
+            {
+                requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_managedQueryResultsConfigurationUpdates_RemoveEncryptionConfiguration = cmdletContext.ManagedQueryResultsConfigurationUpdates_RemoveEncryptionConfiguration.Value;
+            }
+            if (requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_managedQueryResultsConfigurationUpdates_RemoveEncryptionConfiguration != null)
+            {
+                requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates.RemoveEncryptionConfiguration = requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_managedQueryResultsConfigurationUpdates_RemoveEncryptionConfiguration.Value;
+                requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdatesIsNull = false;
+            }
+            Amazon.Athena.Model.ManagedQueryResultsEncryptionConfiguration requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration = null;
+            
+             // populate EncryptionConfiguration
+            var requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfigurationIsNull = true;
+            requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration = new Amazon.Athena.Model.ManagedQueryResultsEncryptionConfiguration();
+            System.String requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration_configurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration_KmsKey = null;
+            if (cmdletContext.ConfigurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration_KmsKey != null)
+            {
+                requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration_configurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration_KmsKey = cmdletContext.ConfigurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration_KmsKey;
+            }
+            if (requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration_configurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration_KmsKey != null)
+            {
+                requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration.KmsKey = requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration_configurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration_KmsKey;
+                requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfigurationIsNull = false;
+            }
+             // determine if requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration should be set to null
+            if (requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfigurationIsNull)
+            {
+                requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration = null;
+            }
+            if (requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration != null)
+            {
+                requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates.EncryptionConfiguration = requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration;
+                requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdatesIsNull = false;
+            }
+             // determine if requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates should be set to null
+            if (requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdatesIsNull)
+            {
+                requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates = null;
+            }
+            if (requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates != null)
+            {
+                request.ConfigurationUpdates.ManagedQueryResultsConfigurationUpdates = requestConfigurationUpdates_configurationUpdates_ManagedQueryResultsConfigurationUpdates;
+                requestConfigurationUpdatesIsNull = false;
+            }
             Amazon.Athena.Model.QueryResultsS3AccessGrantsConfiguration requestConfigurationUpdates_configurationUpdates_QueryResultsS3AccessGrantsConfiguration = null;
             
              // populate QueryResultsS3AccessGrantsConfiguration
@@ -821,14 +918,14 @@ namespace Amazon.PowerShell.Cmdlets.ATH
                 requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration.EncryptionOption = requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_encryptionConfiguration_EncryptionOption;
                 requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_EncryptionConfigurationIsNull = false;
             }
-            System.String requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_encryptionConfiguration_KmsKey = null;
-            if (cmdletContext.EncryptionConfiguration_KmsKey != null)
+            System.String requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_configurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_KmsKey = null;
+            if (cmdletContext.ConfigurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_KmsKey != null)
             {
-                requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_encryptionConfiguration_KmsKey = cmdletContext.EncryptionConfiguration_KmsKey;
+                requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_configurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_KmsKey = cmdletContext.ConfigurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_KmsKey;
             }
-            if (requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_encryptionConfiguration_KmsKey != null)
+            if (requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_configurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_KmsKey != null)
             {
-                requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration.KmsKey = requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_encryptionConfiguration_KmsKey;
+                requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration.KmsKey = requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_configurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_KmsKey;
                 requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_EncryptionConfigurationIsNull = false;
             }
              // determine if requestConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_configurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration should be set to null
@@ -937,6 +1034,9 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             public System.String EngineVersion_EffectiveEngineVersion { get; set; }
             public System.String EngineVersion_SelectedEngineVersion { get; set; }
             public System.String ConfigurationUpdates_ExecutionRole { get; set; }
+            public System.Boolean? ManagedQueryResultsConfigurationUpdates_Enabled { get; set; }
+            public System.String ConfigurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration_KmsKey { get; set; }
+            public System.Boolean? ManagedQueryResultsConfigurationUpdates_RemoveEncryptionConfiguration { get; set; }
             public System.Boolean? ConfigurationUpdates_PublishCloudWatchMetricsEnabled { get; set; }
             public Amazon.Athena.AuthenticationType QueryResultsS3AccessGrantsConfiguration_AuthenticationType { get; set; }
             public System.Boolean? QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix { get; set; }
@@ -946,7 +1046,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             public System.Boolean? ConfigurationUpdates_RequesterPaysEnabled { get; set; }
             public Amazon.Athena.S3AclOption AclConfiguration_S3AclOption { get; set; }
             public Amazon.Athena.EncryptionOption EncryptionConfiguration_EncryptionOption { get; set; }
-            public System.String EncryptionConfiguration_KmsKey { get; set; }
+            public System.String ConfigurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_KmsKey { get; set; }
             public System.String ResultConfigurationUpdates_ExpectedBucketOwner { get; set; }
             public System.String ResultConfigurationUpdates_OutputLocation { get; set; }
             public System.Boolean? ResultConfigurationUpdates_RemoveAclConfiguration { get; set; }

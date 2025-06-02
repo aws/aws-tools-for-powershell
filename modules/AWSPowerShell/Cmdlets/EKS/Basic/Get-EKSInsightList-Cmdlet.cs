@@ -30,7 +30,17 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// <summary>
     /// Returns a list of all insights checked for against the specified cluster. You can
     /// filter which insights are returned by category, associated Kubernetes version, and
-    /// status.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// status. The default filter lists all categories and every status.
+    /// 
+    ///  
+    /// <para>
+    /// The following lists the available categories:
+    /// </para><ul><li><para><c>UPGRADE_READINESS</c>: Amazon EKS identifies issues that could impact your ability
+    /// to upgrade to new versions of Kubernetes. These are called upgrade insights.
+    /// </para></li><li><para><c>MISCONFIGURATION</c>: Amazon EKS identifies misconfiguration in your EKS Hybrid
+    /// Nodes setup that could impair functionality of your cluster or workloads. These are
+    /// called configuration insights.
+    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EKSInsightList")]
     [OutputType("Amazon.EKS.Model.InsightSummary")]
@@ -47,7 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Filter_Category
         /// <summary>
         /// <para>
-        /// <para>The categories to use to filter insights.</para>
+        /// <para>The categories to use to filter insights. The following lists the available categories:</para><ul><li><para><c>UPGRADE_READINESS</c>: Amazon EKS identifies issues that could impact your ability
+        /// to upgrade to new versions of Kubernetes. These are called upgrade insights.</para></li><li><para><c>MISCONFIGURATION</c>: Amazon EKS identifies misconfiguration in your EKS Hybrid
+        /// Nodes setup that could impair functionality of your cluster or workloads. These are
+        /// called configuration insights.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

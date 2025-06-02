@@ -4708,6 +4708,13 @@ $ATH_Completers = {
             break
         }
 
+        # Amazon.Athena.QueryResultType
+        "Get-ATHQueryResult/QueryResultType"
+        {
+            $v = "DATA_MANIFEST","DATA_ROWS"
+            break
+        }
+
         # Amazon.Athena.S3AclOption
         {
             ($_ -eq "New-ATHWorkGroup/AclConfiguration_S3AclOption") -Or
@@ -4746,6 +4753,7 @@ $ATH_map = @{
     "EncryptionConfiguration_EncryptionOption"=@("New-ATHWorkGroup","Start-ATHQueryExecution","Update-ATHWorkGroup")
     "ExecutorStateFilter"=@("Get-ATHExecutorList")
     "QueryResultsS3AccessGrantsConfiguration_AuthenticationType"=@("New-ATHWorkGroup","Update-ATHWorkGroup")
+    "QueryResultType"=@("Get-ATHQueryResult")
     "State"=@("Update-ATHWorkGroup")
     "StateFilter"=@("Get-ATHCalculationExecutionList","Get-ATHSessionList")
     "Type"=@("Import-ATHNotebook","New-ATHDataCatalog","Update-ATHDataCatalog","Update-ATHNotebook")
@@ -7079,6 +7087,13 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.AliasInvocationState
+        "Update-AABAgentAlias/AliasInvocationState"
+        {
+            $v = "ACCEPT_INVOCATIONS","REJECT_INVOCATIONS"
+            break
+        }
+
         # Amazon.BedrockAgent.ChunkingStrategy
         {
             ($_ -eq "New-AABDataSource/ChunkingConfiguration_ChunkingStrategy") -Or
@@ -7371,6 +7386,7 @@ $AAB_map = @{
     "ActionGroupExecutor_CustomControl"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ActionGroupState"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "AgentCollaboration"=@("New-AABAgent","Update-AABAgent")
+    "AliasInvocationState"=@("Update-AABAgentAlias")
     "AuthConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "BedrockDataAutomationConfiguration_ParsingModality"=@("New-AABDataSource","Update-AABDataSource")
     "BedrockEmbeddingModelConfiguration_EmbeddingDataType"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
@@ -17082,7 +17098,7 @@ $CO_Completers = {
             ($_ -eq "Write-CORecommendationPreference/ResourceType")
         }
         {
-            $v = "AutoScalingGroup","EbsVolume","Ec2Instance","EcsService","Idle","LambdaFunction","License","NotApplicable","RdsDBInstance"
+            $v = "AuroraDBClusterStorage","AutoScalingGroup","EbsVolume","Ec2Instance","EcsService","Idle","LambdaFunction","License","NotApplicable","RdsDBInstance"
             break
         }
 
@@ -30136,6 +30152,13 @@ $ERES_Completers = {
             break
         }
 
+        # Amazon.EntityResolution.ProcessingType
+        "Set-ERESMatchId/ProcessingType"
+        {
+            $v = "CONSISTENT","EVENTUAL","EVENTUAL_NO_LOOKUP"
+            break
+        }
+
         # Amazon.EntityResolution.RecordMatchingModel
         {
             ($_ -eq "New-ERESIdMappingWorkflow/RuleBasedProperties_RecordMatchingModel") -Or
@@ -30175,6 +30198,7 @@ $ERES_map = @{
     "Effect"=@("Add-ERESPolicyStatement")
     "IdMappingTechniques_IdMappingType"=@("New-ERESIdMappingWorkflow","Update-ERESIdMappingWorkflow")
     "IncrementalRunConfig_IncrementalRunType"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
+    "ProcessingType"=@("Set-ERESMatchId")
     "ResolutionTechniques_ResolutionType"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
     "RuleBasedProperties_AttributeMatchingModel"=@("New-ERESIdMappingWorkflow","New-ERESMatchingWorkflow","Update-ERESIdMappingWorkflow","Update-ERESMatchingWorkflow")
     "RuleBasedProperties_MatchPurpose"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
@@ -30244,6 +30268,7 @@ $ERES_SelectMap = @{
                "Remove-ERESMatchingWorkflow",
                "Remove-ERESPolicyStatement",
                "Remove-ERESSchemaMapping",
+               "Set-ERESMatchId",
                "Get-ERESIdMappingJob",
                "Get-ERESIdMappingWorkflow",
                "Get-ERESIdNamespace",
