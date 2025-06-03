@@ -111,6 +111,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-AG2RouteList', 
         'Get-AG2RouteResponse', 
         'Get-AG2RouteResponseList', 
+        'Get-AG2RoutingRule', 
+        'Get-AG2RoutingRuleList', 
         'Get-AG2Stage', 
         'Get-AG2StageList', 
         'Get-AG2Tag', 
@@ -127,6 +129,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-AG2Model', 
         'New-AG2Route', 
         'New-AG2RouteResponse', 
+        'New-AG2RoutingRule', 
         'New-AG2Stage', 
         'New-AG2VpcLink', 
         'Remove-AG2AccessLogSetting', 
@@ -144,6 +147,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-AG2RouteRequestParameter', 
         'Remove-AG2RouteResponse', 
         'Remove-AG2RouteSetting', 
+        'Remove-AG2RoutingRule', 
         'Remove-AG2Stage', 
         'Remove-AG2VpcLink', 
         'Reset-AG2AuthorizersCache', 
@@ -159,7 +163,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-AG2Route', 
         'Update-AG2RouteResponse', 
         'Update-AG2Stage', 
-        'Update-AG2VpcLink')
+        'Update-AG2VpcLink', 
+        'Write-AG2RoutingRule')
 
     # Variables to export from this module
     VariablesToExport = '*'

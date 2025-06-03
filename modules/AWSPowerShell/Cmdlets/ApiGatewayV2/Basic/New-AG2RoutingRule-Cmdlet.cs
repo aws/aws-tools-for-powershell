@@ -28,18 +28,56 @@ using Amazon.ApiGatewayV2.Model;
 namespace Amazon.PowerShell.Cmdlets.AG2
 {
     /// <summary>
-    /// Updates a domain name.
+    /// Creates a RoutingRule
     /// </summary>
-    [Cmdlet("Update", "AG2DomainName", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ApiGatewayV2.Model.UpdateDomainNameResponse")]
-    [AWSCmdlet("Calls the Amazon API Gateway V2 UpdateDomainName API operation.", Operation = new[] {"UpdateDomainName"}, SelectReturnType = typeof(Amazon.ApiGatewayV2.Model.UpdateDomainNameResponse))]
-    [AWSCmdletOutput("Amazon.ApiGatewayV2.Model.UpdateDomainNameResponse",
-        "This cmdlet returns an Amazon.ApiGatewayV2.Model.UpdateDomainNameResponse object containing multiple properties."
+    [Cmdlet("New", "AG2RoutingRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ApiGatewayV2.Model.CreateRoutingRuleResponse")]
+    [AWSCmdlet("Calls the Amazon API Gateway V2 CreateRoutingRule API operation.", Operation = new[] {"CreateRoutingRule"}, SelectReturnType = typeof(Amazon.ApiGatewayV2.Model.CreateRoutingRuleResponse))]
+    [AWSCmdletOutput("Amazon.ApiGatewayV2.Model.CreateRoutingRuleResponse",
+        "This cmdlet returns an Amazon.ApiGatewayV2.Model.CreateRoutingRuleResponse object containing multiple properties."
     )]
-    public partial class UpdateAG2DomainNameCmdlet : AmazonApiGatewayV2ClientCmdlet, IExecutor
+    public partial class NewAG2RoutingRuleCmdlet : AmazonApiGatewayV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter Action
+        /// <summary>
+        /// <para>
+        /// <para>Represents a routing rule action. The only supported action is invokeApi.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("Actions")]
+        public Amazon.ApiGatewayV2.Model.RoutingRuleAction[] Action { get; set; }
+        #endregion
+        
+        #region Parameter Condition
+        /// <summary>
+        /// <para>
+        /// <para>Represents a condition. Conditions can contain up to two matchHeaders conditions and
+        /// one matchBasePaths conditions. API Gateway evaluates header conditions and base path
+        /// conditions together. You can only use AND between header and base path conditions.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("Conditions")]
+        public Amazon.ApiGatewayV2.Model.RoutingRuleCondition[] Condition { get; set; }
+        #endregion
         
         #region Parameter DomainName
         /// <summary>
@@ -58,59 +96,37 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         public System.String DomainName { get; set; }
         #endregion
         
-        #region Parameter DomainNameConfiguration
+        #region Parameter DomainNameId
         /// <summary>
         /// <para>
-        /// <para>The domain name configurations.</para>
+        /// <para>The domain name ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("DomainNameConfigurations")]
-        public Amazon.ApiGatewayV2.Model.DomainNameConfiguration[] DomainNameConfiguration { get; set; }
+        public System.String DomainNameId { get; set; }
         #endregion
         
-        #region Parameter RoutingMode
+        #region Parameter Priority
         /// <summary>
         /// <para>
-        /// <para>The routing mode.</para>
+        /// Represents the priority of the routing rule.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.ApiGatewayV2.RoutingMode")]
-        public Amazon.ApiGatewayV2.RoutingMode RoutingMode { get; set; }
-        #endregion
-        
-        #region Parameter MutualTlsAuthentication_TruststoreUri
-        /// <summary>
-        /// <para>
-        /// <para>An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for
-        /// example, s3://<replaceable>bucket-name</replaceable>/<replaceable>key-name</replaceable>.
-        /// The truststore can contain certificates from public or private certificate authorities.
-        /// To update the truststore, upload a new version to S3, and then update your custom
-        /// domain name to use the new version. To update the truststore, you must have permissions
-        /// to access the S3 object.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String MutualTlsAuthentication_TruststoreUri { get; set; }
-        #endregion
-        
-        #region Parameter MutualTlsAuthentication_TruststoreVersion
-        /// <summary>
-        /// <para>
-        /// <para>The version of the S3 object that contains your truststore. To specify a version,
-        /// you must have versioning enabled for the S3 bucket.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String MutualTlsAuthentication_TruststoreVersion { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.Int32? Priority { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApiGatewayV2.Model.UpdateDomainNameResponse).
-        /// Specifying the name of a property of type Amazon.ApiGatewayV2.Model.UpdateDomainNameResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApiGatewayV2.Model.CreateRoutingRuleResponse).
+        /// Specifying the name of a property of type Amazon.ApiGatewayV2.Model.CreateRoutingRuleResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-AG2DomainName (UpdateDomainName)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-AG2RoutingRule (CreateRoutingRule)"))
             {
                 return;
             }
@@ -156,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ApiGatewayV2.Model.UpdateDomainNameResponse, UpdateAG2DomainNameCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ApiGatewayV2.Model.CreateRoutingRuleResponse, NewAG2RoutingRuleCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -168,6 +184,26 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                 context.Select = (response, cmdlet) => this.DomainName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Action != null)
+            {
+                context.Action = new List<Amazon.ApiGatewayV2.Model.RoutingRuleAction>(this.Action);
+            }
+            #if MODULAR
+            if (this.Action == null && ParameterWasBound(nameof(this.Action)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Action which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.Condition != null)
+            {
+                context.Condition = new List<Amazon.ApiGatewayV2.Model.RoutingRuleCondition>(this.Condition);
+            }
+            #if MODULAR
+            if (this.Condition == null && ParameterWasBound(nameof(this.Condition)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Condition which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.DomainName = this.DomainName;
             #if MODULAR
             if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
@@ -175,13 +211,14 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                 WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.DomainNameConfiguration != null)
+            context.DomainNameId = this.DomainNameId;
+            context.Priority = this.Priority;
+            #if MODULAR
+            if (this.Priority == null && ParameterWasBound(nameof(this.Priority)))
             {
-                context.DomainNameConfiguration = new List<Amazon.ApiGatewayV2.Model.DomainNameConfiguration>(this.DomainNameConfiguration);
+                WriteWarning("You are passing $null as a value for parameter Priority which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
-            context.MutualTlsAuthentication_TruststoreUri = this.MutualTlsAuthentication_TruststoreUri;
-            context.MutualTlsAuthentication_TruststoreVersion = this.MutualTlsAuthentication_TruststoreVersion;
-            context.RoutingMode = this.RoutingMode;
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -196,48 +233,27 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ApiGatewayV2.Model.UpdateDomainNameRequest();
+            var request = new Amazon.ApiGatewayV2.Model.CreateRoutingRuleRequest();
             
+            if (cmdletContext.Action != null)
+            {
+                request.Actions = cmdletContext.Action;
+            }
+            if (cmdletContext.Condition != null)
+            {
+                request.Conditions = cmdletContext.Condition;
+            }
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
             }
-            if (cmdletContext.DomainNameConfiguration != null)
+            if (cmdletContext.DomainNameId != null)
             {
-                request.DomainNameConfigurations = cmdletContext.DomainNameConfiguration;
+                request.DomainNameId = cmdletContext.DomainNameId;
             }
-            
-             // populate MutualTlsAuthentication
-            var requestMutualTlsAuthenticationIsNull = true;
-            request.MutualTlsAuthentication = new Amazon.ApiGatewayV2.Model.MutualTlsAuthenticationInput();
-            System.String requestMutualTlsAuthentication_mutualTlsAuthentication_TruststoreUri = null;
-            if (cmdletContext.MutualTlsAuthentication_TruststoreUri != null)
+            if (cmdletContext.Priority != null)
             {
-                requestMutualTlsAuthentication_mutualTlsAuthentication_TruststoreUri = cmdletContext.MutualTlsAuthentication_TruststoreUri;
-            }
-            if (requestMutualTlsAuthentication_mutualTlsAuthentication_TruststoreUri != null)
-            {
-                request.MutualTlsAuthentication.TruststoreUri = requestMutualTlsAuthentication_mutualTlsAuthentication_TruststoreUri;
-                requestMutualTlsAuthenticationIsNull = false;
-            }
-            System.String requestMutualTlsAuthentication_mutualTlsAuthentication_TruststoreVersion = null;
-            if (cmdletContext.MutualTlsAuthentication_TruststoreVersion != null)
-            {
-                requestMutualTlsAuthentication_mutualTlsAuthentication_TruststoreVersion = cmdletContext.MutualTlsAuthentication_TruststoreVersion;
-            }
-            if (requestMutualTlsAuthentication_mutualTlsAuthentication_TruststoreVersion != null)
-            {
-                request.MutualTlsAuthentication.TruststoreVersion = requestMutualTlsAuthentication_mutualTlsAuthentication_TruststoreVersion;
-                requestMutualTlsAuthenticationIsNull = false;
-            }
-             // determine if request.MutualTlsAuthentication should be set to null
-            if (requestMutualTlsAuthenticationIsNull)
-            {
-                request.MutualTlsAuthentication = null;
-            }
-            if (cmdletContext.RoutingMode != null)
-            {
-                request.RoutingMode = cmdletContext.RoutingMode;
+                request.Priority = cmdletContext.Priority.Value;
             }
             
             CmdletOutput output;
@@ -272,15 +288,15 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         
         #region AWS Service Operation Call
         
-        private Amazon.ApiGatewayV2.Model.UpdateDomainNameResponse CallAWSServiceOperation(IAmazonApiGatewayV2 client, Amazon.ApiGatewayV2.Model.UpdateDomainNameRequest request)
+        private Amazon.ApiGatewayV2.Model.CreateRoutingRuleResponse CallAWSServiceOperation(IAmazonApiGatewayV2 client, Amazon.ApiGatewayV2.Model.CreateRoutingRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway V2", "UpdateDomainName");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway V2", "CreateRoutingRule");
             try
             {
                 #if DESKTOP
-                return client.UpdateDomainName(request);
+                return client.CreateRoutingRule(request);
                 #elif CORECLR
-                return client.UpdateDomainNameAsync(request).GetAwaiter().GetResult();
+                return client.CreateRoutingRuleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -300,12 +316,12 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.ApiGatewayV2.Model.RoutingRuleAction> Action { get; set; }
+            public List<Amazon.ApiGatewayV2.Model.RoutingRuleCondition> Condition { get; set; }
             public System.String DomainName { get; set; }
-            public List<Amazon.ApiGatewayV2.Model.DomainNameConfiguration> DomainNameConfiguration { get; set; }
-            public System.String MutualTlsAuthentication_TruststoreUri { get; set; }
-            public System.String MutualTlsAuthentication_TruststoreVersion { get; set; }
-            public Amazon.ApiGatewayV2.RoutingMode RoutingMode { get; set; }
-            public System.Func<Amazon.ApiGatewayV2.Model.UpdateDomainNameResponse, UpdateAG2DomainNameCmdlet, object> Select { get; set; } =
+            public System.String DomainNameId { get; set; }
+            public System.Int32? Priority { get; set; }
+            public System.Func<Amazon.ApiGatewayV2.Model.CreateRoutingRuleResponse, NewAG2RoutingRuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

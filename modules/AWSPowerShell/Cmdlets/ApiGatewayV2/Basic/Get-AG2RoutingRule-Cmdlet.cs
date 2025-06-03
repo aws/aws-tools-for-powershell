@@ -22,29 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EMRServerless;
-using Amazon.EMRServerless.Model;
+using Amazon.ApiGatewayV2;
+using Amazon.ApiGatewayV2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EMRServerless
+namespace Amazon.PowerShell.Cmdlets.AG2
 {
     /// <summary>
-    /// Cancels a job run.
+    /// Gets a routing rule.
     /// </summary>
-    [Cmdlet("Stop", "EMRServerlessJobRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EMRServerless.Model.CancelJobRunResponse")]
-    [AWSCmdlet("Calls the EMR Serverless CancelJobRun API operation.", Operation = new[] {"CancelJobRun"}, SelectReturnType = typeof(Amazon.EMRServerless.Model.CancelJobRunResponse))]
-    [AWSCmdletOutput("Amazon.EMRServerless.Model.CancelJobRunResponse",
-        "This cmdlet returns an Amazon.EMRServerless.Model.CancelJobRunResponse object containing multiple properties."
+    [Cmdlet("Get", "AG2RoutingRule")]
+    [OutputType("Amazon.ApiGatewayV2.Model.GetRoutingRuleResponse")]
+    [AWSCmdlet("Calls the Amazon API Gateway V2 GetRoutingRule API operation.", Operation = new[] {"GetRoutingRule"}, SelectReturnType = typeof(Amazon.ApiGatewayV2.Model.GetRoutingRuleResponse))]
+    [AWSCmdletOutput("Amazon.ApiGatewayV2.Model.GetRoutingRuleResponse",
+        "This cmdlet returns an Amazon.ApiGatewayV2.Model.GetRoutingRuleResponse object containing multiple properties."
     )]
-    public partial class StopEMRServerlessJobRunCmdlet : AmazonEMRServerlessClientCmdlet, IExecutor
+    public partial class GetAG2RoutingRuleCmdlet : AmazonApiGatewayV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ApplicationId
+        #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The ID of the application on which the job run will be canceled.</para>
+        /// <para>The domain name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,13 +55,23 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ApplicationId { get; set; }
+        public System.String DomainName { get; set; }
         #endregion
         
-        #region Parameter JobRunId
+        #region Parameter DomainNameId
         /// <summary>
         /// <para>
-        /// <para>The ID of the job run to cancel.</para>
+        /// <para>The domain name ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DomainNameId { get; set; }
+        #endregion
+        
+        #region Parameter RoutingRuleId
+        /// <summary>
+        /// <para>
+        /// <para>The routing rule ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,26 +82,14 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String JobRunId { get; set; }
-        #endregion
-        
-        #region Parameter ShutdownGracePeriodInSecond
-        /// <summary>
-        /// <para>
-        /// <para>The duration (in seconds) to wait before forcefully terminating the job after cancellation
-        /// is requested.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ShutdownGracePeriodInSeconds")]
-        public System.Int32? ShutdownGracePeriodInSecond { get; set; }
+        public System.String RoutingRuleId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EMRServerless.Model.CancelJobRunResponse).
-        /// Specifying the name of a property of type Amazon.EMRServerless.Model.CancelJobRunResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApiGatewayV2.Model.GetRoutingRuleResponse).
+        /// Specifying the name of a property of type Amazon.ApiGatewayV2.Model.GetRoutingRuleResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,34 +98,18 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the JobRunId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^JobRunId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the RoutingRuleId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^RoutingRuleId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^JobRunId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^RoutingRuleId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.JobRunId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-EMRServerlessJobRun (CancelJobRun)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -137,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EMRServerless.Model.CancelJobRunResponse, StopEMRServerlessJobRunCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ApiGatewayV2.Model.GetRoutingRuleResponse, GetAG2RoutingRuleCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -146,24 +128,24 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.JobRunId;
+                context.Select = (response, cmdlet) => this.RoutingRuleId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ApplicationId = this.ApplicationId;
+            context.DomainName = this.DomainName;
             #if MODULAR
-            if (this.ApplicationId == null && ParameterWasBound(nameof(this.ApplicationId)))
+            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
             {
-                WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.JobRunId = this.JobRunId;
+            context.DomainNameId = this.DomainNameId;
+            context.RoutingRuleId = this.RoutingRuleId;
             #if MODULAR
-            if (this.JobRunId == null && ParameterWasBound(nameof(this.JobRunId)))
+            if (this.RoutingRuleId == null && ParameterWasBound(nameof(this.RoutingRuleId)))
             {
-                WriteWarning("You are passing $null as a value for parameter JobRunId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter RoutingRuleId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ShutdownGracePeriodInSecond = this.ShutdownGracePeriodInSecond;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -178,19 +160,19 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EMRServerless.Model.CancelJobRunRequest();
+            var request = new Amazon.ApiGatewayV2.Model.GetRoutingRuleRequest();
             
-            if (cmdletContext.ApplicationId != null)
+            if (cmdletContext.DomainName != null)
             {
-                request.ApplicationId = cmdletContext.ApplicationId;
+                request.DomainName = cmdletContext.DomainName;
             }
-            if (cmdletContext.JobRunId != null)
+            if (cmdletContext.DomainNameId != null)
             {
-                request.JobRunId = cmdletContext.JobRunId;
+                request.DomainNameId = cmdletContext.DomainNameId;
             }
-            if (cmdletContext.ShutdownGracePeriodInSecond != null)
+            if (cmdletContext.RoutingRuleId != null)
             {
-                request.ShutdownGracePeriodInSeconds = cmdletContext.ShutdownGracePeriodInSecond.Value;
+                request.RoutingRuleId = cmdletContext.RoutingRuleId;
             }
             
             CmdletOutput output;
@@ -225,15 +207,15 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         
         #region AWS Service Operation Call
         
-        private Amazon.EMRServerless.Model.CancelJobRunResponse CallAWSServiceOperation(IAmazonEMRServerless client, Amazon.EMRServerless.Model.CancelJobRunRequest request)
+        private Amazon.ApiGatewayV2.Model.GetRoutingRuleResponse CallAWSServiceOperation(IAmazonApiGatewayV2 client, Amazon.ApiGatewayV2.Model.GetRoutingRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "EMR Serverless", "CancelJobRun");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway V2", "GetRoutingRule");
             try
             {
                 #if DESKTOP
-                return client.CancelJobRun(request);
+                return client.GetRoutingRule(request);
                 #elif CORECLR
-                return client.CancelJobRunAsync(request).GetAwaiter().GetResult();
+                return client.GetRoutingRuleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -253,10 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApplicationId { get; set; }
-            public System.String JobRunId { get; set; }
-            public System.Int32? ShutdownGracePeriodInSecond { get; set; }
-            public System.Func<Amazon.EMRServerless.Model.CancelJobRunResponse, StopEMRServerlessJobRunCmdlet, object> Select { get; set; } =
+            public System.String DomainName { get; set; }
+            public System.String DomainNameId { get; set; }
+            public System.String RoutingRuleId { get; set; }
+            public System.Func<Amazon.ApiGatewayV2.Model.GetRoutingRuleResponse, GetAG2RoutingRuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

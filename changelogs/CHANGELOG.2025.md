@@ -1,4 +1,19 @@
-﻿### 4.1.832 (2025-06-02 20:35Z)
+﻿### 4.1.833 (2025-06-03 20:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1057.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon API Gateway
+    * Modified cmdlet New-AGDomainName: added parameter RoutingMode.
+  * Amazon API Gateway V2
+    * Added cmdlet Get-AG2RoutingRule leveraging the GetRoutingRule service API.
+    * Added cmdlet Get-AG2RoutingRuleList leveraging the ListRoutingRules service API.
+    * Added cmdlet New-AG2RoutingRule leveraging the CreateRoutingRule service API.
+    * Added cmdlet Remove-AG2RoutingRule leveraging the DeleteRoutingRule service API.
+    * Added cmdlet Write-AG2RoutingRule leveraging the PutRoutingRule service API.
+    * Modified cmdlet New-AG2DomainName: added parameter RoutingMode.
+    * Modified cmdlet Update-AG2DomainName: added parameter RoutingMode.
+  * Amazon EMR Serverless
+    * Modified cmdlet Stop-EMRServerlessJobRun: added parameter ShutdownGracePeriodInSecond.
+
+### 4.1.832 (2025-06-02 20:35Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1056.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Modified cmdlet Update-AABAgentAlias: added parameter AliasInvocationState.

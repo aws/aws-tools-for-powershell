@@ -208,6 +208,13 @@ $AG_Completers = {
             break
         }
 
+        # Amazon.APIGateway.RoutingMode
+        "New-AGDomainName/RoutingMode"
+        {
+            $v = "BASE_PATH_MAPPING_ONLY","ROUTING_RULE_ONLY","ROUTING_RULE_THEN_BASE_PATH_MAPPING"
+            break
+        }
+
         # Amazon.APIGateway.SecurityPolicy
         "New-AGDomainName/SecurityPolicy"
         {
@@ -237,6 +244,7 @@ $AG_map = @{
     "Quota_Period"=@("New-AGUsagePlan")
     "ResourceOwner"=@("Get-AGDomainNameAccessAssociation","Get-AGDomainNameList")
     "ResponseType"=@("Get-AGGatewayResponse","Remove-AGGatewayResponse","Update-AGGatewayResponse","Write-AGGatewayResponse")
+    "RoutingMode"=@("New-AGDomainName")
     "SecurityPolicy"=@("New-AGDomainName")
     "Type"=@("Get-AGDocumentationPartList","New-AGAuthorizer","Write-AGIntegration")
 }

@@ -69,6 +69,17 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         public Amazon.ApiGatewayV2.Model.DomainNameConfiguration[] DomainNameConfiguration { get; set; }
         #endregion
         
+        #region Parameter RoutingMode
+        /// <summary>
+        /// <para>
+        /// <para>The routing mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ApiGatewayV2.RoutingMode")]
+        public Amazon.ApiGatewayV2.RoutingMode RoutingMode { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -181,6 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             }
             context.MutualTlsAuthentication_TruststoreUri = this.MutualTlsAuthentication_TruststoreUri;
             context.MutualTlsAuthentication_TruststoreVersion = this.MutualTlsAuthentication_TruststoreVersion;
+            context.RoutingMode = this.RoutingMode;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -241,6 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             if (requestMutualTlsAuthenticationIsNull)
             {
                 request.MutualTlsAuthentication = null;
+            }
+            if (cmdletContext.RoutingMode != null)
+            {
+                request.RoutingMode = cmdletContext.RoutingMode;
             }
             if (cmdletContext.Tag != null)
             {
@@ -311,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             public List<Amazon.ApiGatewayV2.Model.DomainNameConfiguration> DomainNameConfiguration { get; set; }
             public System.String MutualTlsAuthentication_TruststoreUri { get; set; }
             public System.String MutualTlsAuthentication_TruststoreVersion { get; set; }
+            public Amazon.ApiGatewayV2.RoutingMode RoutingMode { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.ApiGatewayV2.Model.CreateDomainNameResponse, NewAG2DomainNameCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -177,6 +177,18 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String RegionalCertificateName { get; set; }
         #endregion
         
+        #region Parameter RoutingMode
+        /// <summary>
+        /// <para>
+        /// <para> The routing mode for this domain name. The routing mode determines how API Gateway
+        /// sends traffic from your custom domain name to your private APIs. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.APIGateway.RoutingMode")]
+        public Amazon.APIGateway.RoutingMode RoutingMode { get; set; }
+        #endregion
+        
         #region Parameter SecurityPolicy
         /// <summary>
         /// <para>
@@ -342,6 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             context.Policy = this.Policy;
             context.RegionalCertificateArn = this.RegionalCertificateArn;
             context.RegionalCertificateName = this.RegionalCertificateName;
+            context.RoutingMode = this.RoutingMode;
             context.SecurityPolicy = this.SecurityPolicy;
             if (this.Tag != null)
             {
@@ -475,6 +488,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             {
                 request.RegionalCertificateName = cmdletContext.RegionalCertificateName;
             }
+            if (cmdletContext.RoutingMode != null)
+            {
+                request.RoutingMode = cmdletContext.RoutingMode;
+            }
             if (cmdletContext.SecurityPolicy != null)
             {
                 request.SecurityPolicy = cmdletContext.SecurityPolicy;
@@ -559,6 +576,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String Policy { get; set; }
             public System.String RegionalCertificateArn { get; set; }
             public System.String RegionalCertificateName { get; set; }
+            public Amazon.APIGateway.RoutingMode RoutingMode { get; set; }
             public Amazon.APIGateway.SecurityPolicy SecurityPolicy { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.APIGateway.Model.CreateDomainNameResponse, NewAGDomainNameCmdlet, object> Select { get; set; } =

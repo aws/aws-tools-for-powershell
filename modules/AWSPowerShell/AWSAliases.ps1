@@ -544,6 +544,8 @@ Set-Alias -Name Create-AG2Route -Value New-AG2Route
 Set-Alias -Name AG2-CreateRoute -Value New-AG2Route
 Set-Alias -Name Create-AG2RouteResponse -Value New-AG2RouteResponse
 Set-Alias -Name AG2-CreateRouteResponse -Value New-AG2RouteResponse
+Set-Alias -Name Create-AG2RoutingRule -Value New-AG2RoutingRule
+Set-Alias -Name AG2-CreateRoutingRule -Value New-AG2RoutingRule
 Set-Alias -Name Create-AG2Stage -Value New-AG2Stage
 Set-Alias -Name AG2-CreateStage -Value New-AG2Stage
 Set-Alias -Name Create-AG2VpcLink -Value New-AG2VpcLink
@@ -578,6 +580,8 @@ Set-Alias -Name AG2-DeleteRouteResponse -Value Remove-AG2RouteResponse
 Set-Alias -Name Delete-AG2RouteSettings -Value Remove-AG2RouteSetting
 Set-Alias -Name Delete-AG2RouteSetting -Value Remove-AG2RouteSetting
 Set-Alias -Name AG2-DeleteRouteSettings -Value Remove-AG2RouteSetting
+Set-Alias -Name Delete-AG2RoutingRule -Value Remove-AG2RoutingRule
+Set-Alias -Name AG2-DeleteRoutingRule -Value Remove-AG2RoutingRule
 Set-Alias -Name Delete-AG2Stage -Value Remove-AG2Stage
 Set-Alias -Name AG2-DeleteStage -Value Remove-AG2Stage
 Set-Alias -Name Delete-AG2VpcLink -Value Remove-AG2VpcLink
@@ -614,6 +618,7 @@ Set-Alias -Name Get-AG2RouteResponses -Value Get-AG2RouteResponseList
 Set-Alias -Name AG2-GetRouteResponses -Value Get-AG2RouteResponseList
 Set-Alias -Name Get-AG2Routes -Value Get-AG2RouteList
 Set-Alias -Name AG2-GetRoutes -Value Get-AG2RouteList
+Set-Alias -Name AG2-GetRoutingRule -Value Get-AG2RoutingRule
 Set-Alias -Name AG2-GetStage -Value Get-AG2Stage
 Set-Alias -Name Get-AG2Stages -Value Get-AG2StageList
 Set-Alias -Name AG2-GetStages -Value Get-AG2StageList
@@ -623,6 +628,11 @@ Set-Alias -Name AG2-GetVpcLink -Value Get-AG2VpcLink
 Set-Alias -Name Get-AG2VpcLinks -Value Get-AG2VpcLinkList
 Set-Alias -Name AG2-GetVpcLinks -Value Get-AG2VpcLinkList
 Set-Alias -Name AG2-ImportApi -Value Import-AG2Api
+Set-Alias -Name List-AG2RoutingRules -Value Get-AG2RoutingRuleList
+Set-Alias -Name List-AG2RoutingRuleList -Value Get-AG2RoutingRuleList
+Set-Alias -Name AG2-ListRoutingRules -Value Get-AG2RoutingRuleList
+Set-Alias -Name Put-AG2RoutingRule -Value Write-AG2RoutingRule
+Set-Alias -Name AG2-PutRoutingRule -Value Write-AG2RoutingRule
 Set-Alias -Name Reimport-AG2Api -Value Update-AG2ApiImport
 Set-Alias -Name Reimport-AG2ApiImport -Value Update-AG2ApiImport
 Set-Alias -Name AG2-ReimportApi -Value Update-AG2ApiImport

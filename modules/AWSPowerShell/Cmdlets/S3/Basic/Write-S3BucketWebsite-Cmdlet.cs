@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>This value is a suffix that is appended to a request that is for a "directory" 
         /// on the website endpoint (e.g. if the suffix is index.html and
-        /// you make a request to samplebucket/images/ the data that
+        /// you make a request to amzn-s3-demo-bucket/images/ the data that
         /// is returned will be for the object with the key name
         /// images/index.html)</para><para>The suffix must not be empty and must not include a slash
         /// character.</para>
