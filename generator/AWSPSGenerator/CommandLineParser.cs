@@ -251,7 +251,16 @@ namespace AWSPowerShellGenerator
                 HasValue = true,
                 Parse = (arguments, argValue) => arguments.ParsedOptions.VersionNumber = argValue,
                 HelpText = "The four-components version number e.g. 4.0.0.0."
+            },
+            new ArgDeclaration
+            {
+                OptionName = "reportonly",
+                ShortName = "ro",
+                HasValue = true,
+                Parse = (arguments, argValue) => arguments.ParsedOptions.GenerateReportOnly = bool.Parse(argValue),
+                HelpText = "Only generate report.xml if there are operations not in config and no errors."
             }
+
         };
 
         static readonly char[] ArgumentPrefixes = { '-', '/' };

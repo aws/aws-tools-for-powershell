@@ -125,6 +125,37 @@ try {
     else {
       throw "ERROR: Preview build is missing specific SDK artifacts."
     }
+    
+    # during preview, if there is overrides.xml, use the overrides.xml and generate auto-configuration for any missing operations that don't have errors.
+    # if buildconfig is reset, then overrides.xml will have empty config and a new report.xml will be generated.
+    # the report.xml will have all the operations that were in overrides.xml including new generated operations.
+    # if the report.xml is generated, rename it to overrides.xml so that auto-configured operations are included during cmdlet generation.
+    try {
+      Write-Host "Generating report.xml"
+      # build-report-only generates report.xml only when there is a new operation and
+      # there are no errors during auto-generation of the buildconfig
+      dotnet msbuild ./buildtools/build.proj /t:build-report-only `
+        /p:CleanSdkReferences=false `
+        /p:BreakOnNewOperations=false `
+        /p:Configuration=$Configuration
+    }
+    catch {
+      # don't error out. The same failure would be caught in the later step and reported.
+      Write-Host "failed generating report.xml"
+      Write-Host $_.Exception.Message
+    }
+
+    if (Test-Path 'report.xml') {
+      Write-Host "report.xml generated. renaming report.xml to overrides.xml"
+      if (Test-Path 'overrides.xml') {
+        Remove-Item 'overrides.xml'
+      }
+      Rename-Item -Path 'report.xml' -NewName 'overrides.xml'
+    }
+    else {
+      Write-Host "report.xml not generated"
+    }
+    
 
     dotnet msbuild ./buildtools/build.proj /t:preview-build `
       /p:RunTests=$RunTests `
@@ -159,6 +190,36 @@ try {
       throw "ERROR: Release build is missing specific SDK artifacts."
     }
 
+    # during release/dryrun, if there is overrides.xml, use the overrides.xml and generate auto-configuration for any missing operations that don't have errors.
+    # the report.xml will have all the operations that were in overrides.xml including new generated operations.
+    # if the report.xml is generated, rename it to overrides.xml so that auto-configured operations are included during cmdlet generation.
+    try {
+      Write-Host "Generating report.xml"
+      # build-report-only generates report.xml only when there is a new operation and
+      # there are no errors during auto-generation of the buildconfig
+      dotnet msbuild ./buildtools/build.proj /t:build-report-only `
+        /p:CleanSdkReferences=false `
+        /p:BreakOnNewOperations=false `
+        /p:Configuration=$Configuration
+    }
+    catch {
+      # don't error out. The same failure would be caught in the later step and reported.
+      Write-Host "failed generating report.xml"
+      Write-Host $_.Exception.Message
+    }
+
+    if (Test-Path 'report.xml') {
+      Write-Host "report.xml generated. renaming report.xml to overrides.xml"
+      if (Test-Path 'overrides.xml') {
+        Remove-Item 'overrides.xml'
+      }
+      Rename-Item -Path 'report.xml' -NewName 'overrides.xml'
+    }
+    else {
+      Write-Host "report.xml not generated"
+    }
+    
+    
     if ($RunAsStagingBuild -eq 'true') {
       msbuild ./buildtools/build.proj `
         /t:staging-build `

@@ -14,7 +14,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
 {
     class XmlReportWriter
     {
-        public static void SerializeReport(string folderPath, IEnumerable<ConfigModel> models)
+        public static void SerializeReport(string folderPath, IEnumerable<ConfigModel> models, bool generateReportOnly)
         {
             if (!Directory.Exists(folderPath))
             {
@@ -39,6 +39,11 @@ namespace AWSPowerShellGenerator.ServiceConfig
                         overrides.ContainsKey(configModel.C2jFilename) ||
                         configModel.ServiceOperationsList.Where(op => op.IsAutoConfiguring || op.AnalysisErrors.Any()).Any())
                     .ToArray();
+                bool hasErrors = models.Any(configModel =>
+                    configModel.AnalysisErrors.Any() ||
+                    configModel.ServiceOperationsList.Any(op => op.AnalysisErrors.Any()));
+
+                bool hasNewOperations = models.Any(model => model.ServiceOperationsList.Any(op => op.IsAutoConfiguring));
 
                 var doc = new XDocument();
 
@@ -179,7 +184,19 @@ namespace AWSPowerShellGenerator.ServiceConfig
                     }
                 }
 
-                doc.Save(filename);
+                if (!generateReportOnly)
+                {
+                    doc.Save(filename);
+                }
+                else if (hasNewOperations && !hasErrors)
+                {
+                    Console.WriteLine("New operations were auto-configured without errors and saved in report.xml");
+                    doc.Save(filename);
+                }
+                else
+                {
+                    Console.WriteLine($"Skipping saving report: hasNewOperations:{hasNewOperations}, hasErrors: {hasErrors} ");
+                }
             }
             catch (Exception e)
             {

@@ -207,7 +207,7 @@ namespace AWSPowerShellGenerator.Generators
 
             CheckForServicePrefixDuplication();
 
-            if (!Options.SkipCmdletGeneration)
+            if (!Options.SkipCmdletGeneration || Options.GenerateReportOnly)
             {
                 //We clean and setup service folders, some services share a folder, project and module, so we use distinct
                 foreach (var project in ModelCollection.ConfigModels.Values
@@ -238,7 +238,7 @@ namespace AWSPowerShellGenerator.Generators
                     LoadCurrentService(CurrentModel);
                     DocumentationUtils.CacheMemberDocumentationSummary(CurrentServiceNDoc);
 
-                    if (!Options.SkipCmdletGeneration)
+                    if (!Options.SkipCmdletGeneration || Options.GenerateReportOnly)
                     {
                         GenerateClientAndCmdlets();
                         // if the service contains any hand-maintained cmdlets, scan them to update the
@@ -259,7 +259,11 @@ namespace AWSPowerShellGenerator.Generators
             var allFoundSdkAssemblies = GenerationSources.SDKFindAssemblyFilenames(SdkAssembliesFolder, Directory.EnumerateFiles);
             VerifyAllAssembliesHaveConfiguration(SdkVersionsUtils.ReadSdkVersionFile(SdkAssembliesFolder), ModelCollection, allFoundSdkAssemblies);
 
-            if (!Options.SkipCmdletGeneration)
+            if (Options.GenerateReportOnly)
+            {
+                WriteConfigurationChanges();
+            }
+            else if (!Options.SkipCmdletGeneration)
             {
                 ScanAdvancedCmdletsForCommonModule();
 
@@ -291,6 +295,15 @@ namespace AWSPowerShellGenerator.Generators
 
             foreach (var configModel in ModelCollection.ConfigModels.Values)
             {
+                // if Options.GenerateReportOnly, clear AnalysisErrors at model level and ServiceOperations Level
+                if (Options.GenerateReportOnly)
+                {
+                    configModel.AnalysisErrors.Clear();
+                    foreach (var operation in configModel.ServiceOperationsList)
+                    {
+                        operation.AnalysisErrors.Clear();
+                    }
+                }
                 foreach (var error in configModel.AnalysisErrors.Concat(
                       configModel.ServiceOperationsList
                           .OrderBy(so => so.MethodName)
@@ -360,7 +373,7 @@ namespace AWSPowerShellGenerator.Generators
 
         private void WriteConfigurationChanges()
         {
-            XmlReportWriter.SerializeReport(Options.RootPath, ModelCollection.ConfigModels.Values);
+            XmlReportWriter.SerializeReport(Options.RootPath, ModelCollection.ConfigModels.Values, Options.GenerateReportOnly);
         }
 
         private void CheckForServicePrefixDuplication()
@@ -445,29 +458,32 @@ namespace AWSPowerShellGenerator.Generators
 
             var outputRoot = Path.Combine(CmdletsOutputPath, CurrentModel.AssemblyName);
 
-            try
+            if (!Options.GenerateReportOnly)
             {
-                using (var sw = new StringWriter())
+                try
                 {
-                    // if the service has operations requiring anonymous access, we'll generate two clients
-                    // one for regular authenticated calls and one using anonymous credentials
-                    using (var writer = new IndentedTextWriter(sw))
+                    using (var sw = new StringWriter())
                     {
-                        CmdletServiceClientWriter.Write(writer,
-                                                        CurrentModel,
-                                                        CurrentModel.ServiceName,
-                                                        GetServiceVersion(CurrentModel.ServiceNamespace, CurrentModel.ServiceClient),
-                                                        awsSignerAttributeTypeValue);
-                    }
+                        // if the service has operations requiring anonymous access, we'll generate two clients
+                        // one for regular authenticated calls and one using anonymous credentials
+                        using (var writer = new IndentedTextWriter(sw))
+                        {
+                            CmdletServiceClientWriter.Write(writer,
+                                CurrentModel,
+                                CurrentModel.ServiceName,
+                                GetServiceVersion(CurrentModel.ServiceNamespace, CurrentModel.ServiceClient),
+                                awsSignerAttributeTypeValue);
+                        }
 
-                    var fileContents = sw.ToString();
-                    var fileName = CurrentModel.GetServiceCmdletClassName(false) + "Cmdlet.cs";
-                    File.WriteAllText(Path.Combine(outputRoot, fileName), fileContents);
+                        var fileContents = sw.ToString();
+                        var fileName = CurrentModel.GetServiceCmdletClassName(false) + "Cmdlet.cs";
+                        File.WriteAllText(Path.Combine(outputRoot, fileName), fileContents);
+                    }
                 }
-            }
-            catch (Exception e)
-            {
-                AnalysisError.ExceptionWhileWritingServiceClientCode(CurrentModel, e);
+                catch (Exception e)
+                {
+                    AnalysisError.ExceptionWhileWritingServiceClientCode(CurrentModel, e);
+                }
             }
 
             // process the methods in order to make debugging more convenient
@@ -631,7 +647,7 @@ namespace AWSPowerShellGenerator.Generators
                 AnalysisError.ExceptionWhileAnalyzingSDKLibrary(CurrentModel, CurrentOperation, e);
             }
 
-            if (serviceOperation.AnalysisErrors.Count == 0)
+            if (serviceOperation.AnalysisErrors.Count == 0 && !Options.GenerateReportOnly)
             {
                 // set file name and location
                 var filePath = Path.Combine(configModel.AssemblyName, GeneratedCmdletsFoldername, $"{serviceOperation.SelectedVerb}-{serviceOperation.SelectedNoun}-Cmdlet.cs");
