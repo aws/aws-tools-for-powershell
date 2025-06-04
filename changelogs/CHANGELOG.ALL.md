@@ -1,4 +1,12 @@
-﻿### 4.1.833 (2025-06-03 20:00Z)
+﻿### 4.1.834 (2025-06-04 20:35Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1058.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic VMware Service. Added cmdlets to support the service. Cmdlets for the service have the noun prefix EVS and can be listed using the command 'Get-AWSCmdletName -Service EVS'.
+  * Amazon Invoicing
+    * Added cmdlet Get-INVInvoiceSummaryList leveraging the ListInvoiceSummaries service API.
+  * Amazon Network Firewall
+    * Modified cmdlet Update-NWFWLoggingConfiguration: added parameter EnableMonitoringDashboard.
+
+### 4.1.833 (2025-06-03 20:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1057.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon API Gateway
     * Modified cmdlet New-AGDomainName: added parameter RoutingMode.

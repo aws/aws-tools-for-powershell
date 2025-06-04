@@ -153,7 +153,7 @@ $TRS_Completers = {
         # Amazon.TranscribeService.MedicalScribeNoteTemplate
         "Start-TRSMedicalScribeJob/ClinicalNoteGenerationSettings_NoteTemplate"
         {
-            $v = "GIRPP","HISTORY_AND_PHYSICAL"
+            $v = "BEHAVIORAL_SOAP","BIRP","DAP","GIRPP","HISTORY_AND_PHYSICAL","PHYSICAL_SOAP","SIRP"
             break
         }
 

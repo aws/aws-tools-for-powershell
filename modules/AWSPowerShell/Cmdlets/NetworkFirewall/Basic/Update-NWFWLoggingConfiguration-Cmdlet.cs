@@ -65,6 +65,21 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter EnableMonitoringDashboard
+        /// <summary>
+        /// <para>
+        /// <para>A boolean that lets you enable or disable the detailed firewall monitoring dashboard
+        /// on the firewall. </para><para>The monitoring dashboard provides comprehensive visibility into your firewall's flow
+        /// logs and alert logs. After you enable detailed monitoring, you can access these dashboards
+        /// directly from the <b>Monitoring</b> page of the Network Firewall console.</para><para> Specify <c>TRUE</c> to enable the the detailed monitoring dashboard on the firewall.
+        /// Specify <c>FALSE</c> to disable the the detailed monitoring dashboard on the firewall.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableMonitoringDashboard { get; set; }
+        #endregion
+        
         #region Parameter FirewallArn
         /// <summary>
         /// <para>
@@ -160,6 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 context.Select = (response, cmdlet) => this.FirewallArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.EnableMonitoringDashboard = this.EnableMonitoringDashboard;
             context.FirewallArn = this.FirewallArn;
             context.FirewallName = this.FirewallName;
             if (this.LoggingConfiguration_LogDestinationConfig != null)
@@ -182,6 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             // create request
             var request = new Amazon.NetworkFirewall.Model.UpdateLoggingConfigurationRequest();
             
+            if (cmdletContext.EnableMonitoringDashboard != null)
+            {
+                request.EnableMonitoringDashboard = cmdletContext.EnableMonitoringDashboard.Value;
+            }
             if (cmdletContext.FirewallArn != null)
             {
                 request.FirewallArn = cmdletContext.FirewallArn;
@@ -270,6 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? EnableMonitoringDashboard { get; set; }
             public System.String FirewallArn { get; set; }
             public System.String FirewallName { get; set; }
             public List<Amazon.NetworkFirewall.Model.LogDestinationConfig> LoggingConfiguration_LogDestinationConfig { get; set; }

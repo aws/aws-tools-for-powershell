@@ -72,18 +72,25 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service AWS Invoicing
+# Argument completions for service Amazon Elastic VMware Service
 
 
-$INV_Completers = {
+$EVS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
     switch ($("$commandName/$parameterName"))
     {
-        # Amazon.Invoicing.ListInvoiceSummariesResourceType
-        "Get-INVInvoiceSummaryList/Selector_ResourceType"
+        # Amazon.Evs.InstanceType
+        "New-EVSEnvironmentHost/Host_InstanceType"
         {
-            $v = "ACCOUNT_ID","INVOICE_ID"
+            $v = "i4i.metal"
+            break
+        }
+
+        # Amazon.Evs.VcfVersion
+        "New-EVSEnvironment/VcfVersion"
+        {
+            $v = "VCF-5.2.1"
             break
         }
 
@@ -95,16 +102,17 @@ $INV_Completers = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$INV_map = @{
-    "Selector_ResourceType"=@("Get-INVInvoiceSummaryList")
+$EVS_map = @{
+    "Host_InstanceType"=@("New-EVSEnvironmentHost")
+    "VcfVersion"=@("New-EVSEnvironment")
 }
 
-_awsArgumentCompleterRegistration $INV_Completers $INV_map
+_awsArgumentCompleterRegistration $EVS_Completers $EVS_map
 
-$INV_SelectCompleters = {
+$EVS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
-    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.INV.$($commandName.Replace('-', ''))Cmdlet]"
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.EVS.$($commandName.Replace('-', ''))Cmdlet]"
     if (-not $cmdletType) {
         return
     }
@@ -148,18 +156,19 @@ $INV_SelectCompleters = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$INV_SelectMap = @{
-    "Select"=@("Get-INVBatchInvoiceProfile",
-               "New-INVInvoiceUnit",
-               "Remove-INVInvoiceUnit",
-               "Get-INVInvoiceUnit",
-               "Get-INVInvoiceSummaryList",
-               "Get-INVInvoiceUnitList",
-               "Get-INVResourceTag",
-               "Add-INVResourceTag",
-               "Remove-INVResourceTag",
-               "Update-INVInvoiceUnit")
+$EVS_SelectMap = @{
+    "Select"=@("New-EVSEnvironment",
+               "New-EVSEnvironmentHost",
+               "Remove-EVSEnvironment",
+               "Remove-EVSEnvironmentHost",
+               "Get-EVSEnvironment",
+               "Get-EVSEnvironmentHostList",
+               "Get-EVSEnvironmentList",
+               "Get-EVSEnvironmentVlanList",
+               "Get-EVSResourceTag",
+               "Add-EVSResourceTag",
+               "Remove-EVSResourceTag")
 }
 
-_awsArgumentCompleterRegistration $INV_SelectCompleters $INV_SelectMap
+_awsArgumentCompleterRegistration $EVS_SelectCompleters $EVS_SelectMap
 

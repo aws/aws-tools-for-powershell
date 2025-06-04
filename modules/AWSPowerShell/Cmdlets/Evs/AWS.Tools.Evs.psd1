@@ -1,10 +1,10 @@
 #
-# Module manifest for module 'AWS.Tools.Invoicing'
+# Module manifest for module 'AWS.Tools.Evs'
 #
 
 @{
     # Script module or binary module file associated with this manifest
-    RootModule = 'AWS.Tools.Invoicing.dll'
+    RootModule = 'AWS.Tools.Evs.dll'
 
     # Supported PSEditions
     CompatiblePSEditions = @('Core', 'Desktop')
@@ -13,7 +13,7 @@
     ModuleVersion = '0.0.0.0'
 
     # ID used to uniquely identify this module
-    GUID = '7db56d47-2aeb-4f66-90f5-19a0d0c1b4e9'
+    GUID = '509fe8aa-ee38-4803-aaf5-be078c7914a6'
 
     # Author of this module
     Author = 'Amazon.com, Inc'
@@ -25,7 +25,7 @@
     Copyright = 'Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
-    Description = 'The Invoicing module of AWS Tools for PowerShell lets developers and administrators manage AWS Invoicing from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
+    Description = 'The Evs module of AWS Tools for PowerShell lets developers and administrators manage Amazon Elastic VMware Service from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
 The module AWS.Tools.Installer (https://www.powershellgallery.com/packages/AWS.Tools.Installer/) makes it easier to install, update and uninstall the AWS.Tools modules.
 This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5.1+ and PowerShell Core 6+ on Windows, Linux and macOS. When running on Windows PowerShell, .NET Framework 4.7.2 or newer is required. Alternative modules AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework.'
 
@@ -59,7 +59,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Assemblies that must be loaded prior to importing this module.
     RequiredAssemblies = @(
-        'AWSSDK.Invoicing.dll'
+        'AWSSDK.Evs.dll'
     )
 
     # Script files (.ps1) that are run in the caller's environment prior to importing this module
@@ -74,13 +74,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Format files (.ps1xml) to be loaded when importing this module
     FormatsToProcess = @(
-        'AWS.Tools.Invoicing.Format.ps1xml'
+        'AWS.Tools.Evs.Format.ps1xml'
     )
 
     # Modules to import as nested modules of the module specified in ModuleToProcess
     NestedModules = @(
-        'AWS.Tools.Invoicing.Completers.psm1',
-        'AWS.Tools.Invoicing.Aliases.psm1'
+        'AWS.Tools.Evs.Completers.psm1',
+        'AWS.Tools.Evs.Aliases.psm1'
     )
 
     # Functions to export from this module
@@ -88,16 +88,17 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
-        'Add-INVResourceTag', 
-        'Get-INVBatchInvoiceProfile', 
-        'Get-INVInvoiceSummaryList', 
-        'Get-INVInvoiceUnit', 
-        'Get-INVInvoiceUnitList', 
-        'Get-INVResourceTag', 
-        'New-INVInvoiceUnit', 
-        'Remove-INVInvoiceUnit', 
-        'Remove-INVResourceTag', 
-        'Update-INVInvoiceUnit')
+        'Add-EVSResourceTag', 
+        'Get-EVSEnvironment', 
+        'Get-EVSEnvironmentHostList', 
+        'Get-EVSEnvironmentList', 
+        'Get-EVSEnvironmentVlanList', 
+        'Get-EVSResourceTag', 
+        'New-EVSEnvironment', 
+        'New-EVSEnvironmentHost', 
+        'Remove-EVSEnvironment', 
+        'Remove-EVSEnvironmentHost', 
+        'Remove-EVSResourceTag')
 
     # Variables to export from this module
     VariablesToExport = '*'
@@ -110,7 +111,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # List of all files packaged with this module
     FileList = @(
-        'AWS.Tools.Invoicing.dll-Help.xml'
+        'AWS.Tools.Evs.dll-Help.xml'
     )
 
     # Private data to pass to the module specified in ModuleToProcess
