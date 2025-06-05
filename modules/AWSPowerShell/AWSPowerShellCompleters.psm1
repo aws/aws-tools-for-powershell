@@ -43381,6 +43381,20 @@ $KMS_Completers = {
             break
         }
 
+        # Amazon.KeyManagementService.ImportType
+        "Import-KMSKeyMaterial/ImportType"
+        {
+            $v = "EXISTING_KEY_MATERIAL","NEW_KEY_MATERIAL"
+            break
+        }
+
+        # Amazon.KeyManagementService.IncludeKeyMaterial
+        "Get-KMSKeyRotation/IncludeKeyMaterial"
+        {
+            $v = "ALL_KEY_MATERIAL","ROTATIONS_ONLY"
+            break
+        }
+
         # Amazon.KeyManagementService.KeyAgreementAlgorithmSpec
         "Get-KMSSharedSecret/KeyAgreementAlgorithm"
         {
@@ -43483,6 +43497,8 @@ $KMS_map = @{
     "DestinationEncryptionAlgorithm"=@("Invoke-KMSReEncrypt")
     "EncryptionAlgorithm"=@("Invoke-KMSDecrypt","Invoke-KMSEncrypt")
     "ExpirationModel"=@("Import-KMSKeyMaterial")
+    "ImportType"=@("Import-KMSKeyMaterial")
+    "IncludeKeyMaterial"=@("Get-KMSKeyRotation")
     "KeyAgreementAlgorithm"=@("Get-KMSSharedSecret")
     "KeyPairSpec"=@("New-KMSDataKeyPair","New-KMSDataKeyPairWithoutPlaintext")
     "KeySpec"=@("New-KMSDataKey","New-KMSDataKeyWithoutPlaintext","New-KMSKey")

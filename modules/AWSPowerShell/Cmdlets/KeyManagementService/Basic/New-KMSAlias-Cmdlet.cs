@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// for KMS</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para></note><para>
     /// You can use an alias to identify a KMS key in the KMS console, in the <a>DescribeKey</a>
-    /// operation and in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
+    /// operation and in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic
     /// operations</a>, such as <a>Encrypt</a> and <a>GenerateDataKey</a>. You can also change
     /// the KMS key that's associated with the alias (<a>UpdateAlias</a>) or delete the alias
     /// (<a>DeleteAlias</a>) at any time. These operations don't affect the underlying KMS
@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// a KMS key.
     /// </para><para>
     /// The alias must be unique in the account and Region, but you can have aliases with
-    /// the same name in different Regions. For detailed information about aliases, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html">Using
-    /// aliases</a> in the <i>Key Management Service Developer Guide</i>.
+    /// the same name in different Regions. For detailed information about aliases, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html">Aliases
+    /// in KMS</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para>
     /// This operation does not return a response. To get the alias that you created, use
     /// the <a>ListAliases</a> operation.
@@ -64,10 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para></li><li><para><a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:CreateAlias</a>
     /// on the KMS key (key policy).
     /// </para></li></ul><para>
-    /// For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html#alias-access">Controlling
+    /// For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/alias-access.html">Controlling
     /// access to aliases</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>DeleteAlias</a></para></li><li><para><a>ListAliases</a></para></li><li><para><a>UpdateAlias</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
-    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS
     /// eventual consistency</a>.
     /// </para>
     /// </summary>
@@ -111,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>Associates the alias with the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer
         /// managed key</a>. The KMS key must be in the same Amazon Web Services Region. </para><para>A valid key ID is required. If you supply a null or empty string value, this operation
-        /// returns an error.</para><para>For help finding the key ID and ARN, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn">Finding
-        /// the Key ID and ARN</a> in the <i><i>Key Management Service Developer Guide</i></i>.</para><para>Specify the key ID or key ARN of the KMS key.</para><para>For example:</para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// returns an error.</para><para>For help finding the key ID and ARN, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/find-cmk-id-arn.html">Find
+        /// the key ID and key ARN</a> in the <i><i>Key Management Service Developer Guide</i></i>.</para><para>Specify the key ID or key ARN of the KMS key.</para><para>For example:</para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

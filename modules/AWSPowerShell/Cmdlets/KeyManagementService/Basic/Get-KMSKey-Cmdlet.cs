@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// Whether automatic key rotation is enabled on the KMS key. To get this information,
     /// use <a>GetKeyRotationStatus</a>. Also, some key states prevent a KMS key from being
     /// automatically rotated. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotate-keys-how-it-works">How
-    /// Automatic Key Rotation Works</a> in the <i>Key Management Service Developer Guide</i>.
+    /// key rotation works</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para></li><li><para>
     /// Tags on the KMS key. To get this information, use <a>ListResourceTags</a>.
     /// </para></li><li><para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DescribeKey</a>
     /// (key policy)
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>GetKeyPolicy</a></para></li><li><para><a>GetKeyRotationStatus</a></para></li><li><para><a>ListAliases</a></para></li><li><para><a>ListGrants</a></para></li><li><para><a>ListKeys</a></para></li><li><para><a>ListResourceTags</a></para></li><li><para><a>ListRetirableGrants</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
-    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS
     /// eventual consistency</a>.
     /// </para>
     /// </summary>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>A list of grant tokens.</para><para>Use a grant token when your permission to call this operation comes from a new grant
         /// that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant
-        /// token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using
+        /// token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using
         /// a grant token</a> in the <i>Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>

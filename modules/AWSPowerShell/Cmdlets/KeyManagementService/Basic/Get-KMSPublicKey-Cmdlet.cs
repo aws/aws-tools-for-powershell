@@ -50,9 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// The type of key material in the public key, such as <c>RSA_4096</c> or <c>ECC_NIST_P521</c>.
     /// </para></li><li><para><a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html#KMS-GetPublicKey-response-KeyUsage">KeyUsage</a>:
     /// Whether the key is used for encryption, signing, or deriving a shared secret.
-    /// </para></li><li><para><a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html#KMS-GetPublicKey-response-EncryptionAlgorithms">EncryptionAlgorithms</a>
+    /// </para></li><li><para><a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html#KMS-GetPublicKey-response-EncryptionAlgorithms">EncryptionAlgorithms</a>,
+    /// <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html#KMS-GetPublicKey-response-KeyAgreementAlgorithms">KeyAgreementAlgorithms</a>,
     /// or <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html#KMS-GetPublicKey-response-SigningAlgorithms">SigningAlgorithms</a>:
-    /// A list of the encryption algorithms or the signing algorithms for the key.
+    /// A list of the encryption algorithms, key agreement algorithms, or signing algorithms
+    /// for the key.
     /// </para></li></ul><para>
     /// Although KMS cannot enforce these restrictions on external operations, it is crucial
     /// that you use this information to prevent the public key from being used improperly.
@@ -63,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para>
     /// To verify a signature outside of KMS with an SM2 public key (China Regions only),
     /// you must specify the distinguishing ID. By default, KMS uses <c>1234567812345678</c>
-    /// as the distinguishing ID. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline
+    /// as the distinguishing ID. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/offline-operations.html#key-spec-sm-offline-verification">Offline
     /// verification with SM2 key pairs</a>.
     /// </para><para>
     /// The KMS key that you use for this operation must be in a compatible key state. For
@@ -75,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GetPublicKey</a>
     /// (key policy)
     /// </para><para><b>Related operations</b>: <a>CreateKey</a></para><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
-    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS
     /// eventual consistency</a>.
     /// </para>
     /// </summary>
@@ -95,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>A list of grant tokens.</para><para>Use a grant token when your permission to call this operation comes from a new grant
         /// that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant
-        /// token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using
+        /// token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using
         /// a grant token</a> in the <i>Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>

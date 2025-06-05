@@ -28,23 +28,23 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Disconnects the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
+    /// Disconnects the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom
     /// key store</a> from its backing key store. This operation disconnects an CloudHSM key
     /// store from its associated CloudHSM cluster or disconnects an external key store from
     /// the external key store proxy that communicates with your external key manager.
     /// 
     ///  
     /// <para>
-    ///  This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
-    /// key stores</a> feature in KMS, which combines the convenience and extensive integration
-    /// of KMS with the isolation and control of a key store that you own and manage.
+    ///  This operation is part of the custom key stores feature in KMS, which combines the
+    /// convenience and extensive integration of KMS with the isolation and control of a key
+    /// store that you own and manage.
     /// </para><para>
     /// While a custom key store is disconnected, you can manage the custom key store and
     /// its KMS keys, but you cannot create or use its KMS keys. You can reconnect the custom
     /// key store at any time.
     /// </para><note><para>
     /// While a custom key store is disconnected, all attempts to create KMS keys in the custom
-    /// key store or to use existing KMS keys in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
+    /// key store or to use existing KMS keys in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic
     /// operations</a> will fail. This action can prevent users from storing and accessing
     /// sensitive data.
     /// </para></note><para>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DisconnectCustomKeyStore</a>
     /// (IAM policy)
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>ConnectCustomKeyStore</a></para></li><li><para><a>CreateCustomKeyStore</a></para></li><li><para><a>DeleteCustomKeyStore</a></para></li><li><para><a>DescribeCustomKeyStores</a></para></li><li><para><a>UpdateCustomKeyStore</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
-    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS
     /// eventual consistency</a>.
     /// </para>
     /// </summary>

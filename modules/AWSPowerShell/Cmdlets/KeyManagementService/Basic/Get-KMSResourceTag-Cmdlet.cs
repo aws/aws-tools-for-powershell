@@ -34,14 +34,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// <para>
     /// For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
     /// Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.
-    /// For information about using tags in KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging
-    /// keys</a>.
+    /// For information about using tags in KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tags
+    /// in KMS</a>.
     /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a
     /// different Amazon Web Services account.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListResourceTags</a>
     /// (key policy)
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>CreateKey</a></para></li><li><para><a>ReplicateKey</a></para></li><li><para><a>TagResource</a></para></li><li><para><a>UntagResource</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
-    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS
     /// eventual consistency</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

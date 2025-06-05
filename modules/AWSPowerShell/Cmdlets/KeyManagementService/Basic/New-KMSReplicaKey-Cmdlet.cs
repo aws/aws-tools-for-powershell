@@ -47,18 +47,15 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// A <i>replica key</i> is a fully-functional KMS key that can be used independently
     /// of its primary and peer replica keys. A primary key and its replica keys share properties
     /// that make them interoperable. They have the same <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">key
-    /// ID</a> and key material. They also have the same <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-spec">key
-    /// spec</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-usage">key
-    /// usage</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-origin">key
-    /// material origin</a>, and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic
-    /// key rotation status</a>. KMS automatically synchronizes these shared properties among
-    /// related multi-Region keys. All other properties of a replica key can differ, including
-    /// its <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">key
+    /// ID</a> and key material. They also have the same key spec, key usage, key material
+    /// origin, and automatic key rotation status. KMS automatically synchronizes these shared
+    /// properties among related multi-Region keys. All other properties of a replica key
+    /// can differ, including its <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">key
     /// policy</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">tags</a>,
     /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html">aliases</a>,
-    /// and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
-    /// states of KMS keys</a>. KMS pricing and quotas for KMS keys apply to each primary
-    /// key and replica key.
+    /// and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">key
+    /// state</a>. KMS pricing and quotas for KMS keys apply to each primary key and replica
+    /// key.
     /// </para><para>
     /// When this operation completes, the new replica key has a transient key state of <c>Creating</c>.
     /// This key state changes to <c>Enabled</c> (or <c>PendingImport</c>) after a few seconds
@@ -83,9 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para>
     /// If you replicate a multi-Region primary key with imported key material, the replica
     /// key is created with no key material. You must import the same key material that you
-    /// imported into the primary key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-import.html">Importing
-    /// key material into multi-Region keys</a> in the <i>Key Management Service Developer
-    /// Guide</i>.
+    /// imported into the primary key.
     /// </para><para>
     /// To convert a replica key to a primary key, use the <a>UpdatePrimaryRegion</a> operation.
     /// </para><note><para><c>ReplicateKey</c> uses different default values for the <c>KeyPolicy</c> and <c>Tags</c>
@@ -100,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// To use the <c>Tags</c> parameter, <c>kms:TagResource</c> in an IAM policy in the replica
     /// Region.
     /// </para></li></ul><para><b>Related operations</b></para><ul><li><para><a>CreateKey</a></para></li><li><para><a>UpdatePrimaryRegion</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
-    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS
     /// eventual consistency</a>.
     /// </para>
     /// </summary>
@@ -165,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>The key policy to attach to the KMS key. This parameter is optional. If you do not
-        /// provide a key policy, KMS attaches the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">default
+        /// provide a key policy, KMS attaches the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html">default
         /// key policy</a> to the KMS key.</para><para>The key policy is not a shared property of multi-Region keys. You can specify the
         /// same key policy or a different key policy for each key in a set of related multi-Region
         /// keys. KMS does not synchronize this property.</para><para>If you provide a key policy, it must meet the following criteria:</para><ul><li><para>The key policy must allow the calling principal to make a subsequent <c>PutKeyPolicy</c>
@@ -196,11 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>The Region ID of the Amazon Web Services Region for this replica key. </para><para>Enter the Region ID, such as <c>us-east-1</c> or <c>ap-southeast-2</c>. For a list
         /// of Amazon Web Services Regions in which KMS is supported, see <a href="https://docs.aws.amazon.com/general/latest/gr/kms.html#kms_region">KMS
-        /// service endpoints</a> in the <i>Amazon Web Services General Reference</i>.</para><note><para>HMAC KMS keys are not supported in all Amazon Web Services Regions. If you try to
-        /// replicate an HMAC KMS key in an Amazon Web Services Region in which HMAC keys are
-        /// not supported, the <c>ReplicateKey</c> operation returns an <c>UnsupportedOperationException</c>.
-        /// For a list of Regions in which HMAC KMS keys are supported, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC
-        /// keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</para></note><para>The replica must be in a different Amazon Web Services Region than its primary key
+        /// service endpoints</a> in the <i>Amazon Web Services General Reference</i>.</para><para>The replica must be in a different Amazon Web Services Region than its primary key
         /// and other replicas of that primary key, but in the same Amazon Web Services partition.
         /// KMS must be available in the replica Region. If the Region is not enabled by default,
         /// the Amazon Web Services account must be enabled in the Region. For information about
@@ -238,8 +229,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// with a different tag value, KMS replaces the current tag value with the specified
         /// one.</para><para>When you add tags to an Amazon Web Services resource, Amazon Web Services generates
         /// a cost allocation report with usage and costs aggregated by tags. Tags can also be
-        /// used to control access to a KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging
-        /// Keys</a>.</para>
+        /// used to control access to a KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tags
+        /// in KMS</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

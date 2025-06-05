@@ -28,7 +28,7 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Creates a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
+    /// Creates a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom
     /// key store</a> backed by a key store that you own and manage. When you use a KMS key
     /// in a custom key store for a cryptographic operation, the cryptographic operation is
     /// actually performed in your key store using your keys. KMS supports <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html">CloudHSM
@@ -39,9 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// 
     ///  
     /// <para>
-    ///  This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
-    /// key stores</a> feature in KMS, which combines the convenience and extensive integration
-    /// of KMS with the isolation and control of a key store that you own and manage.
+    ///  This operation is part of the custom key stores feature in KMS, which combines the
+    /// convenience and extensive integration of KMS with the isolation and control of a key
+    /// store that you own and manage.
     /// </para><para>
     /// Before you create the custom key store, the required elements must be in place and
     /// operational. We recommend that you use the test tools that KMS provides to verify
@@ -84,15 +84,12 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// Even if you are not going to use your custom key store immediately, you might want
     /// to connect it to verify that all settings are correct and then disconnect it until
     /// you are ready to use it.
-    /// </para><para>
-    /// For help with failures, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html">Troubleshooting
-    /// a custom key store</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a custom key store
     /// in a different Amazon Web Services account.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:CreateCustomKeyStore</a>
     /// (IAM policy).
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>ConnectCustomKeyStore</a></para></li><li><para><a>DeleteCustomKeyStore</a></para></li><li><para><a>DescribeCustomKeyStores</a></para></li><li><para><a>DisconnectCustomKeyStore</a></para></li><li><para><a>UpdateCustomKeyStore</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
-    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS
     /// eventual consistency</a>.
     /// </para>
     /// </summary>
@@ -171,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Specifies the <c>kmsuser</c> password for an CloudHSM key store. This parameter is
-        /// required for custom key stores with a <c>CustomKeyStoreType</c> of <c>AWS_CLOUDHSM</c>.</para><para>Enter the password of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser"><c>kmsuser</c> crypto user (CU) account</a> in the specified CloudHSM cluster. KMS
+        /// required for custom key stores with a <c>CustomKeyStoreType</c> of <c>AWS_CLOUDHSM</c>.</para><para>Enter the password of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html#concept-kmsuser"><c>kmsuser</c> crypto user (CU) account</a> in the specified CloudHSM cluster. KMS
         /// logs into the cluster as this user to manage key material on your behalf.</para><para>The password must be a string of 7 to 32 characters. Its value is case sensitive.</para><para>This parameter tells KMS the <c>kmsuser</c> account password; it does not change the
         /// password in the CloudHSM cluster.</para>
         /// </para>
@@ -210,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>Indicates how KMS communicates with the external key store proxy. This parameter is
         /// required for custom key stores with a <c>CustomKeyStoreType</c> of <c>EXTERNAL_KEY_STORE</c>.</para><para>If the external key store proxy uses a public endpoint, specify <c>PUBLIC_ENDPOINT</c>.
         /// If the external key store proxy uses a Amazon VPC endpoint service for communication
-        /// with KMS, specify <c>VPC_ENDPOINT_SERVICE</c>. For help making this choice, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/plan-xks-keystore.html#choose-xks-connectivity">Choosing
+        /// with KMS, specify <c>VPC_ENDPOINT_SERVICE</c>. For help making this choice, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/choose-xks-connectivity.html">Choosing
         /// a connectivity option</a> in the <i>Key Management Service Developer Guide</i>.</para><para>An Amazon VPC endpoint service keeps your communication with KMS in a private address
         /// space entirely within Amazon Web Services, but it requires more configuration, including
         /// establishing a Amazon VPC with multiple subnets, a VPC endpoint service, a network

@@ -29,23 +29,20 @@ namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
     /// Sets the state of a KMS key to disabled. This change temporarily prevents use of the
-    /// KMS key for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
+    /// KMS key for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic
     /// operations</a>. 
     /// 
     ///  
     /// <para>
-    /// For more information about how key state affects the use of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
-    /// states of KMS keys</a> in the <i><i>Key Management Service Developer Guide</i></i>.
-    /// </para><para>
     /// The KMS key that you use for this operation must be in a compatible key state. For
-    /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
-    /// states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
+    /// more information about how key state affects the use of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
+    /// states of KMS keys</a> in the <i><i>Key Management Service Developer Guide</i></i>.
     /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a
     /// different Amazon Web Services account.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DisableKey</a>
     /// (key policy)
     /// </para><para><b>Related operations</b>: <a>EnableKey</a></para><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
-    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS
     /// eventual consistency</a>.
     /// </para>
     /// </summary>

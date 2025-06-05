@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para>
     /// To verify a signature outside of KMS with an SM2 public key (China Regions only),
     /// you must specify the distinguishing ID. By default, KMS uses <c>1234567812345678</c>
-    /// as the distinguishing ID. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline
+    /// as the distinguishing ID. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/offline-operations.html#key-spec-sm-offline-verification">Offline
     /// verification with SM2 key pairs</a>.
     /// </para><para>
     /// The KMS key that you use for this operation must be in a compatible key state. For
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:Verify</a>
     /// (key policy)
     /// </para><para><b>Related operations</b>: <a>Sign</a></para><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
-    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS
     /// eventual consistency</a>.
     /// </para>
     /// </summary>
@@ -92,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>Checks if your request will succeed. <c>DryRun</c> is an optional parameter. </para><para>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
-        /// your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</para>
+        /// <para>Checks if your request will succeed. <c>DryRun</c> is an optional parameter. </para><para>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing
+        /// your permissions</a> in the <i>Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>A list of grant tokens.</para><para>Use a grant token when your permission to call this operation comes from a new grant
         /// that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant
-        /// token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using
+        /// token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using
         /// a grant token</a> in the <i>Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// so the digest is hashed again while signing. However, if the signed message is hashed
         /// once while signing, but twice while verifying, verification fails, even when the message
         /// hasn't changed.</para><para>The hashing algorithm in that <c>Verify</c> uses is based on the <c>SigningAlgorithm</c>
-        /// value.</para><ul><li><para>Signing algorithms that end in SHA_256 use the SHA_256 hashing algorithm.</para></li><li><para>Signing algorithms that end in SHA_384 use the SHA_384 hashing algorithm.</para></li><li><para>Signing algorithms that end in SHA_512 use the SHA_512 hashing algorithm.</para></li><li><para>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline
+        /// value.</para><ul><li><para>Signing algorithms that end in SHA_256 use the SHA_256 hashing algorithm.</para></li><li><para>Signing algorithms that end in SHA_384 use the SHA_384 hashing algorithm.</para></li><li><para>Signing algorithms that end in SHA_512 use the SHA_512 hashing algorithm.</para></li><li><para>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/offline-operations.html#key-spec-sm-offline-verification">Offline
         /// verification with SM2 key pairs</a>.</para></li></ul>
         /// </para>
         /// </summary>
