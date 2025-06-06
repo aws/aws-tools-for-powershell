@@ -75,7 +75,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AcceptReservedInstancesExchangeQuote" OutputProperty="ExchangeId" Verb="Approve" Noun="ReservedInstancesExchangeQuote" ShouldProcessTarget="ReservedInstanceIds" PipelineParameter="ReservedInstanceIds" NoPipelineParameter="false" LegacyAlias="Confirm-EC2ReservedInstancesExchangeQuote" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AcceptReservedInstancesExchangeQuote" OutputProperty="ExchangeId" Verb="Approve" Noun="ReservedInstancesExchangeQuote" ShouldProcessTarget="ReservedInstanceIds" PipelineParameter="ReservedInstanceIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Confirm-EC2ReservedInstancesExchangeQuote">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -83,19 +83,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AcceptTransitGatewayPeeringAttachment" OutputProperty="TransitGatewayPeeringAttachment" Verb="Approve" Noun="TransitGatewayPeeringAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false" LegacyAlias="Confirm-EC2TransitGatewayPeeringAttachment" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AcceptTransitGatewayPeeringAttachment" OutputProperty="TransitGatewayPeeringAttachment" Verb="Approve" Noun="TransitGatewayPeeringAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Confirm-EC2TransitGatewayPeeringAttachment">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AcceptTransitGatewayVpcAttachment" OutputProperty="TransitGatewayVpcAttachment" Verb="Approve" Noun="TransitGatewayVpcAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false" LegacyAlias="Confirm-EC2TransitGatewayVpcAttachment" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AcceptTransitGatewayVpcAttachment" OutputProperty="TransitGatewayVpcAttachment" Verb="Approve" Noun="TransitGatewayVpcAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Confirm-EC2TransitGatewayVpcAttachment">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AcceptVpcEndpointConnections" OutputProperty="Unsuccessful" Verb="Approve" Noun="EndpointConnection" ShouldProcessTarget="ServiceId" PipelineParameter="ServiceId" NoPipelineParameter="false" LegacyAlias="Confirm-EC2EndpointConnection" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AcceptVpcEndpointConnections" OutputProperty="Unsuccessful" Verb="Approve" Noun="EndpointConnection" ShouldProcessTarget="ServiceId" PipelineParameter="ServiceId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Confirm-EC2EndpointConnection">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AcceptVpcPeeringConnection" OutputProperty="VpcPeeringConnection" Verb="Approve" Noun="VpcPeeringConnection" ShouldProcessTarget="VpcPeeringConnectionId" PipelineParameter="VpcPeeringConnectionId" NoPipelineParameter="false" LegacyAlias="Confirm-EC2VpcPeeringConnection" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AcceptVpcPeeringConnection" OutputProperty="VpcPeeringConnection" Verb="Approve" Noun="VpcPeeringConnection" ShouldProcessTarget="VpcPeeringConnectionId" PipelineParameter="VpcPeeringConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Confirm-EC2VpcPeeringConnection">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -107,7 +107,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AllocateHosts" OutputProperty="HostIds" Verb="New" Noun="Host" ShouldProcessTarget="InstanceType" PipelineParameter="InstanceType" NoPipelineParameter="false" LegacyAlias="New-EC2Hosts" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AllocateHosts" OutputProperty="HostIds" Verb="New" Noun="Host" ShouldProcessTarget="InstanceType" PipelineParameter="InstanceType" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="New-EC2Hosts">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -191,7 +191,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateTransitGatewayPolicyTable" OutputProperty="Association" Verb="Register" Noun="TransitGatewayPolicyTable" IgnoreSupportsShouldProcess="true" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateTransitGatewayPolicyTable" OutputProperty="Association" Verb="Register" Noun="TransitGatewayPolicyTable" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -255,11 +255,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelCapacityReservationFleets" OutputProperty="*" Verb="Stop" Noun="CapacityReservationFleet" ShouldProcessTarget="CapacityReservationFleetIds" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelCapacityReservationFleets" OutputProperty="*" Verb="Stop" Noun="CapacityReservationFleet" ShouldProcessTarget="CapacityReservationFleetIds" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelConversionTask" Verb="" Noun="" Exclude="true" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CancelConversionTask" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -347,7 +347,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDefaultVpc" OutputProperty="Vpc" Verb="New" Noun="DefaultVpc"  AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateDefaultVpc" OutputProperty="Vpc" Verb="New" Noun="DefaultVpc" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -364,10 +364,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFleet" OutputProperty="*" Verb="New" Noun="Fleet" ShouldProcessTarget="LaunchTemplateConfigs" PipelineParameter="LaunchTemplateConfigs" NoPipelineParameter="false" LegacyV4Pagination="true">
-			<Params />
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFlowLogs" OutputProperty="*" Verb="New" Noun="FlowLog" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyAlias="New-EC2FlowLogs" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateFlowLogs" OutputProperty="*" Verb="New" Noun="FlowLog" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="New-EC2FlowLogs">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -391,7 +391,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInternetGateway" OutputProperty="InternetGateway" Verb="New" Noun="InternetGateway" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateInternetGateway" OutputProperty="InternetGateway" Verb="New" Noun="InternetGateway" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -471,7 +471,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateNetworkInsightsAccessScope" OutputProperty="*" Verb="New" Noun="NetworkInsightsAccessScope" ShouldProcessTarget="TagSpecifications" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateNetworkInsightsAccessScope" OutputProperty="*" Verb="New" Noun="NetworkInsightsAccessScope" ShouldProcessTarget="TagSpecifications" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -629,7 +629,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTransitGatewayRouteTableAnnouncement" OutputProperty="TransitGatewayRouteTableAnnouncement" Verb="New" Noun="TransitGatewayRouteTableAnnouncement" IgnoreSupportsShouldProcess="true" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateTransitGatewayRouteTableAnnouncement" OutputProperty="TransitGatewayRouteTableAnnouncement" Verb="New" Noun="TransitGatewayRouteTableAnnouncement" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -731,7 +731,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFlowLogs" OutputProperty="Unsuccessful" Verb="Remove" Noun="FlowLog" ShouldProcessTarget="FlowLogIds" PipelineParameter="FlowLogIds" NoPipelineParameter="false" LegacyAlias="Remove-EC2FlowLogs" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteFlowLogs" OutputProperty="Unsuccessful" Verb="Remove" Noun="FlowLog" ShouldProcessTarget="FlowLogIds" PipelineParameter="FlowLogIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Remove-EC2FlowLogs">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -889,7 +889,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSpotDatafeedSubscription" Verb="Remove" Noun="SpotDatafeedSubscription" ShouldProcessMsgNoun="Spot Datafeed Subscription" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteSpotDatafeedSubscription" Verb="Remove" Noun="SpotDatafeedSubscription" ShouldProcessMsgNoun="Spot Datafeed Subscription" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1055,7 +1055,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountAttributes" OutputProperty="AccountAttributes" Verb="Get" Noun="AccountAttribute" PipelineParameter="AttributeNames" NoPipelineParameter="false" LegacyAlias="Get-EC2AccountAttributes" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAccountAttributes" OutputProperty="AccountAttributes" Verb="Get" Noun="AccountAttribute" PipelineParameter="AttributeNames" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-EC2AccountAttributes">
             <Params>
                 <Param Name="AttributeNames" NewName="AttributeName" Alias="AccountAttributeNames" />
             </Params>
@@ -1069,11 +1069,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAddressTransfers" OutputProperty="AddressTransfers" Verb="Get" Noun="AddressTransfer" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAddressTransfers" OutputProperty="AddressTransfers" Verb="Get" Noun="AddressTransfer" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAggregateIdFormat" OutputProperty="*" Verb="Get" Noun="AggregateIdFormat" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAggregateIdFormat" OutputProperty="*" Verb="Get" Noun="AggregateIdFormat" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1081,7 +1081,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAwsNetworkPerformanceMetricSubscriptions" OutputProperty="Subscriptions" Verb="Get" Noun="AwsNetworkPerformanceMetricSubscription" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAwsNetworkPerformanceMetricSubscriptions" OutputProperty="Subscriptions" Verb="Get" Noun="AwsNetworkPerformanceMetricSubscription" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1089,19 +1089,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeByoipCidrs" OutputProperty="ByoipCidrs" Verb="Get" Noun="ByoipCidr" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeByoipCidrs" OutputProperty="ByoipCidrs" Verb="Get" Noun="ByoipCidr" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCapacityBlockExtensionHistory" OutputProperty="CapacityBlockExtensions" Verb="Get" Noun="CapacityBlockExtensionHistory" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCapacityBlockExtensionHistory" OutputProperty="CapacityBlockExtensions" Verb="Get" Noun="CapacityBlockExtensionHistory" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCapacityBlockExtensionOfferings" OutputProperty="CapacityBlockExtensionOfferings" Verb="Get" Noun="CapacityBlockExtensionOffering" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCapacityBlockExtensionOfferings" OutputProperty="CapacityBlockExtensionOfferings" Verb="Get" Noun="CapacityBlockExtensionOffering" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCapacityBlockOfferings" OutputProperty="CapacityBlockOfferings" Verb="Get" Noun="CapacityBlockOffering" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCapacityBlockOfferings" OutputProperty="CapacityBlockOfferings" Verb="Get" Noun="CapacityBlockOffering" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1109,47 +1109,47 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCapacityReservationFleets" OutputProperty="CapacityReservationFleets" Verb="Get" Noun="CapacityReservationFleet" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCapacityReservationFleets" OutputProperty="CapacityReservationFleets" Verb="Get" Noun="CapacityReservationFleet" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCapacityReservations" OutputProperty="CapacityReservations" Verb="Get" Noun="CapacityReservation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCapacityReservations" OutputProperty="CapacityReservations" Verb="Get" Noun="CapacityReservation" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCarrierGateways" OutputProperty="CarrierGateways" Verb="Get" Noun="CarrierGateway" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCarrierGateways" OutputProperty="CarrierGateways" Verb="Get" Noun="CarrierGateway" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClassicLinkInstances" OutputProperty="Instances" Verb="Get" Noun="ClassicLinkInstance" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeClassicLinkInstances" OutputProperty="Instances" Verb="Get" Noun="ClassicLinkInstance" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClientVpnAuthorizationRules" OutputProperty="AuthorizationRules" Verb="Get" Noun="ClientVpnAuthorizationRule" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeClientVpnAuthorizationRules" OutputProperty="AuthorizationRules" Verb="Get" Noun="ClientVpnAuthorizationRule" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClientVpnConnections" OutputProperty="Connections" Verb="Get" Noun="ClientVpnConnection" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeClientVpnConnections" OutputProperty="Connections" Verb="Get" Noun="ClientVpnConnection" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClientVpnEndpoints" OutputProperty="ClientVpnEndpoints" Verb="Get" Noun="ClientVpnEndpoint" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeClientVpnEndpoints" OutputProperty="ClientVpnEndpoints" Verb="Get" Noun="ClientVpnEndpoint" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClientVpnRoutes" OutputProperty="Routes" Verb="Get" Noun="ClientVpnRoute" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeClientVpnRoutes" OutputProperty="Routes" Verb="Get" Noun="ClientVpnRoute" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClientVpnTargetNetworks" OutputProperty="ClientVpnTargetNetworks" Verb="Get" Noun="ClientVpnTargetNetwork" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeClientVpnTargetNetworks" OutputProperty="ClientVpnTargetNetworks" Verb="Get" Noun="ClientVpnTargetNetwork" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCoipPools" OutputProperty="CoipPools" Verb="Get" Noun="CoipPool" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCoipPools" OutputProperty="CoipPools" Verb="Get" Noun="CoipPool" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConversionTasks" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeConversionTasks" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1157,51 +1157,51 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDeclarativePoliciesReports" OutputProperty="Reports" Verb="Get" Noun="DeclarativePoliciesReport" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDeclarativePoliciesReports" OutputProperty="Reports" Verb="Get" Noun="DeclarativePoliciesReport" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDhcpOptions" OutputProperty="DhcpOptions" Verb="Get" Noun="DhcpOption" PositionalParameters="Filters" PipelineParameter="DhcpOptionsIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDhcpOptions" OutputProperty="DhcpOptions" Verb="Get" Noun="DhcpOption" PositionalParameters="Filters" PipelineParameter="DhcpOptionsIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEgressOnlyInternetGateways" OutputProperty="EgressOnlyInternetGateways" Verb="Get" Noun="EgressOnlyInternetGatewayList" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeEgressOnlyInternetGateways" OutputProperty="EgressOnlyInternetGateways" Verb="Get" Noun="EgressOnlyInternetGatewayList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeElasticGpus" OutputProperty="ElasticGpuSet" Verb="Get" Noun="ElasticGpu" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeElasticGpus" OutputProperty="ElasticGpuSet" Verb="Get" Noun="ElasticGpu" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeExportImageTasks" OutputProperty="ExportImageTasks" Verb="Get" Noun="ExportImageTask" PipelineParameter="ExportImageTaskIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeExportImageTasks" OutputProperty="ExportImageTasks" Verb="Get" Noun="ExportImageTask" PipelineParameter="ExportImageTaskIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeExportTasks" OutputProperty="ExportTasks" Verb="Get" Noun="ExportTask" PipelineParameter="ExportTaskIds" NoPipelineParameter="false" LegacyAlias="Get-EC2ExportTasks" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeExportTasks" OutputProperty="ExportTasks" Verb="Get" Noun="ExportTask" PipelineParameter="ExportTaskIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-EC2ExportTasks">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFastLaunchImages" OutputProperty="FastLaunchImages" Verb="Get" Noun="FastLaunchImage" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeFastLaunchImages" OutputProperty="FastLaunchImages" Verb="Get" Noun="FastLaunchImage" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFastSnapshotRestores" OutputProperty="FastSnapshotRestores" Verb="Get" Noun="FastSnapshotRestore" PipelineParameter="Filters" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeFastSnapshotRestores" OutputProperty="FastSnapshotRestores" Verb="Get" Noun="FastSnapshotRestore" PipelineParameter="Filters" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleetHistory" OutputProperty="HistoryRecords" Verb="Get" Noun="FleetHistory" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-			<Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleetInstances" OutputProperty="ActiveInstances" Verb="Get" Noun="FleetInstanceList" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeFleetHistory" OutputProperty="HistoryRecords" Verb="Get" Noun="FleetHistory" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleets" OutputProperty="Fleets" Verb="Get" Noun="FleetList" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeFleetInstances" OutputProperty="ActiveInstances" Verb="Get" Noun="FleetInstanceList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFlowLogs" OutputProperty="FlowLogs" Verb="Get" Noun="FlowLog" PipelineParameter="FlowLogIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-EC2FlowLogs" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeFleets" OutputProperty="Fleets" Verb="Get" Noun="FleetList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFlowLogs" OutputProperty="FlowLogs" Verb="Get" Noun="FlowLog" PipelineParameter="FlowLogIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-EC2FlowLogs">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1209,23 +1209,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFpgaImages" OutputProperty="FpgaImages" Verb="Get" Noun="FpgaImage" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeFpgaImages" OutputProperty="FpgaImages" Verb="Get" Noun="FpgaImage" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeHostReservationOfferings" OutputProperty="OfferingSet" Verb="Get" Noun="HostReservationOffering" PipelineParameter="OfferingId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeHostReservationOfferings" OutputProperty="OfferingSet" Verb="Get" Noun="HostReservationOffering" PipelineParameter="OfferingId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeHostReservations" OutputProperty="HostReservationSet" Verb="Get" Noun="HostReservation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeHostReservations" OutputProperty="HostReservationSet" Verb="Get" Noun="HostReservation" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeHosts" OutputProperty="Hosts" Verb="Get" Noun="Host" PipelineParameter="HostIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-EC2Hosts" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeHosts" OutputProperty="Hosts" Verb="Get" Noun="Host" PipelineParameter="HostIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-EC2Hosts">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIamInstanceProfileAssociations" OutputProperty="IamInstanceProfileAssociations" Verb="Get" Noun="IamInstanceProfileAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeIamInstanceProfileAssociations" OutputProperty="IamInstanceProfileAssociations" Verb="Get" Noun="IamInstanceProfileAssociation" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1247,11 +1247,11 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImportImageTasks" OutputProperty="ImportImageTasks" Verb="Get" Noun="ImportImageTask" PipelineParameter="ImportTaskIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeImportImageTasks" OutputProperty="ImportImageTasks" Verb="Get" Noun="ImportImageTask" PipelineParameter="ImportTaskIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImportSnapshotTasks" OutputProperty="ImportSnapshotTasks" Verb="Get" Noun="ImportSnapshotTask" PipelineParameter="ImportTaskIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeImportSnapshotTasks" OutputProperty="ImportSnapshotTasks" Verb="Get" Noun="ImportSnapshotTask" PipelineParameter="ImportTaskIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1259,79 +1259,79 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceConnectEndpoints" OutputProperty="InstanceConnectEndpoints" Verb="Get" Noun="InstanceConnectEndpoint" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeInstanceConnectEndpoints" OutputProperty="InstanceConnectEndpoints" Verb="Get" Noun="InstanceConnectEndpoint" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceCreditSpecifications" OutputProperty="InstanceCreditSpecifications" Verb="Get" Noun="CreditSpecification" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeInstanceCreditSpecifications" OutputProperty="InstanceCreditSpecifications" Verb="Get" Noun="CreditSpecification" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceEventNotificationAttributes" OutputProperty="InstanceTagAttribute" Verb="Get" Noun="InstanceEventNotificationAttribute" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeInstanceEventNotificationAttributes" OutputProperty="InstanceTagAttribute" Verb="Get" Noun="InstanceEventNotificationAttribute" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceEventWindows" OutputProperty="InstanceEventWindows" Verb="Get" Noun="InstanceEventWindow" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeInstanceEventWindows" OutputProperty="InstanceEventWindows" Verb="Get" Noun="InstanceEventWindow" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceImageMetadata" OutputProperty="InstanceImageMetadata" Verb="Get" Noun="InstanceImageMetadata" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeInstanceImageMetadata" OutputProperty="InstanceImageMetadata" Verb="Get" Noun="InstanceImageMetadata" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstances" OutputProperty="Reservations" Verb="Get" Noun="Instance" PositionalParameters="Filters" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeInstances" OutputProperty="Reservations" Verb="Get" Noun="Instance" PositionalParameters="Filters" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceStatus" OutputProperty="InstanceStatuses" Verb="Get" Noun="InstanceStatus" PositionalParameters="Filters" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeInstanceStatus" OutputProperty="InstanceStatuses" Verb="Get" Noun="InstanceStatus" PositionalParameters="Filters" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceTopology" OutputProperty="Instances" Verb="Get" Noun="InstanceTopology" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeInstanceTopology" OutputProperty="Instances" Verb="Get" Noun="InstanceTopology" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceTypeOfferings" OutputProperty="InstanceTypeOfferings" Verb="Get" Noun="InstanceTypeOffering" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeInstanceTypeOfferings" OutputProperty="InstanceTypeOfferings" Verb="Get" Noun="InstanceTypeOffering" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceTypes" OutputProperty="InstanceTypes" Verb="Get" Noun="InstanceType" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeInstanceTypes" OutputProperty="InstanceTypes" Verb="Get" Noun="InstanceType" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInternetGateways" OutputProperty="InternetGateways" Verb="Get" Noun="InternetGateway" PositionalParameters="Filters" PipelineParameter="InternetGatewayIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeInternetGateways" OutputProperty="InternetGateways" Verb="Get" Noun="InternetGateway" PositionalParameters="Filters" PipelineParameter="InternetGatewayIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIpamByoasn" OutputProperty="Byoasns" Verb="Get" Noun="IpamByoasn" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeIpamByoasn" OutputProperty="Byoasns" Verb="Get" Noun="IpamByoasn" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIpamExternalResourceVerificationTokens" OutputProperty="IpamExternalResourceVerificationTokens" Verb="Get" Noun="IpamExternalResourceVerificationToken" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeIpamExternalResourceVerificationTokens" OutputProperty="IpamExternalResourceVerificationTokens" Verb="Get" Noun="IpamExternalResourceVerificationToken" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIpamPools" OutputProperty="IpamPools" Verb="Get" Noun="IpamPool" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeIpamPools" OutputProperty="IpamPools" Verb="Get" Noun="IpamPool" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIpamResourceDiscoveries" OutputProperty="IpamResourceDiscoveries" Verb="Get" Noun="IpamResourceDiscovery" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeIpamResourceDiscoveries" OutputProperty="IpamResourceDiscoveries" Verb="Get" Noun="IpamResourceDiscovery" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIpamResourceDiscoveryAssociations" OutputProperty="IpamResourceDiscoveryAssociations" Verb="Get" Noun="IpamResourceDiscoveryAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeIpamResourceDiscoveryAssociations" OutputProperty="IpamResourceDiscoveryAssociations" Verb="Get" Noun="IpamResourceDiscoveryAssociation" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIpams" OutputProperty="Ipams" Verb="Get" Noun="Ipam" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeIpams" OutputProperty="Ipams" Verb="Get" Noun="Ipam" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIpamScopes" OutputProperty="IpamScopes" Verb="Get" Noun="IpamScope" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeIpamScopes" OutputProperty="IpamScopes" Verb="Get" Noun="IpamScope" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIpv6Pools" OutputProperty="Ipv6Pools" Verb="Get" Noun="Ipv6Pool" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeIpv6Pools" OutputProperty="Ipv6Pools" Verb="Get" Noun="Ipv6Pool" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1339,39 +1339,39 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLaunchTemplates" OutputProperty="LaunchTemplates" Verb="Get" Noun="Template" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLaunchTemplates" OutputProperty="LaunchTemplates" Verb="Get" Noun="Template" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLaunchTemplateVersions" OutputProperty="LaunchTemplateVersions" Verb="Get" Noun="TemplateVersion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLaunchTemplateVersions" OutputProperty="LaunchTemplateVersions" Verb="Get" Noun="TemplateVersion" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocalGatewayRouteTables" OutputProperty="LocalGatewayRouteTables" Verb="Get" Noun="LocalGatewayRouteTable" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLocalGatewayRouteTables" OutputProperty="LocalGatewayRouteTables" Verb="Get" Noun="LocalGatewayRouteTable" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations" OutputProperty="LocalGatewayRouteTableVirtualInterfaceGroupAssociations" Verb="Get" Noun="LocalGatewayRouteTableVirtualInterfaceGroupAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations" OutputProperty="LocalGatewayRouteTableVirtualInterfaceGroupAssociations" Verb="Get" Noun="LocalGatewayRouteTableVirtualInterfaceGroupAssociation" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocalGatewayRouteTableVpcAssociations" OutputProperty="LocalGatewayRouteTableVpcAssociations" Verb="Get" Noun="LocalGatewayRouteTableVpcAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLocalGatewayRouteTableVpcAssociations" OutputProperty="LocalGatewayRouteTableVpcAssociations" Verb="Get" Noun="LocalGatewayRouteTableVpcAssociation" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocalGateways" OutputProperty="LocalGateways" Verb="Get" Noun="LocalGateway" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLocalGateways" OutputProperty="LocalGateways" Verb="Get" Noun="LocalGateway" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocalGatewayVirtualInterfaceGroups" OutputProperty="LocalGatewayVirtualInterfaceGroups" Verb="Get" Noun="LocalGatewayVirtualInterfaceGroup" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLocalGatewayVirtualInterfaceGroups" OutputProperty="LocalGatewayVirtualInterfaceGroups" Verb="Get" Noun="LocalGatewayVirtualInterfaceGroup" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocalGatewayVirtualInterfaces" OutputProperty="LocalGatewayVirtualInterfaces" Verb="Get" Noun="LocalGatewayVirtualInterface" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLocalGatewayVirtualInterfaces" OutputProperty="LocalGatewayVirtualInterfaces" Verb="Get" Noun="LocalGatewayVirtualInterface" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLockedSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="LockedSnapshot" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLockedSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="LockedSnapshot" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1379,23 +1379,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMacModificationTasks" OutputProperty="MacModificationTasks" Verb="Get" Noun="MacModificationTask" PipelineParameter="DryRun" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeMacModificationTasks" OutputProperty="MacModificationTasks" Verb="Get" Noun="MacModificationTask" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeManagedPrefixLists" OutputProperty="PrefixLists" Verb="Get" Noun="ManagedPrefixList" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeManagedPrefixLists" OutputProperty="PrefixLists" Verb="Get" Noun="ManagedPrefixList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMovingAddresses" OutputProperty="MovingAddressStatuses" Verb="Get" Noun="MovingAddress" PositionalParameters="Filters" PipelineParameter="PublicIps" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeMovingAddresses" OutputProperty="MovingAddressStatuses" Verb="Get" Noun="MovingAddress" PositionalParameters="Filters" PipelineParameter="PublicIps" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNatGateways" OutputProperty="NatGateways" Verb="Get" Noun="NatGateway" PipelineParameter="NatGatewayIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeNatGateways" OutputProperty="NatGateways" Verb="Get" Noun="NatGateway" PipelineParameter="NatGatewayIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNetworkAcls" OutputProperty="NetworkAcls" Verb="Get" Noun="NetworkAcl" PositionalParameters="Filters" PipelineParameter="NetworkAclIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeNetworkAcls" OutputProperty="NetworkAcls" Verb="Get" Noun="NetworkAcl" PositionalParameters="Filters" PipelineParameter="NetworkAclIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1403,7 +1403,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNetworkInsightsAccessScopes" OutputProperty="NetworkInsightsAccessScopes" Verb="Get" Noun="NetworkInsightsAccessScope" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeNetworkInsightsAccessScopes" OutputProperty="NetworkInsightsAccessScopes" Verb="Get" Noun="NetworkInsightsAccessScope" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1419,15 +1419,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNetworkInterfacePermissions" OutputProperty="NetworkInterfacePermissions" Verb="Get" Noun="NetworkInterfacePermission" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeNetworkInterfacePermissions" OutputProperty="NetworkInterfacePermissions" Verb="Get" Noun="NetworkInterfacePermission" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNetworkInterfaces" OutputProperty="NetworkInterfaces" Verb="Get" Noun="NetworkInterface" PositionalParameters="Filters" PipelineParameter="NetworkInterfaceIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeNetworkInterfaces" OutputProperty="NetworkInterfaces" Verb="Get" Noun="NetworkInterface" PositionalParameters="Filters" PipelineParameter="NetworkInterfaceIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOutpostLags" OutputProperty="OutpostLags" Verb="Get" Noun="OutpostLag" PipelineParameter="DryRun" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeOutpostLags" OutputProperty="OutpostLags" Verb="Get" Noun="OutpostLag" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1435,15 +1435,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePrefixLists" OutputProperty="PrefixLists" Verb="Get" Noun="PrefixList" PositionalParameters="Filters" PipelineParameter="PrefixListIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribePrefixLists" OutputProperty="PrefixLists" Verb="Get" Noun="PrefixList" PositionalParameters="Filters" PipelineParameter="PrefixListIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePrincipalIdFormat" OutputProperty="Principals" Verb="Get" Noun="PrincipalIdFormat" PipelineParameter="Resources" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribePrincipalIdFormat" OutputProperty="Principals" Verb="Get" Noun="PrincipalIdFormat" PipelineParameter="Resources" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePublicIpv4Pools" OutputProperty="PublicIpv4Pools" Verb="Get" Noun="PublicIpv4Pool" PipelineParameter="PoolIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribePublicIpv4Pools" OutputProperty="PublicIpv4Pools" Verb="Get" Noun="PublicIpv4Pool" PipelineParameter="PoolIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1451,7 +1451,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReplaceRootVolumeTasks" OutputProperty="ReplaceRootVolumeTasks" Verb="Get" Noun="ReplaceRootVolumeTask" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeReplaceRootVolumeTasks" OutputProperty="ReplaceRootVolumeTasks" Verb="Get" Noun="ReplaceRootVolumeTask" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1463,57 +1463,57 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedInstancesModifications" OutputProperty="ReservedInstancesModifications" Verb="Get" Noun="ReservedInstancesModification" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-EC2ReservedInstancesModifications" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeReservedInstancesModifications" OutputProperty="ReservedInstancesModifications" Verb="Get" Noun="ReservedInstancesModification" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyAlias="Get-EC2ReservedInstancesModifications">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedInstancesOfferings" OutputProperty="ReservedInstancesOfferings" Verb="Get" Noun="ReservedInstancesOffering" PositionalParameters="InstanceType;AvailabilityZone" PipelineParameter="ReservedInstancesOfferingIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeReservedInstancesOfferings" OutputProperty="ReservedInstancesOfferings" Verb="Get" Noun="ReservedInstancesOffering" PositionalParameters="InstanceType;AvailabilityZone" PipelineParameter="ReservedInstancesOfferingIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params>
                 <Param Name="ReservedInstancesOfferingIds" NewName="ReservedInstancesOfferingId" Alias="ReservedInstancesId" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRouteServerEndpoints" OutputProperty="RouteServerEndpoints" Verb="Get" Noun="RouteServerEndpoint" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeRouteServerEndpoints" OutputProperty="RouteServerEndpoints" Verb="Get" Noun="RouteServerEndpoint" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRouteServerPeers" OutputProperty="RouteServerPeers" Verb="Get" Noun="RouteServerPeer" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeRouteServerPeers" OutputProperty="RouteServerPeers" Verb="Get" Noun="RouteServerPeer" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRouteServers" OutputProperty="RouteServers" Verb="Get" Noun="RouteServer" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeRouteServers" OutputProperty="RouteServers" Verb="Get" Noun="RouteServer" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRouteTables" OutputProperty="RouteTables" Verb="Get" Noun="RouteTable" PositionalParameters="Filters" PipelineParameter="RouteTableIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeRouteTables" OutputProperty="RouteTables" Verb="Get" Noun="RouteTable" PositionalParameters="Filters" PipelineParameter="RouteTableIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScheduledInstanceAvailability" OutputProperty="ScheduledInstanceAvailabilitySet" Verb="Get" Noun="ScheduledInstanceAvailability" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-			<Params />
+        <ServiceOperation MethodName="DescribeScheduledInstanceAvailability" OutputProperty="ScheduledInstanceAvailabilitySet" Verb="Get" Noun="ScheduledInstanceAvailability" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScheduledInstances" OutputProperty="ScheduledInstanceSet" Verb="Get" Noun="ScheduledInstance" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-			<Params />
+        <ServiceOperation MethodName="DescribeScheduledInstances" OutputProperty="ScheduledInstanceSet" Verb="Get" Noun="ScheduledInstance" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeSecurityGroupReferences" OutputProperty="SecurityGroupReferenceSet" Verb="Get" Noun="SecurityGroupReference" PipelineParameter="GroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSecurityGroupRules" OutputProperty="SecurityGroupRules" Verb="Get" Noun="SecurityGroupRule" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSecurityGroupRules" OutputProperty="SecurityGroupRules" Verb="Get" Noun="SecurityGroupRule" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSecurityGroups" OutputProperty="SecurityGroups" Verb="Get" Noun="SecurityGroup" PositionalParameters="Filters" PipelineParameter="GroupIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSecurityGroups" OutputProperty="SecurityGroups" Verb="Get" Noun="SecurityGroup" PositionalParameters="Filters" PipelineParameter="GroupIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSecurityGroupVpcAssociations" OutputProperty="SecurityGroupVpcAssociations" Verb="Get" Noun="SecurityGroupVpcAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSecurityGroupVpcAssociations" OutputProperty="SecurityGroupVpcAssociations" Verb="Get" Noun="SecurityGroupVpcAssociation" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeServiceLinkVirtualInterfaces" OutputProperty="ServiceLinkVirtualInterfaces" Verb="Get" Noun="ServiceLinkVirtualInterface" PipelineParameter="DryRun" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeServiceLinkVirtualInterfaces" OutputProperty="ServiceLinkVirtualInterfaces" Verb="Get" Noun="ServiceLinkVirtualInterface" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1521,7 +1521,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="Snapshot" PositionalParameters="OwnerIds;RestorableByUserIds;Filters" PipelineParameter="SnapshotIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-EC2Snapshots" DefaultParameterSet="ByFilter" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="Snapshot" PositionalParameters="OwnerIds;RestorableByUserIds;Filters" PipelineParameter="SnapshotIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-EC2Snapshots" DefaultParameterSet="ByFilter">
             <Params>
                 <Param Name="Filters" NewName="Filter" ParameterSetName="ByFilter" />
                 <Param Name="OwnerIds" NewName="OwnerId" ParameterSetName="ByFilter" />
@@ -1533,47 +1533,47 @@
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="1000" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSnapshotTierStatus" OutputProperty="SnapshotTierStatuses" Verb="Get" Noun="SnapshotTierStatus" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSnapshotTierStatus" OutputProperty="SnapshotTierStatuses" Verb="Get" Noun="SnapshotTierStatus" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSpotDatafeedSubscription" OutputProperty="SpotDatafeedSubscription" Verb="Get" Noun="SpotDatafeedSubscription" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSpotDatafeedSubscription" OutputProperty="SpotDatafeedSubscription" Verb="Get" Noun="SpotDatafeedSubscription" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSpotFleetInstances" OutputProperty="ActiveInstances" Verb="Get" Noun="SpotFleetInstance" PipelineParameter="SpotFleetRequestId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSpotFleetInstances" OutputProperty="ActiveInstances" Verb="Get" Noun="SpotFleetInstance" PipelineParameter="SpotFleetRequestId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSpotFleetRequestHistory" OutputProperty="*" Verb="Get" Noun="SpotFleetRequestHistory" PipelineParameter="SpotFleetRequestId" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
-			<Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSpotFleetRequests" OutputProperty="SpotFleetRequestConfigs" Verb="Get" Noun="SpotFleetRequest" PipelineParameter="SpotFleetRequestIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSpotFleetRequestHistory" OutputProperty="*" Verb="Get" Noun="SpotFleetRequestHistory" PipelineParameter="SpotFleetRequestId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSpotInstanceRequests" OutputProperty="SpotInstanceRequests" Verb="Get" Noun="SpotInstanceRequest" PositionalParameters="Filters" PipelineParameter="SpotInstanceRequestIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSpotFleetRequests" OutputProperty="SpotFleetRequestConfigs" Verb="Get" Noun="SpotFleetRequest" PipelineParameter="SpotFleetRequestIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSpotPriceHistory" OutputProperty="SpotPriceHistory" Verb="Get" Noun="SpotPriceHistory" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-			<Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStaleSecurityGroups" OutputProperty="StaleSecurityGroupSet" Verb="Get" Noun="StaleSecurityGroup" PipelineParameter="VpcId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSpotInstanceRequests" OutputProperty="SpotInstanceRequests" Verb="Get" Noun="SpotInstanceRequest" PositionalParameters="Filters" PipelineParameter="SpotInstanceRequestIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStoreImageTasks" OutputProperty="StoreImageTaskResults" Verb="Get" Noun="StoreImageTask" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSpotPriceHistory" OutputProperty="SpotPriceHistory" Verb="Get" Noun="SpotPriceHistory" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSubnets" OutputProperty="Subnets" Verb="Get" Noun="Subnet" PositionalParameters="Filters" PipelineParameter="SubnetIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeStaleSecurityGroups" OutputProperty="StaleSecurityGroupSet" Verb="Get" Noun="StaleSecurityGroup" PipelineParameter="VpcId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="Filters" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeStoreImageTasks" OutputProperty="StoreImageTaskResults" Verb="Get" Noun="StoreImageTask" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSubnets" OutputProperty="Subnets" Verb="Get" Noun="Subnet" PositionalParameters="Filters" PipelineParameter="SubnetIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="Filters" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1581,63 +1581,63 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTrafficMirrorFilters" OutputProperty="TrafficMirrorFilters" Verb="Get" Noun="TrafficMirrorFilter" PipelineParameter="TrafficMirrorFilterIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTrafficMirrorFilters" OutputProperty="TrafficMirrorFilters" Verb="Get" Noun="TrafficMirrorFilter" PipelineParameter="TrafficMirrorFilterIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTrafficMirrorSessions" OutputProperty="TrafficMirrorSessions" Verb="Get" Noun="TrafficMirrorSession" PipelineParameter="TrafficMirrorSessionIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTrafficMirrorSessions" OutputProperty="TrafficMirrorSessions" Verb="Get" Noun="TrafficMirrorSession" PipelineParameter="TrafficMirrorSessionIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTrafficMirrorTargets" OutputProperty="TrafficMirrorTargets" Verb="Get" Noun="TrafficMirrorTarget" PipelineParameter="TrafficMirrorTargetIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTrafficMirrorTargets" OutputProperty="TrafficMirrorTargets" Verb="Get" Noun="TrafficMirrorTarget" PipelineParameter="TrafficMirrorTargetIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTransitGatewayAttachments" OutputProperty="TransitGatewayAttachments" Verb="Get" Noun="TransitGatewayAttachment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTransitGatewayAttachments" OutputProperty="TransitGatewayAttachments" Verb="Get" Noun="TransitGatewayAttachment" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTransitGatewayConnectPeers" OutputProperty="TransitGatewayConnectPeers" Verb="Get" Noun="TransitGatewayConnectPeer" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTransitGatewayConnectPeers" OutputProperty="TransitGatewayConnectPeers" Verb="Get" Noun="TransitGatewayConnectPeer" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTransitGatewayConnects" OutputProperty="TransitGatewayConnects" Verb="Get" Noun="TransitGatewayConnect" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTransitGatewayConnects" OutputProperty="TransitGatewayConnects" Verb="Get" Noun="TransitGatewayConnect" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTransitGatewayMulticastDomains" OutputProperty="TransitGatewayMulticastDomains" Verb="Get" Noun="TransitGatewayMulticastDomain" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTransitGatewayMulticastDomains" OutputProperty="TransitGatewayMulticastDomains" Verb="Get" Noun="TransitGatewayMulticastDomain" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTransitGatewayPeeringAttachments" OutputProperty="TransitGatewayPeeringAttachments" Verb="Get" Noun="TransitGatewayPeeringAttachment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTransitGatewayPeeringAttachments" OutputProperty="TransitGatewayPeeringAttachments" Verb="Get" Noun="TransitGatewayPeeringAttachment" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTransitGatewayPolicyTables" OutputProperty="TransitGatewayPolicyTables" Verb="Get" Noun="TransitGatewayPolicyTable" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTransitGatewayPolicyTables" OutputProperty="TransitGatewayPolicyTables" Verb="Get" Noun="TransitGatewayPolicyTable" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTransitGatewayRouteTableAnnouncements" OutputProperty="TransitGatewayRouteTableAnnouncements" Verb="Get" Noun="TransitGatewayRouteTableAnnouncement" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTransitGatewayRouteTableAnnouncements" OutputProperty="TransitGatewayRouteTableAnnouncements" Verb="Get" Noun="TransitGatewayRouteTableAnnouncement" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTransitGatewayRouteTables" OutputProperty="TransitGatewayRouteTables" Verb="Get" Noun="TransitGatewayRouteTable" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTransitGatewayRouteTables" OutputProperty="TransitGatewayRouteTables" Verb="Get" Noun="TransitGatewayRouteTable" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTransitGateways" OutputProperty="TransitGateways" Verb="Get" Noun="TransitGateway" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTransitGateways" OutputProperty="TransitGateways" Verb="Get" Noun="TransitGateway" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTransitGatewayVpcAttachments" OutputProperty="TransitGatewayVpcAttachments" Verb="Get" Noun="TransitGatewayVpcAttachment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTransitGatewayVpcAttachments" OutputProperty="TransitGatewayVpcAttachments" Verb="Get" Noun="TransitGatewayVpcAttachment" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTrunkInterfaceAssociations" OutputProperty="InterfaceAssociations" Verb="Get" Noun="TrunkInterfaceAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTrunkInterfaceAssociations" OutputProperty="InterfaceAssociations" Verb="Get" Noun="TrunkInterfaceAssociation" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVerifiedAccessEndpoints" OutputProperty="VerifiedAccessEndpoints" Verb="Get" Noun="VerifiedAccessEndpoint" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVerifiedAccessEndpoints" OutputProperty="VerifiedAccessEndpoints" Verb="Get" Noun="VerifiedAccessEndpoint" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1645,15 +1645,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVerifiedAccessInstanceLoggingConfigurations" OutputProperty="LoggingConfigurations" Verb="Get" Noun="VerifiedAccessInstanceLoggingConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVerifiedAccessInstanceLoggingConfigurations" OutputProperty="LoggingConfigurations" Verb="Get" Noun="VerifiedAccessInstanceLoggingConfiguration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVerifiedAccessInstances" OutputProperty="VerifiedAccessInstances" Verb="Get" Noun="VerifiedAccessInstance" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVerifiedAccessInstances" OutputProperty="VerifiedAccessInstances" Verb="Get" Noun="VerifiedAccessInstance" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVerifiedAccessTrustProviders" OutputProperty="VerifiedAccessTrustProviders" Verb="Get" Noun="VerifiedAccessTrustProvider" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVerifiedAccessTrustProviders" OutputProperty="VerifiedAccessTrustProviders" Verb="Get" Noun="VerifiedAccessTrustProvider" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1661,7 +1661,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVolumes" OutputProperty="Volumes" Verb="Get" Noun="Volume" PositionalParameters="Filters" PipelineParameter="VolumeIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" DefaultParameterSet="ByFilter" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVolumes" OutputProperty="Volumes" Verb="Get" Noun="Volume" PositionalParameters="Filters" PipelineParameter="VolumeIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" DefaultParameterSet="ByFilter">
             <Params>
                 <Param Name="Filters" NewName="Filter" ParameterSetName="ByFilter" />
                 <Param Name="VolumeIds" NewName="VolumeId" ParameterSetName="ByID" />
@@ -1671,11 +1671,11 @@
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="500" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVolumesModifications" OutputProperty="VolumesModifications" Verb="Get" Noun="VolumeModification" PositionalParameters="Filters" PipelineParameter="VolumeIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVolumesModifications" OutputProperty="VolumesModifications" Verb="Get" Noun="VolumeModification" PositionalParameters="Filters" PipelineParameter="VolumeIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVolumeStatus" OutputProperty="VolumeStatuses" Verb="Get" Noun="VolumeStatus" PositionalParameters="Filters" PipelineParameter="VolumeIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVolumeStatus" OutputProperty="VolumeStatuses" Verb="Get" Noun="VolumeStatus" PositionalParameters="Filters" PipelineParameter="VolumeIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1683,11 +1683,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcBlockPublicAccessExclusions" OutputProperty="VpcBlockPublicAccessExclusions" Verb="Get" Noun="VpcBlockPublicAccessExclusion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVpcBlockPublicAccessExclusions" OutputProperty="VpcBlockPublicAccessExclusions" Verb="Get" Noun="VpcBlockPublicAccessExclusion" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcBlockPublicAccessOptions" OutputProperty="VpcBlockPublicAccessOptions" Verb="Get" Noun="VpcBlockPublicAccessOption" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVpcBlockPublicAccessOptions" OutputProperty="VpcBlockPublicAccessOptions" Verb="Get" Noun="VpcBlockPublicAccessOption" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1695,43 +1695,43 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcClassicLinkDnsSupport" OutputProperty="Vpcs" Verb="Get" Noun="VpcClassicLinkDnsSupport" PipelineParameter="VpcIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVpcClassicLinkDnsSupport" OutputProperty="Vpcs" Verb="Get" Noun="VpcClassicLinkDnsSupport" PipelineParameter="VpcIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcEndpointAssociations" OutputProperty="VpcEndpointAssociations" Verb="Get" Noun="VpcEndpointAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVpcEndpointAssociations" OutputProperty="VpcEndpointAssociations" Verb="Get" Noun="VpcEndpointAssociation" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcEndpointConnectionNotifications" OutputProperty="ConnectionNotificationSet" Verb="Get" Noun="EndpointConnectionNotification" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVpcEndpointConnectionNotifications" OutputProperty="ConnectionNotificationSet" Verb="Get" Noun="EndpointConnectionNotification" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcEndpointConnections" OutputProperty="VpcEndpointConnections" Verb="Get" Noun="EndpointConnection" PipelineParameter="Filters" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVpcEndpointConnections" OutputProperty="VpcEndpointConnections" Verb="Get" Noun="EndpointConnection" PipelineParameter="Filters" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcEndpoints" OutputProperty="VpcEndpoints" Verb="Get" Noun="VpcEndpoint" PositionalParameters="Filters" PipelineParameter="VpcEndpointIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVpcEndpoints" OutputProperty="VpcEndpoints" Verb="Get" Noun="VpcEndpoint" PositionalParameters="Filters" PipelineParameter="VpcEndpointIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcEndpointServiceConfigurations" OutputProperty="ServiceConfigurations" Verb="Get" Noun="EndpointServiceConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVpcEndpointServiceConfigurations" OutputProperty="ServiceConfigurations" Verb="Get" Noun="EndpointServiceConfiguration" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcEndpointServicePermissions" OutputProperty="AllowedPrincipals" Verb="Get" Noun="EndpointServicePermission" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVpcEndpointServicePermissions" OutputProperty="AllowedPrincipals" Verb="Get" Noun="EndpointServicePermission" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcEndpointServices" OutputProperty="*" Verb="Get" Noun="VpcEndpointService" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVpcEndpointServices" OutputProperty="*" Verb="Get" Noun="VpcEndpointService" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcPeeringConnections" OutputProperty="VpcPeeringConnections" Verb="Get" Noun="VpcPeeringConnection" PositionalParameters="Filters" PipelineParameter="VpcPeeringConnectionIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-EC2VpcPeeringConnections" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVpcPeeringConnections" OutputProperty="VpcPeeringConnections" Verb="Get" Noun="VpcPeeringConnection" PositionalParameters="Filters" PipelineParameter="VpcPeeringConnectionIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-EC2VpcPeeringConnections">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcs" OutputProperty="Vpcs" Verb="Get" Noun="Vpc" PositionalParameters="Filters" PipelineParameter="VpcIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeVpcs" OutputProperty="Vpcs" Verb="Get" Noun="Vpc" PositionalParameters="Filters" PipelineParameter="VpcIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1775,7 +1775,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableAllowedImagesSettings" OutputProperty="AllowedImagesSettingsState" Verb="Disable" Noun="AllowedImagesSetting" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisableAllowedImagesSettings" OutputProperty="AllowedImagesSettingsState" Verb="Disable" Noun="AllowedImagesSetting" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1783,7 +1783,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableEbsEncryptionByDefault" OutputProperty="EbsEncryptionByDefault" Verb="Disable" Noun="EbsEncryptionByDefault" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisableEbsEncryptionByDefault" OutputProperty="EbsEncryptionByDefault" Verb="Disable" Noun="EbsEncryptionByDefault" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1801,7 +1801,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableImageBlockPublicAccess" OutputProperty="ImageBlockPublicAccessState" Verb="Disable" Noun="ImageBlockPublicAccess" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisableImageBlockPublicAccess" OutputProperty="ImageBlockPublicAccessState" Verb="Disable" Noun="ImageBlockPublicAccess" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1821,11 +1821,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableSerialConsoleAccess" OutputProperty="SerialConsoleAccessEnabled" Verb="Disable" Noun="SerialConsoleAccess" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisableSerialConsoleAccess" OutputProperty="SerialConsoleAccessEnabled" Verb="Disable" Noun="SerialConsoleAccess" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableSnapshotBlockPublicAccess" OutputProperty="State" Verb="Disable" Noun="SnapshotBlockPublicAccess" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisableSnapshotBlockPublicAccess" OutputProperty="State" Verb="Disable" Noun="SnapshotBlockPublicAccess" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1901,7 +1901,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateTransitGatewayPolicyTable" OutputProperty="Association" Verb="Unregister" Noun="TransitGatewayPolicyTable" IgnoreSupportsShouldProcess="true" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateTransitGatewayPolicyTable" OutputProperty="Association" Verb="Unregister" Noun="TransitGatewayPolicyTable" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1929,7 +1929,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableEbsEncryptionByDefault" OutputProperty="EbsEncryptionByDefault" Verb="Enable" Noun="EbsEncryptionByDefault" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="EnableEbsEncryptionByDefault" OutputProperty="EbsEncryptionByDefault" Verb="Enable" Noun="EbsEncryptionByDefault" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1961,15 +1961,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableReachabilityAnalyzerOrganizationSharing" OutputProperty="ReturnValue" Verb="Enable" Noun="ReachabilityAnalyzerOrganizationSharing" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="EnableSerialConsoleAccess" OutputProperty="SerialConsoleAccessEnabled" Verb="Enable" Noun="SerialConsoleAccess" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="EnableReachabilityAnalyzerOrganizationSharing" OutputProperty="ReturnValue" Verb="Enable" Noun="ReachabilityAnalyzerOrganizationSharing" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EnableRouteServerPropagation" OutputProperty="RouteServerPropagation" Verb="Enable" Noun="RouteServerPropagation" ShouldProcessTarget="RouteServerId" PipelineParameter="RouteTableId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableSerialConsoleAccess" OutputProperty="SerialConsoleAccessEnabled" Verb="Enable" Noun="SerialConsoleAccess" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2021,7 +2021,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAllowedImagesSettings" OutputProperty="*" Verb="Get" Noun="AllowedImagesSetting" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAllowedImagesSettings" OutputProperty="*" Verb="Get" Noun="AllowedImagesSetting" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2033,11 +2033,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAwsNetworkPerformanceData" OutputProperty="DataResponses" Verb="Get" Noun="AwsNetworkPerformanceData" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAwsNetworkPerformanceData" OutputProperty="DataResponses" Verb="Get" Noun="AwsNetworkPerformanceData" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCapacityReservationUsage" OutputProperty="*" Verb="Get" Noun="CapacityReservationUsage" PipelineParameter="CapacityReservationId" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetCapacityReservationUsage" OutputProperty="*" Verb="Get" Noun="CapacityReservationUsage" PipelineParameter="CapacityReservationId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2061,11 +2061,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEbsDefaultKmsKeyId" OutputProperty="KmsKeyId" Verb="Get" Noun="EbsDefaultKmsKeyId" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetEbsDefaultKmsKeyId" OutputProperty="KmsKeyId" Verb="Get" Noun="EbsDefaultKmsKeyId" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEbsEncryptionByDefault" OutputProperty="EbsEncryptionByDefault" Verb="Get" Noun="EbsEncryptionByDefault" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetEbsEncryptionByDefault" OutputProperty="EbsEncryptionByDefault" Verb="Get" Noun="EbsEncryptionByDefault" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2081,11 +2081,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetImageBlockPublicAccessState" OutputProperty="ImageBlockPublicAccessState" Verb="Get" Noun="ImageBlockPublicAccessState" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetImageBlockPublicAccessState" OutputProperty="ImageBlockPublicAccessState" Verb="Get" Noun="ImageBlockPublicAccessState" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInstanceMetadataDefaults" OutputProperty="AccountLevel" Verb="Get" Noun="InstanceMetadataDefault" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetInstanceMetadataDefaults" OutputProperty="AccountLevel" Verb="Get" Noun="InstanceMetadataDefault" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2093,7 +2093,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInstanceTypesFromInstanceRequirements" OutputProperty="InstanceTypes" Verb="Get" Noun="InstanceTypesFromInstanceRequirement" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetInstanceTypesFromInstanceRequirements" OutputProperty="InstanceTypes" Verb="Get" Noun="InstanceTypesFromInstanceRequirement" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2149,7 +2149,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPasswordData" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPasswordData" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2173,11 +2173,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSerialConsoleAccessStatus" OutputProperty="SerialConsoleAccessEnabled" Verb="Get" Noun="SerialConsoleAccessStatus" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSerialConsoleAccessStatus" OutputProperty="SerialConsoleAccessEnabled" Verb="Get" Noun="SerialConsoleAccessStatus" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSnapshotBlockPublicAccessState" OutputProperty="State" Verb="Get" Noun="SnapshotBlockPublicAccessState" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSnapshotBlockPublicAccessState" OutputProperty="State" Verb="Get" Noun="SnapshotBlockPublicAccessState" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2189,11 +2189,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTransitGatewayAttachmentPropagations" OutputProperty="TransitGatewayAttachmentPropagations" Verb="Get" Noun="TransitGatewayAttachmentPropagation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTransitGatewayAttachmentPropagations" OutputProperty="TransitGatewayAttachmentPropagations" Verb="Get" Noun="TransitGatewayAttachmentPropagation" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTransitGatewayMulticastDomainAssociations" OutputProperty="MulticastDomainAssociations" Verb="Get" Noun="TransitGatewayMulticastDomainAssociation" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTransitGatewayMulticastDomainAssociations" OutputProperty="MulticastDomainAssociations" Verb="Get" Noun="TransitGatewayMulticastDomainAssociation" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2209,11 +2209,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTransitGatewayRouteTableAssociations" OutputProperty="Associations" Verb="Get" Noun="TransitGatewayRouteTableAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTransitGatewayRouteTableAssociations" OutputProperty="Associations" Verb="Get" Noun="TransitGatewayRouteTableAssociation" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTransitGatewayRouteTablePropagations" OutputProperty="TransitGatewayRouteTablePropagations" Verb="Get" Noun="TransitGatewayRouteTablePropagation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTransitGatewayRouteTablePropagations" OutputProperty="TransitGatewayRouteTablePropagations" Verb="Get" Noun="TransitGatewayRouteTablePropagation" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2233,7 +2233,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVpnConnectionDeviceTypes" OutputProperty="VpnConnectionDeviceTypes" Verb="Get" Noun="VpnConnectionDeviceType" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetVpnConnectionDeviceTypes" OutputProperty="VpnConnectionDeviceTypes" Verb="Get" Noun="VpnConnectionDeviceType" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2246,14 +2246,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ImportImage" OutputProperty="*" Verb="Import" Noun="Image" ShouldProcessTarget="RoleName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-			<Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ImportInstance" Verb="" Noun="" Exclude="true" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportKeyPair" OutputProperty="*" Verb="Import" Noun="KeyPair" ShouldProcessTarget="KeyName" PipelineParameter="KeyName" NoPipelineParameter="false" DefaultParameterSet="PreEncodedToBase64" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportInstance" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportKeyPair" OutputProperty="*" Verb="Import" Noun="KeyPair" ShouldProcessTarget="KeyName" PipelineParameter="KeyName" NoPipelineParameter="false" LegacyV4Pagination="true" DefaultParameterSet="PreEncodedToBase64">
             <Params>
                 <Param Name="PublicKeyMaterial" NewName="PublicKey" AutoApplyAlias="false" AutoConvert="ToBase64" ParameterSetName="AutoEncodedToBase64" />
             </Params>
@@ -2266,15 +2266,15 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportVolume" Verb="" Noun="" Exclude="true" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportVolume" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImagesInRecycleBin" OutputProperty="Images" Verb="Get" Noun="ImagesInRecycleBinList" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListImagesInRecycleBin" OutputProperty="Images" Verb="Get" Noun="ImagesInRecycleBinList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSnapshotsInRecycleBin" OutputProperty="Snapshots" Verb="Get" Noun="SnapshotsInRecycleBinList" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSnapshotsInRecycleBin" OutputProperty="Snapshots" Verb="Get" Noun="SnapshotsInRecycleBinList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2318,7 +2318,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyHosts" OutputProperty="*" Verb="Edit" Noun="Host" ShouldProcessTarget="HostIds" PositionalParameters="AutoPlacement" PipelineParameter="HostIds" NoPipelineParameter="false" LegacyAlias="Edit-EC2Hosts" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ModifyHosts" OutputProperty="*" Verb="Edit" Noun="Host" ShouldProcessTarget="HostIds" PositionalParameters="AutoPlacement" PipelineParameter="HostIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Edit-EC2Hosts">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2516,7 +2516,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyVpcAttribute" Verb="Edit" Noun="VpcAttribute" ShouldProcessTarget="VpcId" PositionalParameters="EnableDnsSupport" PipelineParameter="VpcId" NoPipelineParameter="false" DefaultParameterSet="DnsSupport" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ModifyVpcAttribute" Verb="Edit" Noun="VpcAttribute" ShouldProcessTarget="VpcId" PositionalParameters="EnableDnsSupport" PipelineParameter="VpcId" NoPipelineParameter="false" LegacyV4Pagination="true" DefaultParameterSet="DnsSupport">
             <Params>
                 <Param Name="VpcId" Mandatory="true" />
                 <Param Name="EnableDnsSupport" ParameterSetName="DnsSupport" Mandatory="true" />
@@ -2676,7 +2676,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReleaseHosts" OutputProperty="*" Verb="Remove" Noun="Host" ShouldProcessTarget="HostIds" PipelineParameter="HostIds" NoPipelineParameter="false" LegacyAlias="ReleaseHosts" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ReleaseHosts" OutputProperty="*" Verb="Remove" Noun="Host" ShouldProcessTarget="HostIds" PipelineParameter="HostIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="ReleaseHosts">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2688,7 +2688,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReplaceImageCriteriaInAllowedImagesSettings" OutputProperty="ReturnValue" Verb="Set" Noun="ImageCriteriaInAllowedImagesSetting" ShouldProcessTarget="ImageCriteria" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ReplaceImageCriteriaInAllowedImagesSettings" OutputProperty="ReturnValue" Verb="Set" Noun="ImageCriteriaInAllowedImagesSetting" ShouldProcessTarget="ImageCriteria" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2726,18 +2726,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RequestSpotFleet" OutputProperty="*" Verb="Request" Noun="SpotFleet" ShouldProcessTarget="SpotFleetRequestConfig_SpotPrice" PipelineParameter="SpotFleetRequestConfig_SpotPrice" NoPipelineParameter="false" LegacyV4Pagination="true">
-			<Params />
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RequestSpotInstances" OutputProperty="SpotInstanceRequests" Verb="Request" Noun="SpotInstance" ShouldProcessTarget="SpotPrice" PipelineParameter="SpotPrice" NoPipelineParameter="false" LegacyV4Pagination="true">
-			<Params />
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ResetAddressAttribute" OutputProperty="Address" Verb="Reset" Noun="AddressAttribute" ShouldProcessTarget="AllocationId" PipelineParameter="AllocationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetEbsDefaultKmsKeyId" OutputProperty="KmsKeyId" Verb="Reset" Noun="EbsDefaultKmsKeyId" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ResetEbsDefaultKmsKeyId" OutputProperty="KmsKeyId" Verb="Reset" Noun="EbsDefaultKmsKeyId" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2820,11 +2820,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchLocalGatewayRoutes" OutputProperty="Routes" Verb="Search" Noun="LocalGatewayRoute" ShouldProcessTarget="LocalGatewayRouteTableId" PipelineParameter="LocalGatewayRouteTableId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchLocalGatewayRoutes" OutputProperty="Routes" Verb="Search" Noun="LocalGatewayRoute" ShouldProcessTarget="LocalGatewayRouteTableId" PipelineParameter="LocalGatewayRouteTableId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchTransitGatewayMulticastGroups" OutputProperty="MulticastGroups" Verb="Search" Noun="TransitGatewayMulticastGroup" ShouldProcessTarget="TransitGatewayMulticastDomainId" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchTransitGatewayMulticastGroups" OutputProperty="MulticastGroups" Verb="Search" Noun="TransitGatewayMulticastGroup" ShouldProcessTarget="TransitGatewayMulticastDomainId" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

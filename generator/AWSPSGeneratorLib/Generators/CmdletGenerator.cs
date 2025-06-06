@@ -611,6 +611,32 @@ namespace AWSPowerShellGenerator.Generators
 
             try
             {
+                // Special handling for EC2 operations with DryRun parameter:
+                // We need to set NoPipelineParameter and AnonymousShouldProcessTarget to True when not explicitly configured.
+                // This configuration can't be stored in the service config XML since the same file is used for both
+                // PowerShell v4 (where DryRun is not supported) and v5 (where DryRun is supported).
+                // Instead, we programmatically set these parameters here for v4 backward compatibility.
+                // TODO: Remove this logic once PowerShell v4 is fully deprecated.
+                if (configModel.AssemblyName.Equals("EC2", StringComparison.OrdinalIgnoreCase))
+                {    
+                    var parameters = method.GetParameters();
+                    if (parameters.Length > 0 && parameters[0].ParameterType.IsSubclassOf(SdkBaseRequestType))
+                    {
+                        var requestType = parameters[0].ParameterType;
+                        var dryRunProperty = requestType.GetProperty("DryRun");
+                        if (dryRunProperty != null)
+                        {
+                            if (string.IsNullOrEmpty(serviceOperation.PipelineParameter))
+                            {
+                                serviceOperation.NoPipelineParameter = true;
+                            }
+                            if (string.IsNullOrEmpty(serviceOperation.ShouldProcessTarget))
+                            {
+                                serviceOperation.AnonymousShouldProcessTarget = true;
+                            }
+                        }
+                    }
+                }
                 // capture the analyzer so we can serialize the config as json later
                 serviceOperation.Analyzer = new OperationAnalyzer(ModelCollection, CurrentModel, CurrentOperation, CurrentServiceNDoc);
                 serviceOperation.Analyzer.Analyze(this, method);
