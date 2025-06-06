@@ -30,11 +30,16 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// <summary>
     /// Associates one or more faces with an existing UserID. Takes an array of <c>FaceIds</c>.
     /// Each <c>FaceId</c> that are present in the <c>FaceIds</c> list is associated with
-    /// the provided UserID. The maximum number of total <c>FaceIds</c> per UserID is 100.
-    /// 
+    /// the provided UserID. The number of FaceIds that can be used as input in a single request
+    /// is limited to 100.
     /// 
     ///  
     /// <para>
+    /// Note that the total number of faces that can be associated with a single <c>UserID</c>
+    /// is also limited to 100. Once a <c>UserID</c> has 100 faces associated with it, no
+    /// additional faces can be added. If more API calls are made after the limit is reached,
+    /// a <c>ServiceQuotaExceededException</c> will result.
+    /// </para><para>
     /// The <c>UserMatchThreshold</c> parameter specifies the minimum user match confidence
     /// required for the face to be associated with a UserID that has at least one <c>FaceID</c>
     /// already associated. This ensures that the <c>FaceIds</c> are associated with the right

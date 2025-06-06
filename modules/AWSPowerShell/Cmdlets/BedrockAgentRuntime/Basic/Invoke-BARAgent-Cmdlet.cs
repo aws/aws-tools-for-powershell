@@ -145,6 +145,21 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public System.Boolean? EndSession { get; set; }
         #endregion
         
+        #region Parameter PromptCreationConfigurations_ExcludePreviousThinkingStep
+        /// <summary>
+        /// <para>
+        /// <para>If <c>true</c>, the service removes any content between <c>&lt;thinking&gt;</c> tags
+        /// from previous conversations in an agent session. The service will only remove content
+        /// from already processed turns. This helps you remove content which might not be useful
+        /// for current and subsequent invocations. This can reduce the input token count and
+        /// potentially save costs. The default value is <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PromptCreationConfigurations_ExcludePreviousThinkingSteps")]
+        public System.Boolean? PromptCreationConfigurations_ExcludePreviousThinkingStep { get; set; }
+        #endregion
+        
         #region Parameter SessionState_File
         /// <summary>
         /// <para>
@@ -224,6 +239,20 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SessionState_ConversationHistory_Messages")]
         public Amazon.BedrockAgentRuntime.Model.Message[] ConversationHistory_Message { get; set; }
+        #endregion
+        
+        #region Parameter PromptCreationConfigurations_PreviousConversationTurnsToInclude
+        /// <summary>
+        /// <para>
+        /// <para>The number of previous conversations from the ongoing agent session to include in
+        /// the conversation history of the agent prompt, during the current invocation. This
+        /// gives you more granular control over the context that the model is made aware of,
+        /// and helps the model remove older context which is no longer useful during the ongoing
+        /// agent session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? PromptCreationConfigurations_PreviousConversationTurnsToInclude { get; set; }
         #endregion
         
         #region Parameter SessionState_PromptSessionAttribute
@@ -389,6 +418,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             context.EndSession = this.EndSession;
             context.InputText = this.InputText;
             context.MemoryId = this.MemoryId;
+            context.PromptCreationConfigurations_ExcludePreviousThinkingStep = this.PromptCreationConfigurations_ExcludePreviousThinkingStep;
+            context.PromptCreationConfigurations_PreviousConversationTurnsToInclude = this.PromptCreationConfigurations_PreviousConversationTurnsToInclude;
             context.SessionId = this.SessionId;
             #if MODULAR
             if (this.SessionId == null && ParameterWasBound(nameof(this.SessionId)))
@@ -505,6 +536,35 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (cmdletContext.MemoryId != null)
             {
                 request.MemoryId = cmdletContext.MemoryId;
+            }
+            
+             // populate PromptCreationConfigurations
+            var requestPromptCreationConfigurationsIsNull = true;
+            request.PromptCreationConfigurations = new Amazon.BedrockAgentRuntime.Model.PromptCreationConfigurations();
+            System.Boolean? requestPromptCreationConfigurations_promptCreationConfigurations_ExcludePreviousThinkingStep = null;
+            if (cmdletContext.PromptCreationConfigurations_ExcludePreviousThinkingStep != null)
+            {
+                requestPromptCreationConfigurations_promptCreationConfigurations_ExcludePreviousThinkingStep = cmdletContext.PromptCreationConfigurations_ExcludePreviousThinkingStep.Value;
+            }
+            if (requestPromptCreationConfigurations_promptCreationConfigurations_ExcludePreviousThinkingStep != null)
+            {
+                request.PromptCreationConfigurations.ExcludePreviousThinkingSteps = requestPromptCreationConfigurations_promptCreationConfigurations_ExcludePreviousThinkingStep.Value;
+                requestPromptCreationConfigurationsIsNull = false;
+            }
+            System.Int32? requestPromptCreationConfigurations_promptCreationConfigurations_PreviousConversationTurnsToInclude = null;
+            if (cmdletContext.PromptCreationConfigurations_PreviousConversationTurnsToInclude != null)
+            {
+                requestPromptCreationConfigurations_promptCreationConfigurations_PreviousConversationTurnsToInclude = cmdletContext.PromptCreationConfigurations_PreviousConversationTurnsToInclude.Value;
+            }
+            if (requestPromptCreationConfigurations_promptCreationConfigurations_PreviousConversationTurnsToInclude != null)
+            {
+                request.PromptCreationConfigurations.PreviousConversationTurnsToInclude = requestPromptCreationConfigurations_promptCreationConfigurations_PreviousConversationTurnsToInclude.Value;
+                requestPromptCreationConfigurationsIsNull = false;
+            }
+             // determine if request.PromptCreationConfigurations should be set to null
+            if (requestPromptCreationConfigurationsIsNull)
+            {
+                request.PromptCreationConfigurations = null;
             }
             if (cmdletContext.SessionId != null)
             {
@@ -705,6 +765,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public System.Boolean? EndSession { get; set; }
             public System.String InputText { get; set; }
             public System.String MemoryId { get; set; }
+            public System.Boolean? PromptCreationConfigurations_ExcludePreviousThinkingStep { get; set; }
+            public System.Int32? PromptCreationConfigurations_PreviousConversationTurnsToInclude { get; set; }
             public System.String SessionId { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.Message> ConversationHistory_Message { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.InputFile> SessionState_File { get; set; }

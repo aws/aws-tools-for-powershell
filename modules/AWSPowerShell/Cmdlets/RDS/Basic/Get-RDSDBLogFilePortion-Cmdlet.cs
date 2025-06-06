@@ -33,7 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     ///  
     /// <para>
     /// This command doesn't apply to RDS Custom.
-    /// </para><br/><br/>In the AWS.Tools.RDS module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><note><para>
+    /// This operation uses resources on database instances. Because of this, we recommend
+    /// publishing database logs to CloudWatch and then using the GetLogEvents operation.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html">GetLogEvents</a>
+    /// in the <i>Amazon CloudWatch Logs API Reference</i>.
+    /// </para></note><br/><br/>In the AWS.Tools.RDS module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RDSDBLogFilePortion")]
     [OutputType("Amazon.RDS.Model.DownloadDBLogFilePortionResponse")]

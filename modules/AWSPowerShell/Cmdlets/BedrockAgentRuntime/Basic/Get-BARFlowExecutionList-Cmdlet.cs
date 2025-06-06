@@ -28,12 +28,12 @@ using Amazon.BedrockAgentRuntime.Model;
 namespace Amazon.PowerShell.Cmdlets.BAR
 {
     /// <summary>
-    /// Lists all asynchronous executions for a flow. Results can be paginated and include
-    /// summary information about each execution, such as status, start and end times, and
-    /// the execution's Amazon Resource Name (ARN).
+    /// Lists all executions of a flow. Results can be paginated and include summary information
+    /// about each execution, such as status, start and end times, and the execution's Amazon
+    /// Resource Name (ARN).
     /// 
     ///  <note><para>
-    /// Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.
+    /// Flow executions is in preview release for Amazon Bedrock and is subject to change.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BARFlowExecutionList")]
@@ -78,9 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of async executions to return in a single response. If more executions
-        /// exist than the specified maxResults value, a token is included in the response so
-        /// that the remaining results can be retrieved.</para>
+        /// <para>The maximum number of flow executions to return in a single response. If more executions
+        /// exist than the specified <c>maxResults</c> value, a token is included in the response
+        /// so that the remaining results can be retrieved.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

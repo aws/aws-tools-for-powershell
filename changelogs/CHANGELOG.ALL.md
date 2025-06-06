@@ -1,4 +1,14 @@
-﻿### 4.1.835 (2025-06-05 20:31Z)
+﻿### 4.1.836 (2025-06-06 20:23Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1060.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Runtime
+    * Modified cmdlet Invoke-BARAgent: added parameters PromptCreationConfigurations_ExcludePreviousThinkingStep and PromptCreationConfigurations_PreviousConversationTurnsToInclude.
+    * Modified cmdlet Invoke-BARInlineAgent: added parameters PromptCreationConfigurations_ExcludePreviousThinkingStep and PromptCreationConfigurations_PreviousConversationTurnsToInclude.
+  * Amazon Rekognition
+    * Modified cmdlet New-REKFaceLivenessSession: added parameter Settings_ChallengePreference.
+  * Amazon S3 Tables
+    * Modified cmdlet Get-S3TTable: added parameter TableArn.
+
+### 4.1.835 (2025-06-05 20:31Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1059.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Key Management Service
     * Modified cmdlet Get-KMSKeyRotation: added parameter IncludeKeyMaterial.

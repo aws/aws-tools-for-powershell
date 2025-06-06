@@ -28,8 +28,8 @@ using Amazon.BedrockAgentRuntime.Model;
 namespace Amazon.PowerShell.Cmdlets.BAR
 {
     /// <summary>
-    /// Retrieves details about a specific asynchronous execution of a flow, including its
-    /// status, start and end times, and any errors that occurred during execution.
+    /// Retrieves details about a specific flow execution, including its status, start and
+    /// end times, and any errors that occurred during execution.
     /// </summary>
     [Cmdlet("Get", "BARFlowExecution")]
     [OutputType("Amazon.BedrockAgentRuntime.Model.GetFlowExecutionResponse")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter ExecutionIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the async execution to retrieve.</para>
+        /// <para>The unique identifier of the flow execution to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

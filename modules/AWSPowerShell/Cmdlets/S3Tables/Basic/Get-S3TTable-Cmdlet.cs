@@ -52,14 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         /// <para>The name of the table.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
         #endregion
         
@@ -69,15 +62,18 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         /// <para>The name of the namespace the table is associated with.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Namespace { get; set; }
+        #endregion
+        
+        #region Parameter TableArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TableArn { get; set; }
         #endregion
         
         #region Parameter TableBucketARN
@@ -86,14 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         /// <para>The Amazon Resource Name (ARN) of the table bucket associated with the table.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TableBucketARN { get; set; }
         #endregion
         
@@ -124,26 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.S3T
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Name = this.Name;
-            #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Namespace = this.Namespace;
-            #if MODULAR
-            if (this.Namespace == null && ParameterWasBound(nameof(this.Namespace)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Namespace which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.TableArn = this.TableArn;
             context.TableBucketARN = this.TableBucketARN;
-            #if MODULAR
-            if (this.TableBucketARN == null && ParameterWasBound(nameof(this.TableBucketARN)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TableBucketARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -167,6 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             if (cmdletContext.Namespace != null)
             {
                 request.Namespace = cmdletContext.Namespace;
+            }
+            if (cmdletContext.TableArn != null)
+            {
+                request.TableArn = cmdletContext.TableArn;
             }
             if (cmdletContext.TableBucketARN != null)
             {
@@ -235,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         {
             public System.String Name { get; set; }
             public System.String Namespace { get; set; }
+            public System.String TableArn { get; set; }
             public System.String TableBucketARN { get; set; }
             public System.Func<Amazon.S3Tables.Model.GetTableResponse, GetS3TTableCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -28,13 +28,13 @@ using Amazon.BedrockAgentRuntime.Model;
 namespace Amazon.PowerShell.Cmdlets.BAR
 {
     /// <summary>
-    /// Retrieves the flow definition snapshot used for an asynchronous execution. The snapshot
-    /// represents the flow metadata and definition as it existed at the time the asynchronous
-    /// execution was started. Note that even if the flow is edited after an execution starts,
-    /// the snapshot connected to the execution remains unchanged.
+    /// Retrieves the flow definition snapshot used for a flow execution. The snapshot represents
+    /// the flow metadata and definition as it existed at the time the execution was started.
+    /// Note that even if the flow is edited after an execution starts, the snapshot connected
+    /// to the execution remains unchanged.
     /// 
     ///  <note><para>
-    /// Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.
+    /// Flow executions is in preview release for Amazon Bedrock and is subject to change.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "BARExecutionFlowSnapshot")]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter ExecutionIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the async execution.</para>
+        /// <para>The unique identifier of the flow execution.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter FlowAliasIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the flow alias used for the async execution.</para>
+        /// <para>The unique identifier of the flow alias used for the flow execution.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

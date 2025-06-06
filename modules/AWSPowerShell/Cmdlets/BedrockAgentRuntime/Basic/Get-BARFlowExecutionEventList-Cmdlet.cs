@@ -28,12 +28,12 @@ using Amazon.BedrockAgentRuntime.Model;
 namespace Amazon.PowerShell.Cmdlets.BAR
 {
     /// <summary>
-    /// Lists events that occurred during an asynchronous execution of a flow. Events provide
-    /// detailed information about the execution progress, including node inputs and outputs,
-    /// flow inputs and outputs, condition results, and failure events.
+    /// Lists events that occurred during a flow execution. Events provide detailed information
+    /// about the execution progress, including node inputs and outputs, flow inputs and outputs,
+    /// condition results, and failure events.
     /// 
     ///  <note><para>
-    /// Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.
+    /// Flow executions is in preview release for Amazon Bedrock and is subject to change.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BARFlowExecutionEventList")]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter ExecutionIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the async execution.</para>
+        /// <para>The unique identifier of the flow execution.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
