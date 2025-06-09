@@ -22,40 +22,49 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ElasticFileSystem;
-using Amazon.ElasticFileSystem.Model;
+using Amazon.CustomerProfiles;
+using Amazon.CustomerProfiles.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EFS
+namespace Amazon.PowerShell.Cmdlets.CPF
 {
     /// <summary>
-    /// Returns the current <c>LifecycleConfiguration</c> object for the specified EFS file
-    /// system. Lifecycle management uses the <c>LifecycleConfiguration</c> object to identify
-    /// when to move files between storage classes. For a file system without a <c>LifecycleConfiguration</c>
-    /// object, the call returns an empty array in the response.
-    /// 
-    ///  
-    /// <para>
-    /// This operation requires permissions for the <c>elasticfilesystem:DescribeLifecycleConfiguration</c>
-    /// operation.
-    /// </para>
+    /// Gets the layout to view data for a specific domain. This API can only be invoked from
+    /// the Amazon Connect admin website.
     /// </summary>
-    [Cmdlet("Get", "EFSLifecycleConfiguration")]
-    [OutputType("Amazon.ElasticFileSystem.Model.LifecyclePolicy")]
-    [AWSCmdlet("Calls the Amazon Elastic File System DescribeLifecycleConfiguration API operation.", Operation = new[] {"DescribeLifecycleConfiguration"}, SelectReturnType = typeof(Amazon.ElasticFileSystem.Model.DescribeLifecycleConfigurationResponse))]
-    [AWSCmdletOutput("Amazon.ElasticFileSystem.Model.LifecyclePolicy or Amazon.ElasticFileSystem.Model.DescribeLifecycleConfigurationResponse",
-        "This cmdlet returns a collection of Amazon.ElasticFileSystem.Model.LifecyclePolicy objects.",
-        "The service call response (type Amazon.ElasticFileSystem.Model.DescribeLifecycleConfigurationResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "CPFDomainLayout")]
+    [OutputType("Amazon.CustomerProfiles.Model.GetDomainLayoutResponse")]
+    [AWSCmdlet("Calls the Amazon Connect Customer Profiles GetDomainLayout API operation.", Operation = new[] {"GetDomainLayout"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.GetDomainLayoutResponse))]
+    [AWSCmdletOutput("Amazon.CustomerProfiles.Model.GetDomainLayoutResponse",
+        "This cmdlet returns an Amazon.CustomerProfiles.Model.GetDomainLayoutResponse object containing multiple properties."
     )]
-    public partial class GetEFSLifecycleConfigurationCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
+    public partial class GetCPFDomainLayoutCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter FileSystemId
+        #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The ID of the file system whose <c>LifecycleConfiguration</c> object you want to retrieve
-        /// (String).</para>
+        /// <para>The unique name of the domain.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String DomainName { get; set; }
+        #endregion
+        
+        #region Parameter LayoutDefinitionName
+        /// <summary>
+        /// <para>
+        /// <para>The unique name of the layout.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,26 +75,26 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FileSystemId { get; set; }
+        public System.String LayoutDefinitionName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'LifecyclePolicies'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElasticFileSystem.Model.DescribeLifecycleConfigurationResponse).
-        /// Specifying the name of a property of type Amazon.ElasticFileSystem.Model.DescribeLifecycleConfigurationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CustomerProfiles.Model.GetDomainLayoutResponse).
+        /// Specifying the name of a property of type Amazon.CustomerProfiles.Model.GetDomainLayoutResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "LifecyclePolicies";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the FileSystemId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^FileSystemId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the LayoutDefinitionName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^LayoutDefinitionName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FileSystemId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LayoutDefinitionName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -103,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ElasticFileSystem.Model.DescribeLifecycleConfigurationResponse, GetEFSLifecycleConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CustomerProfiles.Model.GetDomainLayoutResponse, GetCPFDomainLayoutCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -112,14 +121,21 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.FileSystemId;
+                context.Select = (response, cmdlet) => this.LayoutDefinitionName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.FileSystemId = this.FileSystemId;
+            context.DomainName = this.DomainName;
             #if MODULAR
-            if (this.FileSystemId == null && ParameterWasBound(nameof(this.FileSystemId)))
+            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
             {
-                WriteWarning("You are passing $null as a value for parameter FileSystemId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.LayoutDefinitionName = this.LayoutDefinitionName;
+            #if MODULAR
+            if (this.LayoutDefinitionName == null && ParameterWasBound(nameof(this.LayoutDefinitionName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter LayoutDefinitionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -136,11 +152,15 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElasticFileSystem.Model.DescribeLifecycleConfigurationRequest();
+            var request = new Amazon.CustomerProfiles.Model.GetDomainLayoutRequest();
             
-            if (cmdletContext.FileSystemId != null)
+            if (cmdletContext.DomainName != null)
             {
-                request.FileSystemId = cmdletContext.FileSystemId;
+                request.DomainName = cmdletContext.DomainName;
+            }
+            if (cmdletContext.LayoutDefinitionName != null)
+            {
+                request.LayoutDefinitionName = cmdletContext.LayoutDefinitionName;
             }
             
             CmdletOutput output;
@@ -175,15 +195,15 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         #region AWS Service Operation Call
         
-        private Amazon.ElasticFileSystem.Model.DescribeLifecycleConfigurationResponse CallAWSServiceOperation(IAmazonElasticFileSystem client, Amazon.ElasticFileSystem.Model.DescribeLifecycleConfigurationRequest request)
+        private Amazon.CustomerProfiles.Model.GetDomainLayoutResponse CallAWSServiceOperation(IAmazonCustomerProfiles client, Amazon.CustomerProfiles.Model.GetDomainLayoutRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic File System", "DescribeLifecycleConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Customer Profiles", "GetDomainLayout");
             try
             {
                 #if DESKTOP
-                return client.DescribeLifecycleConfiguration(request);
+                return client.GetDomainLayout(request);
                 #elif CORECLR
-                return client.DescribeLifecycleConfigurationAsync(request).GetAwaiter().GetResult();
+                return client.GetDomainLayoutAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -203,9 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String FileSystemId { get; set; }
-            public System.Func<Amazon.ElasticFileSystem.Model.DescribeLifecycleConfigurationResponse, GetEFSLifecycleConfigurationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.LifecyclePolicies;
+            public System.String DomainName { get; set; }
+            public System.String LayoutDefinitionName { get; set; }
+            public System.Func<Amazon.CustomerProfiles.Model.GetDomainLayoutResponse, GetCPFDomainLayoutCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

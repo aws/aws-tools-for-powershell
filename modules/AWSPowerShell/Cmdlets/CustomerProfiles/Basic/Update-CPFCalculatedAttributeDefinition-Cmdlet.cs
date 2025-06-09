@@ -101,6 +101,18 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter ValueRange_End
+        /// <summary>
+        /// <para>
+        /// <para>The end time of when to include objects. Use positive numbers to indicate that the
+        /// starting point is in the past, and negative numbers to indicate it is in the future.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Conditions_Range_ValueRange_End")]
+        public System.Int32? ValueRange_End { get; set; }
+        #endregion
+        
         #region Parameter Conditions_ObjectCount
         /// <summary>
         /// <para>
@@ -121,6 +133,49 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         [Alias("Conditions_Threshold_Operator")]
         [AWSConstantClassSource("Amazon.CustomerProfiles.Operator")]
         public Amazon.CustomerProfiles.Operator Threshold_Operator { get; set; }
+        #endregion
+        
+        #region Parameter ValueRange_Start
+        /// <summary>
+        /// <para>
+        /// <para>The start time of when to include objects. Use positive numbers to indicate that the
+        /// starting point is in the past, and negative numbers to indicate it is in the future.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Conditions_Range_ValueRange_Start")]
+        public System.Int32? ValueRange_Start { get; set; }
+        #endregion
+        
+        #region Parameter Range_TimestampFormat
+        /// <summary>
+        /// <para>
+        /// <para>The format the timestamp field in your JSON object is specified. This value should
+        /// be one of EPOCHMILLI (for Unix epoch timestamps with second/millisecond level precision)
+        /// or ISO_8601 (following ISO_8601 format with second/millisecond level precision, with
+        /// an optional offset of Z or in the format HH:MM or HHMM.). E.g. if your object type
+        /// is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235-0700"}},
+        /// then TimestampFormat should be "ISO_8601".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Conditions_Range_TimestampFormat")]
+        public System.String Range_TimestampFormat { get; set; }
+        #endregion
+        
+        #region Parameter Range_TimestampSource
+        /// <summary>
+        /// <para>
+        /// <para>An expression specifying the field in your JSON object from which the date should
+        /// be parsed. The expression should follow the structure of \"{ObjectTypeName.&lt;Location
+        /// of timestamp field in JSON pointer format&gt;}\". E.g. if your object type is MyType
+        /// and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource
+        /// should be "{MyType.generatedAt.timestamp}".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Conditions_Range_TimestampSource")]
+        public System.String Range_TimestampSource { get; set; }
         #endregion
         
         #region Parameter Range_Unit
@@ -227,8 +282,12 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             }
             #endif
             context.Conditions_ObjectCount = this.Conditions_ObjectCount;
+            context.Range_TimestampFormat = this.Range_TimestampFormat;
+            context.Range_TimestampSource = this.Range_TimestampSource;
             context.Range_Unit = this.Range_Unit;
             context.Range_Value = this.Range_Value;
+            context.ValueRange_End = this.ValueRange_End;
+            context.ValueRange_Start = this.ValueRange_Start;
             context.Threshold_Operator = this.Threshold_Operator;
             context.Threshold_Value = this.Threshold_Value;
             context.Description = this.Description;
@@ -274,41 +333,6 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 request.Conditions.ObjectCount = requestConditions_conditions_ObjectCount.Value;
                 requestConditionsIsNull = false;
             }
-            Amazon.CustomerProfiles.Model.Range requestConditions_conditions_Range = null;
-            
-             // populate Range
-            var requestConditions_conditions_RangeIsNull = true;
-            requestConditions_conditions_Range = new Amazon.CustomerProfiles.Model.Range();
-            Amazon.CustomerProfiles.Unit requestConditions_conditions_Range_range_Unit = null;
-            if (cmdletContext.Range_Unit != null)
-            {
-                requestConditions_conditions_Range_range_Unit = cmdletContext.Range_Unit;
-            }
-            if (requestConditions_conditions_Range_range_Unit != null)
-            {
-                requestConditions_conditions_Range.Unit = requestConditions_conditions_Range_range_Unit;
-                requestConditions_conditions_RangeIsNull = false;
-            }
-            System.Int32? requestConditions_conditions_Range_range_Value = null;
-            if (cmdletContext.Range_Value != null)
-            {
-                requestConditions_conditions_Range_range_Value = cmdletContext.Range_Value.Value;
-            }
-            if (requestConditions_conditions_Range_range_Value != null)
-            {
-                requestConditions_conditions_Range.Value = requestConditions_conditions_Range_range_Value.Value;
-                requestConditions_conditions_RangeIsNull = false;
-            }
-             // determine if requestConditions_conditions_Range should be set to null
-            if (requestConditions_conditions_RangeIsNull)
-            {
-                requestConditions_conditions_Range = null;
-            }
-            if (requestConditions_conditions_Range != null)
-            {
-                request.Conditions.Range = requestConditions_conditions_Range;
-                requestConditionsIsNull = false;
-            }
             Amazon.CustomerProfiles.Model.Threshold requestConditions_conditions_Threshold = null;
             
              // populate Threshold
@@ -342,6 +366,96 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (requestConditions_conditions_Threshold != null)
             {
                 request.Conditions.Threshold = requestConditions_conditions_Threshold;
+                requestConditionsIsNull = false;
+            }
+            Amazon.CustomerProfiles.Model.Range requestConditions_conditions_Range = null;
+            
+             // populate Range
+            var requestConditions_conditions_RangeIsNull = true;
+            requestConditions_conditions_Range = new Amazon.CustomerProfiles.Model.Range();
+            System.String requestConditions_conditions_Range_range_TimestampFormat = null;
+            if (cmdletContext.Range_TimestampFormat != null)
+            {
+                requestConditions_conditions_Range_range_TimestampFormat = cmdletContext.Range_TimestampFormat;
+            }
+            if (requestConditions_conditions_Range_range_TimestampFormat != null)
+            {
+                requestConditions_conditions_Range.TimestampFormat = requestConditions_conditions_Range_range_TimestampFormat;
+                requestConditions_conditions_RangeIsNull = false;
+            }
+            System.String requestConditions_conditions_Range_range_TimestampSource = null;
+            if (cmdletContext.Range_TimestampSource != null)
+            {
+                requestConditions_conditions_Range_range_TimestampSource = cmdletContext.Range_TimestampSource;
+            }
+            if (requestConditions_conditions_Range_range_TimestampSource != null)
+            {
+                requestConditions_conditions_Range.TimestampSource = requestConditions_conditions_Range_range_TimestampSource;
+                requestConditions_conditions_RangeIsNull = false;
+            }
+            Amazon.CustomerProfiles.Unit requestConditions_conditions_Range_range_Unit = null;
+            if (cmdletContext.Range_Unit != null)
+            {
+                requestConditions_conditions_Range_range_Unit = cmdletContext.Range_Unit;
+            }
+            if (requestConditions_conditions_Range_range_Unit != null)
+            {
+                requestConditions_conditions_Range.Unit = requestConditions_conditions_Range_range_Unit;
+                requestConditions_conditions_RangeIsNull = false;
+            }
+            System.Int32? requestConditions_conditions_Range_range_Value = null;
+            if (cmdletContext.Range_Value != null)
+            {
+                requestConditions_conditions_Range_range_Value = cmdletContext.Range_Value.Value;
+            }
+            if (requestConditions_conditions_Range_range_Value != null)
+            {
+                requestConditions_conditions_Range.Value = requestConditions_conditions_Range_range_Value.Value;
+                requestConditions_conditions_RangeIsNull = false;
+            }
+            Amazon.CustomerProfiles.Model.ValueRange requestConditions_conditions_Range_conditions_Range_ValueRange = null;
+            
+             // populate ValueRange
+            var requestConditions_conditions_Range_conditions_Range_ValueRangeIsNull = true;
+            requestConditions_conditions_Range_conditions_Range_ValueRange = new Amazon.CustomerProfiles.Model.ValueRange();
+            System.Int32? requestConditions_conditions_Range_conditions_Range_ValueRange_valueRange_End = null;
+            if (cmdletContext.ValueRange_End != null)
+            {
+                requestConditions_conditions_Range_conditions_Range_ValueRange_valueRange_End = cmdletContext.ValueRange_End.Value;
+            }
+            if (requestConditions_conditions_Range_conditions_Range_ValueRange_valueRange_End != null)
+            {
+                requestConditions_conditions_Range_conditions_Range_ValueRange.End = requestConditions_conditions_Range_conditions_Range_ValueRange_valueRange_End.Value;
+                requestConditions_conditions_Range_conditions_Range_ValueRangeIsNull = false;
+            }
+            System.Int32? requestConditions_conditions_Range_conditions_Range_ValueRange_valueRange_Start = null;
+            if (cmdletContext.ValueRange_Start != null)
+            {
+                requestConditions_conditions_Range_conditions_Range_ValueRange_valueRange_Start = cmdletContext.ValueRange_Start.Value;
+            }
+            if (requestConditions_conditions_Range_conditions_Range_ValueRange_valueRange_Start != null)
+            {
+                requestConditions_conditions_Range_conditions_Range_ValueRange.Start = requestConditions_conditions_Range_conditions_Range_ValueRange_valueRange_Start.Value;
+                requestConditions_conditions_Range_conditions_Range_ValueRangeIsNull = false;
+            }
+             // determine if requestConditions_conditions_Range_conditions_Range_ValueRange should be set to null
+            if (requestConditions_conditions_Range_conditions_Range_ValueRangeIsNull)
+            {
+                requestConditions_conditions_Range_conditions_Range_ValueRange = null;
+            }
+            if (requestConditions_conditions_Range_conditions_Range_ValueRange != null)
+            {
+                requestConditions_conditions_Range.ValueRange = requestConditions_conditions_Range_conditions_Range_ValueRange;
+                requestConditions_conditions_RangeIsNull = false;
+            }
+             // determine if requestConditions_conditions_Range should be set to null
+            if (requestConditions_conditions_RangeIsNull)
+            {
+                requestConditions_conditions_Range = null;
+            }
+            if (requestConditions_conditions_Range != null)
+            {
+                request.Conditions.Range = requestConditions_conditions_Range;
                 requestConditionsIsNull = false;
             }
              // determine if request.Conditions should be set to null
@@ -424,8 +538,12 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         {
             public System.String CalculatedAttributeName { get; set; }
             public System.Int32? Conditions_ObjectCount { get; set; }
+            public System.String Range_TimestampFormat { get; set; }
+            public System.String Range_TimestampSource { get; set; }
             public Amazon.CustomerProfiles.Unit Range_Unit { get; set; }
             public System.Int32? Range_Value { get; set; }
+            public System.Int32? ValueRange_End { get; set; }
+            public System.Int32? ValueRange_Start { get; set; }
             public Amazon.CustomerProfiles.Operator Threshold_Operator { get; set; }
             public System.String Threshold_Value { get; set; }
             public System.String Description { get; set; }

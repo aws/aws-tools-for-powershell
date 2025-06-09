@@ -7283,6 +7283,8 @@ Set-Alias -Name Create-CPFCalculatedAttributeDefinition -Value New-CPFCalculated
 Set-Alias -Name CPF-CreateCalculatedAttributeDefinition -Value New-CPFCalculatedAttributeDefinition
 Set-Alias -Name Create-CPFDomain -Value New-CPFDomain
 Set-Alias -Name CPF-CreateDomain -Value New-CPFDomain
+Set-Alias -Name Create-CPFDomainLayout -Value New-CPFDomainLayout
+Set-Alias -Name CPF-CreateDomainLayout -Value New-CPFDomainLayout
 Set-Alias -Name Create-CPFEventStream -Value New-CPFEventStream
 Set-Alias -Name CPF-CreateEventStream -Value New-CPFEventStream
 Set-Alias -Name Create-CPFEventTrigger -Value New-CPFEventTrigger
@@ -7301,6 +7303,8 @@ Set-Alias -Name Delete-CPFCalculatedAttributeDefinition -Value Remove-CPFCalcula
 Set-Alias -Name CPF-DeleteCalculatedAttributeDefinition -Value Remove-CPFCalculatedAttributeDefinition
 Set-Alias -Name Delete-CPFDomain -Value Remove-CPFDomain
 Set-Alias -Name CPF-DeleteDomain -Value Remove-CPFDomain
+Set-Alias -Name Delete-CPFDomainLayout -Value Remove-CPFDomainLayout
+Set-Alias -Name CPF-DeleteDomainLayout -Value Remove-CPFDomainLayout
 Set-Alias -Name Delete-CPFEventStream -Value Remove-CPFEventStream
 Set-Alias -Name CPF-DeleteEventStream -Value Remove-CPFEventStream
 Set-Alias -Name Delete-CPFEventTrigger -Value Remove-CPFEventTrigger
@@ -7325,6 +7329,7 @@ Set-Alias -Name CPF-GetAutoMergingPreview -Value Get-CPFAutoMergingPreview
 Set-Alias -Name CPF-GetCalculatedAttributeDefinition -Value Get-CPFCalculatedAttributeDefinition
 Set-Alias -Name CPF-GetCalculatedAttributeForProfile -Value Get-CPFCalculatedAttributeForProfile
 Set-Alias -Name CPF-GetDomain -Value Get-CPFDomain
+Set-Alias -Name CPF-GetDomainLayout -Value Get-CPFDomainLayout
 Set-Alias -Name CPF-GetEventStream -Value Get-CPFEventStream
 Set-Alias -Name CPF-GetEventTrigger -Value Get-CPFEventTrigger
 Set-Alias -Name CPF-GetIdentityResolutionJob -Value Get-CPFIdentityResolutionJob
@@ -7351,6 +7356,9 @@ Set-Alias -Name CPF-ListCalculatedAttributeDefinitions -Value Get-CPFCalculatedA
 Set-Alias -Name List-CPFCalculatedAttributesForProfile -Value Get-CPFCalculatedAttributesForProfileList
 Set-Alias -Name List-CPFCalculatedAttributesForProfileList -Value Get-CPFCalculatedAttributesForProfileList
 Set-Alias -Name CPF-ListCalculatedAttributesForProfile -Value Get-CPFCalculatedAttributesForProfileList
+Set-Alias -Name List-CPFDomainLayouts -Value Get-CPFDomainLayoutList
+Set-Alias -Name List-CPFDomainLayoutList -Value Get-CPFDomainLayoutList
+Set-Alias -Name CPF-ListDomainLayouts -Value Get-CPFDomainLayoutList
 Set-Alias -Name List-CPFDomains -Value Get-CPFDomainList
 Set-Alias -Name List-CPFDomainList -Value Get-CPFDomainList
 Set-Alias -Name CPF-ListDomains -Value Get-CPFDomainList
@@ -7405,6 +7413,7 @@ Set-Alias -Name CPF-TagResource -Value Add-CPFResourceTag
 Set-Alias -Name CPF-UntagResource -Value Remove-CPFResourceTag
 Set-Alias -Name CPF-UpdateCalculatedAttributeDefinition -Value Update-CPFCalculatedAttributeDefinition
 Set-Alias -Name CPF-UpdateDomain -Value Update-CPFDomain
+Set-Alias -Name CPF-UpdateDomainLayout -Value Update-CPFDomainLayout
 Set-Alias -Name CPF-UpdateEventTrigger -Value Update-CPFEventTrigger
 Set-Alias -Name CPF-UpdateProfile -Value Update-CPFProfile
 Set-Alias -Name Batch-GDBDeleteRecipeVersion -Value Remove-GDBRecipeVersionBatch

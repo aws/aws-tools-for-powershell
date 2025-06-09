@@ -73,10 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// | <c>detaching</c> | <c>detached</c>).</para></li><li><para><c>availability-zone</c> - The Availability Zone of the network interface.</para></li><li><para><c>description</c> - The description of the network interface.</para></li><li><para><c>group-id</c> - The ID of a security group associated with the network interface.</para></li><li><para><c>ipv6-addresses.ipv6-address</c> - An IPv6 address associated with the network
         /// interface.</para></li><li><para><c>interface-type</c> - The type of network interface (<c>api_gateway_managed</c>
         /// | <c>aws_codestar_connections_managed</c> | <c>branch</c> | <c>ec2_instance_connect_endpoint</c>
-        /// | <c>efa</c> | <c>efa-only</c> | <c>efs</c> | <c>gateway_load_balancer</c> | <c>gateway_load_balancer_endpoint</c>
-        /// | <c>global_accelerator_managed</c> | <c>interface</c> | <c>iot_rules_managed</c>
-        /// | <c>lambda</c> | <c>load_balancer</c> | <c>nat_gateway</c> | <c>network_load_balancer</c>
-        /// | <c>quicksight</c> | <c>transit_gateway</c> | <c>trunk</c> | <c>vpc_endpoint</c>).</para></li><li><para><c>mac-address</c> - The MAC address of the network interface.</para></li><li><para><c>network-interface-id</c> - The ID of the network interface.</para></li><li><para><c>operator.managed</c> - A Boolean that indicates whether this is a managed network
+        /// | <c>efa</c> | <c>efa-only</c> | <c>efs</c> | <c>evs</c> | <c>gateway_load_balancer</c>
+        /// | <c>gateway_load_balancer_endpoint</c> | <c>global_accelerator_managed</c> | <c>interface</c>
+        /// | <c>iot_rules_managed</c> | <c>lambda</c> | <c>load_balancer</c> | <c>nat_gateway</c>
+        /// | <c>network_load_balancer</c> | <c>quicksight</c> | <c>transit_gateway</c> | <c>trunk</c>
+        /// | <c>vpc_endpoint</c>).</para></li><li><para><c>mac-address</c> - The MAC address of the network interface.</para></li><li><para><c>network-interface-id</c> - The ID of the network interface.</para></li><li><para><c>operator.managed</c> - A Boolean that indicates whether this is a managed network
         /// interface.</para></li><li><para><c>operator.principal</c> - The principal that manages the network interface. Only
         /// valid for managed network interfaces, where <c>managed</c> is <c>true</c>.</para></li><li><para><c>owner-id</c> - The Amazon Web Services account ID of the network interface owner.</para></li><li><para><c>private-dns-name</c> - The private DNS name of the network interface (IPv4).</para></li><li><para><c>private-ip-address</c> - The private IPv4 address or addresses of the network
         /// interface.</para></li><li><para><c>requester-id</c> - The alias or Amazon Web Services account ID of the principal

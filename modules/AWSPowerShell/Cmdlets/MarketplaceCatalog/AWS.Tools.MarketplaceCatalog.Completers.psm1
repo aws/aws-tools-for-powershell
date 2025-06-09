@@ -108,6 +108,13 @@ $MCAT_Completers = {
             break
         }
 
+        # Amazon.MarketplaceCatalog.MachineLearningProductSortBy
+        "Get-MCATEntityList/MachineLearningProductSort_SortBy"
+        {
+            $v = "EntityId","LastModifiedDate","ProductTitle","Visibility"
+            break
+        }
+
         # Amazon.MarketplaceCatalog.OfferSortBy
         "Get-MCATEntityList/OfferSort_SortBy"
         {
@@ -141,6 +148,7 @@ $MCAT_Completers = {
             ($_ -eq "Get-MCATEntityList/AmiProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/ContainerProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/DataProductSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/MachineLearningProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/OfferSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/ResaleAuthorizationSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/SaaSProductSort_SortOrder") -Or
@@ -168,6 +176,8 @@ $MCAT_map = @{
     "DataProductSort_SortBy"=@("Get-MCATEntityList")
     "DataProductSort_SortOrder"=@("Get-MCATEntityList")
     "Intent"=@("Start-MCATChangeSet")
+    "MachineLearningProductSort_SortBy"=@("Get-MCATEntityList")
+    "MachineLearningProductSort_SortOrder"=@("Get-MCATEntityList")
     "OfferSort_SortBy"=@("Get-MCATEntityList")
     "OfferSort_SortOrder"=@("Get-MCATEntityList")
     "OwnershipType"=@("Get-MCATEntityList")

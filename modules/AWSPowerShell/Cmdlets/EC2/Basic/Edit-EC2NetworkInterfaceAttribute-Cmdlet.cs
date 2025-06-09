@@ -44,6 +44,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AssociatedSubnetId
+        /// <summary>
+        /// <para>
+        /// <para>A list of subnet IDs to associate with the network interface.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AssociatedSubnetIds")]
+        public System.String[] AssociatedSubnetId { get; set; }
+        #endregion
+        
         #region Parameter AssociatePublicIpAddress
         /// <summary>
         /// <para>
@@ -291,6 +302,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.NetworkInterfaceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AssociatedSubnetId != null)
+            {
+                context.AssociatedSubnetId = new List<System.String>(this.AssociatedSubnetId);
+            }
             context.AssociatePublicIpAddress = this.AssociatePublicIpAddress;
             context.Attachment_AttachmentId = this.Attachment_AttachmentId;
             context.Attachment_DefaultEnaQueueCount = this.Attachment_DefaultEnaQueueCount;
@@ -331,6 +346,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.ModifyNetworkInterfaceAttributeRequest();
             
+            if (cmdletContext.AssociatedSubnetId != null)
+            {
+                request.AssociatedSubnetIds = cmdletContext.AssociatedSubnetId;
+            }
             if (cmdletContext.AssociatePublicIpAddress != null)
             {
                 request.AssociatePublicIpAddress = cmdletContext.AssociatePublicIpAddress.Value;
@@ -548,6 +567,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AssociatedSubnetId { get; set; }
             public System.Boolean? AssociatePublicIpAddress { get; set; }
             public System.String Attachment_AttachmentId { get; set; }
             public System.Boolean? Attachment_DefaultEnaQueueCount { get; set; }

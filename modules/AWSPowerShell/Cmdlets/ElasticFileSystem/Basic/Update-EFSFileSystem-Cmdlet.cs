@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <para>(Optional) The throughput, measured in mebibytes per second (MiBps), that you want
         /// to provision for a file system that you're creating. Required if <c>ThroughputMode</c>
         /// is set to <c>provisioned</c>. Valid values are 1-3414 MiBps, with the upper limit
-        /// depending on Region. To increase this limit, contact Amazon Web Services Support.
-        /// For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon
+        /// depending on Region. To increase this limit, contact Amazon Web ServicesSupport. For
+        /// more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon
         /// EFS quotas that you can increase</a> in the <i>Amazon EFS User Guide</i>.</para>
         /// </para>
         /// </summary>

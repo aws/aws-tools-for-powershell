@@ -19646,6 +19646,16 @@ $CPF_Completers = {
             break
         }
 
+        # Amazon.CustomerProfiles.LayoutType
+        {
+            ($_ -eq "New-CPFDomainLayout/LayoutType") -Or
+            ($_ -eq "Update-CPFDomainLayout/LayoutType")
+        }
+        {
+            $v = "PROFILE_EXPLORER"
+            break
+        }
+
         # Amazon.CustomerProfiles.LogicalOperator
         "Search-CPFProfile/LogicalOperator"
         {
@@ -19756,6 +19766,7 @@ $CPF_map = @{
     "Filter_Include"=@("New-CPFCalculatedAttributeDefinition")
     "Gender"=@("New-CPFProfile","Update-CPFProfile")
     "JobSchedule_DayOfTheWeek"=@("New-CPFDomain","Update-CPFDomain")
+    "LayoutType"=@("New-CPFDomainLayout","Update-CPFDomainLayout")
     "LogicalOperator"=@("Search-CPFProfile")
     "MatchType"=@("Get-CPFSimilarProfile")
     "PartyType"=@("New-CPFProfile","Update-CPFProfile")
@@ -19827,6 +19838,7 @@ $CPF_SelectMap = @{
                "Get-CPFGetProfile",
                "New-CPFCalculatedAttributeDefinition",
                "New-CPFDomain",
+               "New-CPFDomainLayout",
                "New-CPFEventStream",
                "New-CPFEventTrigger",
                "New-CPFIntegrationWorkflow",
@@ -19836,6 +19848,7 @@ $CPF_SelectMap = @{
                "New-CPFSegmentSnapshot",
                "Remove-CPFCalculatedAttributeDefinition",
                "Remove-CPFDomain",
+               "Remove-CPFDomainLayout",
                "Remove-CPFEventStream",
                "Remove-CPFEventTrigger",
                "Remove-CPFIntegration",
@@ -19850,6 +19863,7 @@ $CPF_SelectMap = @{
                "Get-CPFCalculatedAttributeDefinition",
                "Get-CPFCalculatedAttributeForProfile",
                "Get-CPFDomain",
+               "Get-CPFDomainLayout",
                "Get-CPFEventStream",
                "Get-CPFEventTrigger",
                "Get-CPFIdentityResolutionJob",
@@ -19867,6 +19881,7 @@ $CPF_SelectMap = @{
                "Get-CPFAccountIntegrationList",
                "Get-CPFCalculatedAttributeDefinitionList",
                "Get-CPFCalculatedAttributesForProfileList",
+               "Get-CPFDomainLayoutList",
                "Get-CPFDomainList",
                "Get-CPFEventStreamList",
                "Get-CPFEventTriggerList",
@@ -19890,6 +19905,7 @@ $CPF_SelectMap = @{
                "Remove-CPFResourceTag",
                "Update-CPFCalculatedAttributeDefinition",
                "Update-CPFDomain",
+               "Update-CPFDomainLayout",
                "Update-CPFEventTrigger",
                "Update-CPFProfile")
 }
@@ -28769,6 +28785,13 @@ $EFS_Completers = {
             break
         }
 
+        # Amazon.ElasticFileSystem.IpAddressType
+        "New-EFSMountTarget/IpAddressType"
+        {
+            $v = "DUAL_STACK","IPV4_ONLY","IPV6_ONLY"
+            break
+        }
+
         # Amazon.ElasticFileSystem.PerformanceMode
         "New-EFSFileSystem/PerformanceMode"
         {
@@ -28818,6 +28841,7 @@ $EFS_Completers = {
 $EFS_map = @{
     "BackupPolicy_Status"=@("Write-EFSBackupPolicy")
     "DeletionMode"=@("Remove-EFSReplicationConfiguration")
+    "IpAddressType"=@("New-EFSMountTarget")
     "PerformanceMode"=@("New-EFSFileSystem")
     "ReplicationOverwriteProtection"=@("Update-EFSFileSystemProtection")
     "ResourceIdType"=@("Write-EFSAccountPreference")
@@ -47696,6 +47720,13 @@ $MCAT_Completers = {
             break
         }
 
+        # Amazon.MarketplaceCatalog.MachineLearningProductSortBy
+        "Get-MCATEntityList/MachineLearningProductSort_SortBy"
+        {
+            $v = "EntityId","LastModifiedDate","ProductTitle","Visibility"
+            break
+        }
+
         # Amazon.MarketplaceCatalog.OfferSortBy
         "Get-MCATEntityList/OfferSort_SortBy"
         {
@@ -47729,6 +47760,7 @@ $MCAT_Completers = {
             ($_ -eq "Get-MCATEntityList/AmiProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/ContainerProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/DataProductSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/MachineLearningProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/OfferSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/ResaleAuthorizationSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/SaaSProductSort_SortOrder") -Or
@@ -47756,6 +47788,8 @@ $MCAT_map = @{
     "DataProductSort_SortBy"=@("Get-MCATEntityList")
     "DataProductSort_SortOrder"=@("Get-MCATEntityList")
     "Intent"=@("Start-MCATChangeSet")
+    "MachineLearningProductSort_SortBy"=@("Get-MCATEntityList")
+    "MachineLearningProductSort_SortOrder"=@("Get-MCATEntityList")
     "OfferSort_SortBy"=@("Get-MCATEntityList")
     "OfferSort_SortOrder"=@("Get-MCATEntityList")
     "OwnershipType"=@("Get-MCATEntityList")

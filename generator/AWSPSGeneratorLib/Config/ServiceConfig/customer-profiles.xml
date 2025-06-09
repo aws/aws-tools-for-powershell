@@ -43,6 +43,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDomainLayout" OutputProperty="*" Verb="New" Noun="DomainLayout" ShouldProcessTarget="LayoutDefinitionName" PipelineParameter="LayoutDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEventStream" OutputProperty="EventStreamArn" Verb="New" Noun="EventStream" ShouldProcessTarget="DomainName" PipelineParameter="Uri" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -76,6 +80,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDomain" OutputProperty="Message" Verb="Remove" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDomainLayout" OutputProperty="Message" Verb="Remove" Noun="DomainLayout" ShouldProcessTarget="LayoutDefinitionName" PipelineParameter="LayoutDefinitionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -132,6 +140,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDomain" OutputProperty="*" Verb="Get" Noun="Domain" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDomainLayout" OutputProperty="*" Verb="Get" Noun="DomainLayout" PipelineParameter="LayoutDefinitionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -200,6 +212,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCalculatedAttributesForProfile" OutputProperty="Items" Verb="Get" Noun="CalculatedAttributesForProfileList" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDomainLayouts" OutputProperty="Items" Verb="Get" Noun="DomainLayoutList" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -300,6 +316,10 @@
                 <Param Name="RuleBasedMatching_ExportingConfig_S3Exporting_S3BucketName" NewName="RuleBasedMatching_ExportingConfig_S3Exporting_S3BucketName" />
                 <Param Name="RuleBasedMatching_ExportingConfig_S3Exporting_S3KeyName" NewName="RuleBasedMatching_ExportingConfig_S3Exporting_S3KeyName" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDomainLayout" OutputProperty="*" Verb="Update" Noun="DomainLayout" ShouldProcessTarget="LayoutDefinitionName" PipelineParameter="LayoutDefinitionName" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEventTrigger" OutputProperty="*" Verb="Update" Noun="EventTrigger" ShouldProcessTarget="EventTriggerName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">

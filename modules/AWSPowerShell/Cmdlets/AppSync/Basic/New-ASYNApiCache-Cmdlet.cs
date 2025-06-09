@@ -79,16 +79,6 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public System.String ApiId { get; set; }
         #endregion
         
-        #region Parameter AtRestEncryptionEnabled
-        /// <summary>
-        /// <para>
-        /// <para>At-rest encryption flag for cache. You cannot update this setting after creation.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? AtRestEncryptionEnabled { get; set; }
-        #endregion
-        
         #region Parameter HealthMetricsConfig
         /// <summary>
         /// <para>
@@ -102,17 +92,6 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.AppSync.CacheHealthMetricsConfig")]
         public Amazon.AppSync.CacheHealthMetricsConfig HealthMetricsConfig { get; set; }
-        #endregion
-        
-        #region Parameter TransitEncryptionEnabled
-        /// <summary>
-        /// <para>
-        /// <para>Transit encryption flag when connecting to cache. You cannot update this setting after
-        /// creation.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? TransitEncryptionEnabled { get; set; }
         #endregion
         
         #region Parameter Ttl
@@ -147,6 +126,31 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.AppSync.ApiCacheType")]
         public Amazon.AppSync.ApiCacheType Type { get; set; }
+        #endregion
+        
+        #region Parameter AtRestEncryptionEnabled
+        /// <summary>
+        /// <para>
+        /// <para>At-rest encryption flag for cache. You cannot update this setting after creation.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("atRestEncryptionEnabled attribute is deprecated. Encryption at rest is always enabled.")]
+        public System.Boolean? AtRestEncryptionEnabled { get; set; }
+        #endregion
+        
+        #region Parameter TransitEncryptionEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Transit encryption flag when connecting to cache. You cannot update this setting after
+        /// creation.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("transitEncryptionEnabled attribute is deprecated. Encryption in transit is always enabled.")]
+        public System.Boolean? TransitEncryptionEnabled { get; set; }
         #endregion
         
         #region Parameter Select
@@ -225,9 +229,13 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
                 WriteWarning("You are passing $null as a value for parameter ApiId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AtRestEncryptionEnabled = this.AtRestEncryptionEnabled;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.HealthMetricsConfig = this.HealthMetricsConfig;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.TransitEncryptionEnabled = this.TransitEncryptionEnabled;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Ttl = this.Ttl;
             #if MODULAR
             if (this.Ttl == null && ParameterWasBound(nameof(this.Ttl)))
@@ -266,18 +274,22 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             {
                 request.ApiId = cmdletContext.ApiId;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.AtRestEncryptionEnabled != null)
             {
                 request.AtRestEncryptionEnabled = cmdletContext.AtRestEncryptionEnabled.Value;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.HealthMetricsConfig != null)
             {
                 request.HealthMetricsConfig = cmdletContext.HealthMetricsConfig;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.TransitEncryptionEnabled != null)
             {
                 request.TransitEncryptionEnabled = cmdletContext.TransitEncryptionEnabled.Value;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Ttl != null)
             {
                 request.Ttl = cmdletContext.Ttl.Value;
@@ -349,8 +361,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         {
             public Amazon.AppSync.ApiCachingBehavior ApiCachingBehavior { get; set; }
             public System.String ApiId { get; set; }
+            [System.ObsoleteAttribute]
             public System.Boolean? AtRestEncryptionEnabled { get; set; }
             public Amazon.AppSync.CacheHealthMetricsConfig HealthMetricsConfig { get; set; }
+            [System.ObsoleteAttribute]
             public System.Boolean? TransitEncryptionEnabled { get; set; }
             public System.Int64? Ttl { get; set; }
             public Amazon.AppSync.ApiCacheType Type { get; set; }

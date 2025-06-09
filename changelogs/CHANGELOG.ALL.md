@@ -1,4 +1,21 @@
-﻿### 4.1.836 (2025-06-06 20:23Z)
+﻿### 4.1.837 (2025-06-09 20:39Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1061.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Customer Profiles
+    * Added cmdlet Get-CPFDomainLayout leveraging the GetDomainLayout service API.
+    * Added cmdlet Get-CPFDomainLayoutList leveraging the ListDomainLayouts service API.
+    * Added cmdlet New-CPFDomainLayout leveraging the CreateDomainLayout service API.
+    * Added cmdlet Remove-CPFDomainLayout leveraging the DeleteDomainLayout service API.
+    * Added cmdlet Update-CPFDomainLayout leveraging the UpdateDomainLayout service API.
+    * Modified cmdlet New-CPFCalculatedAttributeDefinition: added parameters Range_TimestampFormat, Range_TimestampSource, UseHistoricalData, ValueRange_End and ValueRange_Start.
+    * Modified cmdlet Update-CPFCalculatedAttributeDefinition: added parameters Range_TimestampFormat, Range_TimestampSource, ValueRange_End and ValueRange_Start.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Edit-EC2NetworkInterfaceAttribute: added parameter AssociatedSubnetId.
+  * Amazon Elastic File System
+    * Modified cmdlet New-EFSMountTarget: added parameters IpAddressType and Ipv6Address.
+  * Amazon Marketplace Catalog Service
+    * Modified cmdlet Get-MCATEntityList: added parameters DateRange_AfterValue, DateRange_BeforeValue, EntityId_ValueList, MachineLearningProductSort_SortBy, MachineLearningProductSort_SortOrder, ProductTitle_ValueList, ProductTitle_WildCardValue and Visibility_ValueList.
+
+### 4.1.836 (2025-06-06 20:23Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1060.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Runtime
     * Modified cmdlet Invoke-BARAgent: added parameters PromptCreationConfigurations_ExcludePreviousThinkingStep and PromptCreationConfigurations_PreviousConversationTurnsToInclude.

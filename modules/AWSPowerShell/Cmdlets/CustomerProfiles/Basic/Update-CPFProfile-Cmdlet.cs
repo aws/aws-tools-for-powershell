@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter AccountNumber
         /// <summary>
         /// <para>
-        /// <para>An account number that you have given to the customer.</para>
+        /// <para>An account number that you have assigned to the customer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

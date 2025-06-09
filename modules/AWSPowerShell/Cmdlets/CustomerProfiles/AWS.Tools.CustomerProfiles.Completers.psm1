@@ -157,6 +157,16 @@ $CPF_Completers = {
             break
         }
 
+        # Amazon.CustomerProfiles.LayoutType
+        {
+            ($_ -eq "New-CPFDomainLayout/LayoutType") -Or
+            ($_ -eq "Update-CPFDomainLayout/LayoutType")
+        }
+        {
+            $v = "PROFILE_EXPLORER"
+            break
+        }
+
         # Amazon.CustomerProfiles.LogicalOperator
         "Search-CPFProfile/LogicalOperator"
         {
@@ -267,6 +277,7 @@ $CPF_map = @{
     "Filter_Include"=@("New-CPFCalculatedAttributeDefinition")
     "Gender"=@("New-CPFProfile","Update-CPFProfile")
     "JobSchedule_DayOfTheWeek"=@("New-CPFDomain","Update-CPFDomain")
+    "LayoutType"=@("New-CPFDomainLayout","Update-CPFDomainLayout")
     "LogicalOperator"=@("Search-CPFProfile")
     "MatchType"=@("Get-CPFSimilarProfile")
     "PartyType"=@("New-CPFProfile","Update-CPFProfile")
@@ -338,6 +349,7 @@ $CPF_SelectMap = @{
                "Get-CPFGetProfile",
                "New-CPFCalculatedAttributeDefinition",
                "New-CPFDomain",
+               "New-CPFDomainLayout",
                "New-CPFEventStream",
                "New-CPFEventTrigger",
                "New-CPFIntegrationWorkflow",
@@ -347,6 +359,7 @@ $CPF_SelectMap = @{
                "New-CPFSegmentSnapshot",
                "Remove-CPFCalculatedAttributeDefinition",
                "Remove-CPFDomain",
+               "Remove-CPFDomainLayout",
                "Remove-CPFEventStream",
                "Remove-CPFEventTrigger",
                "Remove-CPFIntegration",
@@ -361,6 +374,7 @@ $CPF_SelectMap = @{
                "Get-CPFCalculatedAttributeDefinition",
                "Get-CPFCalculatedAttributeForProfile",
                "Get-CPFDomain",
+               "Get-CPFDomainLayout",
                "Get-CPFEventStream",
                "Get-CPFEventTrigger",
                "Get-CPFIdentityResolutionJob",
@@ -378,6 +392,7 @@ $CPF_SelectMap = @{
                "Get-CPFAccountIntegrationList",
                "Get-CPFCalculatedAttributeDefinitionList",
                "Get-CPFCalculatedAttributesForProfileList",
+               "Get-CPFDomainLayoutList",
                "Get-CPFDomainList",
                "Get-CPFEventStreamList",
                "Get-CPFEventTriggerList",
@@ -401,6 +416,7 @@ $CPF_SelectMap = @{
                "Remove-CPFResourceTag",
                "Update-CPFCalculatedAttributeDefinition",
                "Update-CPFDomain",
+               "Update-CPFDomainLayout",
                "Update-CPFEventTrigger",
                "Update-CPFProfile")
 }
