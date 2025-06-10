@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
     /// in the Amazon GameLift Streams Developer Guide. 
     /// </para><important><para>
     ///  Make sure that your files in the Amazon S3 bucket are the correct version you want
-    /// to use. As soon as you create a Amazon GameLift Streams application, you cannot change
-    /// the files at a later time. 
+    /// to use. If you change the files at a later time, you will need to create a new Amazon
+    /// GameLift Streams application. 
     /// </para></important><para>
     ///  If the request is successful, Amazon GameLift Streams begins to create an application
     /// and sets the status to <c>INITIALIZED</c>. When an application reaches <c>READY</c>
@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <para>
         /// <para>An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save
         /// application logs. Required if you specify one or more <c>ApplicationLogPaths</c>.</para><note><para>The log bucket must have permissions that give Amazon GameLift Streams access to write
-        /// the log files. For more information, see <b>Getting Started</b> in the Amazon GameLift
-        /// Streams Developer Guide. </para></note>
+        /// the log files. For more information, see <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/applications.html#application-bucket-permission-template">Application
+        /// log bucket permission policy</a> in the <i>Amazon GameLift Streams Developer Guide</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

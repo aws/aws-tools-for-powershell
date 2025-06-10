@@ -28,7 +28,38 @@ using Amazon.GameLiftStreams.Model;
 namespace Amazon.PowerShell.Cmdlets.GMLS
 {
     /// <summary>
-    /// Amazon.GameLiftStreams.IAmazonGameLiftStreams.CreateStreamGroup
+    /// Manage how Amazon GameLift Streams streams your applications by using a stream group.
+    /// A stream group is a collection of resources that Amazon GameLift Streams uses to stream
+    /// your application to end-users. When you create a stream group, you specify an application
+    /// to stream by default and the type of hardware to use, such as the graphical processing
+    /// unit (GPU). You can also link additional applications, which allows you to stream
+    /// those applications using this stream group. Depending on your expected users, you
+    /// also scale the number of concurrent streams you want to support at one time, and in
+    /// what locations. 
+    /// 
+    ///  
+    /// <para>
+    ///  Stream capacity represents the number of concurrent streams that can be active at
+    /// a time. You set stream capacity per location, per stream group. There are two types
+    /// of capacity, always-on and on-demand: 
+    /// </para><ul><li><para><b>Always-on</b>: The streaming capacity that is allocated and ready to handle stream
+    /// requests without delay. You pay for this capacity whether it's in use or not. Best
+    /// for quickest time from streaming request to streaming session. 
+    /// </para></li><li><para><b>On-demand</b>: The streaming capacity that Amazon GameLift Streams can allocate
+    /// in response to stream requests, and then de-allocate when the session has terminated.
+    /// This offers a cost control measure at the expense of a greater startup time (typically
+    /// under 5 minutes). 
+    /// </para></li></ul><para>
+    ///  To adjust the capacity of any <c>ACTIVE</c> stream group, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_UpdateStreamGroup.html">UpdateStreamGroup</a>.
+    /// 
+    /// </para><para>
+    ///  If the request is successful, Amazon GameLift Streams begins creating the stream
+    /// group. Amazon GameLift Streams assigns a unique ID to the stream group resource and
+    /// sets the status to <c>ACTIVATING</c>. When the stream group reaches <c>ACTIVE</c>
+    /// status, you can start stream sessions by using <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_StartStreamSession.html">StartStreamSession</a>.
+    /// To check the stream group's status, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamGroup.html">GetStreamGroup</a>.
+    /// 
+    /// </para>
     /// </summary>
     [Cmdlet("New", "GMLSStreamGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLiftStreams.Model.CreateStreamGroupResponse")]
@@ -50,7 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// startup performance of this application in your stream group. Once set, this application
         /// cannot be disassociated from the stream group, unlike applications that are associated
         /// using AssociateApplications. If not set when creating a stream group, you will need
-        /// to call AssociateApplications later, before you can start streaming.</para>
+        /// to call AssociateApplications later, before you can start streaming.</para><para>This value is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
+        /// Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Example
+        /// ARN: <c>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</c>.
+        /// Example ID: <c>a-9ZY8X7Wv6</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

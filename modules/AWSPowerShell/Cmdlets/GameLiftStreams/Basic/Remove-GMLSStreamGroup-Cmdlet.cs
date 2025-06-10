@@ -52,7 +52,10 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The unique ID value of the stream group resource to delete. Format example: <c>sg-1AB2C3De4</c>.</para>
+        /// <para>An <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
+        /// Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource.
+        /// Example ARN: <c>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</c>.
+        /// Example ID: <c>sg-1AB2C3De4</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

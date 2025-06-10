@@ -55,8 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <para>
         /// <para>An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save
         /// application logs. Required if you specify one or more <c>ApplicationLogPaths</c>.</para><note><para>The log bucket must have permissions that give Amazon GameLift Streams access to write
-        /// the log files. For more information, see <b>Getting Started</b> in the Amazon GameLift
-        /// Streams Developer Guide. </para></note>
+        /// the log files. For more information, see <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/applications.html#application-bucket-permission-template">Application
+        /// log bucket permission policy</a> in the <i>Amazon GameLift Streams Developer Guide</i>.
+        /// </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,9 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <summary>
         /// <para>
         /// <para>An <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
-        /// Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format
-        /// example: ARN-<c>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</c>
-        /// or ID-<c>a-9ZY8X7Wv6</c>. </para>
+        /// Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Example
+        /// ARN: <c>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</c>.
+        /// Example ID: <c>a-9ZY8X7Wv6</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

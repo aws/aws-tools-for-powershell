@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <para>
         /// <para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
         /// Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource.
-        /// Format example: ARN-<c>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4</c>
-        /// or ID-<c>sg-1AB2C3De4</c>. </para><para>The stream group that runs this stream session.</para>
+        /// Example ARN: <c>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</c>.
+        /// Example ID: <c>sg-1AB2C3De4</c>. </para><para>The stream group that runs this stream session.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,8 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <summary>
         /// <para>
         /// <para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
-        /// Resource Name (ARN)</a> that uniquely identifies the stream session resource. Format
-        /// example: <c>1AB2C3De4</c>. </para>
+        /// Resource Name (ARN)</a> or ID that uniquely identifies the stream session resource.
+        /// Example ARN: <c>arn:aws:gameliftstreams:us-west-2:111122223333:streamsession/sg-1AB2C3De4/ABC123def4567</c>.
+        /// Example ID: <c>ABC123def4567</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

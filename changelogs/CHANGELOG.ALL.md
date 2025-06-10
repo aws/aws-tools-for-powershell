@@ -1,4 +1,7 @@
-﻿### 4.1.837 (2025-06-09 20:39Z)
+﻿### 4.1.838 (2025-06-10 20:06Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1061.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.837 (2025-06-09 20:39Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1061.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Customer Profiles
     * Added cmdlet Get-CPFDomainLayout leveraging the GetDomainLayout service API.

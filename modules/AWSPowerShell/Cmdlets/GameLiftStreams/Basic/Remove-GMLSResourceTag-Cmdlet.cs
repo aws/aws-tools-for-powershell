@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">Amazon
+        /// <para>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
         /// Resource Name (ARN)</a> of the Amazon GameLift Streams resource that you want to remove
         /// tags from.</para>
         /// </para>
