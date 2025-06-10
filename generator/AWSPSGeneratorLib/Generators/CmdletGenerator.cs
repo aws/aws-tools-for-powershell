@@ -197,9 +197,18 @@ namespace AWSPowerShellGenerator.Generators
             var configurationsFolder = Path.Combine(Options.RootPath, ConfigurationFolderName);
             var serviceConfigurationsFolder = Path.Combine(configurationsFolder, ServiceConfigFoldername);
 
-            XmlOverridesMerger.ApplyOverrides(Options.RootPath, serviceConfigurationsFolder);
+            var newServiceFiles = GetNewServiceConfigFiles(Options.RootPath, serviceConfigurationsFolder);
 
+            XmlOverridesMerger.ApplyOverrides(Options.RootPath, serviceConfigurationsFolder);
+            
             ModelCollection = ConfigModelCollection.LoadAllConfigs(configurationsFolder, Options.Verbose);
+            
+            // Delete new service config files as ApplyOverrides persists the overrides to the actual files even in GenerateReportOnly.
+            // It is safe to persist overrides for existing services when GenerateReportOnly is true but not for new services
+            if (Options.GenerateReportOnly)
+            {
+                DeleteFiles(newServiceFiles);
+            }
 
             SourceArtifacts = new GenerationSources(OutputFolder, SdkAssembliesFolder, Options.VersionNumber);
             LoadCoreSDKRuntimeMaterials();
@@ -256,8 +265,13 @@ namespace AWSPowerShellGenerator.Generators
                 }
             }
 
-            var allFoundSdkAssemblies = GenerationSources.SDKFindAssemblyFilenames(SdkAssembliesFolder, Directory.EnumerateFiles);
-            VerifyAllAssembliesHaveConfiguration(SdkVersionsUtils.ReadSdkVersionFile(SdkAssembliesFolder), ModelCollection, allFoundSdkAssemblies);
+            if (!Options.GenerateReportOnly)
+            {
+                var allFoundSdkAssemblies =
+                    GenerationSources.SDKFindAssemblyFilenames(SdkAssembliesFolder, Directory.EnumerateFiles);
+                VerifyAllAssembliesHaveConfiguration(SdkVersionsUtils.ReadSdkVersionFile(SdkAssembliesFolder),
+                    ModelCollection, allFoundSdkAssemblies);
+            }
 
             if (Options.GenerateReportOnly)
             {
@@ -790,6 +804,39 @@ namespace AWSPowerShellGenerator.Generators
             foreach (var a in ModelCollection.IncludeLibrariesList)
             {
                 SourceArtifacts.Load(a.Name, a.AddAsReference);
+            }
+        }
+        
+        private List<string> GetNewServiceConfigFiles(string rootPath, string serviceConfigurationsFolder)
+        {
+            var newServiceFiles = new List<string>();
+            var serviceOverrides = XmlOverridesMerger.ReadOverrides(rootPath, out var errorMessage);
+            
+            if (!string.IsNullOrEmpty(errorMessage))
+            {
+                throw new InvalidOperationException(errorMessage);
+            }
+
+            foreach (var serviceOverride in serviceOverrides)
+            {
+                string configurationFilePath = Path.Combine(serviceConfigurationsFolder, $"{serviceOverride.Key}.xml");
+                if (!File.Exists(configurationFilePath))
+                {
+                    newServiceFiles.Add(configurationFilePath);
+                }
+            }
+            
+            return newServiceFiles;
+        }
+        
+        private void DeleteFiles(List<string> files)
+        {
+            foreach (var file in files)
+            {
+                if (File.Exists(file))
+                {
+                    File.Delete(file);
+                }
             }
         }
 
