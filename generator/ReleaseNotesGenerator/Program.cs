@@ -145,8 +145,14 @@ namespace PSReleaseNotesGenerator
 
             string report;
             var breakingChanges = new BreakingChanges();
+            
+            
+            // powershell release notes generator compares the latest module in PowerShellGallery to current version.
+            // during the first release, v5 will be compared with latest v4 and the generated release notes is extremely verbose
+            // this should be set to false after the first GA release.
+            bool previewReleaseNotes = true;
 
-            if (!string.IsNullOrEmpty(PreviewLabel))
+            if (!string.IsNullOrEmpty(PreviewLabel) || previewReleaseNotes)
             {
                 report = CreatePreviewReleaseNotes(sdkNewVersion);
             }
