@@ -7196,6 +7196,9 @@ Set-Alias -Name CLCAT-GetControl -Value Get-CLCATControl
 Set-Alias -Name List-CLCATCommonControls -Value Get-CLCATCommonControlList
 Set-Alias -Name List-CLCATCommonControlList -Value Get-CLCATCommonControlList
 Set-Alias -Name CLCAT-ListCommonControls -Value Get-CLCATCommonControlList
+Set-Alias -Name List-CLCATControlMappings -Value Get-CLCATControlMappingList
+Set-Alias -Name List-CLCATControlMappingList -Value Get-CLCATControlMappingList
+Set-Alias -Name CLCAT-ListControlMappings -Value Get-CLCATControlMappingList
 Set-Alias -Name List-CLCATControls -Value Get-CLCATControlList
 Set-Alias -Name List-CLCATControlList -Value Get-CLCATControlList
 Set-Alias -Name CLCAT-ListControls -Value Get-CLCATControlList

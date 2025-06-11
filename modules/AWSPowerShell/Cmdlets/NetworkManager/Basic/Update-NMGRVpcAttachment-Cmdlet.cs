@@ -82,6 +82,16 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         public System.String AttachmentId { get; set; }
         #endregion
         
+        #region Parameter Options_DnsSupport
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether DNS is supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Options_DnsSupport { get; set; }
+        #endregion
+        
         #region Parameter Options_Ipv6Support
         /// <summary>
         /// <para>
@@ -101,6 +111,18 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RemoveSubnetArns")]
         public System.String[] RemoveSubnetArn { get; set; }
+        #endregion
+        
+        #region Parameter Options_SecurityGroupReferencingSupport
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether security group referencing is enabled for this VPC attachment. The
+        /// default is <c>true</c>. However, at the core network policy-level the default is set
+        /// to <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Options_SecurityGroupReferencingSupport { get; set; }
         #endregion
         
         #region Parameter Select
@@ -177,7 +199,9 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             }
             #endif
             context.Options_ApplianceModeSupport = this.Options_ApplianceModeSupport;
+            context.Options_DnsSupport = this.Options_DnsSupport;
             context.Options_Ipv6Support = this.Options_Ipv6Support;
+            context.Options_SecurityGroupReferencingSupport = this.Options_SecurityGroupReferencingSupport;
             if (this.RemoveSubnetArn != null)
             {
                 context.RemoveSubnetArn = new List<System.String>(this.RemoveSubnetArn);
@@ -220,6 +244,16 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
                 request.Options.ApplianceModeSupport = requestOptions_options_ApplianceModeSupport.Value;
                 requestOptionsIsNull = false;
             }
+            System.Boolean? requestOptions_options_DnsSupport = null;
+            if (cmdletContext.Options_DnsSupport != null)
+            {
+                requestOptions_options_DnsSupport = cmdletContext.Options_DnsSupport.Value;
+            }
+            if (requestOptions_options_DnsSupport != null)
+            {
+                request.Options.DnsSupport = requestOptions_options_DnsSupport.Value;
+                requestOptionsIsNull = false;
+            }
             System.Boolean? requestOptions_options_Ipv6Support = null;
             if (cmdletContext.Options_Ipv6Support != null)
             {
@@ -228,6 +262,16 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             if (requestOptions_options_Ipv6Support != null)
             {
                 request.Options.Ipv6Support = requestOptions_options_Ipv6Support.Value;
+                requestOptionsIsNull = false;
+            }
+            System.Boolean? requestOptions_options_SecurityGroupReferencingSupport = null;
+            if (cmdletContext.Options_SecurityGroupReferencingSupport != null)
+            {
+                requestOptions_options_SecurityGroupReferencingSupport = cmdletContext.Options_SecurityGroupReferencingSupport.Value;
+            }
+            if (requestOptions_options_SecurityGroupReferencingSupport != null)
+            {
+                request.Options.SecurityGroupReferencingSupport = requestOptions_options_SecurityGroupReferencingSupport.Value;
                 requestOptionsIsNull = false;
             }
              // determine if request.Options should be set to null
@@ -303,7 +347,9 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             public List<System.String> AddSubnetArn { get; set; }
             public System.String AttachmentId { get; set; }
             public System.Boolean? Options_ApplianceModeSupport { get; set; }
+            public System.Boolean? Options_DnsSupport { get; set; }
             public System.Boolean? Options_Ipv6Support { get; set; }
+            public System.Boolean? Options_SecurityGroupReferencingSupport { get; set; }
             public List<System.String> RemoveSubnetArn { get; set; }
             public System.Func<Amazon.NetworkManager.Model.UpdateVpcAttachmentResponse, UpdateNMGRVpcAttachmentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.VpcAttachment;

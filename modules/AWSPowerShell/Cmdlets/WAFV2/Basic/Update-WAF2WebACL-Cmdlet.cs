@@ -85,6 +85,25 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter OnSourceDDoSProtectionConfig_ALBLowReputationMode
+        /// <summary>
+        /// <para>
+        /// <para>The level of DDoS protection that applies to web ACLs associated with Application
+        /// Load Balancers. <c>ACTIVE_UNDER_DDOS</c> protection is enabled by default whenever
+        /// a web ACL is associated with an Application Load Balancer. In the event that an Application
+        /// Load Balancer experiences high-load conditions or suspected DDoS attacks, the <c>ACTIVE_UNDER_DDOS</c>
+        /// protection automatically rate limits traffic from known low reputation sources without
+        /// disrupting Application Load Balancer availability. <c>ALWAYS_ON</c> protection provides
+        /// constant, always-on monitoring of known low reputation sources for suspected DDoS
+        /// attacks. While this provides a higher level of protection, there may be potential
+        /// impacts on legitimate traffic.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WAFV2.LowReputationMode")]
+        public Amazon.WAFV2.LowReputationMode OnSourceDDoSProtectionConfig_ALBLowReputationMode { get; set; }
+        #endregion
+        
         #region Parameter DefaultAction_Allow
         /// <summary>
         /// <para>
@@ -463,6 +482,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OnSourceDDoSProtectionConfig_ALBLowReputationMode = this.OnSourceDDoSProtectionConfig_ALBLowReputationMode;
             if (this.Rule != null)
             {
                 context.Rule = new List<Amazon.WAFV2.Model.Rule>(this.Rule);
@@ -670,6 +690,25 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             {
                 request.Name = cmdletContext.Name;
             }
+            
+             // populate OnSourceDDoSProtectionConfig
+            var requestOnSourceDDoSProtectionConfigIsNull = true;
+            request.OnSourceDDoSProtectionConfig = new Amazon.WAFV2.Model.OnSourceDDoSProtectionConfig();
+            Amazon.WAFV2.LowReputationMode requestOnSourceDDoSProtectionConfig_onSourceDDoSProtectionConfig_ALBLowReputationMode = null;
+            if (cmdletContext.OnSourceDDoSProtectionConfig_ALBLowReputationMode != null)
+            {
+                requestOnSourceDDoSProtectionConfig_onSourceDDoSProtectionConfig_ALBLowReputationMode = cmdletContext.OnSourceDDoSProtectionConfig_ALBLowReputationMode;
+            }
+            if (requestOnSourceDDoSProtectionConfig_onSourceDDoSProtectionConfig_ALBLowReputationMode != null)
+            {
+                request.OnSourceDDoSProtectionConfig.ALBLowReputationMode = requestOnSourceDDoSProtectionConfig_onSourceDDoSProtectionConfig_ALBLowReputationMode;
+                requestOnSourceDDoSProtectionConfigIsNull = false;
+            }
+             // determine if request.OnSourceDDoSProtectionConfig should be set to null
+            if (requestOnSourceDDoSProtectionConfigIsNull)
+            {
+                request.OnSourceDDoSProtectionConfig = null;
+            }
             if (cmdletContext.Rule != null)
             {
                 request.Rules = cmdletContext.Rule;
@@ -793,6 +832,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             public System.String Id { get; set; }
             public System.String LockToken { get; set; }
             public System.String Name { get; set; }
+            public Amazon.WAFV2.LowReputationMode OnSourceDDoSProtectionConfig_ALBLowReputationMode { get; set; }
             public List<Amazon.WAFV2.Model.Rule> Rule { get; set; }
             public Amazon.WAFV2.Scope Scope { get; set; }
             public List<System.String> TokenDomain { get; set; }

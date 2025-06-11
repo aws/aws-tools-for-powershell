@@ -79,7 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// setting is typically used with <c>SET</c> statements to make sure that each connection
         /// has identical settings. Make sure the query added here is valid. This is an optional
         /// field, so you can choose to leave it empty. For including multiple variables in a
-        /// single SET statement, use a comma separator.</para><para>For example: <c>SET variable1=value1, variable2=value2</c></para><para>Default: no initialization query</para>
+        /// single SET statement, use a comma separator.</para><para>For example: <c>SET variable1=value1, variable2=value2</c></para><para>Default: no initialization query</para><important><para>Since you can access initialization query as part of target group configuration, it
+        /// is not protected by authentication or cryptographic methods. Anyone with access to
+        /// view or manage your proxy target group configuration can view the initialization query.
+        /// You should not add sensitive data, such as passwords or long-lived encryption keys,
+        /// to this option.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

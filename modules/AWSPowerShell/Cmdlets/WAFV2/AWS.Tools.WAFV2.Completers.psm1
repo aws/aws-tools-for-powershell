@@ -117,6 +117,16 @@ $WAF2_Completers = {
             break
         }
 
+        # Amazon.WAFV2.LowReputationMode
+        {
+            ($_ -eq "New-WAF2WebACL/OnSourceDDoSProtectionConfig_ALBLowReputationMode") -Or
+            ($_ -eq "Update-WAF2WebACL/OnSourceDDoSProtectionConfig_ALBLowReputationMode")
+        }
+        {
+            $v = "ACTIVE_UNDER_DDOS","ALWAYS_ON"
+            break
+        }
+
         # Amazon.WAFV2.Platform
         {
             ($_ -eq "Get-WAF2MobileSdkRelease/Platform") -Or
@@ -195,6 +205,7 @@ $WAF2_map = @{
     "LoggingFilter_DefaultBehavior"=@("Write-WAF2LoggingConfiguration")
     "LogScope"=@("Get-WAF2LoggingConfiguration","Get-WAF2LoggingConfigurationList","Remove-WAF2LoggingConfiguration")
     "LogType"=@("Get-WAF2LoggingConfiguration","Remove-WAF2LoggingConfiguration")
+    "OnSourceDDoSProtectionConfig_ALBLowReputationMode"=@("New-WAF2WebACL","Update-WAF2WebACL")
     "Platform"=@("Get-WAF2MobileSdkRelease","Get-WAF2MobileSdkReleaseList","New-WAF2MobileSdkReleaseUrl")
     "ResourceType"=@("Get-WAF2ResourcesForWebACLList")
     "Scope"=@("Get-WAF2AllManagedProduct","Get-WAF2APIKeyList","Get-WAF2AvailableManagedRuleGroupList","Get-WAF2AvailableManagedRuleGroupVersionList","Get-WAF2DecryptedAPIKey","Get-WAF2IPSet","Get-WAF2IPSetList","Get-WAF2LoggingConfigurationList","Get-WAF2ManagedProductsByVendor","Get-WAF2ManagedRuleGroup","Get-WAF2ManagedRuleSet","Get-WAF2ManagedRuleSetList","Get-WAF2RateBasedStatementManagedKey","Get-WAF2RegexPatternSet","Get-WAF2RegexPatternSetList","Get-WAF2RuleGroup","Get-WAF2RuleGroupList","Get-WAF2SampledRequest","Get-WAF2WebACL","Get-WAF2WebACLsList","New-WAF2APIKey","New-WAF2IPSet","New-WAF2RegexPatternSet","New-WAF2RuleGroup","New-WAF2WebACL","Remove-WAF2APIKey","Remove-WAF2IPSet","Remove-WAF2RegexPatternSet","Remove-WAF2RuleGroup","Remove-WAF2WebACL","Test-WAF2Capacity","Update-WAF2IPSet","Update-WAF2ManagedRuleSetVersionExpiryDate","Update-WAF2RegexPatternSet","Update-WAF2RuleGroup","Update-WAF2WebACL","Write-WAF2ManagedRuleSetVersion")

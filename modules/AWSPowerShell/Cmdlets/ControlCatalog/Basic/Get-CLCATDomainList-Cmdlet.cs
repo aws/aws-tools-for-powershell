@@ -28,7 +28,7 @@ using Amazon.ControlCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.CLCAT
 {
     /// <summary>
-    /// Returns a paginated list of domains from the Amazon Web Services Control Catalog.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a paginated list of domains from the Control Catalog.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CLCATDomainList")]
     [OutputType("Amazon.ControlCatalog.Model.DomainSummary")]

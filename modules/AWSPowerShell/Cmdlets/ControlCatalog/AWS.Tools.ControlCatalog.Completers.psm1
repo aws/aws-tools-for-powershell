@@ -125,6 +125,7 @@ $CLCAT_SelectCompleters = {
 $CLCAT_SelectMap = @{
     "Select"=@("Get-CLCATControl",
                "Get-CLCATCommonControlList",
+               "Get-CLCATControlMappingList",
                "Get-CLCATControlList",
                "Get-CLCATDomainList",
                "Get-CLCATObjectiveList")

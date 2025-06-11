@@ -1,4 +1,22 @@
-﻿### 4.1.838 (2025-06-10 20:06Z)
+﻿### 4.1.839 (2025-06-11 20:39Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1062.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Control Catalog
+    * Added cmdlet Get-CLCATControlMappingList leveraging the ListControlMappings service API.
+    * Modified cmdlet Get-CLCATControlList: added parameters Implementations_Identifier and Implementations_Type.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet New-EKSPodIdentityAssociation: added parameters DisableSessionTag and TargetRoleArn.
+    * Modified cmdlet Update-EKSPodIdentityAssociation: added parameters DisableSessionTag and TargetRoleArn.
+  * Amazon Lex Model Building V2
+    * Modified cmdlet New-LMBV2BotLocale: added parameter NluImprovement_Enabled.
+    * Modified cmdlet Update-LMBV2BotLocale: added parameter NluImprovement_Enabled.
+  * Amazon Network Manager
+    * Modified cmdlet New-NMGRVpcAttachment: added parameters Options_DnsSupport and Options_SecurityGroupReferencingSupport.
+    * Modified cmdlet Update-NMGRVpcAttachment: added parameters Options_DnsSupport and Options_SecurityGroupReferencingSupport.
+  * Amazon WAF V2
+    * Modified cmdlet New-WAF2WebACL: added parameter OnSourceDDoSProtectionConfig_ALBLowReputationMode.
+    * Modified cmdlet Update-WAF2WebACL: added parameter OnSourceDDoSProtectionConfig_ALBLowReputationMode.
+
+### 4.1.838 (2025-06-10 20:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1061.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.837 (2025-06-09 20:39Z)

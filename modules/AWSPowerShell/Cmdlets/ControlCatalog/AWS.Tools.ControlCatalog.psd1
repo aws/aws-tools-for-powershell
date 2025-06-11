@@ -91,6 +91,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CLCATCommonControlList', 
         'Get-CLCATControl', 
         'Get-CLCATControlList', 
+        'Get-CLCATControlMappingList', 
         'Get-CLCATDomainList', 
         'Get-CLCATObjectiveList')
 

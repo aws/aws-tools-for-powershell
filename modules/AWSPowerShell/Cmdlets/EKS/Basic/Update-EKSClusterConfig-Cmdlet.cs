@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// </para></note></li><li><para>
     /// You can also use this API operation to enable or disable public and private access
     /// to your cluster's Kubernetes API server endpoint. By default, public access is enabled,
-    /// and private access is disabled. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon
-    /// EKS cluster endpoint access control</a> in the <i><i>Amazon EKS User Guide</i></i>.
+    /// and private access is disabled. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">
+    /// Cluster API server endpoint</a> in the <i><i>Amazon EKS User Guide</i></i>.
     /// </para></li><li><para>
     /// You can also use this API operation to choose different subnets and security groups
     /// for the cluster. You must specify at least two subnets that are in different Availability
@@ -238,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// the cluster. These blocks are typically determined by your network administrator.
         /// </para><para>Enter one or more IPv4 CIDR blocks in decimal dotted-quad notation (for example, <c>
         /// 10.2.0.0/16</c>).</para><para>It must satisfy the following requirements:</para><ul><li><para>Each block must be within an <c>IPv4</c> RFC-1918 network range. Minimum allowed size
-        /// is /24, maximum allowed size is /8. Publicly-routable addresses aren't supported.</para></li><li><para>Each block cannot overlap with the range of the VPC CIDR blocks for your EKS resources,
+        /// is /32, maximum allowed size is /8. Publicly-routable addresses aren't supported.</para></li><li><para>Each block cannot overlap with the range of the VPC CIDR blocks for your EKS resources,
         /// or the block of the Kubernetes service IP range.</para></li><li><para>Each block must have a route to the VPC that uses the VPC CIDR blocks, not public
         /// IPs or Elastic IPs. There are many options including Transit Gateway, Site-to-Site
         /// VPN, or Direct Connect.</para></li><li><para>Each host must allow outbound connection to the EKS cluster control plane on TCP ports
@@ -260,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// plugin. We recommend the Calico CNI or Cilium CNI. Note that the Amazon VPC CNI plugin
         /// for Kubernetes isn't available for on-premises and edge locations.</para><para>Enter one or more IPv4 CIDR blocks in decimal dotted-quad notation (for example, <c>
         /// 10.2.0.0/16</c>).</para><para>It must satisfy the following requirements:</para><ul><li><para>Each block must be within an <c>IPv4</c> RFC-1918 network range. Minimum allowed size
-        /// is /24, maximum allowed size is /8. Publicly-routable addresses aren't supported.</para></li><li><para>Each block cannot overlap with the range of the VPC CIDR blocks for your EKS resources,
+        /// is /32, maximum allowed size is /8. Publicly-routable addresses aren't supported.</para></li><li><para>Each block cannot overlap with the range of the VPC CIDR blocks for your EKS resources,
         /// or the block of the Kubernetes service IP range.</para></li></ul>
         /// </para>
         /// </summary>

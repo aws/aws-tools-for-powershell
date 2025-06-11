@@ -28,47 +28,56 @@ using Amazon.ControlCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.CLCAT
 {
     /// <summary>
-    /// Returns a paginated list of all available controls in the Control Catalog library.
-    /// Allows you to discover available controls. The list of controls is given as structures
-    /// of type <i>controlSummary</i>. The ARN is returned in the global <i>controlcatalog</i>
-    /// format, as shown in the examples.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a paginated list of control mappings from the Control Catalog. Control mappings
+    /// show relationships between controls and other entities, such as common controls or
+    /// compliance frameworks.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CLCATControlList")]
-    [OutputType("Amazon.ControlCatalog.Model.ControlSummary")]
-    [AWSCmdlet("Calls the AWS Control Catalog ListControls API operation.", Operation = new[] {"ListControls"}, SelectReturnType = typeof(Amazon.ControlCatalog.Model.ListControlsResponse))]
-    [AWSCmdletOutput("Amazon.ControlCatalog.Model.ControlSummary or Amazon.ControlCatalog.Model.ListControlsResponse",
-        "This cmdlet returns a collection of Amazon.ControlCatalog.Model.ControlSummary objects.",
-        "The service call response (type Amazon.ControlCatalog.Model.ListControlsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "CLCATControlMappingList")]
+    [OutputType("Amazon.ControlCatalog.Model.ControlMapping")]
+    [AWSCmdlet("Calls the AWS Control Catalog ListControlMappings API operation.", Operation = new[] {"ListControlMappings"}, SelectReturnType = typeof(Amazon.ControlCatalog.Model.ListControlMappingsResponse))]
+    [AWSCmdletOutput("Amazon.ControlCatalog.Model.ControlMapping or Amazon.ControlCatalog.Model.ListControlMappingsResponse",
+        "This cmdlet returns a collection of Amazon.ControlCatalog.Model.ControlMapping objects.",
+        "The service call response (type Amazon.ControlCatalog.Model.ListControlMappingsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetCLCATControlListCmdlet : AmazonControlCatalogClientCmdlet, IExecutor
+    public partial class GetCLCATControlMappingListCmdlet : AmazonControlCatalogClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Implementations_Identifier
+        #region Parameter Filter_CommonControlArn
         /// <summary>
         /// <para>
-        /// <para>A list of service-specific identifiers that can serve as filters. For example, you
-        /// can filter for controls with specific Amazon Web Services Config Rule IDs or Security
-        /// Hub Control IDs.</para>
+        /// <para>A list of common control ARNs to filter the mappings. When specified, only mappings
+        /// associated with these common controls are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Filter_Implementations_Identifiers")]
-        public System.String[] Implementations_Identifier { get; set; }
+        [Alias("Filter_CommonControlArns")]
+        public System.String[] Filter_CommonControlArn { get; set; }
         #endregion
         
-        #region Parameter Implementations_Type
+        #region Parameter Filter_ControlArn
         /// <summary>
         /// <para>
-        /// <para>A list of implementation types that can serve as filters. For example, you can filter
-        /// for controls implemented as Amazon Web Services Config Rules by specifying AWS::Config::ConfigRule
-        /// as a type.</para>
+        /// <para>A list of control ARNs to filter the mappings. When specified, only mappings associated
+        /// with these controls are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Filter_Implementations_Types")]
-        public System.String[] Implementations_Type { get; set; }
+        [Alias("Filter_ControlArns")]
+        public System.String[] Filter_ControlArn { get; set; }
+        #endregion
+        
+        #region Parameter Filter_MappingType
+        /// <summary>
+        /// <para>
+        /// <para>A list of mapping types to filter the mappings. When specified, only mappings of these
+        /// types are returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_MappingTypes")]
+        public System.String[] Filter_MappingType { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -98,13 +107,13 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Controls'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ControlCatalog.Model.ListControlsResponse).
-        /// Specifying the name of a property of type Amazon.ControlCatalog.Model.ListControlsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ControlMappings'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ControlCatalog.Model.ListControlMappingsResponse).
+        /// Specifying the name of a property of type Amazon.ControlCatalog.Model.ListControlMappingsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Controls";
+        public string Select { get; set; } = "ControlMappings";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -129,16 +138,20 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ControlCatalog.Model.ListControlsResponse, GetCLCATControlListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ControlCatalog.Model.ListControlMappingsResponse, GetCLCATControlMappingListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.Implementations_Identifier != null)
+            if (this.Filter_CommonControlArn != null)
             {
-                context.Implementations_Identifier = new List<System.String>(this.Implementations_Identifier);
+                context.Filter_CommonControlArn = new List<System.String>(this.Filter_CommonControlArn);
             }
-            if (this.Implementations_Type != null)
+            if (this.Filter_ControlArn != null)
             {
-                context.Implementations_Type = new List<System.String>(this.Implementations_Type);
+                context.Filter_ControlArn = new List<System.String>(this.Filter_ControlArn);
+            }
+            if (this.Filter_MappingType != null)
+            {
+                context.Filter_MappingType = new List<System.String>(this.Filter_MappingType);
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -158,45 +171,40 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.ControlCatalog.Model.ListControlsRequest();
+            var request = new Amazon.ControlCatalog.Model.ListControlMappingsRequest();
             
             
              // populate Filter
             var requestFilterIsNull = true;
-            request.Filter = new Amazon.ControlCatalog.Model.ControlFilter();
-            Amazon.ControlCatalog.Model.ImplementationFilter requestFilter_filter_Implementations = null;
-            
-             // populate Implementations
-            var requestFilter_filter_ImplementationsIsNull = true;
-            requestFilter_filter_Implementations = new Amazon.ControlCatalog.Model.ImplementationFilter();
-            List<System.String> requestFilter_filter_Implementations_implementations_Identifier = null;
-            if (cmdletContext.Implementations_Identifier != null)
+            request.Filter = new Amazon.ControlCatalog.Model.ControlMappingFilter();
+            List<System.String> requestFilter_filter_CommonControlArn = null;
+            if (cmdletContext.Filter_CommonControlArn != null)
             {
-                requestFilter_filter_Implementations_implementations_Identifier = cmdletContext.Implementations_Identifier;
+                requestFilter_filter_CommonControlArn = cmdletContext.Filter_CommonControlArn;
             }
-            if (requestFilter_filter_Implementations_implementations_Identifier != null)
+            if (requestFilter_filter_CommonControlArn != null)
             {
-                requestFilter_filter_Implementations.Identifiers = requestFilter_filter_Implementations_implementations_Identifier;
-                requestFilter_filter_ImplementationsIsNull = false;
+                request.Filter.CommonControlArns = requestFilter_filter_CommonControlArn;
+                requestFilterIsNull = false;
             }
-            List<System.String> requestFilter_filter_Implementations_implementations_Type = null;
-            if (cmdletContext.Implementations_Type != null)
+            List<System.String> requestFilter_filter_ControlArn = null;
+            if (cmdletContext.Filter_ControlArn != null)
             {
-                requestFilter_filter_Implementations_implementations_Type = cmdletContext.Implementations_Type;
+                requestFilter_filter_ControlArn = cmdletContext.Filter_ControlArn;
             }
-            if (requestFilter_filter_Implementations_implementations_Type != null)
+            if (requestFilter_filter_ControlArn != null)
             {
-                requestFilter_filter_Implementations.Types = requestFilter_filter_Implementations_implementations_Type;
-                requestFilter_filter_ImplementationsIsNull = false;
+                request.Filter.ControlArns = requestFilter_filter_ControlArn;
+                requestFilterIsNull = false;
             }
-             // determine if requestFilter_filter_Implementations should be set to null
-            if (requestFilter_filter_ImplementationsIsNull)
+            List<System.String> requestFilter_filter_MappingType = null;
+            if (cmdletContext.Filter_MappingType != null)
             {
-                requestFilter_filter_Implementations = null;
+                requestFilter_filter_MappingType = cmdletContext.Filter_MappingType;
             }
-            if (requestFilter_filter_Implementations != null)
+            if (requestFilter_filter_MappingType != null)
             {
-                request.Filter.Implementations = requestFilter_filter_Implementations;
+                request.Filter.MappingTypes = requestFilter_filter_MappingType;
                 requestFilterIsNull = false;
             }
              // determine if request.Filter should be set to null
@@ -265,15 +273,15 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
         
         #region AWS Service Operation Call
         
-        private Amazon.ControlCatalog.Model.ListControlsResponse CallAWSServiceOperation(IAmazonControlCatalog client, Amazon.ControlCatalog.Model.ListControlsRequest request)
+        private Amazon.ControlCatalog.Model.ListControlMappingsResponse CallAWSServiceOperation(IAmazonControlCatalog client, Amazon.ControlCatalog.Model.ListControlMappingsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Control Catalog", "ListControls");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Control Catalog", "ListControlMappings");
             try
             {
                 #if DESKTOP
-                return client.ListControls(request);
+                return client.ListControlMappings(request);
                 #elif CORECLR
-                return client.ListControlsAsync(request).GetAwaiter().GetResult();
+                return client.ListControlMappingsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -293,12 +301,13 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> Implementations_Identifier { get; set; }
-            public List<System.String> Implementations_Type { get; set; }
+            public List<System.String> Filter_CommonControlArn { get; set; }
+            public List<System.String> Filter_ControlArn { get; set; }
+            public List<System.String> Filter_MappingType { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.ControlCatalog.Model.ListControlsResponse, GetCLCATControlListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Controls;
+            public System.Func<Amazon.ControlCatalog.Model.ListControlMappingsResponse, GetCLCATControlMappingListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ControlMappings;
         }
         
     }
