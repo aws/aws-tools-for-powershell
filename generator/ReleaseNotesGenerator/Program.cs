@@ -442,16 +442,19 @@ namespace PSReleaseNotesGenerator
 
             using (Process process = new Process())
             {
-                string moduleVersionParameter = "";
+                string moduleVersionParameter = $" -MaximumVersion '4.99.999'";
                 if (moduleVersion != null)
                 {
                     moduleVersionParameter = $" -RequiredVersion '{moduleVersion}'";
                 }
 
+                string downloadModuleArguments =
+                    $"-NonInteractive -NoProfile -Command $ErrorActionPreference='Stop'; Save-Module -Name '{moduleName}'{moduleVersionParameter} -Path '{downloadFolder}'";
+                Console.WriteLine($"Download Module arguments: {downloadModuleArguments}");
                 process.StartInfo = new ProcessStartInfo
                 {
                     FileName = "pwsh",
-                    Arguments = $"-NonInteractive -NoProfile -Command $ErrorActionPreference='Stop'; Save-Module -Name '{moduleName}'{moduleVersionParameter} -Path '{downloadFolder}'",
+                    Arguments = downloadModuleArguments,
                     UseShellExecute = false,
                     RedirectStandardError = true
                 };
