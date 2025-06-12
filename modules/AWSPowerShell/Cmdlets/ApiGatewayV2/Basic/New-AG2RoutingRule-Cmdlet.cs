@@ -28,7 +28,7 @@ using Amazon.ApiGatewayV2.Model;
 namespace Amazon.PowerShell.Cmdlets.AG2
 {
     /// <summary>
-    /// Creates a RoutingRule
+    /// Creates a RoutingRule.
     /// </summary>
     [Cmdlet("New", "AG2RoutingRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ApiGatewayV2.Model.CreateRoutingRuleResponse")]

@@ -28,16 +28,16 @@ using Amazon.ConnectCampaignsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.CCS2
 {
     /// <summary>
-    /// Updates the communication limits config for a campaign. This API is idempotent.
+    /// Put the instance communication limits. This API is idempotent.
     /// </summary>
-    [Cmdlet("Update", "CCS2CampaignCommunicationLimit", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Write", "CCS2InstanceCommunicationLimit", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AmazonConnectCampaignServiceV2 UpdateCampaignCommunicationLimits API operation.", Operation = new[] {"UpdateCampaignCommunicationLimits"}, SelectReturnType = typeof(Amazon.ConnectCampaignsV2.Model.UpdateCampaignCommunicationLimitsResponse))]
-    [AWSCmdletOutput("None or Amazon.ConnectCampaignsV2.Model.UpdateCampaignCommunicationLimitsResponse",
+    [AWSCmdlet("Calls the AmazonConnectCampaignServiceV2 PutInstanceCommunicationLimits API operation.", Operation = new[] {"PutInstanceCommunicationLimits"}, SelectReturnType = typeof(Amazon.ConnectCampaignsV2.Model.PutInstanceCommunicationLimitsResponse))]
+    [AWSCmdletOutput("None or Amazon.ConnectCampaignsV2.Model.PutInstanceCommunicationLimitsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConnectCampaignsV2.Model.UpdateCampaignCommunicationLimitsResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.ConnectCampaignsV2.Model.PutInstanceCommunicationLimitsResponse) be returned by specifying '-Select *'."
     )]
-    public partial class UpdateCCS2CampaignCommunicationLimitCmdlet : AmazonConnectCampaignsV2ClientCmdlet, IExecutor
+    public partial class WriteCCS2InstanceCommunicationLimitCmdlet : AmazonConnectCampaignsV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -49,11 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("CommunicationLimitsOverride_AllChannelSubtypes_CommunicationLimitsList")]
+        [Alias("CommunicationLimitsConfig_AllChannelSubtypes_CommunicationLimitsList")]
         public Amazon.ConnectCampaignsV2.Model.CommunicationLimit[] AllChannelSubtypes_CommunicationLimitsList { get; set; }
         #endregion
         
-        #region Parameter Id
+        #region Parameter ConnectInstanceId
         /// <summary>
         /// <para>
         /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
@@ -67,24 +67,13 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
-        #endregion
-        
-        #region Parameter CommunicationLimitsOverride_InstanceLimitsHandling
-        /// <summary>
-        /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.ConnectCampaignsV2.InstanceLimitsHandling")]
-        public Amazon.ConnectCampaignsV2.InstanceLimitsHandling CommunicationLimitsOverride_InstanceLimitsHandling { get; set; }
+        public System.String ConnectInstanceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCampaignsV2.Model.UpdateCampaignCommunicationLimitsResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCampaignsV2.Model.PutInstanceCommunicationLimitsResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,10 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ConnectInstanceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ConnectInstanceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConnectInstanceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -116,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CCS2CampaignCommunicationLimit (UpdateCampaignCommunicationLimits)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConnectInstanceId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-CCS2InstanceCommunicationLimit (PutInstanceCommunicationLimits)"))
             {
                 return;
             }
@@ -130,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConnectCampaignsV2.Model.UpdateCampaignCommunicationLimitsResponse, UpdateCCS2CampaignCommunicationLimitCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ConnectCampaignsV2.Model.PutInstanceCommunicationLimitsResponse, WriteCCS2InstanceCommunicationLimitCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -139,19 +128,18 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Id;
+                context.Select = (response, cmdlet) => this.ConnectInstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.AllChannelSubtypes_CommunicationLimitsList != null)
             {
                 context.AllChannelSubtypes_CommunicationLimitsList = new List<Amazon.ConnectCampaignsV2.Model.CommunicationLimit>(this.AllChannelSubtypes_CommunicationLimitsList);
             }
-            context.CommunicationLimitsOverride_InstanceLimitsHandling = this.CommunicationLimitsOverride_InstanceLimitsHandling;
-            context.Id = this.Id;
+            context.ConnectInstanceId = this.ConnectInstanceId;
             #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.ConnectInstanceId == null && ParameterWasBound(nameof(this.ConnectInstanceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ConnectInstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -168,55 +156,45 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConnectCampaignsV2.Model.UpdateCampaignCommunicationLimitsRequest();
+            var request = new Amazon.ConnectCampaignsV2.Model.PutInstanceCommunicationLimitsRequest();
             
             
-             // populate CommunicationLimitsOverride
-            var requestCommunicationLimitsOverrideIsNull = true;
-            request.CommunicationLimitsOverride = new Amazon.ConnectCampaignsV2.Model.CommunicationLimitsConfig();
-            Amazon.ConnectCampaignsV2.InstanceLimitsHandling requestCommunicationLimitsOverride_communicationLimitsOverride_InstanceLimitsHandling = null;
-            if (cmdletContext.CommunicationLimitsOverride_InstanceLimitsHandling != null)
-            {
-                requestCommunicationLimitsOverride_communicationLimitsOverride_InstanceLimitsHandling = cmdletContext.CommunicationLimitsOverride_InstanceLimitsHandling;
-            }
-            if (requestCommunicationLimitsOverride_communicationLimitsOverride_InstanceLimitsHandling != null)
-            {
-                request.CommunicationLimitsOverride.InstanceLimitsHandling = requestCommunicationLimitsOverride_communicationLimitsOverride_InstanceLimitsHandling;
-                requestCommunicationLimitsOverrideIsNull = false;
-            }
-            Amazon.ConnectCampaignsV2.Model.CommunicationLimits requestCommunicationLimitsOverride_communicationLimitsOverride_AllChannelSubtypes = null;
+             // populate CommunicationLimitsConfig
+            var requestCommunicationLimitsConfigIsNull = true;
+            request.CommunicationLimitsConfig = new Amazon.ConnectCampaignsV2.Model.InstanceCommunicationLimitsConfig();
+            Amazon.ConnectCampaignsV2.Model.CommunicationLimits requestCommunicationLimitsConfig_communicationLimitsConfig_AllChannelSubtypes = null;
             
              // populate AllChannelSubtypes
-            var requestCommunicationLimitsOverride_communicationLimitsOverride_AllChannelSubtypesIsNull = true;
-            requestCommunicationLimitsOverride_communicationLimitsOverride_AllChannelSubtypes = new Amazon.ConnectCampaignsV2.Model.CommunicationLimits();
-            List<Amazon.ConnectCampaignsV2.Model.CommunicationLimit> requestCommunicationLimitsOverride_communicationLimitsOverride_AllChannelSubtypes_allChannelSubtypes_CommunicationLimitsList = null;
+            var requestCommunicationLimitsConfig_communicationLimitsConfig_AllChannelSubtypesIsNull = true;
+            requestCommunicationLimitsConfig_communicationLimitsConfig_AllChannelSubtypes = new Amazon.ConnectCampaignsV2.Model.CommunicationLimits();
+            List<Amazon.ConnectCampaignsV2.Model.CommunicationLimit> requestCommunicationLimitsConfig_communicationLimitsConfig_AllChannelSubtypes_allChannelSubtypes_CommunicationLimitsList = null;
             if (cmdletContext.AllChannelSubtypes_CommunicationLimitsList != null)
             {
-                requestCommunicationLimitsOverride_communicationLimitsOverride_AllChannelSubtypes_allChannelSubtypes_CommunicationLimitsList = cmdletContext.AllChannelSubtypes_CommunicationLimitsList;
+                requestCommunicationLimitsConfig_communicationLimitsConfig_AllChannelSubtypes_allChannelSubtypes_CommunicationLimitsList = cmdletContext.AllChannelSubtypes_CommunicationLimitsList;
             }
-            if (requestCommunicationLimitsOverride_communicationLimitsOverride_AllChannelSubtypes_allChannelSubtypes_CommunicationLimitsList != null)
+            if (requestCommunicationLimitsConfig_communicationLimitsConfig_AllChannelSubtypes_allChannelSubtypes_CommunicationLimitsList != null)
             {
-                requestCommunicationLimitsOverride_communicationLimitsOverride_AllChannelSubtypes.CommunicationLimitsList = requestCommunicationLimitsOverride_communicationLimitsOverride_AllChannelSubtypes_allChannelSubtypes_CommunicationLimitsList;
-                requestCommunicationLimitsOverride_communicationLimitsOverride_AllChannelSubtypesIsNull = false;
+                requestCommunicationLimitsConfig_communicationLimitsConfig_AllChannelSubtypes.CommunicationLimitsList = requestCommunicationLimitsConfig_communicationLimitsConfig_AllChannelSubtypes_allChannelSubtypes_CommunicationLimitsList;
+                requestCommunicationLimitsConfig_communicationLimitsConfig_AllChannelSubtypesIsNull = false;
             }
-             // determine if requestCommunicationLimitsOverride_communicationLimitsOverride_AllChannelSubtypes should be set to null
-            if (requestCommunicationLimitsOverride_communicationLimitsOverride_AllChannelSubtypesIsNull)
+             // determine if requestCommunicationLimitsConfig_communicationLimitsConfig_AllChannelSubtypes should be set to null
+            if (requestCommunicationLimitsConfig_communicationLimitsConfig_AllChannelSubtypesIsNull)
             {
-                requestCommunicationLimitsOverride_communicationLimitsOverride_AllChannelSubtypes = null;
+                requestCommunicationLimitsConfig_communicationLimitsConfig_AllChannelSubtypes = null;
             }
-            if (requestCommunicationLimitsOverride_communicationLimitsOverride_AllChannelSubtypes != null)
+            if (requestCommunicationLimitsConfig_communicationLimitsConfig_AllChannelSubtypes != null)
             {
-                request.CommunicationLimitsOverride.AllChannelSubtypes = requestCommunicationLimitsOverride_communicationLimitsOverride_AllChannelSubtypes;
-                requestCommunicationLimitsOverrideIsNull = false;
+                request.CommunicationLimitsConfig.AllChannelSubtypes = requestCommunicationLimitsConfig_communicationLimitsConfig_AllChannelSubtypes;
+                requestCommunicationLimitsConfigIsNull = false;
             }
-             // determine if request.CommunicationLimitsOverride should be set to null
-            if (requestCommunicationLimitsOverrideIsNull)
+             // determine if request.CommunicationLimitsConfig should be set to null
+            if (requestCommunicationLimitsConfigIsNull)
             {
-                request.CommunicationLimitsOverride = null;
+                request.CommunicationLimitsConfig = null;
             }
-            if (cmdletContext.Id != null)
+            if (cmdletContext.ConnectInstanceId != null)
             {
-                request.Id = cmdletContext.Id;
+                request.ConnectInstanceId = cmdletContext.ConnectInstanceId;
             }
             
             CmdletOutput output;
@@ -251,15 +229,15 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         
         #region AWS Service Operation Call
         
-        private Amazon.ConnectCampaignsV2.Model.UpdateCampaignCommunicationLimitsResponse CallAWSServiceOperation(IAmazonConnectCampaignsV2 client, Amazon.ConnectCampaignsV2.Model.UpdateCampaignCommunicationLimitsRequest request)
+        private Amazon.ConnectCampaignsV2.Model.PutInstanceCommunicationLimitsResponse CallAWSServiceOperation(IAmazonConnectCampaignsV2 client, Amazon.ConnectCampaignsV2.Model.PutInstanceCommunicationLimitsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AmazonConnectCampaignServiceV2", "UpdateCampaignCommunicationLimits");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AmazonConnectCampaignServiceV2", "PutInstanceCommunicationLimits");
             try
             {
                 #if DESKTOP
-                return client.UpdateCampaignCommunicationLimits(request);
+                return client.PutInstanceCommunicationLimits(request);
                 #elif CORECLR
-                return client.UpdateCampaignCommunicationLimitsAsync(request).GetAwaiter().GetResult();
+                return client.PutInstanceCommunicationLimitsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -280,9 +258,8 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.ConnectCampaignsV2.Model.CommunicationLimit> AllChannelSubtypes_CommunicationLimitsList { get; set; }
-            public Amazon.ConnectCampaignsV2.InstanceLimitsHandling CommunicationLimitsOverride_InstanceLimitsHandling { get; set; }
-            public System.String Id { get; set; }
-            public System.Func<Amazon.ConnectCampaignsV2.Model.UpdateCampaignCommunicationLimitsResponse, UpdateCCS2CampaignCommunicationLimitCmdlet, object> Select { get; set; } =
+            public System.String ConnectInstanceId { get; set; }
+            public System.Func<Amazon.ConnectCampaignsV2.Model.PutInstanceCommunicationLimitsResponse, WriteCCS2InstanceCommunicationLimitCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

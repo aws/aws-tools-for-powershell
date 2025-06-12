@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         #region Parameter ShutdownGracePeriodInSecond
         /// <summary>
         /// <para>
-        /// <para>The duration (in seconds) to wait before forcefully terminating the job after cancellation
+        /// <para>The duration in seconds to wait before forcefully terminating the job after cancellation
         /// is requested.</para>
         /// </para>
         /// </summary>

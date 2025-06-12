@@ -1,4 +1,12 @@
-﻿### 4.1.839 (2025-06-11 20:39Z)
+﻿### 4.1.840 (2025-06-12 20:09Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1063.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AmazonConnectCampaignServiceV2
+    * Added cmdlet Get-CCS2InstanceCommunicationLimit leveraging the GetInstanceCommunicationLimits service API.
+    * Added cmdlet Write-CCS2InstanceCommunicationLimit leveraging the PutInstanceCommunicationLimits service API.
+    * Modified cmdlet New-CCS2Campaign: added parameter CommunicationLimitsOverride_InstanceLimitsHandling.
+    * Modified cmdlet Update-CCS2CampaignCommunicationLimit: added parameter CommunicationLimitsOverride_InstanceLimitsHandling.
+
+### 4.1.839 (2025-06-11 20:39Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1062.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Control Catalog
     * Added cmdlet Get-CLCATControlMappingList leveraging the ListControlMappings service API.

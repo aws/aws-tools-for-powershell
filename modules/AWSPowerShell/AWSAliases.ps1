@@ -7072,6 +7072,8 @@ Set-Alias -Name CCS2-DescribeCampaign -Value Get-CCS2Campaign
 Set-Alias -Name CCS2-GetCampaignState -Value Get-CCS2CampaignState
 Set-Alias -Name CCS2-GetCampaignStateBatch -Value Get-CCS2CampaignStateBatch
 Set-Alias -Name CCS2-GetConnectInstanceConfig -Value Get-CCS2ConnectInstanceConfig
+Set-Alias -Name Get-CCS2InstanceCommunicationLimits -Value Get-CCS2InstanceCommunicationLimit
+Set-Alias -Name CCS2-GetInstanceCommunicationLimits -Value Get-CCS2InstanceCommunicationLimit
 Set-Alias -Name CCS2-GetInstanceOnboardingJobStatus -Value Get-CCS2InstanceOnboardingJobStatus
 Set-Alias -Name List-CCS2Campaigns -Value Get-CCS2CampaignList
 Set-Alias -Name List-CCS2CampaignList -Value Get-CCS2CampaignList
@@ -7084,6 +7086,9 @@ Set-Alias -Name Pause-CCS2Campaign -Value Suspend-CCS2Campaign
 Set-Alias -Name CCS2-PauseCampaign -Value Suspend-CCS2Campaign
 Set-Alias -Name Put-CCS2ConnectInstanceIntegration -Value Write-CCS2ConnectInstanceIntegration
 Set-Alias -Name CCS2-PutConnectInstanceIntegration -Value Write-CCS2ConnectInstanceIntegration
+Set-Alias -Name Put-CCS2InstanceCommunicationLimits -Value Write-CCS2InstanceCommunicationLimit
+Set-Alias -Name Put-CCS2InstanceCommunicationLimit -Value Write-CCS2InstanceCommunicationLimit
+Set-Alias -Name CCS2-PutInstanceCommunicationLimits -Value Write-CCS2InstanceCommunicationLimit
 Set-Alias -Name Put-CCS2OutboundRequestBatch -Value Write-CCS2OutboundRequestBatch
 Set-Alias -Name CCS2-PutOutboundRequestBatch -Value Write-CCS2OutboundRequestBatch
 Set-Alias -Name Put-CCS2ProfileOutboundRequestBatch -Value Write-CCS2ProfileOutboundRequestBatch

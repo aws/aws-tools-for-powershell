@@ -122,6 +122,16 @@ $CCS2_Completers = {
             break
         }
 
+        # Amazon.ConnectCampaignsV2.InstanceLimitsHandling
+        {
+            ($_ -eq "New-CCS2Campaign/CommunicationLimitsOverride_InstanceLimitsHandling") -Or
+            ($_ -eq "Update-CCS2CampaignCommunicationLimit/CommunicationLimitsOverride_InstanceLimitsHandling")
+        }
+        {
+            $v = "OPT_IN","OPT_OUT"
+            break
+        }
+
 
     }
 
@@ -133,6 +143,7 @@ $CCS2_Completers = {
 $CCS2_map = @{
     "CampaignDeletionPolicy"=@("Remove-CCS2ConnectInstanceConfig")
     "ChannelSubtype"=@("Remove-CCS2CampaignChannelSubtypeConfig")
+    "CommunicationLimitsOverride_InstanceLimitsHandling"=@("New-CCS2Campaign","Update-CCS2CampaignCommunicationLimit")
     "Config"=@("Remove-CCS2CampaignCommunicationLimit","Remove-CCS2CampaignCommunicationTime")
     "EncryptionConfig_EncryptionType"=@("Start-CCS2InstanceOnboardingJob")
     "InstanceIdFilter_Operator"=@("Get-CCS2CampaignList")
@@ -200,12 +211,14 @@ $CCS2_SelectMap = @{
                "Get-CCS2CampaignState",
                "Get-CCS2CampaignStateBatch",
                "Get-CCS2ConnectInstanceConfig",
+               "Get-CCS2InstanceCommunicationLimit",
                "Get-CCS2InstanceOnboardingJobStatus",
                "Get-CCS2CampaignList",
                "Get-CCS2ConnectInstanceIntegrationList",
                "Get-CCS2ResourceTag",
                "Suspend-CCS2Campaign",
                "Write-CCS2ConnectInstanceIntegration",
+               "Write-CCS2InstanceCommunicationLimit",
                "Write-CCS2OutboundRequestBatch",
                "Write-CCS2ProfileOutboundRequestBatch",
                "Resume-CCS2Campaign",

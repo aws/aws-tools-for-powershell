@@ -18739,6 +18739,16 @@ $CCS2_Completers = {
             break
         }
 
+        # Amazon.ConnectCampaignsV2.InstanceLimitsHandling
+        {
+            ($_ -eq "New-CCS2Campaign/CommunicationLimitsOverride_InstanceLimitsHandling") -Or
+            ($_ -eq "Update-CCS2CampaignCommunicationLimit/CommunicationLimitsOverride_InstanceLimitsHandling")
+        }
+        {
+            $v = "OPT_IN","OPT_OUT"
+            break
+        }
+
 
     }
 
@@ -18750,6 +18760,7 @@ $CCS2_Completers = {
 $CCS2_map = @{
     "CampaignDeletionPolicy"=@("Remove-CCS2ConnectInstanceConfig")
     "ChannelSubtype"=@("Remove-CCS2CampaignChannelSubtypeConfig")
+    "CommunicationLimitsOverride_InstanceLimitsHandling"=@("New-CCS2Campaign","Update-CCS2CampaignCommunicationLimit")
     "Config"=@("Remove-CCS2CampaignCommunicationLimit","Remove-CCS2CampaignCommunicationTime")
     "EncryptionConfig_EncryptionType"=@("Start-CCS2InstanceOnboardingJob")
     "InstanceIdFilter_Operator"=@("Get-CCS2CampaignList")
@@ -18817,12 +18828,14 @@ $CCS2_SelectMap = @{
                "Get-CCS2CampaignState",
                "Get-CCS2CampaignStateBatch",
                "Get-CCS2ConnectInstanceConfig",
+               "Get-CCS2InstanceCommunicationLimit",
                "Get-CCS2InstanceOnboardingJobStatus",
                "Get-CCS2CampaignList",
                "Get-CCS2ConnectInstanceIntegrationList",
                "Get-CCS2ResourceTag",
                "Suspend-CCS2Campaign",
                "Write-CCS2ConnectInstanceIntegration",
+               "Write-CCS2InstanceCommunicationLimit",
                "Write-CCS2OutboundRequestBatch",
                "Write-CCS2ProfileOutboundRequestBatch",
                "Resume-CCS2Campaign",
@@ -43443,7 +43456,7 @@ $KMS_Completers = {
         # Amazon.KeyManagementService.KeySpec
         "New-KMSKey/KeySpec"
         {
-            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","HMAC_224","HMAC_256","HMAC_384","HMAC_512","RSA_2048","RSA_3072","RSA_4096","SM2","SYMMETRIC_DEFAULT"
+            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","HMAC_224","HMAC_256","HMAC_384","HMAC_512","ML_DSA_44","ML_DSA_65","ML_DSA_87","RSA_2048","RSA_3072","RSA_4096","SM2","SYMMETRIC_DEFAULT"
             break
         }
 
@@ -43470,7 +43483,7 @@ $KMS_Completers = {
             ($_ -eq "Test-KMSSignature/MessageType")
         }
         {
-            $v = "DIGEST","RAW"
+            $v = "DIGEST","EXTERNAL_MU","RAW"
             break
         }
 
@@ -43487,7 +43500,7 @@ $KMS_Completers = {
             ($_ -eq "Test-KMSSignature/SigningAlgorithm")
         }
         {
-            $v = "ECDSA_SHA_256","ECDSA_SHA_384","ECDSA_SHA_512","RSASSA_PKCS1_V1_5_SHA_256","RSASSA_PKCS1_V1_5_SHA_384","RSASSA_PKCS1_V1_5_SHA_512","RSASSA_PSS_SHA_256","RSASSA_PSS_SHA_384","RSASSA_PSS_SHA_512","SM2DSA"
+            $v = "ECDSA_SHA_256","ECDSA_SHA_384","ECDSA_SHA_512","ML_DSA_SHAKE_256","RSASSA_PKCS1_V1_5_SHA_256","RSASSA_PKCS1_V1_5_SHA_384","RSASSA_PKCS1_V1_5_SHA_512","RSASSA_PSS_SHA_256","RSASSA_PSS_SHA_384","RSASSA_PSS_SHA_512","SM2DSA"
             break
         }
 

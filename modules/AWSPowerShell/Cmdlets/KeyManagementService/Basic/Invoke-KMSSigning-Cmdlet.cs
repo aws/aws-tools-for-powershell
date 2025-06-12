@@ -38,10 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     ///  
     /// <para>
     /// Digital signatures are generated and verified by using asymmetric key pair, such as
-    /// an RSA or ECC pair that is represented by an asymmetric KMS key. The key owner (or
-    /// an authorized user) uses their private key to sign a message. Anyone with the public
-    /// key can verify that the message was signed with that particular private key and that
-    /// the message hasn't changed since it was signed. 
+    /// an RSA, ECC, or ML-DSA pair that is represented by an asymmetric KMS key. The key
+    /// owner (or an authorized user) uses their private key to sign a message. Anyone with
+    /// the public key can verify that the message was signed with that particular private
+    /// key and that the message hasn't changed since it was signed. 
     /// </para><para>
     /// To use the <c>Sign</c> operation, provide the following information:
     /// </para><ul><li><para>
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// Use the <c>Message</c> parameter to specify the message or message digest to sign.
     /// You can submit messages of up to 4096 bytes. To sign a larger message, generate a
     /// hash digest of the message, and then provide the hash digest in the <c>Message</c>
-    /// parameter. To indicate whether the message is a full message or a digest, use the
-    /// <c>MessageType</c> parameter.
+    /// parameter. To indicate whether the message is a full message, a digest, or an ML-DSA
+    /// EXTERNAL_MU, use the <c>MessageType</c> parameter.
     /// </para></li><li><para>
     /// Choose a signing algorithm that is compatible with the KMS key. 
     /// </para></li></ul><important><para>
@@ -170,15 +170,19 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>Tells KMS whether the value of the <c>Message</c> parameter should be hashed as part
         /// of the signing algorithm. Use <c>RAW</c> for unhashed messages; use <c>DIGEST</c>
-        /// for message digests, which are already hashed.</para><para>When the value of <c>MessageType</c> is <c>RAW</c>, KMS uses the standard signing
+        /// for message digests, which are already hashed; use <c>EXTERNAL_MU</c> for 64-byte
+        /// representative μ used in ML-DSA signing as defined in NIST FIPS 204 Section 6.2.</para><para>When the value of <c>MessageType</c> is <c>RAW</c>, KMS uses the standard signing
         /// algorithm, which begins with a hash function. When the value is <c>DIGEST</c>, KMS
-        /// skips the hashing step in the signing algorithm.</para><important><para>Use the <c>DIGEST</c> value only when the value of the <c>Message</c> parameter is
-        /// a message digest. If you use the <c>DIGEST</c> value with an unhashed message, the
-        /// security of the signing operation can be compromised.</para></important><para>When the value of <c>MessageType</c>is <c>DIGEST</c>, the length of the <c>Message</c>
-        /// value must match the length of hashed messages for the specified signing algorithm.</para><para>You can submit a message digest and omit the <c>MessageType</c> or specify <c>RAW</c>
+        /// skips the hashing step in the signing algorithm. When the value is <c>EXTERNAL_MU</c>
+        /// KMS skips the concatenated hashing of the public key hash and the message done in
+        /// the ML-DSA signing algorithm.</para><important><para>Use the <c>DIGEST</c> or <c>EXTERNAL_MU</c> value only when the value of the <c>Message</c>
+        /// parameter is a message digest. If you use the <c>DIGEST</c> value with an unhashed
+        /// message, the security of the signing operation can be compromised.</para></important><para>When the value of <c>MessageType</c> is <c>DIGEST</c>, the length of the <c>Message</c>
+        /// value must match the length of hashed messages for the specified signing algorithm.</para><para>When the value of <c>MessageType</c> is <c>EXTERNAL_MU</c> the length of the <c>Message</c>
+        /// value must be 64 bytes.</para><para>You can submit a message digest and omit the <c>MessageType</c> or specify <c>RAW</c>
         /// so the digest is hashed again while signing. However, this can cause verification
-        /// failures when verifying with a system that assumes a single hash.</para><para>The hashing algorithm in that <c>Sign</c> uses is based on the <c>SigningAlgorithm</c>
-        /// value.</para><ul><li><para>Signing algorithms that end in SHA_256 use the SHA_256 hashing algorithm.</para></li><li><para>Signing algorithms that end in SHA_384 use the SHA_384 hashing algorithm.</para></li><li><para>Signing algorithms that end in SHA_512 use the SHA_512 hashing algorithm.</para></li><li><para>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/offline-operations.html#key-spec-sm-offline-verification">Offline
+        /// failures when verifying with a system that assumes a single hash.</para><para>The hashing algorithm that <c>Sign</c> uses is based on the <c>SigningAlgorithm</c>
+        /// value.</para><ul><li><para>Signing algorithms that end in SHA_256 use the SHA_256 hashing algorithm.</para></li><li><para>Signing algorithms that end in SHA_384 use the SHA_384 hashing algorithm.</para></li><li><para>Signing algorithms that end in SHA_512 use the SHA_512 hashing algorithm.</para></li><li><para>Signing algorithms that end in SHAKE_256 use the SHAKE_256 hashing algorithm.</para></li><li><para>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/offline-operations.html#key-spec-sm-offline-verification">Offline
         /// verification with SM2 key pairs</a>.</para></li></ul>
         /// </para>
         /// </summary>
