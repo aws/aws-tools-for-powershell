@@ -19,7 +19,7 @@ s3_DeleteCORSConfiguration:
         - description: |-
             <programlisting language="none" role="nocopy">Confirm
             Are you sure you want to perform this action?
-            Performing the operation "Remove-S3CORSConfiguration (DeleteCORSConfiguration)" on target "s3testbucket".
+            Performing the operation "Remove-S3CORSConfiguration (DeleteCORSConfiguration)" on target "amzn-s3-demo-bucket".
             [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): Y</programlisting>
           snippet_files: []
   services:

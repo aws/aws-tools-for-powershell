@@ -10,7 +10,7 @@ s3_GetBucketLocation:
         sdk_action: Get-S3BucketLocation
         excerpts:
         - snippet_files: []
-          description: "<emphasis role=\"bold\">Example 1: This command returns the location constraint for the bucket 's3testbucket', if a constraint exists.</emphasis>"
+          description: "<emphasis role=\"bold\">Example 1: This command returns the location constraint for the bucket 'amzn-s3-demo-bucket', if a constraint exists.</emphasis>"
         - snippet_files:
           - .doc_gen/snippet_files/s3_Get-S3BucketLocation.1.1.ps1
           description:

@@ -23,7 +23,7 @@ ec2_DescribeFlowLogs:
             DeliverLogsStatus        : SUCCESS
             FlowLogId                : fl-01b2e3d45f67f8901
             FlowLogStatus            : ACTIVE
-            LogDestination           : arn:aws:s3:::my-bucket-dd-tata
+            LogDestination           : arn:aws:s3:::amzn-s3-demo-bucket-dd-tata
             LogDestinationType       : s3
             LogGroupName             :
             ResourceId               : eni-01d2dda3456b7e890

@@ -17,7 +17,7 @@ resource-groups-tagging-api_GetResources:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
-          description: "<programlisting language=\"none\" role=\"nocopy\">ResourceARN                                                      Tags          \n-----------                                                      ----            \narn:aws:dynamodb:us-west-2:123456789012:table/mytable            {stage, version}   \narn:aws:s3:::mybucket                                            {stage, version, othertag}</programlisting>"
+          description: "<programlisting language=\"none\" role=\"nocopy\">ResourceARN                                                      Tags          \n-----------                                                      ----            \narn:aws:dynamodb:us-west-2:123456789012:table/mytable            {stage, version}   \narn:aws:s3:::amzn-s3-demo-bucket                                            {stage, version, othertag}</programlisting>"
         - snippet_files: []
           description: "<emphasis role=\"bold\">Example 2: Returns all the tagged resources of the specified type in a region. The string for each service name and resource type is the same as that embedded in a resource's Amazon Resource Name (ARN).</emphasis>"
         - snippet_files:
@@ -26,7 +26,7 @@ resource-groups-tagging-api_GetResources:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
-          description: "<programlisting language=\"none\" role=\"nocopy\">ResourceARN                                                      Tags          \n-----------                                                      ----            \narn:aws:s3:::mybucket                                            {stage, version, othertag}</programlisting>"
+          description: "<programlisting language=\"none\" role=\"nocopy\">ResourceARN                                                      Tags          \n-----------                                                      ----            \narn:aws:s3:::amzn-s3-demo-bucket                                            {stage, version, othertag}</programlisting>"
         - snippet_files: []
           description: '<emphasis role="bold">Example 3: Returns all the tagged resources of the specified type in a region. Note that when the resource types are piped into the cmdlet, one call to the service is made for each supplied resource type.</emphasis>'
         - snippet_files:
@@ -35,7 +35,7 @@ resource-groups-tagging-api_GetResources:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
-          description: "<programlisting language=\"none\" role=\"nocopy\">ResourceARN                                                      Tags          \n-----------                                                      ----            \narn:aws:dynamodb:us-west-2:123456789012:table/mytable            {stage, version}   \narn:aws:s3:::mybucket                                            {stage, version, othertag}</programlisting>"
+          description: "<programlisting language=\"none\" role=\"nocopy\">ResourceARN                                                      Tags          \n-----------                                                      ----            \narn:aws:dynamodb:us-west-2:123456789012:table/mytable            {stage, version}   \narn:aws:s3:::amzn-s3-demo-bucket                                            {stage, version, othertag}</programlisting>"
         - snippet_files: []
           description: '<emphasis role="bold">Example 4: Returns all the tagged resources that match the specified filter.</emphasis>'
         - snippet_files:
@@ -44,7 +44,7 @@ resource-groups-tagging-api_GetResources:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
-          description: "<programlisting language=\"none\" role=\"nocopy\">ResourceARN                                                      Tags          \n-----------                                                      ----            \narn:aws:s3:::mybucket                                            {stage, version, othertag}</programlisting>"
+          description: "<programlisting language=\"none\" role=\"nocopy\">ResourceARN                                                      Tags          \n-----------                                                      ----            \narn:aws:s3:::amzn-s3-demo-bucket                                            {stage, version, othertag}</programlisting>"
         - snippet_files: []
           description: '<emphasis role="bold">Example 5: Returns all the tagged resources that match the specified filter and resource type.</emphasis>'
         - snippet_files:
