@@ -49,6 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
     /// with single-AMI products</a>. Also, for more information about change types available
     /// for container-based products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products">Working
     /// with container products</a>.
+    /// </para><para>
+    /// To download "DetailsDocument" shapes, see <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-python">Python</a>
+    /// and <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-java/tree/main">Java</a>
+    /// shapes on GitHub.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "MCATChangeSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

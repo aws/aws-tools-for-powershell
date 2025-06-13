@@ -61,7 +61,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteImportedKeyMaterial" Verb="Remove" Noun="ImportedKeyMaterial" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteImportedKeyMaterial" OutputProperty="*" Verb="Remove" Noun="ImportedKeyMaterial" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -69,7 +69,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCustomKeyStores" OutputProperty="CustomKeyStores" Verb="Get" Noun="CustomKeyStore" PipelineParameter="CustomKeyStoreId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCustomKeyStores" OutputProperty="CustomKeyStores" Verb="Get" Noun="CustomKeyStore" PipelineParameter="CustomKeyStoreId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -147,19 +147,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportKeyMaterial" Verb="Import" Noun="KeyMaterial" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ImportKeyMaterial" OutputProperty="*" Verb="Import" Noun="KeyMaterial" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAliases" OutputProperty="Aliases" Verb="Get" Noun="AliasList" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-KMSAliases" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAliases" OutputProperty="Aliases" Verb="Get" Noun="AliasList" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-KMSAliases">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGrants" OutputProperty="Grants" Verb="Get" Noun="GrantList" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-KMSGrants" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListGrants" OutputProperty="Grants" Verb="Get" Noun="GrantList" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-KMSGrants">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKeyPolicies" OutputProperty="PolicyNames" Verb="Get" Noun="KeyPolicyList" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-KMSKeyPolicies" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListKeyPolicies" OutputProperty="PolicyNames" Verb="Get" Noun="KeyPolicyList" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-KMSKeyPolicies">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -167,15 +167,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKeys" OutputProperty="Keys" Verb="Get" Noun="KeyList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-KMSKeys" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListKeys" OutputProperty="Keys" Verb="Get" Noun="KeyList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-KMSKeys">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResourceTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRetirableGrants" OutputProperty="Grants" Verb="Get" Noun="RetirableGrant" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRetirableGrants" OutputProperty="Grants" Verb="Get" Noun="RetirableGrant" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

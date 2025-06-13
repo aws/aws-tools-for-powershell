@@ -38,9 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// By default, KMS keys are created with key material that KMS generates. This operation
     /// supports <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing
     /// key material</a>, an advanced feature that lets you generate and import the cryptographic
-    /// key material for a KMS key. For more information about importing key material into
-    /// KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing
-    /// key material</a> in the <i>Key Management Service Developer Guide</i>.
+    /// key material for a KMS key.
     /// </para><para>
     /// Before calling <c>GetParametersForImport</c>, use the <a>CreateKey</a> operation with
     /// an <c>Origin</c> value of <c>EXTERNAL</c> to create a KMS key with no key material.
@@ -48,9 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// encryption KMS key, or asymmetric signing KMS key. You can also import key material
     /// into a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">multi-Region
     /// key</a> of any supported type. However, you can't import key material into a KMS key
-    /// in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
+    /// in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom
     /// key store</a>. You can also use <c>GetParametersForImport</c> to get a public key
-    /// and import token to <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport
+    /// and import token to <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html#reimport-key-material">reimport
     /// the original key material</a> into a KMS key whose key material expired or was deleted.
     /// </para><para><c>GetParametersForImport</c> returns the items that you need to import your key
     /// material.
@@ -89,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GetParametersForImport</a>
     /// (key policy)
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>ImportKeyMaterial</a></para></li><li><para><a>DeleteImportedKeyMaterial</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
-    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS
     /// eventual consistency</a>.
     /// </para>
     /// </summary>
@@ -128,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>The algorithm you will use with the RSA public key (<c>PublicKey</c>) in the response
-        /// to protect your key material during import. For more information, see <a href="kms/latest/developerguide/importing-keys-get-public-key-and-token.html#select-wrapping-algorithm">Select
+        /// to protect your key material during import. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-get-public-key-and-token.html#select-wrapping-algorithm">Select
         /// a wrapping algorithm</a> in the <i>Key Management Service Developer Guide</i>.</para><para>For RSA_AES wrapping algorithms, you encrypt your key material with an AES key that
         /// you generate, then encrypt your AES key with the RSA public key from KMS. For RSAES
         /// wrapping algorithms, you encrypt your key material directly with the RSA public key

@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para>
     /// For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants
     /// in KMS</a> in the <i><i>Key Management Service Developer Guide</i></i>. For examples
-    /// of working with grants in several programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html">Programming
-    /// grants</a>. 
+    /// of creating grants in several programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/example_kms_CreateGrant_section.html">Use
+    /// CreateGrant with an Amazon Web Services SDK or CLI</a>. 
     /// </para><note><para>
     /// The <c>GranteePrincipal</c> field in the <c>ListGrants</c> response usually contains
     /// the user or role designated as the grantee principal in the grant. However, when the
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListGrants</a>
     /// (key policy)
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>CreateGrant</a></para></li><li><para><a>ListRetirableGrants</a></para></li><li><para><a>RetireGrant</a></para></li><li><para><a>RevokeGrant</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
-    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS
     /// eventual consistency</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

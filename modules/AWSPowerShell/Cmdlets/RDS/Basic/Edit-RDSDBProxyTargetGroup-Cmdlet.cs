@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The number of seconds for a proxy to wait for a connection to become available in
         /// the connection pool. This setting only applies when the proxy has opened its maximum
-        /// number of connections and all connections are busy with client sessions.</para><para>Default: <c>120</c></para><para>Constraints:</para><ul><li><para>Must be between 0 and 3600.</para></li></ul>
+        /// number of connections and all connections are busy with client sessions.</para><para>Default: <c>120</c></para><para>Constraints:</para><ul><li><para>Must be between 0 and 300.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +80,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>Add an initialization query, or modify the current one. You can specify one or more
         /// SQL statements for the proxy to run when opening each new database connection. The
         /// setting is typically used with <c>SET</c> statements to make sure that each connection
-        /// has identical settings. Make sure that the query you add is valid. To include multiple
-        /// variables in a single <c>SET</c> statement, use comma separators.</para><para>For example: <c>SET variable1=value1, variable2=value2</c></para><para>For multiple statements, use semicolons as the separator.</para><para>Default: no initialization query</para>
+        /// has identical settings. Make sure the query added here is valid. This is an optional
+        /// field, so you can choose to leave it empty. For including multiple variables in a
+        /// single SET statement, use a comma separator.</para><para>For example: <c>SET variable1=value1, variable2=value2</c></para><para>Default: no initialization query</para><important><para>Since you can access initialization query as part of target group configuration, it
+        /// is not protected by authentication or cryptographic methods. Anyone with access to
+        /// view or manage your proxy target group configuration can view the initialization query.
+        /// You should not add sensitive data, such as passwords or long-lived encryption keys,
+        /// to this option.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

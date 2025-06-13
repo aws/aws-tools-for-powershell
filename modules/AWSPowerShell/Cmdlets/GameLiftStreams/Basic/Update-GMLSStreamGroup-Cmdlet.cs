@@ -30,7 +30,28 @@ using Amazon.GameLiftStreams.Model;
 namespace Amazon.PowerShell.Cmdlets.GMLS
 {
     /// <summary>
-    /// Amazon.GameLiftStreams.IAmazonGameLiftStreams.UpdateStreamGroup
+    /// Updates the configuration settings for an Amazon GameLift Streams stream group resource.
+    /// You can change the description, the set of locations, and the requested capacity of
+    /// a stream group per location. If you want to change the stream class, create a new
+    /// stream group. 
+    /// 
+    ///  
+    /// <para>
+    ///  Stream capacity represents the number of concurrent streams that can be active at
+    /// a time. You set stream capacity per location, per stream group. There are two types
+    /// of capacity, always-on and on-demand: 
+    /// </para><ul><li><para><b>Always-on</b>: The streaming capacity that is allocated and ready to handle stream
+    /// requests without delay. You pay for this capacity whether it's in use or not. Best
+    /// for quickest time from streaming request to streaming session. 
+    /// </para></li><li><para><b>On-demand</b>: The streaming capacity that Amazon GameLift Streams can allocate
+    /// in response to stream requests, and then de-allocate when the session has terminated.
+    /// This offers a cost control measure at the expense of a greater startup time (typically
+    /// under 5 minutes). 
+    /// </para></li></ul><para>
+    /// To update a stream group, specify the stream group's Amazon Resource Name (ARN) and
+    /// provide the new values. If the request is successful, Amazon GameLift Streams returns
+    /// the complete updated metadata for the stream group.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "GMLSStreamGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLiftStreams.Model.UpdateStreamGroupResponse")]
@@ -59,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <para>
         /// <para>An <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
         /// Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource.
-        /// Format example: ARN-<c>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4</c>
-        /// or ID-<c>sg-1AB2C3De4</c>. </para>
+        /// Example ARN: <c>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</c>.
+        /// Example ID: <c>sg-1AB2C3De4</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

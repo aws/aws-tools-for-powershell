@@ -30,8 +30,8 @@ using Amazon.ComputeOptimizer.Model;
 namespace Amazon.PowerShell.Cmdlets.CO
 {
     /// <summary>
-    /// Export optimization recommendations for your Amazon Relational Database Service (Amazon
-    /// RDS). 
+    /// Export optimization recommendations for your Amazon Aurora and Amazon Relational
+    /// Database Service (Amazon RDS) databases. 
     /// 
     ///  
     /// <para>
@@ -40,7 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
     /// Service (Amazon S3) bucket that you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
     /// Recommendations</a> in the <i>Compute Optimizer User Guide</i>.
     /// </para><para>
-    /// You can have only one Amazon RDS export job in progress per Amazon Web Services Region.
+    /// You can have only one Amazon Aurora or RDS export job in progress per Amazon Web Services
+    /// Region.
     /// </para>
     /// </summary>
     [Cmdlet("Export", "CORDSDatabaseRecommendation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -58,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para> The Amazon Web Services account IDs for the export Amazon RDS recommendations. </para><para>If your account is the management account or the delegated administrator of an organization,
+        /// <para> The Amazon Web Services account IDs for the export Amazon Aurora and RDS database
+        /// recommendations. </para><para>If your account is the management account or the delegated administrator of an organization,
         /// use this parameter to specify the member account you want to export recommendations
         /// to.</para><para>This parameter can't be specified together with the include member accounts parameter.
         /// The parameters are mutually exclusive.</para><para>If this parameter or the include member accounts parameter is omitted, the recommendations
@@ -124,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <summary>
         /// <para>
         /// <para> An array of objects to specify a filter that exports a more specific set of Amazon
-        /// RDS recommendations. </para>
+        /// Aurora and RDS recommendations. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

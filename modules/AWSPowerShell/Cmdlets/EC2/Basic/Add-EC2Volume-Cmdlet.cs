@@ -30,16 +30,17 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Attaches an EBS volume to a running or stopped instance and exposes it to the instance
-    /// with the specified device name.
+    /// Attaches an Amazon EBS volume to a <c>running</c> or <c>stopped</c> instance, and
+    /// exposes it to the instance with the specified device name.
     /// 
-    ///  
-    /// <para>
-    /// Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption.
-    /// For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon
-    /// EBS encryption</a> in the <i>Amazon EBS User Guide</i>.
-    /// </para><para>
-    /// After you attach an EBS volume, you must make it available. For more information,
+    ///  <note><para>
+    /// The maximum number of Amazon EBS volumes that you can attach to an instance depends
+    /// on the instance type. If you exceed the volume attachment limit for an instance type,
+    /// the attachment request fails with the <c>AttachmentLimitExceeded</c> error. For more
+    /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html">Instance
+    /// volume limits</a>.
+    /// </para></note><para>
+    /// After you attach an EBS volume, you must make it available for use. For more information,
     /// see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html">Make
     /// an EBS volume available for use</a>.
     /// </para><para>

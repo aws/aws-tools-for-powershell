@@ -30,7 +30,7 @@ using Amazon.ControlCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.CLCAT
 {
     /// <summary>
-    /// Returns a paginated list of objectives from the Amazon Web Services Control Catalog.
+    /// Returns a paginated list of objectives from the Control Catalog.
     /// 
     ///  
     /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
         /// <summary>
         /// <para>
         /// <para>The domain that's used as filter criteria.</para><para>You can use this parameter to specify one domain ARN at a time. Passing multiple ARNs
-        /// in the <c>ObjectiveFilter</c> isn’t currently supported.</para>
+        /// in the <c>ObjectiveFilter</c> isn’t supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

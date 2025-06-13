@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// You can use this operation to tag a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer
     /// managed key</a>, but you cannot tag an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
     /// Web Services managed key</a>, an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon
-    /// Web Services owned key</a>, a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#keystore-concept">custom
-    /// key store</a>, or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#alias-concept">alias</a>.
+    /// Web Services owned key</a>, a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom
+    /// key store</a>, or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html">alias</a>.
     /// </para><para>
     /// You can also add tags to a KMS key while creating it (<a>CreateKey</a>) or replicating
     /// it (<a>ReplicateKey</a>).
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a>
     /// (key policy)
     /// </para><para><b>Related operations</b></para><ul><li><para><a>CreateKey</a></para></li><li><para><a>ListResourceTags</a></para></li><li><para><a>ReplicateKey</a></para></li><li><para><a>UntagResource</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
-    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS
     /// eventual consistency</a>.
     /// </para>
     /// </summary>

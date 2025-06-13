@@ -58,8 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para> A stream group to add the specified locations to. </para><para>This value is a Amazon Resource Name (ARN) that uniquely identifies the stream group
-        /// resource. Format example: <c>sg-1AB2C3De4</c>. </para>
+        /// <para> A stream group to add the specified locations to. </para><para>This value is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
+        /// Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource.
+        /// Example ARN: <c>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</c>.
+        /// Example ID: <c>sg-1AB2C3De4</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <para>
         /// <para>An <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
         /// Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource.
-        /// Format example: ARN-<c>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4</c>
-        /// or ID-<c>sg-1AB2C3De4</c>. </para>
+        /// Example ARN: <c>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</c>.
+        /// Example ID: <c>sg-1AB2C3De4</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,9 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <para> The S3 bucket URI where Amazon GameLift Streams uploads the set of compressed exported
         /// files for this stream session. Amazon GameLift Streams generates a ZIP file name based
         /// on the stream session metadata. Alternatively, you can provide a custom file name
-        /// with a <c>.zip</c> file extension.</para><para> Example 1: If you provide an S3 URI called <c>s3://MyBucket/MyGame_Session1.zip</c>,
-        /// then Amazon GameLift Streams will save the files at that location. </para><para> Example 2: If you provide an S3 URI called <c>s3://MyBucket/MyGameSessions_ExportedFiles/</c>,
-        /// then Amazon GameLift Streams will save the files at <c>s3://MyBucket/MyGameSessions_ExportedFiles/YYYYMMDD-HHMMSS-appId-sg-Id-sessionId.zip</c>
+        /// with a <c>.zip</c> file extension.</para><para> Example 1: If you provide an S3 URI called <c>s3://amzn-s3-demo-destination-bucket/MyGame_Session1.zip</c>,
+        /// then Amazon GameLift Streams will save the files at that location. </para><para> Example 2: If you provide an S3 URI called <c>s3://amzn-s3-demo-destination-bucket/MyGameSessions_ExportedFiles/</c>,
+        /// then Amazon GameLift Streams will save the files at <c>s3://amzn-s3-demo-destination-bucket/MyGameSessions_ExportedFiles/YYYYMMDD-HHMMSS-appId-sg-Id-sessionId.zip</c>
         /// or another similar name. </para>
         /// </para>
         /// </summary>
@@ -119,7 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <para>
         /// <para>An <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
         /// Resource Name (ARN)</a> or ID that uniquely identifies the stream session resource.
-        /// Format example: <c>1AB2C3De4</c>. </para>
+        /// Example ARN: <c>arn:aws:gameliftstreams:us-west-2:111122223333:streamsession/sg-1AB2C3De4/ABC123def4567</c>.
+        /// Example ID: <c>ABC123def4567</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

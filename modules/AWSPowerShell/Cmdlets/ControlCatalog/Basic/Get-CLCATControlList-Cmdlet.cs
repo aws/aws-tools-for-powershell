@@ -30,10 +30,10 @@ using Amazon.ControlCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.CLCAT
 {
     /// <summary>
-    /// Returns a paginated list of all available controls in the Amazon Web Services Control
-    /// Catalog library. Allows you to discover available controls. The list of controls is
-    /// given as structures of type <i>controlSummary</i>. The ARN is returned in the global
-    /// <i>controlcatalog</i> format, as shown in the examples.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a paginated list of all available controls in the Control Catalog library.
+    /// Allows you to discover available controls. The list of controls is given as structures
+    /// of type <i>controlSummary</i>. The ARN is returned in the global <i>controlcatalog</i>
+    /// format, as shown in the examples.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CLCATControlList")]
     [OutputType("Amazon.ControlCatalog.Model.ControlSummary")]
@@ -47,6 +47,32 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter Implementations_Identifier
+        /// <summary>
+        /// <para>
+        /// <para>A list of service-specific identifiers that can serve as filters. For example, you
+        /// can filter for controls with specific Amazon Web Services Config Rule IDs or Security
+        /// Hub Control IDs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_Implementations_Identifiers")]
+        public System.String[] Implementations_Identifier { get; set; }
+        #endregion
+        
+        #region Parameter Implementations_Type
+        /// <summary>
+        /// <para>
+        /// <para>A list of implementation types that can serve as filters. For example, you can filter
+        /// for controls implemented as Amazon Web Services Config Rules by specifying AWS::Config::ConfigRule
+        /// as a type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_Implementations_Types")]
+        public System.String[] Implementations_Type { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -113,6 +139,14 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
                 context.Select = CreateSelectDelegate<Amazon.ControlCatalog.Model.ListControlsResponse, GetCLCATControlListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.Implementations_Identifier != null)
+            {
+                context.Implementations_Identifier = new List<System.String>(this.Implementations_Identifier);
+            }
+            if (this.Implementations_Type != null)
+            {
+                context.Implementations_Type = new List<System.String>(this.Implementations_Type);
+            }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -133,6 +167,50 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
             // create request and set iteration invariants
             var request = new Amazon.ControlCatalog.Model.ListControlsRequest();
             
+            
+             // populate Filter
+            var requestFilterIsNull = true;
+            request.Filter = new Amazon.ControlCatalog.Model.ControlFilter();
+            Amazon.ControlCatalog.Model.ImplementationFilter requestFilter_filter_Implementations = null;
+            
+             // populate Implementations
+            var requestFilter_filter_ImplementationsIsNull = true;
+            requestFilter_filter_Implementations = new Amazon.ControlCatalog.Model.ImplementationFilter();
+            List<System.String> requestFilter_filter_Implementations_implementations_Identifier = null;
+            if (cmdletContext.Implementations_Identifier != null)
+            {
+                requestFilter_filter_Implementations_implementations_Identifier = cmdletContext.Implementations_Identifier;
+            }
+            if (requestFilter_filter_Implementations_implementations_Identifier != null)
+            {
+                requestFilter_filter_Implementations.Identifiers = requestFilter_filter_Implementations_implementations_Identifier;
+                requestFilter_filter_ImplementationsIsNull = false;
+            }
+            List<System.String> requestFilter_filter_Implementations_implementations_Type = null;
+            if (cmdletContext.Implementations_Type != null)
+            {
+                requestFilter_filter_Implementations_implementations_Type = cmdletContext.Implementations_Type;
+            }
+            if (requestFilter_filter_Implementations_implementations_Type != null)
+            {
+                requestFilter_filter_Implementations.Types = requestFilter_filter_Implementations_implementations_Type;
+                requestFilter_filter_ImplementationsIsNull = false;
+            }
+             // determine if requestFilter_filter_Implementations should be set to null
+            if (requestFilter_filter_ImplementationsIsNull)
+            {
+                requestFilter_filter_Implementations = null;
+            }
+            if (requestFilter_filter_Implementations != null)
+            {
+                request.Filter.Implementations = requestFilter_filter_Implementations;
+                requestFilterIsNull = false;
+            }
+             // determine if request.Filter should be set to null
+            if (requestFilterIsNull)
+            {
+                request.Filter = null;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -216,6 +294,8 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Implementations_Identifier { get; set; }
+            public List<System.String> Implementations_Type { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.ControlCatalog.Model.ListControlsResponse, GetCLCATControlListCmdlet, object> Select { get; set; } =

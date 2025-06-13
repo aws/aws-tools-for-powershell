@@ -30,17 +30,17 @@ using Amazon.BedrockAgentRuntime.Model;
 namespace Amazon.PowerShell.Cmdlets.BAR
 {
     /// <summary>
-    /// Starts an asynchronous execution of an Amazon Bedrock flow. Unlike synchronous flows
-    /// that run until completion or time out after five minutes, you can run asynchronous
-    /// flows for longer durations. Asynchronous flows also yield control so that your application
-    /// can perform other tasks.
+    /// Starts an execution of an Amazon Bedrock flow. Unlike flows that run until completion
+    /// or time out after five minutes, flow executions let you run flows asynchronously for
+    /// longer durations. Flow executions also yield control so that your application can
+    /// perform other tasks.
     /// 
     ///  
     /// <para>
     /// This operation returns an Amazon Resource Name (ARN) that you can use to track and
-    /// manage your flow's async execution.
+    /// manage your flow execution.
     /// </para><note><para>
-    /// Asynchronous flows is in preview release for Amazon Bedrock and is subject to change.
+    /// Flow executions is in preview release for Amazon Bedrock and is subject to change.
     /// </para></note>
     /// </summary>
     [Cmdlet("Start", "BARFlowExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter FlowAliasIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the flow alias to use for the async execution.</para>
+        /// <para>The unique identifier of the flow alias to use for the flow execution.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter FlowExecutionName
         /// <summary>
         /// <para>
-        /// <para>The unique name for the async execution. If you don't provide one, a system-generated
+        /// <para>The unique name for the flow execution. If you don't provide one, a system-generated
         /// name is used.</para>
         /// </para>
         /// </summary>
@@ -104,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter Input
         /// <summary>
         /// <para>
-        /// <para>The input data required for the async execution. This must match the input schema
-        /// defined in the flow.</para>
+        /// <para>The input data required for the flow execution. This must match the input schema defined
+        /// in the flow.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

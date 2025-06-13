@@ -76,7 +76,7 @@ namespace AWSPowerShellGenerator
 
             if (options.ShouldRunTask(GeneratorTasknames.GenerateCmdlets))
             {
-                Console.WriteLine("Executing task 'GenerateCmdlets'");
+                Console.WriteLine($"Executing task 'GenerateCmdlets' {(options.GenerateReportOnly ? "with reportonly option" : "")}");
 
                 var cmdletGenerator = new CmdletGenerator
                 {

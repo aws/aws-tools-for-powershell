@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <para>
         /// <para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
         /// Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource.
-        /// Format example: ARN-<c>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4</c>
-        /// or ID-<c>sg-1AB2C3De4</c>. </para><para> The stream group that you want to run this stream session with. The stream group
+        /// Example ARN: <c>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</c>.
+        /// Example ID: <c>sg-1AB2C3De4</c>. </para><para> The stream group that you want to run this stream session with. The stream group
         /// must be in <c>ACTIVE</c> status and have idle stream capacity. </para>
         /// </para>
         /// </summary>
@@ -109,9 +109,10 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <summary>
         /// <para>
         /// <para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
-        /// Resource Name (ARN)</a> that uniquely identifies the stream session resource. Format
-        /// example: <c>1AB2C3De4</c>. The stream session must be in <c>PENDING_CLIENT_RECONNECTION</c>
-        /// or <c>ACTIVE</c> status. </para>
+        /// Resource Name (ARN)</a> or ID that uniquely identifies the stream session resource.
+        /// Example ARN: <c>arn:aws:gameliftstreams:us-west-2:111122223333:streamsession/sg-1AB2C3De4/ABC123def4567</c>.
+        /// Example ID: <c>ABC123def4567</c>. </para><para> The stream session must be in <c>PENDING_CLIENT_RECONNECTION</c> or <c>ACTIVE</c>
+        /// status. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

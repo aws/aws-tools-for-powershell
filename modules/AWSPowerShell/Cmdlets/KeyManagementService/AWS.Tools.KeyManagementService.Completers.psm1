@@ -140,6 +140,20 @@ $KMS_Completers = {
             break
         }
 
+        # Amazon.KeyManagementService.ImportType
+        "Import-KMSKeyMaterial/ImportType"
+        {
+            $v = "EXISTING_KEY_MATERIAL","NEW_KEY_MATERIAL"
+            break
+        }
+
+        # Amazon.KeyManagementService.IncludeKeyMaterial
+        "Get-KMSKeyRotation/IncludeKeyMaterial"
+        {
+            $v = "ALL_KEY_MATERIAL","ROTATIONS_ONLY"
+            break
+        }
+
         # Amazon.KeyManagementService.KeyAgreementAlgorithmSpec
         "Get-KMSSharedSecret/KeyAgreementAlgorithm"
         {
@@ -163,7 +177,7 @@ $KMS_Completers = {
         # Amazon.KeyManagementService.KeySpec
         "New-KMSKey/KeySpec"
         {
-            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","HMAC_224","HMAC_256","HMAC_384","HMAC_512","RSA_2048","RSA_3072","RSA_4096","SM2","SYMMETRIC_DEFAULT"
+            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","HMAC_224","HMAC_256","HMAC_384","HMAC_512","ML_DSA_44","ML_DSA_65","ML_DSA_87","RSA_2048","RSA_3072","RSA_4096","SM2","SYMMETRIC_DEFAULT"
             break
         }
 
@@ -190,7 +204,7 @@ $KMS_Completers = {
             ($_ -eq "Test-KMSSignature/MessageType")
         }
         {
-            $v = "DIGEST","RAW"
+            $v = "DIGEST","EXTERNAL_MU","RAW"
             break
         }
 
@@ -207,7 +221,7 @@ $KMS_Completers = {
             ($_ -eq "Test-KMSSignature/SigningAlgorithm")
         }
         {
-            $v = "ECDSA_SHA_256","ECDSA_SHA_384","ECDSA_SHA_512","RSASSA_PKCS1_V1_5_SHA_256","RSASSA_PKCS1_V1_5_SHA_384","RSASSA_PKCS1_V1_5_SHA_512","RSASSA_PSS_SHA_256","RSASSA_PSS_SHA_384","RSASSA_PSS_SHA_512","SM2DSA"
+            $v = "ECDSA_SHA_256","ECDSA_SHA_384","ECDSA_SHA_512","ML_DSA_SHAKE_256","RSASSA_PKCS1_V1_5_SHA_256","RSASSA_PKCS1_V1_5_SHA_384","RSASSA_PKCS1_V1_5_SHA_512","RSASSA_PSS_SHA_256","RSASSA_PSS_SHA_384","RSASSA_PSS_SHA_512","SM2DSA"
             break
         }
 
@@ -242,6 +256,8 @@ $KMS_map = @{
     "DestinationEncryptionAlgorithm"=@("Invoke-KMSReEncrypt")
     "EncryptionAlgorithm"=@("Invoke-KMSDecrypt","Invoke-KMSEncrypt")
     "ExpirationModel"=@("Import-KMSKeyMaterial")
+    "ImportType"=@("Import-KMSKeyMaterial")
+    "IncludeKeyMaterial"=@("Get-KMSKeyRotation")
     "KeyAgreementAlgorithm"=@("Get-KMSSharedSecret")
     "KeyPairSpec"=@("New-KMSDataKeyPair","New-KMSDataKeyPairWithoutPlaintext")
     "KeySpec"=@("New-KMSDataKey","New-KMSDataKeyWithoutPlaintext","New-KMSKey")

@@ -790,6 +790,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] DefaultSpaceSettings_SecurityGroup { get; set; }
         #endregion
         
+        #region Parameter UnifiedStudioSettings_SingleSignOnApplicationArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the application managed by SageMaker AI and SageMaker Unified Studio in
+        /// the Amazon Web Services IAM Identity Center.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettings_UnifiedStudioSettings_SingleSignOnApplicationArn")]
+        public System.String UnifiedStudioSettings_SingleSignOnApplicationArn { get; set; }
+        #endregion
+        
         #region Parameter AmazonQSettings_Status
         /// <summary>
         /// <para>
@@ -1076,6 +1088,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.UnifiedStudioSettings_EnvironmentId = this.UnifiedStudioSettings_EnvironmentId;
             context.UnifiedStudioSettings_ProjectId = this.UnifiedStudioSettings_ProjectId;
             context.UnifiedStudioSettings_ProjectS3Path = this.UnifiedStudioSettings_ProjectS3Path;
+            context.UnifiedStudioSettings_SingleSignOnApplicationArn = this.UnifiedStudioSettings_SingleSignOnApplicationArn;
             context.UnifiedStudioSettings_StudioWebPortalAccess = this.UnifiedStudioSettings_StudioWebPortalAccess;
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.HomeEfsFileSystemKmsKeyId = this.HomeEfsFileSystemKmsKeyId;
@@ -1957,6 +1970,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 requestDomainSettings_domainSettings_UnifiedStudioSettings.ProjectS3Path = requestDomainSettings_domainSettings_UnifiedStudioSettings_unifiedStudioSettings_ProjectS3Path;
                 requestDomainSettings_domainSettings_UnifiedStudioSettingsIsNull = false;
             }
+            System.String requestDomainSettings_domainSettings_UnifiedStudioSettings_unifiedStudioSettings_SingleSignOnApplicationArn = null;
+            if (cmdletContext.UnifiedStudioSettings_SingleSignOnApplicationArn != null)
+            {
+                requestDomainSettings_domainSettings_UnifiedStudioSettings_unifiedStudioSettings_SingleSignOnApplicationArn = cmdletContext.UnifiedStudioSettings_SingleSignOnApplicationArn;
+            }
+            if (requestDomainSettings_domainSettings_UnifiedStudioSettings_unifiedStudioSettings_SingleSignOnApplicationArn != null)
+            {
+                requestDomainSettings_domainSettings_UnifiedStudioSettings.SingleSignOnApplicationArn = requestDomainSettings_domainSettings_UnifiedStudioSettings_unifiedStudioSettings_SingleSignOnApplicationArn;
+                requestDomainSettings_domainSettings_UnifiedStudioSettingsIsNull = false;
+            }
             Amazon.SageMaker.FeatureStatus requestDomainSettings_domainSettings_UnifiedStudioSettings_unifiedStudioSettings_StudioWebPortalAccess = null;
             if (cmdletContext.UnifiedStudioSettings_StudioWebPortalAccess != null)
             {
@@ -2124,6 +2147,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String UnifiedStudioSettings_EnvironmentId { get; set; }
             public System.String UnifiedStudioSettings_ProjectId { get; set; }
             public System.String UnifiedStudioSettings_ProjectS3Path { get; set; }
+            public System.String UnifiedStudioSettings_SingleSignOnApplicationArn { get; set; }
             public Amazon.SageMaker.FeatureStatus UnifiedStudioSettings_StudioWebPortalAccess { get; set; }
             [System.ObsoleteAttribute]
             public System.String HomeEfsFileSystemKmsKeyId { get; set; }

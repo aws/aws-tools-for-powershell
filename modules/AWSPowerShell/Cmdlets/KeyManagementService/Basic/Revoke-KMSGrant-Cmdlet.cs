@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
     /// Deletes the specified grant. You revoke a grant to terminate the permissions that
-    /// the grant allows. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete">Retiring
+    /// the grant allows. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-delete.html">Retiring
     /// and revoking grants</a> in the <i><i>Key Management Service Developer Guide</i></i>.
     /// 
     ///  
@@ -43,15 +43,15 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para>
     /// For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants
     /// in KMS</a> in the <i><i>Key Management Service Developer Guide</i></i>. For examples
-    /// of working with grants in several programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html">Programming
-    /// grants</a>. 
+    /// of creating grants in several programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/example_kms_CreateGrant_section.html">Use
+    /// CreateGrant with an Amazon Web Services SDK or CLI</a>. 
     /// </para><para><b>Cross-account use</b>: Yes. To perform this operation on a KMS key in a different
     /// Amazon Web Services account, specify the key ARN in the value of the <c>KeyId</c>
     /// parameter.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:RevokeGrant</a>
     /// (key policy).
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>CreateGrant</a></para></li><li><para><a>ListGrants</a></para></li><li><para><a>ListRetirableGrants</a></para></li><li><para><a>RetireGrant</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
-    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS
     /// eventual consistency</a>.
     /// </para>
     /// </summary>
@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>Checks if your request will succeed. <c>DryRun</c> is an optional parameter. </para><para>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
-        /// your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</para>
+        /// <para>Checks if your request will succeed. <c>DryRun</c> is an optional parameter. </para><para>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing
+        /// your permissions</a> in the <i>Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -59,8 +59,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWorkGroup" Verb="New" Noun="WorkGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+        <ServiceOperation MethodName="CreateWorkGroup" Verb="New" Noun="WorkGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Configuration_ManagedQueryResultsConfiguration_EncryptionConfiguration_KmsKey" NewName="Configuration_ManagedQueryResultsConfiguration_EncryptionConfiguration_KmsKey" />
+                <Param Name="Configuration_ResultConfiguration_EncryptionConfiguration_KmsKey" NewName="Configuration_ResultConfiguration_EncryptionConfiguration_KmsKey" Alias="EncryptionConfiguration_KmsKey" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteCapacityReservation" Verb="Remove" Noun="CapacityReservation" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -191,7 +194,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNamedQueries" OutputProperty="NamedQueryIds" Verb="Get" Noun="NamedQueryList" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListNamedQueries" OutputProperty="NamedQueryIds" Verb="Get" Noun="NamedQueryList" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -207,7 +210,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQueryExecutions" OutputProperty="QueryExecutionIds" Verb="Get" Noun="QueryExecutionList" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListQueryExecutions" OutputProperty="QueryExecutionIds" Verb="Get" Noun="QueryExecutionList" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -219,11 +222,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkGroups" OutputProperty="WorkGroups" Verb="Get" Noun="WorkGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListWorkGroups" OutputProperty="WorkGroups" Verb="Get" Noun="WorkGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -287,8 +290,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWorkGroup" Verb="Update" Noun="WorkGroup" ShouldProcessTarget="WorkGroup" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+        <ServiceOperation MethodName="UpdateWorkGroup" Verb="Update" Noun="WorkGroup" ShouldProcessTarget="WorkGroup" PipelineParameter="WorkGroup" NoPipelineParameter="false">
+            <Params>
+                <Param Name="ConfigurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration_KmsKey" NewName="ConfigurationUpdates_ManagedQueryResultsConfigurationUpdates_EncryptionConfiguration_KmsKey" />
+                <Param Name="ConfigurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_KmsKey" NewName="ConfigurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_KmsKey" Alias="EncryptionConfiguration_KmsKey" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

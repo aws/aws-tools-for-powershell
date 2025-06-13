@@ -72,6 +72,18 @@ namespace Amazon.PowerShell.Cmdlets.REK
         public System.Int32? Settings_AuditImagesLimit { get; set; }
         #endregion
         
+        #region Parameter Settings_ChallengePreference
+        /// <summary>
+        /// <para>
+        /// <para>Indicates preferred challenge types and versions for the Face Liveness session to
+        /// be created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_ChallengePreferences")]
+        public Amazon.Rekognition.Model.ChallengePreference[] Settings_ChallengePreference { get; set; }
+        #endregion
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
@@ -167,6 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
             context.ClientRequestToken = this.ClientRequestToken;
             context.KmsKeyId = this.KmsKeyId;
             context.Settings_AuditImagesLimit = this.Settings_AuditImagesLimit;
+            if (this.Settings_ChallengePreference != null)
+            {
+                context.Settings_ChallengePreference = new List<Amazon.Rekognition.Model.ChallengePreference>(this.Settings_ChallengePreference);
+            }
             context.OutputConfig_S3Bucket = this.OutputConfig_S3Bucket;
             context.OutputConfig_S3KeyPrefix = this.OutputConfig_S3KeyPrefix;
             
@@ -205,6 +221,16 @@ namespace Amazon.PowerShell.Cmdlets.REK
             if (requestSettings_settings_AuditImagesLimit != null)
             {
                 request.Settings.AuditImagesLimit = requestSettings_settings_AuditImagesLimit.Value;
+                requestSettingsIsNull = false;
+            }
+            List<Amazon.Rekognition.Model.ChallengePreference> requestSettings_settings_ChallengePreference = null;
+            if (cmdletContext.Settings_ChallengePreference != null)
+            {
+                requestSettings_settings_ChallengePreference = cmdletContext.Settings_ChallengePreference;
+            }
+            if (requestSettings_settings_ChallengePreference != null)
+            {
+                request.Settings.ChallengePreferences = requestSettings_settings_ChallengePreference;
                 requestSettingsIsNull = false;
             }
             Amazon.Rekognition.Model.LivenessOutputConfig requestSettings_settings_OutputConfig = null;
@@ -305,6 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
             public System.String ClientRequestToken { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.Int32? Settings_AuditImagesLimit { get; set; }
+            public List<Amazon.Rekognition.Model.ChallengePreference> Settings_ChallengePreference { get; set; }
             public System.String OutputConfig_S3Bucket { get; set; }
             public System.String OutputConfig_S3KeyPrefix { get; set; }
             public System.Func<Amazon.Rekognition.Model.CreateFaceLivenessSessionResponse, NewREKFaceLivenessSessionCmdlet, object> Select { get; set; } =

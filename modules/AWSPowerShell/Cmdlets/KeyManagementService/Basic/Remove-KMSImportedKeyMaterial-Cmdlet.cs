@@ -49,17 +49,16 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// different Amazon Web Services account.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DeleteImportedKeyMaterial</a>
     /// (key policy)
-    /// </para><para><b>Related operations:</b></para><ul><li><para><a>GetParametersForImport</a></para></li><li><para><a>ImportKeyMaterial</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
-    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>GetParametersForImport</a></para></li><li><para><a>ListKeyRotations</a></para></li><li><para><a>ImportKeyMaterial</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS
     /// eventual consistency</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "KMSImportedKeyMaterial", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
+    [OutputType("Amazon.KeyManagementService.Model.DeleteImportedKeyMaterialResponse")]
     [AWSCmdlet("Calls the AWS Key Management Service DeleteImportedKeyMaterial API operation.", Operation = new[] {"DeleteImportedKeyMaterial"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.DeleteImportedKeyMaterialResponse))]
-    [AWSCmdletOutput("None or Amazon.KeyManagementService.Model.DeleteImportedKeyMaterialResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KeyManagementService.Model.DeleteImportedKeyMaterialResponse) be returned by specifying '-Select *'."
+    [AWSCmdletOutput("Amazon.KeyManagementService.Model.DeleteImportedKeyMaterialResponse",
+        "This cmdlet returns an Amazon.KeyManagementService.Model.DeleteImportedKeyMaterialResponse object containing multiple properties."
     )]
     public partial class RemoveKMSImportedKeyMaterialCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
@@ -85,10 +84,21 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         public System.String KeyId { get; set; }
         #endregion
         
+        #region Parameter KeyMaterialId
+        /// <summary>
+        /// <para>
+        /// <para>Identifies the imported key material you are deleting. </para><important><para>If no KeyMaterialId is specified, KMS deletes the current key material.</para></important><para>To get the list of key material IDs associated with a KMS key, use <a>ListKeyRotations</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KeyMaterialId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KeyManagementService.Model.DeleteImportedKeyMaterialResponse).
+        /// Specifying the name of a property of type Amazon.KeyManagementService.Model.DeleteImportedKeyMaterialResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,6 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 WriteWarning("You are passing $null as a value for parameter KeyId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.KeyMaterialId = this.KeyMaterialId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -156,6 +167,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             if (cmdletContext.KeyId != null)
             {
                 request.KeyId = cmdletContext.KeyId;
+            }
+            if (cmdletContext.KeyMaterialId != null)
+            {
+                request.KeyMaterialId = cmdletContext.KeyMaterialId;
             }
             
             CmdletOutput output;
@@ -213,8 +228,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String KeyId { get; set; }
+            public System.String KeyMaterialId { get; set; }
             public System.Func<Amazon.KeyManagementService.Model.DeleteImportedKeyMaterialResponse, RemoveKMSImportedKeyMaterialCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }

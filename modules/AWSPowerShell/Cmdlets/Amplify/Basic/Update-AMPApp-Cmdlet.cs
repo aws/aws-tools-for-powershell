@@ -399,8 +399,8 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         /// <para>
         /// <para>The type of cache configuration to use for an Amplify app.</para><para>The <c>AMPLIFY_MANAGED</c> cache configuration automatically applies an optimized
         /// cache configuration for your app based on its platform, routing rules, and rewrite
-        /// rules. This is the default setting.</para><para>The <c>AMPLIFY_MANAGED_NO_COOKIES</c> cache configuration type is the same as <c>AMPLIFY_MANAGED</c>,
-        /// except that it excludes all cookies from the cache key.</para>
+        /// rules.</para><para>The <c>AMPLIFY_MANAGED_NO_COOKIES</c> cache configuration type is the same as <c>AMPLIFY_MANAGED</c>,
+        /// except that it excludes all cookies from the cache key. This is the default setting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

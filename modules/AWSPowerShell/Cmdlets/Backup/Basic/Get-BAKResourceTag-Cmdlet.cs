@@ -31,7 +31,23 @@ namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
     /// Returns the tags assigned to the resource, such as a target recovery point, backup
-    /// plan, or backup vault.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// plan, or backup vault.
+    /// 
+    ///  
+    /// <para>
+    /// This operation returns results depending on the resource type used in the value for
+    /// <c>resourceArn</c>. For example, recovery points of Amazon DynamoDB with Advanced
+    /// Settings have an ARN (Amazon Resource Name) that begins with <c>arn:aws:backup</c>.
+    /// Recovery points (backups) of DynamoDB without Advanced Settings enabled have an ARN
+    /// that begins with <c>arn:aws:dynamodb</c>.
+    /// </para><para>
+    /// When this operation is called and when you include values of <c>resourceArn</c> that
+    /// have an ARN other than <c>arn:aws:backup</c>, it may return one of the exceptions
+    /// listed below. To prevent this exception, include only values representing resource
+    /// types that are fully managed by Backup. These have an ARN that begins <c>arn:aws:backup</c>
+    /// and they are noted in the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature
+    /// availability by resource</a> table.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BAKResourceTag")]
     [OutputType("System.String")]

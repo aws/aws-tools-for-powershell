@@ -110,6 +110,13 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.AliasInvocationState
+        "Update-AABAgentAlias/AliasInvocationState"
+        {
+            $v = "ACCEPT_INVOCATIONS","REJECT_INVOCATIONS"
+            break
+        }
+
         # Amazon.BedrockAgent.ChunkingStrategy
         {
             ($_ -eq "New-AABDataSource/ChunkingConfiguration_ChunkingStrategy") -Or
@@ -402,6 +409,7 @@ $AAB_map = @{
     "ActionGroupExecutor_CustomControl"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ActionGroupState"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "AgentCollaboration"=@("New-AABAgent","Update-AABAgent")
+    "AliasInvocationState"=@("Update-AABAgentAlias")
     "AuthConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "BedrockDataAutomationConfiguration_ParsingModality"=@("New-AABDataSource","Update-AABDataSource")
     "BedrockEmbeddingModelConfiguration_EmbeddingDataType"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")

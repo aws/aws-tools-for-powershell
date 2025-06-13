@@ -259,6 +259,14 @@ namespace AWSPowerShellGenerator
                 HasValue = true,
                 Parse = (arguments, argValue) => arguments.ParsedOptions.PreviewLabel = argValue,
                 HelpText = "Preview Label for a Preview Release e.g. preview2."
+            },
+            new ArgDeclaration
+            {
+                OptionName = "reportonly",
+                ShortName = "ro",
+                HasValue = true,
+                Parse = (arguments, argValue) => arguments.ParsedOptions.GenerateReportOnly = bool.Parse(argValue),
+                HelpText = "Only generate report.xml if there are operations not in config and no errors."
             }
         };
 

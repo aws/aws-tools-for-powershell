@@ -316,6 +316,17 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         public System.DateTime? Schedule_EndTime { get; set; }
         #endregion
         
+        #region Parameter CommunicationLimitsOverride_InstanceLimitsHandling
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ConnectCampaignsV2.InstanceLimitsHandling")]
+        public Amazon.ConnectCampaignsV2.InstanceLimitsHandling CommunicationLimitsOverride_InstanceLimitsHandling { get; set; }
+        #endregion
+        
         #region Parameter LocalTimeZoneConfig_LocalTimeZoneDetection
         /// <summary>
         /// <para>
@@ -504,6 +515,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             {
                 context.AllChannelSubtypes_CommunicationLimitsList = new List<Amazon.ConnectCampaignsV2.Model.CommunicationLimit>(this.AllChannelSubtypes_CommunicationLimitsList);
             }
+            context.CommunicationLimitsOverride_InstanceLimitsHandling = this.CommunicationLimitsOverride_InstanceLimitsHandling;
             if (this.CommunicationTimeConfig_Email_OpenHours_DailyHours != null)
             {
                 context.CommunicationTimeConfig_Email_OpenHours_DailyHours = new Dictionary<System.String, List<Amazon.ConnectCampaignsV2.Model.TimeRange>>(StringComparer.Ordinal);
@@ -998,6 +1010,16 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
              // populate CommunicationLimitsOverride
             var requestCommunicationLimitsOverrideIsNull = true;
             request.CommunicationLimitsOverride = new Amazon.ConnectCampaignsV2.Model.CommunicationLimitsConfig();
+            Amazon.ConnectCampaignsV2.InstanceLimitsHandling requestCommunicationLimitsOverride_communicationLimitsOverride_InstanceLimitsHandling = null;
+            if (cmdletContext.CommunicationLimitsOverride_InstanceLimitsHandling != null)
+            {
+                requestCommunicationLimitsOverride_communicationLimitsOverride_InstanceLimitsHandling = cmdletContext.CommunicationLimitsOverride_InstanceLimitsHandling;
+            }
+            if (requestCommunicationLimitsOverride_communicationLimitsOverride_InstanceLimitsHandling != null)
+            {
+                request.CommunicationLimitsOverride.InstanceLimitsHandling = requestCommunicationLimitsOverride_communicationLimitsOverride_InstanceLimitsHandling;
+                requestCommunicationLimitsOverrideIsNull = false;
+            }
             Amazon.ConnectCampaignsV2.Model.CommunicationLimits requestCommunicationLimitsOverride_communicationLimitsOverride_AllChannelSubtypes = null;
             
              // populate AllChannelSubtypes
@@ -1440,6 +1462,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             public System.Double? Predictive_BandwidthAllocation { get; set; }
             public System.Double? Progressive_BandwidthAllocation { get; set; }
             public List<Amazon.ConnectCampaignsV2.Model.CommunicationLimit> AllChannelSubtypes_CommunicationLimitsList { get; set; }
+            public Amazon.ConnectCampaignsV2.InstanceLimitsHandling CommunicationLimitsOverride_InstanceLimitsHandling { get; set; }
             public Dictionary<System.String, List<Amazon.ConnectCampaignsV2.Model.TimeRange>> CommunicationTimeConfig_Email_OpenHours_DailyHours { get; set; }
             public List<Amazon.ConnectCampaignsV2.Model.RestrictedPeriod> CommunicationTimeConfig_Email_RestrictedPeriods_RestrictedPeriodList { get; set; }
             public System.String LocalTimeZoneConfig_DefaultTimeZone { get; set; }

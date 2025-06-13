@@ -523,6 +523,9 @@
     <Reference Include="AWSSDK.EventBridge">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.EventBridge.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Evs">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Evs.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Finspace">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Finspace.dll</HintPath>
     </Reference>
@@ -1731,6 +1734,9 @@
     </Reference>
     <Reference Include="AWSSDK.EventBridge">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.EventBridge.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Evs">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Evs.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Finspace">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Finspace.dll</HintPath>

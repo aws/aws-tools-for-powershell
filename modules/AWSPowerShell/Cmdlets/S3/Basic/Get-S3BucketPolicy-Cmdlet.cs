@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>The bucket name to get the bucket policy for.</para><para><b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style 
         /// requests in the format <c>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i></c>. Virtual-hosted-style 
         /// requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket 
-        /// names must also follow the format <c><i>bucket-base-name</i>--<i>zone-id</i>--x-s3</c> (for example, <c><i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</c>). For 
+        /// names must also follow the format <c><i>bucket-base-name</i>--<i>zone-id</i>--x-s3</c> (for example, <c><i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</c>). For 
         /// information about bucket naming restrictions, see 
         /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in 
         /// the <i>Amazon S3 User Guide</i></para><para><b>Access points</b> - When you use this API operation with an access point, provide the 
