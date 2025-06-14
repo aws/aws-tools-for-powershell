@@ -243,7 +243,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds
-        /// or 29 seconds.</para>
+        /// or 29 seconds. You can increase the default value to longer than 29 seconds for Regional
+        /// or private APIs only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

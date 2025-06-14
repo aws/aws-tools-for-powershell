@@ -87,6 +87,13 @@ $EFS_Completers = {
             break
         }
 
+        # Amazon.ElasticFileSystem.IpAddressType
+        "New-EFSMountTarget/IpAddressType"
+        {
+            $v = "DUAL_STACK","IPV4_ONLY","IPV6_ONLY"
+            break
+        }
+
         # Amazon.ElasticFileSystem.PerformanceMode
         "New-EFSFileSystem/PerformanceMode"
         {
@@ -136,6 +143,7 @@ $EFS_Completers = {
 $EFS_map = @{
     "BackupPolicy_Status"=@("Write-EFSBackupPolicy")
     "DeletionMode"=@("Remove-EFSReplicationConfiguration")
+    "IpAddressType"=@("New-EFSMountTarget")
     "PerformanceMode"=@("New-EFSFileSystem")
     "ReplicationOverwriteProtection"=@("Update-EFSFileSystemProtection")
     "ResourceIdType"=@("Write-EFSAccountPreference")

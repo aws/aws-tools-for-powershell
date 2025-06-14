@@ -721,6 +721,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] DefaultSpaceSettings_SecurityGroup { get; set; }
         #endregion
         
+        #region Parameter UnifiedStudioSettings_SingleSignOnApplicationArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the application managed by SageMaker AI and SageMaker Unified Studio in
+        /// the Amazon Web Services IAM Identity Center.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettingsForUpdate_UnifiedStudioSettings_SingleSignOnApplicationArn")]
+        public System.String UnifiedStudioSettings_SingleSignOnApplicationArn { get; set; }
+        #endregion
+        
         #region Parameter AmazonQSettings_Status
         /// <summary>
         /// <para>
@@ -946,6 +958,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.UnifiedStudioSettings_EnvironmentId = this.UnifiedStudioSettings_EnvironmentId;
             context.UnifiedStudioSettings_ProjectId = this.UnifiedStudioSettings_ProjectId;
             context.UnifiedStudioSettings_ProjectS3Path = this.UnifiedStudioSettings_ProjectS3Path;
+            context.UnifiedStudioSettings_SingleSignOnApplicationArn = this.UnifiedStudioSettings_SingleSignOnApplicationArn;
             context.UnifiedStudioSettings_StudioWebPortalAccess = this.UnifiedStudioSettings_StudioWebPortalAccess;
             if (this.SubnetId != null)
             {
@@ -1802,6 +1815,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings.ProjectS3Path = requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_ProjectS3Path;
                 requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettingsIsNull = false;
             }
+            System.String requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_SingleSignOnApplicationArn = null;
+            if (cmdletContext.UnifiedStudioSettings_SingleSignOnApplicationArn != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_SingleSignOnApplicationArn = cmdletContext.UnifiedStudioSettings_SingleSignOnApplicationArn;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_SingleSignOnApplicationArn != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings.SingleSignOnApplicationArn = requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_SingleSignOnApplicationArn;
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettingsIsNull = false;
+            }
             Amazon.SageMaker.FeatureStatus requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_StudioWebPortalAccess = null;
             if (cmdletContext.UnifiedStudioSettings_StudioWebPortalAccess != null)
             {
@@ -1950,6 +1973,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String UnifiedStudioSettings_EnvironmentId { get; set; }
             public System.String UnifiedStudioSettings_ProjectId { get; set; }
             public System.String UnifiedStudioSettings_ProjectS3Path { get; set; }
+            public System.String UnifiedStudioSettings_SingleSignOnApplicationArn { get; set; }
             public Amazon.SageMaker.FeatureStatus UnifiedStudioSettings_StudioWebPortalAccess { get; set; }
             public List<System.String> SubnetId { get; set; }
             public Amazon.SageMaker.TagPropagation TagPropagation { get; set; }

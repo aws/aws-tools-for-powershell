@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// Amazon.S3Tables.Model.GetTableMaintenanceJobStatusRequest.Namespace
+        /// <para>The name of the namespace the table is associated with. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

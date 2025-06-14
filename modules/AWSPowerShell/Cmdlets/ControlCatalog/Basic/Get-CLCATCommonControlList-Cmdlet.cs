@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
         /// <summary>
         /// <para>
         /// <para>The objective that's used as filter criteria.</para><para>You can use this parameter to specify one objective ARN at a time. Passing multiple
-        /// ARNs in the <c>CommonControlFilter</c> isn’t currently supported.</para>
+        /// ARNs in the <c>CommonControlFilter</c> isn’t supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

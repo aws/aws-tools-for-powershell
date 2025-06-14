@@ -156,7 +156,7 @@ $CO_Completers = {
             ($_ -eq "Write-CORecommendationPreference/ResourceType")
         }
         {
-            $v = "AutoScalingGroup","EbsVolume","Ec2Instance","EcsService","Idle","LambdaFunction","License","NotApplicable","RdsDBInstance"
+            $v = "AuroraDBClusterStorage","AutoScalingGroup","EbsVolume","Ec2Instance","EcsService","Idle","LambdaFunction","License","NotApplicable","RdsDBInstance"
             break
         }
 

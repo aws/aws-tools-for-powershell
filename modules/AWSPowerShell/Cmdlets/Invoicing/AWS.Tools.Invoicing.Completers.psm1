@@ -75,6 +75,32 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service AWS Invoicing
 
 
+$INV_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Invoicing.ListInvoiceSummariesResourceType
+        "Get-INVInvoiceSummaryList/Selector_ResourceType"
+        {
+            $v = "ACCOUNT_ID","INVOICE_ID"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$INV_map = @{
+    "Selector_ResourceType"=@("Get-INVInvoiceSummaryList")
+}
+
+_awsArgumentCompleterRegistration $INV_Completers $INV_map
+
 $INV_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -127,6 +153,7 @@ $INV_SelectMap = @{
                "New-INVInvoiceUnit",
                "Remove-INVInvoiceUnit",
                "Get-INVInvoiceUnit",
+               "Get-INVInvoiceSummaryList",
                "Get-INVInvoiceUnitList",
                "Get-INVResourceTag",
                "Add-INVResourceTag",

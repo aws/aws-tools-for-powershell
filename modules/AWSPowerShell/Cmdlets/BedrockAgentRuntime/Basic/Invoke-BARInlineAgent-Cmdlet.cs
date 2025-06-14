@@ -168,6 +168,21 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public System.Boolean? EndSession { get; set; }
         #endregion
         
+        #region Parameter PromptCreationConfigurations_ExcludePreviousThinkingStep
+        /// <summary>
+        /// <para>
+        /// <para>If <c>true</c>, the service removes any content between <c>&lt;thinking&gt;</c> tags
+        /// from previous conversations in an agent session. The service will only remove content
+        /// from already processed turns. This helps you remove content which might not be useful
+        /// for current and subsequent invocations. This can reduce the input token count and
+        /// potentially save costs. The default value is <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PromptCreationConfigurations_ExcludePreviousThinkingSteps")]
+        public System.Boolean? PromptCreationConfigurations_ExcludePreviousThinkingStep { get; set; }
+        #endregion
+        
         #region Parameter InlineSessionState_File
         /// <summary>
         /// <para>
@@ -345,6 +360,20 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String PromptOverrideConfiguration_OverrideLambda { get; set; }
+        #endregion
+        
+        #region Parameter PromptCreationConfigurations_PreviousConversationTurnsToInclude
+        /// <summary>
+        /// <para>
+        /// <para>The number of previous conversations from the ongoing agent session to include in
+        /// the conversation history of the agent prompt, during the current invocation. This
+        /// gives you more granular control over the context that the model is made aware of,
+        /// and helps the model remove older context which is no longer useful during the ongoing
+        /// agent session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? PromptCreationConfigurations_PreviousConversationTurnsToInclude { get; set; }
         #endregion
         
         #region Parameter PromptOverrideConfiguration_PromptConfiguration
@@ -544,6 +573,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 context.KnowledgeBases = new List<Amazon.BedrockAgentRuntime.Model.KnowledgeBase>(this.KnowledgeBases);
             }
             context.OrchestrationType = this.OrchestrationType;
+            context.PromptCreationConfigurations_ExcludePreviousThinkingStep = this.PromptCreationConfigurations_ExcludePreviousThinkingStep;
+            context.PromptCreationConfigurations_PreviousConversationTurnsToInclude = this.PromptCreationConfigurations_PreviousConversationTurnsToInclude;
             context.PromptOverrideConfiguration_OverrideLambda = this.PromptOverrideConfiguration_OverrideLambda;
             if (this.PromptOverrideConfiguration_PromptConfiguration != null)
             {
@@ -812,6 +843,35 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 request.OrchestrationType = cmdletContext.OrchestrationType;
             }
             
+             // populate PromptCreationConfigurations
+            var requestPromptCreationConfigurationsIsNull = true;
+            request.PromptCreationConfigurations = new Amazon.BedrockAgentRuntime.Model.PromptCreationConfigurations();
+            System.Boolean? requestPromptCreationConfigurations_promptCreationConfigurations_ExcludePreviousThinkingStep = null;
+            if (cmdletContext.PromptCreationConfigurations_ExcludePreviousThinkingStep != null)
+            {
+                requestPromptCreationConfigurations_promptCreationConfigurations_ExcludePreviousThinkingStep = cmdletContext.PromptCreationConfigurations_ExcludePreviousThinkingStep.Value;
+            }
+            if (requestPromptCreationConfigurations_promptCreationConfigurations_ExcludePreviousThinkingStep != null)
+            {
+                request.PromptCreationConfigurations.ExcludePreviousThinkingSteps = requestPromptCreationConfigurations_promptCreationConfigurations_ExcludePreviousThinkingStep.Value;
+                requestPromptCreationConfigurationsIsNull = false;
+            }
+            System.Int32? requestPromptCreationConfigurations_promptCreationConfigurations_PreviousConversationTurnsToInclude = null;
+            if (cmdletContext.PromptCreationConfigurations_PreviousConversationTurnsToInclude != null)
+            {
+                requestPromptCreationConfigurations_promptCreationConfigurations_PreviousConversationTurnsToInclude = cmdletContext.PromptCreationConfigurations_PreviousConversationTurnsToInclude.Value;
+            }
+            if (requestPromptCreationConfigurations_promptCreationConfigurations_PreviousConversationTurnsToInclude != null)
+            {
+                request.PromptCreationConfigurations.PreviousConversationTurnsToInclude = requestPromptCreationConfigurations_promptCreationConfigurations_PreviousConversationTurnsToInclude.Value;
+                requestPromptCreationConfigurationsIsNull = false;
+            }
+             // determine if request.PromptCreationConfigurations should be set to null
+            if (requestPromptCreationConfigurationsIsNull)
+            {
+                request.PromptCreationConfigurations = null;
+            }
+            
              // populate PromptOverrideConfiguration
             var requestPromptOverrideConfigurationIsNull = true;
             request.PromptOverrideConfiguration = new Amazon.BedrockAgentRuntime.Model.PromptOverrideConfiguration();
@@ -952,6 +1012,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public System.String Instruction { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.KnowledgeBase> KnowledgeBases { get; set; }
             public Amazon.BedrockAgentRuntime.OrchestrationType OrchestrationType { get; set; }
+            public System.Boolean? PromptCreationConfigurations_ExcludePreviousThinkingStep { get; set; }
+            public System.Int32? PromptCreationConfigurations_PreviousConversationTurnsToInclude { get; set; }
             public System.String PromptOverrideConfiguration_OverrideLambda { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.PromptConfiguration> PromptOverrideConfiguration_PromptConfiguration { get; set; }
             public System.String SessionId { get; set; }

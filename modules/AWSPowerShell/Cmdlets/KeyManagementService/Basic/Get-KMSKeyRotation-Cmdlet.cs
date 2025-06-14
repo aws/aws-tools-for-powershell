@@ -22,30 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using System.Threading;
 using Amazon.KeyManagementService;
 using Amazon.KeyManagementService.Model;
 
-#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Returns information about all completed key material rotations for the specified KMS
-    /// key.
+    /// Returns information about the key materials associated with the specified KMS key.
+    /// You can use the optional <c>IncludeKeyMaterial</c> parameter to control which key
+    /// materials are included in the response.
     /// 
     ///  
     /// <para>
     /// You must specify the KMS key in all requests. You can refine the key rotations list
     /// by limiting the number of rotations returned.
     /// </para><para>
-    /// For detailed information about automatic and on-demand key rotations, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">Rotating
+    /// For detailed information about automatic and on-demand key rotations, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">Rotate
     /// KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a
     /// different Amazon Web Services account.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListKeyRotations</a>
     /// (key policy)
-    /// </para><para><b>Related operations:</b></para><ul><li><para><a>EnableKeyRotation</a></para></li><li><para><a>DisableKeyRotation</a></para></li><li><para><a>GetKeyRotationStatus</a></para></li><li><para><a>RotateKeyOnDemand</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
-    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>EnableKeyRotation</a></para></li><li><para><a>DeleteImportedKeyMaterial</a></para></li><li><para><a>DisableKeyRotation</a></para></li><li><para><a>GetKeyRotationStatus</a></para></li><li><para><a>ImportKeyMaterial</a></para></li><li><para><a>RotateKeyOnDemand</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS
     /// eventual consistency</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -60,7 +59,23 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter IncludeKeyMaterial
+        /// <summary>
+        /// <para>
+        /// <para>Use this optional parameter to control which key materials associated with this key
+        /// are listed in the response. The default value of this parameter is <c>ROTATIONS_ONLY</c>.
+        /// If you omit this parameter, KMS returns information on the key materials created by
+        /// automatic or on-demand key rotation. When you specify a value of <c>ALL_KEY_MATERIAL</c>,
+        /// KMS adds the first key material and any imported key material pending rotation to
+        /// the response. This parameter can only be used with KMS keys that support automatic
+        /// or on-demand key rotation. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.KeyManagementService.IncludeKeyMaterial")]
+        public Amazon.KeyManagementService.IncludeKeyMaterial IncludeKeyMaterial { get; set; }
+        #endregion
         
         #region Parameter KeyId
         /// <summary>
@@ -120,6 +135,16 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         public string Select { get; set; } = "Rotations";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the KeyId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^KeyId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^KeyId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter NoAutoIteration
         /// <summary>
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
@@ -130,13 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
-        protected override void StopProcessing()
-        {
-            base.StopProcessing();
-            _cancellationTokenSource.Cancel();
-        }
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();
@@ -144,11 +165,22 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.KeyManagementService.Model.ListKeyRotationsResponse, GetKMSKeyRotationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.KeyId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.IncludeKeyMaterial = this.IncludeKeyMaterial;
             context.KeyId = this.KeyId;
             #if MODULAR
             if (this.KeyId == null && ParameterWasBound(nameof(this.KeyId)))
@@ -171,11 +203,17 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
             var request = new Amazon.KeyManagementService.Model.ListKeyRotationsRequest();
             
+            if (cmdletContext.IncludeKeyMaterial != null)
+            {
+                request.IncludeKeyMaterial = cmdletContext.IncludeKeyMaterial;
+            }
             if (cmdletContext.KeyId != null)
             {
                 request.KeyId = cmdletContext.KeyId;
@@ -246,7 +284,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "ListKeyRotations");
             try
             {
-                return client.ListKeyRotationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                #if DESKTOP
+                return client.ListKeyRotations(request);
+                #elif CORECLR
+                return client.ListKeyRotationsAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
             }
             catch (AmazonServiceException exc)
             {
@@ -263,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.KeyManagementService.IncludeKeyMaterial IncludeKeyMaterial { get; set; }
             public System.String KeyId { get; set; }
             public System.Int32? Limit { get; set; }
             public System.String Marker { get; set; }

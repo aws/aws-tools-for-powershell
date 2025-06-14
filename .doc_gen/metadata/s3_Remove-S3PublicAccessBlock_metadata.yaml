@@ -16,7 +16,7 @@ s3_DeletePublicAccessBlock:
           - .doc_gen/snippet_files/s3_Remove-S3PublicAccessBlock.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
           snippet_files: []
-        - description: <programlisting language="none" role="nocopy">s3testbucket</programlisting>
+        - description: <programlisting language="none" role="nocopy">amzn-s3-demo-bucket</programlisting>
           snippet_files: []
   services:
     s3:

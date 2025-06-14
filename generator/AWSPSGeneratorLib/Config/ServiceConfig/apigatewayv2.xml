@@ -61,6 +61,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateRoutingRule" OutputProperty="*" Verb="New" Noun="RoutingRule" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateStage" OutputProperty="*" Verb="New" Noun="Stage" ShouldProcessTarget="StageName" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -125,6 +129,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRoutingRule" Verb="Remove" Noun="RoutingRule" ShouldProcessTarget="RoutingRuleId" PipelineParameter="RoutingRuleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteStage" Verb="Remove" Noun="Stage" ShouldProcessTarget="StageName" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -145,11 +153,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApiMappings" OutputProperty="Items" Verb="Get" Noun="ApiMappingList" ShouldProcessTarget="" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetApiMappings" OutputProperty="Items" Verb="Get" Noun="ApiMappingList" ShouldProcessTarget="" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApis" OutputProperty="Items" Verb="Get" Noun="ApiList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetApis" OutputProperty="Items" Verb="Get" Noun="ApiList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -157,7 +165,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAuthorizers" OutputProperty="Items" Verb="Get" Noun="AuthorizerList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetAuthorizers" OutputProperty="Items" Verb="Get" Noun="AuthorizerList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -165,7 +173,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDeployments" OutputProperty="Items" Verb="Get" Noun="DeploymentList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDeployments" OutputProperty="Items" Verb="Get" Noun="DeploymentList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -173,7 +181,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDomainNames" OutputProperty="Items" Verb="Get" Noun="DomainNameList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDomainNames" OutputProperty="Items" Verb="Get" Noun="DomainNameList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -185,11 +193,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIntegrationResponses" OutputProperty="Items" Verb="Get" Noun="IntegrationResponseList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetIntegrationResponses" OutputProperty="Items" Verb="Get" Noun="IntegrationResponseList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIntegrations" OutputProperty="Items" Verb="Get" Noun="IntegrationList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetIntegrations" OutputProperty="Items" Verb="Get" Noun="IntegrationList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -197,7 +205,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetModels" OutputProperty="Items" Verb="Get" Noun="ModelList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetModels" OutputProperty="Items" Verb="Get" Noun="ModelList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -213,11 +221,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRouteResponses" OutputProperty="Items" Verb="Get" Noun="RouteResponseList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetRouteResponses" OutputProperty="Items" Verb="Get" Noun="RouteResponseList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRoutes" OutputProperty="Items" Verb="Get" Noun="RouteList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetRoutes" OutputProperty="Items" Verb="Get" Noun="RouteList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRoutingRule" OutputProperty="*" Verb="Get" Noun="RoutingRule" PipelineParameter="RoutingRuleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -225,7 +237,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStages" OutputProperty="Items" Verb="Get" Noun="StageList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetStages" OutputProperty="Items" Verb="Get" Noun="StageList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -242,6 +254,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ImportApi" OutputProperty="*" Verb="Import" Noun="Api" ShouldProcessTarget="Body" PipelineParameter="Body" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRoutingRules" OutputProperty="RoutingRules" Verb="Get" Noun="RoutingRuleList" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutRoutingRule" OutputProperty="*" Verb="Write" Noun="RoutingRule" ShouldProcessTarget="RoutingRuleId" PipelineParameter="RoutingRuleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

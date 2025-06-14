@@ -30,12 +30,12 @@ using Amazon.ComputeOptimizer.Model;
 namespace Amazon.PowerShell.Cmdlets.CO
 {
     /// <summary>
-    /// Returns Amazon RDS recommendations. 
+    /// Returns Amazon Aurora and RDS database recommendations. 
     /// 
     ///  
     /// <para>
-    /// Compute Optimizer generates recommendations for Amazon RDS that meet a specific set
-    /// of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported
+    /// Compute Optimizer generates recommendations for Amazon Aurora and RDS databases that
+    /// meet a specific set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported
     /// resources and requirements</a> in the <i>Compute Optimizer User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -54,9 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para> Return the Amazon RDS recommendations to the specified Amazon Web Services account
-        /// IDs. </para><para>If your account is the management account or the delegated administrator of an organization,
-        /// use this parameter to return the Amazon RDS recommendations to specific member accounts.</para><para>You can only specify one account ID per request.</para>
+        /// <para> Return the Amazon Aurora and RDS database recommendations to the specified Amazon
+        /// Web Services account IDs. </para><para>If your account is the management account or the delegated administrator of an organization,
+        /// use this parameter to return the Amazon Aurora and RDS database recommendations to
+        /// specific member accounts.</para><para>You can only specify one account ID per request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <summary>
         /// <para>
         /// <para> An array of objects to specify a filter that returns a more specific list of Amazon
-        /// RDS recommendations. </para>
+        /// Aurora and RDS database recommendations. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> The ARN that identifies the Amazon RDS. </para><para> The following is the format of the ARN: </para><para><c>arn:aws:rds:{region}:{accountId}:db:{resourceName}</c></para><para> The following is the format of a DB Cluster ARN: </para><para><c>arn:aws:rds:{region}:{accountId}:cluster:{resourceName}</c></para>
+        /// <para> The ARN that identifies the Amazon Aurora or RDS database. </para><para> The following is the format of the ARN: </para><para><c>arn:aws:rds:{region}:{accountId}:db:{resourceName}</c></para><para> The following is the format of a DB Cluster ARN: </para><para><c>arn:aws:rds:{region}:{accountId}:cluster:{resourceName}</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of Amazon RDS recommendations to return with a single request.</para><para>To retrieve the remaining results, make another request with the returned <c>nextToken</c>
+        /// <para>The maximum number of Amazon Aurora and RDS database recommendations to return with
+        /// a single request.</para><para>To retrieve the remaining results, make another request with the returned <c>nextToken</c>
         /// value.</para>
         /// </para>
         /// </summary>
@@ -119,7 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> The token to advance to the next page of Amazon RDS recommendations. </para>
+        /// <para> The token to advance to the next page of Amazon Aurora and RDS database recommendations.
+        /// </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

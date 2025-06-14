@@ -91,6 +91,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CCS2CampaignStateBatch', 
         'Get-CCS2ConnectInstanceConfig', 
         'Get-CCS2ConnectInstanceIntegrationList', 
+        'Get-CCS2InstanceCommunicationLimit', 
         'Get-CCS2InstanceOnboardingJobStatus', 
         'Get-CCS2ResourceTag', 
         'New-CCS2Campaign', 
@@ -115,6 +116,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-CCS2CampaignSchedule', 
         'Update-CCS2CampaignSource', 
         'Write-CCS2ConnectInstanceIntegration', 
+        'Write-CCS2InstanceCommunicationLimit', 
         'Write-CCS2OutboundRequestBatch', 
         'Write-CCS2ProfileOutboundRequestBatch')
 

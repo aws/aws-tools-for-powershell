@@ -509,7 +509,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// Region by using the <c>defaultLogDriverMode</c> account setting. If you don't specify
         /// the <c>mode</c> option or configure the account setting, Amazon ECS will default to
         /// the <c>blocking</c> mode. For more information about the account setting, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#default-log-driver-mode">Default
-        /// log driver mode</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para></dd><dt>max-buffer-size</dt><dd><para>Required: No</para><para>Default value: <c>1m</c></para><para>When <c>non-blocking</c> mode is used, the <c>max-buffer-size</c> log option controls
+        /// log driver mode</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><note><para>On June 25, 2025, Amazon ECS is changing the default log driver mode from <c>blocking</c>
+        /// to <c>non-blocking</c> to prioritize task availability over logging. To continue using
+        /// the <c>blocking</c> mode after this change, do one of the following:</para><ul><li><para>Set the <c>mode</c> option in your container definition's <c>logConfiguration</c>
+        /// as <c>blocking</c>.</para></li><li><para>Set the <c>defaultLogDriverMode</c> account setting to <c>blocking</c>.</para></li></ul></note></dd><dt>max-buffer-size</dt><dd><para>Required: No</para><para>Default value: <c>1m</c></para><para>When <c>non-blocking</c> mode is used, the <c>max-buffer-size</c> log option controls
         /// the size of the buffer that's used for intermediate message storage. Make sure to
         /// specify an adequate buffer size based on your application. When the buffer fills up,
         /// further logs cannot be stored. Logs that cannot be stored are lost. </para></dd></dl><para>To route logs using the <c>splunk</c> log router, you need to specify a <c>splunk-token</c>

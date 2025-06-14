@@ -78,6 +78,18 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         public System.String JobRunId { get; set; }
         #endregion
         
+        #region Parameter ShutdownGracePeriodInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The duration in seconds to wait before forcefully terminating the job after cancellation
+        /// is requested.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ShutdownGracePeriodInSeconds")]
+        public System.Int32? ShutdownGracePeriodInSecond { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -138,6 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
                 WriteWarning("You are passing $null as a value for parameter JobRunId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ShutdownGracePeriodInSecond = this.ShutdownGracePeriodInSecond;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -161,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             if (cmdletContext.JobRunId != null)
             {
                 request.JobRunId = cmdletContext.JobRunId;
+            }
+            if (cmdletContext.ShutdownGracePeriodInSecond != null)
+            {
+                request.ShutdownGracePeriodInSeconds = cmdletContext.ShutdownGracePeriodInSecond.Value;
             }
             
             CmdletOutput output;
@@ -219,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         {
             public System.String ApplicationId { get; set; }
             public System.String JobRunId { get; set; }
+            public System.Int32? ShutdownGracePeriodInSecond { get; set; }
             public System.Func<Amazon.EMRServerless.Model.CancelJobRunResponse, StopEMRServerlessJobRunCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

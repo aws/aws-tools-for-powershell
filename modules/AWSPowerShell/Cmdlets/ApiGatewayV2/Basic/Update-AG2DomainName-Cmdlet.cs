@@ -72,6 +72,17 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         public Amazon.ApiGatewayV2.Model.DomainNameConfiguration[] DomainNameConfiguration { get; set; }
         #endregion
         
+        #region Parameter RoutingMode
+        /// <summary>
+        /// <para>
+        /// <para>The routing mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ApiGatewayV2.RoutingMode")]
+        public Amazon.ApiGatewayV2.RoutingMode RoutingMode { get; set; }
+        #endregion
+        
         #region Parameter MutualTlsAuthentication_TruststoreUri
         /// <summary>
         /// <para>
@@ -157,6 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             }
             context.MutualTlsAuthentication_TruststoreUri = this.MutualTlsAuthentication_TruststoreUri;
             context.MutualTlsAuthentication_TruststoreVersion = this.MutualTlsAuthentication_TruststoreVersion;
+            context.RoutingMode = this.RoutingMode;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -209,6 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             if (requestMutualTlsAuthenticationIsNull)
             {
                 request.MutualTlsAuthentication = null;
+            }
+            if (cmdletContext.RoutingMode != null)
+            {
+                request.RoutingMode = cmdletContext.RoutingMode;
             }
             
             CmdletOutput output;
@@ -269,6 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             public List<Amazon.ApiGatewayV2.Model.DomainNameConfiguration> DomainNameConfiguration { get; set; }
             public System.String MutualTlsAuthentication_TruststoreUri { get; set; }
             public System.String MutualTlsAuthentication_TruststoreVersion { get; set; }
+            public Amazon.ApiGatewayV2.RoutingMode RoutingMode { get; set; }
             public System.Func<Amazon.ApiGatewayV2.Model.UpdateDomainNameResponse, UpdateAG2DomainNameCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

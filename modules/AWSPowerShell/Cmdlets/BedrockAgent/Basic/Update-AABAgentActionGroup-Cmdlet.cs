@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. When operating computer
         /// use functionality, we recommend taking additional security precautions, such as executing
         /// computer actions in virtual environments with restricted data access and limited internet
-        /// connectivity. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure
+        /// connectivity. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure
         /// an Amazon Bedrock Agent to complete tasks with computer use tools</a>. </para></important><ul><li><para><c>ANTHROPIC.Computer</c> - Gives the agent permission to use the mouse and keyboard
         /// and take screenshots.</para></li><li><para><c>ANTHROPIC.TextEditor</c> - Gives the agent permission to view, create and edit
         /// files.</para></li><li><para><c>ANTHROPIC.Bash</c> - Gives the agent permission to run commands in a bash shell.</para></li></ul></li></ul><para>During orchestration, if your agent determines that it needs to invoke an API in an
@@ -200,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <summary>
         /// <para>
         /// <para>The configuration settings for a computer use action.</para><important><para> Computer use is a new Anthropic Claude model capability (in beta) available with
-        /// Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure
+        /// Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-computer-use.html">Configure
         /// an Amazon Bedrock Agent to complete tasks with computer use tools</a>. </para></important>
         /// </para>
         /// </summary>

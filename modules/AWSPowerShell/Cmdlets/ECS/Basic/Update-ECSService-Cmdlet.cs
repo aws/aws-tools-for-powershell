@@ -142,13 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Stop the task on a container instance in an optimal Availability Zone (based on the
     /// previous steps), favoring container instances with the largest number of running tasks
     /// for this service.
-    /// </para></li></ul><note><para>
-    /// You must have a service-linked role when you update any of the following service properties:
-    /// </para><ul><li><para><c>loadBalancers</c>,
-    /// </para></li><li><para><c>serviceRegistries</c></para></li></ul><para>
-    /// For more information about the role see the <c>CreateService</c> request parameter
-    /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html#ECS-CreateService-request-role"><c>role</c></a>. 
-    /// </para></note>
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Update", "ECSService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.Service")]
@@ -204,21 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter CapacityProviderStrategy
         /// <summary>
         /// <para>
-        /// <para>The capacity provider strategy to update the service to use.</para><para>if the service uses the default capacity provider strategy for the cluster, the service
-        /// can be updated to use one or more capacity providers as opposed to the default capacity
-        /// provider strategy. However, when a service is using a capacity provider strategy that's
-        /// not the default capacity provider strategy, the service can't be updated to use the
-        /// cluster's default capacity provider strategy.</para><para>A capacity provider strategy consists of one or more capacity providers along with
-        /// the <c>base</c> and <c>weight</c> to assign to them. A capacity provider must be associated
-        /// with the cluster to be used in a capacity provider strategy. The <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a>
-        /// API is used to associate a capacity provider with a cluster. Only capacity providers
-        /// with an <c>ACTIVE</c> or <c>UPDATING</c> status can be used.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
-        /// must already be created. New capacity providers can be created with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateClusterCapacityProvider.html">CreateClusterCapacityProvider</a>
-        /// API operation.</para><para>To use a Fargate capacity provider, specify either the <c>FARGATE</c> or <c>FARGATE_SPOT</c>
-        /// capacity providers. The Fargate capacity providers are available to all accounts and
-        /// only need to be associated with a cluster to be used.</para><para>The <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a>API
-        /// operation is used to update the list of available capacity providers for a cluster
-        /// after the cluster is created.</para>
+        /// <para>The details of a capacity provider strategy. You can set a capacity provider when
+        /// you create a cluster, run a task, or update a service.</para><para>When you use Fargate, the capacity providers are <c>FARGATE</c> or <c>FARGATE_SPOT</c>.</para><para>When you use Amazon EC2, the capacity providers are Auto Scaling groups.</para><para>You can change capacity providers for rolling deployments and blue/green deployments.</para><para>The following list provides the valid transitions:</para><ul><li><para>Update the Fargate launch type to an EC2 capacity provider.</para></li><li><para>Update the Amazon EC2 launch type to a Fargate capacity provider.</para></li><li><para>Update the Fargate capacity provider to an EC2 capacity provider.</para></li><li><para>Update the Amazon EC2 capacity provider to a Fargate capacity provider. </para></li><li><para>Update the EC2 or Fargate capacity provider back to the launch type.</para><para>Pass an empty list in the <c>capacityProvider</c> parameter.</para></li></ul><para>For information about Amazon Web Services CDK considerations, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/update-service-parameters.html">Amazon
+        /// Web Services CDK considerations</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -229,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The short name or full Amazon Resource Name (ARN) of the cluster that your service
-        /// runs on. If you do not specify a cluster, the default cluster is assumed.</para>
+        /// runs on. If you do not specify a cluster, the default cluster is assumed.</para><para>You can't change the cluster name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -341,7 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter LoadBalancer
         /// <summary>
         /// <para>
-        /// <para>A list of Elastic Load Balancing load balancer objects. It contains the load balancer
+        /// <note><para>You must have a service-linked role when you update this property</para></note><para>A list of Elastic Load Balancing load balancer objects. It contains the load balancer
         /// name, the container name, and the container port to access from the load balancer.
         /// The container name is as it appears in a container definition.</para><para>When you add, update, or remove a load balancer configuration, Amazon ECS starts new
         /// tasks with the updated Elastic Load Balancing configuration, and then stops the old
@@ -528,7 +510,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// Region by using the <c>defaultLogDriverMode</c> account setting. If you don't specify
         /// the <c>mode</c> option or configure the account setting, Amazon ECS will default to
         /// the <c>blocking</c> mode. For more information about the account setting, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#default-log-driver-mode">Default
-        /// log driver mode</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para></dd><dt>max-buffer-size</dt><dd><para>Required: No</para><para>Default value: <c>1m</c></para><para>When <c>non-blocking</c> mode is used, the <c>max-buffer-size</c> log option controls
+        /// log driver mode</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><note><para>On June 25, 2025, Amazon ECS is changing the default log driver mode from <c>blocking</c>
+        /// to <c>non-blocking</c> to prioritize task availability over logging. To continue using
+        /// the <c>blocking</c> mode after this change, do one of the following:</para><ul><li><para>Set the <c>mode</c> option in your container definition's <c>logConfiguration</c>
+        /// as <c>blocking</c>.</para></li><li><para>Set the <c>defaultLogDriverMode</c> account setting to <c>blocking</c>.</para></li></ul></note></dd><dt>max-buffer-size</dt><dd><para>Required: No</para><para>Default value: <c>1m</c></para><para>When <c>non-blocking</c> mode is used, the <c>max-buffer-size</c> log option controls
         /// the size of the buffer that's used for intermediate message storage. Make sure to
         /// specify an adequate buffer size based on your application. When the buffer fills up,
         /// further logs cannot be stored. Logs that cannot be stored are lost. </para></dd></dl><para>To route logs using the <c>splunk</c> log router, you need to specify a <c>splunk-token</c>
@@ -685,7 +670,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ServiceRegistry
         /// <summary>
         /// <para>
-        /// <para>The details for the service discovery registries to assign to this service. For more
+        /// <note><para>You must have a service-linked role when you update this property.</para><para>For more information about the role see the <c>CreateService</c> request parameter
+        /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html#ECS-CreateService-request-role"><c>role</c></a>. </para></note><para>The details for the service discovery registries to assign to this service. For more
         /// information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
         /// Discovery</a>.</para><para>When you add, update, or remove the service registries configuration, Amazon ECS starts
         /// new tasks with the updated service registries configuration, and then stops the old

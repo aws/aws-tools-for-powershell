@@ -72,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <summary>
         /// <para>
         /// <para>The unique identifier of a Amazon GameLift Streams stream group to retrieve the stream
-        /// session for. You can use either the stream group ID or the Amazon Resource Name (ARN).</para>
+        /// session for. You can use either the stream group ID or the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
+        /// Resource Name (ARN)</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

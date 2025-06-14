@@ -75,6 +75,18 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         public System.String EntityTypeFilters_DataProductFilters_LastModifiedDate_DateRange_AfterValue { get; set; }
         #endregion
         
+        #region Parameter DateRange_AfterValue
+        /// <summary>
+        /// <para>
+        /// <para>The start date (inclusive) of the date range. The operation returns machine learning
+        /// products with last modified dates on or after this date.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EntityTypeFilters_MachineLearningProductFilters_LastModifiedDate_DateRange_AfterValue")]
+        public System.String DateRange_AfterValue { get; set; }
+        #endregion
+        
         #region Parameter EntityTypeFilters_OfferFilters_AvailabilityEndDate_DateRange_AfterValue
         /// <summary>
         /// <para>
@@ -173,6 +185,18 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EntityTypeFilters_DataProductFilters_LastModifiedDate_DateRange_BeforeValue { get; set; }
+        #endregion
+        
+        #region Parameter DateRange_BeforeValue
+        /// <summary>
+        /// <para>
+        /// <para>The end date (inclusive) of the date range. The operation returns machine learning
+        /// products with last modified dates on or before this date.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EntityTypeFilters_MachineLearningProductFilters_LastModifiedDate_DateRange_BeforeValue")]
+        public System.String DateRange_BeforeValue { get; set; }
         #endregion
         
         #region Parameter EntityTypeFilters_OfferFilters_AvailabilityEndDate_DateRange_BeforeValue
@@ -343,6 +367,19 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         public Amazon.MarketplaceCatalog.DataProductSortBy DataProductSort_SortBy { get; set; }
         #endregion
         
+        #region Parameter MachineLearningProductSort_SortBy
+        /// <summary>
+        /// <para>
+        /// <para>The field to sort by. Valid values: <c>EntityId</c>, <c>LastModifiedDate</c>, <c>ProductTitle</c>,
+        /// and <c>Visibility</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EntityTypeSort_MachineLearningProductSort_SortBy")]
+        [AWSConstantClassSource("Amazon.MarketplaceCatalog.MachineLearningProductSortBy")]
+        public Amazon.MarketplaceCatalog.MachineLearningProductSortBy MachineLearningProductSort_SortBy { get; set; }
+        #endregion
+        
         #region Parameter OfferSort_SortBy
         /// <summary>
         /// <para>
@@ -428,6 +465,18 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         [Alias("EntityTypeSort_DataProductSort_SortOrder")]
         [AWSConstantClassSource("Amazon.MarketplaceCatalog.SortOrder")]
         public Amazon.MarketplaceCatalog.SortOrder DataProductSort_SortOrder { get; set; }
+        #endregion
+        
+        #region Parameter MachineLearningProductSort_SortOrder
+        /// <summary>
+        /// <para>
+        /// <para>The sort order. Valid values are <c>ASC</c> (ascending) and <c>DESC</c> (descending).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EntityTypeSort_MachineLearningProductSort_SortOrder")]
+        [AWSConstantClassSource("Amazon.MarketplaceCatalog.SortOrder")]
+        public Amazon.MarketplaceCatalog.SortOrder MachineLearningProductSort_SortOrder { get; set; }
         #endregion
         
         #region Parameter OfferSort_SortOrder
@@ -567,6 +616,42 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] EntityTypeFilters_DataProductFilters_Visibility_ValueList { get; set; }
+        #endregion
+        
+        #region Parameter EntityId_ValueList
+        /// <summary>
+        /// <para>
+        /// <para>A list of entity IDs to filter by. The operation returns machine learning products
+        /// with entity IDs that match the values in this list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EntityTypeFilters_MachineLearningProductFilters_EntityId_ValueList")]
+        public System.String[] EntityId_ValueList { get; set; }
+        #endregion
+        
+        #region Parameter ProductTitle_ValueList
+        /// <summary>
+        /// <para>
+        /// <para>A list of product titles to filter by. The operation returns machine learning products
+        /// with titles that exactly match the values in this list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EntityTypeFilters_MachineLearningProductFilters_ProductTitle_ValueList")]
+        public System.String[] ProductTitle_ValueList { get; set; }
+        #endregion
+        
+        #region Parameter Visibility_ValueList
+        /// <summary>
+        /// <para>
+        /// <para>A list of visibility values to filter by. The operation returns machine learning products
+        /// with visibility status that match the values in this list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EntityTypeFilters_MachineLearningProductFilters_Visibility_ValueList")]
+        public System.String[] Visibility_ValueList { get; set; }
         #endregion
         
         #region Parameter EntityTypeFilters_OfferFilters_EntityId_ValueList
@@ -830,6 +915,18 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         public System.String EntityTypeFilters_DataProductFilters_ProductTitle_WildCardValue { get; set; }
         #endregion
         
+        #region Parameter ProductTitle_WildCardValue
+        /// <summary>
+        /// <para>
+        /// <para>A wildcard value to filter product titles. The operation returns machine learning
+        /// products with titles that match this wildcard pattern.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EntityTypeFilters_MachineLearningProductFilters_ProductTitle_WildCardValue")]
+        public System.String ProductTitle_WildCardValue { get; set; }
+        #endregion
+        
         #region Parameter BuyerAccounts_WildCardValue
         /// <summary>
         /// <para>
@@ -1068,6 +1165,21 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             {
                 context.EntityTypeFilters_DataProductFilters_Visibility_ValueList = new List<System.String>(this.EntityTypeFilters_DataProductFilters_Visibility_ValueList);
             }
+            if (this.EntityId_ValueList != null)
+            {
+                context.EntityId_ValueList = new List<System.String>(this.EntityId_ValueList);
+            }
+            context.DateRange_AfterValue = this.DateRange_AfterValue;
+            context.DateRange_BeforeValue = this.DateRange_BeforeValue;
+            if (this.ProductTitle_ValueList != null)
+            {
+                context.ProductTitle_ValueList = new List<System.String>(this.ProductTitle_ValueList);
+            }
+            context.ProductTitle_WildCardValue = this.ProductTitle_WildCardValue;
+            if (this.Visibility_ValueList != null)
+            {
+                context.Visibility_ValueList = new List<System.String>(this.Visibility_ValueList);
+            }
             context.EntityTypeFilters_OfferFilters_AvailabilityEndDate_DateRange_AfterValue = this.EntityTypeFilters_OfferFilters_AvailabilityEndDate_DateRange_AfterValue;
             context.EntityTypeFilters_OfferFilters_AvailabilityEndDate_DateRange_BeforeValue = this.EntityTypeFilters_OfferFilters_AvailabilityEndDate_DateRange_BeforeValue;
             context.BuyerAccounts_WildCardValue = this.BuyerAccounts_WildCardValue;
@@ -1182,6 +1294,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             context.ContainerProductSort_SortOrder = this.ContainerProductSort_SortOrder;
             context.DataProductSort_SortBy = this.DataProductSort_SortBy;
             context.DataProductSort_SortOrder = this.DataProductSort_SortOrder;
+            context.MachineLearningProductSort_SortBy = this.MachineLearningProductSort_SortBy;
+            context.MachineLearningProductSort_SortOrder = this.MachineLearningProductSort_SortOrder;
             context.OfferSort_SortBy = this.OfferSort_SortBy;
             context.OfferSort_SortOrder = this.OfferSort_SortOrder;
             context.ResaleAuthorizationSort_SortBy = this.ResaleAuthorizationSort_SortBy;
@@ -1675,6 +1789,156 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             if (requestEntityTypeFilters_entityTypeFilters_DataProductFilters != null)
             {
                 request.EntityTypeFilters.DataProductFilters = requestEntityTypeFilters_entityTypeFilters_DataProductFilters;
+                requestEntityTypeFiltersIsNull = false;
+            }
+            Amazon.MarketplaceCatalog.Model.MachineLearningProductFilters requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters = null;
+            
+             // populate MachineLearningProductFilters
+            var requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFiltersIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters = new Amazon.MarketplaceCatalog.Model.MachineLearningProductFilters();
+            Amazon.MarketplaceCatalog.Model.MachineLearningProductEntityIdFilter requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_EntityId = null;
+            
+             // populate EntityId
+            var requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_EntityIdIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_EntityId = new Amazon.MarketplaceCatalog.Model.MachineLearningProductEntityIdFilter();
+            List<System.String> requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_EntityId_entityId_ValueList = null;
+            if (cmdletContext.EntityId_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_EntityId_entityId_ValueList = cmdletContext.EntityId_ValueList;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_EntityId_entityId_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_EntityId.ValueList = requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_EntityId_entityId_ValueList;
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_EntityIdIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_EntityId should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_EntityIdIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_EntityId = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_EntityId != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters.EntityId = requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_EntityId;
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFiltersIsNull = false;
+            }
+            Amazon.MarketplaceCatalog.Model.MachineLearningProductLastModifiedDateFilter requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate = null;
+            
+             // populate LastModifiedDate
+            var requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDateIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate = new Amazon.MarketplaceCatalog.Model.MachineLearningProductLastModifiedDateFilter();
+            Amazon.MarketplaceCatalog.Model.MachineLearningProductLastModifiedDateFilterDateRange requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_DateRange = null;
+            
+             // populate DateRange
+            var requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_DateRangeIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_DateRange = new Amazon.MarketplaceCatalog.Model.MachineLearningProductLastModifiedDateFilterDateRange();
+            System.String requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_DateRange_dateRange_AfterValue = null;
+            if (cmdletContext.DateRange_AfterValue != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_DateRange_dateRange_AfterValue = cmdletContext.DateRange_AfterValue;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_DateRange_dateRange_AfterValue != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_DateRange.AfterValue = requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_DateRange_dateRange_AfterValue;
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_DateRangeIsNull = false;
+            }
+            System.String requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_DateRange_dateRange_BeforeValue = null;
+            if (cmdletContext.DateRange_BeforeValue != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_DateRange_dateRange_BeforeValue = cmdletContext.DateRange_BeforeValue;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_DateRange_dateRange_BeforeValue != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_DateRange.BeforeValue = requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_DateRange_dateRange_BeforeValue;
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_DateRangeIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_DateRange should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_DateRangeIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_DateRange = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_DateRange != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate.DateRange = requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate_DateRange;
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDateIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDateIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters.LastModifiedDate = requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_LastModifiedDate;
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFiltersIsNull = false;
+            }
+            Amazon.MarketplaceCatalog.Model.MachineLearningProductVisibilityFilter requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_Visibility = null;
+            
+             // populate Visibility
+            var requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_VisibilityIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_Visibility = new Amazon.MarketplaceCatalog.Model.MachineLearningProductVisibilityFilter();
+            List<System.String> requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_Visibility_visibility_ValueList = null;
+            if (cmdletContext.Visibility_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_Visibility_visibility_ValueList = cmdletContext.Visibility_ValueList;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_Visibility_visibility_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_Visibility.ValueList = requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_Visibility_visibility_ValueList;
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_VisibilityIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_Visibility should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_VisibilityIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_Visibility = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_Visibility != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters.Visibility = requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_Visibility;
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFiltersIsNull = false;
+            }
+            Amazon.MarketplaceCatalog.Model.MachineLearningProductTitleFilter requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_ProductTitle = null;
+            
+             // populate ProductTitle
+            var requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_ProductTitleIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_ProductTitle = new Amazon.MarketplaceCatalog.Model.MachineLearningProductTitleFilter();
+            List<System.String> requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_ProductTitle_productTitle_ValueList = null;
+            if (cmdletContext.ProductTitle_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_ProductTitle_productTitle_ValueList = cmdletContext.ProductTitle_ValueList;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_ProductTitle_productTitle_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_ProductTitle.ValueList = requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_ProductTitle_productTitle_ValueList;
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_ProductTitleIsNull = false;
+            }
+            System.String requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_ProductTitle_productTitle_WildCardValue = null;
+            if (cmdletContext.ProductTitle_WildCardValue != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_ProductTitle_productTitle_WildCardValue = cmdletContext.ProductTitle_WildCardValue;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_ProductTitle_productTitle_WildCardValue != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_ProductTitle.WildCardValue = requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_ProductTitle_productTitle_WildCardValue;
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_ProductTitleIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_ProductTitle should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_ProductTitleIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_ProductTitle = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_ProductTitle != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters.ProductTitle = requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters_entityTypeFilters_MachineLearningProductFilters_ProductTitle;
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFiltersIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFiltersIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters != null)
+            {
+                request.EntityTypeFilters.MachineLearningProductFilters = requestEntityTypeFilters_entityTypeFilters_MachineLearningProductFilters;
                 requestEntityTypeFiltersIsNull = false;
             }
             Amazon.MarketplaceCatalog.Model.SaaSProductFilters requestEntityTypeFilters_entityTypeFilters_SaaSProductFilters = null;
@@ -2796,6 +3060,41 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
                 request.EntityTypeSort.DataProductSort = requestEntityTypeSort_entityTypeSort_DataProductSort;
                 requestEntityTypeSortIsNull = false;
             }
+            Amazon.MarketplaceCatalog.Model.MachineLearningProductSort requestEntityTypeSort_entityTypeSort_MachineLearningProductSort = null;
+            
+             // populate MachineLearningProductSort
+            var requestEntityTypeSort_entityTypeSort_MachineLearningProductSortIsNull = true;
+            requestEntityTypeSort_entityTypeSort_MachineLearningProductSort = new Amazon.MarketplaceCatalog.Model.MachineLearningProductSort();
+            Amazon.MarketplaceCatalog.MachineLearningProductSortBy requestEntityTypeSort_entityTypeSort_MachineLearningProductSort_machineLearningProductSort_SortBy = null;
+            if (cmdletContext.MachineLearningProductSort_SortBy != null)
+            {
+                requestEntityTypeSort_entityTypeSort_MachineLearningProductSort_machineLearningProductSort_SortBy = cmdletContext.MachineLearningProductSort_SortBy;
+            }
+            if (requestEntityTypeSort_entityTypeSort_MachineLearningProductSort_machineLearningProductSort_SortBy != null)
+            {
+                requestEntityTypeSort_entityTypeSort_MachineLearningProductSort.SortBy = requestEntityTypeSort_entityTypeSort_MachineLearningProductSort_machineLearningProductSort_SortBy;
+                requestEntityTypeSort_entityTypeSort_MachineLearningProductSortIsNull = false;
+            }
+            Amazon.MarketplaceCatalog.SortOrder requestEntityTypeSort_entityTypeSort_MachineLearningProductSort_machineLearningProductSort_SortOrder = null;
+            if (cmdletContext.MachineLearningProductSort_SortOrder != null)
+            {
+                requestEntityTypeSort_entityTypeSort_MachineLearningProductSort_machineLearningProductSort_SortOrder = cmdletContext.MachineLearningProductSort_SortOrder;
+            }
+            if (requestEntityTypeSort_entityTypeSort_MachineLearningProductSort_machineLearningProductSort_SortOrder != null)
+            {
+                requestEntityTypeSort_entityTypeSort_MachineLearningProductSort.SortOrder = requestEntityTypeSort_entityTypeSort_MachineLearningProductSort_machineLearningProductSort_SortOrder;
+                requestEntityTypeSort_entityTypeSort_MachineLearningProductSortIsNull = false;
+            }
+             // determine if requestEntityTypeSort_entityTypeSort_MachineLearningProductSort should be set to null
+            if (requestEntityTypeSort_entityTypeSort_MachineLearningProductSortIsNull)
+            {
+                requestEntityTypeSort_entityTypeSort_MachineLearningProductSort = null;
+            }
+            if (requestEntityTypeSort_entityTypeSort_MachineLearningProductSort != null)
+            {
+                request.EntityTypeSort.MachineLearningProductSort = requestEntityTypeSort_entityTypeSort_MachineLearningProductSort;
+                requestEntityTypeSortIsNull = false;
+            }
             Amazon.MarketplaceCatalog.Model.OfferSort requestEntityTypeSort_entityTypeSort_OfferSort = null;
             
              // populate OfferSort
@@ -3046,6 +3345,12 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             public List<System.String> EntityTypeFilters_DataProductFilters_ProductTitle_ValueList { get; set; }
             public System.String EntityTypeFilters_DataProductFilters_ProductTitle_WildCardValue { get; set; }
             public List<System.String> EntityTypeFilters_DataProductFilters_Visibility_ValueList { get; set; }
+            public List<System.String> EntityId_ValueList { get; set; }
+            public System.String DateRange_AfterValue { get; set; }
+            public System.String DateRange_BeforeValue { get; set; }
+            public List<System.String> ProductTitle_ValueList { get; set; }
+            public System.String ProductTitle_WildCardValue { get; set; }
+            public List<System.String> Visibility_ValueList { get; set; }
             public System.String EntityTypeFilters_OfferFilters_AvailabilityEndDate_DateRange_AfterValue { get; set; }
             public System.String EntityTypeFilters_OfferFilters_AvailabilityEndDate_DateRange_BeforeValue { get; set; }
             public System.String BuyerAccounts_WildCardValue { get; set; }
@@ -3097,6 +3402,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             public Amazon.MarketplaceCatalog.SortOrder ContainerProductSort_SortOrder { get; set; }
             public Amazon.MarketplaceCatalog.DataProductSortBy DataProductSort_SortBy { get; set; }
             public Amazon.MarketplaceCatalog.SortOrder DataProductSort_SortOrder { get; set; }
+            public Amazon.MarketplaceCatalog.MachineLearningProductSortBy MachineLearningProductSort_SortBy { get; set; }
+            public Amazon.MarketplaceCatalog.SortOrder MachineLearningProductSort_SortOrder { get; set; }
             public Amazon.MarketplaceCatalog.OfferSortBy OfferSort_SortBy { get; set; }
             public Amazon.MarketplaceCatalog.SortOrder OfferSort_SortOrder { get; set; }
             public Amazon.MarketplaceCatalog.ResaleAuthorizationSortBy ResaleAuthorizationSort_SortBy { get; set; }

@@ -30,8 +30,8 @@ using Amazon.BedrockAgentRuntime.Model;
 namespace Amazon.PowerShell.Cmdlets.BAR
 {
     /// <summary>
-    /// Stops an Amazon Bedrock flow's asynchronous execution. This operation prevents further
-    /// processing of the flow and changes the execution status to <c>Aborted</c>.
+    /// Stops an Amazon Bedrock flow's execution. This operation prevents further processing
+    /// of the flow and changes the execution status to <c>Aborted</c>.
     /// </summary>
     [Cmdlet("Stop", "BARFlowExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentRuntime.Model.StopFlowExecutionResponse")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter ExecutionIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the async execution to stop.</para>
+        /// <para>The unique identifier of the flow execution to stop.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

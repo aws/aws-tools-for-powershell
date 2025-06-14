@@ -35,7 +35,7 @@ codepipeline_GetPipeline:
             RoleArn = arn:aws:iam::80398EXAMPLE:role/CodePipelineServiceRole
             Version = 3
             ArtifactStore:
-              Location = MyBucketName
+              Location = amzn-s3-demo-bucket
               Type = S3
             Stages:
               Name = Source

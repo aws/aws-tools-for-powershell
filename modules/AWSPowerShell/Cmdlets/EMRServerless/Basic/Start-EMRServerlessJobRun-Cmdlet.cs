@@ -296,6 +296,27 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         public System.String Hive_Parameter { get; set; }
         #endregion
         
+        #region Parameter ExecutionIamPolicy_Policy
+        /// <summary>
+        /// <para>
+        /// <para>An IAM inline policy to use as an execution IAM policy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExecutionIamPolicy_Policy { get; set; }
+        #endregion
+        
+        #region Parameter ExecutionIamPolicy_PolicyArn
+        /// <summary>
+        /// <para>
+        /// <para>A list of Amazon Resource Names (ARNs) to use as an execution IAM policy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExecutionIamPolicy_PolicyArns")]
+        public System.String[] ExecutionIamPolicy_PolicyArn { get; set; }
+        #endregion
+        
         #region Parameter Hive_Query
         /// <summary>
         /// <para>
@@ -439,6 +460,11 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             context.PrometheusMonitoringConfiguration_RemoteWriteUrl = this.PrometheusMonitoringConfiguration_RemoteWriteUrl;
             context.S3MonitoringConfiguration_EncryptionKeyArn = this.S3MonitoringConfiguration_EncryptionKeyArn;
             context.S3MonitoringConfiguration_LogUri = this.S3MonitoringConfiguration_LogUri;
+            context.ExecutionIamPolicy_Policy = this.ExecutionIamPolicy_Policy;
+            if (this.ExecutionIamPolicy_PolicyArn != null)
+            {
+                context.ExecutionIamPolicy_PolicyArn = new List<System.String>(this.ExecutionIamPolicy_PolicyArn);
+            }
             context.ExecutionRoleArn = this.ExecutionRoleArn;
             #if MODULAR
             if (this.ExecutionRoleArn == null && ParameterWasBound(nameof(this.ExecutionRoleArn)))
@@ -686,6 +712,35 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             {
                 request.ConfigurationOverrides = null;
             }
+            
+             // populate ExecutionIamPolicy
+            var requestExecutionIamPolicyIsNull = true;
+            request.ExecutionIamPolicy = new Amazon.EMRServerless.Model.JobRunExecutionIamPolicy();
+            System.String requestExecutionIamPolicy_executionIamPolicy_Policy = null;
+            if (cmdletContext.ExecutionIamPolicy_Policy != null)
+            {
+                requestExecutionIamPolicy_executionIamPolicy_Policy = cmdletContext.ExecutionIamPolicy_Policy;
+            }
+            if (requestExecutionIamPolicy_executionIamPolicy_Policy != null)
+            {
+                request.ExecutionIamPolicy.Policy = requestExecutionIamPolicy_executionIamPolicy_Policy;
+                requestExecutionIamPolicyIsNull = false;
+            }
+            List<System.String> requestExecutionIamPolicy_executionIamPolicy_PolicyArn = null;
+            if (cmdletContext.ExecutionIamPolicy_PolicyArn != null)
+            {
+                requestExecutionIamPolicy_executionIamPolicy_PolicyArn = cmdletContext.ExecutionIamPolicy_PolicyArn;
+            }
+            if (requestExecutionIamPolicy_executionIamPolicy_PolicyArn != null)
+            {
+                request.ExecutionIamPolicy.PolicyArns = requestExecutionIamPolicy_executionIamPolicy_PolicyArn;
+                requestExecutionIamPolicyIsNull = false;
+            }
+             // determine if request.ExecutionIamPolicy should be set to null
+            if (requestExecutionIamPolicyIsNull)
+            {
+                request.ExecutionIamPolicy = null;
+            }
             if (cmdletContext.ExecutionRoleArn != null)
             {
                 request.ExecutionRoleArn = cmdletContext.ExecutionRoleArn;
@@ -902,6 +957,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             public System.String PrometheusMonitoringConfiguration_RemoteWriteUrl { get; set; }
             public System.String S3MonitoringConfiguration_EncryptionKeyArn { get; set; }
             public System.String S3MonitoringConfiguration_LogUri { get; set; }
+            public System.String ExecutionIamPolicy_Policy { get; set; }
+            public List<System.String> ExecutionIamPolicy_PolicyArn { get; set; }
             public System.String ExecutionRoleArn { get; set; }
             public System.Int64? ExecutionTimeoutMinute { get; set; }
             public System.String Hive_InitQueryFile { get; set; }

@@ -30,7 +30,7 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Connects or reconnects a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
+    /// Connects or reconnects a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom
     /// key store</a> to its backing key store. For an CloudHSM key store, <c>ConnectCustomKeyStore</c>
     /// connects the key store to its associated CloudHSM cluster. For an external key store,
     /// <c>ConnectCustomKeyStore</c> connects the key store to the external key store proxy
@@ -49,9 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// the custom key store is connected. To get the connection state of the custom key store,
     /// use the <a>DescribeCustomKeyStores</a> operation.
     /// </para><para>
-    ///  This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
-    /// key stores</a> feature in KMS, which combines the convenience and extensive integration
-    /// of KMS with the isolation and control of a key store that you own and manage.
+    ///  This operation is part of the custom key stores feature in KMS, which combines the
+    /// convenience and extensive integration of KMS with the isolation and control of a key
+    /// store that you own and manage.
     /// </para><para>
     /// The <c>ConnectCustomKeyStore</c> operation might fail for various reasons. To find
     /// the reason, use the <a>DescribeCustomKeyStores</a> operation and see the <c>ConnectionErrorCode</c>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// To connect an CloudHSM key store, its associated CloudHSM cluster must have at least
     /// one active HSM. To get the number of active HSMs in a cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a>
     /// operation. To add HSMs to the cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html">CreateHsm</a>
-    /// operation. Also, the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser"><c>kmsuser</c> crypto user</a> (CU) must not be logged into the cluster. This prevents
+    /// operation. Also, the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html#concept-kmsuser"><c>kmsuser</c> crypto user</a> (CU) must not be logged into the cluster. This prevents
     /// KMS from using this account to log in.
     /// </para><para>
     /// If you are having trouble connecting or disconnecting a CloudHSM key store, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html">Troubleshooting
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ConnectCustomKeyStore</a>
     /// (IAM policy)
     /// </para><para><b>Related operations</b></para><ul><li><para><a>CreateCustomKeyStore</a></para></li><li><para><a>DeleteCustomKeyStore</a></para></li><li><para><a>DescribeCustomKeyStores</a></para></li><li><para><a>DisconnectCustomKeyStore</a></para></li><li><para><a>UpdateCustomKeyStore</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
-    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS
     /// eventual consistency</a>.
     /// </para>
     /// </summary>

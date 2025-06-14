@@ -33,8 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
     /// This action initiates a new stream session and outputs connection information that
     /// clients can use to access the stream. A stream session refers to an instance of a
     /// stream that Amazon GameLift Streams transmits from the server to the end-user. A stream
-    /// session runs on a compute resource, or stream capacity, that a stream group has allocated.
-    /// 
+    /// session runs on a compute resource that a stream group has allocated. 
     /// 
     ///  
     /// <para>
@@ -44,15 +43,15 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
     /// session, either when creating the stream group, or by using <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_AssociateApplications.html">AssociateApplications</a>.
     /// </para><para>
     ///  For stream groups that have multiple locations, provide a set of locations ordered
-    /// by priority by setting <c>Locations</c>. Amazon GameLift Streams will start a single
-    /// stream session in the next available location. An application must be finished replicating
-    /// in a remote location before the remote location can host a stream. 
+    /// by priority using a <c>Locations</c> parameter. Amazon GameLift Streams will start
+    /// a single stream session in the next available location. An application must be finished
+    /// replicating in a remote location before the remote location can host a stream. 
     /// </para><para>
     ///  If the request is successful, Amazon GameLift Streams begins to prepare the stream.
     /// Amazon GameLift Streams assigns an Amazon Resource Name (ARN) value to the stream
     /// session resource and sets the status to <c>ACTIVATING</c>. During the stream preparation
     /// process, Amazon GameLift Streams queues the request and searches for available stream
-    /// capacity to run the stream. This can result to one of the following: 
+    /// capacity to run the stream. This results in one of the following: 
     /// </para><ul><li><para>
     ///  Amazon GameLift Streams identifies an available compute resource to run the application
     /// content and start the stream. When the stream is ready, the stream session's status
@@ -116,9 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <summary>
         /// <para>
         /// <para>An <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
-        /// Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format
-        /// example: ARN-<c>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</c>
-        /// or ID-<c>a-9ZY8X7Wv6</c>. </para>
+        /// Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Example
+        /// ARN: <c>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</c>.
+        /// Example ID: <c>a-9ZY8X7Wv6</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -161,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <para>
         /// <para>The stream group to run this stream session with.</para><para>This value is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
         /// Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource.
-        /// Format example: ARN-<c>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4</c>
-        /// or ID-<c>sg-1AB2C3De4</c>. </para>
+        /// Example ARN: <c>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</c>.
+        /// Example ID: <c>sg-1AB2C3De4</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -183,8 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// to start a stream from. Amazon GameLift Streams selects the location with the next
         /// available capacity to start a single stream session in. If this value is empty, Amazon
         /// GameLift Streams attempts to start a stream session in the primary location. </para><para> This value is A set of location names. For example, <c>us-east-1</c>. For a complete
-        /// list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions
-        /// and quotas</a> in the <i>Amazon GameLift Streams Developer Guide</i>. </para>
+        /// list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions,
+        /// quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -225,8 +225,11 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         #region Parameter SignalRequest
         /// <summary>
         /// <para>
-        /// <para>A WebRTC ICE offer string to use when initializing a WebRTC connection. The offer
-        /// is a very long JSON string. Provide the string as a text value in quotes.</para>
+        /// <para>A WebRTC ICE offer string to use when initializing a WebRTC connection. Typically,
+        /// the offer is a very long JSON string. Provide the string as a text value in quotes.</para><para>Amazon GameLift Streams also supports setting the field to "NO_CLIENT_CONNECTION".
+        /// This will create a session without needing any browser request or Web SDK integration.
+        /// The session starts up as usual and waits for a reconnection from a browser, which
+        /// is accomplished using <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_CreateStreamSessionConnection.html">CreateStreamSessionConnection</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

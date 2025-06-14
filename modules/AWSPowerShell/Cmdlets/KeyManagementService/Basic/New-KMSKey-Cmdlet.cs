@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// <para>
     /// A KMS key is a logical representation of a cryptographic key. In addition to the key
     /// material used in cryptographic operations, a KMS key includes metadata, such as the
-    /// key ID, key policy, creation date, description, and key state. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html">Managing
-    /// keys</a> in the <i>Key Management Service Developer Guide</i></para><para>
+    /// key ID, key policy, creation date, description, and key state. 
+    /// </para><para>
     /// Use the parameters of <c>CreateKey</c> to specify the type of KMS key, the source
     /// of its key material, its key policy, description, tags, and other properties.
     /// </para><note><para>
@@ -71,14 +71,15 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// whether the KMS key will be used to encrypt and decrypt or sign and verify. You can't
     /// change these properties after the KMS key is created.
     /// </para><para>
-    /// Asymmetric KMS keys contain an RSA key pair, Elliptic Curve (ECC) key pair, or an
-    /// SM2 key pair (China Regions only). The private key in an asymmetric KMS key never
-    /// leaves KMS unencrypted. However, you can use the <a>GetPublicKey</a> operation to
-    /// download the public key so it can be used outside of KMS. Each KMS key can have only
-    /// one key usage. KMS keys with RSA key pairs can be used to encrypt and decrypt data
-    /// or sign and verify messages (but not both). KMS keys with NIST-recommended ECC key
-    /// pairs can be used to sign and verify messages or derive shared secrets (but not both).
-    /// KMS keys with <c>ECC_SECG_P256K1</c> can be used only to sign and verify messages.
+    /// Asymmetric KMS keys contain an RSA key pair, Elliptic Curve (ECC) key pair, ML-DSA
+    /// key pair or an SM2 key pair (China Regions only). The private key in an asymmetric
+    /// KMS key never leaves KMS unencrypted. However, you can use the <a>GetPublicKey</a>
+    /// operation to download the public key so it can be used outside of KMS. Each KMS key
+    /// can have only one key usage. KMS keys with RSA key pairs can be used to encrypt and
+    /// decrypt data or sign and verify messages (but not both). KMS keys with NIST-recommended
+    /// ECC key pairs can be used to sign and verify messages or derive shared secrets (but
+    /// not both). KMS keys with <c>ECC_SECG_P256K1</c> can be used only to sign and verify
+    /// messages. KMS keys with ML-DSA key pairs can be used to sign and verify messages.
     /// KMS keys with SM2 key pairs (China Regions only) can be used to either encrypt and
     /// decrypt data, sign and verify messages, or derive shared secrets (you must choose
     /// one key usage type). For information about asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric
@@ -130,11 +131,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// To create a multi-Region primary key with imported key material, use the <c>Origin</c>
     /// parameter of <c>CreateKey</c> with a value of <c>EXTERNAL</c> and the <c>MultiRegion</c>
     /// parameter with a value of <c>True</c>. To create replicas of the multi-Region primary
-    /// key, use the <a>ReplicateKey</a> operation. For instructions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-import.html&#xD;&#xA;            ">Importing key material into multi-Region keys</a>. For more information about multi-Region
-    /// keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region
+    /// key, use the <a>ReplicateKey</a> operation. For instructions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html&#xD;&#xA;            ">Importing key material step 1</a>. For more information about multi-Region keys,
+    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region
     /// keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para></para></dd><dt>Custom key store</dt><dd><para>
-    /// A <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
+    /// A <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom
     /// key store</a> lets you protect your Amazon Web Services resources using keys in a
     /// backing key store that you own and manage. When you request a cryptographic operation
     /// with a KMS key in a custom key store, the operation is performed in the backing key
@@ -161,12 +162,12 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// value, <c>ENCRYPT_DECRYPT</c> to create a symmetric encryption key. No other key type
     /// is supported in a custom key store.
     /// </para><para>
-    /// To create a KMS key in an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html">CloudHSM
+    /// To create a KMS key in an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html">CloudHSM
     /// key store</a>, use the <c>Origin</c> parameter with a value of <c>AWS_CLOUDHSM</c>.
     /// The CloudHSM cluster that is associated with the custom key store must have at least
     /// two active HSMs in different Availability Zones in the Amazon Web Services Region.
     /// </para><para>
-    /// To create a KMS key in an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html">external
+    /// To create a KMS key in an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keys.html">external
     /// key store</a>, use the <c>Origin</c> parameter with a value of <c>EXTERNAL_KEY_STORE</c>
     /// and an <c>XksKeyId</c> parameter that identifies an existing external key.
     /// </para><note><para>
@@ -176,10 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// a different Amazon Web Services account.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:CreateKey</a>
     /// (IAM policy). To use the <c>Tags</c> parameter, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a>
-    /// (IAM policy). For examples and information about related permissions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html#iam-policy-example-create-key">Allow
+    /// (IAM policy). For examples and information about related permissions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/customer-managed-policies.html#iam-policy-example-create-key">Allow
     /// a user to create KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>DescribeKey</a></para></li><li><para><a>ListKeys</a></para></li><li><para><a>ScheduleKeyDeletion</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
-    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS
     /// eventual consistency</a>.
     /// </para>
     /// </summary>
@@ -213,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter CustomKeyStoreId
         /// <summary>
         /// <para>
-        /// <para>Creates the KMS key in the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
+        /// <para>Creates the KMS key in the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom
         /// key store</a>. The <c>ConnectionState</c> of the custom key store must be <c>CONNECTED</c>.
         /// To find the CustomKeyStoreID and ConnectionState use the <a>DescribeCustomKeyStores</a>
         /// operation.</para><para>This parameter is valid only for symmetric encryption KMS keys in a single Region.
@@ -245,19 +246,20 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>Specifies the type of KMS key to create. The default value, <c>SYMMETRIC_DEFAULT</c>,
         /// creates a KMS key with a 256-bit AES-GCM key that is used for encryption and decryption,
         /// except in China Regions, where it creates a 128-bit symmetric key that uses SM4 encryption.
-        /// For help choosing a key spec for your KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-types.html#symm-asymm-choose">Choosing
-        /// a KMS key type</a> in the <i><i>Key Management Service Developer Guide</i></i>.</para><para>The <c>KeySpec</c> determines whether the KMS key contains a symmetric key or an asymmetric
+        /// For a detailed description of all supported key specs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose-key-spec.html">Key
+        /// spec reference</a> in the <i><i>Key Management Service Developer Guide</i></i>.</para><para>The <c>KeySpec</c> determines whether the KMS key contains a symmetric key or an asymmetric
         /// key pair. It also determines the algorithms that the KMS key supports. You can't change
         /// the <c>KeySpec</c> after the KMS key is created. To further restrict the algorithms
         /// that can be used with the KMS key, use a condition key in its key policy or IAM policy.
-        /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm">kms:EncryptionAlgorithm</a>,
-        /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-mac-algorithm">kms:MacAlgorithm</a>
-        /// or <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm">kms:Signing
-        /// Algorithm</a> in the <i><i>Key Management Service Developer Guide</i></i>.</para><important><para><a href="http://aws.amazon.com/kms/features/#AWS_Service_Integration">Amazon Web
+        /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-encryption-algorithm">kms:EncryptionAlgorithm</a>,
+        /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-mac-algorithm">kms:MacAlgorithm</a>,
+        /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-key-agreement-algorithm">kms:KeyAgreementAlgorithm</a>,
+        /// or <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-signing-algorithm">kms:SigningAlgorithm</a>
+        /// in the <i><i>Key Management Service Developer Guide</i></i>.</para><important><para><a href="http://aws.amazon.com/kms/features/#AWS_Service_Integration">Amazon Web
         /// Services services that are integrated with KMS</a> use symmetric encryption KMS keys
         /// to protect your data. These services do not support asymmetric KMS keys or HMAC KMS
         /// keys.</para></important><para>KMS supports the following key specs for KMS keys:</para><ul><li><para>Symmetric encryption key (default)</para><ul><li><para><c>SYMMETRIC_DEFAULT</c></para></li></ul></li><li><para>HMAC keys (symmetric)</para><ul><li><para><c>HMAC_224</c></para></li><li><para><c>HMAC_256</c></para></li><li><para><c>HMAC_384</c></para></li><li><para><c>HMAC_512</c></para></li></ul></li><li><para>Asymmetric RSA key pairs (encryption and decryption -or- signing and verification)</para><ul><li><para><c>RSA_2048</c></para></li><li><para><c>RSA_3072</c></para></li><li><para><c>RSA_4096</c></para></li></ul></li><li><para>Asymmetric NIST-recommended elliptic curve key pairs (signing and verification -or-
-        /// deriving shared secrets)</para><ul><li><para><c>ECC_NIST_P256</c> (secp256r1)</para></li><li><para><c>ECC_NIST_P384</c> (secp384r1)</para></li><li><para><c>ECC_NIST_P521</c> (secp521r1)</para></li></ul></li><li><para>Other asymmetric elliptic curve key pairs (signing and verification)</para><ul><li><para><c>ECC_SECG_P256K1</c> (secp256k1), commonly used for cryptocurrencies.</para></li></ul></li><li><para>SM2 key pairs (encryption and decryption -or- signing and verification -or- deriving
+        /// deriving shared secrets)</para><ul><li><para><c>ECC_NIST_P256</c> (secp256r1)</para></li><li><para><c>ECC_NIST_P384</c> (secp384r1)</para></li><li><para><c>ECC_NIST_P521</c> (secp521r1)</para></li></ul></li><li><para>Other asymmetric elliptic curve key pairs (signing and verification)</para><ul><li><para><c>ECC_SECG_P256K1</c> (secp256k1), commonly used for cryptocurrencies.</para></li></ul></li><li><para>Asymmetric ML-DSA key pairs (signing and verification)</para><ul><li><para><c>ML_DSA_44</c></para></li><li><para><c>ML_DSA_65</c></para></li><li><para><c>ML_DSA_87</c></para></li></ul></li><li><para>SM2 key pairs (encryption and decryption -or- signing and verification -or- deriving
         /// shared secrets)</para><ul><li><para><c>SM2</c> (China Regions only)</para></li></ul></li></ul>
         /// </para>
         /// </summary>
@@ -269,11 +271,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyUsage
         /// <summary>
         /// <para>
-        /// <para>Determines the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
+        /// <para>Determines the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic
         /// operations</a> for which you can use the KMS key. The default value is <c>ENCRYPT_DECRYPT</c>.
         /// This parameter is optional when you are creating a symmetric encryption KMS key; otherwise,
         /// it is required. You can't change the <c>KeyUsage</c> value after the KMS key is created.</para><para>Select only one valid value.</para><ul><li><para>For symmetric encryption KMS keys, omit the parameter or specify <c>ENCRYPT_DECRYPT</c>.</para></li><li><para>For HMAC KMS keys (symmetric), specify <c>GENERATE_VERIFY_MAC</c>.</para></li><li><para>For asymmetric KMS keys with RSA key pairs, specify <c>ENCRYPT_DECRYPT</c> or <c>SIGN_VERIFY</c>.</para></li><li><para>For asymmetric KMS keys with NIST-recommended elliptic curve key pairs, specify <c>SIGN_VERIFY</c>
-        /// or <c>KEY_AGREEMENT</c>.</para></li><li><para>For asymmetric KMS keys with <c>ECC_SECG_P256K1</c> key pairs specify <c>SIGN_VERIFY</c>.</para></li><li><para>For asymmetric KMS keys with SM2 key pairs (China Regions only), specify <c>ENCRYPT_DECRYPT</c>,
+        /// or <c>KEY_AGREEMENT</c>.</para></li><li><para>For asymmetric KMS keys with <c>ECC_SECG_P256K1</c> key pairs, specify <c>SIGN_VERIFY</c>.</para></li><li><para>For asymmetric KMS keys with ML-DSA key pairs, specify <c>SIGN_VERIFY</c>.</para></li><li><para>For asymmetric KMS keys with SM2 key pairs (China Regions only), specify <c>ENCRYPT_DECRYPT</c>,
         /// <c>SIGN_VERIFY</c>, or <c>KEY_AGREEMENT</c>.</para></li></ul>
         /// </para>
         /// </summary>
@@ -340,9 +342,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// in a key policy because the new principal might not be immediately visible to KMS.
         /// For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes
         /// that I make are not always immediately visible</a> in the <i>Amazon Web Services Identity
-        /// and Access Management User Guide</i>.</para></li></ul><para>If you do not provide a key policy, KMS attaches a default key policy to the KMS key.
-        /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default
-        /// key policy</a> in the <i>Key Management Service Developer Guide</i>. </para><para>The key policy size quota is 32 kilobytes (32768 bytes).</para><para>For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM
+        /// and Access Management User Guide</i>.</para></li></ul><note><para>If either of the required <c>Resource</c> or <c>Action</c> elements are missing from
+        /// a key policy statement, the policy statement has no effect. When a key policy statement
+        /// is missing one of these elements, the KMS console correctly reports an error, but
+        /// the <c>CreateKey</c> and <c>PutKeyPolicy</c> API requests succeed, even though the
+        /// policy statement is ineffective.</para><para>For more information on required key policy elements, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-overview.html#key-policy-elements">Elements
+        /// in a key policy</a> in the <i>Key Management Service Developer Guide</i>.</para></note><para>If you do not provide a key policy, KMS attaches a default key policy to the KMS key.
+        /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html">Default
+        /// key policy</a> in the <i>Key Management Service Developer Guide</i>. </para><note><para>If the key policy exceeds the length constraint, KMS returns a <c>LimitExceededException</c>.</para></note><para>For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM
         /// JSON Policy Reference</a> in the <i><i>Identity and Access Management User Guide</i></i>.</para>
         /// </para>
         /// </summary>
@@ -364,8 +371,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// with a different tag value, KMS replaces the current tag value with the specified
         /// one.</para><para>When you add tags to an Amazon Web Services resource, Amazon Web Services generates
         /// a cost allocation report with usage and costs aggregated by tags. Tags can also be
-        /// used to control access to a KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging
-        /// Keys</a>.</para>
+        /// used to control access to a KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tags
+        /// in KMS</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -385,7 +392,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// of Amazon Web Services in an external key manager associated with the external key
         /// store specified by the <c>CustomKeyStoreId</c> parameter. This key must be enabled
         /// and configured to perform encryption and decryption. Each KMS key in an external key
-        /// store must use a different external key. For details, see <a href="https://docs.aws.amazon.com/create-xks-keys.html#xks-key-requirements">Requirements
+        /// store must use a different external key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keys.html#xks-key-requirements">Requirements
         /// for a KMS key in an external key store</a> in the <i>Key Management Service Developer
         /// Guide</i>.</para><para>Each KMS key in an external key store is associated two backing keys. One is key material
         /// that KMS generates. The other is the external key specified by this parameter. When

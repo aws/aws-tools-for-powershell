@@ -35,6 +35,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListInvoiceSummaries" OutputProperty="InvoiceSummaries" Verb="Get" Noun="InvoiceSummaryList" PipelineParameter="Selector_Value" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListInvoiceUnits" OutputProperty="InvoiceUnits" Verb="Get" Noun="InvoiceUnitList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

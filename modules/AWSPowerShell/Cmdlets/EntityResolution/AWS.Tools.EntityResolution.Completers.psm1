@@ -139,6 +139,13 @@ $ERES_Completers = {
             break
         }
 
+        # Amazon.EntityResolution.ProcessingType
+        "Set-ERESMatchId/ProcessingType"
+        {
+            $v = "CONSISTENT","EVENTUAL","EVENTUAL_NO_LOOKUP"
+            break
+        }
+
         # Amazon.EntityResolution.RecordMatchingModel
         {
             ($_ -eq "New-ERESIdMappingWorkflow/RuleBasedProperties_RecordMatchingModel") -Or
@@ -178,6 +185,7 @@ $ERES_map = @{
     "Effect"=@("Add-ERESPolicyStatement")
     "IdMappingTechniques_IdMappingType"=@("New-ERESIdMappingWorkflow","Update-ERESIdMappingWorkflow")
     "IncrementalRunConfig_IncrementalRunType"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
+    "ProcessingType"=@("Set-ERESMatchId")
     "ResolutionTechniques_ResolutionType"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
     "RuleBasedProperties_AttributeMatchingModel"=@("New-ERESIdMappingWorkflow","New-ERESMatchingWorkflow","Update-ERESIdMappingWorkflow","Update-ERESMatchingWorkflow")
     "RuleBasedProperties_MatchPurpose"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
@@ -247,6 +255,7 @@ $ERES_SelectMap = @{
                "Remove-ERESMatchingWorkflow",
                "Remove-ERESPolicyStatement",
                "Remove-ERESSchemaMapping",
+               "Set-ERESMatchId",
                "Get-ERESIdMappingJob",
                "Get-ERESIdMappingWorkflow",
                "Get-ERESIdNamespace",

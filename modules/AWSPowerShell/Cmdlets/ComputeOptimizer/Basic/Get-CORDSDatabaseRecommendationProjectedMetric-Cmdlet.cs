@@ -30,7 +30,7 @@ using Amazon.ComputeOptimizer.Model;
 namespace Amazon.PowerShell.Cmdlets.CO
 {
     /// <summary>
-    /// Returns the projected metrics of Amazon RDS recommendations.
+    /// Returns the projected metrics of Aurora and RDS database recommendations.
     /// </summary>
     [Cmdlet("Get", "CORDSDatabaseRecommendationProjectedMetric")]
     [OutputType("Amazon.ComputeOptimizer.Model.RDSDatabaseRecommendedOptionProjectedMetric")]
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> The ARN that identifies the Amazon RDS. </para><para> The following is the format of the ARN: </para><para><c>arn:aws:rds:{region}:{accountId}:db:{resourceName}</c></para>
+        /// <para> The ARN that identifies the Amazon Aurora or RDS database. </para><para> The following is the format of the ARN: </para><para><c>arn:aws:rds:{region}:{accountId}:db:{resourceName}</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
