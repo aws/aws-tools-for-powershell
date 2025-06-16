@@ -2500,6 +2500,8 @@ Set-Alias -Name BCMPC-UpdateWorkloadEstimate -Value Update-BCMPCWorkloadEstimate
 Set-Alias -Name Batch-BDRDeleteEvaluationJob -Value Set-BDRBatchDeleteEvaluationJob
 Set-Alias -Name Batch-BDRBatchDeleteEvaluationJob -Value Set-BDRBatchDeleteEvaluationJob
 Set-Alias -Name BDR-BatchDeleteEvaluationJob -Value Set-BDRBatchDeleteEvaluationJob
+Set-Alias -Name Create-BDRCustomModel -Value New-BDRCustomModel
+Set-Alias -Name BDR-CreateCustomModel -Value New-BDRCustomModel
 Set-Alias -Name Create-BDREvaluationJob -Value New-BDREvaluationJob
 Set-Alias -Name BDR-CreateEvaluationJob -Value New-BDREvaluationJob
 Set-Alias -Name Create-BDRGuardrail -Value New-BDRGuardrail
@@ -21384,6 +21386,11 @@ Set-Alias -Name NEPTG-StartImportTask -Value Start-NEPTGImportTask
 Set-Alias -Name NEPTG-TagResource -Value Add-NEPTGResourceTag
 Set-Alias -Name NEPTG-UntagResource -Value Remove-NEPTGResourceTag
 Set-Alias -Name NEPTG-UpdateGraph -Value Update-NEPTGGraph
+Set-Alias -Name Accept-NWFWNetworkFirewallTransitGatewayAttachment -Value Approve-NWFWNetworkFirewallTransitGatewayAttachment
+Set-Alias -Name NWFW-AcceptNetworkFirewallTransitGatewayAttachment -Value Approve-NWFWNetworkFirewallTransitGatewayAttachment
+Set-Alias -Name Associate-NWFWAvailabilityZones -Value Register-NWFWAvailabilityZone
+Set-Alias -Name Associate-NWFWAvailabilityZone -Value Register-NWFWAvailabilityZone
+Set-Alias -Name NWFW-AssociateAvailabilityZones -Value Register-NWFWAvailabilityZone
 Set-Alias -Name Associate-NWFWFirewallPolicy -Value Register-NWFWFirewallPolicy
 Set-Alias -Name NWFW-AssociateFirewallPolicy -Value Register-NWFWFirewallPolicy
 Set-Alias -Name Associate-NWFWSubnets -Value Register-NWFWSubnet
@@ -21403,6 +21410,8 @@ Set-Alias -Name Delete-NWFWFirewall -Value Remove-NWFWFirewall
 Set-Alias -Name NWFW-DeleteFirewall -Value Remove-NWFWFirewall
 Set-Alias -Name Delete-NWFWFirewallPolicy -Value Remove-NWFWFirewallPolicy
 Set-Alias -Name NWFW-DeleteFirewallPolicy -Value Remove-NWFWFirewallPolicy
+Set-Alias -Name Delete-NWFWNetworkFirewallTransitGatewayAttachment -Value Remove-NWFWNetworkFirewallTransitGatewayAttachment
+Set-Alias -Name NWFW-DeleteNetworkFirewallTransitGatewayAttachment -Value Remove-NWFWNetworkFirewallTransitGatewayAttachment
 Set-Alias -Name Delete-NWFWResourcePolicy -Value Remove-NWFWResourcePolicy
 Set-Alias -Name NWFW-DeleteResourcePolicy -Value Remove-NWFWResourcePolicy
 Set-Alias -Name Delete-NWFWRuleGroup -Value Remove-NWFWRuleGroup
@@ -21431,6 +21440,9 @@ Set-Alias -Name Describe-NWFWTLSInspectionConfiguration -Value Get-NWFWTLSInspec
 Set-Alias -Name NWFW-DescribeTLSInspectionConfiguration -Value Get-NWFWTLSInspectionConfiguration
 Set-Alias -Name Describe-NWFWVpcEndpointAssociation -Value Get-NWFWVpcEndpointAssociation
 Set-Alias -Name NWFW-DescribeVpcEndpointAssociation -Value Get-NWFWVpcEndpointAssociation
+Set-Alias -Name Disassociate-NWFWAvailabilityZones -Value Unregister-NWFWAvailabilityZone
+Set-Alias -Name Disassociate-NWFWAvailabilityZone -Value Unregister-NWFWAvailabilityZone
+Set-Alias -Name NWFW-DisassociateAvailabilityZones -Value Unregister-NWFWAvailabilityZone
 Set-Alias -Name Disassociate-NWFWSubnets -Value Unregister-NWFWSubnet
 Set-Alias -Name Disassociate-NWFWSubnet -Value Unregister-NWFWSubnet
 Set-Alias -Name NWFW-DisassociateSubnets -Value Unregister-NWFWSubnet
@@ -21463,11 +21475,14 @@ Set-Alias -Name List-NWFWVpcEndpointAssociationList -Value Get-NWFWVpcEndpointAs
 Set-Alias -Name NWFW-ListVpcEndpointAssociations -Value Get-NWFWVpcEndpointAssociationList
 Set-Alias -Name Put-NWFWResourcePolicy -Value Write-NWFWResourcePolicy
 Set-Alias -Name NWFW-PutResourcePolicy -Value Write-NWFWResourcePolicy
+Set-Alias -Name Reject-NWFWNetworkFirewallTransitGatewayAttachment -Value Deny-NWFWNetworkFirewallTransitGatewayAttachment
+Set-Alias -Name NWFW-RejectNetworkFirewallTransitGatewayAttachment -Value Deny-NWFWNetworkFirewallTransitGatewayAttachment
 Set-Alias -Name NWFW-StartAnalysisReport -Value Start-NWFWAnalysisReport
 Set-Alias -Name NWFW-StartFlowCapture -Value Start-NWFWFlowCapture
 Set-Alias -Name NWFW-StartFlowFlush -Value Start-NWFWFlowFlush
 Set-Alias -Name NWFW-TagResource -Value Add-NWFWResourceTag
 Set-Alias -Name NWFW-UntagResource -Value Remove-NWFWResourceTag
+Set-Alias -Name NWFW-UpdateAvailabilityZoneChangeProtection -Value Update-NWFWAvailabilityZoneChangeProtection
 Set-Alias -Name Update-NWFWFirewallAnalysisSettings -Value Update-NWFWFirewallAnalysisSetting
 Set-Alias -Name NWFW-UpdateFirewallAnalysisSettings -Value Update-NWFWFirewallAnalysisSetting
 Set-Alias -Name NWFW-UpdateFirewallDeleteProtection -Value Update-NWFWFirewallDeleteProtection

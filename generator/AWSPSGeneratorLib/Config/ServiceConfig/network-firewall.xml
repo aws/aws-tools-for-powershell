@@ -18,6 +18,14 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AcceptNetworkFirewallTransitGatewayAttachment" OutputProperty="*" Verb="Approve" Noun="NetworkFirewallTransitGatewayAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateAvailabilityZones" OutputProperty="*" Verb="Register" Noun="AvailabilityZone" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateFirewallPolicy" OutputProperty="*" Verb="Register" Noun="FirewallPolicy" ShouldProcessTarget="FirewallPolicyArn" PipelineParameter="FirewallPolicyArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -51,6 +59,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteFirewallPolicy" OutputProperty="FirewallPolicyResponse" Verb="Remove" Noun="FirewallPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallPolicyArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNetworkFirewallTransitGatewayAttachment" OutputProperty="*" Verb="Remove" Noun="NetworkFirewallTransitGatewayAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -110,6 +122,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateAvailabilityZones" OutputProperty="*" Verb="Unregister" Noun="AvailabilityZone" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateSubnets" OutputProperty="*" Verb="Unregister" Noun="Subnet" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -158,6 +174,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RejectNetworkFirewallTransitGatewayAttachment" OutputProperty="*" Verb="Deny" Noun="NetworkFirewallTransitGatewayAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartAnalysisReport" OutputProperty="AnalysisReportId" Verb="Start" Noun="AnalysisReport" ShouldProcessTarget="" PipelineParameter="AnalysisType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -175,6 +195,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAvailabilityZoneChangeProtection" OutputProperty="*" Verb="Update" Noun="AvailabilityZoneChangeProtection" ShouldProcessTarget="" PipelineParameter="AvailabilityZoneChangeProtection" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

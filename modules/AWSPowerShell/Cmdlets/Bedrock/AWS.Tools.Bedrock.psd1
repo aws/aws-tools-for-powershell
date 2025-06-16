@@ -113,6 +113,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-BDRProvisionedModelThroughput', 
         'Get-BDRProvisionedModelThroughputList', 
         'Get-BDRResourceTag', 
+        'New-BDRCustomModel', 
         'New-BDREvaluationJob', 
         'New-BDRGuardrail', 
         'New-BDRGuardrailVersion', 

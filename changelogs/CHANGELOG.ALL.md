@@ -17,6 +17,20 @@
 ### 5.0.0-preview001 (2024-10-22 14:23Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.0.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/v4-release/changelogs/SDK.CHANGELOG.ALL.md.
   * Please find a description of the changes for 5.0.0-preview001 at https://github.com/aws/aws-tools-for-powershell/issues/357
+  
+### 4.1.841 (2025-06-16 19:58Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1064.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock
+    * Added cmdlet New-BDRCustomModel leveraging the CreateCustomModel service API.
+    * Modified cmdlet Get-BDRCustomModelList: added parameter ModelStatus.
+  * Amazon Network Firewall
+    * Added cmdlet Approve-NWFWNetworkFirewallTransitGatewayAttachment leveraging the AcceptNetworkFirewallTransitGatewayAttachment service API.
+    * Added cmdlet Deny-NWFWNetworkFirewallTransitGatewayAttachment leveraging the RejectNetworkFirewallTransitGatewayAttachment service API.
+    * Added cmdlet Register-NWFWAvailabilityZone leveraging the AssociateAvailabilityZones service API.
+    * Added cmdlet Remove-NWFWNetworkFirewallTransitGatewayAttachment leveraging the DeleteNetworkFirewallTransitGatewayAttachment service API.
+    * Added cmdlet Unregister-NWFWAvailabilityZone leveraging the DisassociateAvailabilityZones service API.
+    * Added cmdlet Update-NWFWAvailabilityZoneChangeProtection leveraging the UpdateAvailabilityZoneChangeProtection service API.
+    * Modified cmdlet New-NWFWFirewall: added parameters AvailabilityZoneChangeProtection, AvailabilityZoneMapping and TransitGatewayId.
 
 ### 4.1.840 (2025-06-12 20:09Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1063.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
