@@ -100,7 +100,7 @@ $BDR_Completers = {
         # Amazon.Bedrock.CustomizationType
         "New-BDRModelCustomizationJob/CustomizationType"
         {
-            $v = "CONTINUED_PRE_TRAINING","DISTILLATION","FINE_TUNING"
+            $v = "CONTINUED_PRE_TRAINING","DISTILLATION","FINE_TUNING","IMPORTED"
             break
         }
 
@@ -164,6 +164,13 @@ $BDR_Completers = {
         "Get-BDRFoundationModelList/ByOutputModality"
         {
             $v = "EMBEDDING","IMAGE","TEXT"
+            break
+        }
+
+        # Amazon.Bedrock.ModelStatus
+        "Get-BDRCustomModelList/ModelStatus"
+        {
+            $v = "Active","Creating","Failed"
             break
         }
 
@@ -250,6 +257,7 @@ $BDR_map = @{
     "ByOutputModality"=@("Get-BDRFoundationModelList")
     "CommitmentDuration"=@("New-BDRProvisionedModelThroughput")
     "CustomizationType"=@("New-BDRModelCustomizationJob")
+    "ModelStatus"=@("Get-BDRCustomModelList")
     "S3InputDataConfig_S3InputFormat"=@("New-BDRModelInvocationJob")
     "SortBy"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
     "SortOrder"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
@@ -309,6 +317,7 @@ $BDR_SelectCompleters = {
 
 $BDR_SelectMap = @{
     "Select"=@("Set-BDRBatchDeleteEvaluationJob",
+               "New-BDRCustomModel",
                "New-BDREvaluationJob",
                "New-BDRGuardrail",
                "New-BDRGuardrailVersion",

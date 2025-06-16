@@ -105,6 +105,18 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public System.Boolean? IsOwned { get; set; }
         #endregion
         
+        #region Parameter ModelStatus
+        /// <summary>
+        /// <para>
+        /// <para>The status of them model to filter results by. Possible values include:</para><ul><li><para><c>Creating</c> - Include only models that are currently being created and validated.</para></li><li><para><c>Active</c> - Include only models that have been successfully created and are ready
+        /// for use.</para></li><li><para><c>Failed</c> - Include only models where the creation process failed.</para></li></ul><para>If you don't specify a status, the API returns models in all states.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Bedrock.ModelStatus")]
+        public Amazon.Bedrock.ModelStatus ModelStatus { get; set; }
+        #endregion
+        
         #region Parameter NameContain
         /// <summary>
         /// <para>
@@ -209,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             context.FoundationModelArnEqual = this.FoundationModelArnEqual;
             context.IsOwned = this.IsOwned;
             context.MaxResult = this.MaxResult;
+            context.ModelStatus = this.ModelStatus;
             context.NameContain = this.NameContain;
             context.NextToken = this.NextToken;
             context.SortBy = this.SortBy;
@@ -254,6 +267,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.ModelStatus != null)
+            {
+                request.ModelStatus = cmdletContext.ModelStatus;
             }
             if (cmdletContext.NameContain != null)
             {
@@ -358,6 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             public System.String FoundationModelArnEqual { get; set; }
             public System.Boolean? IsOwned { get; set; }
             public System.Int32? MaxResult { get; set; }
+            public Amazon.Bedrock.ModelStatus ModelStatus { get; set; }
             public System.String NameContain { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.Bedrock.SortModelsBy SortBy { get; set; }

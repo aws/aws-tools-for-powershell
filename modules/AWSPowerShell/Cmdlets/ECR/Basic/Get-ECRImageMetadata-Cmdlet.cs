@@ -31,11 +31,17 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// Returns metadata about the images in a repository.
     /// 
     ///  <note><para>
-    /// Beginning with Docker version 1.9, the Docker client compresses image layers before
+    /// Starting with Docker version 1.9, the Docker client compresses image layers before
     /// pushing them to a V2 Docker registry. The output of the <c>docker images</c> command
-    /// shows the uncompressed image size, so it may return a larger image size than the image
-    /// sizes returned by <a>DescribeImages</a>.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// shows the uncompressed image size. Therefore, Docker might return a larger image than
+    /// the image shown in the Amazon Web Services Management Console.
+    /// </para></note><important><para>
+    /// The new version of Amazon ECR <i>Basic Scanning</i> doesn't use the <a>ImageDetail$imageScanFindingsSummary</a>
+    /// and <a>ImageDetail$imageScanStatus</a> attributes from the API response to return
+    /// scan results. Use the <a>DescribeImageScanFindings</a> API instead. For more information
+    /// about Amazon Web Services native basic scanning, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html">
+    /// Scan images for software vulnerabilities in Amazon ECR</a>.
+    /// </para></important><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ECRImageMetadata")]
     [OutputType("Amazon.ECR.Model.ImageDetail")]

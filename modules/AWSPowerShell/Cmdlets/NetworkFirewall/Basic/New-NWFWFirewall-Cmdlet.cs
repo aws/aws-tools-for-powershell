@@ -64,6 +64,34 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AvailabilityZoneChangeProtection
+        /// <summary>
+        /// <para>
+        /// <para>Optional. A setting indicating whether the firewall is protected against changes to
+        /// its Availability Zone configuration. When set to <c>TRUE</c>, you cannot add or remove
+        /// Availability Zones without first disabling this protection using <a>UpdateAvailabilityZoneChangeProtection</a>.</para><para>Default value: <c>FALSE</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AvailabilityZoneChangeProtection { get; set; }
+        #endregion
+        
+        #region Parameter AvailabilityZoneMapping
+        /// <summary>
+        /// <para>
+        /// <para>Required. The Availability Zones where you want to create firewall endpoints for a
+        /// transit gateway-attached firewall. You must specify at least one Availability Zone.
+        /// Consider enabling the firewall in every Availability Zone where you have workloads
+        /// to maintain Availability Zone independence.</para><para>You can modify Availability Zones later using <a>AssociateAvailabilityZones</a> or
+        /// <a>DisassociateAvailabilityZones</a>, but this may briefly disrupt traffic. The <c>AvailabilityZoneChangeProtection</c>
+        /// setting controls whether you can make these modifications.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AvailabilityZoneMappings")]
+        public Amazon.NetworkFirewall.Model.AvailabilityZoneMapping[] AvailabilityZoneMapping { get; set; }
+        #endregion
+        
         #region Parameter DeleteProtection
         /// <summary>
         /// <para>
@@ -199,6 +227,22 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public Amazon.NetworkFirewall.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter TransitGatewayId
+        /// <summary>
+        /// <para>
+        /// <para>Required when creating a transit gateway-attached firewall. The unique identifier
+        /// of the transit gateway to attach to this firewall. You can provide either a transit
+        /// gateway from your account or one that has been shared with you through Resource Access
+        /// Manager.</para><important><para>After creating the firewall, you cannot change the transit gateway association. To
+        /// use a different transit gateway, you must create a new firewall.</para></important><para>For information about creating firewalls, see <a>CreateFirewall</a>. For specific
+        /// guidance about transit gateway-attached firewalls, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tgw-firewall-considerations.html">Considerations
+        /// for transit gateway-attached firewalls</a> in the <i>Network Firewall Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TransitGatewayId { get; set; }
+        #endregion
+        
         #region Parameter EncryptionConfiguration_Type
         /// <summary>
         /// <para>
@@ -284,6 +328,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 context.Select = (response, cmdlet) => this.FirewallPolicyArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AvailabilityZoneChangeProtection = this.AvailabilityZoneChangeProtection;
+            if (this.AvailabilityZoneMapping != null)
+            {
+                context.AvailabilityZoneMapping = new List<Amazon.NetworkFirewall.Model.AvailabilityZoneMapping>(this.AvailabilityZoneMapping);
+            }
             context.DeleteProtection = this.DeleteProtection;
             context.Description = this.Description;
             if (this.EnabledAnalysisType != null)
@@ -316,6 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             {
                 context.Tag = new List<Amazon.NetworkFirewall.Model.Tag>(this.Tag);
             }
+            context.TransitGatewayId = this.TransitGatewayId;
             context.VpcId = this.VpcId;
             
             // allow further manipulation of loaded context prior to processing
@@ -333,6 +383,14 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             // create request
             var request = new Amazon.NetworkFirewall.Model.CreateFirewallRequest();
             
+            if (cmdletContext.AvailabilityZoneChangeProtection != null)
+            {
+                request.AvailabilityZoneChangeProtection = cmdletContext.AvailabilityZoneChangeProtection.Value;
+            }
+            if (cmdletContext.AvailabilityZoneMapping != null)
+            {
+                request.AvailabilityZoneMappings = cmdletContext.AvailabilityZoneMapping;
+            }
             if (cmdletContext.DeleteProtection != null)
             {
                 request.DeleteProtection = cmdletContext.DeleteProtection.Value;
@@ -397,6 +455,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.TransitGatewayId != null)
+            {
+                request.TransitGatewayId = cmdletContext.TransitGatewayId;
             }
             if (cmdletContext.VpcId != null)
             {
@@ -463,6 +525,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AvailabilityZoneChangeProtection { get; set; }
+            public List<Amazon.NetworkFirewall.Model.AvailabilityZoneMapping> AvailabilityZoneMapping { get; set; }
             public System.Boolean? DeleteProtection { get; set; }
             public System.String Description { get; set; }
             public List<System.String> EnabledAnalysisType { get; set; }
@@ -474,6 +538,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public System.Boolean? SubnetChangeProtection { get; set; }
             public List<Amazon.NetworkFirewall.Model.SubnetMapping> SubnetMapping { get; set; }
             public List<Amazon.NetworkFirewall.Model.Tag> Tag { get; set; }
+            public System.String TransitGatewayId { get; set; }
             public System.String VpcId { get; set; }
             public System.Func<Amazon.NetworkFirewall.Model.CreateFirewallResponse, NewNWFWFirewallCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

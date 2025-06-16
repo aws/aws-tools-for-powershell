@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.1063.0",
+    "ProductVersion"    : "3.7.1064.0",
     "CoreVersion"       : "3.7.402.71",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -492,7 +492,7 @@
             "InPreview"               : false
         },
         "ECR"                             : {
-            "Version" : "3.7.411.22",
+            "Version" : "3.7.412.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.71"
@@ -932,7 +932,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.443.5",
+            "Version" : "3.7.444.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.71"
@@ -1820,7 +1820,7 @@
             "InPreview"               : false
         },
         "NetworkFirewall"                 : {
-            "Version" : "3.7.406.5",
+            "Version" : "3.7.407.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.71"
@@ -2748,7 +2748,7 @@
             "InPreview"               : false
         },
         "Bedrock"                             : {
-            "Version" : "3.7.421.14",
+            "Version" : "3.7.422.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.71"

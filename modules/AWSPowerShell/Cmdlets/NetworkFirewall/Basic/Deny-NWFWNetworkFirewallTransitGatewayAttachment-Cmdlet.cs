@@ -22,34 +22,44 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Bedrock;
-using Amazon.Bedrock.Model;
+using Amazon.NetworkFirewall;
+using Amazon.NetworkFirewall.Model;
 
-namespace Amazon.PowerShell.Cmdlets.BDR
+namespace Amazon.PowerShell.Cmdlets.NWFW
 {
     /// <summary>
-    /// Get the properties associated with a Amazon Bedrock custom model that you have created.
-    /// For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom
-    /// models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon
-    /// Bedrock User Guide</a>.
+    /// Rejects a transit gateway attachment request for Network Firewall. When you reject
+    /// the attachment request, Network Firewall cancels the creation of routing components
+    /// between the transit gateway and firewall endpoints.
+    /// 
+    ///  
+    /// <para>
+    /// Only the transit gateway owner can reject the attachment. After rejection, no traffic
+    /// will flow through the firewall endpoints for this attachment.
+    /// </para><para>
+    /// Use <a>DescribeFirewall</a> to monitor the rejection status. To accept the attachment
+    /// instead of rejecting it, use <a>AcceptNetworkFirewallTransitGatewayAttachment</a>.
+    /// </para><note><para>
+    /// Once rejected, you cannot reverse this action. To establish connectivity, you must
+    /// create a new transit gateway-attached firewall.
+    /// </para></note>
     /// </summary>
-    [Cmdlet("Get", "BDRCustomModel")]
-    [OutputType("Amazon.Bedrock.Model.GetCustomModelResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock GetCustomModel API operation.", Operation = new[] {"GetCustomModel"}, SelectReturnType = typeof(Amazon.Bedrock.Model.GetCustomModelResponse))]
-    [AWSCmdletOutput("Amazon.Bedrock.Model.GetCustomModelResponse",
-        "This cmdlet returns an Amazon.Bedrock.Model.GetCustomModelResponse object containing multiple properties."
+    [Cmdlet("Deny", "NWFWNetworkFirewallTransitGatewayAttachment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.NetworkFirewall.Model.RejectNetworkFirewallTransitGatewayAttachmentResponse")]
+    [AWSCmdlet("Calls the AWS Network Firewall RejectNetworkFirewallTransitGatewayAttachment API operation.", Operation = new[] {"RejectNetworkFirewallTransitGatewayAttachment"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.RejectNetworkFirewallTransitGatewayAttachmentResponse))]
+    [AWSCmdletOutput("Amazon.NetworkFirewall.Model.RejectNetworkFirewallTransitGatewayAttachmentResponse",
+        "This cmdlet returns an Amazon.NetworkFirewall.Model.RejectNetworkFirewallTransitGatewayAttachmentResponse object containing multiple properties."
     )]
-    public partial class GetBDRCustomModelCmdlet : AmazonBedrockClientCmdlet, IExecutor
+    public partial class DenyNWFWNetworkFirewallTransitGatewayAttachmentCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ModelIdentifier
+        #region Parameter TransitGatewayAttachmentId
         /// <summary>
         /// <para>
-        /// <para>Name or Amazon Resource Name (ARN) of the custom model.</para>
+        /// <para>Required. The unique identifier of the transit gateway attachment to reject. This
+        /// ID is returned in the response when creating a transit gateway-attached firewall.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,14 +70,14 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ModelIdentifier { get; set; }
+        public System.String TransitGatewayAttachmentId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.GetCustomModelResponse).
-        /// Specifying the name of a property of type Amazon.Bedrock.Model.GetCustomModelResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkFirewall.Model.RejectNetworkFirewallTransitGatewayAttachmentResponse).
+        /// Specifying the name of a property of type Amazon.NetworkFirewall.Model.RejectNetworkFirewallTransitGatewayAttachmentResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,18 +86,34 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ModelIdentifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ModelIdentifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the TransitGatewayAttachmentId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TransitGatewayAttachmentId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ModelIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TransitGatewayAttachmentId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TransitGatewayAttachmentId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Deny-NWFWNetworkFirewallTransitGatewayAttachment (RejectNetworkFirewallTransitGatewayAttachment)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -97,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.GetCustomModelResponse, GetBDRCustomModelCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.NetworkFirewall.Model.RejectNetworkFirewallTransitGatewayAttachmentResponse, DenyNWFWNetworkFirewallTransitGatewayAttachmentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -106,14 +132,14 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ModelIdentifier;
+                context.Select = (response, cmdlet) => this.TransitGatewayAttachmentId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ModelIdentifier = this.ModelIdentifier;
+            context.TransitGatewayAttachmentId = this.TransitGatewayAttachmentId;
             #if MODULAR
-            if (this.ModelIdentifier == null && ParameterWasBound(nameof(this.ModelIdentifier)))
+            if (this.TransitGatewayAttachmentId == null && ParameterWasBound(nameof(this.TransitGatewayAttachmentId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ModelIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TransitGatewayAttachmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -130,11 +156,11 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Bedrock.Model.GetCustomModelRequest();
+            var request = new Amazon.NetworkFirewall.Model.RejectNetworkFirewallTransitGatewayAttachmentRequest();
             
-            if (cmdletContext.ModelIdentifier != null)
+            if (cmdletContext.TransitGatewayAttachmentId != null)
             {
-                request.ModelIdentifier = cmdletContext.ModelIdentifier;
+                request.TransitGatewayAttachmentId = cmdletContext.TransitGatewayAttachmentId;
             }
             
             CmdletOutput output;
@@ -169,15 +195,15 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         #region AWS Service Operation Call
         
-        private Amazon.Bedrock.Model.GetCustomModelResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.GetCustomModelRequest request)
+        private Amazon.NetworkFirewall.Model.RejectNetworkFirewallTransitGatewayAttachmentResponse CallAWSServiceOperation(IAmazonNetworkFirewall client, Amazon.NetworkFirewall.Model.RejectNetworkFirewallTransitGatewayAttachmentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "GetCustomModel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Firewall", "RejectNetworkFirewallTransitGatewayAttachment");
             try
             {
                 #if DESKTOP
-                return client.GetCustomModel(request);
+                return client.RejectNetworkFirewallTransitGatewayAttachment(request);
                 #elif CORECLR
-                return client.GetCustomModelAsync(request).GetAwaiter().GetResult();
+                return client.RejectNetworkFirewallTransitGatewayAttachmentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -197,8 +223,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ModelIdentifier { get; set; }
-            public System.Func<Amazon.Bedrock.Model.GetCustomModelResponse, GetBDRCustomModelCmdlet, object> Select { get; set; } =
+            public System.String TransitGatewayAttachmentId { get; set; }
+            public System.Func<Amazon.NetworkFirewall.Model.RejectNetworkFirewallTransitGatewayAttachmentResponse, DenyNWFWNetworkFirewallTransitGatewayAttachmentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         
