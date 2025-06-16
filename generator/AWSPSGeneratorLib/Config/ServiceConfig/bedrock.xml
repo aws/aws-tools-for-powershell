@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCustomModel" OutputProperty="ModelArn" Verb="New" Noun="CustomModel" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEvaluationJob" OutputProperty="JobArn" Verb="New" Noun="EvaluationJob" ShouldProcessTarget="JobName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="EvaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_BedrockEvaluatorModels" NewName="EvaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_BedrockEvaluatorModels" Alias="EvaluatorModelConfig_CustomMetricConfig_BedrockEvaluatorModel" />

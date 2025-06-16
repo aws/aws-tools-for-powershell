@@ -102,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// only returns  <c>maxResults</c> results in a single page along with a <c>nextToken</c> 
         /// response element. The remaining results of the initial request can be seen by sending 
         /// another <c>GetLifecyclePolicyPreviewRequest</c> request with the returned <c>nextToken</c> 
-        /// value. This value can be between 1 and 1000. If this  parameter is not used,
-        /// then <c>GetLifecyclePolicyPreviewRequest</c> returns up to  100 results and
+        /// value. This value can be between 1 and 100. If this  parameter is not used,
+        /// then <c>GetLifecyclePolicyPreviewRequest</c> returns up to 100 results and
         /// a <c>nextToken</c> value, if  applicable. This option cannot be used when you
         /// specify images with <c>imageIds</c>.</para>
         /// </para>

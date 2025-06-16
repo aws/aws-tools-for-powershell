@@ -110,14 +110,14 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>Indicates how to manage the order of stateful rule evaluation for the policy. <c>STRICT_ORDER</c>
-        /// is the default and recommended option. With <c>STRICT_ORDER</c>, provide your rules
-        /// in the order that you want them to be evaluated. You can then choose one or more default
-        /// actions for packets that don't match any rules. Choose <c>STRICT_ORDER</c> to have
-        /// the stateful rules engine determine the evaluation order of your rules. The default
-        /// action for this rule order is <c>PASS</c>, followed by <c>DROP</c>, <c>REJECT</c>,
-        /// and <c>ALERT</c> actions. Stateful rules are provided to the rule engine as Suricata
-        /// compatible strings, and Suricata evaluates them based on your settings. For more information,
-        /// see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation
+        /// is the recommended option, but <c>DEFAULT_ACTION_ORDER</c> is the default option.
+        /// With <c>STRICT_ORDER</c>, provide your rules in the order that you want them to be
+        /// evaluated. You can then choose one or more default actions for packets that don't
+        /// match any rules. Choose <c>STRICT_ORDER</c> to have the stateful rules engine determine
+        /// the evaluation order of your rules. The default action for this rule order is <c>PASS</c>,
+        /// followed by <c>DROP</c>, <c>REJECT</c>, and <c>ALERT</c> actions. Stateful rules are
+        /// provided to the rule engine as Suricata compatible strings, and Suricata evaluates
+        /// them based on your settings. For more information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation
         /// order for stateful rules</a> in the <i>Network Firewall Developer Guide</i>. </para>
         /// </para>
         /// </summary>
