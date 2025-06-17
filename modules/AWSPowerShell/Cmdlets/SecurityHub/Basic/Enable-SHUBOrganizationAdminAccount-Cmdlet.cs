@@ -32,11 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// called by the organization management account.
     /// </summary>
     [Cmdlet("Enable", "SHUBOrganizationAdminAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("Amazon.SecurityHub.Model.EnableOrganizationAdminAccountResponse")]
     [AWSCmdlet("Calls the AWS Security Hub EnableOrganizationAdminAccount API operation.", Operation = new[] {"EnableOrganizationAdminAccount"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.EnableOrganizationAdminAccountResponse))]
-    [AWSCmdletOutput("None or Amazon.SecurityHub.Model.EnableOrganizationAdminAccountResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecurityHub.Model.EnableOrganizationAdminAccountResponse) be returned by specifying '-Select *'."
+    [AWSCmdletOutput("Amazon.SecurityHub.Model.EnableOrganizationAdminAccountResponse",
+        "This cmdlet returns an Amazon.SecurityHub.Model.EnableOrganizationAdminAccountResponse object containing multiple properties."
     )]
     public partial class EnableSHUBOrganizationAdminAccountCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
@@ -61,10 +60,23 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         public System.String AdminAccountId { get; set; }
         #endregion
         
+        #region Parameter Feature
+        /// <summary>
+        /// <para>
+        /// <para>The feature for which the delegated admin account is enabled. Defaults to Security
+        /// Hub if not specified.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SecurityHub.SecurityHubFeature")]
+        public Amazon.SecurityHub.SecurityHubFeature Feature { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityHub.Model.EnableOrganizationAdminAccountResponse).
+        /// Specifying the name of a property of type Amazon.SecurityHub.Model.EnableOrganizationAdminAccountResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,6 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
                 WriteWarning("You are passing $null as a value for parameter AdminAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Feature = this.Feature;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -148,6 +161,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (cmdletContext.AdminAccountId != null)
             {
                 request.AdminAccountId = cmdletContext.AdminAccountId;
+            }
+            if (cmdletContext.Feature != null)
+            {
+                request.Feature = cmdletContext.Feature;
             }
             
             CmdletOutput output;
@@ -211,8 +228,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AdminAccountId { get; set; }
+            public Amazon.SecurityHub.SecurityHubFeature Feature { get; set; }
             public System.Func<Amazon.SecurityHub.Model.EnableOrganizationAdminAccountResponse, EnableSHUBOrganizationAdminAccountCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }

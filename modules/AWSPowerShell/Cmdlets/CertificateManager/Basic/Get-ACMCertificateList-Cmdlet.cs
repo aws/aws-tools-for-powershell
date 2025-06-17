@@ -56,6 +56,17 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         public System.String[] CertificateStatus { get; set; }
         #endregion
         
+        #region Parameter Includes_ExportOption
+        /// <summary>
+        /// <para>
+        /// <para>Specify <c>ENABLED</c> or <c>DISABLED</c> to identify certificates that can be exported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CertificateManager.CertificateExport")]
+        public Amazon.CertificateManager.CertificateExport Includes_ExportOption { get; set; }
+        #endregion
+        
         #region Parameter Includes_ExtendedKeyUsage
         /// <summary>
         /// <para>
@@ -201,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             {
                 context.CertificateStatus = new List<System.String>(this.CertificateStatus);
             }
+            context.Includes_ExportOption = this.Includes_ExportOption;
             if (this.Includes_ExtendedKeyUsage != null)
             {
                 context.Includes_ExtendedKeyUsage = new List<System.String>(this.Includes_ExtendedKeyUsage);
@@ -254,6 +266,16 @@ namespace Amazon.PowerShell.Cmdlets.ACM
              // populate Includes
             var requestIncludesIsNull = true;
             request.Includes = new Amazon.CertificateManager.Model.Filters();
+            Amazon.CertificateManager.CertificateExport requestIncludes_includes_ExportOption = null;
+            if (cmdletContext.Includes_ExportOption != null)
+            {
+                requestIncludes_includes_ExportOption = cmdletContext.Includes_ExportOption;
+            }
+            if (requestIncludes_includes_ExportOption != null)
+            {
+                request.Includes.ExportOption = requestIncludes_includes_ExportOption;
+                requestIncludesIsNull = false;
+            }
             List<System.String> requestIncludes_includes_ExtendedKeyUsage = null;
             if (cmdletContext.Includes_ExtendedKeyUsage != null)
             {
@@ -374,6 +396,16 @@ namespace Amazon.PowerShell.Cmdlets.ACM
              // populate Includes
             var requestIncludesIsNull = true;
             request.Includes = new Amazon.CertificateManager.Model.Filters();
+            Amazon.CertificateManager.CertificateExport requestIncludes_includes_ExportOption = null;
+            if (cmdletContext.Includes_ExportOption != null)
+            {
+                requestIncludes_includes_ExportOption = cmdletContext.Includes_ExportOption;
+            }
+            if (requestIncludes_includes_ExportOption != null)
+            {
+                request.Includes.ExportOption = requestIncludes_includes_ExportOption;
+                requestIncludesIsNull = false;
+            }
             List<System.String> requestIncludes_includes_ExtendedKeyUsage = null;
             if (cmdletContext.Includes_ExtendedKeyUsage != null)
             {
@@ -547,6 +579,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> CertificateStatus { get; set; }
+            public Amazon.CertificateManager.CertificateExport Includes_ExportOption { get; set; }
             public List<System.String> Includes_ExtendedKeyUsage { get; set; }
             public List<System.String> Includes_KeyType { get; set; }
             public List<System.String> Includes_KeyUsage { get; set; }

@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AutoEnable_CodeRepository
+        /// <summary>
+        /// <para>
+        /// <para>Represents whether code repository scans are automatically enabled for new members
+        /// of your Amazon Inspector organization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoEnable_CodeRepository { get; set; }
+        #endregion
+        
         #region Parameter AutoEnable_Ec2
         /// <summary>
         /// <para>
@@ -90,7 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter AutoEnable_LambdaCode
         /// <summary>
         /// <para>
-        /// Amazon.Inspector2.Model.AutoEnable.LambdaCode
+        /// <para>Represents whether Lambda code scans are automatically enabled for new members of
+        /// your Amazon Inspector organization. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 context.Select = CreateSelectDelegate<Amazon.Inspector2.Model.UpdateOrganizationConfigurationResponse, UpdateINS2OrganizationConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AutoEnable_CodeRepository = this.AutoEnable_CodeRepository;
             context.AutoEnable_Ec2 = this.AutoEnable_Ec2;
             #if MODULAR
             if (this.AutoEnable_Ec2 == null && ParameterWasBound(nameof(this.AutoEnable_Ec2)))
@@ -175,6 +188,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
              // populate AutoEnable
             var requestAutoEnableIsNull = true;
             request.AutoEnable = new Amazon.Inspector2.Model.AutoEnable();
+            System.Boolean? requestAutoEnable_autoEnable_CodeRepository = null;
+            if (cmdletContext.AutoEnable_CodeRepository != null)
+            {
+                requestAutoEnable_autoEnable_CodeRepository = cmdletContext.AutoEnable_CodeRepository.Value;
+            }
+            if (requestAutoEnable_autoEnable_CodeRepository != null)
+            {
+                request.AutoEnable.CodeRepository = requestAutoEnable_autoEnable_CodeRepository.Value;
+                requestAutoEnableIsNull = false;
+            }
             System.Boolean? requestAutoEnable_autoEnable_Ec2 = null;
             if (cmdletContext.AutoEnable_Ec2 != null)
             {
@@ -281,6 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AutoEnable_CodeRepository { get; set; }
             public System.Boolean? AutoEnable_Ec2 { get; set; }
             public System.Boolean? AutoEnable_Ecr { get; set; }
             public System.Boolean? AutoEnable_Lambda { get; set; }

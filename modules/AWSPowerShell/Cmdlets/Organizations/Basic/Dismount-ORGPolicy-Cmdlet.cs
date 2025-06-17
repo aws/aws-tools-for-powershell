@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// list</a>".
     /// </para><para>
     /// This operation can be called only from the organization's management account or by
-    /// a member account that is a delegated administrator for an Amazon Web Services service.
+    /// a member account that is a delegated administrator.
     /// </para>
     /// </summary>
     [Cmdlet("Dismount", "ORGPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

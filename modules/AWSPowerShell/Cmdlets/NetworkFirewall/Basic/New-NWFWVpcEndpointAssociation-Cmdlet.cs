@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.VpcId), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-NWFWVpcEndpointAssociation (CreateVpcEndpointAssociation)"))
             {
                 return;

@@ -141,7 +141,7 @@ $IAMAA_Completers = {
             ($_ -eq "New-IAMAAAnalyzer/Type")
         }
         {
-            $v = "ACCOUNT","ACCOUNT_UNUSED_ACCESS","ORGANIZATION","ORGANIZATION_UNUSED_ACCESS"
+            $v = "ACCOUNT","ACCOUNT_INTERNAL_ACCESS","ACCOUNT_UNUSED_ACCESS","ORGANIZATION","ORGANIZATION_INTERNAL_ACCESS","ORGANIZATION_UNUSED_ACCESS"
             break
         }
 
@@ -366,6 +366,17 @@ $ACM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CertificateManager.CertificateExport
+        {
+            ($_ -eq "Get-ACMCertificateList/Includes_ExportOption") -Or
+            ($_ -eq "New-ACMCertificate/Options_Export") -Or
+            ($_ -eq "Update-ACMCertificateOption/Options_Export")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.CertificateManager.CertificateManagedBy
         {
             ($_ -eq "Get-ACMCertificateList/Includes_ManagedBy") -Or
@@ -390,6 +401,13 @@ $ACM_Completers = {
         "New-ACMCertificate/KeyAlgorithm"
         {
             $v = "EC_prime256v1","EC_secp384r1","EC_secp521r1","RSA_1024","RSA_2048","RSA_3072","RSA_4096"
+            break
+        }
+
+        # Amazon.CertificateManager.RevocationReason
+        "Revoke-ACMCertificate/RevocationReason"
+        {
+            $v = "AFFILIATION_CHANGED","A_A_COMPROMISE","CA_COMPROMISE","CERTIFICATE_HOLD","CESSATION_OF_OPERATION","KEY_COMPROMISE","PRIVILEGE_WITHDRAWN","REMOVE_FROM_CRL","SUPERCEDED","SUPERSEDED","UNSPECIFIED"
             break
         }
 
@@ -423,10 +441,13 @@ $ACM_Completers = {
 }
 
 $ACM_map = @{
+    "Includes_ExportOption"=@("Get-ACMCertificateList")
     "Includes_ManagedBy"=@("Get-ACMCertificateList")
     "KeyAlgorithm"=@("New-ACMCertificate")
     "ManagedBy"=@("New-ACMCertificate")
     "Options_CertificateTransparencyLoggingPreference"=@("New-ACMCertificate","Update-ACMCertificateOption")
+    "Options_Export"=@("New-ACMCertificate","Update-ACMCertificateOption")
+    "RevocationReason"=@("Revoke-ACMCertificate")
     "SortBy"=@("Get-ACMCertificateList")
     "SortOrder"=@("Get-ACMCertificateList")
     "ValidationMethod"=@("New-ACMCertificate")
@@ -496,6 +517,7 @@ $ACM_SelectMap = @{
                "Invoke-ACMCertificateRenewal",
                "New-ACMCertificate",
                "Send-ACMValidationEmail",
+               "Revoke-ACMCertificate",
                "Update-ACMCertificateOption")
 }
 
@@ -5955,7 +5977,7 @@ $BAK_Completers = {
         # Amazon.Backup.VaultType
         "Get-BAKBackupVaultList/ByVaultType"
         {
-            $v = "BACKUP_VAULT","LOGICALLY_AIR_GAPPED_BACKUP_VAULT"
+            $v = "BACKUP_VAULT","LOGICALLY_AIR_GAPPED_BACKUP_VAULT","RESTORE_ACCESS_BACKUP_VAULT"
             break
         }
 
@@ -6029,7 +6051,8 @@ $BAK_SelectCompleters = {
 }
 
 $BAK_SelectMap = @{
-    "Select"=@("Stop-BAKLegalHold",
+    "Select"=@("Add-BAKBackupVaultMpaApprovalTeam",
+               "Stop-BAKLegalHold",
                "New-BAKBackupPlan",
                "New-BAKBackupSelection",
                "New-BAKBackupVault",
@@ -6037,6 +6060,7 @@ $BAK_SelectMap = @{
                "New-BAKLegalHold",
                "New-BAKLogicallyAirGappedBackupVault",
                "New-BAKReportPlan",
+               "New-BAKRestoreAccessBackupVault",
                "New-BAKRestoreTestingPlan",
                "New-BAKRestoreTestingSelection",
                "Remove-BAKBackupPlan",
@@ -6061,6 +6085,7 @@ $BAK_SelectMap = @{
                "Get-BAKReportJob",
                "Get-BAKReportPlan",
                "Get-BAKRestoreJob",
+               "Remove-BAKBackupVaultMpaApprovalTeam",
                "Unlock-BAKRecoveryPoint",
                "Move-BAKRecoveryPoint",
                "Export-BAKBackupPlanTemplate",
@@ -6097,6 +6122,7 @@ $BAK_SelectMap = @{
                "Get-BAKRecoveryPointsByResourceList",
                "Get-BAKReportJobList",
                "Get-BAKReportPlanList",
+               "Get-BAKRestoreAccessBackupVaultList",
                "Get-BAKRestoreJobList",
                "Get-BAKRestoreJobsByProtectedResourceList",
                "Get-BAKRestoreJobSummaryList",
@@ -6107,6 +6133,7 @@ $BAK_SelectMap = @{
                "Write-BAKBackupVaultLockConfiguration",
                "Write-BAKBackupVaultNotification",
                "Write-BAKRestoreValidationResult",
+               "Revoke-BAKRestoreAccessBackupVault",
                "Start-BAKBackupJob",
                "Start-BAKCopyJob",
                "Start-BAKReportJob",
@@ -37458,7 +37485,7 @@ $INS2_Completers = {
         # Amazon.Inspector2.AggregationType
         "Get-INS2FindingAggregationList/AggregationType"
         {
-            $v = "ACCOUNT","AMI","AWS_EC2_INSTANCE","AWS_ECR_CONTAINER","AWS_LAMBDA_FUNCTION","FINDING_TYPE","IMAGE_LAYER","LAMBDA_LAYER","PACKAGE","REPOSITORY","TITLE"
+            $v = "ACCOUNT","AMI","AWS_EC2_INSTANCE","AWS_ECR_CONTAINER","AWS_LAMBDA_FUNCTION","CODE_REPOSITORY","FINDING_TYPE","IMAGE_LAYER","LAMBDA_LAYER","PACKAGE","REPOSITORY","TITLE"
             break
         }
 
@@ -37531,6 +37558,20 @@ $INS2_Completers = {
         }
         {
             $v = "ASC","DESC"
+            break
+        }
+
+        # Amazon.Inspector2.CodeRepositorySortBy
+        "Get-INS2FindingAggregationList/CodeRepositoryAggregation_SortBy"
+        {
+            $v = "ALL","CRITICAL","HIGH"
+            break
+        }
+
+        # Amazon.Inspector2.ConfigurationLevel
+        "New-INS2CodeSecurityScanConfiguration/Level"
+        {
+            $v = "ACCOUNT","ORGANIZATION"
             break
         }
 
@@ -37611,6 +37652,13 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.IntegrationType
+        "New-INS2CodeSecurityIntegration/Type"
+        {
+            $v = "GITHUB","GITLAB_SELF_MANAGED"
+            break
+        }
+
         # Amazon.Inspector2.LambdaFunctionSortBy
         "Get-INS2FindingAggregationList/LambdaFunctionAggregation_SortBy"
         {
@@ -37646,6 +37694,23 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.PeriodicScanFrequency
+        {
+            ($_ -eq "New-INS2CodeSecurityScanConfiguration/PeriodicScanConfiguration_Frequency") -Or
+            ($_ -eq "Update-INS2CodeSecurityScanConfiguration/PeriodicScanConfiguration_Frequency")
+        }
+        {
+            $v = "MONTHLY","NEVER","WEEKLY"
+            break
+        }
+
+        # Amazon.Inspector2.ProjectSelectionScope
+        "New-INS2CodeSecurityScanConfiguration/ScopeSettings_ProjectSelectionScope"
+        {
+            $v = "ALL"
+            break
+        }
+
         # Amazon.Inspector2.ReportFormat
         "New-INS2FindingsReport/ReportFormat"
         {
@@ -37667,7 +37732,7 @@ $INS2_Completers = {
             ($_ -eq "Update-INS2EncryptionKey/ResourceType")
         }
         {
-            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_ECR_REPOSITORY","AWS_LAMBDA_FUNCTION"
+            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_ECR_REPOSITORY","AWS_LAMBDA_FUNCTION","CODE_REPOSITORY"
             break
         }
 
@@ -37708,6 +37773,7 @@ $INS2_Completers = {
             ($_ -eq "Get-INS2FindingAggregationList/AccountAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/AmiAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/AwsEcrContainerAggregation_SortOrder") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/CodeRepositoryAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/Ec2InstanceAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/FindingTypeAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/ImageLayerAggregation_SortOrder") -Or
@@ -37756,6 +37822,8 @@ $INS2_map = @{
     "AmiAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "AwsEcrContainerAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "AwsEcrContainerAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
+    "CodeRepositoryAggregation_SortBy"=@("Get-INS2FindingAggregationList")
+    "CodeRepositoryAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "DetailLevel"=@("Get-INS2CisScanList")
     "Ec2Configuration_ScanMode"=@("Update-INS2Configuration")
     "Ec2InstanceAggregation_SortBy"=@("Get-INS2FindingAggregationList")
@@ -37774,15 +37842,18 @@ $INS2_map = @{
     "LambdaFunctionAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "LambdaLayerAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "LambdaLayerAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
+    "Level"=@("New-INS2CodeSecurityScanConfiguration")
     "Message_Status"=@("Stop-INS2CisSession")
     "Monthly_Day"=@("New-INS2CisScanConfiguration","Update-INS2CisScanConfiguration")
     "PackageAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "PackageAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
+    "PeriodicScanConfiguration_Frequency"=@("New-INS2CodeSecurityScanConfiguration","Update-INS2CodeSecurityScanConfiguration")
     "ReportFormat"=@("Get-INS2CisScanReport","New-INS2FindingsReport","New-INS2SbomExport")
     "RepositoryAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "RepositoryAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "ResourceType"=@("Get-INS2EncryptionKey","Reset-INS2EncryptionKey","Update-INS2EncryptionKey")
     "ScanType"=@("Get-INS2EncryptionKey","Reset-INS2EncryptionKey","Update-INS2EncryptionKey")
+    "ScopeSettings_ProjectSelectionScope"=@("New-INS2CodeSecurityScanConfiguration")
     "SecurityLevel"=@("New-INS2CisScanConfiguration","Update-INS2CisScanConfiguration")
     "Service"=@("Get-INS2AccountPermissionList")
     "SortBy"=@("Get-INS2CisScanConfigurationList","Get-INS2CisScanList","Get-INS2CisScanResultDetail","Get-INS2CisScanResultsAggregatedByCheckList","Get-INS2CisScanResultsAggregatedByTargetResourceList")
@@ -37793,6 +37864,7 @@ $INS2_map = @{
     "TitleAggregation_ResourceType"=@("Get-INS2FindingAggregationList")
     "TitleAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "TitleAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
+    "Type"=@("New-INS2CodeSecurityIntegration")
 }
 
 _awsArgumentCompleterRegistration $INS2_Completers $INS2_map
@@ -37846,6 +37918,8 @@ $INS2_SelectCompleters = {
 
 $INS2_SelectMap = @{
     "Select"=@("Register-INS2Member",
+               "Register-INS2CodeSecurityScanConfigurationBatch",
+               "Unregister-INS2CodeSecurityScanConfigurationBatch",
                "Get-INS2GetAccountStatus",
                "Get-INS2BatchGetCodeSnippet",
                "Get-INS2GetFindingDetail",
@@ -37855,10 +37929,14 @@ $INS2_SelectMap = @{
                "Stop-INS2FindingsReport",
                "Stop-INS2SbomExport",
                "New-INS2CisScanConfiguration",
+               "New-INS2CodeSecurityIntegration",
+               "New-INS2CodeSecurityScanConfiguration",
                "New-INS2Filter",
                "New-INS2FindingsReport",
                "New-INS2SbomExport",
                "Remove-INS2CisScanConfiguration",
+               "Remove-INS2CodeSecurityIntegration",
+               "Remove-INS2CodeSecurityScanConfiguration",
                "Remove-INS2Filter",
                "Get-INS2OrganizationConfiguration",
                "Stop-INS2Service",
@@ -37869,6 +37947,9 @@ $INS2_SelectMap = @{
                "Get-INS2CisScanReport",
                "Get-INS2CisScanResultDetail",
                "Get-INS2ClustersForImage",
+               "Get-INS2CodeSecurityIntegration",
+               "Get-INS2CodeSecurityScan",
+               "Get-INS2CodeSecurityScanConfiguration",
                "Get-INS2Configuration",
                "Get-INS2DelegatedAdminAccount",
                "Get-INS2Ec2DeepInspectionConfiguration",
@@ -37881,6 +37962,9 @@ $INS2_SelectMap = @{
                "Get-INS2CisScanResultsAggregatedByCheckList",
                "Get-INS2CisScanResultsAggregatedByTargetResourceList",
                "Get-INS2CisScanList",
+               "Get-INS2CodeSecurityIntegrationList",
+               "Get-INS2CodeSecurityScanConfigurationAssociationList",
+               "Get-INS2CodeSecurityScanConfigurationList",
                "Get-INS2CoverageList",
                "Get-INS2CoverageStatisticList",
                "Get-INS2DelegatedAdminAccountList",
@@ -37895,10 +37979,13 @@ $INS2_SelectMap = @{
                "Send-INS2CisSessionHealth",
                "Send-INS2CisSessionTelemetry",
                "Start-INS2CisSession",
+               "Start-INS2CodeSecurityScan",
                "Stop-INS2CisSession",
                "Add-INS2ResourceTag",
                "Remove-INS2ResourceTag",
                "Update-INS2CisScanConfiguration",
+               "Update-INS2CodeSecurityIntegration",
+               "Update-INS2CodeSecurityScanConfiguration",
                "Update-INS2Configuration",
                "Update-INS2Ec2DeepInspectionConfiguration",
                "Update-INS2EncryptionKey",
@@ -51929,6 +52016,107 @@ $CW_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $CW_SelectCompleters $CW_SelectMap
+# Argument completions for service AWS Multi-party Approval
+
+
+$MPA_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.MPA.PolicyType
+        "Get-MPAResourcePolicy/PolicyType"
+        {
+            $v = "AWS_MANAGED","AWS_RAM"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MPA_map = @{
+    "PolicyType"=@("Get-MPAResourcePolicy")
+}
+
+_awsArgumentCompleterRegistration $MPA_Completers $MPA_map
+
+$MPA_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.MPA.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MPA_SelectMap = @{
+    "Select"=@("Stop-MPASession",
+               "New-MPAApprovalTeam",
+               "New-MPAIdentitySource",
+               "Remove-MPAIdentitySource",
+               "Remove-MPAInactiveApprovalTeamVersion",
+               "Get-MPAApprovalTeam",
+               "Get-MPAIdentitySource",
+               "Get-MPAPolicyVersion",
+               "Get-MPAResourcePolicy",
+               "Get-MPASession",
+               "Get-MPAApprovalTeamList",
+               "Get-MPAIdentitySourceList",
+               "Get-MPAPolicyList",
+               "Get-MPAPolicyVersionList",
+               "Get-MPAResourcePolicyList",
+               "Get-MPASessionList",
+               "Get-MPAResourceTag",
+               "Start-MPAActiveApprovalTeamDeletion",
+               "Add-MPAResourceTag",
+               "Remove-MPAResourceTag",
+               "Update-MPAApprovalTeam")
+}
+
+_awsArgumentCompleterRegistration $MPA_SelectCompleters $MPA_SelectMap
 # Argument completions for service Amazon MQ
 
 
@@ -52986,7 +53174,7 @@ $NWFW_Completers = {
         # Amazon.NetworkFirewall.ResourceManagedType
         "Get-NWFWRuleGroupList/ManagedType"
         {
-            $v = "AWS_MANAGED_DOMAIN_LISTS","AWS_MANAGED_THREAT_SIGNATURES"
+            $v = "ACTIVE_THREAT_DEFENSE","AWS_MANAGED_DOMAIN_LISTS","AWS_MANAGED_THREAT_SIGNATURES"
             break
         }
 
@@ -52995,6 +53183,7 @@ $NWFW_Completers = {
             ($_ -eq "Get-NWFWRuleGroup/Type") -Or
             ($_ -eq "Get-NWFWRuleGroupList/Type") -Or
             ($_ -eq "Get-NWFWRuleGroupMetadata/Type") -Or
+            ($_ -eq "Get-NWFWRuleGroupSummary/Type") -Or
             ($_ -eq "New-NWFWRuleGroup/Type") -Or
             ($_ -eq "Remove-NWFWRuleGroup/Type") -Or
             ($_ -eq "Update-NWFWRuleGroup/Type")
@@ -53045,7 +53234,7 @@ $NWFW_map = @{
     "StatefulEngineOptions_StreamExceptionPolicy"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "StatefulRuleOptions_RuleOrder"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "SubnetMapping_IPAddressType"=@("New-NWFWVpcEndpointAssociation")
-    "Type"=@("Get-NWFWRuleGroup","Get-NWFWRuleGroupList","Get-NWFWRuleGroupMetadata","New-NWFWRuleGroup","Remove-NWFWRuleGroup","Update-NWFWRuleGroup")
+    "Type"=@("Get-NWFWRuleGroup","Get-NWFWRuleGroupList","Get-NWFWRuleGroupMetadata","Get-NWFWRuleGroupSummary","New-NWFWRuleGroup","Remove-NWFWRuleGroup","Update-NWFWRuleGroup")
 }
 
 _awsArgumentCompleterRegistration $NWFW_Completers $NWFW_map
@@ -53098,8 +53287,8 @@ $NWFW_SelectCompleters = {
 }
 
 $NWFW_SelectMap = @{
-    "Select"=@("Approve-NWFWNetworkFirewallTransitGatewayAttachment",
-               "Register-NWFWAvailabilityZone",
+    "Select"=@("Receive-NWFWNetworkFirewallTransitGatewayAttachment",
+               "Join-NWFWAvailabilityZone",
                "Register-NWFWFirewallPolicy",
                "Register-NWFWSubnet",
                "New-NWFWFirewall",
@@ -53122,9 +53311,10 @@ $NWFW_SelectMap = @{
                "Get-NWFWResourcePolicy",
                "Get-NWFWRuleGroup",
                "Get-NWFWRuleGroupMetadata",
+               "Get-NWFWRuleGroupSummary",
                "Get-NWFWTLSInspectionConfiguration",
                "Get-NWFWVpcEndpointAssociation",
-               "Unregister-NWFWAvailabilityZone",
+               "Remove-NWFWAvailabilityZone",
                "Unregister-NWFWSubnet",
                "Get-NWFWAnalysisReportResult",
                "Get-NWFWAnalysisReportList",
@@ -55295,7 +55485,7 @@ $ORG_Completers = {
         # Amazon.Organizations.EffectivePolicyType
         "Get-ORGEffectivePolicy/PolicyType"
         {
-            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","TAG_POLICY"
+            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","SECURITYHUB_POLICY","TAG_POLICY"
             break
         }
 
@@ -55332,7 +55522,7 @@ $ORG_Completers = {
             ($_ -eq "New-ORGPolicy/Type")
         }
         {
-            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","RESOURCE_CONTROL_POLICY","SERVICE_CONTROL_POLICY","TAG_POLICY"
+            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","RESOURCE_CONTROL_POLICY","SECURITYHUB_POLICY","SERVICE_CONTROL_POLICY","TAG_POLICY"
             break
         }
 
@@ -69525,6 +69715,18 @@ $SHUB_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.SecurityHub.AllowedOperators
+        {
+            ($_ -eq "Get-SHUBFindingsV2/Filters_CompositeOperator") -Or
+            ($_ -eq "Get-SHUBResourcesV2/Filters_CompositeOperator") -Or
+            ($_ -eq "New-SHUBAutomationRuleV2/OcsfFindingCriteria_CompositeOperator") -Or
+            ($_ -eq "Update-SHUBAutomationRuleV2/OcsfFindingCriteria_CompositeOperator")
+        }
+        {
+            $v = "AND","OR"
+            break
+        }
+
         # Amazon.SecurityHub.AssociationType
         "Get-SHUBConfigurationPolicyAssociationList/Filters_AssociationType"
         {
@@ -69543,6 +69745,20 @@ $SHUB_Completers = {
         "Get-SHUBConfigurationPolicyAssociationList/Filters_AssociationStatus"
         {
             $v = "FAILED","PENDING","SUCCESS"
+            break
+        }
+
+        # Amazon.SecurityHub.ConnectorProviderName
+        "Get-SHUBConnectorsV2List/ProviderName"
+        {
+            $v = "JIRA_CLOUD","SERVICENOW"
+            break
+        }
+
+        # Amazon.SecurityHub.ConnectorStatus
+        "Get-SHUBConnectorsV2List/ConnectorStatus"
+        {
+            $v = "CONNECTED","FAILED_TO_CONNECT","PENDING_AUTHORIZATION","PENDING_CONFIGURATION"
             break
         }
 
@@ -69591,10 +69807,41 @@ $SHUB_Completers = {
             break
         }
 
+        # Amazon.SecurityHub.RuleStatusV2
+        {
+            ($_ -eq "New-SHUBAutomationRuleV2/RuleStatus") -Or
+            ($_ -eq "Update-SHUBAutomationRuleV2/RuleStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.SecurityHub.SecurityHubFeature
+        {
+            ($_ -eq "Disable-SHUBOrganizationAdminAccount/Feature") -Or
+            ($_ -eq "Enable-SHUBOrganizationAdminAccount/Feature") -Or
+            ($_ -eq "Get-SHUBOrganizationAdminAccountList/Feature")
+        }
+        {
+            $v = "SecurityHub","SecurityHubV2"
+            break
+        }
+
         # Amazon.SecurityHub.SeverityLabel
         "Update-SHUBFindingsBatch/Severity_Label"
         {
             $v = "CRITICAL","HIGH","INFORMATIONAL","LOW","MEDIUM"
+            break
+        }
+
+        # Amazon.SecurityHub.SortOrder
+        {
+            ($_ -eq "Get-SHUBFindingStatisticsV2/SortOrder") -Or
+            ($_ -eq "Get-SHUBResourcesStatisticsV2/SortOrder")
+        }
+        {
+            $v = "asc","desc"
             break
         }
 
@@ -69622,15 +69869,21 @@ $SHUB_Completers = {
 
 $SHUB_map = @{
     "AutoEnableStandard"=@("Update-SHUBOrganizationConfiguration")
+    "ConnectorStatus"=@("Get-SHUBConnectorsV2List")
     "ControlFindingGenerator"=@("Enable-SHUBSecurityHub","Update-SHUBSecurityHubConfiguration")
     "ControlStatus"=@("Update-SHUBStandardsControl")
+    "Feature"=@("Disable-SHUBOrganizationAdminAccount","Enable-SHUBOrganizationAdminAccount","Get-SHUBOrganizationAdminAccountList")
     "Filters_AssociationStatus"=@("Get-SHUBConfigurationPolicyAssociationList")
     "Filters_AssociationType"=@("Get-SHUBConfigurationPolicyAssociationList")
+    "Filters_CompositeOperator"=@("Get-SHUBFindingsV2","Get-SHUBResourcesV2")
+    "OcsfFindingCriteria_CompositeOperator"=@("New-SHUBAutomationRuleV2","Update-SHUBAutomationRuleV2")
     "OrganizationConfiguration_ConfigurationType"=@("Update-SHUBOrganizationConfiguration")
     "OrganizationConfiguration_Status"=@("Update-SHUBOrganizationConfiguration")
+    "ProviderName"=@("Get-SHUBConnectorsV2List")
     "RecordState"=@("Update-SHUBFinding")
-    "RuleStatus"=@("New-SHUBAutomationRule")
+    "RuleStatus"=@("New-SHUBAutomationRule","New-SHUBAutomationRuleV2","Update-SHUBAutomationRuleV2")
     "Severity_Label"=@("Update-SHUBFindingsBatch")
+    "SortOrder"=@("Get-SHUBFindingStatisticsV2","Get-SHUBResourcesStatisticsV2")
     "VerificationState"=@("Update-SHUBFindingsBatch")
     "Workflow_Status"=@("Update-SHUBFindingsBatch")
 }
@@ -69697,16 +69950,25 @@ $SHUB_SelectMap = @{
                "Import-SHUBFindingsBatch",
                "Edit-SHUBUpdateAutomationRule",
                "Update-SHUBFindingsBatch",
+               "Set-SHUBBatchFindingsV2",
                "Edit-SHUBUpdateStandardsControlAssociation",
+               "Register-SHUBConnectorV2",
                "New-SHUBActionTarget",
+               "New-SHUBAggregatorV2",
                "New-SHUBAutomationRule",
+               "New-SHUBAutomationRuleV2",
                "New-SHUBConfigurationPolicy",
+               "New-SHUBConnectorV2",
                "New-SHUBFindingAggregator",
                "New-SHUBInsight",
                "New-SHUBMember",
+               "New-SHUBTicketV2",
                "Deny-SHUBInvitation",
                "Remove-SHUBActionTarget",
+               "Remove-SHUBAggregatorV2",
+               "Remove-SHUBAutomationRuleV2",
                "Remove-SHUBConfigurationPolicy",
+               "Remove-SHUBConnectorV2",
                "Remove-SHUBFindingAggregator",
                "Remove-SHUBInsight",
                "Remove-SHUBInvitation",
@@ -69715,34 +69977,48 @@ $SHUB_SelectMap = @{
                "Get-SHUBHub",
                "Get-SHUBOrganizationConfiguration",
                "Get-SHUBProduct",
+               "Get-SHUBProductsV2",
+               "Get-SHUBSecurityHubV2",
                "Get-SHUBStandard",
                "Get-SHUBStandardsControl",
                "Disable-SHUBImportFindingsForProduct",
                "Disable-SHUBOrganizationAdminAccount",
                "Disable-SHUBSecurityHub",
+               "Disable-SHUBSecurityHubV2",
                "Remove-SHUBFromAdministratorAccount",
                "Remove-SHUBMasterAccountAssociation",
                "Remove-SHUBMemberAssociation",
                "Enable-SHUBImportFindingsForProduct",
                "Enable-SHUBOrganizationAdminAccount",
                "Enable-SHUBSecurityHub",
+               "Enable-SHUBSecurityHubV2",
                "Get-SHUBAdministratorAccount",
+               "Get-SHUBAggregatorV2",
+               "Get-SHUBAutomationRuleV2",
                "Get-SHUBConfigurationPolicy",
                "Get-SHUBConfigurationPolicyAssociation",
+               "Get-SHUBConnectorV2",
                "Get-SHUBEnabledStandard",
                "Get-SHUBFindingAggregator",
                "Get-SHUBFindingHistory",
                "Get-SHUBFinding",
+               "Get-SHUBFindingStatisticsV2",
+               "Get-SHUBFindingsV2",
                "Get-SHUBInsightResult",
                "Get-SHUBInsight",
                "Get-SHUBInvitationsCount",
                "Get-SHUBMasterAccount",
                "Get-SHUBMember",
+               "Get-SHUBResourcesStatisticsV2",
+               "Get-SHUBResourcesV2",
                "Get-SHUBSecurityControlDefinition",
                "Send-SHUBMemberInvitation",
+               "Get-SHUBAggregatorsV2List",
                "Get-SHUBAutomationRuleList",
+               "Get-SHUBAutomationRulesV2List",
                "Get-SHUBConfigurationPolicyList",
                "Get-SHUBConfigurationPolicyAssociationList",
+               "Get-SHUBConnectorsV2List",
                "Get-SHUBEnabledProductsForImportList",
                "Get-SHUBFindingAggregatorList",
                "Get-SHUBInvitationList",
@@ -69756,7 +70032,10 @@ $SHUB_SelectMap = @{
                "Add-SHUBResourceTag",
                "Remove-SHUBResourceTag",
                "Update-SHUBActionTarget",
+               "Update-SHUBAggregatorV2",
+               "Update-SHUBAutomationRuleV2",
                "Update-SHUBConfigurationPolicy",
+               "Update-SHUBConnectorV2",
                "Update-SHUBFindingAggregator",
                "Update-SHUBFinding",
                "Update-SHUBInsight",

@@ -28,7 +28,15 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
+    /// <important><para>
+    ///  End of support notice: On May 20, 2026, Amazon Web Services will end support for
+    /// Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be
+    /// able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services
+    /// DMS Fleet Advisor; resources. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html">Amazon
+    /// Web Services DMS Fleet Advisor end of support</a>. 
+    /// </para></important><para>
     /// Provides descriptions of the schemas discovered by your Fleet Advisor collectors.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "DMSFleetAdvisorSchemaObjectSummary")]
     [OutputType("Amazon.DatabaseMigrationService.Model.FleetAdvisorSchemaObjectResponse")]
@@ -57,7 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para>Sets the maximum number of records returned in the response.</para>
+        /// <important><para> End of support notice: On May 20, 2026, Amazon Web Services will end support for
+        /// Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be
+        /// able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services
+        /// DMS Fleet Advisor; resources. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html">Amazon
+        /// Web Services DMS Fleet Advisor end of support</a>. </para></important><para>Sets the maximum number of records returned in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

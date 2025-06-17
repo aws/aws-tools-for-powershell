@@ -85,6 +85,17 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         public Amazon.WAFV2.Model.AllowAction DefaultAction_Allow { get; set; }
         #endregion
         
+        #region Parameter ApplicationConfig_Attribute
+        /// <summary>
+        /// <para>
+        /// <para>Contains the attribute name and a list of values for that attribute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ApplicationConfig_Attributes")]
+        public Amazon.WAFV2.Model.ApplicationAttribute[] ApplicationConfig_Attribute { get; set; }
+        #endregion
+        
         #region Parameter DefaultAction_Block
         /// <summary>
         /// <para>
@@ -377,6 +388,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.ApplicationConfig_Attribute != null)
+            {
+                context.ApplicationConfig_Attribute = new List<Amazon.WAFV2.Model.ApplicationAttribute>(this.ApplicationConfig_Attribute);
+            }
             if (this.AssociationConfig_RequestBody != null)
             {
                 context.AssociationConfig_RequestBody = new Dictionary<System.String, Amazon.WAFV2.Model.RequestBodyAssociatedResourceTypeConfig>(StringComparer.Ordinal);
@@ -466,6 +481,25 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             // create request
             var request = new Amazon.WAFV2.Model.CreateWebACLRequest();
             
+            
+             // populate ApplicationConfig
+            var requestApplicationConfigIsNull = true;
+            request.ApplicationConfig = new Amazon.WAFV2.Model.ApplicationConfig();
+            List<Amazon.WAFV2.Model.ApplicationAttribute> requestApplicationConfig_applicationConfig_Attribute = null;
+            if (cmdletContext.ApplicationConfig_Attribute != null)
+            {
+                requestApplicationConfig_applicationConfig_Attribute = cmdletContext.ApplicationConfig_Attribute;
+            }
+            if (requestApplicationConfig_applicationConfig_Attribute != null)
+            {
+                request.ApplicationConfig.Attributes = requestApplicationConfig_applicationConfig_Attribute;
+                requestApplicationConfigIsNull = false;
+            }
+             // determine if request.ApplicationConfig should be set to null
+            if (requestApplicationConfigIsNull)
+            {
+                request.ApplicationConfig = null;
+            }
             
              // populate AssociationConfig
             var requestAssociationConfigIsNull = true;
@@ -748,6 +782,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.WAFV2.Model.ApplicationAttribute> ApplicationConfig_Attribute { get; set; }
             public Dictionary<System.String, Amazon.WAFV2.Model.RequestBodyAssociatedResourceTypeConfig> AssociationConfig_RequestBody { get; set; }
             public System.Int64? CaptchaConfig_ImmunityTimeProperty_ImmunityTime { get; set; }
             public System.Int64? ChallengeConfig_ImmunityTimeProperty_ImmunityTime { get; set; }

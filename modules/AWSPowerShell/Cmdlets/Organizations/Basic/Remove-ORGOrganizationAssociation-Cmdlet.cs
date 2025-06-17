@@ -65,11 +65,6 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// delegated administrator, you must first change the delegated administrator account
     /// to another account that is remaining in the organization.
     /// </para></li><li><para>
-    /// You can leave an organization only after you enable IAM user access to billing in
-    /// your account. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">About
-    /// IAM access to the Billing and Cost Management console</a> in the <i>Amazon Web Services
-    /// Billing and Cost Management User Guide</i>.
-    /// </para></li><li><para>
     /// After the account leaves the organization, all tags that were attached to the account
     /// object in the organization are deleted. Amazon Web Services accounts outside of an
     /// organization do not support tags.

@@ -60,6 +60,18 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         public System.String AdminAccountId { get; set; }
         #endregion
         
+        #region Parameter Feature
+        /// <summary>
+        /// <para>
+        /// <para>The feature for which the delegated admin account is disabled. Defaults to Security
+        /// Hub if not specified.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SecurityHub.SecurityHubFeature")]
+        public Amazon.SecurityHub.SecurityHubFeature Feature { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -128,6 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
                 WriteWarning("You are passing $null as a value for parameter AdminAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Feature = this.Feature;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -147,6 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (cmdletContext.AdminAccountId != null)
             {
                 request.AdminAccountId = cmdletContext.AdminAccountId;
+            }
+            if (cmdletContext.Feature != null)
+            {
+                request.Feature = cmdletContext.Feature;
             }
             
             CmdletOutput output;
@@ -210,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AdminAccountId { get; set; }
+            public Amazon.SecurityHub.SecurityHubFeature Feature { get; set; }
             public System.Func<Amazon.SecurityHub.Model.DisableOrganizationAdminAccountResponse, DisableSHUBOrganizationAdminAccountCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

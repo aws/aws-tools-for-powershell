@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.1064.0",
+    "ProductVersion"    : "3.7.1065.0",
     "CoreVersion"       : "3.7.402.71",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -324,7 +324,7 @@
             "InPreview"               : false
         },
         "SecurityToken"        : {
-            "Version" : "3.7.401.114",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.71"
@@ -508,7 +508,7 @@
             "InPreview"               : false
         },
         "CertificateManager"              : {
-            "Version" : "3.7.401.24",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.71"
@@ -524,7 +524,7 @@
             "InPreview"               : false
         },
         "DatabaseMigrationService"        : {
-            "Version" : "3.7.409.14",
+            "Version" : "3.7.410.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.71"
@@ -748,7 +748,7 @@
             "InPreview"               : false
         },
         "Organizations"                   : {
-            "Version" : "3.7.405.94",
+            "Version" : "3.7.406.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.71"
@@ -900,7 +900,7 @@
             "InPreview"               : false
         },
         "GuardDuty"                       : {
-            "Version" : "3.7.406.67",
+            "Version" : "3.7.407.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.71"
@@ -1260,7 +1260,7 @@
             "InPreview"               : false
         },
         "SecurityHub"                     : {
-            "Version" : "3.7.403.56",
+            "Version" : "3.7.404.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.71"
@@ -1316,7 +1316,7 @@
             "InPreview"               : false
         },
         "Backup"                          : {
-            "Version" : "3.7.403.6",
+            "Version" : "3.7.404.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.71"
@@ -1556,7 +1556,7 @@
             "InPreview"               : false
         },
         "WAFV2"                           : {
-            "Version" : "3.7.408.0",
+            "Version" : "3.7.409.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.71"
@@ -1596,7 +1596,7 @@
             "InPreview"               : false
         },
         "AccessAnalyzer"                  : {
-            "Version" : "3.7.404.29",
+            "Version" : "3.7.405.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.71"
@@ -1820,7 +1820,7 @@
             "InPreview"               : false
         },
         "NetworkFirewall"                 : {
-            "Version" : "3.7.407.0",
+            "Version" : "3.7.408.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.71"
@@ -2260,7 +2260,7 @@
             "InPreview"               : false
         },
         "Inspector2"                          : {
-            "Version" : "3.7.406.11",
+            "Version" : "3.7.407.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.71"
@@ -2748,7 +2748,7 @@
             "InPreview"               : false
         },
         "Bedrock"                             : {
-            "Version" : "3.7.422.0",
+            "Version" : "3.7.422.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.71"
@@ -3245,6 +3245,14 @@
         },
         "Evs"                                 : {
             "Version" : "3.7.400.5",
+            "AssemblyVersionOverride" : "3.3",
+            "Dependencies"            : {
+                "Core" : "3.7.402.71"
+            },
+            "InPreview"               : false
+        },
+        "MPA"                                 : {
+            "Version" : "3.7.400.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.71"

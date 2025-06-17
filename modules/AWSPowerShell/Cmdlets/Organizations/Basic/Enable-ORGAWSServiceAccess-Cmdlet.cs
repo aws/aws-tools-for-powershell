@@ -48,9 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// Organizations with other Amazon Web Services services</a> in the <i>Organizations
     /// User Guide</i>.
     /// </para><para>
-    /// You can only call this operation from the organization's management account and only
-    /// if the organization has <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">enabled
-    /// all features</a>.
+    /// This operation can be called only from the organization's management account.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "ORGAWSServiceAccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

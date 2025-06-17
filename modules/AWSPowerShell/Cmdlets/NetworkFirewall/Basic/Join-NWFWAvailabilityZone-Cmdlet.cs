@@ -40,13 +40,13 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     /// to monitor the status of the new endpoints.
     /// </para>
     /// </summary>
-    [Cmdlet("Register", "NWFWAvailabilityZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Join", "NWFWAvailabilityZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.NetworkFirewall.Model.AssociateAvailabilityZonesResponse")]
     [AWSCmdlet("Calls the AWS Network Firewall AssociateAvailabilityZones API operation.", Operation = new[] {"AssociateAvailabilityZones"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.AssociateAvailabilityZonesResponse))]
     [AWSCmdletOutput("Amazon.NetworkFirewall.Model.AssociateAvailabilityZonesResponse",
         "This cmdlet returns an Amazon.NetworkFirewall.Model.AssociateAvailabilityZonesResponse object containing multiple properties."
     )]
-    public partial class RegisterNWFWAvailabilityZoneCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
+    public partial class JoinNWFWAvailabilityZoneCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>The Amazon Resource Name (ARN) of the firewall.</para><para>You must specify the ARN or the name, and you can specify both. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String FirewallArn { get; set; }
         #endregion
         
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// you create it.</para><para>You must specify the ARN or the name, and you can specify both. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String FirewallName { get; set; }
         #endregion
         
@@ -123,10 +123,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the FirewallArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^FirewallArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the FirewallName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^FirewallName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FirewallArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FirewallName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -146,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-NWFWAvailabilityZone (AssociateAvailabilityZones)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FirewallName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Join-NWFWAvailabilityZone (AssociateAvailabilityZones)"))
             {
                 return;
             }
@@ -160,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.NetworkFirewall.Model.AssociateAvailabilityZonesResponse, RegisterNWFWAvailabilityZoneCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.NetworkFirewall.Model.AssociateAvailabilityZonesResponse, JoinNWFWAvailabilityZoneCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.FirewallArn;
+                context.Select = (response, cmdlet) => this.FirewallName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.AvailabilityZoneMapping != null)
@@ -282,7 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public System.String FirewallArn { get; set; }
             public System.String FirewallName { get; set; }
             public System.String UpdateToken { get; set; }
-            public System.Func<Amazon.NetworkFirewall.Model.AssociateAvailabilityZonesResponse, RegisterNWFWAvailabilityZoneCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.NetworkFirewall.Model.AssociateAvailabilityZonesResponse, JoinNWFWAvailabilityZoneCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

@@ -185,6 +185,17 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public System.String RuleGroupName { get; set; }
         #endregion
         
+        #region Parameter SummaryConfiguration_RuleOption
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the selected rule options returned by <a>DescribeRuleGroupSummary</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SummaryConfiguration_RuleOptions")]
+        public System.String[] SummaryConfiguration_RuleOption { get; set; }
+        #endregion
+        
         #region Parameter StatefulRuleOptions_RuleOrder
         /// <summary>
         /// <para>
@@ -475,6 +486,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             context.Rule = this.Rule;
             context.SourceMetadata_SourceArn = this.SourceMetadata_SourceArn;
             context.SourceMetadata_SourceUpdateToken = this.SourceMetadata_SourceUpdateToken;
+            if (this.SummaryConfiguration_RuleOption != null)
+            {
+                context.SummaryConfiguration_RuleOption = new List<System.String>(this.SummaryConfiguration_RuleOption);
+            }
             context.Type = this.Type;
             context.UpdateToken = this.UpdateToken;
             #if MODULAR
@@ -790,6 +805,25 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             {
                 request.SourceMetadata = null;
             }
+            
+             // populate SummaryConfiguration
+            var requestSummaryConfigurationIsNull = true;
+            request.SummaryConfiguration = new Amazon.NetworkFirewall.Model.SummaryConfiguration();
+            List<System.String> requestSummaryConfiguration_summaryConfiguration_RuleOption = null;
+            if (cmdletContext.SummaryConfiguration_RuleOption != null)
+            {
+                requestSummaryConfiguration_summaryConfiguration_RuleOption = cmdletContext.SummaryConfiguration_RuleOption;
+            }
+            if (requestSummaryConfiguration_summaryConfiguration_RuleOption != null)
+            {
+                request.SummaryConfiguration.RuleOptions = requestSummaryConfiguration_summaryConfiguration_RuleOption;
+                requestSummaryConfigurationIsNull = false;
+            }
+             // determine if request.SummaryConfiguration should be set to null
+            if (requestSummaryConfigurationIsNull)
+            {
+                request.SummaryConfiguration = null;
+            }
             if (cmdletContext.Type != null)
             {
                 request.Type = cmdletContext.Type;
@@ -880,6 +914,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public System.String Rule { get; set; }
             public System.String SourceMetadata_SourceArn { get; set; }
             public System.String SourceMetadata_SourceUpdateToken { get; set; }
+            public List<System.String> SummaryConfiguration_RuleOption { get; set; }
             public Amazon.NetworkFirewall.RuleGroupType Type { get; set; }
             public System.String UpdateToken { get; set; }
             public System.Func<Amazon.NetworkFirewall.Model.UpdateRuleGroupResponse, UpdateNWFWRuleGroupCmdlet, object> Select { get; set; } =

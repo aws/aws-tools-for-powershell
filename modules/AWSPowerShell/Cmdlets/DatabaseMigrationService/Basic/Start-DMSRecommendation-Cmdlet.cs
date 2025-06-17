@@ -28,10 +28,15 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
+    /// <important><para>
+    ///  End of support notice: On May 20, 2026, Amazon Web Services will end support for
+    /// Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be
+    /// able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services
+    /// DMS Fleet Advisor; resources. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html">Amazon
+    /// Web Services DMS Fleet Advisor end of support</a>. 
+    /// </para></important><para>
     /// Starts the analysis of your source database to provide recommendations of target engines.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// You can create recommendations for multiple source databases using <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_BatchStartRecommendations.html">BatchStartRecommendations</a>.
     /// </para>
     /// </summary>

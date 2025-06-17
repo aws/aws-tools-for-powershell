@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// Policy (any type)
     /// </para></li></ul><para>
     /// This operation can be called only from the organization's management account or by
-    /// a member account that is a delegated administrator for an Amazon Web Services service.
+    /// a member account that is a delegated administrator.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "ORGResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

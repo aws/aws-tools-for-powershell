@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ReplicationSubnetGroupDescription
         /// <summary>
         /// <para>
-        /// <para>The description for the subnet group.</para>
+        /// <para>The description for the subnet group. </para><para>Constraints: This parameter Must not contain non-printable control characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

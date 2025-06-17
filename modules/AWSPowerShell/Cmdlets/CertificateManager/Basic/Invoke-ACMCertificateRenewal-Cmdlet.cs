@@ -28,9 +28,9 @@ using Amazon.CertificateManager.Model;
 namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
-    /// Renews an eligible ACM certificate. At this time, only exported private certificates
-    /// can be renewed with this operation. In order to renew your Amazon Web Services Private
-    /// CA certificates with ACM, you must first <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaPermissions.html">grant
+    /// Renews an <a href="https://docs.aws.amazon.com/acm/latest/userguide/managed-renewal.html">eligible
+    /// ACM certificate</a>. In order to renew your Amazon Web Services Private CA certificates
+    /// with ACM, you must first <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaPermissions.html">grant
     /// the ACM service principal permission to do so</a>. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/manual-renewal.html">Testing
     /// Managed Renewal</a> in the ACM User Guide.
     /// </summary>

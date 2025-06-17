@@ -18,11 +18,11 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptNetworkFirewallTransitGatewayAttachment" OutputProperty="*" Verb="Approve" Noun="NetworkFirewallTransitGatewayAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AcceptNetworkFirewallTransitGatewayAttachment" OutputProperty="*" Verb="Receive" Noun="NetworkFirewallTransitGatewayAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateAvailabilityZones" OutputProperty="*" Verb="Register" Noun="AvailabilityZone" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateAvailabilityZones" OutputProperty="*" Verb="Join" Noun="AvailabilityZone" ShouldProcessTarget="FirewallName" PipelineParameter="FirewallName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -50,7 +50,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVpcEndpointAssociation" OutputProperty="*" Verb="New" Noun="VpcEndpointAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateVpcEndpointAssociation" OutputProperty="*" Verb="New" Noun="VpcEndpointAssociation" ShouldProcessTarget="VpcId" PipelineParameter="FirewallArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -114,6 +114,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRuleGroupSummary" OutputProperty="*" Verb="Get" Noun="RuleGroupSummary" PipelineParameter="RuleGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeTLSInspectionConfiguration" OutputProperty="*" Verb="Get" Noun="TLSInspectionConfiguration" PipelineParameter="TLSInspectionConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -122,7 +126,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateAvailabilityZones" OutputProperty="*" Verb="Unregister" Noun="AvailabilityZone" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateAvailabilityZones" OutputProperty="*" Verb="Remove" Noun="AvailabilityZone" ShouldProcessTarget="FirewallName" PipelineParameter="FirewallName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

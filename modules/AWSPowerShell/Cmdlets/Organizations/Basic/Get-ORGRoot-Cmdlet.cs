@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// parameter value is <c>null</c><i>only</i> when there are no more results to display.
     /// </para></note><para>
     /// This operation can be called only from the organization's management account or by
-    /// a member account that is a delegated administrator for an Amazon Web Services service.
+    /// a member account that is a delegated administrator.
     /// </para><note><para>
     /// Policy types can be enabled and disabled in roots. This is distinct from whether they're
     /// available in the organization. When you enable all features, you make policy types
