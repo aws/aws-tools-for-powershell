@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// Amazon.Inspector2.Model.BatchGetMemberEc2DeepInspectionStatusRequest.AccountIds
+        /// <para>The unique identifiers for the Amazon Web Services accounts to retrieve Amazon Inspector
+        /// deep inspection activation status for. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -22,6 +22,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchAssociateCodeSecurityScanConfiguration" OutputProperty="*" Verb="Register" Noun="CodeSecurityScanConfigurationBatch" ShouldProcessTarget="AssociateConfigurationRequests" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDisassociateCodeSecurityScanConfiguration" OutputProperty="*" Verb="Unregister" Noun="CodeSecurityScanConfigurationBatch" ShouldProcessTarget="DisassociateConfigurationRequests" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetAccountStatus" OutputProperty="*" Verb="Get" Noun="GetAccountStatus" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -65,6 +73,14 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCodeSecurityIntegration" OutputProperty="*" Verb="New" Noun="CodeSecurityIntegration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCodeSecurityScanConfiguration" OutputProperty="ScanConfigurationArn" Verb="New" Noun="CodeSecurityScanConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateFilter" OutputProperty="Arn" Verb="New" Noun="Filter" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -78,6 +94,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteCisScanConfiguration" OutputProperty="ScanConfigurationArn" Verb="Remove" Noun="CisScanConfiguration" ShouldProcessTarget="ScanConfigurationArn" PipelineParameter="ScanConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCodeSecurityIntegration" OutputProperty="IntegrationArn" Verb="Remove" Noun="CodeSecurityIntegration" ShouldProcessTarget="IntegrationArn" PipelineParameter="IntegrationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCodeSecurityScanConfiguration" OutputProperty="ScanConfigurationArn" Verb="Remove" Noun="CodeSecurityScanConfiguration" ShouldProcessTarget="ScanConfigurationArn" PipelineParameter="ScanConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -118,6 +142,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetClustersForImage" OutputProperty="Cluster" Verb="Get" Noun="ClustersForImage" PipelineParameter="Filter_ResourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCodeSecurityIntegration" OutputProperty="*" Verb="Get" Noun="CodeSecurityIntegration" PipelineParameter="IntegrationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCodeSecurityScan" OutputProperty="*" Verb="Get" Noun="CodeSecurityScan" PipelineParameter="ScanId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCodeSecurityScanConfiguration" OutputProperty="*" Verb="Get" Noun="CodeSecurityScanConfiguration" PipelineParameter="ScanConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -166,6 +202,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCisScans" OutputProperty="Scans" Verb="Get" Noun="CisScanList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCodeSecurityIntegrations" OutputProperty="Integrations" Verb="Get" Noun="CodeSecurityIntegrationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCodeSecurityScanConfigurationAssociations" OutputProperty="Associations" Verb="Get" Noun="CodeSecurityScanConfigurationAssociationList" PipelineParameter="ScanConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCodeSecurityScanConfigurations" OutputProperty="Configurations" Verb="Get" Noun="CodeSecurityScanConfigurationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -229,6 +277,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartCodeSecurityScan" OutputProperty="*" Verb="Start" Noun="CodeSecurityScan" ShouldProcessTarget="Resource_ProjectId" PipelineParameter="Resource_ProjectId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopCisSession" Verb="Stop" Noun="CisSession" ShouldProcessTarget="ScanJobId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="SessionToken" NewName="CisSessionToken" AutoApplyAlias="false" />
@@ -252,6 +304,14 @@
                 <Param Name="Schedule_Weekly_StartTime_TimeOfDay" NewName="Schedule_Weekly_StartTime_TimeOfDay" />
                 <Param Name="Schedule_Weekly_StartTime_Timezone" NewName="Schedule_Weekly_StartTime_Timezone" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCodeSecurityIntegration" OutputProperty="*" Verb="Update" Noun="CodeSecurityIntegration" ShouldProcessTarget="IntegrationArn" PipelineParameter="IntegrationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCodeSecurityScanConfiguration" OutputProperty="ScanConfigurationArn" Verb="Update" Noun="CodeSecurityScanConfiguration" ShouldProcessTarget="ScanConfigurationArn" PipelineParameter="ScanConfigurationArn" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConfiguration" Verb="Update" Noun="Configuration" ShouldProcessTarget="EcrConfiguration_RescanDuration" PipelineParameter="EcrConfiguration_RescanDuration" NoPipelineParameter="false" LegacyV4Pagination="true">

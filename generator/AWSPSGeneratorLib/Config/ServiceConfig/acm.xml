@@ -47,7 +47,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCertificates" OutputProperty="CertificateSummaryList" Verb="Get" Noun="CertificateList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCertificates" OutputProperty="CertificateSummaryList" Verb="Get" Noun="CertificateList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -72,6 +72,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ResendValidationEmail" Verb="Send" Noun="ValidationEmail" ShouldProcessTarget="CertificateArn" PipelineParameter="CertificateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokeCertificate" OutputProperty="CertificateArn" Verb="Revoke" Noun="Certificate" ShouldProcessTarget="CertificateArn" PipelineParameter="CertificateArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

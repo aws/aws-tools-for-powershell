@@ -28,9 +28,8 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Creates a new custom model in Amazon Bedrock from an existing SageMaker AI-trained
-    /// Amazon Nova model stored in an Amazon-managed Amazon S3 bucket. After the model is
-    /// active, you can use it for inference.
+    /// Creates a new custom model in Amazon Bedrock. After the model is active, you can use
+    /// it for inference.
     /// 
     ///  
     /// <para>
@@ -45,15 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     /// </para><ul><li><para><c>Creating</c> - Initial state during validation and registration
     /// </para></li><li><para><c>Active</c> - Model is ready for use in inference
     /// </para></li><li><para><c>Failed</c> - Creation process encountered an error
-    /// </para></li></ul><para>
-    /// For more information about creating custom models, including specific model requirements,
-    /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/create-custom-model-from-existing.html">Import
-    /// a SageMaker AI-trained Amazon Nova model</a> in the Amazon Bedrock User Guide. 
-    /// </para><note><para>
-    /// You use the <c>CreateCustomModel</c> API to import only SageMaker AI-trained Amazon
-    /// Nova models. To import open-source models, you use the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelImportJob.html">CreateModelImportJob</a>.
-    /// 
-    /// </para></note><para><b>Related APIs</b></para><ul><li><para><a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetCustomModel.html">GetCustomModel</a></para></li><li><para><a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListCustomModels.html">ListCustomModels</a></para></li><li><para><a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteCustomModel.html">DeleteCustomModel</a></para></li></ul>
+    /// </para></li></ul><para><b>Related APIs</b></para><ul><li><para><a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetCustomModel.html">GetCustomModel</a></para></li><li><para><a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListCustomModels.html">ListCustomModels</a></para></li><li><para><a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteCustomModel.html">DeleteCustomModel</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "BDRCustomModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

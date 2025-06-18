@@ -46,6 +46,18 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Feature
+        /// <summary>
+        /// <para>
+        /// <para>The feature where the delegated administrator account is listed. Defaults to Security
+        /// Hub if not specified.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SecurityHub.SecurityHubFeature")]
+        public Amazon.SecurityHub.SecurityHubFeature Feature { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -114,6 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
                 context.Select = CreateSelectDelegate<Amazon.SecurityHub.Model.ListOrganizationAdminAccountsResponse, GetSHUBOrganizationAdminAccountListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Feature = this.Feature;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -134,6 +147,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             // create request and set iteration invariants
             var request = new Amazon.SecurityHub.Model.ListOrganizationAdminAccountsRequest();
             
+            if (cmdletContext.Feature != null)
+            {
+                request.Feature = cmdletContext.Feature;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -217,6 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.SecurityHub.SecurityHubFeature Feature { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.SecurityHub.Model.ListOrganizationAdminAccountsResponse, GetSHUBOrganizationAdminAccountListCmdlet, object> Select { get; set; } =

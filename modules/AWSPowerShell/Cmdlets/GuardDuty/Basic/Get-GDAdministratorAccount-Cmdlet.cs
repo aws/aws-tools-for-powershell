@@ -33,10 +33,20 @@ namespace Amazon.PowerShell.Cmdlets.GD
     /// Provides the details of the GuardDuty administrator account associated with the current
     /// GuardDuty member account.
     /// 
-    ///  <note><para>
-    /// If the organization's management account or a delegated administrator runs this API,
-    /// it will return success (<c>HTTP 200</c>) but no content.
-    /// </para></note>
+    ///  
+    /// <para>
+    /// Based on the type of account that runs this API, the following list shows how the
+    /// API behavior varies:
+    /// </para><ul><li><para>
+    /// When the GuardDuty administrator account runs this API, it will return success (<c>HTTP
+    /// 200</c>) but no content.
+    /// </para></li><li><para>
+    /// When a member account runs this API, it will return the details of the GuardDuty administrator
+    /// account that is associated with this calling member account.
+    /// </para></li><li><para>
+    /// When an individual account (not associated with an organization) runs this API, it
+    /// will return success (<c>HTTP 200</c>) but no content.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "GDAdministratorAccount")]
     [OutputType("Amazon.GuardDuty.Model.Administrator")]

@@ -73,6 +73,27 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_AwsAccountId { get; set; }
         #endregion
         
+        #region Parameter FilterCriteria_CodeRepositoryProjectName
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for findings based on the project name in a code repository.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_CodeRepositoryProjectName { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CodeRepositoryProviderType
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for findings based on the repository provider type (such as GitHub,
+        /// GitLab, etc.).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_CodeRepositoryProviderType { get; set; }
+        #endregion
+        
         #region Parameter FilterCriteria_CodeVulnerabilityDetectorName
         /// <summary>
         /// <para>
@@ -632,6 +653,14 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             {
                 context.FilterCriteria_AwsAccountId = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_AwsAccountId);
             }
+            if (this.FilterCriteria_CodeRepositoryProjectName != null)
+            {
+                context.FilterCriteria_CodeRepositoryProjectName = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_CodeRepositoryProjectName);
+            }
+            if (this.FilterCriteria_CodeRepositoryProviderType != null)
+            {
+                context.FilterCriteria_CodeRepositoryProviderType = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_CodeRepositoryProviderType);
+            }
             if (this.FilterCriteria_CodeVulnerabilityDetectorName != null)
             {
                 context.FilterCriteria_CodeVulnerabilityDetectorName = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_CodeVulnerabilityDetectorName);
@@ -856,6 +885,26 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_AwsAccountId != null)
             {
                 request.FilterCriteria.AwsAccountId = requestFilterCriteria_filterCriteria_AwsAccountId;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CodeRepositoryProjectName = null;
+            if (cmdletContext.FilterCriteria_CodeRepositoryProjectName != null)
+            {
+                requestFilterCriteria_filterCriteria_CodeRepositoryProjectName = cmdletContext.FilterCriteria_CodeRepositoryProjectName;
+            }
+            if (requestFilterCriteria_filterCriteria_CodeRepositoryProjectName != null)
+            {
+                request.FilterCriteria.CodeRepositoryProjectName = requestFilterCriteria_filterCriteria_CodeRepositoryProjectName;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CodeRepositoryProviderType = null;
+            if (cmdletContext.FilterCriteria_CodeRepositoryProviderType != null)
+            {
+                requestFilterCriteria_filterCriteria_CodeRepositoryProviderType = cmdletContext.FilterCriteria_CodeRepositoryProviderType;
+            }
+            if (requestFilterCriteria_filterCriteria_CodeRepositoryProviderType != null)
+            {
+                request.FilterCriteria.CodeRepositoryProviderType = requestFilterCriteria_filterCriteria_CodeRepositoryProviderType;
                 requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CodeVulnerabilityDetectorName = null;
@@ -1363,6 +1412,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public Amazon.Inspector2.FilterAction Action { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_AwsAccountId { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CodeRepositoryProjectName { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CodeRepositoryProviderType { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CodeVulnerabilityDetectorName { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CodeVulnerabilityDetectorTag { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CodeVulnerabilityFilePath { get; set; }

@@ -30,8 +30,21 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Returns history for a Security Hub finding in the last 90 days. The history includes
-    /// changes made to any fields in the Amazon Web Services Security Finding Format (ASFF).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns the history of a Security Hub finding for the past 90 days. The history includes
+    /// changes made to any fields in the Amazon Web Services Security Finding Format (ASFF)
+    /// except top-level timestamp fields, such as the <c>CreatedAt</c> and <c>UpdatedAt</c>
+    /// fields. 
+    /// 
+    ///  
+    /// <para>
+    /// This operation might return fewer results than the maximum number of results (<c>MaxResults</c>)
+    /// specified in a request, even when more results are available. If this occurs, the
+    /// response includes a <c>NextToken</c> value, which you should use to retrieve the next
+    /// set of results in the response. The presence of a <c>NextToken</c> value in a response
+    /// doesn't necessarily indicate that the results are incomplete. However, you should
+    /// continue to specify a <c>NextToken</c> value until you receive a response that doesn't
+    /// include this value.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SHUBFindingHistory")]
     [OutputType("Amazon.SecurityHub.Model.FindingHistoryRecord")]

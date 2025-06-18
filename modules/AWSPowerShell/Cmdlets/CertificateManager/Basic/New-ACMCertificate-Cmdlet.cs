@@ -41,8 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// you are requesting a public certificate, each domain name that you specify must be
     /// validated to verify that you own or control the domain. You can use <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">DNS
     /// validation</a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">email
-    /// validation</a>. We recommend that you use DNS validation. ACM issues public certificates
-    /// after receiving approval from the domain owner. 
+    /// validation</a>. We recommend that you use DNS validation.
     /// </para><note><para>
     /// ACM behavior differs from the <a href="https://datatracker.ietf.org/doc/html/rfc6125#appendix-B.2">RFC
     /// 6125</a> specification of the certificate validation process. ACM first checks for
@@ -126,6 +125,17 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DomainValidationOptions")]
         public Amazon.CertificateManager.Model.DomainValidationOption[] DomainValidationOption { get; set; }
+        #endregion
+        
+        #region Parameter Options_Export
+        /// <summary>
+        /// <para>
+        /// <para>You can opt in to allow the export of your certificates by specifying <c>ENABLED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CertificateManager.CertificateExport")]
+        public Amazon.CertificateManager.CertificateExport Options_Export { get; set; }
         #endregion
         
         #region Parameter IdempotencyToken
@@ -284,6 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             context.KeyAlgorithm = this.KeyAlgorithm;
             context.ManagedBy = this.ManagedBy;
             context.Options_CertificateTransparencyLoggingPreference = this.Options_CertificateTransparencyLoggingPreference;
+            context.Options_Export = this.Options_Export;
             if (this.SubjectAlternativeName != null)
             {
                 context.SubjectAlternativeName = new List<System.String>(this.SubjectAlternativeName);
@@ -345,6 +356,16 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             if (requestOptions_options_CertificateTransparencyLoggingPreference != null)
             {
                 request.Options.CertificateTransparencyLoggingPreference = requestOptions_options_CertificateTransparencyLoggingPreference;
+                requestOptionsIsNull = false;
+            }
+            Amazon.CertificateManager.CertificateExport requestOptions_options_Export = null;
+            if (cmdletContext.Options_Export != null)
+            {
+                requestOptions_options_Export = cmdletContext.Options_Export;
+            }
+            if (requestOptions_options_Export != null)
+            {
+                request.Options.Export = requestOptions_options_Export;
                 requestOptionsIsNull = false;
             }
              // determine if request.Options should be set to null
@@ -426,6 +447,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             public Amazon.CertificateManager.KeyAlgorithm KeyAlgorithm { get; set; }
             public Amazon.CertificateManager.CertificateManagedBy ManagedBy { get; set; }
             public Amazon.CertificateManager.CertificateTransparencyLoggingPreference Options_CertificateTransparencyLoggingPreference { get; set; }
+            public Amazon.CertificateManager.CertificateExport Options_Export { get; set; }
             public List<System.String> SubjectAlternativeName { get; set; }
             public List<Amazon.CertificateManager.Model.Tag> Tag { get; set; }
             public Amazon.CertificateManager.ValidationMethod ValidationMethod { get; set; }

@@ -286,6 +286,28 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.StringFilter[] PackageAggregation_PackageName { get; set; }
         #endregion
         
+        #region Parameter CodeRepositoryAggregation_ProjectName
+        /// <summary>
+        /// <para>
+        /// <para>The project names to include in the aggregation results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_CodeRepositoryAggregation_ProjectNames")]
+        public Amazon.Inspector2.Model.StringFilter[] CodeRepositoryAggregation_ProjectName { get; set; }
+        #endregion
+        
+        #region Parameter CodeRepositoryAggregation_ProviderType
+        /// <summary>
+        /// <para>
+        /// <para>The repository provider types to include in the aggregation results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_CodeRepositoryAggregation_ProviderTypes")]
+        public Amazon.Inspector2.Model.StringFilter[] CodeRepositoryAggregation_ProviderType { get; set; }
+        #endregion
+        
         #region Parameter AwsEcrContainerAggregation_Repository
         /// <summary>
         /// <para>
@@ -328,6 +350,17 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AggregationRequest_AwsEcrContainerAggregation_ResourceIds")]
         public Amazon.Inspector2.Model.StringFilter[] AwsEcrContainerAggregation_ResourceId { get; set; }
+        #endregion
+        
+        #region Parameter CodeRepositoryAggregation_ResourceId
+        /// <summary>
+        /// <para>
+        /// <para>The resource IDs to include in the aggregation results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_CodeRepositoryAggregation_ResourceIds")]
+        public Amazon.Inspector2.Model.StringFilter[] CodeRepositoryAggregation_ResourceId { get; set; }
         #endregion
         
         #region Parameter ImageLayerAggregation_ResourceId
@@ -444,6 +477,18 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [Alias("AggregationRequest_AwsEcrContainerAggregation_SortBy")]
         [AWSConstantClassSource("Amazon.Inspector2.AwsEcrContainerSortBy")]
         public Amazon.Inspector2.AwsEcrContainerSortBy AwsEcrContainerAggregation_SortBy { get; set; }
+        #endregion
+        
+        #region Parameter CodeRepositoryAggregation_SortBy
+        /// <summary>
+        /// <para>
+        /// <para>The value to sort results by in the code repository aggregation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_CodeRepositoryAggregation_SortBy")]
+        [AWSConstantClassSource("Amazon.Inspector2.CodeRepositorySortBy")]
+        public Amazon.Inspector2.CodeRepositorySortBy CodeRepositoryAggregation_SortBy { get; set; }
         #endregion
         
         #region Parameter Ec2InstanceAggregation_SortBy
@@ -576,6 +621,18 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [Alias("AggregationRequest_AwsEcrContainerAggregation_SortOrder")]
         [AWSConstantClassSource("Amazon.Inspector2.SortOrder")]
         public Amazon.Inspector2.SortOrder AwsEcrContainerAggregation_SortOrder { get; set; }
+        #endregion
+        
+        #region Parameter CodeRepositoryAggregation_SortOrder
+        /// <summary>
+        /// <para>
+        /// <para>The order to sort results by (ascending or descending) in the code repository aggregation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_CodeRepositoryAggregation_SortOrder")]
+        [AWSConstantClassSource("Amazon.Inspector2.SortOrder")]
+        public Amazon.Inspector2.SortOrder CodeRepositoryAggregation_SortOrder { get; set; }
         #endregion
         
         #region Parameter Ec2InstanceAggregation_SortOrder
@@ -817,6 +874,20 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             }
             context.AwsEcrContainerAggregation_SortBy = this.AwsEcrContainerAggregation_SortBy;
             context.AwsEcrContainerAggregation_SortOrder = this.AwsEcrContainerAggregation_SortOrder;
+            if (this.CodeRepositoryAggregation_ProjectName != null)
+            {
+                context.CodeRepositoryAggregation_ProjectName = new List<Amazon.Inspector2.Model.StringFilter>(this.CodeRepositoryAggregation_ProjectName);
+            }
+            if (this.CodeRepositoryAggregation_ProviderType != null)
+            {
+                context.CodeRepositoryAggregation_ProviderType = new List<Amazon.Inspector2.Model.StringFilter>(this.CodeRepositoryAggregation_ProviderType);
+            }
+            if (this.CodeRepositoryAggregation_ResourceId != null)
+            {
+                context.CodeRepositoryAggregation_ResourceId = new List<Amazon.Inspector2.Model.StringFilter>(this.CodeRepositoryAggregation_ResourceId);
+            }
+            context.CodeRepositoryAggregation_SortBy = this.CodeRepositoryAggregation_SortBy;
+            context.CodeRepositoryAggregation_SortOrder = this.CodeRepositoryAggregation_SortOrder;
             if (this.Ec2InstanceAggregation_Ami != null)
             {
                 context.Ec2InstanceAggregation_Ami = new List<Amazon.Inspector2.Model.StringFilter>(this.Ec2InstanceAggregation_Ami);
@@ -1196,6 +1267,71 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestAggregationRequest_aggregationRequest_FindingTypeAggregation != null)
             {
                 request.AggregationRequest.FindingTypeAggregation = requestAggregationRequest_aggregationRequest_FindingTypeAggregation;
+                requestAggregationRequestIsNull = false;
+            }
+            Amazon.Inspector2.Model.CodeRepositoryAggregation requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation = null;
+            
+             // populate CodeRepositoryAggregation
+            var requestAggregationRequest_aggregationRequest_CodeRepositoryAggregationIsNull = true;
+            requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation = new Amazon.Inspector2.Model.CodeRepositoryAggregation();
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation_codeRepositoryAggregation_ProjectName = null;
+            if (cmdletContext.CodeRepositoryAggregation_ProjectName != null)
+            {
+                requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation_codeRepositoryAggregation_ProjectName = cmdletContext.CodeRepositoryAggregation_ProjectName;
+            }
+            if (requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation_codeRepositoryAggregation_ProjectName != null)
+            {
+                requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation.ProjectNames = requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation_codeRepositoryAggregation_ProjectName;
+                requestAggregationRequest_aggregationRequest_CodeRepositoryAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation_codeRepositoryAggregation_ProviderType = null;
+            if (cmdletContext.CodeRepositoryAggregation_ProviderType != null)
+            {
+                requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation_codeRepositoryAggregation_ProviderType = cmdletContext.CodeRepositoryAggregation_ProviderType;
+            }
+            if (requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation_codeRepositoryAggregation_ProviderType != null)
+            {
+                requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation.ProviderTypes = requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation_codeRepositoryAggregation_ProviderType;
+                requestAggregationRequest_aggregationRequest_CodeRepositoryAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation_codeRepositoryAggregation_ResourceId = null;
+            if (cmdletContext.CodeRepositoryAggregation_ResourceId != null)
+            {
+                requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation_codeRepositoryAggregation_ResourceId = cmdletContext.CodeRepositoryAggregation_ResourceId;
+            }
+            if (requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation_codeRepositoryAggregation_ResourceId != null)
+            {
+                requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation.ResourceIds = requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation_codeRepositoryAggregation_ResourceId;
+                requestAggregationRequest_aggregationRequest_CodeRepositoryAggregationIsNull = false;
+            }
+            Amazon.Inspector2.CodeRepositorySortBy requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation_codeRepositoryAggregation_SortBy = null;
+            if (cmdletContext.CodeRepositoryAggregation_SortBy != null)
+            {
+                requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation_codeRepositoryAggregation_SortBy = cmdletContext.CodeRepositoryAggregation_SortBy;
+            }
+            if (requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation_codeRepositoryAggregation_SortBy != null)
+            {
+                requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation.SortBy = requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation_codeRepositoryAggregation_SortBy;
+                requestAggregationRequest_aggregationRequest_CodeRepositoryAggregationIsNull = false;
+            }
+            Amazon.Inspector2.SortOrder requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation_codeRepositoryAggregation_SortOrder = null;
+            if (cmdletContext.CodeRepositoryAggregation_SortOrder != null)
+            {
+                requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation_codeRepositoryAggregation_SortOrder = cmdletContext.CodeRepositoryAggregation_SortOrder;
+            }
+            if (requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation_codeRepositoryAggregation_SortOrder != null)
+            {
+                requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation.SortOrder = requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation_codeRepositoryAggregation_SortOrder;
+                requestAggregationRequest_aggregationRequest_CodeRepositoryAggregationIsNull = false;
+            }
+             // determine if requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation should be set to null
+            if (requestAggregationRequest_aggregationRequest_CodeRepositoryAggregationIsNull)
+            {
+                requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation = null;
+            }
+            if (requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation != null)
+            {
+                request.AggregationRequest.CodeRepositoryAggregation = requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation;
                 requestAggregationRequestIsNull = false;
             }
             Amazon.Inspector2.Model.ImageLayerAggregation requestAggregationRequest_aggregationRequest_ImageLayerAggregation = null;
@@ -1768,6 +1904,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public List<Amazon.Inspector2.Model.StringFilter> AwsEcrContainerAggregation_ResourceId { get; set; }
             public Amazon.Inspector2.AwsEcrContainerSortBy AwsEcrContainerAggregation_SortBy { get; set; }
             public Amazon.Inspector2.SortOrder AwsEcrContainerAggregation_SortOrder { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> CodeRepositoryAggregation_ProjectName { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> CodeRepositoryAggregation_ProviderType { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> CodeRepositoryAggregation_ResourceId { get; set; }
+            public Amazon.Inspector2.CodeRepositorySortBy CodeRepositoryAggregation_SortBy { get; set; }
+            public Amazon.Inspector2.SortOrder CodeRepositoryAggregation_SortOrder { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> Ec2InstanceAggregation_Ami { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> Ec2InstanceAggregation_InstanceId { get; set; }
             public List<Amazon.Inspector2.Model.MapFilter> Ec2InstanceAggregation_InstanceTag { get; set; }

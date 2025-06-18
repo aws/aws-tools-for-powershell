@@ -112,7 +112,7 @@ $INS2_Completers = {
         # Amazon.Inspector2.AggregationType
         "Get-INS2FindingAggregationList/AggregationType"
         {
-            $v = "ACCOUNT","AMI","AWS_EC2_INSTANCE","AWS_ECR_CONTAINER","AWS_LAMBDA_FUNCTION","FINDING_TYPE","IMAGE_LAYER","LAMBDA_LAYER","PACKAGE","REPOSITORY","TITLE"
+            $v = "ACCOUNT","AMI","AWS_EC2_INSTANCE","AWS_ECR_CONTAINER","AWS_LAMBDA_FUNCTION","CODE_REPOSITORY","FINDING_TYPE","IMAGE_LAYER","LAMBDA_LAYER","PACKAGE","REPOSITORY","TITLE"
             break
         }
 
@@ -185,6 +185,20 @@ $INS2_Completers = {
         }
         {
             $v = "ASC","DESC"
+            break
+        }
+
+        # Amazon.Inspector2.CodeRepositorySortBy
+        "Get-INS2FindingAggregationList/CodeRepositoryAggregation_SortBy"
+        {
+            $v = "ALL","CRITICAL","HIGH"
+            break
+        }
+
+        # Amazon.Inspector2.ConfigurationLevel
+        "New-INS2CodeSecurityScanConfiguration/Level"
+        {
+            $v = "ACCOUNT","ORGANIZATION"
             break
         }
 
@@ -265,6 +279,13 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.IntegrationType
+        "New-INS2CodeSecurityIntegration/Type"
+        {
+            $v = "GITHUB","GITLAB_SELF_MANAGED"
+            break
+        }
+
         # Amazon.Inspector2.LambdaFunctionSortBy
         "Get-INS2FindingAggregationList/LambdaFunctionAggregation_SortBy"
         {
@@ -300,6 +321,23 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.PeriodicScanFrequency
+        {
+            ($_ -eq "New-INS2CodeSecurityScanConfiguration/PeriodicScanConfiguration_Frequency") -Or
+            ($_ -eq "Update-INS2CodeSecurityScanConfiguration/PeriodicScanConfiguration_Frequency")
+        }
+        {
+            $v = "MONTHLY","NEVER","WEEKLY"
+            break
+        }
+
+        # Amazon.Inspector2.ProjectSelectionScope
+        "New-INS2CodeSecurityScanConfiguration/ScopeSettings_ProjectSelectionScope"
+        {
+            $v = "ALL"
+            break
+        }
+
         # Amazon.Inspector2.ReportFormat
         "New-INS2FindingsReport/ReportFormat"
         {
@@ -321,7 +359,7 @@ $INS2_Completers = {
             ($_ -eq "Update-INS2EncryptionKey/ResourceType")
         }
         {
-            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_ECR_REPOSITORY","AWS_LAMBDA_FUNCTION"
+            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_ECR_REPOSITORY","AWS_LAMBDA_FUNCTION","CODE_REPOSITORY"
             break
         }
 
@@ -362,6 +400,7 @@ $INS2_Completers = {
             ($_ -eq "Get-INS2FindingAggregationList/AccountAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/AmiAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/AwsEcrContainerAggregation_SortOrder") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/CodeRepositoryAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/Ec2InstanceAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/FindingTypeAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/ImageLayerAggregation_SortOrder") -Or
@@ -410,6 +449,8 @@ $INS2_map = @{
     "AmiAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "AwsEcrContainerAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "AwsEcrContainerAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
+    "CodeRepositoryAggregation_SortBy"=@("Get-INS2FindingAggregationList")
+    "CodeRepositoryAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "DetailLevel"=@("Get-INS2CisScanList")
     "Ec2Configuration_ScanMode"=@("Update-INS2Configuration")
     "Ec2InstanceAggregation_SortBy"=@("Get-INS2FindingAggregationList")
@@ -428,15 +469,18 @@ $INS2_map = @{
     "LambdaFunctionAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "LambdaLayerAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "LambdaLayerAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
+    "Level"=@("New-INS2CodeSecurityScanConfiguration")
     "Message_Status"=@("Stop-INS2CisSession")
     "Monthly_Day"=@("New-INS2CisScanConfiguration","Update-INS2CisScanConfiguration")
     "PackageAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "PackageAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
+    "PeriodicScanConfiguration_Frequency"=@("New-INS2CodeSecurityScanConfiguration","Update-INS2CodeSecurityScanConfiguration")
     "ReportFormat"=@("Get-INS2CisScanReport","New-INS2FindingsReport","New-INS2SbomExport")
     "RepositoryAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "RepositoryAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "ResourceType"=@("Get-INS2EncryptionKey","Reset-INS2EncryptionKey","Update-INS2EncryptionKey")
     "ScanType"=@("Get-INS2EncryptionKey","Reset-INS2EncryptionKey","Update-INS2EncryptionKey")
+    "ScopeSettings_ProjectSelectionScope"=@("New-INS2CodeSecurityScanConfiguration")
     "SecurityLevel"=@("New-INS2CisScanConfiguration","Update-INS2CisScanConfiguration")
     "Service"=@("Get-INS2AccountPermissionList")
     "SortBy"=@("Get-INS2CisScanConfigurationList","Get-INS2CisScanList","Get-INS2CisScanResultDetail","Get-INS2CisScanResultsAggregatedByCheckList","Get-INS2CisScanResultsAggregatedByTargetResourceList")
@@ -447,6 +491,7 @@ $INS2_map = @{
     "TitleAggregation_ResourceType"=@("Get-INS2FindingAggregationList")
     "TitleAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "TitleAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
+    "Type"=@("New-INS2CodeSecurityIntegration")
 }
 
 _awsArgumentCompleterRegistration $INS2_Completers $INS2_map
@@ -500,6 +545,8 @@ $INS2_SelectCompleters = {
 
 $INS2_SelectMap = @{
     "Select"=@("Register-INS2Member",
+               "Register-INS2CodeSecurityScanConfigurationBatch",
+               "Unregister-INS2CodeSecurityScanConfigurationBatch",
                "Get-INS2GetAccountStatus",
                "Get-INS2BatchGetCodeSnippet",
                "Get-INS2GetFindingDetail",
@@ -509,10 +556,14 @@ $INS2_SelectMap = @{
                "Stop-INS2FindingsReport",
                "Stop-INS2SbomExport",
                "New-INS2CisScanConfiguration",
+               "New-INS2CodeSecurityIntegration",
+               "New-INS2CodeSecurityScanConfiguration",
                "New-INS2Filter",
                "New-INS2FindingsReport",
                "New-INS2SbomExport",
                "Remove-INS2CisScanConfiguration",
+               "Remove-INS2CodeSecurityIntegration",
+               "Remove-INS2CodeSecurityScanConfiguration",
                "Remove-INS2Filter",
                "Get-INS2OrganizationConfiguration",
                "Stop-INS2Service",
@@ -523,6 +574,9 @@ $INS2_SelectMap = @{
                "Get-INS2CisScanReport",
                "Get-INS2CisScanResultDetail",
                "Get-INS2ClustersForImage",
+               "Get-INS2CodeSecurityIntegration",
+               "Get-INS2CodeSecurityScan",
+               "Get-INS2CodeSecurityScanConfiguration",
                "Get-INS2Configuration",
                "Get-INS2DelegatedAdminAccount",
                "Get-INS2Ec2DeepInspectionConfiguration",
@@ -535,6 +589,9 @@ $INS2_SelectMap = @{
                "Get-INS2CisScanResultsAggregatedByCheckList",
                "Get-INS2CisScanResultsAggregatedByTargetResourceList",
                "Get-INS2CisScanList",
+               "Get-INS2CodeSecurityIntegrationList",
+               "Get-INS2CodeSecurityScanConfigurationAssociationList",
+               "Get-INS2CodeSecurityScanConfigurationList",
                "Get-INS2CoverageList",
                "Get-INS2CoverageStatisticList",
                "Get-INS2DelegatedAdminAccountList",
@@ -549,10 +606,13 @@ $INS2_SelectMap = @{
                "Send-INS2CisSessionHealth",
                "Send-INS2CisSessionTelemetry",
                "Start-INS2CisSession",
+               "Start-INS2CodeSecurityScan",
                "Stop-INS2CisSession",
                "Add-INS2ResourceTag",
                "Remove-INS2ResourceTag",
                "Update-INS2CisScanConfiguration",
+               "Update-INS2CodeSecurityIntegration",
+               "Update-INS2CodeSecurityScanConfiguration",
                "Update-INS2Configuration",
                "Update-INS2Ec2DeepInspectionConfiguration",
                "Update-INS2EncryptionKey",

@@ -14,6 +14,92 @@
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.0.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/v4-release/changelogs/SDK.CHANGELOG.ALL.md.
   * Please find a description of the changes for 5.0.0-preview002 at https://github.com/aws/aws-tools-for-powershell/issues/357
 
+
+### 4.1.842 (2025-06-17 22:38Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1065.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Backup
+    * Added cmdlet Add-BAKBackupVaultMpaApprovalTeam leveraging the AssociateBackupVaultMpaApprovalTeam service API.
+    * Added cmdlet Get-BAKRestoreAccessBackupVaultList leveraging the ListRestoreAccessBackupVaults service API.
+    * Added cmdlet New-BAKRestoreAccessBackupVault leveraging the CreateRestoreAccessBackupVault service API.
+    * Added cmdlet Remove-BAKBackupVaultMpaApprovalTeam leveraging the DisassociateBackupVaultMpaApprovalTeam service API.
+    * Added cmdlet Revoke-BAKRestoreAccessBackupVault leveraging the RevokeRestoreAccessBackupVault service API.
+  * Amazon Certificate Manager
+    * Added cmdlet Revoke-ACMCertificate leveraging the RevokeCertificate service API.
+    * Modified cmdlet Get-ACMCertificateList: added parameter Includes_ExportOption.
+    * Modified cmdlet New-ACMCertificate: added parameter Options_Export.
+    * Modified cmdlet Update-ACMCertificateOption: added parameter Options_Export.
+  * Amazon Database Migration Service
+    * Modified cmdlet Edit-DMSDataProvider: added parameters IbmDb2LuwSettings_S3AccessRoleArn, IbmDb2LuwSettings_S3Path, IbmDb2zOsSettings_S3AccessRoleArn, IbmDb2zOsSettings_S3Path, MariaDbSettings_S3AccessRoleArn, MariaDbSettings_S3Path, MicrosoftSqlServerSettings_S3AccessRoleArn, MicrosoftSqlServerSettings_S3Path, MySqlSettings_S3AccessRoleArn, MySqlSettings_S3Path, OracleSettings_S3AccessRoleArn, OracleSettings_S3Path, PostgreSqlSettings_S3AccessRoleArn, PostgreSqlSettings_S3Path, RedshiftSettings_S3AccessRoleArn, RedshiftSettings_S3Path and Virtual.
+    * Modified cmdlet New-DMSDataProvider: added parameters IbmDb2LuwSettings_S3AccessRoleArn, IbmDb2LuwSettings_S3Path, IbmDb2zOsSettings_S3AccessRoleArn, IbmDb2zOsSettings_S3Path, MariaDbSettings_S3AccessRoleArn, MariaDbSettings_S3Path, MicrosoftSqlServerSettings_S3AccessRoleArn, MicrosoftSqlServerSettings_S3Path, MySqlSettings_S3AccessRoleArn, MySqlSettings_S3Path, OracleSettings_S3AccessRoleArn, OracleSettings_S3Path, PostgreSqlSettings_S3AccessRoleArn, PostgreSqlSettings_S3Path, RedshiftSettings_S3AccessRoleArn, RedshiftSettings_S3Path and Virtual.
+  * Amazon IAM Access Analyzer
+    * Modified cmdlet New-IAMAAAnalyzer: added parameter AnalysisRule_Inclusion.
+    * Modified cmdlet Update-IAMAAAnalyzer: added parameter AnalysisRule_Inclusion.
+  * Amazon Inspector2
+    * Added cmdlet Get-INS2CodeSecurityIntegration leveraging the GetCodeSecurityIntegration service API.
+    * Added cmdlet Get-INS2CodeSecurityIntegrationList leveraging the ListCodeSecurityIntegrations service API.
+    * Added cmdlet Get-INS2CodeSecurityScan leveraging the GetCodeSecurityScan service API.
+    * Added cmdlet Get-INS2CodeSecurityScanConfiguration leveraging the GetCodeSecurityScanConfiguration service API.
+    * Added cmdlet Get-INS2CodeSecurityScanConfigurationAssociationList leveraging the ListCodeSecurityScanConfigurationAssociations service API.
+    * Added cmdlet Get-INS2CodeSecurityScanConfigurationList leveraging the ListCodeSecurityScanConfigurations service API.
+    * Added cmdlet New-INS2CodeSecurityIntegration leveraging the CreateCodeSecurityIntegration service API.
+    * Added cmdlet New-INS2CodeSecurityScanConfiguration leveraging the CreateCodeSecurityScanConfiguration service API.
+    * Added cmdlet Register-INS2CodeSecurityScanConfigurationBatch leveraging the BatchAssociateCodeSecurityScanConfiguration service API.
+    * Added cmdlet Remove-INS2CodeSecurityIntegration leveraging the DeleteCodeSecurityIntegration service API.
+    * Added cmdlet Remove-INS2CodeSecurityScanConfiguration leveraging the DeleteCodeSecurityScanConfiguration service API.
+    * Added cmdlet Start-INS2CodeSecurityScan leveraging the StartCodeSecurityScan service API.
+    * Added cmdlet Unregister-INS2CodeSecurityScanConfigurationBatch leveraging the BatchDisassociateCodeSecurityScanConfiguration service API.
+    * Added cmdlet Update-INS2CodeSecurityIntegration leveraging the UpdateCodeSecurityIntegration service API.
+    * Added cmdlet Update-INS2CodeSecurityScanConfiguration leveraging the UpdateCodeSecurityScanConfiguration service API.
+    * Modified cmdlet Get-INS2CoverageList: added parameters FilterCriteria_CodeRepositoryProjectName, FilterCriteria_CodeRepositoryProviderType, FilterCriteria_CodeRepositoryProviderTypeVisibility and FilterCriteria_LastScannedCommitId.
+    * Modified cmdlet Get-INS2CoverageStatisticList: added parameters FilterCriteria_CodeRepositoryProjectName, FilterCriteria_CodeRepositoryProviderType, FilterCriteria_CodeRepositoryProviderTypeVisibility and FilterCriteria_LastScannedCommitId.
+    * Modified cmdlet Get-INS2FindingAggregationList: added parameters CodeRepositoryAggregation_ProjectName, CodeRepositoryAggregation_ProviderType, CodeRepositoryAggregation_ResourceId, CodeRepositoryAggregation_SortBy and CodeRepositoryAggregation_SortOrder.
+    * Modified cmdlet Get-INS2FindingList: added parameters FilterCriteria_CodeRepositoryProjectName and FilterCriteria_CodeRepositoryProviderType.
+    * Modified cmdlet New-INS2Filter: added parameters FilterCriteria_CodeRepositoryProjectName and FilterCriteria_CodeRepositoryProviderType.
+    * Modified cmdlet New-INS2FindingsReport: added parameters FilterCriteria_CodeRepositoryProjectName and FilterCriteria_CodeRepositoryProviderType.
+    * Modified cmdlet Update-INS2Filter: added parameters FilterCriteria_CodeRepositoryProjectName and FilterCriteria_CodeRepositoryProviderType.
+    * Modified cmdlet Update-INS2OrganizationConfiguration: added parameter AutoEnable_CodeRepository.
+  * Amazon Multi-party Approval. Added cmdlets to support the service. Cmdlets for the service have the noun prefix MPA and can be listed using the command 'Get-AWSCmdletName -Service MPA'.
+  * NWFW
+    * [Breaking Change] Removed cmdlets Approve-NWFWNetworkFirewallTransitGatewayAttachment, Register-NWFWAvailabilityZone and Unregister-NWFWAvailabilityZone.
+    * Added cmdlet Get-NWFWRuleGroupSummary leveraging the DescribeRuleGroupSummary service API.
+    * Added cmdlet Join-NWFWAvailabilityZone leveraging the AssociateAvailabilityZones service API.
+    * Added cmdlet Receive-NWFWNetworkFirewallTransitGatewayAttachment leveraging the AcceptNetworkFirewallTransitGatewayAttachment service API.
+    * Added cmdlet Remove-NWFWAvailabilityZone leveraging the DisassociateAvailabilityZones service API.
+    * Modified cmdlet New-NWFWRuleGroup: added parameter SummaryConfiguration_RuleOption.
+    * Modified cmdlet Update-NWFWRuleGroup: added parameter SummaryConfiguration_RuleOption.
+  * Amazon Security Hub
+    * Added cmdlet Disable-SHUBSecurityHubV2 leveraging the DisableSecurityHubV2 service API.
+    * Added cmdlet Enable-SHUBSecurityHubV2 leveraging the EnableSecurityHubV2 service API.
+    * Added cmdlet Get-SHUBAggregatorsV2List leveraging the ListAggregatorsV2 service API.
+    * Added cmdlet Get-SHUBAggregatorV2 leveraging the GetAggregatorV2 service API.
+    * Added cmdlet Get-SHUBAutomationRulesV2List leveraging the ListAutomationRulesV2 service API.
+    * Added cmdlet Get-SHUBAutomationRuleV2 leveraging the GetAutomationRuleV2 service API.
+    * Added cmdlet Get-SHUBConnectorsV2List leveraging the ListConnectorsV2 service API.
+    * Added cmdlet Get-SHUBConnectorV2 leveraging the GetConnectorV2 service API.
+    * Added cmdlet Get-SHUBFindingStatisticsV2 leveraging the GetFindingStatisticsV2 service API.
+    * Added cmdlet Get-SHUBFindingsV2 leveraging the GetFindingsV2 service API.
+    * Added cmdlet Get-SHUBProductsV2 leveraging the DescribeProductsV2 service API.
+    * Added cmdlet Get-SHUBResourcesStatisticsV2 leveraging the GetResourcesStatisticsV2 service API.
+    * Added cmdlet Get-SHUBResourcesV2 leveraging the GetResourcesV2 service API.
+    * Added cmdlet Get-SHUBSecurityHubV2 leveraging the DescribeSecurityHubV2 service API.
+    * Added cmdlet New-SHUBAggregatorV2 leveraging the CreateAggregatorV2 service API.
+    * Added cmdlet New-SHUBAutomationRuleV2 leveraging the CreateAutomationRuleV2 service API.
+    * Added cmdlet New-SHUBConnectorV2 leveraging the CreateConnectorV2 service API.
+    * Added cmdlet New-SHUBTicketV2 leveraging the CreateTicketV2 service API.
+    * Added cmdlet Register-SHUBConnectorV2 leveraging the ConnectorRegistrationsV2 service API.
+    * Added cmdlet Remove-SHUBAggregatorV2 leveraging the DeleteAggregatorV2 service API.
+    * Added cmdlet Remove-SHUBAutomationRuleV2 leveraging the DeleteAutomationRuleV2 service API.
+    * Added cmdlet Remove-SHUBConnectorV2 leveraging the DeleteConnectorV2 service API.
+    * Added cmdlet Set-SHUBBatchFindingsV2 leveraging the BatchUpdateFindingsV2 service API.
+    * Added cmdlet Update-SHUBAggregatorV2 leveraging the UpdateAggregatorV2 service API.
+    * Added cmdlet Update-SHUBAutomationRuleV2 leveraging the UpdateAutomationRuleV2 service API.
+    * Added cmdlet Update-SHUBConnectorV2 leveraging the UpdateConnectorV2 service API.
+    * Modified cmdlet Disable-SHUBOrganizationAdminAccount: added parameter Feature.
+    * Modified cmdlet Enable-SHUBOrganizationAdminAccount: added parameter Feature.
+    * Modified cmdlet Get-SHUBOrganizationAdminAccountList: added parameter Feature.
+  * Amazon WAF V2
+    * Modified cmdlet New-WAF2WebACL: added parameter ApplicationConfig_Attribute.
+
 ### 4.1.841 (2025-06-16 19:58Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1064.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock

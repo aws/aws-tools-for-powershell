@@ -173,7 +173,7 @@ $BAK_Completers = {
         # Amazon.Backup.VaultType
         "Get-BAKBackupVaultList/ByVaultType"
         {
-            $v = "BACKUP_VAULT","LOGICALLY_AIR_GAPPED_BACKUP_VAULT"
+            $v = "BACKUP_VAULT","LOGICALLY_AIR_GAPPED_BACKUP_VAULT","RESTORE_ACCESS_BACKUP_VAULT"
             break
         }
 
@@ -247,7 +247,8 @@ $BAK_SelectCompleters = {
 }
 
 $BAK_SelectMap = @{
-    "Select"=@("Stop-BAKLegalHold",
+    "Select"=@("Add-BAKBackupVaultMpaApprovalTeam",
+               "Stop-BAKLegalHold",
                "New-BAKBackupPlan",
                "New-BAKBackupSelection",
                "New-BAKBackupVault",
@@ -255,6 +256,7 @@ $BAK_SelectMap = @{
                "New-BAKLegalHold",
                "New-BAKLogicallyAirGappedBackupVault",
                "New-BAKReportPlan",
+               "New-BAKRestoreAccessBackupVault",
                "New-BAKRestoreTestingPlan",
                "New-BAKRestoreTestingSelection",
                "Remove-BAKBackupPlan",
@@ -279,6 +281,7 @@ $BAK_SelectMap = @{
                "Get-BAKReportJob",
                "Get-BAKReportPlan",
                "Get-BAKRestoreJob",
+               "Remove-BAKBackupVaultMpaApprovalTeam",
                "Unlock-BAKRecoveryPoint",
                "Move-BAKRecoveryPoint",
                "Export-BAKBackupPlanTemplate",
@@ -315,6 +318,7 @@ $BAK_SelectMap = @{
                "Get-BAKRecoveryPointsByResourceList",
                "Get-BAKReportJobList",
                "Get-BAKReportPlanList",
+               "Get-BAKRestoreAccessBackupVaultList",
                "Get-BAKRestoreJobList",
                "Get-BAKRestoreJobsByProtectedResourceList",
                "Get-BAKRestoreJobSummaryList",
@@ -325,6 +329,7 @@ $BAK_SelectMap = @{
                "Write-BAKBackupVaultLockConfiguration",
                "Write-BAKBackupVaultNotification",
                "Write-BAKRestoreValidationResult",
+               "Revoke-BAKRestoreAccessBackupVault",
                "Start-BAKBackupJob",
                "Start-BAKCopyJob",
                "Start-BAKReportJob",

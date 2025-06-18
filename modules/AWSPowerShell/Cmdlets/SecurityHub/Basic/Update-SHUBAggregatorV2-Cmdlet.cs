@@ -22,44 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.NetworkFirewall;
-using Amazon.NetworkFirewall.Model;
+using Amazon.SecurityHub;
+using Amazon.SecurityHub.Model;
 
-namespace Amazon.PowerShell.Cmdlets.NWFW
+namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Accepts a transit gateway attachment request for Network Firewall. When you accept
-    /// the attachment request, Network Firewall creates the necessary routing components
-    /// to enable traffic flow between the transit gateway and firewall endpoints.
-    /// 
-    ///  
-    /// <para>
-    /// You must accept a transit gateway attachment to complete the creation of a transit
-    /// gateway-attached firewall, unless auto-accept is enabled on the transit gateway. After
-    /// acceptance, use <a>DescribeFirewall</a> to verify the firewall status.
-    /// </para><para>
-    /// To reject an attachment instead of accepting it, use <a>RejectNetworkFirewallTransitGatewayAttachment</a>.
-    /// </para><note><para>
-    /// It can take several minutes for the attachment acceptance to complete and the firewall
-    /// to become available.
-    /// </para></note>
+    /// Udpates the configuration for the Aggregator V2. This API is in private preview and
+    /// subject to change.
     /// </summary>
-    [Cmdlet("Approve", "NWFWNetworkFirewallTransitGatewayAttachment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.NetworkFirewall.Model.AcceptNetworkFirewallTransitGatewayAttachmentResponse")]
-    [AWSCmdlet("Calls the AWS Network Firewall AcceptNetworkFirewallTransitGatewayAttachment API operation.", Operation = new[] {"AcceptNetworkFirewallTransitGatewayAttachment"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.AcceptNetworkFirewallTransitGatewayAttachmentResponse))]
-    [AWSCmdletOutput("Amazon.NetworkFirewall.Model.AcceptNetworkFirewallTransitGatewayAttachmentResponse",
-        "This cmdlet returns an Amazon.NetworkFirewall.Model.AcceptNetworkFirewallTransitGatewayAttachmentResponse object containing multiple properties."
+    [Cmdlet("Update", "SHUBAggregatorV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.SecurityHub.Model.UpdateAggregatorV2Response")]
+    [AWSCmdlet("Calls the AWS Security Hub UpdateAggregatorV2 API operation.", Operation = new[] {"UpdateAggregatorV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.UpdateAggregatorV2Response))]
+    [AWSCmdletOutput("Amazon.SecurityHub.Model.UpdateAggregatorV2Response",
+        "This cmdlet returns an Amazon.SecurityHub.Model.UpdateAggregatorV2Response object containing multiple properties."
     )]
-    public partial class ApproveNWFWNetworkFirewallTransitGatewayAttachmentCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
+    public partial class UpdateSHUBAggregatorV2Cmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter TransitGatewayAttachmentId
+        #region Parameter AggregatorV2Arn
         /// <summary>
         /// <para>
-        /// <para>Required. The unique identifier of the transit gateway attachment to accept. This
-        /// ID is returned in the response when creating a transit gateway-attached firewall.</para>
+        /// <para>The ARN of the Aggregator V2.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,14 +56,42 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TransitGatewayAttachmentId { get; set; }
+        public System.String AggregatorV2Arn { get; set; }
+        #endregion
+        
+        #region Parameter LinkedRegion
+        /// <summary>
+        /// <para>
+        /// <para>A list of Amazon Web Services Regions linked to the aggegation Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LinkedRegions")]
+        public System.String[] LinkedRegion { get; set; }
+        #endregion
+        
+        #region Parameter RegionLinkingMode
+        /// <summary>
+        /// <para>
+        /// <para>Determines how Amazon Web Services Regions should be linked to the Aggregator V2.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String RegionLinkingMode { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkFirewall.Model.AcceptNetworkFirewallTransitGatewayAttachmentResponse).
-        /// Specifying the name of a property of type Amazon.NetworkFirewall.Model.AcceptNetworkFirewallTransitGatewayAttachmentResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityHub.Model.UpdateAggregatorV2Response).
+        /// Specifying the name of a property of type Amazon.SecurityHub.Model.UpdateAggregatorV2Response will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,10 +100,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the TransitGatewayAttachmentId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^TransitGatewayAttachmentId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AggregatorV2Arn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AggregatorV2Arn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TransitGatewayAttachmentId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AggregatorV2Arn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -109,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TransitGatewayAttachmentId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Approve-NWFWNetworkFirewallTransitGatewayAttachment (AcceptNetworkFirewallTransitGatewayAttachment)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AggregatorV2Arn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SHUBAggregatorV2 (UpdateAggregatorV2)"))
             {
                 return;
             }
@@ -123,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.NetworkFirewall.Model.AcceptNetworkFirewallTransitGatewayAttachmentResponse, ApproveNWFWNetworkFirewallTransitGatewayAttachmentCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SecurityHub.Model.UpdateAggregatorV2Response, UpdateSHUBAggregatorV2Cmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -132,14 +146,25 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.TransitGatewayAttachmentId;
+                context.Select = (response, cmdlet) => this.AggregatorV2Arn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.TransitGatewayAttachmentId = this.TransitGatewayAttachmentId;
+            context.AggregatorV2Arn = this.AggregatorV2Arn;
             #if MODULAR
-            if (this.TransitGatewayAttachmentId == null && ParameterWasBound(nameof(this.TransitGatewayAttachmentId)))
+            if (this.AggregatorV2Arn == null && ParameterWasBound(nameof(this.AggregatorV2Arn)))
             {
-                WriteWarning("You are passing $null as a value for parameter TransitGatewayAttachmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AggregatorV2Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.LinkedRegion != null)
+            {
+                context.LinkedRegion = new List<System.String>(this.LinkedRegion);
+            }
+            context.RegionLinkingMode = this.RegionLinkingMode;
+            #if MODULAR
+            if (this.RegionLinkingMode == null && ParameterWasBound(nameof(this.RegionLinkingMode)))
+            {
+                WriteWarning("You are passing $null as a value for parameter RegionLinkingMode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -156,11 +181,19 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.NetworkFirewall.Model.AcceptNetworkFirewallTransitGatewayAttachmentRequest();
+            var request = new Amazon.SecurityHub.Model.UpdateAggregatorV2Request();
             
-            if (cmdletContext.TransitGatewayAttachmentId != null)
+            if (cmdletContext.AggregatorV2Arn != null)
             {
-                request.TransitGatewayAttachmentId = cmdletContext.TransitGatewayAttachmentId;
+                request.AggregatorV2Arn = cmdletContext.AggregatorV2Arn;
+            }
+            if (cmdletContext.LinkedRegion != null)
+            {
+                request.LinkedRegions = cmdletContext.LinkedRegion;
+            }
+            if (cmdletContext.RegionLinkingMode != null)
+            {
+                request.RegionLinkingMode = cmdletContext.RegionLinkingMode;
             }
             
             CmdletOutput output;
@@ -195,15 +228,15 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         #region AWS Service Operation Call
         
-        private Amazon.NetworkFirewall.Model.AcceptNetworkFirewallTransitGatewayAttachmentResponse CallAWSServiceOperation(IAmazonNetworkFirewall client, Amazon.NetworkFirewall.Model.AcceptNetworkFirewallTransitGatewayAttachmentRequest request)
+        private Amazon.SecurityHub.Model.UpdateAggregatorV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.UpdateAggregatorV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Firewall", "AcceptNetworkFirewallTransitGatewayAttachment");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "UpdateAggregatorV2");
             try
             {
                 #if DESKTOP
-                return client.AcceptNetworkFirewallTransitGatewayAttachment(request);
+                return client.UpdateAggregatorV2(request);
                 #elif CORECLR
-                return client.AcceptNetworkFirewallTransitGatewayAttachmentAsync(request).GetAwaiter().GetResult();
+                return client.UpdateAggregatorV2Async(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -223,8 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String TransitGatewayAttachmentId { get; set; }
-            public System.Func<Amazon.NetworkFirewall.Model.AcceptNetworkFirewallTransitGatewayAttachmentResponse, ApproveNWFWNetworkFirewallTransitGatewayAttachmentCmdlet, object> Select { get; set; } =
+            public System.String AggregatorV2Arn { get; set; }
+            public List<System.String> LinkedRegion { get; set; }
+            public System.String RegionLinkingMode { get; set; }
+            public System.Func<Amazon.SecurityHub.Model.UpdateAggregatorV2Response, UpdateSHUBAggregatorV2Cmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         
