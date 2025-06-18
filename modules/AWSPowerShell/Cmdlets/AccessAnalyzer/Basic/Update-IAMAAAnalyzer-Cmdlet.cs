@@ -73,6 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         public Amazon.AccessAnalyzer.Model.AnalysisRuleCriteria[] AnalysisRule_Exclusion { get; set; }
         #endregion
         
+        #region Parameter AnalysisRule_Inclusion
+        /// <summary>
+        /// <para>
+        /// <para>A list of rules for the internal access analyzer containing criteria to include in
+        /// analysis. Only resources that meet the rule criteria will generate findings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_InternalAccess_AnalysisRule_Inclusions")]
+        public Amazon.AccessAnalyzer.Model.InternalAccessAnalysisRuleCriteria[] AnalysisRule_Inclusion { get; set; }
+        #endregion
+        
         #region Parameter UnusedAccess_UnusedAccessAge
         /// <summary>
         /// <para>
@@ -141,6 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
                 WriteWarning("You are passing $null as a value for parameter AnalyzerName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.AnalysisRule_Inclusion != null)
+            {
+                context.AnalysisRule_Inclusion = new List<Amazon.AccessAnalyzer.Model.InternalAccessAnalysisRuleCriteria>(this.AnalysisRule_Inclusion);
+            }
             if (this.AnalysisRule_Exclusion != null)
             {
                 context.AnalysisRule_Exclusion = new List<Amazon.AccessAnalyzer.Model.AnalysisRuleCriteria>(this.AnalysisRule_Exclusion);
@@ -170,6 +186,46 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
              // populate Configuration
             var requestConfigurationIsNull = true;
             request.Configuration = new Amazon.AccessAnalyzer.Model.AnalyzerConfiguration();
+            Amazon.AccessAnalyzer.Model.InternalAccessConfiguration requestConfiguration_configuration_InternalAccess = null;
+            
+             // populate InternalAccess
+            var requestConfiguration_configuration_InternalAccessIsNull = true;
+            requestConfiguration_configuration_InternalAccess = new Amazon.AccessAnalyzer.Model.InternalAccessConfiguration();
+            Amazon.AccessAnalyzer.Model.InternalAccessAnalysisRule requestConfiguration_configuration_InternalAccess_configuration_InternalAccess_AnalysisRule = null;
+            
+             // populate AnalysisRule
+            var requestConfiguration_configuration_InternalAccess_configuration_InternalAccess_AnalysisRuleIsNull = true;
+            requestConfiguration_configuration_InternalAccess_configuration_InternalAccess_AnalysisRule = new Amazon.AccessAnalyzer.Model.InternalAccessAnalysisRule();
+            List<Amazon.AccessAnalyzer.Model.InternalAccessAnalysisRuleCriteria> requestConfiguration_configuration_InternalAccess_configuration_InternalAccess_AnalysisRule_analysisRule_Inclusion = null;
+            if (cmdletContext.AnalysisRule_Inclusion != null)
+            {
+                requestConfiguration_configuration_InternalAccess_configuration_InternalAccess_AnalysisRule_analysisRule_Inclusion = cmdletContext.AnalysisRule_Inclusion;
+            }
+            if (requestConfiguration_configuration_InternalAccess_configuration_InternalAccess_AnalysisRule_analysisRule_Inclusion != null)
+            {
+                requestConfiguration_configuration_InternalAccess_configuration_InternalAccess_AnalysisRule.Inclusions = requestConfiguration_configuration_InternalAccess_configuration_InternalAccess_AnalysisRule_analysisRule_Inclusion;
+                requestConfiguration_configuration_InternalAccess_configuration_InternalAccess_AnalysisRuleIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_InternalAccess_configuration_InternalAccess_AnalysisRule should be set to null
+            if (requestConfiguration_configuration_InternalAccess_configuration_InternalAccess_AnalysisRuleIsNull)
+            {
+                requestConfiguration_configuration_InternalAccess_configuration_InternalAccess_AnalysisRule = null;
+            }
+            if (requestConfiguration_configuration_InternalAccess_configuration_InternalAccess_AnalysisRule != null)
+            {
+                requestConfiguration_configuration_InternalAccess.AnalysisRule = requestConfiguration_configuration_InternalAccess_configuration_InternalAccess_AnalysisRule;
+                requestConfiguration_configuration_InternalAccessIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_InternalAccess should be set to null
+            if (requestConfiguration_configuration_InternalAccessIsNull)
+            {
+                requestConfiguration_configuration_InternalAccess = null;
+            }
+            if (requestConfiguration_configuration_InternalAccess != null)
+            {
+                request.Configuration.InternalAccess = requestConfiguration_configuration_InternalAccess;
+                requestConfigurationIsNull = false;
+            }
             Amazon.AccessAnalyzer.Model.UnusedAccessConfiguration requestConfiguration_configuration_UnusedAccess = null;
             
              // populate UnusedAccess
@@ -281,6 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AnalyzerName { get; set; }
+            public List<Amazon.AccessAnalyzer.Model.InternalAccessAnalysisRuleCriteria> AnalysisRule_Inclusion { get; set; }
             public List<Amazon.AccessAnalyzer.Model.AnalysisRuleCriteria> AnalysisRule_Exclusion { get; set; }
             public System.Int32? UnusedAccess_UnusedAccessAge { get; set; }
             public System.Func<Amazon.AccessAnalyzer.Model.UpdateAnalyzerResponse, UpdateIAMAAAnalyzerCmdlet, object> Select { get; set; } =

@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.32.0",
+    "ProductVersion"    : "4.0.33.0",
     "CoreVersion"       : "4.0.0.11",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -324,7 +324,7 @@
             "InPreview"               : false
         },
         "SecurityToken"        : {
-            "Version" : "4.0.0.9",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.11"
@@ -508,7 +508,7 @@
             "InPreview"               : false
         },
         "CertificateManager"              : {
-            "Version" : "4.0.0.9",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.11"
@@ -524,7 +524,7 @@
             "InPreview"               : false
         },
         "DatabaseMigrationService"        : {
-            "Version" : "4.0.1.6",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.11"
@@ -748,7 +748,7 @@
             "InPreview"               : false
         },
         "Organizations"                   : {
-            "Version" : "4.0.0.9",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.11"
@@ -900,7 +900,7 @@
             "InPreview"               : false
         },
         "GuardDuty"                       : {
-            "Version" : "4.0.0.10",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.11"
@@ -1268,7 +1268,7 @@
             "InPreview"               : false
         },
         "SecurityHub"                     : {
-            "Version" : "4.0.0.9",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.11"
@@ -1324,7 +1324,7 @@
             "InPreview"               : false
         },
         "Backup"                          : {
-            "Version" : "4.0.1.5",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.11"
@@ -1564,7 +1564,7 @@
             "InPreview"               : false
         },
         "WAFV2"                           : {
-            "Version" : "4.0.2.2",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.11"
@@ -1604,7 +1604,7 @@
             "InPreview"               : false
         },
         "AccessAnalyzer"                  : {
-            "Version" : "4.0.0.9",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.11"
@@ -1828,7 +1828,7 @@
             "InPreview"               : false
         },
         "NetworkFirewall"                 : {
-            "Version" : "4.0.3.0",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.11"
@@ -2268,7 +2268,7 @@
             "InPreview"               : false
         },
         "Inspector2"                          : {
-            "Version" : "4.0.1.5",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.11"
@@ -2756,7 +2756,7 @@
             "InPreview"               : false
         },
         "Bedrock"                             : {
-            "Version" : "4.0.3.0",
+            "Version" : "4.0.3.1",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.11"
@@ -3261,6 +3261,14 @@
         },
         "Evs"                                 : {
             "Version" : "4.0.0.4",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.11"
+            },
+            "InPreview"               : false
+        },
+        "MPA"                                 : {
+            "Version" : "4.0.0.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.11"

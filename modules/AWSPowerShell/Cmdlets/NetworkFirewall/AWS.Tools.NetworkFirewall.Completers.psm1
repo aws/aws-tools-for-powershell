@@ -137,7 +137,7 @@ $NWFW_Completers = {
         # Amazon.NetworkFirewall.ResourceManagedType
         "Get-NWFWRuleGroupList/ManagedType"
         {
-            $v = "AWS_MANAGED_DOMAIN_LISTS","AWS_MANAGED_THREAT_SIGNATURES"
+            $v = "ACTIVE_THREAT_DEFENSE","AWS_MANAGED_DOMAIN_LISTS","AWS_MANAGED_THREAT_SIGNATURES"
             break
         }
 
@@ -146,6 +146,7 @@ $NWFW_Completers = {
             ($_ -eq "Get-NWFWRuleGroup/Type") -Or
             ($_ -eq "Get-NWFWRuleGroupList/Type") -Or
             ($_ -eq "Get-NWFWRuleGroupMetadata/Type") -Or
+            ($_ -eq "Get-NWFWRuleGroupSummary/Type") -Or
             ($_ -eq "New-NWFWRuleGroup/Type") -Or
             ($_ -eq "Remove-NWFWRuleGroup/Type") -Or
             ($_ -eq "Update-NWFWRuleGroup/Type")
@@ -196,7 +197,7 @@ $NWFW_map = @{
     "StatefulEngineOptions_StreamExceptionPolicy"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "StatefulRuleOptions_RuleOrder"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "SubnetMapping_IPAddressType"=@("New-NWFWVpcEndpointAssociation")
-    "Type"=@("Get-NWFWRuleGroup","Get-NWFWRuleGroupList","Get-NWFWRuleGroupMetadata","New-NWFWRuleGroup","Remove-NWFWRuleGroup","Update-NWFWRuleGroup")
+    "Type"=@("Get-NWFWRuleGroup","Get-NWFWRuleGroupList","Get-NWFWRuleGroupMetadata","Get-NWFWRuleGroupSummary","New-NWFWRuleGroup","Remove-NWFWRuleGroup","Update-NWFWRuleGroup")
 }
 
 _awsArgumentCompleterRegistration $NWFW_Completers $NWFW_map
@@ -249,8 +250,8 @@ $NWFW_SelectCompleters = {
 }
 
 $NWFW_SelectMap = @{
-    "Select"=@("Approve-NWFWNetworkFirewallTransitGatewayAttachment",
-               "Register-NWFWAvailabilityZone",
+    "Select"=@("Receive-NWFWNetworkFirewallTransitGatewayAttachment",
+               "Join-NWFWAvailabilityZone",
                "Register-NWFWFirewallPolicy",
                "Register-NWFWSubnet",
                "New-NWFWFirewall",
@@ -273,9 +274,10 @@ $NWFW_SelectMap = @{
                "Get-NWFWResourcePolicy",
                "Get-NWFWRuleGroup",
                "Get-NWFWRuleGroupMetadata",
+               "Get-NWFWRuleGroupSummary",
                "Get-NWFWTLSInspectionConfiguration",
                "Get-NWFWVpcEndpointAssociation",
-               "Unregister-NWFWAvailabilityZone",
+               "Remove-NWFWAvailabilityZone",
                "Unregister-NWFWSubnet",
                "Get-NWFWAnalysisReportResult",
                "Get-NWFWAnalysisReportList",

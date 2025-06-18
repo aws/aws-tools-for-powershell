@@ -55,6 +55,37 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.CoverageStringFilter[] FilterCriteria_AccountId { get; set; }
         #endregion
         
+        #region Parameter FilterCriteria_CodeRepositoryProjectName
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for code repositories based on project name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.CoverageStringFilter[] FilterCriteria_CodeRepositoryProjectName { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CodeRepositoryProviderType
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for code repositories based on provider type (such as GitHub, GitLab,
+        /// etc.).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.CoverageStringFilter[] FilterCriteria_CodeRepositoryProviderType { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CodeRepositoryProviderTypeVisibility
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for code repositories based on visibility setting (public or private).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.CoverageStringFilter[] FilterCriteria_CodeRepositoryProviderTypeVisibility { get; set; }
+        #endregion
+        
         #region Parameter FilterCriteria_Ec2InstanceTag
         /// <summary>
         /// <para>
@@ -158,6 +189,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.Inspector2.Model.CoverageDateFilter[] FilterCriteria_LastScannedAt { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_LastScannedCommitId
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for code repositories based on the ID of the last scanned commit.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.CoverageStringFilter[] FilterCriteria_LastScannedCommitId { get; set; }
         #endregion
         
         #region Parameter FilterCriteria_ResourceId
@@ -305,6 +346,18 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             {
                 context.FilterCriteria_AccountId = new List<Amazon.Inspector2.Model.CoverageStringFilter>(this.FilterCriteria_AccountId);
             }
+            if (this.FilterCriteria_CodeRepositoryProjectName != null)
+            {
+                context.FilterCriteria_CodeRepositoryProjectName = new List<Amazon.Inspector2.Model.CoverageStringFilter>(this.FilterCriteria_CodeRepositoryProjectName);
+            }
+            if (this.FilterCriteria_CodeRepositoryProviderType != null)
+            {
+                context.FilterCriteria_CodeRepositoryProviderType = new List<Amazon.Inspector2.Model.CoverageStringFilter>(this.FilterCriteria_CodeRepositoryProviderType);
+            }
+            if (this.FilterCriteria_CodeRepositoryProviderTypeVisibility != null)
+            {
+                context.FilterCriteria_CodeRepositoryProviderTypeVisibility = new List<Amazon.Inspector2.Model.CoverageStringFilter>(this.FilterCriteria_CodeRepositoryProviderTypeVisibility);
+            }
             if (this.FilterCriteria_Ec2InstanceTag != null)
             {
                 context.FilterCriteria_Ec2InstanceTag = new List<Amazon.Inspector2.Model.CoverageMapFilter>(this.FilterCriteria_Ec2InstanceTag);
@@ -344,6 +397,10 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (this.FilterCriteria_LastScannedAt != null)
             {
                 context.FilterCriteria_LastScannedAt = new List<Amazon.Inspector2.Model.CoverageDateFilter>(this.FilterCriteria_LastScannedAt);
+            }
+            if (this.FilterCriteria_LastScannedCommitId != null)
+            {
+                context.FilterCriteria_LastScannedCommitId = new List<Amazon.Inspector2.Model.CoverageStringFilter>(this.FilterCriteria_LastScannedCommitId);
             }
             if (this.FilterCriteria_ResourceId != null)
             {
@@ -410,6 +467,36 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_AccountId != null)
             {
                 request.FilterCriteria.AccountId = requestFilterCriteria_filterCriteria_AccountId;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.CoverageStringFilter> requestFilterCriteria_filterCriteria_CodeRepositoryProjectName = null;
+            if (cmdletContext.FilterCriteria_CodeRepositoryProjectName != null)
+            {
+                requestFilterCriteria_filterCriteria_CodeRepositoryProjectName = cmdletContext.FilterCriteria_CodeRepositoryProjectName;
+            }
+            if (requestFilterCriteria_filterCriteria_CodeRepositoryProjectName != null)
+            {
+                request.FilterCriteria.CodeRepositoryProjectName = requestFilterCriteria_filterCriteria_CodeRepositoryProjectName;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.CoverageStringFilter> requestFilterCriteria_filterCriteria_CodeRepositoryProviderType = null;
+            if (cmdletContext.FilterCriteria_CodeRepositoryProviderType != null)
+            {
+                requestFilterCriteria_filterCriteria_CodeRepositoryProviderType = cmdletContext.FilterCriteria_CodeRepositoryProviderType;
+            }
+            if (requestFilterCriteria_filterCriteria_CodeRepositoryProviderType != null)
+            {
+                request.FilterCriteria.CodeRepositoryProviderType = requestFilterCriteria_filterCriteria_CodeRepositoryProviderType;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.CoverageStringFilter> requestFilterCriteria_filterCriteria_CodeRepositoryProviderTypeVisibility = null;
+            if (cmdletContext.FilterCriteria_CodeRepositoryProviderTypeVisibility != null)
+            {
+                requestFilterCriteria_filterCriteria_CodeRepositoryProviderTypeVisibility = cmdletContext.FilterCriteria_CodeRepositoryProviderTypeVisibility;
+            }
+            if (requestFilterCriteria_filterCriteria_CodeRepositoryProviderTypeVisibility != null)
+            {
+                request.FilterCriteria.CodeRepositoryProviderTypeVisibility = requestFilterCriteria_filterCriteria_CodeRepositoryProviderTypeVisibility;
                 requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.CoverageMapFilter> requestFilterCriteria_filterCriteria_Ec2InstanceTag = null;
@@ -510,6 +597,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_LastScannedAt != null)
             {
                 request.FilterCriteria.LastScannedAt = requestFilterCriteria_filterCriteria_LastScannedAt;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.CoverageStringFilter> requestFilterCriteria_filterCriteria_LastScannedCommitId = null;
+            if (cmdletContext.FilterCriteria_LastScannedCommitId != null)
+            {
+                requestFilterCriteria_filterCriteria_LastScannedCommitId = cmdletContext.FilterCriteria_LastScannedCommitId;
+            }
+            if (requestFilterCriteria_filterCriteria_LastScannedCommitId != null)
+            {
+                request.FilterCriteria.LastScannedCommitId = requestFilterCriteria_filterCriteria_LastScannedCommitId;
                 requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.CoverageStringFilter> requestFilterCriteria_filterCriteria_ResourceId = null;
@@ -662,6 +759,9 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_AccountId { get; set; }
+            public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_CodeRepositoryProjectName { get; set; }
+            public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_CodeRepositoryProviderType { get; set; }
+            public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_CodeRepositoryProviderTypeVisibility { get; set; }
             public List<Amazon.Inspector2.Model.CoverageMapFilter> FilterCriteria_Ec2InstanceTag { get; set; }
             public List<Amazon.Inspector2.Model.CoverageNumberFilter> FilterCriteria_EcrImageInUseCount { get; set; }
             public List<Amazon.Inspector2.Model.CoverageDateFilter> FilterCriteria_EcrImageLastInUseAt { get; set; }
@@ -672,6 +772,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_LambdaFunctionRuntime { get; set; }
             public List<Amazon.Inspector2.Model.CoverageMapFilter> FilterCriteria_LambdaFunctionTag { get; set; }
             public List<Amazon.Inspector2.Model.CoverageDateFilter> FilterCriteria_LastScannedAt { get; set; }
+            public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_LastScannedCommitId { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_ResourceId { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_ResourceType { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_ScanMode { get; set; }

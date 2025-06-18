@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// 
     ///  
     /// <para>
-    /// You can only call this operation from the organization's management account.
+    /// This operation can be called only from the organization's management account..
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ORGResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

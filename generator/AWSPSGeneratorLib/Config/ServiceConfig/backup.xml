@@ -21,6 +21,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateBackupVaultMpaApprovalTeam" Verb="Add" Noun="BackupVaultMpaApprovalTeam" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelLegalHold" Verb="Stop" Noun="LegalHold" ShouldProcessTarget="LegalHoldId" PipelineParameter="LegalHoldId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -50,6 +54,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateReportPlan" OutputProperty="*" Verb="New" Noun="ReportPlan" ShouldProcessTarget="ReportPlanName" PipelineParameter="ReportPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRestoreAccessBackupVault" OutputProperty="*" Verb="New" Noun="RestoreAccessBackupVault" ShouldProcessTarget="SourceBackupVaultArn" PipelineParameter="SourceBackupVaultArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -149,6 +157,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateBackupVaultMpaApprovalTeam" Verb="Remove" Noun="BackupVaultMpaApprovalTeam" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateRecoveryPoint" Verb="Unlock" Noun="RecoveryPoint" ShouldProcessTarget="RecoveryPointArn" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -217,7 +229,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackupJobs" OutputProperty="BackupJobs" Verb="Get" Noun="BackupJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBackupJobs" OutputProperty="BackupJobs" Verb="Get" Noun="BackupJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -225,23 +237,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackupPlans" OutputProperty="BackupPlansList" Verb="Get" Noun="BackupPlanList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBackupPlans" OutputProperty="BackupPlansList" Verb="Get" Noun="BackupPlanList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackupPlanTemplates" OutputProperty="BackupPlanTemplatesList" Verb="Get" Noun="BackupPlanTemplateList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBackupPlanTemplates" OutputProperty="BackupPlanTemplatesList" Verb="Get" Noun="BackupPlanTemplateList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackupPlanVersions" OutputProperty="BackupPlanVersionsList" Verb="Get" Noun="BackupPlanVersionList" PipelineParameter="BackupPlanId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBackupPlanVersions" OutputProperty="BackupPlanVersionsList" Verb="Get" Noun="BackupPlanVersionList" PipelineParameter="BackupPlanId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackupSelections" OutputProperty="BackupSelectionsList" Verb="Get" Noun="BackupSelectionList" PipelineParameter="BackupPlanId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBackupSelections" OutputProperty="BackupSelectionsList" Verb="Get" Noun="BackupSelectionList" PipelineParameter="BackupPlanId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackupVaults" OutputProperty="BackupVaultList" Verb="Get" Noun="BackupVaultList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBackupVaults" OutputProperty="BackupVaultList" Verb="Get" Noun="BackupVaultList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -265,7 +277,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProtectedResources" OutputProperty="Results" Verb="Get" Noun="ProtectedResourceList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListProtectedResources" OutputProperty="Results" Verb="Get" Noun="ProtectedResourceList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -273,7 +285,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecoveryPointsByBackupVault" OutputProperty="RecoveryPoints" Verb="Get" Noun="RecoveryPointsByBackupVaultList" PipelineParameter="BackupVaultName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRecoveryPointsByBackupVault" OutputProperty="RecoveryPoints" Verb="Get" Noun="RecoveryPointsByBackupVaultList" PipelineParameter="BackupVaultName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -281,7 +293,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecoveryPointsByResource" OutputProperty="RecoveryPoints" Verb="Get" Noun="RecoveryPointsByResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRecoveryPointsByResource" OutputProperty="RecoveryPoints" Verb="Get" Noun="RecoveryPointsByResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -293,7 +305,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRestoreJobs" OutputProperty="RestoreJobs" Verb="Get" Noun="RestoreJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRestoreAccessBackupVaults" OutputProperty="RestoreAccessBackupVaults" Verb="Get" Noun="RestoreAccessBackupVaultList" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRestoreJobs" OutputProperty="RestoreJobs" Verb="Get" Noun="RestoreJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -313,7 +329,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -330,6 +346,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutRestoreValidationResult" Verb="Write" Noun="RestoreValidationResult" ShouldProcessTarget="RestoreJobId" PipelineParameter="RestoreJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokeRestoreAccessBackupVault" Verb="Revoke" Noun="RestoreAccessBackupVault" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -31,22 +31,22 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Used by Security Hub customers to update information about their investigation into
-    /// a finding. Requested by administrator accounts or member accounts. Administrator accounts
-    /// can update findings for their account and their member accounts. Member accounts can
-    /// update findings for their account.
+    /// one or more findings. Requested by administrator accounts or member accounts. Administrator
+    /// accounts can update findings for their account and their member accounts. A member
+    /// account can update findings only for their own account. Administrator and member accounts
+    /// can use this operation to update the following fields and objects for one or more
+    /// findings: 
     /// 
-    ///  
-    /// <para>
-    /// Updates from <c>BatchUpdateFindings</c> don't affect the value of <c>UpdatedAt</c>
-    /// for a finding.
+    ///  <ul><li><para><c>Confidence</c></para></li><li><para><c>Criticality</c></para></li><li><para><c>Note</c></para></li><li><para><c>RelatedFindings</c></para></li><li><para><c>Severity</c></para></li><li><para><c>Types</c></para></li><li><para><c>UserDefinedFields</c></para></li><li><para><c>VerificationState</c></para></li><li><para><c>Workflow</c></para></li></ul><para>
+    ///  If you use this operation to update a finding, your updates don’t affect the value
+    /// for the <c>UpdatedAt</c> field of the finding. Also note that it can take several
+    /// minutes for Security Hub to process your request and update each finding specified
+    /// in the request. 
     /// </para><para>
-    /// Administrator and member accounts can use <c>BatchUpdateFindings</c> to update the
-    /// following finding fields and objects.
-    /// </para><ul><li><para><c>Confidence</c></para></li><li><para><c>Criticality</c></para></li><li><para><c>Note</c></para></li><li><para><c>RelatedFindings</c></para></li><li><para><c>Severity</c></para></li><li><para><c>Types</c></para></li><li><para><c>UserDefinedFields</c></para></li><li><para><c>VerificationState</c></para></li><li><para><c>Workflow</c></para></li></ul><para>
-    /// You can configure IAM policies to restrict access to fields and field values. For
+    ///  You can configure IAM policies to restrict access to fields and field values. For
     /// example, you might not want member accounts to be able to suppress findings or change
-    /// the finding severity. See <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access">Configuring
-    /// access to BatchUpdateFindings</a> in the <i>Security Hub User Guide</i>.
+    /// the finding severity. For more information see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access">Configuring
+    /// access to BatchUpdateFindings</a> in the <i>Security Hub User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("Update", "SHUBFindingsBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

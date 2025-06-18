@@ -30,10 +30,11 @@ using Amazon.CertificateManager.Model;
 namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
-    /// Updates a certificate. Currently, you can use this function to specify whether to
-    /// opt in to or out of recording your certificate in a certificate transparency log.
+    /// Updates a certificate. You can use this function to specify whether to opt in to or
+    /// out of recording your certificate in a certificate transparency log and exporting.
     /// For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency">
-    /// Opting Out of Certificate Transparency Logging</a>.
+    /// Opting Out of Certificate Transparency Logging</a> and <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html">Certificate
+    /// Manager Exportable Managed Certificates</a>.
     /// </summary>
     [Cmdlet("Update", "ACMCertificateOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -75,6 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.CertificateManager.CertificateTransparencyLoggingPreference")]
         public Amazon.CertificateManager.CertificateTransparencyLoggingPreference Options_CertificateTransparencyLoggingPreference { get; set; }
+        #endregion
+        
+        #region Parameter Options_Export
+        /// <summary>
+        /// <para>
+        /// <para>You can opt in to allow the export of your certificates by specifying <c>ENABLED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CertificateManager.CertificateExport")]
+        public Amazon.CertificateManager.CertificateExport Options_Export { get; set; }
         #endregion
         
         #region Parameter Select
@@ -130,6 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             }
             #endif
             context.Options_CertificateTransparencyLoggingPreference = this.Options_CertificateTransparencyLoggingPreference;
+            context.Options_Export = this.Options_Export;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -162,6 +175,16 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             if (requestOptions_options_CertificateTransparencyLoggingPreference != null)
             {
                 request.Options.CertificateTransparencyLoggingPreference = requestOptions_options_CertificateTransparencyLoggingPreference;
+                requestOptionsIsNull = false;
+            }
+            Amazon.CertificateManager.CertificateExport requestOptions_options_Export = null;
+            if (cmdletContext.Options_Export != null)
+            {
+                requestOptions_options_Export = cmdletContext.Options_Export;
+            }
+            if (requestOptions_options_Export != null)
+            {
+                request.Options.Export = requestOptions_options_Export;
                 requestOptionsIsNull = false;
             }
              // determine if request.Options should be set to null
@@ -226,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         {
             public System.String CertificateArn { get; set; }
             public Amazon.CertificateManager.CertificateTransparencyLoggingPreference Options_CertificateTransparencyLoggingPreference { get; set; }
+            public Amazon.CertificateManager.CertificateExport Options_Export { get; set; }
             public System.Func<Amazon.CertificateManager.Model.UpdateCertificateOptionsResponse, UpdateACMCertificateOptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

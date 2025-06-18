@@ -84,6 +84,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-BAKBackupVaultMpaApprovalTeam', 
         'Add-BAKResourceTag', 
         'Export-BAKBackupPlanTemplate', 
         'Get-BAKBackupJob', 
@@ -125,6 +126,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-BAKReportPlan', 
         'Get-BAKReportPlanList', 
         'Get-BAKResourceTag', 
+        'Get-BAKRestoreAccessBackupVaultList', 
         'Get-BAKRestoreJob', 
         'Get-BAKRestoreJobList', 
         'Get-BAKRestoreJobMetadata', 
@@ -144,6 +146,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-BAKLegalHold', 
         'New-BAKLogicallyAirGappedBackupVault', 
         'New-BAKReportPlan', 
+        'New-BAKRestoreAccessBackupVault', 
         'New-BAKRestoreTestingPlan', 
         'New-BAKRestoreTestingSelection', 
         'Remove-BAKBackupPlan', 
@@ -151,6 +154,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-BAKBackupVault', 
         'Remove-BAKBackupVaultAccessPolicy', 
         'Remove-BAKBackupVaultLockConfiguration', 
+        'Remove-BAKBackupVaultMpaApprovalTeam', 
         'Remove-BAKBackupVaultNotification', 
         'Remove-BAKFramework', 
         'Remove-BAKRecoveryPoint', 
@@ -158,6 +162,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-BAKResourceTag', 
         'Remove-BAKRestoreTestingPlan', 
         'Remove-BAKRestoreTestingSelection', 
+        'Revoke-BAKRestoreAccessBackupVault', 
         'Start-BAKBackupJob', 
         'Start-BAKCopyJob', 
         'Start-BAKReportJob', 
