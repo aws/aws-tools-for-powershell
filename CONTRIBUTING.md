@@ -56,7 +56,7 @@ If you discover a potential security issue in this project we ask that you notif
 
 ## Licensing
 
-See the [LICENSE](https://github.com/aws/aws-tools-for-powershell/blob/master/LICENSE) file for our project's licensing. We will ask you to confirm the licensing of your contribution.
+See the [LICENSE](https://github.com/aws/aws-tools-for-powershell/blob/main/LICENSE) file for our project's licensing. We will ask you to confirm the licensing of your contribution.
 
 We may ask you to sign a [Contributor License Agreement (CLA)](http://en.wikipedia.org/wiki/Contributor_License_Agreement) for larger changes.
 
@@ -68,16 +68,16 @@ Examples are published to:
 2. The online help documents found in the [AWS Tools for PowerShell Reference](https://docs.aws.amazon.com/powershell/latest/reference/).
 3. The [AWS Developer Center Examples Site](https://aws.amazon.com/developer/code-examples).
 
-The examples content can be found in the [.doc_gen](https://github.com/aws/aws-tools-for-powershell/tree/master/.doc_gen) folder.
+The examples content can be found in the [.doc_gen](https://github.com/aws/aws-tools-for-powershell/tree/main/.doc_gen) folder.
 
-The files in the [metadata folder](https://github.com/aws/aws-tools-for-powershell/tree/master/.doc_gen/metadata) describe one or more examples for each cmdlet. For now, common cmdlets which do not belong to a particular AWS service have a separate folder for metadata files.
+The files in the [metadata folder](https://github.com/aws/aws-tools-for-powershell/tree/main/.doc_gen/metadata) describe one or more examples for each cmdlet. For now, common cmdlets which do not belong to a particular AWS service have a separate folder for metadata files.
 
 Please copy the format of existing example files when adding new files. Also note:
 
 1. The AWS service name used in file names or metadata properties should follow the naming convention set by file names in [this folder in the JavaScript SDK repo](https://github.com/aws/aws-sdk-js-v3/tree/main/codegen/sdk-codegen/aws-models).
 1. Metadata file content begins and ends with a reference to the name of the AWS API action associated with a cmdlet. The AWS API action name can be looked up using the cmdlet `Get-AWSCmdletName`.
 1. Examples are constructed with multiple excerpts where each excerpt may contain a heading, code block, or output. If there are multiple examples for a cmdlet, these excerpts will immediately follow each other in one continuous list.
-1. Code blocks in examples are stored in the [snippet_files](https://github.com/aws/aws-tools-for-powershell/tree/master/.doc_gen/snippet_files) folder. The snippet file names contain two numeric values indicating (1) the numbering for multiple examples followed by (2) the numbering for multiple code blocks.
+1. Code blocks in examples are stored in the [snippet_files](https://github.com/aws/aws-tools-for-powershell/tree/main/.doc_gen/snippet_files) folder. The snippet file names contain two numeric values indicating (1) the numbering for multiple examples followed by (2) the numbering for multiple code blocks.
 1. Examples will not be published for an AWS service until an entry has been added to [services.yaml in aws-doc-sdk-examples-tools](https://github.com/awsdocs/aws-doc-sdk-examples-tools/blob/main/aws_doc_sdk_examples_tools/config/services.yaml) repo.
 1. Some characters are reserved and must be replaced with the following expressions:
   1. `&` -> `&amp;` 

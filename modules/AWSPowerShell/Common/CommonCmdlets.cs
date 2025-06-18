@@ -496,7 +496,7 @@ namespace Amazon.PowerShell.Common
                 sw.WriteLine(sdkInfo.LegalCopyright);
                 sw.WriteLine();
 
-                sw.WriteLine("Release notes: {0}", "https://github.com/aws/aws-tools-for-powershell/blob/master/changelogs/CHANGELOG.ALL.md");
+                sw.WriteLine("Release notes: {0}", "https://github.com/aws/aws-tools-for-powershell/blob/main/changelogs/CHANGELOG.ALL.md");
                 sw.WriteLine();
 
                 // recognise 3rd party libraries

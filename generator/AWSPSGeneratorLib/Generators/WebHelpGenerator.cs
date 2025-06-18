@@ -447,7 +447,7 @@ namespace AWSPowerShellGenerator.Generators
             }
 
             // Add link for User Guide to all cmdlets
-            AppendLink(sb, "AWS Tools for PowerShell User Guide", "http://docs.aws.amazon.com/powershell/latest/userguide/");
+            AppendLink(sb, "AWS Tools for PowerShell User Guide", "http://docs.aws.amazon.com/powershell/v5/userguide/");
 
             writer.AddPageElement(CmdletPageWriter.RelatedLinksElementKey, sb.ToString());
         }
