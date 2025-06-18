@@ -542,6 +542,7 @@ $S3_SelectMap = @{
                "Write-S3ObjectRetention",
                "Write-S3ObjectTagSet",
                "Add-S3PublicAccessBlock",
+               "Rename-S3Object",
                "Restore-S3Object",
                "Select-S3ObjectContent",
                "Write-S3GetObjectResponse",

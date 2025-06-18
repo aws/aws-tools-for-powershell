@@ -37,7 +37,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// you must have the <c>s3:GetBucketOwnershipControls</c> permission. For more information
     /// about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html">Specifying
     /// permissions in a policy</a>. 
-    /// </para><para>
+    /// </para><note><para>
+    /// A bucket doesn't have <c>OwnershipControls</c> settings in the following cases:
+    /// </para><ul><li><para>
+    /// The bucket was created before the <c>BucketOwnerEnforced</c> ownership setting was
+    /// introduced and you've never explicitly applied this value
+    /// </para></li><li><para>
+    /// You've manually deleted the bucket ownership control value using the <c>DeleteBucketOwnershipControls</c>
+    /// API operation.
+    /// </para></li></ul><para>
+    /// By default, Amazon S3 sets <c>OwnershipControls</c> for all newly created buckets.
+    /// </para></note><para>
     /// For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Using
     /// Object Ownership</a>. 
     /// </para><para>

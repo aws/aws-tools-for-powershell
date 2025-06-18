@@ -14,6 +14,13 @@
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.0.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/v4-release/changelogs/SDK.CHANGELOG.ALL.md.
   * Please find a description of the changes for 5.0.0-preview002 at https://github.com/aws/aws-tools-for-powershell/issues/357
 
+### 4.1.843 (2025-06-18 21:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1066.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AI Ops. Added cmdlets to support the service. Cmdlets for the service have the noun prefix AIOps and can be listed using the command 'Get-AWSCmdletName -Service AIOps'.
+  * Amazon Auto Scaling
+    * Modified cmdlet Get-ASAutoScalingGroup: added parameter IncludeInstance.
+  * Amazon Simple Storage Service (S3)
+    * Added cmdlet Rename-S3Object leveraging the RenameObject service API.
 
 ### 4.1.842 (2025-06-17 22:38Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1065.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.

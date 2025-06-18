@@ -30,7 +30,17 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// <note><para>
+    /// <important><para>
+    /// End of support notice: Beginning October 1, 2025, Amazon S3 will stop returning <c>DisplayName</c>.
+    /// Update your applications to use canonical IDs (unique identifier for Amazon Web Services
+    /// accounts), Amazon Web Services account ID (12 digit identifier) or IAM ARNs (full
+    /// resource naming) as a direct replacement of <c>DisplayName</c>. 
+    /// </para><para>
+    /// This change affects the following Amazon Web Services Regions: US East (N. Virginia)
+    /// Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore)
+    /// Region, Asia Pacific (Sydney) Region, Asia Pacific (Tokyo) Region, Europe (Ireland)
+    /// Region, and South America (São Paulo) Region.
+    /// </para></important><note><para>
     /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// Returns the logging status of a bucket and the permissions users have to view and
