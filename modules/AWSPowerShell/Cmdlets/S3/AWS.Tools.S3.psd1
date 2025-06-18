@@ -151,6 +151,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-S3Object', 
         'Remove-S3ObjectTagSet', 
         'Remove-S3PublicAccessBlock', 
+        'Rename-S3Object', 
         'Restore-S3Object', 
         'Select-S3ObjectContent', 
         'Set-S3ACL', 

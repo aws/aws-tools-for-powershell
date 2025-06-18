@@ -263,6 +263,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="HeadBucket" OutputProperty="*" Verb="Head" Noun="Bucket" Exclude="true" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="InitiateMultipartUpload" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -295,7 +299,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListObjects" OutputProperty="S3Objects" Verb="Get" Noun="Object" PositionalParameters="Prefix" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" DefaultParameterSet="GetMultipleObjects" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListObjects" OutputProperty="S3Objects" Verb="Get" Noun="Object" PositionalParameters="Prefix" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" DefaultParameterSet="GetMultipleObjects">
             <Params>
                 <Param Name="BucketName" Mandatory="true" />
                 <Param Name="Delimiter" ParameterSetName="GetMultipleObjects" />
@@ -306,7 +310,7 @@
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxKeys" ServicePageSize="1000" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListObjectsV2" OutputProperty="S3Objects" Verb="Get" Noun="ObjectV2" PositionalParameters="Prefix" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" DefaultParameterSet="GetMultipleObjects" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListObjectsV2" OutputProperty="S3Objects" Verb="Get" Noun="ObjectV2" PositionalParameters="Prefix" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" DefaultParameterSet="GetMultipleObjects">
             <Params>
                 <Param Name="BucketName" Mandatory="true" />
                 <Param Name="Delimiter" ParameterSetName="GetMultipleObjects" />
@@ -439,6 +443,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RenameObject" Verb="Rename" Noun="Object" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RestoreObject" OutputProperty="*" Verb="Restore" Noun="Object" ShouldProcessTarget="BucketName" PositionalParameters="Key;Days" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Days" NewName="CopyLifetimeInDays" />
@@ -457,10 +465,6 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="HeadBucket" OutputProperty="*" Verb="Head" Noun="Bucket" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" Exclude="true" LegacyV4Pagination="true">
-        <Params />
-        <TypesNotToFlatten />
-      </ServiceOperation>
     </ServiceOperations>
     <TypesNotToFlatten>
         <Type>Amazon.S3.Model.SelectParameters</Type>

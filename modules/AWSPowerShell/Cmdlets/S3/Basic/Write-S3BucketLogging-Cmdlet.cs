@@ -28,7 +28,18 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// <note><para>
+    /// <important><para>
+    /// End of support notice: Beginning October 1, 2025, Amazon S3 will discontinue support
+    /// for creating new Email Grantee Access Control Lists (ACL). Email Grantee ACLs created
+    /// prior to this date will continue to work and remain accessible through the Amazon
+    /// Web Services Management Console, Command Line Interface (CLI), SDKs, and REST API.
+    /// However, you will no longer be able to create new Email Grantee ACLs. 
+    /// </para><para>
+    /// This change affects the following Amazon Web Services Regions: US East (N. Virginia)
+    /// Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore)
+    /// Region, Asia Pacific (Sydney) Region, Asia Pacific (Tokyo) Region, Europe (Ireland)
+    /// Region, and South America (São Paulo) Region.
+    /// </para></important><note><para>
     /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// Set the logging parameters for a bucket and to specify permissions for who can view
@@ -47,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// for server access log delivery</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></important><dl><dt>Grantee Values</dt><dd><para>
     /// You can specify the person (grantee) to whom you're assigning access rights (by using
-    /// request elements) in the following ways:
+    /// request elements) in the following ways. For examples of how to specify these grantee
+    /// values in JSON format, see the Amazon Web Services CLI example in <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html">
+    /// Enabling Amazon S3 server access logging</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><ul><li><para>
     /// By the person's ID:
     /// </para><para><c>&lt;Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser"&gt;&lt;ID&gt;&lt;&gt;ID&lt;&gt;&lt;/ID&gt;&lt;DisplayName&gt;&lt;&gt;GranteesEmail&lt;&gt;&lt;/DisplayName&gt;

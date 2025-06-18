@@ -41,10 +41,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// The maximum batch size is 1,048,576 bytes. This size is calculated as the sum of all
     /// event messages in UTF-8, plus 26 bytes for each log event.
     /// </para></li><li><para>
-    /// None of the log events in the batch can be more than 2 hours in the future.
+    /// Events more than 2 hours in the future are rejected while processing remaining valid
+    /// events.
     /// </para></li><li><para>
-    /// None of the log events in the batch can be more than 14 days in the past. Also, none
-    /// of the log events can be from earlier than the retention period of the log group.
+    /// Events older than 14 days or preceding the log group's retention period are rejected
+    /// while processing remaining valid events.
     /// </para></li><li><para>
     /// The log events in the batch must be in chronological order by their timestamp. The
     /// timestamp is the time that the event occurred, expressed as the number of milliseconds
@@ -52,17 +53,20 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// and the Amazon Web Services SDK for .NET, the timestamp is specified in .NET format:
     /// <c>yyyy-mm-ddThh:mm:ss</c>. For example, <c>2017-09-15T13:45:30</c>.) 
     /// </para></li><li><para>
-    /// A batch of log events in a single request cannot span more than 24 hours. Otherwise,
+    ///  A batch of log events in a single request must be in a chronological order. Otherwise,
     /// the operation fails.
     /// </para></li><li><para>
     /// Each log event can be no larger than 1 MB.
     /// </para></li><li><para>
     /// The maximum number of log events in a batch is 10,000.
-    /// </para></li><li><important><para>
+    /// </para></li><li><para>
+    /// For valid events (within 14 days in the past to 2 hours in future), the time span
+    /// in a single batch cannot exceed 24 hours. Otherwise, the operation fails.
+    /// </para></li></ul><important><para>
     /// The quota of five requests per second per log stream has been removed. Instead, <c>PutLogEvents</c>
     /// actions are throttled based on a per-second per-account quota. You can request an
     /// increase to the per-second throttling quota by using the Service Quotas service.
-    /// </para></important></li></ul><para>
+    /// </para></important><para>
     /// If a call to <c>PutLogEvents</c> returns "UnrecognizedClientException" the most likely
     /// cause is a non-valid Amazon Web Services access key ID or secret key. 
     /// </para>

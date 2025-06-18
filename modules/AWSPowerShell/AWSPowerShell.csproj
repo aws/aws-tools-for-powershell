@@ -67,6 +67,9 @@
     <Reference Include="AWSSDK.ACMPCA">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ACMPCA.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.AIOps">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AIOps.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Amplify">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Amplify.dll</HintPath>
     </Reference>
@@ -1271,6 +1274,9 @@
     </Reference>
     <Reference Include="AWSSDK.ACMPCA">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ACMPCA.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.AIOps">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AIOps.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Amplify">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Amplify.dll</HintPath>

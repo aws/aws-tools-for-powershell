@@ -78,6 +78,18 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public Amazon.AutoScaling.Model.Filter[] Filter { get; set; }
         #endregion
         
+        #region Parameter IncludeInstance
+        /// <summary>
+        /// <para>
+        /// <para> Specifies whether to include information about Amazon EC2 instances in the response.
+        /// When set to <c>true</c> (default), the response includes instance details. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeInstances")]
+        public System.Boolean? IncludeInstance { get; set; }
+        #endregion
+        
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
@@ -174,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 context.Filter = new List<Amazon.AutoScaling.Model.Filter>(this.Filter);
             }
+            context.IncludeInstance = this.IncludeInstance;
             context.MaxRecord = this.MaxRecord;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxRecord)) && this.MaxRecord.HasValue)
@@ -213,6 +226,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.IncludeInstance != null)
+            {
+                request.IncludeInstances = cmdletContext.IncludeInstance.Value;
             }
             if (cmdletContext.MaxRecord != null)
             {
@@ -280,6 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.IncludeInstance != null)
+            {
+                request.IncludeInstances = cmdletContext.IncludeInstance.Value;
             }
             
             // Initialize loop variants and commence piping
@@ -395,6 +416,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             public List<System.String> AutoScalingGroupName { get; set; }
             public List<Amazon.AutoScaling.Model.Filter> Filter { get; set; }
+            public System.Boolean? IncludeInstance { get; set; }
             public int? MaxRecord { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.AutoScaling.Model.DescribeAutoScalingGroupsResponse, GetASAutoScalingGroupCmdlet, object> Select { get; set; } =
