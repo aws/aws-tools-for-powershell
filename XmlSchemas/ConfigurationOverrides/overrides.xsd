@@ -98,7 +98,7 @@
               </xsd:element>
               <xsd:element minOccurs="0" name="VerbMappings">
                 <xsd:annotation>
-                  <xsd:documentation>ADVANCED CONFIGURATION. Default configuration to be used for this service to map operation verbs to PowerShell verbs (see https://docs.microsoft.com/en-us/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands). This only applies when the AWS Tools for PowerShell code generator first proposes a cmdlet configuration. For global (non service-specific) configurations, edit https://github.com/aws/aws-tools-for-powershell/blob/master/generator/AWSPSGeneratorLib/Config/Configs.xml instead.</xsd:documentation>
+                  <xsd:documentation>ADVANCED CONFIGURATION. Default configuration to be used for this service to map operation verbs to PowerShell verbs (see https://docs.microsoft.com/en-us/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands). This only applies when the AWS Tools for PowerShell code generator first proposes a cmdlet configuration. For global (non service-specific) configurations, edit https://github.com/aws/aws-tools-for-powershell/blob/v4.1/generator/AWSPSGeneratorLib/Config/Configs.xml instead.</xsd:documentation>
                 </xsd:annotation>
                 <xsd:complexType>
                   <xsd:sequence minOccurs="0">

@@ -75,7 +75,7 @@ namespace AWSPowerShellGenerator.Writers.Help
                         writer.WriteLine("<meta name=\"description\" content=\"{0}\">", GetMetaDescription());
                         writer.WriteLine("<title>{0} | AWS Tools for PowerShell</title>", GetTitle());                        
                         writer.WriteLine("<script type=\"text/javascript\" src=\"/assets/js/awsdocs-boot.js\"></script>");
-                        writer.WriteLine("<link rel=\"canonical\" href=\"http://docs.aws.amazon.com/powershell/latest/reference/index.html?page={0}&tocid={1}\"/>",
+                        writer.WriteLine("<link rel=\"canonical\" href=\"http://docs.aws.amazon.com/powershell/v4/reference/index.html?page={0}&tocid={1}\"/>",
                                          this.GenerateFilename(),
                                          this.GetTOCID());
 
@@ -184,7 +184,7 @@ namespace AWSPowerShellGenerator.Writers.Help
         {
             string filename = Path.GetFileNameWithoutExtension(GenerateFilename());
             string baseUrl = "https://docs.aws.amazon.com/forms/aws-doc-feedback";
-            string queryString = string.Format("?service_name={0}&amp;topic_url=https://docs.aws.amazon.com/powershell/latest/reference/items/{1}.html",
+            string queryString = string.Format("?service_name={0}&amp;topic_url=https://docs.aws.amazon.com/powershell/v4/reference/items/{1}.html",
                 "PowerShell-Ref",  // service_name
                 filename   // guide_name
                 );
@@ -193,8 +193,8 @@ namespace AWSPowerShellGenerator.Writers.Help
             string feedbackContentFormat = "<span class=\"feedbackLinks\">" +
                                             "<!-- BEGIN-FEEDBACK-SECTION -->" +
                                             "Did this page help you?&nbsp;&nbsp;" +
-                                            "<a href=\"http://docs.aws.amazon.com/powershell/latest/reference/feedbackyes.html?topic_id={0}\" target=\"_parent\">Yes</a>&nbsp;&nbsp;" +
-                                            "<a href=\"http://docs.aws.amazon.com/powershell/latest/reference/feedbackno.html?topic_id={0}\" target=\"_parent\">No</a>&nbsp;&nbsp;&nbsp;" +
+                                            "<a href=\"http://docs.aws.amazon.com/powershell/v4/reference/feedbackyes.html?topic_id={0}\" target=\"_parent\">Yes</a>&nbsp;&nbsp;" +
+                                            "<a href=\"http://docs.aws.amazon.com/powershell/v4/reference/feedbackno.html?topic_id={0}\" target=\"_parent\">No</a>&nbsp;&nbsp;&nbsp;" +
                                             "<a href=\"{1}\" target=\"_parent\">Tell us about it...</a>" +
                                             "<!-- END-FEEDBACK-SECTION -->" +
                                             "</span>";
