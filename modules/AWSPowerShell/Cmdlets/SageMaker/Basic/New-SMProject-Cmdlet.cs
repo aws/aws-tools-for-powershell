@@ -125,6 +125,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter TemplateProvider
+        /// <summary>
+        /// <para>
+        /// <para> An array of template provider configurations for creating infrastructure resources
+        /// for the project. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TemplateProviders")]
+        public Amazon.SageMaker.Model.CreateTemplateProvider[] TemplateProvider { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -206,6 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
             }
+            if (this.TemplateProvider != null)
+            {
+                context.TemplateProvider = new List<Amazon.SageMaker.Model.CreateTemplateProvider>(this.TemplateProvider);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -283,6 +299,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.TemplateProvider != null)
+            {
+                request.TemplateProviders = cmdletContext.TemplateProvider;
+            }
             
             CmdletOutput output;
             
@@ -351,6 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String ServiceCatalogProvisioningDetails_ProvisioningArtifactId { get; set; }
             public List<Amazon.SageMaker.Model.ProvisioningParameter> ServiceCatalogProvisioningDetails_ProvisioningParameter { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
+            public List<Amazon.SageMaker.Model.CreateTemplateProvider> TemplateProvider { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreateProjectResponse, NewSMProjectCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -113,6 +113,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter TemplateProvidersToUpdate
+        /// <summary>
+        /// <para>
+        /// <para> The template providers to update in the project. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.SageMaker.Model.UpdateTemplateProvider[] TemplateProvidersToUpdate { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ProjectArn'.
@@ -192,6 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
             }
+            if (this.TemplateProvidersToUpdate != null)
+            {
+                context.TemplateProvidersToUpdate = new List<Amazon.SageMaker.Model.UpdateTemplateProvider>(this.TemplateProvidersToUpdate);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -248,6 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.TemplateProvidersToUpdate != null)
+            {
+                request.TemplateProvidersToUpdate = cmdletContext.TemplateProvidersToUpdate;
             }
             
             CmdletOutput output;
@@ -315,6 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String ServiceCatalogProvisioningUpdateDetails_ProvisioningArtifactId { get; set; }
             public List<Amazon.SageMaker.Model.ProvisioningParameter> ServiceCatalogProvisioningUpdateDetails_ProvisioningParameter { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
+            public List<Amazon.SageMaker.Model.UpdateTemplateProvider> TemplateProvidersToUpdate { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateProjectResponse, UpdateSMProjectCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ProjectArn;
         }

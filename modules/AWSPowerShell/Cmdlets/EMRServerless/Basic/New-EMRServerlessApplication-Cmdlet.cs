@@ -152,6 +152,16 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         public System.String S3MonitoringConfiguration_EncryptionKeyArn { get; set; }
         #endregion
         
+        #region Parameter IdentityCenterConfiguration_IdentityCenterInstanceArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM Identity Center instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdentityCenterConfiguration_IdentityCenterInstanceArn { get; set; }
+        #endregion
+        
         #region Parameter AutoStopConfiguration_IdleTimeoutMinute
         /// <summary>
         /// <para>
@@ -489,6 +499,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             context.AutoStopConfiguration_Enabled = this.AutoStopConfiguration_Enabled;
             context.AutoStopConfiguration_IdleTimeoutMinute = this.AutoStopConfiguration_IdleTimeoutMinute;
             context.ClientToken = this.ClientToken;
+            context.IdentityCenterConfiguration_IdentityCenterInstanceArn = this.IdentityCenterConfiguration_IdentityCenterInstanceArn;
             context.ImageConfiguration_ImageUri = this.ImageConfiguration_ImageUri;
             if (this.InitialCapacity != null)
             {
@@ -648,6 +659,25 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate IdentityCenterConfiguration
+            var requestIdentityCenterConfigurationIsNull = true;
+            request.IdentityCenterConfiguration = new Amazon.EMRServerless.Model.IdentityCenterConfigurationInput();
+            System.String requestIdentityCenterConfiguration_identityCenterConfiguration_IdentityCenterInstanceArn = null;
+            if (cmdletContext.IdentityCenterConfiguration_IdentityCenterInstanceArn != null)
+            {
+                requestIdentityCenterConfiguration_identityCenterConfiguration_IdentityCenterInstanceArn = cmdletContext.IdentityCenterConfiguration_IdentityCenterInstanceArn;
+            }
+            if (requestIdentityCenterConfiguration_identityCenterConfiguration_IdentityCenterInstanceArn != null)
+            {
+                request.IdentityCenterConfiguration.IdentityCenterInstanceArn = requestIdentityCenterConfiguration_identityCenterConfiguration_IdentityCenterInstanceArn;
+                requestIdentityCenterConfigurationIsNull = false;
+            }
+             // determine if request.IdentityCenterConfiguration should be set to null
+            if (requestIdentityCenterConfigurationIsNull)
+            {
+                request.IdentityCenterConfiguration = null;
             }
             
              // populate ImageConfiguration
@@ -1057,6 +1087,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             public System.Boolean? AutoStopConfiguration_Enabled { get; set; }
             public System.Int32? AutoStopConfiguration_IdleTimeoutMinute { get; set; }
             public System.String ClientToken { get; set; }
+            public System.String IdentityCenterConfiguration_IdentityCenterInstanceArn { get; set; }
             public System.String ImageConfiguration_ImageUri { get; set; }
             public Dictionary<System.String, Amazon.EMRServerless.Model.InitialCapacityConfig> InitialCapacity { get; set; }
             public System.Boolean? InteractiveConfiguration_LivyEndpointEnabled { get; set; }

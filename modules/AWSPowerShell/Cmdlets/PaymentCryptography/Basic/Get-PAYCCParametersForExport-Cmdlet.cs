@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// The signing key certificate signs the wrapped key under export within the TR-34 key
     /// payload. The export token and signing key certificate must be in place and operational
     /// before calling <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ExportKey.html">ExportKey</a>.
-    /// The export token expires in 7 days. You can use the same export token to export multiple
+    /// The export token expires in 30 days. You can use the same export token to export multiple
     /// keys from your service account.
     /// </para><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
     /// Services accounts.

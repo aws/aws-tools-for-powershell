@@ -42,15 +42,30 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// The immutable data contains key attributes that define the scope and cryptographic
     /// operations that you can perform using the key, for example key class (example: <c>SYMMETRIC_KEY</c>),
     /// key algorithm (example: <c>TDES_2KEY</c>), key usage (example: <c>TR31_P0_PIN_ENCRYPTION_KEY</c>)
-    /// and key modes of use (example: <c>Encrypt</c>). For information about valid combinations
-    /// of key attributes, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html">Understanding
+    /// and key modes of use (example: <c>Encrypt</c>). Amazon Web Services Payment Cryptography
+    /// binds key attributes to keys using key blocks when you store or export them. Amazon
+    /// Web Services Payment Cryptography stores the key contents wrapped and never stores
+    /// or transmits them in the clear.
+    /// </para><para>
+    /// For information about valid combinations of key attributes, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html">Understanding
     /// key attributes</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.
     /// The mutable data contained within a key includes usage timestamp and key deletion
     /// timestamp and can be modified after creation.
     /// </para><para>
-    /// Amazon Web Services Payment Cryptography binds key attributes to keys using key blocks
-    /// when you store or export them. Amazon Web Services Payment Cryptography stores the
-    /// key contents wrapped and never stores or transmits them in the clear. 
+    /// You can use the <c>CreateKey</c> operation to generate an ECC (Elliptic Curve Cryptography)
+    /// key pair used for establishing an ECDH (Elliptic Curve Diffie-Hellman) key agreement
+    /// between two parties. In the ECDH key agreement process, both parties generate their
+    /// own ECC key pair with key usage K3 and exchange the public keys. Each party then use
+    /// their private key, the received public key from the other party, and the key derivation
+    /// parameters including key derivation function, hash algorithm, derivation data, and
+    /// key algorithm to derive a shared key.
+    /// </para><para>
+    /// To maintain the single-use principle of cryptographic keys in payments, ECDH derived
+    /// keys should not be used for multiple purposes, such as a <c>TR31_P0_PIN_ENCRYPTION_KEY</c>
+    /// and <c>TR31_K1_KEY_BLOCK_PROTECTION_KEY</c>. When creating ECC key pairs in Amazon
+    /// Web Services Payment Cryptography you can optionally set the <c>DeriveKeyUsage</c>
+    /// parameter, which defines the key usage bound to the symmetric key that will be derived
+    /// using the ECC key pair.
     /// </para><para><b>Cross-account use</b>: This operation can't be used across different Amazon Web
     /// Services accounts.
     /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html">DeleteKey</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetKey.html">GetKey</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListKeys.html">ListKeys</a></para></li></ul>
@@ -94,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter DeriveKeyUsage
         /// <summary>
         /// <para>
-        /// <para>The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31
-        /// spec.</para>
+        /// <para>The intended cryptographic usage of keys derived from the ECC key pair to be created.</para><para>After creating an ECC key pair, you cannot change the intended cryptographic usage
+        /// of keys derived from it using ECDH.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
