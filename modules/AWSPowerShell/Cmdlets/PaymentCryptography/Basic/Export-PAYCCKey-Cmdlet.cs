@@ -43,18 +43,19 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// </para><para>
     /// For symmetric key exchange, Amazon Web Services Payment Cryptography uses the ANSI
     /// X9 TR-31 norm in accordance with PCI PIN guidelines. And for asymmetric key exchange,
-    /// Amazon Web Services Payment Cryptography supports ANSI X9 TR-34 norm and RSA wrap
-    /// and unwrap key exchange mechanism. Asymmetric key exchange methods are typically used
-    /// to establish bi-directional trust between the two parties exhanging keys and are used
-    /// for initial key exchange such as Key Encryption Key (KEK). After which you can export
-    /// working keys using symmetric method to perform various cryptographic operations within
-    /// Amazon Web Services Payment Cryptography.
+    /// Amazon Web Services Payment Cryptography supports ANSI X9 TR-34 norm, RSA unwrap,
+    /// and ECDH (Elliptic Curve Diffie-Hellman) key exchange mechanisms. Asymmetric key exchange
+    /// methods are typically used to establish bi-directional trust between the two parties
+    /// exhanging keys and are used for initial key exchange such as Key Encryption Key (KEK).
+    /// After which you can export working keys using symmetric method to perform various
+    /// cryptographic operations within Amazon Web Services Payment Cryptography.
     /// </para><para>
-    /// The TR-34 norm is intended for exchanging 3DES keys only and keys are imported in
-    /// a WrappedKeyBlock format. Key attributes (such as KeyUsage, KeyAlgorithm, KeyModesOfUse,
-    /// Exportability) are contained within the key block. With RSA wrap and unwrap, you can
-    /// exchange both 3DES and AES-128 keys. The keys are imported in a WrappedKeyCryptogram
-    /// format and you will need to specify the key attributes during import. 
+    /// PCI requires specific minimum key strength of wrapping keys used to protect the keys
+    /// being exchanged electronically. These requirements can change when PCI standards are
+    /// revised. The rules specify that wrapping keys used for transport must be at least
+    /// as strong as the key being protected. For more information on recommended key strength
+    /// of wrapping keys and key exchange mechanism, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-importexport.html">Importing
+    /// and exporting keys</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.
     /// </para><para>
     /// You can also use <c>ExportKey</c> functionality to generate and export an IPEK (Initial
     /// Pin Encryption Key) from Amazon Web Services Payment Cryptography using either TR-31
@@ -92,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// the export payload and the signing public key certificate is provided to KRD to verify
     /// the signature. The KRD can import the root certificate into its Hardware Security
     /// Module (HSM), as required. The export token and the associated KDH signing certificate
-    /// expires after 7 days. 
+    /// expires after 30 days. 
     /// </para><para>
     /// Next the KRD generates a key pair for the the purpose of encrypting the KDH key and
     /// provides the public key cerificate (also known as KRD wrapping certificate) back to
@@ -154,9 +155,31 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// </para></li><li><para><c>ExportKeyIdentifier</c>: The <c>KeyARN</c> of the KEK or BDK (in case of IPEK)
     /// under export.
     /// </para></li><li><para><c>KeyMaterial</c>: Use <c>Tr31KeyBlock</c> parameters.
+    /// </para></li></ul><para><b>To export working keys using ECDH</b></para><para>
+    /// You can also use ECDH key agreement to export working keys in a TR-31 keyblock, where
+    /// the wrapping key is an ECDH derived key.
+    /// </para><para>
+    /// To initiate a TR-31 key export using ECDH, both sides must create an ECC key pair
+    /// with key usage K3 and exchange public key certificates. In Amazon Web Services Payment
+    /// Cryptography, you can do this by calling <c>CreateKey</c>. If you have not already
+    /// done so, you must import the CA chain that issued the receiving public key certificate
+    /// by calling <c>ImportKey</c> with input <c>RootCertificatePublicKey</c> for root CA
+    /// or <c>TrustedPublicKey</c> for intermediate CA. You can then complete a TR-31 key
+    /// export by deriving a shared wrapping key using the service ECC key pair, public certificate
+    /// of your ECC key pair outside of Amazon Web Services Payment Cryptography, and the
+    /// key derivation parameters including key derivation function, hash algorithm, derivation
+    /// data, key algorithm.
+    /// </para><ul><li><para><c>KeyMaterial</c>: Use <c>DiffieHellmanTr31KeyBlock</c> parameters.
+    /// </para></li><li><para><c>PrivateKeyIdentifier</c>: The <c>KeyArn</c> of the ECC key pair created within
+    /// Amazon Web Services Payment Cryptography to derive a shared KEK.
+    /// </para></li><li><para><c>PublicKeyCertificate</c>: The public key certificate of the receiving ECC key
+    /// pair in PEM format (base64 encoded) to derive a shared KEK.
+    /// </para></li><li><para><c>CertificateAuthorityPublicKeyIdentifier</c>: The <c>keyARN</c> of the CA that
+    /// signed the public key certificate of the receiving ECC key pair.
     /// </para></li></ul><para>
     /// When this operation is successful, Amazon Web Services Payment Cryptography returns
-    /// the working key or IPEK as a TR-31 WrappedKeyBlock.
+    /// the working key as a TR-31 WrappedKeyBlock, where the wrapping key is the ECDH derived
+    /// key.
     /// </para><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
     /// Services accounts.
     /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForExport.html">GetParametersForExport</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html">ImportKey</a></para></li></ul>
@@ -177,7 +200,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <c>keyARN</c> of the certificate that signed the client's <c>PublicKeyCertificate</c>.</para>
+        /// <para>The <c>keyARN</c> of the CA that signed the <c>PublicKeyCertificate</c> for the client's
+        /// receiving ECC key pair.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -284,7 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm
         /// <summary>
         /// <para>
-        /// <para>The key algorithm of the derived ECDH key.</para>
+        /// <para>The key algorithm of the shared derived ECDH key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -352,8 +376,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// <para>The export token to initiate key export from Amazon Web Services Payment Cryptography.
         /// It also contains the signing key certificate that will sign the wrapped key during
         /// TR-34 key block generation. Call <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForExport.html">GetParametersForExport</a>
-        /// to receive an export token. It expires after 7 days. You can use the same export token
-        /// to export multiple keys from the same service account.</para>
+        /// to receive an export token. It expires after 30 days. You can use the same export
+        /// token to export multiple keys from the same service account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -429,7 +453,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter DiffieHellmanTr31KeyBlock_KeyDerivationFunction
         /// <summary>
         /// <para>
-        /// <para>The key derivation function to use for deriving a key using ECDH.</para>
+        /// <para>The key derivation function to use when deriving a key using ECDH.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -441,7 +465,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm
         /// <summary>
         /// <para>
-        /// <para>The hash type to use for deriving a key using ECDH.</para>
+        /// <para>The hash type to use when deriving a key using ECDH.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -642,7 +666,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <c>keyARN</c> of the asymmetric ECC key.</para>
+        /// <para>The <c>keyARN</c> of the asymmetric ECC key created within Amazon Web Services Payment
+        /// Cryptography.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -653,8 +678,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter DiffieHellmanTr31KeyBlock_PublicKeyCertificate
         /// <summary>
         /// <para>
-        /// <para>The client's public key certificate in PEM format (base64 encoded) to use for ECDH
-        /// key derivation.</para>
+        /// <para>The public key certificate of the client's receiving ECC key pair, in PEM format (base64
+        /// encoded), to use for ECDH key derivation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -678,10 +703,11 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter DerivationData_SharedInformation
         /// <summary>
         /// <para>
-        /// <para>A byte string containing information that binds the ECDH derived key to the two parties
+        /// <para>A string containing information that binds the ECDH derived key to the two parties
         /// involved or to the context of the key.</para><para>It may include details like identities of the two parties deriving the key, context
-        /// of the operation, session IDs, and optionally a nonce. It must not contain zero bytes,
-        /// and re-using shared information for multiple ECDH key derivations is not recommended.</para>
+        /// of the operation, session IDs, and optionally a nonce. It must not contain zero bytes.
+        /// It is not recommended to reuse shared information for multiple ECDH key derivations,
+        /// as it could result in derived key material being the same across different derivations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

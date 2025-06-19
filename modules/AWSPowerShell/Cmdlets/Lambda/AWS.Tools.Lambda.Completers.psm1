@@ -215,6 +215,18 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.SchemaRegistryEventRecordFormat
+        {
+            ($_ -eq "New-LMEventSourceMapping/AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat") -Or
+            ($_ -eq "Update-LMEventSourceMapping/AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat") -Or
+            ($_ -eq "New-LMEventSourceMapping/SchemaRegistryConfig_EventRecordFormat") -Or
+            ($_ -eq "Update-LMEventSourceMapping/SchemaRegistryConfig_EventRecordFormat")
+        }
+        {
+            $v = "JSON","SOURCE"
+            break
+        }
+
         # Amazon.Lambda.SnapStartApplyOn
         {
             ($_ -eq "Publish-LMFunction/SnapStart_ApplyOn") -Or
@@ -261,6 +273,7 @@ $LM_Completers = {
 }
 
 $LM_map = @{
+    "AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
     "AuthType"=@("New-LMFunctionUrlConfig","Update-LMFunctionUrlConfig")
     "CodeSigningPolicies_UntrustedArtifactOnDeployment"=@("New-LMCodeSigningConfig","Update-LMCodeSigningConfig")
     "CompatibleArchitecture"=@("Get-LMLayerList","Get-LMLayerVersionList")
@@ -277,6 +290,7 @@ $LM_map = @{
     "PackageType"=@("Publish-LMFunction")
     "RecursiveLoop"=@("Write-LMFunctionRecursionConfig")
     "Runtime"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
+    "SchemaRegistryConfig_EventRecordFormat"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
     "SnapStart_ApplyOn"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "StartingPosition"=@("New-LMEventSourceMapping")
     "TracingConfig_Mode"=@("Publish-LMFunction","Update-LMFunctionConfiguration")

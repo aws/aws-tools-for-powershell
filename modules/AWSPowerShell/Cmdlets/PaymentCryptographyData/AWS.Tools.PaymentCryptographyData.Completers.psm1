@@ -178,7 +178,7 @@ $PAYCD_Completers = {
             ($_ -eq "Unprotect-PAYCDData/WrappedKey_KeyCheckValueAlgorithm")
         }
         {
-            $v = "ANSI_X9_24","CMAC"
+            $v = "ANSI_X9_24","CMAC","HMAC"
             break
         }
 
@@ -307,7 +307,7 @@ $PAYCD_Completers = {
             ($_ -eq "Update-PAYCDEncryptData/OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm")
         }
         {
-            $v = "AES_128","AES_192","AES_256","TDES_2KEY","TDES_3KEY"
+            $v = "AES_128","AES_192","AES_256","HMAC_SHA224","HMAC_SHA256","HMAC_SHA384","HMAC_SHA512","TDES_2KEY","TDES_3KEY"
             break
         }
 
