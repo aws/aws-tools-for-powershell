@@ -22,16 +22,24 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using System.Threading;
 using Amazon.S3;
 using Amazon.S3.Model;
 
-#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// <note><para>
-    /// This operation is not supported by directory buckets.
+    /// <important><para>
+    /// End of support notice: Beginning October 1, 2025, Amazon S3 will stop returning <c>DisplayName</c>.
+    /// Update your applications to use canonical IDs (unique identifier for Amazon Web Services
+    /// accounts), Amazon Web Services account ID (12 digit identifier) or IAM ARNs (full
+    /// resource naming) as a direct replacement of <c>DisplayName</c>. 
+    /// </para><para>
+    /// This change affects the following Amazon Web Services Regions: US East (N. Virginia)
+    /// Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore)
+    /// Region, Asia Pacific (Sydney) Region, Asia Pacific (Tokyo) Region, Europe (Ireland)
+    /// Region, and South America (São Paulo) Region.
+    /// </para></important><note><para>
+    /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// This implementation of the <c>GET</c> action uses the <c>acl</c> subresource to return
     /// the access control list (ACL) of a bucket. To use <c>GET</c> to return the ACL of
@@ -55,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Controlling object ownership and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></note><para>
     /// The following operations are related to <c>GetBucketAcl</c>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html">ListObjects</a></para></li></ul><br/><br/>This operation is deprecated.
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html">ListObjects</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3ACL")]
     [OutputType("Amazon.S3.Model.S3AccessControlList")]
@@ -64,12 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         "This cmdlet returns an Amazon.S3.Model.S3AccessControlList object.",
         "The service call response (type Amazon.S3.Model.GetACLResponse) can be returned by specifying '-Select *'."
     )]
-    [System.ObsoleteAttribute("This cmdlet is deprecated, use Get-S3BucketACL or Get-S3ObjectACL instead.")]
     public partial class GetS3ACLCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter BucketName
         /// <summary>
@@ -130,13 +136,19 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public string Select { get; set; } = "AccessControlList";
         #endregion
         
-        protected override void StopProcessing()
-        {
-            base.StopProcessing();
-            _cancellationTokenSource.Cancel();
-        }
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the BucketName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^BucketName' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^BucketName' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "s3";
             base.ProcessRecord();
             
             var context = new CmdletContext();
@@ -144,11 +156,21 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.S3.Model.GetACLResponse, GetS3ACLCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.BucketName;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             context.Key = this.Key;
@@ -223,7 +245,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetACL");
             try
             {
-                return client.GetACLAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                #if DESKTOP
+                return client.GetACL(request);
+                #elif CORECLR
+                return client.GetACLAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
             }
             catch (AmazonServiceException exc)
             {

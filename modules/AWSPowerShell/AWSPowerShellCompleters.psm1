@@ -681,6 +681,100 @@ $PCA_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $PCA_SelectCompleters $PCA_SelectMap
+# Argument completions for service AWS AI Ops
+
+
+$AIOps_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.AIOps.EncryptionConfigurationType
+        {
+            ($_ -eq "New-AIOpsInvestigationGroup/EncryptionConfiguration_Type") -Or
+            ($_ -eq "Update-AIOpsInvestigationGroup/EncryptionConfiguration_Type")
+        }
+        {
+            $v = "AWS_OWNED_KEY","CUSTOMER_MANAGED_KMS_KEY"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AIOps_map = @{
+    "EncryptionConfiguration_Type"=@("New-AIOpsInvestigationGroup","Update-AIOpsInvestigationGroup")
+}
+
+_awsArgumentCompleterRegistration $AIOps_Completers $AIOps_map
+
+$AIOps_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.AIOps.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AIOps_SelectMap = @{
+    "Select"=@("New-AIOpsInvestigationGroup",
+               "Remove-AIOpsInvestigationGroup",
+               "Remove-AIOpsInvestigationGroupPolicy",
+               "Get-AIOpsInvestigationGroup",
+               "Get-AIOpsInvestigationGroupPolicy",
+               "Get-AIOpsInvestigationGroupList",
+               "Get-AIOpsResourceTag",
+               "Write-AIOpsInvestigationGroupPolicy",
+               "Add-AIOpsResourceTag",
+               "Remove-AIOpsResourceTag",
+               "Update-AIOpsInvestigationGroup")
+}
+
+_awsArgumentCompleterRegistration $AIOps_SelectCompleters $AIOps_SelectMap
 # Argument completions for service AWS Amplify
 
 
@@ -65952,6 +66046,7 @@ $S3_SelectMap = @{
                "Write-S3ObjectRetention",
                "Write-S3ObjectTagSet",
                "Add-S3PublicAccessBlock",
+               "Rename-S3Object",
                "Restore-S3Object",
                "Select-S3ObjectContent",
                "Write-S3GetObjectResponse",
