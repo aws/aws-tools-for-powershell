@@ -14,6 +14,18 @@
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.0.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/v4-release/changelogs/SDK.CHANGELOG.ALL.md.
   * Please find a description of the changes for 5.0.0-preview002 at https://github.com/aws/aws-tools-for-powershell/issues/357
 
+### 4.1.844 (2025-06-19 20:39Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1067.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon EMR Serverless
+    * Modified cmdlet New-EMRServerlessApplication: added parameter IdentityCenterConfiguration_IdentityCenterInstanceArn.
+    * Modified cmdlet Update-EMRServerlessApplication: added parameter IdentityCenterConfiguration_IdentityCenterInstanceArn.
+  * Amazon Lambda
+    * Modified cmdlet New-LMEventSourceMapping: added parameters AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_AccessConfigs, AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat, AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaRegistryURI, AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaValidationConfigs, SchemaRegistryConfig_AccessConfig, SchemaRegistryConfig_EventRecordFormat, SchemaRegistryConfig_SchemaRegistryURI and SchemaRegistryConfig_SchemaValidationConfig.
+    * Modified cmdlet Update-LMEventSourceMapping: added parameters AmazonManagedKafkaEventSourceConfig_ConsumerGroupId, AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_AccessConfigs, AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat, AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaRegistryURI, AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaValidationConfigs, SchemaRegistryConfig_AccessConfig, SchemaRegistryConfig_EventRecordFormat, SchemaRegistryConfig_SchemaRegistryURI, SchemaRegistryConfig_SchemaValidationConfig and SelfManagedKafkaEventSourceConfig_ConsumerGroupId.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMProject: added parameter TemplateProvider.
+    * Modified cmdlet Update-SMProject: added parameter TemplateProvidersToUpdate.
+
 ### 4.1.843 (2025-06-18 21:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1066.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AI Ops. Added cmdlets to support the service. Cmdlets for the service have the noun prefix AIOps and can be listed using the command 'Get-AWSCmdletName -Service AIOps'.

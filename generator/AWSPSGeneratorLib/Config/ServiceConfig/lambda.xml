@@ -38,10 +38,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEventSourceMapping" OutputProperty="*" Verb="New" Noun="EventSourceMapping" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_AccessConfigs" NewName="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_AccessConfigs" />
+                <Param Name="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat" NewName="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat" />
+                <Param Name="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaRegistryURI" NewName="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaRegistryURI" />
+                <Param Name="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaValidationConfigs" NewName="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaValidationConfigs" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFunction" OutputProperty="*" Verb="Publish" Noun="Function" ShouldProcessTarget="FunctionName" PositionalParameters="Code_ZipFile;Handler;Runtime;Role" PipelineParameter="FunctionName" NoPipelineParameter="false" DefaultParameterSet="FromMemoryStream" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CreateFunction" OutputProperty="*" Verb="Publish" Noun="Function" ShouldProcessTarget="FunctionName" PositionalParameters="Code_ZipFile;Handler;Runtime;Role" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true" DefaultParameterSet="FromMemoryStream">
             <Params>
                 <Param Name="FunctionName" Mandatory="true" />
                 <Param Name="Code_S3Bucket" Alias="S3Bucket;FunctionCode_S3Bucket;BucketName" ParameterSetName="FromS3Object" Mandatory="true" />
@@ -167,7 +172,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Invoke" OutputProperty="*" Verb="Invoke" Noun="Function" ShouldProcessTarget="FunctionName" PositionalParameters="Payload;ClientContext;InvocationType;LogType" PipelineParameter="FunctionName" NoPipelineParameter="false" ConfirmImpact="Low" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="Invoke" OutputProperty="*" Verb="Invoke" Noun="Function" ShouldProcessTarget="FunctionName" PositionalParameters="Payload;ClientContext;InvocationType;LogType" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true" ConfirmImpact="Low">
             <Params>
                 <Param Name="Payload" DefaultValue="{}" />
                 <Param Name="ClientContext" DefaultValue="{}" />
@@ -179,7 +184,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAliases" OutputProperty="Aliases" Verb="Get" Noun="AliasList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAliases" OutputProperty="Aliases" Verb="Get" Noun="AliasList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -187,15 +192,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEventSourceMappings" OutputProperty="EventSourceMappings" Verb="Get" Noun="EventSourceMappingList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-LMEventSourceMappings" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEventSourceMappings" OutputProperty="EventSourceMappings" Verb="Get" Noun="EventSourceMappingList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-LMEventSourceMappings">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFunctionEventInvokeConfigs" OutputProperty="FunctionEventInvokeConfigs" Verb="Get" Noun="FunctionEventInvokeConfigList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFunctionEventInvokeConfigs" OutputProperty="FunctionEventInvokeConfigs" Verb="Get" Noun="FunctionEventInvokeConfigList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFunctions" OutputProperty="Functions" Verb="Get" Noun="FunctionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-LMFunctions" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFunctions" OutputProperty="Functions" Verb="Get" Noun="FunctionList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-LMFunctions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -207,15 +212,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLayers" OutputProperty="Layers" Verb="Get" Noun="LayerList" PipelineParameter="CompatibleRuntime" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLayers" OutputProperty="Layers" Verb="Get" Noun="LayerList" PipelineParameter="CompatibleRuntime" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLayerVersions" OutputProperty="LayerVersions" Verb="Get" Noun="LayerVersionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLayerVersions" OutputProperty="LayerVersions" Verb="Get" Noun="LayerVersionList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProvisionedConcurrencyConfigs" OutputProperty="ProvisionedConcurrencyConfigs" Verb="Get" Noun="ProvisionedConcurrencyConfigList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListProvisionedConcurrencyConfigs" OutputProperty="ProvisionedConcurrencyConfigs" Verb="Get" Noun="ProvisionedConcurrencyConfigList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -223,7 +228,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVersionsByFunction" OutputProperty="Versions" Verb="Get" Noun="VersionsByFunction" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListVersionsByFunction" OutputProperty="Versions" Verb="Get" Noun="VersionsByFunction" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -284,10 +289,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEventSourceMapping" OutputProperty="*" Verb="Update" Noun="EventSourceMapping" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_AccessConfigs" NewName="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_AccessConfigs" />
+                <Param Name="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat" NewName="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat" />
+                <Param Name="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaRegistryURI" NewName="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaRegistryURI" />
+                <Param Name="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaValidationConfigs" NewName="AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaValidationConfigs" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFunctionCode" OutputProperty="*" Verb="Update" Noun="FunctionCode" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" DefaultParameterSet="FromMemoryStream" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateFunctionCode" OutputProperty="*" Verb="Update" Noun="FunctionCode" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true" DefaultParameterSet="FromMemoryStream">
             <Params>
                 <Param Name="FunctionName" Mandatory="true" />
                 <Param Name="S3Bucket" Alias="FunctionCode_S3Bucket;BucketName" ParameterSetName="FromS3Object" Mandatory="true" />

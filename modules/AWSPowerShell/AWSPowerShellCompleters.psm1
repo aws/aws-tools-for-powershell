@@ -44199,6 +44199,18 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.SchemaRegistryEventRecordFormat
+        {
+            ($_ -eq "New-LMEventSourceMapping/AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat") -Or
+            ($_ -eq "Update-LMEventSourceMapping/AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat") -Or
+            ($_ -eq "New-LMEventSourceMapping/SchemaRegistryConfig_EventRecordFormat") -Or
+            ($_ -eq "Update-LMEventSourceMapping/SchemaRegistryConfig_EventRecordFormat")
+        }
+        {
+            $v = "JSON","SOURCE"
+            break
+        }
+
         # Amazon.Lambda.SnapStartApplyOn
         {
             ($_ -eq "Publish-LMFunction/SnapStart_ApplyOn") -Or
@@ -44245,6 +44257,7 @@ $LM_Completers = {
 }
 
 $LM_map = @{
+    "AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
     "AuthType"=@("New-LMFunctionUrlConfig","Update-LMFunctionUrlConfig")
     "CodeSigningPolicies_UntrustedArtifactOnDeployment"=@("New-LMCodeSigningConfig","Update-LMCodeSigningConfig")
     "CompatibleArchitecture"=@("Get-LMLayerList","Get-LMLayerVersionList")
@@ -44261,6 +44274,7 @@ $LM_map = @{
     "PackageType"=@("Publish-LMFunction")
     "RecursiveLoop"=@("Write-LMFunctionRecursionConfig")
     "Runtime"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
+    "SchemaRegistryConfig_EventRecordFormat"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
     "SnapStart_ApplyOn"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "StartingPosition"=@("New-LMEventSourceMapping")
     "TracingConfig_Mode"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
@@ -56687,7 +56701,7 @@ $PAYCC_Completers = {
             ($_ -eq "Get-PAYCCParametersForImport/WrappingKeyAlgorithm")
         }
         {
-            $v = "AES_128","AES_192","AES_256","ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","RSA_2048","RSA_3072","RSA_4096","TDES_2KEY","TDES_3KEY"
+            $v = "AES_128","AES_192","AES_256","ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","HMAC_SHA224","HMAC_SHA256","HMAC_SHA384","HMAC_SHA512","RSA_2048","RSA_3072","RSA_4096","TDES_2KEY","TDES_3KEY"
             break
         }
 
@@ -56698,7 +56712,7 @@ $PAYCC_Completers = {
             ($_ -eq "New-PAYCCKey/KeyCheckValueAlgorithm")
         }
         {
-            $v = "ANSI_X9_24","CMAC"
+            $v = "ANSI_X9_24","CMAC","HMAC"
             break
         }
 
@@ -56780,7 +56794,7 @@ $PAYCC_Completers = {
             ($_ -eq "Import-PAYCCKey/DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm")
         }
         {
-            $v = "AES_128","AES_192","AES_256","TDES_2KEY","TDES_3KEY"
+            $v = "AES_128","AES_192","AES_256","HMAC_SHA224","HMAC_SHA256","HMAC_SHA384","HMAC_SHA512","TDES_2KEY","TDES_3KEY"
             break
         }
 
@@ -57018,7 +57032,7 @@ $PAYCD_Completers = {
             ($_ -eq "Unprotect-PAYCDData/WrappedKey_KeyCheckValueAlgorithm")
         }
         {
-            $v = "ANSI_X9_24","CMAC"
+            $v = "ANSI_X9_24","CMAC","HMAC"
             break
         }
 
@@ -57147,7 +57161,7 @@ $PAYCD_Completers = {
             ($_ -eq "Update-PAYCDEncryptData/OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm")
         }
         {
-            $v = "AES_128","AES_192","AES_256","TDES_2KEY","TDES_3KEY"
+            $v = "AES_128","AES_192","AES_256","HMAC_SHA224","HMAC_SHA256","HMAC_SHA384","HMAC_SHA512","TDES_2KEY","TDES_3KEY"
             break
         }
 
