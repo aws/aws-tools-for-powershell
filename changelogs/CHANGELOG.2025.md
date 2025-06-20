@@ -1,4 +1,10 @@
-﻿### 4.1.844 (2025-06-19 20:39Z)
+﻿### 4.1.845 (2025-06-20 20:47Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1068.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock
+    * Modified cmdlet New-BDRGuardrail: added parameters ContentPolicyConfig_TierConfig_TierName and TopicPolicyConfig_TierConfig_TierName.
+    * Modified cmdlet Update-BDRGuardrail: added parameters ContentPolicyConfig_TierConfig_TierName and TopicPolicyConfig_TierConfig_TierName.
+
+### 4.1.844 (2025-06-19 20:39Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1067.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EMR Serverless
     * Modified cmdlet New-EMRServerlessApplication: added parameter IdentityCenterConfiguration_IdentityCenterInstanceArn.

@@ -227,6 +227,36 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public Amazon.Bedrock.Model.GuardrailRegexConfig[] SensitiveInformationPolicyConfig_RegexesConfig { get; set; }
         #endregion
         
+        #region Parameter ContentPolicyConfig_TierConfig_TierName
+        /// <summary>
+        /// <para>
+        /// <para>The tier that your guardrail uses for content filters. Valid values include:</para><ul><li><para><c>CLASSIC</c> tier – Provides established guardrails functionality supporting English,
+        /// French, and Spanish languages.</para></li><li><para><c>STANDARD</c> tier – Provides a more robust solution than the <c>CLASSIC</c> tier
+        /// and has more comprehensive language support. This tier requires that your guardrail
+        /// use <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">cross-Region
+        /// inference</a>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Bedrock.GuardrailContentFiltersTierName")]
+        public Amazon.Bedrock.GuardrailContentFiltersTierName ContentPolicyConfig_TierConfig_TierName { get; set; }
+        #endregion
+        
+        #region Parameter TopicPolicyConfig_TierConfig_TierName
+        /// <summary>
+        /// <para>
+        /// <para>The tier that your guardrail uses for denied topic filters. Valid values include:</para><ul><li><para><c>CLASSIC</c> tier – Provides established guardrails functionality supporting English,
+        /// French, and Spanish languages.</para></li><li><para><c>STANDARD</c> tier – Provides a more robust solution than the <c>CLASSIC</c> tier
+        /// and has more comprehensive language support. This tier requires that your guardrail
+        /// use <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">cross-Region
+        /// inference</a>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Bedrock.GuardrailTopicsTierName")]
+        public Amazon.Bedrock.GuardrailTopicsTierName TopicPolicyConfig_TierConfig_TierName { get; set; }
+        #endregion
+        
         #region Parameter TopicPolicyConfig_TopicsConfig
         /// <summary>
         /// <para>
@@ -327,6 +357,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             {
                 context.ContentPolicyConfig_FiltersConfig = new List<Amazon.Bedrock.Model.GuardrailContentFilterConfig>(this.ContentPolicyConfig_FiltersConfig);
             }
+            context.ContentPolicyConfig_TierConfig_TierName = this.ContentPolicyConfig_TierConfig_TierName;
             if (this.ContextualGroundingPolicyConfig_FiltersConfig != null)
             {
                 context.ContextualGroundingPolicyConfig_FiltersConfig = new List<Amazon.Bedrock.Model.GuardrailContextualGroundingFilterConfig>(this.ContextualGroundingPolicyConfig_FiltersConfig);
@@ -356,6 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             {
                 context.SensitiveInformationPolicyConfig_RegexesConfig = new List<Amazon.Bedrock.Model.GuardrailRegexConfig>(this.SensitiveInformationPolicyConfig_RegexesConfig);
             }
+            context.TopicPolicyConfig_TierConfig_TierName = this.TopicPolicyConfig_TierConfig_TierName;
             if (this.TopicPolicyConfig_TopicsConfig != null)
             {
                 context.TopicPolicyConfig_TopicsConfig = new List<Amazon.Bedrock.Model.GuardrailTopicConfig>(this.TopicPolicyConfig_TopicsConfig);
@@ -404,6 +436,31 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestContentPolicyConfig_contentPolicyConfig_FiltersConfig != null)
             {
                 request.ContentPolicyConfig.FiltersConfig = requestContentPolicyConfig_contentPolicyConfig_FiltersConfig;
+                requestContentPolicyConfigIsNull = false;
+            }
+            Amazon.Bedrock.Model.GuardrailContentFiltersTierConfig requestContentPolicyConfig_contentPolicyConfig_TierConfig = null;
+            
+             // populate TierConfig
+            var requestContentPolicyConfig_contentPolicyConfig_TierConfigIsNull = true;
+            requestContentPolicyConfig_contentPolicyConfig_TierConfig = new Amazon.Bedrock.Model.GuardrailContentFiltersTierConfig();
+            Amazon.Bedrock.GuardrailContentFiltersTierName requestContentPolicyConfig_contentPolicyConfig_TierConfig_contentPolicyConfig_TierConfig_TierName = null;
+            if (cmdletContext.ContentPolicyConfig_TierConfig_TierName != null)
+            {
+                requestContentPolicyConfig_contentPolicyConfig_TierConfig_contentPolicyConfig_TierConfig_TierName = cmdletContext.ContentPolicyConfig_TierConfig_TierName;
+            }
+            if (requestContentPolicyConfig_contentPolicyConfig_TierConfig_contentPolicyConfig_TierConfig_TierName != null)
+            {
+                requestContentPolicyConfig_contentPolicyConfig_TierConfig.TierName = requestContentPolicyConfig_contentPolicyConfig_TierConfig_contentPolicyConfig_TierConfig_TierName;
+                requestContentPolicyConfig_contentPolicyConfig_TierConfigIsNull = false;
+            }
+             // determine if requestContentPolicyConfig_contentPolicyConfig_TierConfig should be set to null
+            if (requestContentPolicyConfig_contentPolicyConfig_TierConfigIsNull)
+            {
+                requestContentPolicyConfig_contentPolicyConfig_TierConfig = null;
+            }
+            if (requestContentPolicyConfig_contentPolicyConfig_TierConfig != null)
+            {
+                request.ContentPolicyConfig.TierConfig = requestContentPolicyConfig_contentPolicyConfig_TierConfig;
                 requestContentPolicyConfigIsNull = false;
             }
              // determine if request.ContentPolicyConfig should be set to null
@@ -508,6 +565,31 @@ namespace Amazon.PowerShell.Cmdlets.BDR
                 request.TopicPolicyConfig.TopicsConfig = requestTopicPolicyConfig_topicPolicyConfig_TopicsConfig;
                 requestTopicPolicyConfigIsNull = false;
             }
+            Amazon.Bedrock.Model.GuardrailTopicsTierConfig requestTopicPolicyConfig_topicPolicyConfig_TierConfig = null;
+            
+             // populate TierConfig
+            var requestTopicPolicyConfig_topicPolicyConfig_TierConfigIsNull = true;
+            requestTopicPolicyConfig_topicPolicyConfig_TierConfig = new Amazon.Bedrock.Model.GuardrailTopicsTierConfig();
+            Amazon.Bedrock.GuardrailTopicsTierName requestTopicPolicyConfig_topicPolicyConfig_TierConfig_topicPolicyConfig_TierConfig_TierName = null;
+            if (cmdletContext.TopicPolicyConfig_TierConfig_TierName != null)
+            {
+                requestTopicPolicyConfig_topicPolicyConfig_TierConfig_topicPolicyConfig_TierConfig_TierName = cmdletContext.TopicPolicyConfig_TierConfig_TierName;
+            }
+            if (requestTopicPolicyConfig_topicPolicyConfig_TierConfig_topicPolicyConfig_TierConfig_TierName != null)
+            {
+                requestTopicPolicyConfig_topicPolicyConfig_TierConfig.TierName = requestTopicPolicyConfig_topicPolicyConfig_TierConfig_topicPolicyConfig_TierConfig_TierName;
+                requestTopicPolicyConfig_topicPolicyConfig_TierConfigIsNull = false;
+            }
+             // determine if requestTopicPolicyConfig_topicPolicyConfig_TierConfig should be set to null
+            if (requestTopicPolicyConfig_topicPolicyConfig_TierConfigIsNull)
+            {
+                requestTopicPolicyConfig_topicPolicyConfig_TierConfig = null;
+            }
+            if (requestTopicPolicyConfig_topicPolicyConfig_TierConfig != null)
+            {
+                request.TopicPolicyConfig.TierConfig = requestTopicPolicyConfig_topicPolicyConfig_TierConfig;
+                requestTopicPolicyConfigIsNull = false;
+            }
              // determine if request.TopicPolicyConfig should be set to null
             if (requestTopicPolicyConfigIsNull)
             {
@@ -606,6 +688,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             public System.String BlockedInputMessaging { get; set; }
             public System.String BlockedOutputsMessaging { get; set; }
             public List<Amazon.Bedrock.Model.GuardrailContentFilterConfig> ContentPolicyConfig_FiltersConfig { get; set; }
+            public Amazon.Bedrock.GuardrailContentFiltersTierName ContentPolicyConfig_TierConfig_TierName { get; set; }
             public List<Amazon.Bedrock.Model.GuardrailContextualGroundingFilterConfig> ContextualGroundingPolicyConfig_FiltersConfig { get; set; }
             public System.String CrossRegionConfig_GuardrailProfileIdentifier { get; set; }
             public System.String Description { get; set; }
@@ -614,6 +697,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             public System.String Name { get; set; }
             public List<Amazon.Bedrock.Model.GuardrailPiiEntityConfig> SensitiveInformationPolicyConfig_PiiEntitiesConfig { get; set; }
             public List<Amazon.Bedrock.Model.GuardrailRegexConfig> SensitiveInformationPolicyConfig_RegexesConfig { get; set; }
+            public Amazon.Bedrock.GuardrailTopicsTierName TopicPolicyConfig_TierConfig_TierName { get; set; }
             public List<Amazon.Bedrock.Model.GuardrailTopicConfig> TopicPolicyConfig_TopicsConfig { get; set; }
             public List<Amazon.Bedrock.Model.GuardrailManagedWordsConfig> WordPolicyConfig_ManagedWordListsConfig { get; set; }
             public List<Amazon.Bedrock.Model.GuardrailWordConfig> WordPolicyConfig_WordsConfig { get; set; }

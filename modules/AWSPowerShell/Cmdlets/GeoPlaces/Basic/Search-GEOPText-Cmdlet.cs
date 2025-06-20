@@ -28,9 +28,8 @@ using Amazon.GeoPlaces.Model;
 namespace Amazon.PowerShell.Cmdlets.GEOP
 {
     /// <summary>
-    /// Use the <c>SearchText</c> operation to search for geocode and place information. You
-    /// can then complete a follow-up query suggested from the <c>Suggest</c> API via a query
-    /// id.
+    /// <c>SearchText</c> searches for geocode and place information. You can then complete
+    /// a follow-up query suggested from the <c>Suggest</c> API via a query id.
     /// </summary>
     [Cmdlet("Search", "GEOPText")]
     [OutputType("Amazon.GeoPlaces.Model.SearchTextResponse")]
@@ -110,7 +109,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter IntendedUse
         /// <summary>
         /// <para>
-        /// <para>Indicates if the results will be stored. Defaults to <c>SingleUse</c>, if left empty.</para>
+        /// <para>Indicates if the results will be stored. Defaults to <c>SingleUse</c>, if left empty.</para><note><para>Storing the response of an SearchText query is required to comply with service terms,
+        /// but charged at a higher cost per request. Please review the <a href="https://aws.amazon.com/location/sla/">user
+        /// agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing
+        /// structure</a> to determine the correct setting for your use case.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,7 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter QueryId
         /// <summary>
         /// <para>
-        /// <para>The query Id.</para>
+        /// <para>The query Id returned by the suggest API. If passed in the request, the SearchText
+        /// API will preform a SearchText query with the improved query terms for the original
+        /// query made to the suggest API.</para><note><para>The fields <c>QueryText</c>, and <c>QueryID</c> are mutually exclusive.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// <summary>
         /// <para>
         /// <para>The free-form text query to match addresses against. This is usually a partially typed
-        /// address from an end user in an address box or form.</para>
+        /// address from an end user in an address box or form.</para><note><para>The fields <c>QueryText</c>, and <c>QueryID</c> are mutually exclusive.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

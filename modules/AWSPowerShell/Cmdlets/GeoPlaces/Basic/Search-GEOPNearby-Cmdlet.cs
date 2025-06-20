@@ -28,7 +28,11 @@ using Amazon.GeoPlaces.Model;
 namespace Amazon.PowerShell.Cmdlets.GEOP
 {
     /// <summary>
-    /// Search nearby a specified location.
+    /// <c>SearchNearby</c> queries for points of interest within a radius from a central
+    /// coordinates, returning place results with optional filters such as categories, business
+    /// chains, food types and more. The API returns details such as a place name, address,
+    /// phone, category, food type, contact, opening hours. Also, the API can return phonemes,
+    /// time zones and more based on requested parameters.
     /// </summary>
     [Cmdlet("Search", "GEOPNearby", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GeoPlaces.Model.SearchNearbyResponse")]
@@ -150,7 +154,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter IntendedUse
         /// <summary>
         /// <para>
-        /// <para>Indicates if the results will be stored. Defaults to <c>SingleUse</c>, if left empty.</para>
+        /// <para>Indicates if the results will be stored. Defaults to <c>SingleUse</c>, if left empty.</para><note><para>Storing the response of an SearchNearby query is required to comply with service terms,
+        /// but charged at a higher cost per request. Please review the <a href="https://aws.amazon.com/location/sla/">user
+        /// agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing
+        /// structure</a> to determine the correct setting for your use case.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -196,8 +203,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter QueryPosition
         /// <summary>
         /// <para>
-        /// <para>The position, in <c>[lng, lat]</c> for which you are querying nearby resultsfor. Results
-        /// closer to the position will be ranked higher then results further away from the position</para>
+        /// <para>The position, in <c>[lng, lat]</c> for which you are querying nearby results for.
+        /// Results closer to the position will be ranked higher then results further away from
+        /// the position</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -215,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// <summary>
         /// <para>
         /// <para>The maximum distance in meters from the QueryPosition from which a result will be
-        /// returned.</para>
+        /// returned.</para><note><para>The fields <c>QueryText</c>, and <c>QueryID</c> are mutually exclusive.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
