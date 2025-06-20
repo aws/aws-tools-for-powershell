@@ -9,7 +9,7 @@ config-service_ListAggregateDiscoveredResources:
       - sdk_version: 5
         sdk_action: Get-CFGAggregateDiscoveredResourceList
         excerpts:
-        - description: "<emphasis role=\"bold\">Example 1: This example returns the resource identifiers for the given resource type aggregated in 'Ireland' aggregator. For the list of resource types, please check https://docs.aws.amazon.com/sdkfornet/v3/apidocs/index.html?page=ConfigService/TConfigServiceResourceType.html&amp;tocid=Amazon_ConfigService_ResourceType.</emphasis>"
+        - description: "<emphasis role=\"bold\">Example 1: This example returns the resource identifiers for the given resource type aggregated in 'Ireland' aggregator. For the list of resource types, please check https://docs.aws.amazon.com/sdkfornet/v4/apidocs/index.html?page=ConfigService/TConfigServiceResourceType.html&amp;tocid=Amazon_ConfigService_ResourceType.</emphasis>"
           snippet_files: []
         - description:
           snippet_files:
