@@ -31328,7 +31328,7 @@
   * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.485.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * AWSPowerShell.NetCore now targets PowerShell Standard (https://github.com/PowerShell/PowerShellStandard). As a preview feature, you can test using the AWSPowerShell.NetCore module under older version of PowerShell starting with PowerShell 3.0 when at least .NET Framework 4.7.2 is installed.
   * AWSPowerShell.NetCore now targets AWS .NET SDK for NetStandard 2.0.
-  * This changelog is now available on GitHub at https://github.com/aws/aws-tools-for-powershell/blob/master/CHANGELOG.md. Users are also invited to create GitHub issues at https://github.com/aws/aws-tools-for-powershell/issues to report bugs or make feature requests.
+  * This changelog is now available on GitHub at https://github.com/aws/aws-tools-for-powershell/blob/v4.1/CHANGELOG.md. Users are also invited to create GitHub issues at https://github.com/aws/aws-tools-for-powershell/issues to report bugs or make feature requests.
   * [Breaking Change] AWSPowerShell.NetCore now unwraps AggregateException (https://docs.microsoft.com/en-us/dotnet/api/system.aggregateexception) when returning errors, following the same behavior as the AWSPowerShell module.
   * Amazon Alexa For Business
     * Added cmdlet Get-ALXBInvitationConfiguration leveraging the GetInvitationConfiguration service API.

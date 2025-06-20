@@ -52,7 +52,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
                     writer.WriteStartElement("Overrides");
                     writer.WriteAttributeString("xmlns", "xsd", null, "http://www.w3.org/2001/XMLSchema");
                     writer.WriteAttributeString("xmlns", "xsi", null, "http://www.w3.org/2001/XMLSchema-instance");
-                    writer.WriteAttributeString("xsi", "noNamespaceSchemaLocation", null, "https://raw.githubusercontent.com/aws/aws-tools-for-powershell/master/XmlSchemas/ConfigurationOverrides/overrides.xsd");
+                    writer.WriteAttributeString("xsi", "noNamespaceSchemaLocation", null, "https://raw.githubusercontent.com/aws/aws-tools-for-powershell/v4.1/XmlSchemas/ConfigurationOverrides/overrides.xsd");
 
                     if (errorMessage != null)
                     {
@@ -81,7 +81,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
                         modelOverrides = null;
                     }
 
-                    serviceComments.Add(new XComment($"The current full configuration for this service is available at https://raw.githubusercontent.com/aws/aws-tools-for-powershell/master/generator/AWSPSGeneratorLib/Config/ServiceConfig/{configModel.model.C2jFilename}.xml."));
+                    serviceComments.Add(new XComment($"The current full configuration for this service is available at https://raw.githubusercontent.com/aws/aws-tools-for-powershell/v4.1/generator/AWSPSGeneratorLib/Config/ServiceConfig/{configModel.model.C2jFilename}.xml."));
 
                     foreach (var error in configModel.model.AnalysisErrors)
                     {

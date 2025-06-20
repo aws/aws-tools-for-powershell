@@ -94,17 +94,7 @@ Import-Module Microsoft.PowerShell.PSResourceGet
 # Running Get-PSResourceRepository seems to create the PSResourceRepository.xml file
 $allRepos = Get-PSResourceRepository
 
-#Import DynamoDBv2 needed to update the PackageVersions table.
-if ($PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
-    if (-not (Get-Module -ListAvailable -Name AWS.Tools.DynamoDBv2 | Where-Object { $_.Version -eq $RequiredAWSPowerShellVersionToUse })) {
-        Write-Host "Installing AWS.Tools.DynamoDBv2 $RequiredAWSPowerShellVersionToUse"
-        Install-Module -Name AWS.Tools.DynamoDBv2 -RequiredVersion $RequiredAWSPowerShellVersionToUse -Force
-    }
-    Import-Module -Name AWS.Tools.DynamoDBv2 -RequiredVersion $RequiredAWSPowerShellVersionToUse
-
-    Import-Module $PSScriptRoot/Update-ModulePackageVersion.psm1
-}
-elseif($PSCmdlet.ParameterSetName -eq $paramSetLocalName){
+if ($PSCmdlet.ParameterSetName -eq $paramSetLocalName) {
     # validate if the LocalRepositoryName exists
     $localRepo = $allRepos | Where-Object {$_.Name -eq $LocalRepositoryName}
     if(-not $localRepo){
@@ -175,9 +165,6 @@ function PublishRecursive([string]$modulePath) {
                 }
                 else {
                     Publish-PSResource -Path $modulePath @commonArgs
-                    if($PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
-                        Update-ModulePackageVersion -modulePath $modulePath -versionNumber $manifestData.ModuleVersion -repository "PSGallery" -profileName $UpdatePackageVersionsProfile
-                    }
                     Write-Host "Published $modulePath"
                 }                
                 break
@@ -188,12 +175,7 @@ function PublishRecursive([string]$modulePath) {
                     try {
                         Find-PSResource -Repository 'PSGallery' -Type 'Module' -Name ([System.IO.Path]::GetFileNameWithoutExtension($manifest)) -Version $manifestData.ModuleVersion
                         Write-Host "Successfully found module $modulePath version $($manifestData.ModuleVersion) already on the gallery"
-                        if ($DryRun) {
-                            Write-Host "-DryRun specified, skipped PackageVersions update of $modulePath in catch."
-                        }
-                        else {
-                            Update-ModulePackageVersion -modulePath $modulePath -versionNumber $manifestData.ModuleVersion -repository "PSGallery" -profileName $UpdatePackageVersionsProfile
-                        }
+                      
                         break;
                     }
                     catch {
