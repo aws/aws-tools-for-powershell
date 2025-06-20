@@ -6942,6 +6942,26 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.GuardrailContentFiltersTierName
+        {
+            ($_ -eq "New-BDRGuardrail/ContentPolicyConfig_TierConfig_TierName") -Or
+            ($_ -eq "Update-BDRGuardrail/ContentPolicyConfig_TierConfig_TierName")
+        }
+        {
+            $v = "CLASSIC","STANDARD"
+            break
+        }
+
+        # Amazon.Bedrock.GuardrailTopicsTierName
+        {
+            ($_ -eq "New-BDRGuardrail/TopicPolicyConfig_TierConfig_TierName") -Or
+            ($_ -eq "Update-BDRGuardrail/TopicPolicyConfig_TierConfig_TierName")
+        }
+        {
+            $v = "CLASSIC","STANDARD"
+            break
+        }
+
         # Amazon.Bedrock.InferenceProfileType
         "Get-BDRInferenceProfileList/TypeEqual"
         {
@@ -7080,12 +7100,14 @@ $BDR_map = @{
     "ByInferenceType"=@("Get-BDRFoundationModelList")
     "ByOutputModality"=@("Get-BDRFoundationModelList")
     "CommitmentDuration"=@("New-BDRProvisionedModelThroughput")
+    "ContentPolicyConfig_TierConfig_TierName"=@("New-BDRGuardrail","Update-BDRGuardrail")
     "CustomizationType"=@("New-BDRModelCustomizationJob")
     "ModelStatus"=@("Get-BDRCustomModelList")
     "S3InputDataConfig_S3InputFormat"=@("New-BDRModelInvocationJob")
     "SortBy"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
     "SortOrder"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
     "StatusEqual"=@("Get-BDREvaluationJobList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
+    "TopicPolicyConfig_TierConfig_TierName"=@("New-BDRGuardrail","Update-BDRGuardrail")
     "Type"=@("Get-BDRPromptRouterList")
     "TypeEqual"=@("Get-BDRInferenceProfileList")
 }
@@ -27947,7 +27969,7 @@ $ECS_Completers = {
         # Amazon.ECS.OSFamily
         "Register-ECSTaskDefinition/RuntimePlatform_OperatingSystemFamily"
         {
-            $v = "LINUX","WINDOWS_SERVER_2004_CORE","WINDOWS_SERVER_2016_FULL","WINDOWS_SERVER_2019_CORE","WINDOWS_SERVER_2019_FULL","WINDOWS_SERVER_2022_CORE","WINDOWS_SERVER_2022_FULL","WINDOWS_SERVER_20H2_CORE"
+            $v = "LINUX","WINDOWS_SERVER_2004_CORE","WINDOWS_SERVER_2016_FULL","WINDOWS_SERVER_2019_CORE","WINDOWS_SERVER_2019_FULL","WINDOWS_SERVER_2022_CORE","WINDOWS_SERVER_2022_FULL","WINDOWS_SERVER_2025_CORE","WINDOWS_SERVER_2025_FULL","WINDOWS_SERVER_20H2_CORE"
             break
         }
 

@@ -22,18 +22,18 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using System.Threading;
 using Amazon.GeoPlaces;
 using Amazon.GeoPlaces.Model;
 
-#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.GEOP
 {
     /// <summary>
-    /// The autocomplete operation speeds up and increases the accuracy of entering addresses
-    /// by providing a list of address candidates matching a partially entered address. Results
-    /// are sorted from most to least matching. Filtering and biasing can be used to increase
-    /// the relevance of the results if additional search context is known
+    /// <c>Autocomplete</c> completes potential places and addresses as the user types, based
+    /// on the partial input. The API enhances the efficiency and accuracy of address by completing
+    /// query based on a few entered keystrokes. It helps you by completing partial queries
+    /// with valid address completion. Also, the API supports the filtering of results based
+    /// on geographic location, country, or specific place types, and can be tailored using
+    /// optional parameters like language and political views.
     /// </summary>
     [Cmdlet("Invoke", "GEOPAutocomplete", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GeoPlaces.Model.AutocompleteResponse")]
@@ -44,8 +44,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
     public partial class InvokeGEOPAutocompleteCmdlet : AmazonGeoPlacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AdditionalFeature
         /// <summary>
@@ -156,7 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// <para>
         /// <para>The alpha-2 or alpha-3 character code for the political view of a country. The political
         /// view applies to the results of the request to represent unresolved territorial claims
-        /// through the point of view of the specified country.</para>
+        /// through the point of view of the specified country.</para><para>The following political views are currently supported:</para><ul><li><para><c>ARG</c>: Argentina's view on the Southern Patagonian Ice Field and Tierra Del
+        /// Fuego, including the Falkland Islands, South Georgia, and South Sandwich Islands</para></li><li><para><c>EGY</c>: Egypt's view on Bir Tawil</para></li><li><para><c>IND</c>: India's view on Gilgit-Baltistan</para></li><li><para><c>KEN</c>: Kenya's view on the Ilemi Triangle</para></li><li><para><c>MAR</c>: Morocco's view on Western Sahara</para></li><li><para><c>RUS</c>: Russia's view on Crimea</para></li><li><para><c>SDN</c>: Sudan's view on the Halaib Triangle</para></li><li><para><c>SRB</c>: Serbia's view on Kosovo, Vukovar, and Sarengrad Islands</para></li><li><para><c>SUR</c>: Suriname's view on the Courantyne Headwaters and Lawa Headwaters</para></li><li><para><c>SYR</c>: Syria's view on the Golan Heights</para></li><li><para><c>TUR</c>: Turkey's view on Cyprus and Northern Cyprus</para></li><li><para><c>TZA</c>: Tanzania's view on Lake Malawi</para></li><li><para><c>URY</c>: Uruguay's view on Rincon de Artigas</para></li><li><para><c>VNM</c>: Vietnam's view on the Paracel Islands and Spratly Islands</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// <para>The <c>PostalCodeMode</c> affects how postal code results are returned. If a postal
         /// code spans multiple localities and this value is empty, partial district or locality
         /// information may be returned under a single postal code result entry. If it's populated
-        /// with the value <c>cityLookup</c>, all cities in that postal code are returned.</para>
+        /// with the value <c>EnumerateSpannedLocalities</c>, all cities in that postal code are
+        /// returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// <summary>
         /// <para>
         /// <para>The free-form text query to match addresses against. This is usually a partially typed
-        /// address from an end user in an address box or form.</para>
+        /// address from an end user in an address box or form.</para><note><para>The fields <c>QueryText</c>, and <c>QueryID</c> are mutually exclusive.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -228,6 +233,16 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         public string Select { get; set; } = "*";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the QueryText parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^QueryText' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^QueryText' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -238,13 +253,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         public SwitchParameter Force { get; set; }
         #endregion
         
-        protected override void StopProcessing()
-        {
-            base.StopProcessing();
-            _cancellationTokenSource.Cancel();
-        }
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.QueryText), MyInvocation.BoundParameters);
@@ -258,11 +269,21 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.GeoPlaces.Model.AutocompleteResponse, InvokeGEOPAutocompleteCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.QueryText;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.AdditionalFeature != null)
             {
                 context.AdditionalFeature = new List<System.String>(this.AdditionalFeature);
@@ -465,7 +486,13 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Location Service Places V2", "Autocomplete");
             try
             {
-                return client.AutocompleteAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                #if DESKTOP
+                return client.Autocomplete(request);
+                #elif CORECLR
+                return client.AutocompleteAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
             }
             catch (AmazonServiceException exc)
             {

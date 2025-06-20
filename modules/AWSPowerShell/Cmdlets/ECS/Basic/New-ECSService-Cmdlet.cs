@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </para><para>
     /// You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when
     /// creating or updating a service. <c>volumeConfigurations</c> is only supported for
-    /// REPLICA service and not DAEMON service. For more infomation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon
+    /// REPLICA service and not DAEMON service. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon
     /// EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para><para>
     /// Tasks for services that don't use a load balancer are considered healthy if they're
