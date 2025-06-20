@@ -34,7 +34,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateGuardrail" OutputProperty="*" Verb="New" Noun="Guardrail" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ContentPolicyConfig_TierConfig_TierName" NewName="ContentPolicyConfig_TierConfig_TierName" />
+                <Param Name="TopicPolicyConfig_TierConfig_TierName" NewName="TopicPolicyConfig_TierConfig_TierName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateGuardrailVersion" OutputProperty="*" Verb="New" Noun="GuardrailVersion" ShouldProcessTarget="GuardrailIdentifier" PipelineParameter="GuardrailIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -250,7 +253,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateGuardrail" OutputProperty="*" Verb="Update" Noun="Guardrail" ShouldProcessTarget="GuardrailIdentifier" PipelineParameter="GuardrailIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ContentPolicyConfig_TierConfig_TierName" NewName="ContentPolicyConfig_TierConfig_TierName" />
+                <Param Name="TopicPolicyConfig_TierConfig_TierName" NewName="TopicPolicyConfig_TierConfig_TierName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMarketplaceModelEndpoint" OutputProperty="MarketplaceModelEndpoint" Verb="Update" Noun="MarketplaceModelEndpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false" LegacyV4Pagination="true">

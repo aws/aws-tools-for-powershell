@@ -44,11 +44,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// ECS starts new tasks with the new configuration. 
     /// </para><para>
     /// You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when
-    /// starting or running a task, or when creating or updating a service. For more infomation,
+    /// starting or running a task, or when creating or updating a service. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon
     /// EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. You
     /// can update your volume configurations and trigger a new deployment. <c>volumeConfigurations</c>
-    /// is only supported for REPLICA service and not DAEMON service. If you leave <c>volumeConfigurations</c><c>null</c>, it doesn't trigger a new deployment. For more infomation on volumes,
+    /// is only supported for REPLICA service and not DAEMON service. If you leave <c>volumeConfigurations</c><c>null</c>, it doesn't trigger a new deployment. For more information on volumes,
     /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon
     /// EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para><para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// parameter.
     /// </para><para>
     /// You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when
-    /// starting or running a task, or when creating or updating a service. For more infomation,
+    /// starting or running a task, or when creating or updating a service. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon
     /// EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para><para>
@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The details of a capacity provider strategy. You can set a capacity provider when
-        /// you create a cluster, run a task, or update a service.</para><para>When you use Fargate, the capacity providers are <c>FARGATE</c> or <c>FARGATE_SPOT</c>.</para><para>When you use Amazon EC2, the capacity providers are Auto Scaling groups.</para><para>You can change capacity providers for rolling deployments and blue/green deployments.</para><para>The following list provides the valid transitions:</para><ul><li><para>Update the Fargate launch type to an EC2 capacity provider.</para></li><li><para>Update the Amazon EC2 launch type to a Fargate capacity provider.</para></li><li><para>Update the Fargate capacity provider to an EC2 capacity provider.</para></li><li><para>Update the Amazon EC2 capacity provider to a Fargate capacity provider. </para></li><li><para>Update the EC2 or Fargate capacity provider back to the launch type.</para><para>Pass an empty list in the <c>capacityProvider</c> parameter.</para></li></ul><para>For information about Amazon Web Services CDK considerations, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/update-service-parameters.html">Amazon
+        /// you create a cluster, run a task, or update a service.</para><para>When you use Fargate, the capacity providers are <c>FARGATE</c> or <c>FARGATE_SPOT</c>.</para><para>When you use Amazon EC2, the capacity providers are Auto Scaling groups.</para><para>You can change capacity providers for rolling deployments and blue/green deployments.</para><para>The following list provides the valid transitions:</para><ul><li><para>Update the Fargate launch type to an Auto Scaling group capacity provider.</para></li><li><para>Update the Amazon EC2 launch type to a Fargate capacity provider.</para></li><li><para>Update the Fargate capacity provider to an Auto Scaling group capacity provider.</para></li><li><para>Update the Amazon EC2 capacity provider to a Fargate capacity provider. </para></li><li><para>Update the Auto Scaling group or Fargate capacity provider back to the launch type.</para><para>Pass an empty list in the <c>capacityProviderStrategy</c> parameter.</para></li></ul><para>For information about Amazon Web Services CDK considerations, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/update-service-parameters.html">Amazon
         /// Web Services CDK considerations</a>.</para>
         /// </para>
         /// </summary>

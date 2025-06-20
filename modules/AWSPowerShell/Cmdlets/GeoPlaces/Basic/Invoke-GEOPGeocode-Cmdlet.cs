@@ -30,8 +30,12 @@ using Amazon.GeoPlaces.Model;
 namespace Amazon.PowerShell.Cmdlets.GEOP
 {
     /// <summary>
-    /// The <c>Geocode</c> action allows you to obtain coordinates, addresses, and other information
-    /// about places.
+    /// <c>Geocode</c> converts a textual address or place into geographic coordinates. You
+    /// can obtain geographic coordinates, address component, and other related information.
+    /// It supports flexible queries, including free-form text or structured queries with
+    /// components like street names, postal codes, and regions. The Geocode API can also
+    /// provide additional features such as time zone information and the inclusion of political
+    /// views.
     /// </summary>
     [Cmdlet("Invoke", "GEOPGeocode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GeoPlaces.Model.GeocodeResponse")]
@@ -127,7 +131,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter IntendedUse
         /// <summary>
         /// <para>
-        /// <para>Indicates if the results will be stored. Defaults to <c>SingleUse</c>, if left empty.</para>
+        /// <para>Indicates if the results will be stored. Defaults to <c>SingleUse</c>, if left empty.</para><note><para>Storing the response of an Geocode query is required to comply with service terms,
+        /// but charged at a higher cost per request. Please review the <a href="https://aws.amazon.com/location/sla/">user
+        /// agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing
+        /// structure</a> to determine the correct setting for your use case.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter QueryComponents_Locality
         /// <summary>
         /// <para>
-        /// <para>City or locality results should be present in. </para><para>Example: <c>Vancouver</c>.</para>
+        /// <para>The city or locality results should be present in. </para><para>Example: <c>Vancouver</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// <summary>
         /// <para>
         /// <para>An alphanumeric string included in a postal address to facilitate mail sorting, such
-        /// as post code, postcode, or ZIP code for which the result should posses. </para>
+        /// as post code, postcode, or ZIP code for which the result should possess. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// <summary>
         /// <para>
         /// <para>The free-form text query to match addresses against. This is usually a partially typed
-        /// address from an end user in an address box or form.</para>
+        /// address from an end user in an address box or form.</para><note><para>The fields <c>QueryText</c>, and <c>QueryID</c> are mutually exclusive.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

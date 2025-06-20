@@ -107,6 +107,29 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public Amazon.Lambda.Model.KafkaSchemaRegistryAccessConfig[] SchemaRegistryConfig_AccessConfig { get; set; }
         #endregion
         
+        #region Parameter AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_AccessConfigs
+        /// <summary>
+        /// <para>
+        /// <para>An array of access configuration objects that tell Lambda how to authenticate with
+        /// your schema registry.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Lambda.Model.KafkaSchemaRegistryAccessConfig[] AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_AccessConfigs { get; set; }
+        #endregion
+        
+        #region Parameter SchemaRegistryConfig_AccessConfig
+        /// <summary>
+        /// <para>
+        /// <para>An array of access configuration objects that tell Lambda how to authenticate with
+        /// your schema registry.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SelfManagedKafkaEventSourceConfig_SchemaRegistryConfig_AccessConfigs")]
+        public Amazon.Lambda.Model.KafkaSchemaRegistryAccessConfig[] SchemaRegistryConfig_AccessConfig { get; set; }
+        #endregion
+        
         #region Parameter BatchSize
         /// <summary>
         /// <para>
