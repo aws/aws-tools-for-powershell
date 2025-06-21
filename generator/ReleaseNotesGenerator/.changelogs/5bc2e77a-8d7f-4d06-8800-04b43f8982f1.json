@@ -1,0 +1,5 @@
+{
+  "Type": "OverrideVersion",
+  "Version": "5.0.0",
+  "Description": "Please refer to the migration guide for a list of breaking changes and workarounds at https://docs.aws.amazon.com/powershell/v5/userguide/migrating-v5.html"
+}
