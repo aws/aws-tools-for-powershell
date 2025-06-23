@@ -89,7 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// or Local Zone (for example, <c>us-west-2-lax-1b</c>) that the instance is in.</para></li><li><para><c>instance-type</c> - The instance type (for example, <c>p4d.24xlarge</c>) or instance
         /// family (for example, <c>p4d*</c>). You can use the <c>*</c> wildcard to match zero
         /// or more characters, or the <c>?</c> wildcard to match zero or one character.</para></li><li><para><c>zone-id</c> - The ID of the Availability Zone (for example, <c>usw2-az2</c>) or
-        /// Local Zone (for example, <c>usw2-lax1-az1</c>) that the instance is in.</para></li></ul>
+        /// Local Zone (for example, <c>usw2-lax1-az1</c>) that the instance is in.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,7 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the placement group that each instance is in.</para><para>Constraints: Maximum 100 explicitly specified placement group names.</para>
+        /// <para>The name of the placement group that each instance is in.</para><para>Constraints: Maximum 100 explicitly specified placement group names.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +119,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The instance IDs.</para><para>Default: Describes all your instances.</para><para>Constraints: Maximum 100 explicitly specified instance IDs.</para>
+        /// <para>The instance IDs.</para><para>Default: Describes all your instances.</para><para>Constraints: Maximum 100 explicitly specified instance IDs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

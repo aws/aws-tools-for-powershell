@@ -158,7 +158,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// this statistic with the Minimum and Maximum values, you can determine the full scope
         /// of a metric and how close the average use is to the Minimum and Maximum values. This
         /// comparison helps you to know when to increase or decrease your resources.</para></li><li><para><c>SampleCount</c> - The count, or number, of data points used for the statistical
-        /// calculation.</para></li></ul>
+        /// calculation.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

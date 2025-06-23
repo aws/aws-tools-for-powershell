@@ -55,7 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <summary>
         /// <para>
         /// <para>The ID of the Amazon Web Services account for which to return license recommendations.</para><para>If your account is the management account of an organization, use this parameter to
-        /// specify the member account for which you want to return license recommendations.</para><para>Only one account ID can be specified per request.</para>
+        /// specify the member account for which you want to return license recommendations.</para><para>Only one account ID can be specified per request.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <summary>
         /// <para>
         /// <para> An array of objects to specify a filter that returns a more specific list of license
-        /// recommendations. </para>
+        /// recommendations. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> The ARN that identifies the Amazon EC2 instance. </para><para> The following is the format of the ARN: </para><para><c>arn:aws:ec2:region:aws_account_id:instance/instance-id</c></para>
+        /// <para> The ARN that identifies the Amazon EC2 instance. </para><para> The following is the format of the ARN: </para><para><c>arn:aws:ec2:region:aws_account_id:instance/instance-id</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

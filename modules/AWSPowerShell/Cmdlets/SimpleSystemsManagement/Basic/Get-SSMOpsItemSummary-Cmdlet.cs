@@ -62,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>One or more filters to limit the response.</para><ul><li><para>Key: CreatedTime</para><para>Operations: GreaterThan, LessThan</para></li><li><para>Key: LastModifiedBy</para><para>Operations: Contains, Equals</para></li><li><para>Key: LastModifiedTime</para><para>Operations: GreaterThan, LessThan</para></li><li><para>Key: Priority</para><para>Operations: Equals</para></li><li><para>Key: Source</para><para>Operations: Contains, Equals</para></li><li><para>Key: Status</para><para>Operations: Equals</para></li><li><para>Key: Title*</para><para>Operations: Equals,Contains</para></li><li><para>Key: OperationalData**</para><para>Operations: Equals</para></li><li><para>Key: OperationalDataKey</para><para>Operations: Equals</para></li><li><para>Key: OperationalDataValue</para><para>Operations: Equals, Contains</para></li><li><para>Key: OpsItemId</para><para>Operations: Equals</para></li><li><para>Key: ResourceId</para><para>Operations: Contains</para></li><li><para>Key: AutomationId</para><para>Operations: Equals</para></li><li><para>Key: AccountId</para><para>Operations: Equals</para></li></ul><para>*The Equals operator for Title matches the first 100 characters. If you specify more
         /// than 100 characters, they system returns an error that the filter value exceeds the
         /// length limit.</para><para>**If you filter the response by using the OperationalData operator, specify a key-value
-        /// pair by using the following JSON format: {"key":"key_name","value":"a_value"}</para>
+        /// pair by using the following JSON format: {"key":"key_name","value":"a_value"}</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

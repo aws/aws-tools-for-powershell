@@ -48,7 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #region Parameter Address
         /// <summary>
         /// <para>
-        /// <para>A list of <c>Address</c> objects containing addresses associated with the user.</para>
+        /// <para>A list of <c>Address</c> objects containing addresses associated with the user.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +74,11 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #region Parameter Email
         /// <summary>
         /// <para>
-        /// <para>A list of <c>Email</c> objects containing email addresses associated with the user.</para>
+        /// <para>A list of <c>Email</c> objects containing email addresses associated with the user.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,7 +187,11 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         /// <summary>
         /// <para>
         /// <para>A list of <c>PhoneNumber</c> objects containing phone numbers associated with the
-        /// user.</para>
+        /// user.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

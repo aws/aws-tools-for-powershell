@@ -60,7 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// <summary>
         /// <para>
         /// <para>The IDs of the pipelines to describe. You can pass as many as 25 identifiers in a
-        /// single call. To obtain pipeline IDs, call <a>ListPipelines</a>.</para>
+        /// single call. To obtain pipeline IDs, call <a>ListPipelines</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -80,7 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter NotificationArn
         /// <summary>
         /// <para>
-        /// <para>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.</para>
+        /// <para>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,7 +193,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningParameter
         /// <summary>
         /// <para>
-        /// <para>Parameters specified by the administrator that are required for provisioning the product.</para>
+        /// <para>Parameters specified by the administrator that are required for provisioning the product.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,7 +210,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <para>
         /// <para>One or more tags.</para><para>If the plan is for an existing provisioned product, the product must have a <c>RESOURCE_UPDATE</c>
         /// constraint with <c>TagUpdatesOnProvisionedProduct</c> set to <c>ALLOWED</c> to allow
-        /// tag updates.</para>
+        /// tag updates.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

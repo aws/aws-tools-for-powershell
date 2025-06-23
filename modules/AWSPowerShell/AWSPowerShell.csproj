@@ -74,7 +74,7 @@
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ACMPCA.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AIOps">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AIOps.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AIOps.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Amplify">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Amplify.dll</HintPath>
@@ -527,7 +527,7 @@
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.EventBridge.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Evs">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Evs.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Evs.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Finspace">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Finspace.dll</HintPath>
@@ -851,7 +851,7 @@
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MigrationHubStrategyRecommendations.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MPA">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MPA.dll</HintPath>
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MPA.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MQ">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MQ.dll</HintPath>
@@ -1260,6 +1260,9 @@
     </Reference>
     <Reference Include="AWSSDK.WorkSpaces">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.WorkSpaces.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.WorkspacesInstances">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.WorkspacesInstances.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WorkSpacesThinClient">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.WorkSpacesThinClient.dll</HintPath>
@@ -2478,6 +2481,9 @@
     </Reference>
     <Reference Include="AWSSDK.WorkSpaces">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.WorkSpaces.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.WorkspacesInstances">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.WorkspacesInstances.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WorkSpacesThinClient">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.WorkSpacesThinClient.dll</HintPath>

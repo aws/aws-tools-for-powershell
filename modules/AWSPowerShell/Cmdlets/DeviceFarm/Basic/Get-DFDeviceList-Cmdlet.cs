@@ -67,7 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// longer supported</a>, this attribute is ignored.</para></li><li><para>INSTANCE_ARN: The Amazon Resource Name (ARN) of the device instance.</para></li><li><para>INSTANCE_LABELS: The label of the device instance.</para></li><li><para>FLEET_TYPE: The fleet type. Valid values are PUBLIC or PRIVATE.</para></li></ul></li><li><para>Operator: The filter operator.</para><ul><li><para>The EQUALS operator is available for every attribute except INSTANCE_LABELS.</para></li><li><para>The CONTAINS operator is available for the INSTANCE_LABELS and MODEL attributes.</para></li><li><para>The IN and NOT_IN operators are available for the ARN, OS_VERSION, MODEL, MANUFACTURER,
         /// and INSTANCE_ARN attributes.</para></li><li><para>The LESS_THAN, GREATER_THAN, LESS_THAN_OR_EQUALS, and GREATER_THAN_OR_EQUALS operators
         /// are also available for the OS_VERSION attribute.</para></li></ul></li><li><para>Values: An array of one or more filter values.</para><ul><li><para>The IN and NOT_IN operators take a values array that has one or more elements.</para></li><li><para>The other operators require an array with a single element.</para></li><li><para>In a request, the AVAILABILITY attribute takes the following values: AVAILABLE, HIGHLY_AVAILABLE,
-        /// BUSY, or TEMPORARY_NOT_AVAILABLE.</para></li></ul></li></ul>
+        /// BUSY, or TEMPORARY_NOT_AVAILABLE.</para></li></ul></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

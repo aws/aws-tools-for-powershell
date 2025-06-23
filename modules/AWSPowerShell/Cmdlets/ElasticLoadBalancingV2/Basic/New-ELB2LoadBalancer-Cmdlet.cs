@@ -144,7 +144,11 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>[Application Load Balancers and Network Load Balancers] The IDs of the security groups
-        /// for the load balancer.</para>
+        /// for the load balancer.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,7 +167,11 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// for your internet-facing load balancer. For internal load balancers, you can specify
         /// one private IP address per subnet from the IPv4 range of the subnet. For internet-facing
         /// load balancer, you can specify one IPv6 address per subnet.</para><para>[Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
-        /// You can't specify Elastic IP addresses for your subnets.</para>
+        /// You can't specify Elastic IP addresses for your subnets.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,7 +187,11 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// IP address, specify subnet mappings instead of subnets.</para><para>[Application Load Balancers] You must specify subnets from at least two Availability
         /// Zones.</para><para>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</para><para>[Application Load Balancers on Local Zones] You can specify subnets from one or more
         /// Local Zones.</para><para>[Network Load Balancers and Gateway Load Balancers] You can specify subnets from one
-        /// or more Availability Zones.</para>
+        /// or more Availability Zones.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,7 +202,11 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to assign to the load balancer.</para>
+        /// <para>The tags to assign to the load balancer.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

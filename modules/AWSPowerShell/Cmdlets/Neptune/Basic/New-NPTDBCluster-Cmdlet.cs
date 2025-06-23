@@ -59,7 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>A list of EC2 Availability Zones that instances in the DB cluster can be created in.</para>
+        /// <para>A list of EC2 Availability Zones that instances in the DB cluster can be created in.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,7 +170,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>A list of the log types that this DB cluster should export to CloudWatch Logs. Valid
         /// log types are: <c>audit</c> (to publish audit logs) and <c>slowquery</c> (to publish
         /// slow-query logs). See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/cloudwatch-logs.html">Publishing
-        /// Neptune logs to Amazon CloudWatch logs</a>.</para>
+        /// Neptune logs to Amazon CloudWatch logs</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -392,7 +400,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to assign to the new DB cluster.</para>
+        /// <para>The tags to assign to the new DB cluster.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -403,7 +415,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of EC2 VPC security groups to associate with this DB cluster.</para>
+        /// <para>A list of EC2 VPC security groups to associate with this DB cluster.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

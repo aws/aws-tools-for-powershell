@@ -64,7 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         #region Parameter FileConfiguration_Filter
         /// <summary>
         /// <para>
-        /// <para>Restrictions for what files should be pulled from the source.</para>
+        /// <para>Restrictions for what files should be pulled from the source.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         #region Parameter FileConfiguration_Folder
         /// <summary>
         /// <para>
-        /// <para>Identifiers for the source folders to pull all files from recursively.</para>
+        /// <para>Identifiers for the source folders to pull all files from recursively.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,7 +149,11 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         #region Parameter ObjectConfiguration
         /// <summary>
         /// <para>
-        /// <para>The configuration for what data should be pulled from the source.</para>
+        /// <para>The configuration for what data should be pulled from the source.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,7 +184,11 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         /// <summary>
         /// <para>
         /// <para>The tags used to organize, track, or control access for this resource. For example,
-        /// { "tags": {"key1":"value1", "key2":"value2"} }.</para>
+        /// { "tags": {"key1":"value1", "key2":"value2"} }.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

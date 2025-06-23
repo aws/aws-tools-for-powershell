@@ -66,7 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// are not part of the query associated with the group. This validation doesn't occur
         /// when the group query specifies <c>AWS::AllSupported</c>, because a group based on
         /// such a query can contain any of the allowed resource types for the query type (tag-based
-        /// or Amazon CloudFront stack-based queries).</para>
+        /// or Amazon CloudFront stack-based queries).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -146,7 +146,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>A list of <c>Feature</c> names and types. <c>Name</c> and <c>Type</c> is compulsory
         /// per <c>Feature</c>. </para><para>Valid feature <c>FeatureType</c>s are <c>Integral</c>, <c>Fractional</c> and <c>String</c>.</para><para><c>FeatureName</c>s cannot be any of the following: <c>is_deleted</c>, <c>write_time</c>,
-        /// <c>api_invocation_time</c></para><para>You can create up to 2,500 <c>FeatureDefinition</c>s per <c>FeatureGroup</c>.</para>
+        /// <c>api_invocation_time</c></para><para>You can create up to 2,500 <c>FeatureDefinition</c>s per <c>FeatureGroup</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -324,7 +328,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags used to identify <c>Features</c> in each <c>FeatureGroup</c>.</para>
+        /// <para>Tags used to identify <c>Features</c> in each <c>FeatureGroup</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

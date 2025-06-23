@@ -98,7 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         /// <para>
         /// <para>The list of OAuth 2.0 grant types that are defined by the client. This list is used
         /// to restrict the token granting flows available to the client. Supports the following
-        /// OAuth 2.0 grant types: Authorization Code, Device Code, and Refresh Token. </para><para>* Authorization Code - <c>authorization_code</c></para><para>* Device Code - <c>urn:ietf:params:oauth:grant-type:device_code</c></para><para>* Refresh Token - <c>refresh_token</c></para>
+        /// OAuth 2.0 grant types: Authorization Code, Device Code, and Refresh Token. </para><para>* Authorization Code - <c>authorization_code</c></para><para>* Device Code - <c>urn:ietf:params:oauth:grant-type:device_code</c></para><para>* Refresh Token - <c>refresh_token</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         /// <para>
         /// <para>The list of redirect URI that are defined by the client. At completion of authorization,
         /// this list is used to restrict what locations the user agent can be redirected back
-        /// to.</para>
+        /// to.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         /// <summary>
         /// <para>
         /// <para>The list of scopes that are defined by the client. Upon authorization, this list is
-        /// used to restrict permissions when granting an access token.</para>
+        /// used to restrict permissions when granting an access token.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

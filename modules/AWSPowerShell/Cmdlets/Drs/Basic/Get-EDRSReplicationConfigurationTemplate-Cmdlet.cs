@@ -53,6 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         /// This property can be used to determine if the related property
         /// was returned by a service response or if the related property
         /// should be sent to the service during a service call.
+        /// <para>If this property is set to false the property <seealso cref="P:Amazon.Drs.Model.DescribeReplicationConfigurationTemplatesRequest.ReplicationConfigurationTemplateIDs" /> will be reset to null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         /// <summary>
         /// <para>
         /// <para>The IDs of the Replication Configuration Templates to retrieve. An empty list means
-        /// all Replication Configuration Templates.</para>
+        /// all Replication Configuration Templates.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

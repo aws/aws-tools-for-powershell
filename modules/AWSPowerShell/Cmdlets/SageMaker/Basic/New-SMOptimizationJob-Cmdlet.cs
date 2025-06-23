@@ -155,7 +155,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OptimizationConfig
         /// <summary>
         /// <para>
-        /// <para>Settings for each of the optimization techniques that the job applies.</para>
+        /// <para>Settings for each of the optimization techniques that the job applies.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -173,7 +177,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OptimizationEnvironment
         /// <summary>
         /// <para>
-        /// <para>The environment variables to set in the model container.</para>
+        /// <para>The environment variables to set in the model container.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -251,7 +259,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The VPC security group IDs, in the form <c>sg-xxxxxxxx</c>. Specify the security groups
-        /// for the VPC that is specified in the <c>Subnets</c> field.</para>
+        /// for the VPC that is specified in the <c>Subnets</c> field.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -262,7 +274,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter VpcConfig_Subnet
         /// <summary>
         /// <para>
-        /// <para>The ID of the subnets in the VPC to which you want to connect your optimized model.</para>
+        /// <para>The ID of the subnets in the VPC to which you want to connect your optimized model.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -276,7 +292,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>A list of key-value pairs associated with the optimization job. For more information,
         /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
         /// Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference
-        /// Guide</i>.</para>
+        /// Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

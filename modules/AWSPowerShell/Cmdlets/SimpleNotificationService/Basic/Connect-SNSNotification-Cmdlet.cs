@@ -75,7 +75,11 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// to replay messages stored in the specified Amazon SNS topic.</para></li><li><para><c>ReplayStatus</c> – Retrieves the status of the subscription message replay, which
         /// can be one of the following:</para><ul><li><para><c>Completed</c> – The replay has successfully redelivered all messages, and is now
         /// delivering newly published messages. If an ending point was specified in the <c>ReplayPolicy</c>
-        /// then the subscription will no longer receive newly published messages.</para></li><li><para><c>In progress</c> – The replay is currently replaying the selected messages.</para></li><li><para><c>Failed</c> – The replay was unable to complete.</para></li><li><para><c>Pending</c> – The default state while the replay initiates.</para></li></ul></li></ul>
+        /// then the subscription will no longer receive newly published messages.</para></li><li><para><c>In progress</c> – The replay is currently replaying the selected messages.</para></li><li><para><c>Failed</c> – The replay was unable to complete.</para></li><li><para><c>Pending</c> – The default state while the replay initiates.</para></li></ul></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

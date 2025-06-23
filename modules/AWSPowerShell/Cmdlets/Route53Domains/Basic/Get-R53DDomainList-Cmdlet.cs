@@ -50,7 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>A complex type that contains information about the filters applied during the <c>ListDomains</c>
-        /// request. The filter conditions can include domain name and domain expiration.</para>
+        /// request. The filter conditions can include domain name and domain expiration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

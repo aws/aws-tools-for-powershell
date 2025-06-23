@@ -102,7 +102,11 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         /// <para>Use this field only if you are sending the metric to CloudWatch.</para><para>This field is a map of field paths to dimension names. It defines the dimensions to
         /// associate with this metric in CloudWatch. For extended metrics, valid values for the
         /// entries in this field are the following:</para><ul><li><para><c>"metadata.pageId": "PageId"</c></para></li><li><para><c>"metadata.browserName": "BrowserName"</c></para></li><li><para><c>"metadata.deviceType": "DeviceType"</c></para></li><li><para><c>"metadata.osName": "OSName"</c></para></li><li><para><c>"metadata.countryCode": "CountryCode"</c></para></li><li><para><c>"event_details.fileType": "FileType"</c></para></li></ul><para> For both extended metrics and custom metrics, all dimensions listed in this field
-        /// must also be included in <c>EventPattern</c>.</para>
+        /// must also be included in <c>EventPattern</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

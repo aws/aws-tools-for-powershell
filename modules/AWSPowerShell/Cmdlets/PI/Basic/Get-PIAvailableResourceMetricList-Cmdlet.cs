@@ -70,7 +70,11 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <para>
         /// <para>The types of metrics to return in the response. Valid values in the array include
         /// the following:</para><ul><li><para><c>os</c> (OS counter metrics) - All engines</para></li><li><para><c>db</c> (DB load metrics) - All engines except for Amazon DocumentDB</para></li><li><para><c>db.sql.stats</c> (per-SQL metrics) - All engines except for Amazon DocumentDB</para></li><li><para><c>db.sql_tokenized.stats</c> (per-SQL digest metrics) - All engines except for Amazon
-        /// DocumentDB</para></li></ul>
+        /// DocumentDB</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

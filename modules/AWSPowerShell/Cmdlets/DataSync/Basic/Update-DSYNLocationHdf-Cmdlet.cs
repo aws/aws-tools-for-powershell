@@ -56,7 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Names (ARNs) of the DataSync agents that can connect to your HDFS
-        /// cluster.</para>
+        /// cluster.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +173,11 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>
         /// <para>The NameNode that manages the HDFS namespace. The NameNode performs operations such
         /// as opening, closing, and renaming files and directories. The NameNode contains the
-        /// information to map blocks of data to the DataNodes. You can use only one NameNode.</para>
+        /// information to map blocks of data to the DataNodes. You can use only one NameNode.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

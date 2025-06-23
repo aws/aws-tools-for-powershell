@@ -59,7 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>
         /// <para>An array of parameters that will be used to create the new Amazon EC2 instance. You
         /// can only pass one instance entry at a time in this array. You will get an invalid
-        /// parameter error if you pass more than one instance entry in this array.</para>
+        /// parameter error if you pass more than one instance entry in this array.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -71,7 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// in the request.</para><para>For <c>Approve</c> and <c>Reject</c> signal types, the payload is an optional comment
         /// that you can send with the signal type. For example:</para><para><c>Comment="Looks good"</c></para><para>For <c>StartStep</c> and <c>Resume</c> signal types, you must send the name of the
         /// Automation step to start or resume as the payload. For example:</para><para><c>StepName="step1"</c></para><para>For the <c>StopStep</c> signal type, you must send the step execution ID as the payload.
-        /// For example:</para><para><c>StepExecutionId="97fff367-fc5a-4299-aed8-0123456789ab"</c></para>
+        /// For example:</para><para><c>StepExecutionId="97fff367-fc5a-4299-aed8-0123456789ab"</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -82,7 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para> A list of event categories for a <c>SourceType</c> that you want to subscribe to.
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +118,11 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <para>The list of identifiers of the event sources for which events are returned. If not
         /// specified, then all sources are included in the response. An identifier must begin
         /// with a letter and must contain only ASCII letters, digits, and hyphens; it can't end
-        /// with a hyphen or contain two consecutive hyphens.</para><para>Constraints:</para><ul><li><para>If <c>SourceIds</c> are provided, <c>SourceType</c> must also be provided.</para></li><li><para>If the source type is an instance, a <c>DBInstanceIdentifier</c> must be provided.</para></li><li><para>If the source type is a security group, a <c>DBSecurityGroupName</c> must be provided.</para></li><li><para>If the source type is a parameter group, a <c>DBParameterGroupName</c> must be provided.</para></li><li><para>If the source type is a snapshot, a <c>DBSnapshotIdentifier</c> must be provided.</para></li></ul>
+        /// with a hyphen or contain two consecutive hyphens.</para><para>Constraints:</para><ul><li><para>If <c>SourceIds</c> are provided, <c>SourceType</c> must also be provided.</para></li><li><para>If the source type is an instance, a <c>DBInstanceIdentifier</c> must be provided.</para></li><li><para>If the source type is a security group, a <c>DBSecurityGroupName</c> must be provided.</para></li><li><para>If the source type is a parameter group, a <c>DBParameterGroupName</c> must be provided.</para></li><li><para>If the source type is a snapshot, a <c>DBSnapshotIdentifier</c> must be provided.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,7 +163,11 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to be assigned to the event subscription.</para>
+        /// <para>The tags to be assigned to the event subscription.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

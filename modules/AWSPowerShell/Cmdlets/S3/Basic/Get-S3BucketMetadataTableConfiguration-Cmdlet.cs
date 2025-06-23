@@ -59,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The general purpose bucket that contains the metadata table configuration that you want to retrieve.
+        /// <para> The general purpose bucket that contains the metadata table configuration that you
+        /// want to retrieve. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -69,7 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The expected owner of the general purpose bucket that you want to retrieve the metadata table configuration from.
+        /// <para> The expected owner of the general purpose bucket that you want to retrieve the metadata
+        /// table configuration from. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

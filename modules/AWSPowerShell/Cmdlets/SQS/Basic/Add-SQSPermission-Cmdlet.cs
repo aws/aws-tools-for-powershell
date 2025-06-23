@@ -78,7 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// of Managing Access Permissions to Your Amazon Simple Queue Service Resource</a> in
         /// the <i>Amazon SQS Developer Guide</i>.</para><para>Specifying <c>SendMessage</c>, <c>DeleteMessage</c>, or <c>ChangeMessageVisibility</c>
         /// for <c>ActionName.n</c> also grants permissions for the corresponding batch versions
-        /// of those actions: <c>SendMessageBatch</c>, <c>DeleteMessageBatch</c>, and <c>ChangeMessageVisibilityBatch</c>.</para>
+        /// of those actions: <c>SendMessageBatch</c>, <c>DeleteMessageBatch</c>, and <c>ChangeMessageVisibilityBatch</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,7 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <para>The Amazon Web Services account numbers of the <a href="https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P">principals</a>
         /// who are to receive permission. For information about locating the Amazon Web Services
         /// account identification, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication">Your
-        /// Amazon Web Services Identifiers</a> in the <i>Amazon SQS Developer Guide</i>.</para>
+        /// Amazon Web Services Identifiers</a> in the <i>Amazon SQS Developer Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

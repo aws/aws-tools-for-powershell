@@ -75,7 +75,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter NotificationArn
         /// <summary>
         /// <para>
-        /// <para>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.</para>
+        /// <para>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,7 +171,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningParameter
         /// <summary>
         /// <para>
-        /// <para>Parameters specified by the administrator that are required for provisioning the product.</para>
+        /// <para>Parameters specified by the administrator that are required for provisioning the product.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,7 +199,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <para>One or more Amazon Web Services accounts where the provisioned product will be available.</para><para>Applicable only to a <c>CFN_STACKSET</c> provisioned product type.</para><para>The specified accounts should be within the list of accounts from the <c>STACKSET</c>
         /// constraint. To get the list of accounts in the <c>STACKSET</c> constraint, use the
         /// <c>DescribeProvisioningParameters</c> operation.</para><para>If no values are specified, the default value is all acounts from the <c>STACKSET</c>
-        /// constraint.</para>
+        /// constraint.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -263,7 +275,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <para>One or more Amazon Web Services Regions where the provisioned product will be available.</para><para>Applicable only to a <c>CFN_STACKSET</c> provisioned product type.</para><para>The specified Regions should be within the list of Regions from the <c>STACKSET</c>
         /// constraint. To get the list of Regions in the <c>STACKSET</c> constraint, use the
         /// <c>DescribeProvisioningParameters</c> operation.</para><para>If no values are specified, the default value is all Regions from the <c>STACKSET</c>
-        /// constraint.</para>
+        /// constraint.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -274,7 +290,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>One or more tags.</para>
+        /// <para>One or more tags.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

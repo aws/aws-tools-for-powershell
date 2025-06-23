@@ -69,7 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter GlueConnectionInput_AthenaProperty
         /// <summary>
         /// <para>
-        /// <para>The Amazon Athena properties of the Amazon Web Services Glue connection.</para>
+        /// <para>The Amazon Athena properties of the Amazon Web Services Glue connection.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,7 +193,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter GlueConnectionInput_ConnectionProperty
         /// <summary>
         /// <para>
-        /// <para>The connection properties of the Amazon Web Services Glue connection.</para>
+        /// <para>The connection properties of the Amazon Web Services Glue connection.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -212,7 +220,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter AuthenticationConfiguration_CustomAuthenticationCredential
         /// <summary>
         /// <para>
-        /// <para>The custom authentication credentials of a connection.</para>
+        /// <para>The custom authentication credentials of a connection.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -527,7 +539,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter GlueConnectionInput_PythonProperty
         /// <summary>
         /// <para>
-        /// <para>The Python properties of the Amazon Web Services Glue connection.</para>
+        /// <para>The Python properties of the Amazon Web Services Glue connection.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -626,7 +642,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter PhysicalConnectionRequirements_SecurityGroupIdList
         /// <summary>
         /// <para>
-        /// <para>The group ID list of the physical connection requirements of a connection. </para>
+        /// <para>The group ID list of the physical connection requirements of a connection. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -637,7 +657,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter GlueConnectionInput_SparkProperty
         /// <summary>
         /// <para>
-        /// <para>The Spark properties of the Amazon Web Services Glue connection.</para>
+        /// <para>The Spark properties of the Amazon Web Services Glue connection.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -659,7 +683,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter PhysicalConnectionRequirements_SubnetIdList
         /// <summary>
         /// <para>
-        /// <para>The subnet ID list of the physical connection requirements of a connection. </para>
+        /// <para>The subnet ID list of the physical connection requirements of a connection. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -681,7 +709,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter OAuth2Properties_TokenUrlParametersMap
         /// <summary>
         /// <para>
-        /// <para>The OAuth2 token URL parameter map of the OAuth2 properties.</para>
+        /// <para>The OAuth2 token URL parameter map of the OAuth2 properties.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -759,7 +791,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>Speciefies whether to validate for compute environments of the Amazon Web Services
-        /// Glue connection.</para>
+        /// Glue connection.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

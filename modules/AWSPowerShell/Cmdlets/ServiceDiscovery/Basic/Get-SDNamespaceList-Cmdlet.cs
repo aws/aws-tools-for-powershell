@@ -50,7 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <summary>
         /// <para>
         /// <para>A complex type that contains specifications for the namespaces that you want to list.</para><para>If you specify more than one filter, a namespace must match all filters to be returned
-        /// by <c>ListNamespaces</c>.</para>
+        /// by <c>ListNamespaces</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

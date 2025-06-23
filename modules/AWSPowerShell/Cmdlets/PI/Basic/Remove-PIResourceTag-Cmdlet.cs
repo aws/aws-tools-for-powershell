@@ -86,7 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <summary>
         /// <para>
         /// <para>The metadata assigned to an Amazon RDS Performance Insights resource consisting of
-        /// a key-value pair.</para>
+        /// a key-value pair.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

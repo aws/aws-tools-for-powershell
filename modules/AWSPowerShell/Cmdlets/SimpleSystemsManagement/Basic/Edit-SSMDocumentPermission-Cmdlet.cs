@@ -53,7 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The Amazon Web Services users that should have access to the document. The account
         /// IDs can either be a group of account IDs or <i>All</i>. You must specify a value for
-        /// this parameter or the <c>AccountIdsToRemove</c> parameter.</para>
+        /// this parameter or the <c>AccountIdsToRemove</c> parameter.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// Amazon Web Services user can either be a group of account IDs or <i>All</i>. This
         /// action has a higher priority than <c>AccountIdsToAdd</c>. If you specify an ID to
         /// add and the same ID to remove, the system removes access to the document. You must
-        /// specify a value for this parameter or the <c>AccountIdsToAdd</c> parameter.</para>
+        /// specify a value for this parameter or the <c>AccountIdsToAdd</c> parameter.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

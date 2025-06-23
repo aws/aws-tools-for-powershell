@@ -67,7 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// tag key in the filter name and the tag value as the filter value. For example, to
         /// find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
         /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
-        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>vpc-id</c> - The ID of the VPC in which the NAT gateway resides.</para></li></ul>
+        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>vpc-id</c> - The ID of the VPC in which the NAT gateway resides.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +81,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NatGatewayId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the NAT gateways.</para>
+        /// <para>The IDs of the NAT gateways.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

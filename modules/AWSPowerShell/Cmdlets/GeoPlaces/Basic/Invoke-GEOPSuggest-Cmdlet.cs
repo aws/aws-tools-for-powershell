@@ -56,7 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// <summary>
         /// <para>
         /// <para>A list of optional additional parameters, such as time zone, that can be requested
-        /// for each result.</para>
+        /// for each result.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +74,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// <para>The position, in longitude and latitude, that the results should be close to. Typically,
         /// place results returned are ranked higher the closer they are to this position. Stored
         /// in <c>[lng, lat]</c> and in the WSG84 format.</para><note><para>The fields <c>BiasPosition</c>, <c>FilterBoundingBox</c>, and <c>FilterCircle</c>
-        /// are mutually exclusive.</para></note>
+        /// are mutually exclusive.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// <para>
         /// <para>The bounding box enclosing the geometric shape (area or line) that an individual result
         /// covers.</para><para>The bounding box formed is defined as a set 4 coordinates: <c>[{westward lng}, {southern
-        /// lat}, {eastward lng}, {northern lat}]</c></para>
+        /// lat}, {eastward lng}, {northern lat}]</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter Circle_Center
         /// <summary>
         /// <para>
-        /// <para>The center position, in longitude and latitude, of the <c>FilterCircle</c>.</para>
+        /// <para>The center position, in longitude and latitude, of the <c>FilterCircle</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +120,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// <summary>
         /// <para>
         /// <para> A list of countries that all results must be in. Countries are represented by either
-        /// their alpha-2 or alpha-3 character codes.</para>
+        /// their alpha-2 or alpha-3 character codes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

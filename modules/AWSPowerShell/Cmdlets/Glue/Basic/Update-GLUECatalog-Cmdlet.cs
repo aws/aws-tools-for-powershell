@@ -114,7 +114,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <para>
         /// <para>An array of <c>PrincipalPermissions</c> objects. Creates a set of default permissions
         /// on the database(s) for principals. Used by Amazon Web Services Lake Formation. Typically
-        /// should be explicitly set as an empty list.</para>
+        /// should be explicitly set as an empty list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +131,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <para>
         /// <para>An array of <c>PrincipalPermissions</c> objects. Creates a set of default permissions
         /// on the table(s) for principals. Used by Amazon Web Services Lake Formation. Typically
-        /// should be explicitly set as an empty list.</para>
+        /// should be explicitly set as an empty list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,7 +146,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter CatalogProperties_CustomProperty
         /// <summary>
         /// <para>
-        /// <para>Additional key-value properties for the catalog, such as column statistics optimizations.</para>
+        /// <para>Additional key-value properties for the catalog, such as column statistics optimizations.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -208,7 +220,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter CatalogInput_Parameter
         /// <summary>
         /// <para>
-        /// <para>A map array of key-value pairs that define the parameters and properties of the catalog.</para>
+        /// <para>A map array of key-value pairs that define the parameters and properties of the catalog.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

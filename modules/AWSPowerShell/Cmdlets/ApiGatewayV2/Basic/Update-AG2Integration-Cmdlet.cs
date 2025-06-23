@@ -247,7 +247,11 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// where action can be append, overwrite or remove. For values, you can provide static
         /// values, or map request data, stage variables, or context variables that are evaluated
         /// at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming
-        /// API requests and responses</a>.</para>
+        /// API requests and responses</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -261,7 +265,11 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// <para>Represents a map of Velocity templates that are applied on the request payload based
         /// on the value of the Content-Type header sent by the client. The content type value
         /// is the key in this map, and the template (as a String) is the value. Supported only
-        /// for WebSocket APIs.</para>
+        /// for WebSocket APIs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -280,7 +288,11 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// overwrite.statuscode. The action can be append, overwrite or remove. The value can
         /// be a static value, or map to response data, stage variables, or context variables
         /// that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming
-        /// API requests and responses</a>.</para>
+        /// API requests and responses</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

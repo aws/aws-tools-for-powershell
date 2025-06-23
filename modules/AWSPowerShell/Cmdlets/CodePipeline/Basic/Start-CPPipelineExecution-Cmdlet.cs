@@ -78,7 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <para>
         /// <para>A list that allows you to specify, or override, the source revision for a pipeline
         /// execution that's being started. A source revision is the version with all the changes
-        /// to your application code, or source artifact, for the pipeline execution.</para>
+        /// to your application code, or source artifact, for the pipeline execution.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +95,11 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <para>
         /// <para>A list that overrides pipeline variables for a pipeline execution that's being started.
         /// Variable names must match <c>[A-Za-z0-9@\-_]+</c>, and the values can be anything
-        /// except an empty string.</para>
+        /// except an empty string.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

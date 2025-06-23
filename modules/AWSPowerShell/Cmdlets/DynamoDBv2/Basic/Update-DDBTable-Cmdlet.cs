@@ -69,7 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>
         /// <para>An array of attributes that describe the key schema for the table and indexes. If
         /// you are adding a new global secondary index to the table, <c>AttributeDefinitions</c>
-        /// must include the key element(s) of the new index.</para>
+        /// must include the key element(s) of the new index.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,7 +132,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>An array of one or more global secondary indexes for the table. For each index in
         /// the array, you can request one action:</para><ul><li><para><c>Create</c> - add a new global secondary index to the table.</para></li><li><para><c>Update</c> - modify the provisioned throughput settings of an existing global
         /// secondary index.</para></li><li><para><c>Delete</c> - remove a global secondary index from the table.</para></li></ul><para>You can create or delete only one global secondary index per <c>UpdateTable</c> operation.</para><para>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
-        /// Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>. </para>
+        /// Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,7 +229,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>A list of replica update actions (create, delete, or update) for the table.</para><note><para>For global tables, this property only applies to global tables using Version 2019.11.21
-        /// (Current version). </para></note>
+        /// (Current version). </para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

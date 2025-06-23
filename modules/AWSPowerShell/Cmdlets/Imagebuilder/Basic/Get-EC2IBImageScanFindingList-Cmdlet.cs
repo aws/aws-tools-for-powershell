@@ -49,7 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>An array of name value pairs that you can use to filter your results. You can use
-        /// the following filters to streamline results:</para><ul><li><para><c>imageBuildVersionArn</c></para></li><li><para><c>imagePipelineArn</c></para></li><li><para><c>vulnerabilityId</c></para></li><li><para><c>severity</c></para></li></ul><para>If you don't request a filter, then all findings in your account are listed.</para>
+        /// the following filters to streamline results:</para><ul><li><para><c>imageBuildVersionArn</c></para></li><li><para><c>imagePipelineArn</c></para></li><li><para><c>vulnerabilityId</c></para></li><li><para><c>severity</c></para></li></ul><para>If you don't request a filter, then all findings in your account are listed.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

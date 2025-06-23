@@ -22,9 +22,11 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.SecurityHub;
 using Amazon.SecurityHub.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
@@ -41,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Select
         /// <summary>
@@ -53,9 +56,13 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         public string Select { get; set; } = "*";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();
@@ -122,13 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "DescribeSecurityHubV2");
             try
             {
-                #if DESKTOP
-                return client.DescribeSecurityHubV2(request);
-                #elif CORECLR
-                return client.DescribeSecurityHubV2Async(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeSecurityHubV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

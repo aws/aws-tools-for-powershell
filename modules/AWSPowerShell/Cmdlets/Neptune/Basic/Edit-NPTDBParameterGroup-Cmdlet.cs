@@ -87,7 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// At least one parameter name, value, and apply method must be supplied; subsequent
         /// arguments are optional. A maximum of 20 parameters can be modified in a single request.</para><para>Valid Values (for the application method): <c>immediate | pending-reboot</c></para><note><para>You can use the immediate value with dynamic parameters only. You can use the pending-reboot
         /// value for both dynamic and static parameters, and changes are applied when you reboot
-        /// the DB instance without failover.</para></note>
+        /// the DB instance without failover.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

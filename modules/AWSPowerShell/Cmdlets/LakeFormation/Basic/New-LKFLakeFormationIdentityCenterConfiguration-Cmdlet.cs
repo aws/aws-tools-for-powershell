@@ -49,7 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter ExternalFiltering_AuthorizedTarget
         /// <summary>
         /// <para>
-        /// <para>List of third-party application <c>ARNs</c> integrated with Lake Formation.</para>
+        /// <para>List of third-party application <c>ARNs</c> integrated with Lake Formation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +91,11 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <para>A list of Amazon Web Services account IDs and/or Amazon Web Services organization/organizational
         /// unit ARNs that are allowed to access data managed by Lake Formation. </para><para>If the <c>ShareRecipients</c> list includes valid values, a resource share is created
         /// with the principals you want to have access to the resources.</para><para>If the <c>ShareRecipients</c> value is null or the list is empty, no resource share
-        /// is created.</para>
+        /// is created.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

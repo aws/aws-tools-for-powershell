@@ -99,7 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         /// <summary>
         /// <para>
         /// <para>A list of key value map specifying tags associated to the billing view being created.
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +114,11 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         #region Parameter SourceView
         /// <summary>
         /// <para>
-        /// <para>A list of billing views used as the data source for the custom billing view.</para>
+        /// <para>A list of billing views used as the data source for the custom billing view.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -128,7 +136,11 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         #region Parameter Dimensions_Value
         /// <summary>
         /// <para>
-        /// <para> The metadata values that you can use to filter and group your results. </para>
+        /// <para> The metadata values that you can use to filter and group your results. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +151,11 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         #region Parameter Tags_Value
         /// <summary>
         /// <para>
-        /// <para> The specific value of the tag. </para>
+        /// <para> The specific value of the tag. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -107,7 +107,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupIdentifier
         /// <summary>
         /// <para>
-        /// <para>An array where each item in the array is a log group to include in the Live Tail session.</para><para>Specify each log group by its ARN. </para><para>If you specify an ARN, the ARN can't end with an asterisk (*).</para><note><para> You can include up to 10 log groups.</para></note>
+        /// <para>An array where each item in the array is a log group to include in the Live Tail session.</para><para>Specify each log group by its ARN. </para><para>If you specify an ARN, the ARN can't end with an asterisk (*).</para><note><para> You can include up to 10 log groups.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -126,7 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>If you specify this parameter, then only log events in the log streams that have names
-        /// that start with the prefixes that you specify here are included in the Live Tail session.</para><para>If you specify this field, you can't also specify the <c>logStreamNames</c> field.</para><note><para>You can specify this parameter only if you specify only one log group in <c>logGroupIdentifiers</c>.</para></note>
+        /// that start with the prefixes that you specify here are included in the Live Tail session.</para><para>If you specify this field, you can't also specify the <c>logStreamNames</c> field.</para><note><para>You can specify this parameter only if you specify only one log group in <c>logGroupIdentifiers</c>.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +147,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>If you specify this parameter, then only log events in the log streams that you specify
         /// here are included in the Live Tail session.</para><para>If you specify this field, you can't also specify the <c>logStreamNamePrefixes</c>
-        /// field.</para><note><para>You can specify this parameter only if you specify only one log group in <c>logGroupIdentifiers</c>.</para></note>
+        /// field.</para><note><para>You can specify this parameter only if you specify only one log group in <c>logGroupIdentifiers</c>.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

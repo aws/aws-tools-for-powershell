@@ -83,7 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_AdditionalMasterSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>A list of additional Amazon EC2 security group IDs for the master node.</para>
+        /// <para>A list of additional Amazon EC2 security group IDs for the master node.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_AdditionalSlaveSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>A list of additional Amazon EC2 security group IDs for the core and task nodes.</para>
+        /// <para>A list of additional Amazon EC2 security group IDs for the core and task nodes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,7 +148,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications
         /// for Amazon EMR to install and configure when launching the cluster. For a list of
         /// applications available for each Amazon EMR release version, see the <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">Amazon
-        /// EMRRelease Guide</a>.</para>
+        /// EMRRelease Guide</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,7 +190,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>When multiple Availability Zones are specified, Amazon EMR evaluates them and launches
         /// instances in the optimal Availability Zone. <c>AvailabilityZones</c> is used for instance
         /// fleets, while <c>AvailabilityZone</c> (singular) is used for uniform instance groups.</para><note><para>The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and
-        /// later, excluding 5.0.x versions.</para></note>
+        /// later, excluding 5.0.x versions.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,7 +204,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter BootstrapAction
         /// <summary>
         /// <para>
-        /// <para>A list of bootstrap actions to run before Hadoop starts on the cluster nodes.</para>
+        /// <para>A list of bootstrap actions to run before Hadoop starts on the cluster nodes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -200,7 +220,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>For Amazon EMR releases 4.0 and later. The list of configurations supplied for the
-        /// Amazon EMR cluster that you are creating.</para>
+        /// Amazon EMR cluster that you are creating.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -301,7 +325,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>Applies to clusters that use the instance fleet configuration. When multiple Amazon
         /// EC2 subnet IDs are specified, Amazon EMR evaluates them and launches instances in
         /// the optimal subnet.</para><note><para>The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and
-        /// later, excluding 5.0.x versions.</para></note>
+        /// later, excluding 5.0.x versions.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -372,7 +400,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>
         /// <note><para>The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and
         /// later, excluding 5.0.x versions.</para></note><para>Describes the Amazon EC2 instances and instance configurations for clusters that use
-        /// the instance fleet configuration.</para>
+        /// the instance fleet configuration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -383,7 +415,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_InstanceGroup
         /// <summary>
         /// <para>
-        /// <para>Configuration for the instance groups in a cluster.</para>
+        /// <para>Configuration for the instance groups in a cluster.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -543,7 +579,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// the corresponding installation script as bootstrap action arguments. For more information,
         /// see "Launch a Job Flow on the MapR Distribution for Hadoop" in the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon
         /// EMR Developer Guide</a>. Supported values are:</para><ul><li><para>"mapr-m3" - launch the cluster using MapR M3 Edition.</para></li><li><para>"mapr-m5" - launch the cluster using MapR M5 Edition.</para></li><li><para>"mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch
-        /// the job flow using MapR M3 or M5 Edition respectively.</para></li><li><para>"mapr-m7" - launch the cluster using MapR M7 Edition.</para></li><li><para>"hunk" - launch the cluster with the Hunk Big Data Analytics Platform.</para></li><li><para>"hue"- launch the cluster with Hue installed.</para></li><li><para>"spark" - launch the cluster with Apache Spark installed.</para></li><li><para>"ganglia" - launch the cluster with the Ganglia Monitoring System installed.</para></li></ul>
+        /// the job flow using MapR M3 or M5 Edition respectively.</para></li><li><para>"mapr-m7" - launch the cluster using MapR M7 Edition.</para></li><li><para>"hunk" - launch the cluster with the Hunk Big Data Analytics Platform.</para></li><li><para>"hue"- launch the cluster with Hue installed.</para></li><li><para>"spark" - launch the cluster with Apache Spark installed.</para></li><li><para>"ganglia" - launch the cluster with the Ganglia Monitoring System installed.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -566,7 +606,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter PlacementGroupConfig
         /// <summary>
         /// <para>
-        /// <para>The specified placement group configuration for an Amazon EMR cluster.</para>
+        /// <para>The specified placement group configuration for an Amazon EMR cluster.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -706,7 +750,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Step
         /// <summary>
         /// <para>
-        /// <para>A list of steps to run.</para>
+        /// <para>A list of steps to run.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -719,7 +767,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>
         /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and later, use Applications.</para></note><para>A list of strings that indicates third-party software to use. For more information,
         /// see the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon
-        /// EMR Developer Guide</a>. Currently supported values are:</para><ul><li><para>"mapr-m3" - launch the job flow using MapR M3 Edition.</para></li><li><para>"mapr-m5" - launch the job flow using MapR M5 Edition.</para></li></ul>
+        /// EMR Developer Guide</a>. Currently supported values are:</para><ul><li><para>"mapr-m3" - launch the job flow using MapR M3 Edition.</para></li><li><para>"mapr-m5" - launch the job flow using MapR M5 Edition.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -730,7 +782,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of tags to associate with a cluster and propagate to Amazon EC2 instances.</para>
+        /// <para>A list of tags to associate with a cluster and propagate to Amazon EC2 instances.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

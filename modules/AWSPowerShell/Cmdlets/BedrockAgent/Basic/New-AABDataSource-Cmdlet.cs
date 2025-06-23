@@ -233,7 +233,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <para>
         /// <para>A list of one or more exclusion regular expression patterns to exclude certain URLs.
         /// If you specify an inclusion and exclusion filter/pattern and both match a URL, the
-        /// exclusion filter takes precedence and the web content of the URL isn’t crawled.</para>
+        /// exclusion filter takes precedence and the web content of the URL isn’t crawled.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -245,7 +249,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <summary>
         /// <para>
         /// <para>The configuration of specific filters applied to your data source content. You can
-        /// filter out or include certain content.</para>
+        /// filter out or include certain content.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -256,7 +264,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <summary>
         /// <para>
         /// <para>The configuration of specific filters applied to your data source content. You can
-        /// filter out or include certain content.</para>
+        /// filter out or include certain content.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -267,7 +279,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <summary>
         /// <para>
         /// <para>The configuration of specific filters applied to your data source content. You can
-        /// filter out or include certain content.</para>
+        /// filter out or include certain content.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -321,7 +337,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <para>
         /// <para>A list of one or more inclusion regular expression patterns to include certain URLs.
         /// If you specify an inclusion and exclusion filter/pattern and both match a URL, the
-        /// exclusion filter takes precedence and the web content of the URL isn’t crawled.</para>
+        /// exclusion filter takes precedence and the web content of the URL isn’t crawled.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -334,7 +354,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <para>
         /// <para>A list of S3 prefixes to include certain files or content. For more information, see
         /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html">Organizing
-        /// objects using prefixes</a>.</para>
+        /// objects using prefixes</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -372,7 +396,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter HierarchicalChunkingConfiguration_LevelConfiguration
         /// <summary>
         /// <para>
-        /// <para>Token settings for each layer.</para>
+        /// <para>Token settings for each layer.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -567,7 +595,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter UrlConfiguration_SeedUrl
         /// <summary>
         /// <para>
-        /// <para>One or more seed or starting point URLs.</para>
+        /// <para>One or more seed or starting point URLs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -578,7 +610,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter SourceConfiguration_SiteUrl
         /// <summary>
         /// <para>
-        /// <para>A list of one or more SharePoint site URLs.</para>
+        /// <para>A list of one or more SharePoint site URLs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -600,7 +636,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter CustomTransformationConfiguration_Transformation
         /// <summary>
         /// <para>
-        /// <para>A Lambda function that processes documents.</para>
+        /// <para>A Lambda function that processes documents.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

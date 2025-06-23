@@ -79,7 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter IpRestrictionRuleMap
         /// <summary>
         /// <para>
-        /// <para>A map that describes the updated IP rules with CIDR ranges and descriptions.</para>
+        /// <para>A map that describes the updated IP rules with CIDR ranges and descriptions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +93,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter VpcEndpointIdRestrictionRuleMap
         /// <summary>
         /// <para>
-        /// <para>A map of allowed VPC endpoint IDs and their corresponding rule descriptions.</para>
+        /// <para>A map of allowed VPC endpoint IDs and their corresponding rule descriptions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,7 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>A map of VPC IDs and their corresponding rules. When you configure this parameter,
-        /// traffic from all VPC endpoints that are present in the specified VPC is allowed.</para>
+        /// traffic from all VPC endpoints that are present in the specified VPC is allowed.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

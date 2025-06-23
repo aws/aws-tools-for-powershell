@@ -155,7 +155,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// to set it before players can connect to game sessions. As a best practice, we recommend
         /// opening ports for remote access only when you need them and closing them when you're
         /// finished. For Amazon GameLift Realtime fleets, Amazon GameLift automatically sets
-        /// TCP and UDP ranges.</para>
+        /// TCP and UDP ranges.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -250,7 +254,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// Region codes, such as <c>us-west-2</c>, or Local Zone names. When using this parameter,
         /// Amazon GameLift requires you to include your home location in the request. For a list
         /// of supported Regions and Local Zones, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">
-        /// Amazon GameLift service locations</a> for managed hosting.</para>
+        /// Amazon GameLift service locations</a> for managed hosting.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -265,7 +273,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// store log files once a server process shuts down, use the Amazon GameLift server API
         /// <c>ProcessReady()</c> and specify one or more directory paths in <c>logParameters</c>.
         /// For more information, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-initialize">Initialize
-        /// the server process</a> in the <i>Amazon GameLift Developer Guide</i>. </para>
+        /// the server process</a> in the <i>Amazon GameLift Developer Guide</i>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -292,7 +304,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>The name of an Amazon Web Services CloudWatch metric group to add this fleet to. A
         /// metric group is used to aggregate the metrics for multiple fleets. You can specify
         /// an existing metric group name or set a new name to create a new metric group. A fleet
-        /// can be included in only one metric group at a time. </para>
+        /// can be included in only one metric group at a time. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -426,7 +442,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A collection of server process configurations that identify what server processes
-        /// to run on fleet computes.</para>
+        /// to run on fleet computes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -440,7 +460,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A list of labels to assign to the new fleet resource. Tags are developer-defined key-value
         /// pairs. Tagging Amazon Web Services resources are useful for resource management, access
         /// management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
-        /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.</para>
+        /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

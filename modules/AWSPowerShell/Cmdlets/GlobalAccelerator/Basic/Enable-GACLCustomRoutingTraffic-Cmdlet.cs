@@ -78,7 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// <para>A list of specific Amazon EC2 instance IP addresses (destination addresses) in a subnet
         /// that you want to allow to receive traffic. The IP addresses must be a subset of the
         /// IP addresses that you specified for the endpoint group.</para><para><c>DestinationAddresses</c> is required if <c>AllowAllTrafficToEndpoint</c> is <c>FALSE</c>
-        /// or is not specified.</para>
+        /// or is not specified.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// <summary>
         /// <para>
         /// <para>A list of specific Amazon EC2 instance ports (destination ports) that you want to
-        /// allow to receive traffic.</para>
+        /// allow to receive traffic.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

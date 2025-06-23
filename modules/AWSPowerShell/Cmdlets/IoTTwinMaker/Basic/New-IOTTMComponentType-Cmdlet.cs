@@ -75,7 +75,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         /// <summary>
         /// <para>
         /// <para>This is an object that maps strings to <c>compositeComponentTypes</c> of the <c>componentType</c>.
-        /// <c>CompositeComponentType</c> is referenced by <c>componentTypeId</c>.</para>
+        /// <c>CompositeComponentType</c> is referenced by <c>componentTypeId</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +100,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter ExtendsFrom
         /// <summary>
         /// <para>
-        /// <para>Specifies the parent component type to extend.</para>
+        /// <para>Specifies the parent component type to extend.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +115,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         /// <summary>
         /// <para>
         /// <para>An object that maps strings to the functions in the component type. Each string in
-        /// the mapping must be unique to this object.</para>
+        /// the mapping must be unique to this object.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,7 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         /// <summary>
         /// <para>
         /// <para>An object that maps strings to the property definitions in the component type. Each
-        /// string in the mapping must be unique to this object.</para>
+        /// string in the mapping must be unique to this object.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,7 +157,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter PropertyGroup
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,7 +172,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Metadata that you can use to manage the component type.</para>
+        /// <para>Metadata that you can use to manage the component type.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

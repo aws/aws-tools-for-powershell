@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The Amazon S3 bucket whose OwnershipControls you want to delete.
+        /// <para>The Amazon S3 bucket whose <c>OwnershipControls</c> you want to delete. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -70,8 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account ID of the expected bucket owner. If the bucket is owned by a different account, 
-        /// the request will fail with an HTTP <code>403 (Access Denied)</code> error.
+        /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
+        /// not match the actual owner of the bucket, the request fails with the HTTP status code
+        /// <c>403 Forbidden</c> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

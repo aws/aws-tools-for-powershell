@@ -133,7 +133,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// requested attributes are not found, they do not appear in the result.</para><para>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing
         /// Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para></li><li><para><c>AttributesToGet</c> - This is a legacy parameter. Use <c>ProjectionExpression</c>
         /// instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a>
-        /// in the <i>Amazon DynamoDB Developer Guide</i>. </para></li></ul>
+        /// in the <i>Amazon DynamoDB Developer Guide</i>. </para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

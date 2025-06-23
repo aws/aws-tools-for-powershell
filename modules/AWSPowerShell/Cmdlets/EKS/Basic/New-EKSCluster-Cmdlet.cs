@@ -140,7 +140,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Logging_ClusterLogging
         /// <summary>
         /// <para>
-        /// <para>The cluster control plane logging configuration for your cluster.</para>
+        /// <para>The cluster control plane logging configuration for your cluster.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,7 +218,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter EncryptionConfig
         /// <summary>
         /// <para>
-        /// <para>The encryption configuration for the cluster.</para>
+        /// <para>The encryption configuration for the cluster.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -282,7 +290,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>
         /// <para>Configuration for node pools that defines the compute resources for your EKS Auto
         /// Mode cluster. For more information, see EKS Auto Mode Node Pools in the <i>Amazon
-        /// EKS User Guide</i>.</para>
+        /// EKS User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -307,7 +319,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts.
-        /// Only a single Outpost ARN is supported.</para>
+        /// Only a single Outpost ARN is supported.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -328,7 +344,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// VPN, or Direct Connect.</para></li><li><para>Each host must allow outbound connection to the EKS cluster control plane on TCP ports
         /// <c>443</c> and <c>10250</c>.</para></li><li><para>Each host must allow inbound connection from the EKS cluster control plane on TCP
         /// port 10250 for logs, exec and port-forward operations.</para></li><li><para> Each host must allow TCP and UDP network connectivity to and from other hosts that
-        /// are running <c>CoreDNS</c> on UDP port <c>53</c> for service and pod DNS names.</para></li></ul>
+        /// are running <c>CoreDNS</c> on UDP port <c>53</c> for service and pod DNS names.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -345,7 +365,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// for Kubernetes isn't available for on-premises and edge locations.</para><para>Enter one or more IPv4 CIDR blocks in decimal dotted-quad notation (for example, <c>
         /// 10.2.0.0/16</c>).</para><para>It must satisfy the following requirements:</para><ul><li><para>Each block must be within an <c>IPv4</c> RFC-1918 network range. Minimum allowed size
         /// is /32, maximum allowed size is /8. Publicly-routable addresses aren't supported.</para></li><li><para>Each block cannot overlap with the range of the VPC CIDR blocks for your EKS resources,
-        /// or the block of the Kubernetes service IP range.</para></li></ul>
+        /// or the block of the Kubernetes service IP range.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -431,7 +455,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>
         /// <para>Metadata that assists with categorization and organization. Each tag consists of a
         /// key and an optional value. You define both. Tags don't propagate to any other cluster
-        /// or Amazon Web Services resources.</para>
+        /// or Amazon Web Services resources.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

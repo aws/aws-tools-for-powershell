@@ -67,7 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The list of tags that a security profile uses to restrict access to resources in Amazon
-        /// Connect.</para>
+        /// Connect.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Application
         /// <summary>
         /// <para>
-        /// <para>A list of third-party applications that the security profile will give access to.</para>
+        /// <para>A list of third-party applications that the security profile will give access to.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,7 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The list of resources that a security profile applies hierarchy restrictions to in
-        /// Amazon Connect. Following are acceptable ResourceNames: <c>User</c>.</para>
+        /// Amazon Connect. Following are acceptable ResourceNames: <c>User</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,7 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>
         /// <para>Permissions assigned to the security profile. For a list of valid permissions, see
         /// <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List
-        /// of security profile permissions</a>. </para>
+        /// of security profile permissions</a>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,7 +178,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>The list of resources that a security profile applies tag restrictions to in Amazon
         /// Connect. For a list of Amazon Connect resources that you can tag, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html">Add
         /// tags to resources in Amazon Connect</a> in the <i>Amazon Connect Administrator Guide</i>.
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,7 +194,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The tags used to organize, track, or control access for this resource. For example,
-        /// { "Tags": {"key1":"value1", "key2":"value2"} }.</para>
+        /// { "Tags": {"key1":"value1", "key2":"value2"} }.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

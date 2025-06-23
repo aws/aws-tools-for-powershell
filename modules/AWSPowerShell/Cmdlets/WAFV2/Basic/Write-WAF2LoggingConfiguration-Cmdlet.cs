@@ -107,7 +107,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter LoggingFilter_Filter
         /// <summary>
         /// <para>
-        /// <para>The filters that you want to apply to the logs. </para>
+        /// <para>The filters that you want to apply to the logs. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +122,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter LoggingConfiguration_LogDestinationConfig
         /// <summary>
         /// <para>
-        /// <para>The logging destination configuration that you want to associate with the web ACL.</para><note><para>You can associate one logging destination to a web ACL.</para></note>
+        /// <para>The logging destination configuration that you want to associate with the web ACL.</para><note><para>You can associate one logging destination to a web ACL.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -189,7 +197,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <c>Headers</c><c>FieldToMatch</c>.</para><note><para>You can specify only the following fields for redaction: <c>UriPath</c>, <c>QueryString</c>,
         /// <c>SingleHeader</c>, and <c>Method</c>.</para></note><note><para>This setting has no impact on request sampling. You can only exclude fields from request
         /// sampling by disabling sampling in the web ACL visibility configuration or by configuring
-        /// data protection for the web ACL.</para></note>
+        /// data protection for the web ACL.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

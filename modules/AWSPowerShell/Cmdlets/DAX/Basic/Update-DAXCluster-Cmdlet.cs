@@ -122,7 +122,11 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         /// <para>
         /// <para>A list of user-specified security group IDs to be assigned to each node in the DAX
         /// cluster. If this parameter is not specified, DAX assigns the default VPC security
-        /// group to each node.</para>
+        /// group to each node.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

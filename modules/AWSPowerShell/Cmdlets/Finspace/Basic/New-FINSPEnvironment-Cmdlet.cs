@@ -62,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// <para>SAML attribute name and value. The name must always be <c>Email</c> and the value
         /// should be set to the attribute definition in which user email is set. For example,
         /// name would be <c>Email</c> and value <c>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress</c>.
-        /// Please check your SAML 2.0 compliant identity provider (IdP) documentation for details.</para>
+        /// Please check your SAML 2.0 compliant identity provider (IdP) documentation for details.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// <para>The list of Amazon Resource Names (ARN) of the data bundles to install. Currently
         /// supported data bundle ARNs:</para><ul><li><para><c>arn:aws:finspace:${Region}::data-bundle/capital-markets-sample</c> - Contains
         /// sample Capital Markets datasets, categories and controlled vocabularies.</para></li><li><para><c>arn:aws:finspace:${Region}::data-bundle/taq</c> (default) - Contains trades and
-        /// quotes data in addition to sample Capital Markets data.</para></li></ul>
+        /// quotes data in addition to sample Capital Markets data.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,7 +215,11 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Add tags to your FinSpace environment.</para>
+        /// <para>Add tags to your FinSpace environment.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

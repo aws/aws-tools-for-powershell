@@ -61,7 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <summary>
         /// <para>
         /// <para>Optional assistance position information, specified using latitude and longitude values
-        /// in degrees. The coordinates are inside the WGS84 reference frame.</para>
+        /// in degrees. The coordinates are inside the WGS84 reference frame.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter CellTowers_Cdma
         /// <summary>
         /// <para>
-        /// <para>CDMA object information.</para>
+        /// <para>CDMA object information.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter CellTowers_Gsm
         /// <summary>
         /// <para>
-        /// <para>GSM object information.</para>
+        /// <para>GSM object information.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +136,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter CellTowers_Lte
         /// <summary>
         /// <para>
-        /// <para>LTE object information.</para>
+        /// <para>LTE object information.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +160,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter CellTowers_Tdscdma
         /// <summary>
         /// <para>
-        /// <para>TD-SCDMA object information.</para>
+        /// <para>TD-SCDMA object information.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,7 +198,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter CellTowers_Wcdma
         /// <summary>
         /// <para>
-        /// <para>WCDMA object information.</para>
+        /// <para>WCDMA object information.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,7 +213,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <summary>
         /// <para>
         /// <para>Retrieves an estimated device position by resolving WLAN measurement data. The position
-        /// is resolved using HERE's Wi-Fi based solver.</para>
+        /// is resolved using HERE's Wi-Fi based solver.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

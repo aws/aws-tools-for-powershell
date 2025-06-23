@@ -83,7 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>A list of tags to add to the bot. You can only add tags when you import a bot. You
         /// can't use the <c>UpdateBot</c> operation to update tags. To update tags, use the <c>TagResource</c>
-        /// operation.</para>
+        /// operation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -382,7 +386,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>A list of tags to add to the test alias for a bot. You can only add tags when you
         /// import a bot. You can't use the <c>UpdateAlias</c> operation to update tags. To update
-        /// tags on the test alias, use the <c>TagResource</c> operation.</para>
+        /// tags on the test alias, use the <c>TagResource</c> operation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -406,7 +414,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>A list of tags to add to the test set. You can only add tags when you import/generate
         /// a new test set. You can't use the <c>UpdateTestSet</c> operation to update tags. To
-        /// update tags, use the <c>TagResource</c> operation.</para>
+        /// update tags, use the <c>TagResource</c> operation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

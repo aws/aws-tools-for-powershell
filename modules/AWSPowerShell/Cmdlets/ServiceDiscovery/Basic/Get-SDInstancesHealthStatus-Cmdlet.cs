@@ -58,7 +58,11 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// status for.</para><para>If you omit <c>Instances</c>, Cloud Map returns the health status for all the instances
         /// that are associated with the specified service.</para><note><para>To get the IDs for the instances that you've registered by using a specified service,
         /// submit a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_ListInstances.html">ListInstances</a>
-        /// request.</para></note>
+        /// request.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

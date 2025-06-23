@@ -69,7 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>If you are using an account that is set up as a monitoring account for CloudWatch
         /// unified cross-account observability, you can use this to specify the account ID of
         /// a source account. If you do, the operation returns the account policy for the specified
-        /// account. Currently, you can specify only one account ID in this parameter.</para><para>If you omit this parameter, only the policy in the current account is returned.</para>
+        /// account. Currently, you can specify only one account ID in this parameter.</para><para>If you omit this parameter, only the policy in the current account is returned.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

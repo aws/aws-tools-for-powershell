@@ -86,7 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>A list of tags to add or update. If a key of an existing tag is added, the tag's value
-        /// is updated.</para><para>Specify at least one of these parameters: <c>TagsToAdd</c>, <c>TagsToRemove</c>.</para>
+        /// is updated.</para><para>Specify at least one of these parameters: <c>TagsToAdd</c>, <c>TagsToRemove</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +100,11 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter TagsToRemove
         /// <summary>
         /// <para>
-        /// <para>A list of tag keys to remove. If a tag key doesn't exist, it is silently ignored.</para><para>Specify at least one of these parameters: <c>TagsToAdd</c>, <c>TagsToRemove</c>.</para>
+        /// <para>A list of tag keys to remove. If a tag key doesn't exist, it is silently ignored.</para><para>Specify at least one of these parameters: <c>TagsToAdd</c>, <c>TagsToRemove</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

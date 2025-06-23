@@ -54,7 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.LLMS
         /// operator to list all subscriptions that match a partial string in the <c>Value</c>,
         /// such as <c>us-west</c>.</para><para>For each filter, you can specify one of the following values for the <c>Name</c> key
         /// to streamline results:</para><ul><li><para><c>AccountID</c></para></li><li><para><c>AmiID</c></para></li><li><para><c>DualSubscription</c></para></li><li><para><c>InstanceID</c></para></li><li><para><c>InstanceType</c></para></li><li><para><c>ProductCode</c></para></li><li><para><c>Region</c></para></li><li><para><c>Status</c></para></li><li><para><c>UsageOperation</c></para></li></ul><para>For each filter, you can use one of the following <c>Operator</c> values to define
-        /// the behavior of the filter:</para><ul><li><para><c>contains</c></para></li><li><para><c>equals</c></para></li><li><para><c>Notequal</c></para></li></ul>
+        /// the behavior of the filter:</para><ul><li><para><c>contains</c></para></li><li><para><c>equals</c></para></li><li><para><c>Notequal</c></para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

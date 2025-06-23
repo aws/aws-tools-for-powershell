@@ -91,7 +91,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter EndpointNetworkConfiguration_IpAddress
         /// <summary>
         /// <para>
-        /// <para>A list of gateway IP addresses on which the associated Amazon FSx file system is available.</para><note><para>If multiple file systems are associated with this gateway, this field is required.</para></note>
+        /// <para>A list of gateway IP addresses on which the associated Amazon FSx file system is available.</para><note><para>If multiple file systems are associated with this gateway, this field is required.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,7 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A list of up to 50 tags that can be assigned to the file system association. Each
-        /// tag is a key-value pair.</para>
+        /// tag is a key-value pair.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

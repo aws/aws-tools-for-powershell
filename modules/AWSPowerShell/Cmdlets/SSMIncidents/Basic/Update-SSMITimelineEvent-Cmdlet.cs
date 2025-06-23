@@ -83,7 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         /// a resource, use its ARN. You can also specify an Amazon CloudWatch metric associated
         /// with the DynamoDB table as a related item.</para><important><para>This update action overrides all existing references. If you want to keep existing
         /// references, you must specify them in the call. If you don't, this action removes any
-        /// existing references and enters only new references.</para></important>
+        /// existing references and enters only new references.</para></important><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

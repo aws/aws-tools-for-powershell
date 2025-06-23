@@ -82,7 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// <summary>
         /// <para>
         /// <para>The tag key or keys to remove.</para><para>Specify only the tag key to remove (not the value). To overwrite the value for an
-        /// existing tag, use <a>AddTagsToResource</a>.</para>
+        /// existing tag, use <a>AddTagsToResource</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

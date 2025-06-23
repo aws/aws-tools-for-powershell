@@ -79,7 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// definition of <a href="https://csrc.nist.gov/glossary/term/Object_Identifier">Object
         /// Identifier (OID)</a>.</para><para>In an end-entity certificate, these terms indicate the policy under which the certificate
         /// was issued and the purposes for which it may be used. In a CA certificate, these terms
-        /// limit the set of policies for certification paths that include this certificate.</para>
+        /// limit the set of policies for certification paths that include this certificate.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,7 +157,11 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <para>Contains a sequence of one or more X.500 relative distinguished names (RDNs), each
         /// of which consists of an object identifier (OID) and a value. For more information,
         /// see NIST’s definition of <a href="https://csrc.nist.gov/glossary/term/Object_Identifier">Object
-        /// Identifier (OID)</a>.</para><note><para>Custom attributes cannot be used in combination with standard attributes.</para></note>
+        /// Identifier (OID)</a>.</para><note><para>Custom attributes cannot be used in combination with standard attributes.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,7 +174,11 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <para>
         /// <para>Contains a sequence of one or more X.509 extensions, each of which consists of an
         /// object identifier (OID), a base64-encoded value, and the critical flag. For more information,
-        /// see the <a href="https://oidref.com/2.5.29">Global OID reference database.</a></para>
+        /// see the <a href="https://oidref.com/2.5.29">Global OID reference database.</a></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -233,7 +245,11 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>Specifies additional purposes for which the certified public key may be used other
-        /// than basic purposes indicated in the <c>KeyUsage</c> extension.</para>
+        /// than basic purposes indicated in the <c>KeyUsage</c> extension.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -429,7 +445,11 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <para>
         /// <para>The subject alternative name extension allows identities to be bound to the subject
         /// of the certificate. These identities may be included in addition to or in place of
-        /// the identity in the subject field of the certificate.</para>
+        /// the identity in the subject field of the certificate.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

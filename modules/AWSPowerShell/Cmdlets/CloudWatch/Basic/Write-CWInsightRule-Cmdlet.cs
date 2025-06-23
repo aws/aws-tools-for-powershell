@@ -128,7 +128,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// resources that have certain tag values.</para><para>To be able to associate tags with a rule, you must have the <c>cloudwatch:TagResource</c>
         /// permission in addition to the <c>cloudwatch:PutInsightRule</c> permission.</para><para>If you are using this operation to update an existing Contributor Insights rule, any
         /// tags you specify in this parameter are ignored. To change the tags of an existing
-        /// rule, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html">TagResource</a>.</para>
+        /// rule, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html">TagResource</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

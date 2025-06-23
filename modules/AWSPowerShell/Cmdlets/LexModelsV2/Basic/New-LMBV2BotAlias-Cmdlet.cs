@@ -54,7 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter ConversationLogSettings_AudioLogSetting
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 settings for logging audio to an S3 bucket.</para>
+        /// <para>The Amazon S3 settings for logging audio to an S3 bucket.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +70,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Maps configuration information to a specific locale. You can use this parameter to
-        /// specify a specific Lambda function to run different functions in different locales.</para>
+        /// specify a specific Lambda function to run different functions in different locales.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +152,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>A list of tags to add to the bot alias. You can only add tags when you create an alias,
         /// you can't use the <c>UpdateBotAlias</c> operation to update the tags on a bot alias.
-        /// To update tags, use the <c>TagResource</c> operation.</para>
+        /// To update tags, use the <c>TagResource</c> operation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,7 +167,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter ConversationLogSettings_TextLogSetting
         /// <summary>
         /// <para>
-        /// <para>The Amazon CloudWatch Logs settings for logging text and metadata.</para>
+        /// <para>The Amazon CloudWatch Logs settings for logging text and metadata.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

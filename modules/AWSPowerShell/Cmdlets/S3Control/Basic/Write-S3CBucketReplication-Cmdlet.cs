@@ -178,7 +178,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>A container for one or more replication rules. A replication configuration must have
-        /// at least one rule and can contain an array of 100 rules at the most. </para>
+        /// at least one rule and can contain an array of 100 rules at the most. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

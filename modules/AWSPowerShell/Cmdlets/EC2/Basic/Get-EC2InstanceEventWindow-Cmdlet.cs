@@ -85,7 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// find all event windows that have a tag with a specific key, regardless of the tag
         /// value. </para></li><li><para><c>tag-value</c> - The value of a tag assigned to the event window. Use this filter
         /// to find all event windows that have a tag with a specific value, regardless of the
-        /// tag key. </para></li></ul>
+        /// tag key. </para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +100,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceEventWindowId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the event windows.</para>
+        /// <para>The IDs of the event windows.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

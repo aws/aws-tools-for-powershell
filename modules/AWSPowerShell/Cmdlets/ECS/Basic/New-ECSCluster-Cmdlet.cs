@@ -73,7 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// capacity providers. The Fargate capacity providers are available to all accounts and
         /// only need to be associated with a cluster to be used.</para><para>The <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProvider.html">PutCapacityProvider</a>
         /// API operation is used to update the list of available capacity providers for a cluster
-        /// after the cluster is created.</para>
+        /// after the cluster is created.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// APIs with no capacity provider strategy or launch type specified, the default capacity
         /// provider strategy for the cluster is used.</para><para>If a default capacity provider strategy isn't defined for a cluster when it was created,
         /// it can be defined later with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a>
-        /// API operation.</para>
+        /// API operation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -254,7 +262,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>The setting to use when creating a cluster. This parameter is used to turn on CloudWatch
         /// Container Insights for a cluster. If this value is specified, it overrides the <c>containerInsights</c>
         /// value set with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html">PutAccountSetting</a>
-        /// or <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html">PutAccountSettingDefault</a>.</para>
+        /// or <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html">PutAccountSettingDefault</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -273,7 +285,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case-sensitive.</para></li><li><para>Do not use <c>aws:</c>, <c>AWS:</c>, or any upper or lowercase combination of such
         /// as a prefix for either keys or values as it is reserved for Amazon Web Services use.
         /// You cannot edit or delete tag keys or values with this prefix. Tags with this prefix
-        /// do not count against your tags per resource limit.</para></li></ul>
+        /// do not count against your tags per resource limit.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

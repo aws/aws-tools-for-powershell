@@ -50,7 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <para>
         /// <para>The list of security group IDs associated with the VPC endpoints for the domain. If
         /// you do not provide a security group ID, OpenSearch Service uses the default security
-        /// group for the VPC.</para>
+        /// group for the VPC.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <para>
         /// <para>A list of subnet IDs associated with the VPC endpoints for the domain. If your domain
         /// uses multiple Availability Zones, you need to provide two subnet IDs, one per zone.
-        /// Otherwise, provide only one.</para>
+        /// Otherwise, provide only one.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

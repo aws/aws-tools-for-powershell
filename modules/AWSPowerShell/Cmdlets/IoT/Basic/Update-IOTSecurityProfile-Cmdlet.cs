@@ -55,7 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>A list of metrics whose data is retained (stored). By default, data is retained for
         /// any metric used in the profile's behaviors, but it is also retained for any metric
-        /// specified here. Can be used with custom metrics; cannot be used with dimensions.</para>
+        /// specified here. Can be used with custom metrics; cannot be used with dimensions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter AlertTarget
         /// <summary>
         /// <para>
-        /// <para>Where the alerts are sent. (Alerts are always sent to the console.)</para>
+        /// <para>Where the alerts are sent. (Alerts are always sent to the console.)</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +84,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Behavior
         /// <summary>
         /// <para>
-        /// <para>Specifies the behaviors that, when violated by a device (thing), cause an alert.</para>
+        /// <para>Specifies the behaviors that, when violated by a device (thing), cause an alert.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -196,7 +208,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para><i>Please use <a>UpdateSecurityProfileRequest$additionalMetricsToRetainV2</a> instead.</i></para><para>A list of metrics whose data is retained (stored). By default, data is retained for
         /// any metric used in the profile's <c>behaviors</c>, but it is also retained for any
-        /// metric specified here. Can be used with custom metrics; cannot be used with dimensions.</para>
+        /// metric specified here. Can be used with custom metrics; cannot be used with dimensions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

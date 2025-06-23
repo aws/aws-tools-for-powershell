@@ -47,7 +47,11 @@ namespace Amazon.PowerShell.Cmdlets.AT
         #region Parameter AfterStep
         /// <summary>
         /// <para>
-        /// <para>The after steps of the test suite.</para>
+        /// <para>The after steps of the test suite.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.AT
         #region Parameter BeforeStep
         /// <summary>
         /// <para>
-        /// <para>The before steps for the test suite.</para>
+        /// <para>The before steps for the test suite.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.AT
         #region Parameter TestCases_Sequential
         /// <summary>
         /// <para>
-        /// <para>The sequential of the test case.</para>
+        /// <para>The sequential of the test case.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

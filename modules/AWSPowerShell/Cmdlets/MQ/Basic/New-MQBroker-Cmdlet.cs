@@ -264,7 +264,11 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// <summary>
         /// <para>
         /// <para>Specifies the location of the LDAP server such as Directory Service for Microsoft
-        /// Active Directory. Optional failover server.</para>
+        /// Active Directory. Optional failover server.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -364,7 +368,11 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter SecurityGroup
         /// <summary>
         /// <para>
-        /// <para>The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.</para>
+        /// <para>The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -420,7 +428,11 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// Deployment without public accessibility requires at least one subnet.</para><important><para>If you specify subnets in a <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html">shared
         /// VPC</a> for a RabbitMQ broker, the associated VPC to which the specified subnets belong
         /// must be owned by your Amazon Web Services account. Amazon MQ will not be able to create
-        /// VPC endpoints in VPCs that are not owned by your Amazon Web Services account.</para></important>
+        /// VPC endpoints in VPCs that are not owned by your Amazon Web Services account.</para></important><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -431,7 +443,11 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Create tags when creating the broker.</para>
+        /// <para>Create tags when creating the broker.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -480,7 +496,11 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// <para>The list of broker users (persons or applications) who can access queues and topics.
         /// For Amazon MQ for RabbitMQ brokers, one and only one administrative user is accepted
         /// and created when a broker is first provisioned. All subsequent broker users are created
-        /// by making RabbitMQ API calls directly to brokers or via the RabbitMQ web console.</para>
+        /// by making RabbitMQ API calls directly to brokers or via the RabbitMQ web console.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

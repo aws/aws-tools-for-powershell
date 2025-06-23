@@ -137,7 +137,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <para>
         /// <para>A list of users that belong to a group. This can also include sub groups. For example,
         /// the sub groups "Research", "Engineering", and "Sales and Marketing" all belong to
-        /// the group "Company A".</para>
+        /// the group "Company A".</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,7 +153,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>A list of users that belong to a group. For example, a list of interns all belong
-        /// to the "Interns" group.</para>
+        /// to the "Interns" group.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

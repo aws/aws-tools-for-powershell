@@ -73,7 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter InstanceStatusFilter
         /// <summary>
         /// <para>
-        /// <para>A subset of instances to list by status:</para><ul><li><para><c>Pending</c>: Include those instances with pending deployments.</para></li><li><para><c>InProgress</c>: Include those instances where deployments are still in progress.</para></li><li><para><c>Succeeded</c>: Include those instances with successful deployments.</para></li><li><para><c>Failed</c>: Include those instances with failed deployments.</para></li><li><para><c>Skipped</c>: Include those instances with skipped deployments.</para></li><li><para><c>Unknown</c>: Include those instances with deployments in an unknown state.</para></li></ul>
+        /// <para>A subset of instances to list by status:</para><ul><li><para><c>Pending</c>: Include those instances with pending deployments.</para></li><li><para><c>InProgress</c>: Include those instances where deployments are still in progress.</para></li><li><para><c>Succeeded</c>: Include those instances with successful deployments.</para></li><li><para><c>Failed</c>: Include those instances with failed deployments.</para></li><li><para><c>Skipped</c>: Include those instances with skipped deployments.</para></li><li><para><c>Unknown</c>: Include those instances with deployments in an unknown state.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para>
         /// <para>The set of instances in a blue/green deployment, either those in the original environment
         /// ("BLUE") or those in the replacement environment ("GREEN"), for which you want to
-        /// view instance information.</para>
+        /// view instance information.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

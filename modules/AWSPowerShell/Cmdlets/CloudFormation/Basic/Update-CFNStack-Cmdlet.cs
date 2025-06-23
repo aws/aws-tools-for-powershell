@@ -87,7 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// if you know what processing the macro performs.</para><para>Each macro relies on an underlying Lambda service function for processing stack templates.
         /// Be aware that the Lambda function owner can update the function operation without
         /// CloudFormation being notified.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Perform
-        /// custom processing on CloudFormation templates with template macros</a>.</para></li></ul><note><para>Only one of the <c>Capabilities</c> and <c>ResourceType</c> parameters can be specified.</para></note>
+        /// custom processing on CloudFormation templates with template macros</a>.</para></li></ul><note><para>Only one of the <c>Capabilities</c> and <c>ResourceType</c> parameters can be specified.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,7 +152,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>Amazon Simple Notification Service topic Amazon Resource Names (ARNs) that CloudFormation
-        /// associates with the stack. Specify an empty list to remove all notification topics.</para>
+        /// associates with the stack. Specify an empty list to remove all notification topics.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,7 +168,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>A list of <c>Parameter</c> structures that specify input parameters for the stack.
         /// For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">Parameter</a>
-        /// data type.</para>
+        /// data type.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,7 +188,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// stack update fails. By default, CloudFormation grants permissions to all resource
         /// types. IAM uses this parameter for CloudFormation-specific condition keys in IAM policies.
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/control-access-with-iam.html">Control
-        /// access with Identity and Access Management</a>.</para><note><para>Only one of the <c>Capabilities</c> and <c>ResourceType</c> parameters can be specified.</para></note>
+        /// access with Identity and Access Management</a>.</para><note><para>Only one of the <c>Capabilities</c> and <c>ResourceType</c> parameters can be specified.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,7 +239,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// that you want used for this stack, even triggers you've specified before (for example,
         /// when creating the stack or during a previous stack update). Any triggers that you
         /// don't include in the updated list of triggers are no longer applied to the stack.</para></li><li><para>To remove all currently specified triggers, specify an empty list for this parameter.</para></li></ul><para>If a specified trigger is missing, the entire stack operation fails and is rolled
-        /// back.</para>
+        /// back.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -311,7 +331,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>Key-value pairs to associate with this stack. CloudFormation also propagates these
         /// tags to supported resources in the stack. You can specify a maximum number of 50 tags.</para><para>If you don't specify this parameter, CloudFormation doesn't modify the stack's tags.
-        /// If you specify an empty value, CloudFormation removes all associated tags.</para>
+        /// If you specify an empty value, CloudFormation removes all associated tags.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -121,7 +121,11 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// <summary>
         /// <para>
         /// <para>An list of attributes that are needed to successfully evaluate an authorization request.
-        /// Each attribute in this array must include a map of a data type and its value.</para><para>Example: <c>"contextMap":{"&lt;KeyName1&gt;":{"boolean":true},"&lt;KeyName2&gt;":{"long":1234}}</c></para>
+        /// Each attribute in this array must include a map of a data type and its value.</para><para>Example: <c>"contextMap":{"&lt;KeyName1&gt;":{"boolean":true},"&lt;KeyName2&gt;":{"long":1234}}</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +148,11 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// <para>An array of entities that are needed to successfully evaluate an authorization request.
         /// Each entity in this array must include an identifier for the entity, the attributes
         /// of the entity, and a list of any parent entities.</para><note><para>If you include multiple entities with the same <c>identifier</c>, only the last one
-        /// is processed in the request.</para></note>
+        /// is processed in the request.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

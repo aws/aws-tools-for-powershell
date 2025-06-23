@@ -49,7 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AdditionalAccount
         /// <summary>
         /// <para>
-        /// <para>The member accounts that contain resources that the path can traverse.</para>
+        /// <para>The member accounts that contain resources that the path can traverse.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter FilterInArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARN) of the resources that the path must traverse.</para>
+        /// <para>The Amazon Resource Names (ARN) of the resources that the path must traverse.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +91,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter FilterOutArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARN) of the resources that the path will ignore.</para>
+        /// <para>The Amazon Resource Names (ARN) of the resources that the path will ignore.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
-        /// <para>The tags to apply.</para>
+        /// <para>The tags to apply.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

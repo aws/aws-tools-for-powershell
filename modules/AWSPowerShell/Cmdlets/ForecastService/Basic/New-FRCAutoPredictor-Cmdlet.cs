@@ -72,7 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter DataConfig_AdditionalDataset
         /// <summary>
         /// <para>
-        /// <para>Additional built-in datasets like Holidays and the Weather Index.</para>
+        /// <para>Additional built-in datasets like Holidays and the Weather Index.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter DataConfig_AttributeConfig
         /// <summary>
         /// <para>
-        /// <para>Aggregation and filling options for attributes in your dataset group.</para>
+        /// <para>Aggregation and filling options for attributes in your dataset group.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,7 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <para>
         /// <para>An array of dimension (field) names that specify how to group the generated forecast.</para><para>For example, if you are generating forecasts for item sales across all your stores,
         /// and your dataset contains a <c>store_id</c> field, you would specify <c>store_id</c>
-        /// as a dimension to group sales forecasts for each store.</para>
+        /// as a dimension to group sales forecasts for each store.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,7 +195,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <para>
         /// <para>The forecast types used to train a predictor. You can specify up to five forecast
         /// types. Forecast types can be quantiles from 0.01 to 0.99, by increments of 0.01 or
-        /// higher. You can also specify the mean forecast with <c>mean</c>.</para>
+        /// higher. You can also specify the mean forecast with <c>mean</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -296,7 +312,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// Values can have this prefix. If a tag value has <c>aws</c> as its prefix but the key
         /// does not, Forecast considers it to be a user tag and will count against the limit
         /// of 50 tags. Tags with only the key prefix of <c>aws</c> do not count against your
-        /// tags per resource limit. You cannot edit or delete tag keys with this prefix.</para></li></ul>
+        /// tags per resource limit. You cannot edit or delete tag keys with this prefix.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

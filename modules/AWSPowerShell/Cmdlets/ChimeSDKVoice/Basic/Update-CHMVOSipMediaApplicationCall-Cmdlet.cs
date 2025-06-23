@@ -50,7 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         /// <summary>
         /// <para>
         /// <para>Arguments made available to the Lambda function as part of the <c>CALL_UPDATE_REQUESTED</c>
-        /// event. Can contain 0-20 key-value pairs.</para>
+        /// event. Can contain 0-20 key-value pairs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

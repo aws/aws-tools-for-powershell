@@ -77,7 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         /// <para>A revision tag is an optional label that you can assign to a revision when you create
         /// it. Each tag consists of a key and an optional value, both of which you define. When
         /// you use tagging, you can also use tag-based access control in IAM policies to control
-        /// access to these data sets and revisions.</para>
+        /// access to these data sets and revisions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

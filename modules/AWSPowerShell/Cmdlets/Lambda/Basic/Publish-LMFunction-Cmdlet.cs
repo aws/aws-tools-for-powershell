@@ -130,7 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The instruction set architecture that the function supports. Enter a string array
-        /// with one of the valid values (arm64 or x86_64). The default value is <c>x86_64</c>.</para>
+        /// with one of the valid values (arm64 or x86_64). The default value is <c>x86_64</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,7 +157,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter ImageConfig_Command
         /// <summary>
         /// <para>
-        /// <para>Specifies parameters that you want to pass in with ENTRYPOINT.</para>
+        /// <para>Specifies parameters that you want to pass in with ENTRYPOINT.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,7 +182,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>Specifies the entry point to their application, which is typically the location of
-        /// the runtime executable.</para>
+        /// the runtime executable.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,7 +196,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FileSystemConfig
         /// <summary>
         /// <para>
-        /// <para>Connection settings for an Amazon EFS file system.</para>
+        /// <para>Connection settings for an Amazon EFS file system.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -248,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// This property can be used to determine if the related property
         /// was returned by a service response or if the related property
         /// should be sent to the service during a service call.
+        /// <para>If this property is set to false the property <seealso cref="P:Amazon.Lambda.Model.ImageConfig.Command" /> will be reset to null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -262,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// This property can be used to determine if the related property
         /// was returned by a service response or if the related property
         /// should be sent to the service during a service call.
+        /// <para>If this property is set to false the property <seealso cref="P:Amazon.Lambda.Model.ImageConfig.EntryPoint" /> will be reset to null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -276,6 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// This property can be used to determine if the related property
         /// was returned by a service response or if the related property
         /// should be sent to the service during a service call.
+        /// <para>If this property is set to false the property <seealso cref="P:Amazon.Lambda.Model.VpcConfig.SecurityGroupIds" /> will be reset to null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -290,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// This property can be used to determine if the related property
         /// was returned by a service response or if the related property
         /// should be sent to the service during a service call.
+        /// <para>If this property is set to false the property <seealso cref="P:Amazon.Lambda.Model.VpcConfig.SubnetIds" /> will be reset to null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -304,6 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// This property can be used to determine if the related property
         /// was returned by a service response or if the related property
         /// should be sent to the service during a service call.
+        /// <para>If this property is set to false the property <seealso cref="P:Amazon.Lambda.Model.Environment.Variables" /> will be reset to null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -335,7 +356,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <para>
         /// <para>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">function
         /// layers</a> to add to the function's execution environment. Specify each layer by its
-        /// ARN, including the version.</para>
+        /// ARN, including the version.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -479,7 +504,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of VPC security group IDs.</para>
+        /// <para>A list of VPC security group IDs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -513,7 +542,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter VpcConfig_SubnetId
         /// <summary>
         /// <para>
-        /// <para>A list of VPC subnet IDs.</para>
+        /// <para>A list of VPC subnet IDs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -538,7 +571,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>
-        /// to apply to the function.</para>
+        /// to apply to the function.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -573,7 +610,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>Environment variable key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">Using
-        /// Lambda environment variables</a>.</para>
+        /// Lambda environment variables</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

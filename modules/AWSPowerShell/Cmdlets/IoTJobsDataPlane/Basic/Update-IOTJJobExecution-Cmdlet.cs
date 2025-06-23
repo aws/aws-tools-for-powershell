@@ -136,7 +136,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTJ
         /// <summary>
         /// <para>
         /// <para> Optional. A collection of name/value pairs that describe the status of the job execution.
-        /// If not specified, the statusDetails are unchanged.</para><para>The maximum length of the value in the name/value pair is 1,024 characters.</para>
+        /// If not specified, the statusDetails are unchanged.</para><para>The maximum length of the value in the name/value pair is 1,024 characters.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

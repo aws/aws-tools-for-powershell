@@ -107,7 +107,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// in ascending order and JSON array order should be kept as is.</para><para><c>Q_CONNECT_ENABLED</c>. TRUE and FALSE are the only valid filterValues for the
         /// <c>Q_CONNECT_ENABLED</c> filter key. </para><ul><li><para>TRUE includes all contacts that had Amazon Q in Connect enabled as part of the flow.</para></li><li><para>FALSE includes all contacts that did not have Amazon Q in Connect enabled as part
         /// of the flow</para></li></ul><para>This filter is available only for contact record-driven metrics. </para><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-outbound-campaigns_Campaign.html">Campaign</a>
-        /// ARNs are valid <c>filterValues</c> for the <c>CAMPAIGN</c> filter key.</para></li></ul>
+        /// ARNs are valid <c>filterValues</c> for the <c>CAMPAIGN</c> filter key.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -137,7 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <c>FLOWS_MODULE_RESOURCE_ID</c> | <c>FLOW_ACTION_ID</c> | <c>FLOW_TYPE</c> | <c>FLOWS_OUTCOME_TYPE</c>
         /// | <c>FORM_VERSION</c> | <c>INITIATION_METHOD</c> | <c>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</c>
         /// | <c>INVOKING_RESOURCE_TYPE</c> | <c>PARENT_FLOWS_RESOURCE_ID</c> | <c>Q_CONNECT_ENABLED</c>
-        /// | <c>QUEUE</c> | <c>RESOURCE_PUBLISHED_TIMESTAMP</c> | <c>ROUTING_PROFILE</c> | <c>ROUTING_STEP_EXPRESSION</c></para><para>Type: Array of strings</para><para>Array Members: Maximum number of 4 items</para><para>Required: No</para>
+        /// | <c>QUEUE</c> | <c>RESOURCE_PUBLISHED_TIMESTAMP</c> | <c>ROUTING_PROFILE</c> | <c>ROUTING_STEP_EXPRESSION</c></para><para>Type: Array of strings</para><para>Array Members: Maximum number of 4 items</para><para>Required: No</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -419,7 +427,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// non-productive time</a></para></dd><dt>SUM_ONLINE_TIME_AGENT</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#online-time">Online
         /// time</a></para></dd><dt>SUM_RETRY_CALLBACK_ATTEMPTS</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype,
         /// Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#callback-attempts">Callback
-        /// attempts</a></para></dd></dl>
+        /// attempts</a></para></dd></dl><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

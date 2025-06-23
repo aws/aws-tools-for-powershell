@@ -98,7 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TunnelOptions_IKEVersion
         /// <summary>
         /// <para>
-        /// <para>The IKE versions that are permitted for the VPN tunnel.</para><para>Valid values: <c>ikev1</c> | <c>ikev2</c></para>
+        /// <para>The IKE versions that are permitted for the VPN tunnel.</para><para>Valid values: <c>ikev1</c> | <c>ikev2</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +148,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
         /// phase 1 IKE negotiations.</para><para>Valid values: <c>2</c> | <c>14</c> | <c>15</c> | <c>16</c> | <c>17</c> | <c>18</c>
-        /// | <c>19</c> | <c>20</c> | <c>21</c> | <c>22</c> | <c>23</c> | <c>24</c></para>
+        /// | <c>19</c> | <c>20</c> | <c>21</c> | <c>22</c> | <c>23</c> | <c>24</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,7 +164,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more encryption algorithms that are permitted for the VPN tunnel for phase
-        /// 1 IKE negotiations.</para><para>Valid values: <c>AES128</c> | <c>AES256</c> | <c>AES128-GCM-16</c> | <c>AES256-GCM-16</c></para>
+        /// 1 IKE negotiations.</para><para>Valid values: <c>AES128</c> | <c>AES256</c> | <c>AES128-GCM-16</c> | <c>AES256-GCM-16</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,7 +180,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1
-        /// IKE negotiations.</para><para>Valid values: <c>SHA1</c> | <c>SHA2-256</c> | <c>SHA2-384</c> | <c>SHA2-512</c></para>
+        /// IKE negotiations.</para><para>Valid values: <c>SHA1</c> | <c>SHA2-256</c> | <c>SHA2-384</c> | <c>SHA2-512</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,7 +208,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
         /// phase 2 IKE negotiations.</para><para>Valid values: <c>2</c> | <c>5</c> | <c>14</c> | <c>15</c> | <c>16</c> | <c>17</c>
-        /// | <c>18</c> | <c>19</c> | <c>20</c> | <c>21</c> | <c>22</c> | <c>23</c> | <c>24</c></para>
+        /// | <c>18</c> | <c>19</c> | <c>20</c> | <c>21</c> | <c>22</c> | <c>23</c> | <c>24</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,7 +224,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more encryption algorithms that are permitted for the VPN tunnel for phase
-        /// 2 IKE negotiations.</para><para>Valid values: <c>AES128</c> | <c>AES256</c> | <c>AES128-GCM-16</c> | <c>AES256-GCM-16</c></para>
+        /// 2 IKE negotiations.</para><para>Valid values: <c>AES128</c> | <c>AES256</c> | <c>AES128-GCM-16</c> | <c>AES256-GCM-16</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -216,7 +240,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2
-        /// IKE negotiations.</para><para>Valid values: <c>SHA1</c> | <c>SHA2-256</c> | <c>SHA2-384</c> | <c>SHA2-512</c></para>
+        /// IKE negotiations.</para><para>Valid values: <c>SHA1</c> | <c>SHA2-256</c> | <c>SHA2-384</c> | <c>SHA2-512</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

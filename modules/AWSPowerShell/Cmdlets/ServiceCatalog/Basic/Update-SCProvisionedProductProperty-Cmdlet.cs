@@ -100,7 +100,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// any action through the API or Service Catalog console such as update, terminate, and
         /// execute service actions. If an end user provisions a product and the owner is updated
         /// to someone else, they will no longer be able to see or perform any actions through
-        /// API or the Service Catalog console on that provisioned product.</para>
+        /// API or the Service Catalog console on that provisioned product.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

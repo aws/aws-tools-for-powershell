@@ -48,7 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.SP
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para>
+        /// <para>The filters.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.SP
         #region Parameter Operation
         /// <summary>
         /// <para>
-        /// <para>The specific Amazon Web Services operation for the line item in the billing report.</para>
+        /// <para>The specific Amazon Web Services operation for the line item in the billing report.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.SP
         #region Parameter Product
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services products.</para>
+        /// <para>The Amazon Web Services products.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +93,11 @@ namespace Amazon.PowerShell.Cmdlets.SP
         #region Parameter SavingsPlanOfferingId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the offerings.</para>
+        /// <para>The IDs of the offerings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.SP
         #region Parameter SavingsPlanPaymentOption
         /// <summary>
         /// <para>
-        /// <para>The payment options.</para>
+        /// <para>The payment options.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.SP
         #region Parameter SavingsPlanType
         /// <summary>
         /// <para>
-        /// <para>The plan types.</para>
+        /// <para>The plan types.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +138,11 @@ namespace Amazon.PowerShell.Cmdlets.SP
         #region Parameter ServiceCode
         /// <summary>
         /// <para>
-        /// <para>The services.</para>
+        /// <para>The services.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +153,11 @@ namespace Amazon.PowerShell.Cmdlets.SP
         #region Parameter UsageType
         /// <summary>
         /// <para>
-        /// <para>The usage details of the line item in the billing report.</para>
+        /// <para>The usage details of the line item in the billing report.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

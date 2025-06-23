@@ -71,7 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         /// <para>
         /// <para>A list of contexts active for the request. A context can be activated when a previous
         /// intent is fulfilled, or by including the context in the request,</para><para>If you don't specify a list of contexts, Amazon Lex will use the current list of contexts
-        /// for the session. If you specify an empty list, all contexts for the session are cleared.</para>
+        /// for the session. If you specify an empty list, all contexts for the session are cleared.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,7 +175,11 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         /// the contents of the new summary view replaces the old summary view. For example, if
         /// a <c>GetSession</c> request returns three intents in the summary view and you call
         /// <c>PutSession</c> with one intent in the summary view, the next call to <c>GetSession</c>
-        /// will only return one intent.</para>
+        /// will only return one intent.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,7 +190,11 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing the session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,7 +205,11 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         #region Parameter DialogAction_Slot
         /// <summary>
         /// <para>
-        /// <para>Map of the slots that have been gathered and their values. </para>
+        /// <para>Map of the slots that have been gathered and their values. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

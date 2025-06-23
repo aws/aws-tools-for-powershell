@@ -310,7 +310,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         /// <summary>
         /// <para>
         /// <para>An array of filter objects. Each filter object contains two attributes, <c>filterName</c>
-        /// and <c>filterValues</c>.</para>
+        /// and <c>filterValues</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -531,7 +535,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_AmiProductFilters_EntityId_ValueList
         /// <summary>
         /// <para>
-        /// <para>A string array of unique entity id values to be filtered on.</para>
+        /// <para>A string array of unique entity id values to be filtered on.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -541,7 +549,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_AmiProductFilters_ProductTitle_ValueList
         /// <summary>
         /// <para>
-        /// <para>A string array of unique product title values to be filtered on.</para>
+        /// <para>A string array of unique product title values to be filtered on.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -551,7 +563,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_AmiProductFilters_Visibility_ValueList
         /// <summary>
         /// <para>
-        /// <para>A string array of unique visibility values to be filtered on.</para>
+        /// <para>A string array of unique visibility values to be filtered on.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -561,7 +577,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_ContainerProductFilters_EntityId_ValueList
         /// <summary>
         /// <para>
-        /// <para>A string array of unique entity id values to be filtered on.</para>
+        /// <para>A string array of unique entity id values to be filtered on.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -571,7 +591,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_ContainerProductFilters_ProductTitle_ValueList
         /// <summary>
         /// <para>
-        /// <para>A string array of unique product title values to be filtered on.</para>
+        /// <para>A string array of unique product title values to be filtered on.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -581,7 +605,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_ContainerProductFilters_Visibility_ValueList
         /// <summary>
         /// <para>
-        /// <para>A string array of unique visibility values to be filtered on.</para>
+        /// <para>A string array of unique visibility values to be filtered on.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -591,7 +619,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_DataProductFilters_EntityId_ValueList
         /// <summary>
         /// <para>
-        /// <para>A string array of unique entity id values to be filtered on.</para>
+        /// <para>A string array of unique entity id values to be filtered on.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -601,7 +633,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_DataProductFilters_ProductTitle_ValueList
         /// <summary>
         /// <para>
-        /// <para>A string array of unique product title values to be filtered on.</para>
+        /// <para>A string array of unique product title values to be filtered on.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -611,7 +647,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_DataProductFilters_Visibility_ValueList
         /// <summary>
         /// <para>
-        /// <para>A string array of unique visibility values to be filtered on.</para>
+        /// <para>A string array of unique visibility values to be filtered on.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -622,7 +662,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         /// <summary>
         /// <para>
         /// <para>A list of entity IDs to filter by. The operation returns machine learning products
-        /// with entity IDs that match the values in this list.</para>
+        /// with entity IDs that match the values in this list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -634,7 +678,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         /// <summary>
         /// <para>
         /// <para>A list of product titles to filter by. The operation returns machine learning products
-        /// with titles that exactly match the values in this list.</para>
+        /// with titles that exactly match the values in this list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -646,7 +694,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         /// <summary>
         /// <para>
         /// <para>A list of visibility values to filter by. The operation returns machine learning products
-        /// with visibility status that match the values in this list.</para>
+        /// with visibility status that match the values in this list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -657,7 +709,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_OfferFilters_EntityId_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on entity id of an offer with list input.</para>
+        /// <para>Allows filtering on entity id of an offer with list input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -667,7 +723,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_OfferFilters_Name_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <c>Name</c> of an offer with list input.</para>
+        /// <para>Allows filtering on the <c>Name</c> of an offer with list input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -677,7 +737,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_OfferFilters_ProductId_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <c>ProductId</c> of an offer with list input.</para>
+        /// <para>Allows filtering on the <c>ProductId</c> of an offer with list input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -687,7 +751,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter ResaleAuthorizationId_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <c>ResaleAuthorizationId</c> of an offer with list input.</para>
+        /// <para>Allows filtering on the <c>ResaleAuthorizationId</c> of an offer with list input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -698,7 +766,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter State_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <c>State</c> of an offer with list input.</para>
+        /// <para>Allows filtering on the <c>State</c> of an offer with list input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -709,7 +781,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter Targeting_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <c>Targeting</c> of an offer with list input.</para>
+        /// <para>Allows filtering on the <c>Targeting</c> of an offer with list input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -721,7 +797,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         /// <summary>
         /// <para>
         /// <para>Allows filtering on <c>AvailabilityEndDate</c> of a ResaleAuthorization with date
-        /// value as input.</para>
+        /// value as input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -732,7 +812,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         /// <summary>
         /// <para>
         /// <para>Allows filtering on <c>CreatedDate</c> of a ResaleAuthorization with date value as
-        /// input.</para>
+        /// input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -743,7 +827,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_ResaleAuthorizationFilters_EntityId_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on <c>EntityId</c> of a ResaleAuthorization with list input.</para>
+        /// <para>Allows filtering on <c>EntityId</c> of a ResaleAuthorization with list input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -754,7 +842,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         /// <summary>
         /// <para>
         /// <para>Allows filtering on the <c>ManufacturerAccountId</c> of a ResaleAuthorization with
-        /// list input.</para>
+        /// list input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -766,7 +858,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         /// <summary>
         /// <para>
         /// <para>Allows filtering on the <c>ManufacturerLegalName</c> of a ResaleAuthorization with
-        /// list input.</para>
+        /// list input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -777,7 +873,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_ResaleAuthorizationFilters_Name_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <c>Name</c> of a ResaleAuthorization with list input.</para>
+        /// <para>Allows filtering on the <c>Name</c> of a ResaleAuthorization with list input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -788,7 +888,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         /// <summary>
         /// <para>
         /// <para>Allows filtering on the <c>OfferExtendedStatus</c> of a ResaleAuthorization with list
-        /// input.</para>
+        /// input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -799,7 +903,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_ResaleAuthorizationFilters_ProductId_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <c>ProductId</c> of a ResaleAuthorization with list input.</para>
+        /// <para>Allows filtering on the <c>ProductId</c> of a ResaleAuthorization with list input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -809,7 +917,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter ProductName_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <c>ProductName</c> of a ResaleAuthorization with list input.</para>
+        /// <para>Allows filtering on the <c>ProductName</c> of a ResaleAuthorization with list input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -821,7 +933,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         /// <summary>
         /// <para>
         /// <para>Allows filtering on the <c>ResellerAccountID</c> of a ResaleAuthorization with list
-        /// input.</para>
+        /// input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -833,7 +949,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         /// <summary>
         /// <para>
         /// <para>Allows filtering on the ResellerLegalNameProductName of a ResaleAuthorization with
-        /// list input.</para>
+        /// list input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -844,7 +964,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter Status_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <c>Status</c> of a ResaleAuthorization with list input.</para>
+        /// <para>Allows filtering on the <c>Status</c> of a ResaleAuthorization with list input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -855,7 +979,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_SaaSProductFilters_EntityId_ValueList
         /// <summary>
         /// <para>
-        /// <para>A string array of unique entity id values to be filtered on.</para>
+        /// <para>A string array of unique entity id values to be filtered on.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -865,7 +993,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_SaaSProductFilters_ProductTitle_ValueList
         /// <summary>
         /// <para>
-        /// <para>A string array of unique product title values to be filtered on.</para>
+        /// <para>A string array of unique product title values to be filtered on.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -875,7 +1007,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_SaaSProductFilters_Visibility_ValueList
         /// <summary>
         /// <para>
-        /// <para>A string array of unique visibility values to be filtered on.</para>
+        /// <para>A string array of unique visibility values to be filtered on.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

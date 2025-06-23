@@ -76,7 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.FD
         /// <summary>
         /// <para>
         /// <para>The entity type (associated with the detector's event type) and specific entity ID
-        /// representing who performed the event. If an entity id is not available, use "UNKNOWN."</para>
+        /// representing who performed the event. If an entity id is not available, use "UNKNOWN."</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -154,7 +158,11 @@ namespace Amazon.PowerShell.Cmdlets.FD
         /// with special values for categorical variables.</para><para><b>For imported SageMaker models:</b></para><para>If a null value is provided explicitly for a variable, the model and rules will use
         /// “null” as the value. If a variable is not provided (no variable name in the eventVariables
         /// map), model and rules will use the default value that is provided for the variable.
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -172,7 +180,11 @@ namespace Amazon.PowerShell.Cmdlets.FD
         #region Parameter ExternalModelEndpointDataBlob
         /// <summary>
         /// <para>
-        /// <para>The Amazon SageMaker model endpoint input data blobs.</para>
+        /// <para>The Amazon SageMaker model endpoint input data blobs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

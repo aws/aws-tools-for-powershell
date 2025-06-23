@@ -57,7 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">
         /// Bring Your Own Windows Desktop Licenses</a>.</para><note><ul><li><para>Although this parameter is an array, only one item is allowed at this time.</para></li><li><para>During the image import process, non-GPU DCV (formerly WSP) WorkSpaces with Windows
         /// 11 support only <c>Microsoft_Office_2019</c>. GPU DCV (formerly WSP) WorkSpaces with
-        /// Windows 11 do not support Office installation.</para></li></ul></note>
+        /// Windows 11 do not support Office installation.</para></li></ul></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,7 +149,11 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</para>
+        /// <para>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

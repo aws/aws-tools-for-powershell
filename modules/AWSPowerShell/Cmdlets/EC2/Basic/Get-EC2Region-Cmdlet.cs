@@ -86,7 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The filters.</para><ul><li><para><c>endpoint</c> - The endpoint of the Region (for example, <c>ec2.us-east-1.amazonaws.com</c>).</para></li><li><para><c>opt-in-status</c> - The opt-in status of the Region (<c>opt-in-not-required</c>
-        /// | <c>opted-in</c> | <c>not-opted-in</c>).</para></li><li><para><c>region-name</c> - The name of the Region (for example, <c>us-east-1</c>).</para></li></ul>
+        /// | <c>opted-in</c> | <c>not-opted-in</c>).</para></li><li><para><c>region-name</c> - The name of the Region (for example, <c>us-east-1</c>).</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -98,7 +102,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The names of the Regions. You can specify any Regions, whether they are enabled and
-        /// disabled for your account.</para>
+        /// disabled for your account.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

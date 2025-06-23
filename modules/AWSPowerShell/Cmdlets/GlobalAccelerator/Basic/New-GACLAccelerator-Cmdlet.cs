@@ -91,7 +91,11 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// network zone, for high availability.</para><para>You can specify one or two addresses, separated by a space. Do not include the /32
         /// suffix.</para><para>Note that you can't update IP addresses for an existing accelerator. To change them,
         /// you must create a new accelerator with the new addresses.</para><para>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring
-        /// your own IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</para>
+        /// your own IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +138,11 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// <summary>
         /// <para>
         /// <para>Create tags for an accelerator.</para><para>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
-        /// in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</para>
+        /// in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

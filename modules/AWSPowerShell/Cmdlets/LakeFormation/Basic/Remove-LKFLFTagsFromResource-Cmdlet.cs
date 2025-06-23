@@ -145,7 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <summary>
         /// <para>
         /// <para>The list of column names for the table. At least one of <c>ColumnNames</c> or <c>ColumnWildcard</c>
-        /// is required.</para>
+        /// is required.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,7 +197,11 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter ColumnWildcard_ExcludedColumnName
         /// <summary>
         /// <para>
-        /// <para>Excludes column names. Any column with this name will be excluded.</para>
+        /// <para>Excludes column names. Any column with this name will be excluded.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,7 +213,11 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <summary>
         /// <para>
         /// <para>A list of LF-tag conditions or a saved expression that apply to the resource's LF-tag
-        /// policy.</para>
+        /// policy.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,7 +251,11 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter LFTag
         /// <summary>
         /// <para>
-        /// <para>The LF-tags to be removed from the resource.</para>
+        /// <para>The LF-tags to be removed from the resource.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -381,7 +397,11 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter LFTag_TagValue
         /// <summary>
         /// <para>
-        /// <para>A list of possible values an attribute can take.</para>
+        /// <para>A list of possible values an attribute can take.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

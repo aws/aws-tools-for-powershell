@@ -112,7 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>
         /// <para>List of global secondary indexes for the restored table. The indexes provided should
         /// match existing secondary indexes. You can choose to exclude some or all of the indexes
-        /// at the time of restore.</para>
+        /// at the time of restore.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,7 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>
         /// <para>List of local secondary indexes for the restored table. The indexes provided should
         /// match existing secondary indexes. You can choose to exclude some or all of the indexes
-        /// at the time of restore.</para>
+        /// at the time of restore.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

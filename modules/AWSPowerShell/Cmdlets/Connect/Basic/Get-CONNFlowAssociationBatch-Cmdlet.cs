@@ -66,7 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>A list of resource identifiers to retrieve flow associations.</para><ul><li><para>Amazon Web Services End User Messaging SMS phone number ARN when using <c>SMS_PHONE_NUMBER</c></para></li><li><para>Amazon Web Services End User Messaging Social phone number ARN when using <c>WHATSAPP_MESSAGING_PHONE_NUMBER</c></para></li></ul>
+        /// <para>A list of resource identifiers to retrieve flow associations.</para><ul><li><para>Amazon Web Services End User Messaging SMS phone number ARN when using <c>SMS_PHONE_NUMBER</c></para></li><li><para>Amazon Web Services End User Messaging Social phone number ARN when using <c>WHATSAPP_MESSAGING_PHONE_NUMBER</c></para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

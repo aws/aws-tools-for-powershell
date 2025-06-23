@@ -129,7 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// <para>
         /// <para>Use this parameter to configure a CloudWatch log stream to monitor application configuration
         /// errors. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html">Working
-        /// with Amazon CloudWatch Logs</a>.</para>
+        /// with Amazon CloudWatch Logs</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,7 +152,11 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// that Amazon Kinesis Analytics can assume to read this stream on your behalf.</para><para>To create the in-application stream, you need to specify a schema to transform your
         /// data into a schematized version used in SQL. In the schema, you provide the necessary
         /// mapping of the data elements in the streaming source to record columns in the in-app
-        /// stream.</para>
+        /// stream.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,7 +175,11 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// write to the destination stream or Lambda function on your behalf.</para><para>In the output configuration, you also provide the output stream or Lambda function
         /// ARN. For stream destinations, you provide the format of data in the stream (for example,
         /// JSON, CSV). You also must provide an IAM role that Amazon Kinesis Analytics can assume
-        /// to write to the stream or Lambda function on your behalf.</para>
+        /// to write to the stream or Lambda function on your behalf.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,7 +194,11 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// that identifies an application. Note that the maximum number of application tags includes
         /// system tags. The maximum number of user-defined application tags is 50. For more information,
         /// see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html">Using
-        /// Tagging</a>.</para>
+        /// Tagging</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

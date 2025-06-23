@@ -48,7 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         /// <summary>
         /// <para>
         /// <para>A list of exclusion windows to add to the specified SLOs. You can add up to 10 exclusion
-        /// windows per SLO.</para>
+        /// windows per SLO.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,7 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         /// <summary>
         /// <para>
         /// <para>A list of exclusion windows to remove from the specified SLOs. The window configuration
-        /// must match an existing exclusion window.</para>
+        /// must match an existing exclusion window.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter SloId
         /// <summary>
         /// <para>
-        /// <para>The list of SLO IDs to add or remove exclusion windows from.</para>
+        /// <para>The list of SLO IDs to add or remove exclusion windows from.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

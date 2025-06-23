@@ -80,6 +80,13 @@ $S3T_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.S3Tables.IcebergCompactionStrategy
+        "Write-S3TTableMaintenanceConfiguration/IcebergCompaction_Strategy"
+        {
+            $v = "auto","binpack","sort","z-order"
+            break
+        }
+
         # Amazon.S3Tables.MaintenanceStatus
         {
             ($_ -eq "Write-S3TTableBucketMaintenanceConfiguration/Value_Status") -Or
@@ -133,6 +140,7 @@ $S3T_Completers = {
 $S3T_map = @{
     "EncryptionConfiguration_SseAlgorithm"=@("New-S3TTable","New-S3TTableBucket","Write-S3TTableBucketEncryption")
     "Format"=@("New-S3TTable")
+    "IcebergCompaction_Strategy"=@("Write-S3TTableMaintenanceConfiguration")
     "Type"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
     "Value_Status"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
 }

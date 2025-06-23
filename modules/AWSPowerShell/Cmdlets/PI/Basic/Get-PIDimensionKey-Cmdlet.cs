@@ -56,7 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <para>Additional metrics for the top <c>N</c> dimension keys. If the specified dimension
         /// group in the <c>GroupBy</c> parameter is <c>db.sql_tokenized</c>, you can specify
         /// per-SQL metrics to get the values for the top <c>N</c> SQL digests. The response syntax
-        /// is as follows: <c>"AdditionalMetrics" : { "<i>string</i>" : "<i>string</i>" }</c>.</para><para>The only supported statistic function is <c>.avg</c>.</para>
+        /// is as follows: <c>"AdditionalMetrics" : { "<i>string</i>" : "<i>string</i>" }</c>.</para><para>The only supported statistic function is <c>.avg</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,7 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// except Amazon DocumentDB).</para></li><li><para><c>db.wait_event.type</c> - The type of event for which the backend is waiting (all
         /// engines except Amazon DocumentDB).</para></li><li><para><c>db.wait_event_type.name</c> - The name of the event type for which the backend
         /// is waiting (all engines except Amazon DocumentDB).</para></li><li><para><c>db.wait_state.name</c> - The event for which the backend is waiting (only Amazon
-        /// DocumentDB).</para></li></ul>
+        /// DocumentDB).</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +152,11 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// except Amazon DocumentDB).</para></li><li><para><c>db.wait_event.type</c> - The type of event for which the backend is waiting (all
         /// engines except Amazon DocumentDB).</para></li><li><para><c>db.wait_event_type.name</c> - The name of the event type for which the backend
         /// is waiting (all engines except Amazon DocumentDB).</para></li><li><para><c>db.wait_state.name</c> - The event for which the backend is waiting (only Amazon
-        /// DocumentDB).</para></li></ul>
+        /// DocumentDB).</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,7 +186,11 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <summary>
         /// <para>
         /// <para>One or more filters to apply in the request. Restrictions:</para><ul><li><para>Any number of filters by the same dimension, as specified in the <c>GroupBy</c> or
-        /// <c>Partition</c> parameters.</para></li><li><para>A single filter for any other dimension in this dimension group.</para></li></ul><note><para>The <c>db.sql.db_id</c> filter isn't available for RDS for SQL Server DB instances.</para></note>
+        /// <c>Partition</c> parameters.</para></li><li><para>A single filter for any other dimension in this dimension group.</para></li></ul><note><para>The <c>db.sql.db_id</c> filter isn't available for RDS for SQL Server DB instances.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

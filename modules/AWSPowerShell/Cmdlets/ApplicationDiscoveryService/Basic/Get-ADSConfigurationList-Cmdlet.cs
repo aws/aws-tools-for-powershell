@@ -71,7 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// format. For example: </para><para><c>{"key": "serverType", "value": "webServer"}</c></para><para>For a complete list of filter options and guidance about using them with this action,
         /// see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations">Using
         /// the ListConfigurations Action</a> in the <i>Amazon Web Services Application Discovery
-        /// Service User Guide</i>.</para>
+        /// Service User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <para>Certain filter criteria return output that can be sorted in ascending or descending
         /// order. For a list of output characteristics for each filter, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations">Using
         /// the ListConfigurations Action</a> in the <i>Amazon Web Services Application Discovery
-        /// Service User Guide</i>.</para>
+        /// Service User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

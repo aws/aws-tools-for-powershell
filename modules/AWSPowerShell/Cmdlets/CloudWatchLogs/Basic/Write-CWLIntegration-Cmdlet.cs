@@ -76,7 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>Specify the ARNs of IAM roles and IAM users who you want to grant permission to for
         /// viewing the dashboards.</para><important><para>In addition to specifying these users here, you must also grant them the <b>CloudWatchOpenSearchDashboardAccess</b>
         /// IAM policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-UserRoles.html">IAM
-        /// policies for users</a>.</para></important>
+        /// policies for users</a>.</para></important><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

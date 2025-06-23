@@ -65,7 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// <summary>
         /// <para>
         /// <para>Specifies a list of attributes to group the counts of noncompliant resources by. If
-        /// supplied, the counts are sorted by those attributes.</para>
+        /// supplied, the counts are sorted by those attributes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +81,11 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// <para>
         /// <para>Specifies a list of Amazon Web Services Regions to limit the output to. If you use
         /// this parameter, the count of returned noncompliant resources includes only resources
-        /// in the specified Regions.</para>
+        /// in the specified Regions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +107,11 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// ARNs</a>.</para></li><li><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</para></li></ul><para>You can specify multiple resource types by using a comma separated array. The array
         /// can include up to 100 items. Note that the length constraint requirement applies to
-        /// each resource type filter. </para>
+        /// each resource type filter. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// <para>
         /// <para>Specifies that you want the response to include information for only resources that
         /// have tags with the specified tag keys. If you use this parameter, the count of returned
-        /// noncompliant resources includes only resources that have the specified tag keys.</para>
+        /// noncompliant resources includes only resources that have the specified tag keys.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// <para>
         /// <para>Specifies target identifiers (usually, specific account IDs) to limit the output by.
         /// If you use this parameter, the count of returned noncompliant resources includes only
-        /// resources with the specified target IDs.</para>
+        /// resources with the specified target IDs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

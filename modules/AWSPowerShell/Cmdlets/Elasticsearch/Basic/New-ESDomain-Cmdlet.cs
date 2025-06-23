@@ -62,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// <para>
         /// <para> Option to allow references to indices in an HTTP request body. Must be <c>false</c>
         /// when configuring access to individual sub-resources. By default, the value is <c>true</c>.
-        /// See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options" target="_blank">Configuration Advanced Options</a> for more information.</para>
+        /// See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options" target="_blank">Configuration Advanced Options</a> for more information.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -359,7 +363,11 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// <summary>
         /// <para>
         /// <para>Map of <c>LogType</c> and <c>LogPublishingOption</c>, each containing options to publish
-        /// a given type of Elasticsearch log.</para>
+        /// a given type of Elasticsearch log.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -370,7 +378,11 @@ namespace Amazon.PowerShell.Cmdlets.ES
         #region Parameter AutoTuneOptions_MaintenanceSchedule
         /// <summary>
         /// <para>
-        /// <para>Specifies list of maitenance schedules. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</para>
+        /// <para>Specifies list of maitenance schedules. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -472,7 +484,11 @@ namespace Amazon.PowerShell.Cmdlets.ES
         #region Parameter VPCOptions_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>Specifies the security groups for VPC endpoint.</para>
+        /// <para>Specifies the security groups for VPC endpoint.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -506,7 +522,11 @@ namespace Amazon.PowerShell.Cmdlets.ES
         #region Parameter VPCOptions_SubnetId
         /// <summary>
         /// <para>
-        /// <para>Specifies the subnets for VPC endpoint.</para>
+        /// <para>Specifies the subnets for VPC endpoint.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -517,7 +537,11 @@ namespace Amazon.PowerShell.Cmdlets.ES
         #region Parameter TagList
         /// <summary>
         /// <para>
-        /// <para>A list of <c>Tag</c> added during domain creation.</para>
+        /// <para>A list of <c>Tag</c> added during domain creation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

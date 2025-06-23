@@ -106,7 +106,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>Data for metrics that contain associated entity information. You can include up to
         /// two <c>EntityMetricData</c> objects, each of which can contain a single <c>Entity</c>
         /// and associated metrics.</para><para>The limit of metrics allowed, 1000, is the sum of both <c>EntityMetricData</c> and
-        /// <c>MetricData</c> metrics.</para>
+        /// <c>MetricData</c> metrics.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +122,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>The data for the metrics. Use this parameter if your metrics do not contain associated
         /// entities. The array can include no more than 1000 metrics per call.</para><para>The limit of metrics allowed, 1000, is the sum of both <c>EntityMetricData</c> and
-        /// <c>MetricData</c> metrics.</para>
+        /// <c>MetricData</c> metrics.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

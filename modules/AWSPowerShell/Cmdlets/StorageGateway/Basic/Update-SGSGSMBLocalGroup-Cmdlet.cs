@@ -52,7 +52,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>A list of Active Directory users and groups that have local Gateway Admin permissions.
         /// Acceptable formats include: <c>DOMAIN\User1</c>, <c>user1</c>, <c>DOMAIN\group1</c>,
         /// and <c>group1</c>.</para><para>Gateway Admins can use the Shared Folders Microsoft Management Console snap-in to
-        /// force-close files that are open and locked.</para>
+        /// force-close files that are open and locked.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

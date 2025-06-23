@@ -97,7 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter Ec2RecommendationsPreferences_ExcludedInstanceType
         /// <summary>
         /// <para>
-        /// <para> An array of instance types to exclude from recommendations. </para>
+        /// <para> An array of instance types to exclude from recommendations. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter ExportDataFormat
         /// <summary>
         /// <para>
-        /// <para>The file format for the returned export data. Default value is <c>CSV</c>. <b>Note:</b><i>The</i><c>GRAPHML</c><i>option has been deprecated.</i></para>
+        /// <para>The file format for the returned export data. Default value is <c>CSV</c>. <b>Note:</b><i>The</i><c>GRAPHML</c><i>option has been deprecated.</i></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -123,7 +131,11 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// the <c>DescribeAgents</c> API or CLI. If no filter is present, <c>startTime</c> and
         /// <c>endTime</c> are ignored and exported data includes both Amazon Web Services Application
         /// Discovery Service Agentless Collector collectors data and summary data from Application
-        /// Discovery Agent agents. </para>
+        /// Discovery Agent agents. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

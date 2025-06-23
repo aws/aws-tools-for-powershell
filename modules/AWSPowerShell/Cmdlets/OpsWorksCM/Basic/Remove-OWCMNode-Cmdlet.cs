@@ -61,7 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <para>
         /// <para>Engine attributes that are used for disassociating the node. No attributes are required
         /// for Puppet. </para><para><b>Attributes required in a DisassociateNode request for Chef</b></para><ul><li><para><c>CHEF_ORGANIZATION</c>: The Chef organization with which the node was associated.
-        /// By default only one organization named <c>default</c> can exist. </para></li></ul>
+        /// By default only one organization named <c>default</c> can exist. </para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

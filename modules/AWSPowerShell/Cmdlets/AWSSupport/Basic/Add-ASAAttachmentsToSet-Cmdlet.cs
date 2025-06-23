@@ -66,7 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// set. The size limit is 5 MB per attachment.</para><para>In the <c>Attachment</c> object, use the <c>data</c> parameter to specify the contents
         /// of the attachment file. In the previous request syntax, the value for <c>data</c>
         /// appear as <c>blob</c>, which is represented as a base64-encoded string. The value
-        /// for <c>fileName</c> is the name of the attachment, such as <c>troubleshoot-screenshot.png</c>.</para>
+        /// for <c>fileName</c> is the name of the attachment, such as <c>troubleshoot-screenshot.png</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

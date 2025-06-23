@@ -81,7 +81,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter InboundPermissionAuthorization
         /// <summary>
         /// <para>
-        /// <para>A collection of port settings to be added to the fleet resource.</para>
+        /// <para>A collection of port settings to be added to the fleet resource.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter InboundPermissionRevocation
         /// <summary>
         /// <para>
-        /// <para>A collection of port settings to be removed from the fleet resource.</para>
+        /// <para>A collection of port settings to be removed from the fleet resource.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -110,7 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>
         /// <para>The resource types of only those Amazon Web Services resources that you want to trigger
         /// an evaluation for the rule. You can only specify one type if you also specify a resource
-        /// ID for <c>ComplianceResourceId</c>.</para>
+        /// ID for <c>ComplianceResourceId</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,7 +208,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The modes the Config rule can be evaluated in. The valid values are distinct objects.
-        /// By default, the value is Detective evaluation mode only.</para>
+        /// By default, the value is Detective evaluation mode only.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -291,7 +299,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>Provides the source and the message types that cause Config to evaluate your Amazon
         /// Web Services resources against a rule. It also provides the frequency with which you
         /// want Config to run evaluations for the rule if the trigger type is periodic.</para><para>If the owner is set to <c>CUSTOM_POLICY</c>, the only acceptable values for the Config
-        /// rule trigger message type are <c>ConfigurationItemChangeNotification</c> and <c>OversizedConfigurationItemChangeNotification</c>.</para>
+        /// rule trigger message type are <c>ConfigurationItemChangeNotification</c> and <c>OversizedConfigurationItemChangeNotification</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -328,7 +340,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of tag object.</para>
+        /// <para>An array of tag object.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

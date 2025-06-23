@@ -49,7 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SourceMonitoringConfig_AudioMonitoringSetting
         /// <summary>
         /// <para>
-        /// <para> Contains the settings for audio stream metrics monitoring.</para>
+        /// <para> Contains the settings for audio stream metrics monitoring.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Entitlement
         /// <summary>
         /// <para>
-        /// <para> The entitlements that you want to grant on a flow.</para>
+        /// <para> The entitlements that you want to grant on a flow.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,7 +159,11 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         /// <summary>
         /// <para>
         /// <para> The media streams that you want to add to the flow. You can associate these media
-        /// streams with sources and outputs on the flow.</para>
+        /// streams with sources and outputs on the flow.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,7 +192,11 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         /// <summary>
         /// <para>
         /// <para>A list of up to three NDI discovery server configurations. While not required by the
-        /// API, this configuration is necessary for NDI functionality to work properly. </para>
+        /// API, this configuration is necessary for NDI functionality to work properly. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,7 +219,11 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Output
         /// <summary>
         /// <para>
-        /// <para> The outputs that you want to add to this flow.</para>
+        /// <para> The outputs that you want to add to this flow.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -235,7 +255,11 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>The sources that are assigned to the flow. </para>
+        /// <para>The sources that are assigned to the flow. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -269,7 +293,11 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SourceMonitoringConfig_VideoMonitoringSetting
         /// <summary>
         /// <para>
-        /// <para> Contains the settings for video stream metrics monitoring.</para>
+        /// <para> Contains the settings for video stream metrics monitoring.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -280,7 +308,11 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter VpcInterface
         /// <summary>
         /// <para>
-        /// <para> The VPC interfaces you want on the flow.</para>
+        /// <para> The VPC interfaces you want on the flow.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

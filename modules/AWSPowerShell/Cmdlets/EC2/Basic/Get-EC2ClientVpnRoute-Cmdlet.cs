@@ -78,7 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><c>destination-cidr</c> - The CIDR of the route destination.</para></li><li><para><c>origin</c> - How the route was associated with the Client VPN endpoint (<c>associate</c>
-        /// | <c>add-route</c>).</para></li><li><para><c>target-subnet</c> - The ID of the subnet through which traffic is routed.</para></li></ul>
+        /// | <c>add-route</c>).</para></li><li><para><c>target-subnet</c> - The ID of the subnet through which traffic is routed.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

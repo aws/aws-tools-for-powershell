@@ -290,7 +290,11 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// <para>The security group IDs to be used to access a VPC-based RDS DB instance. Ensure that
         /// there are appropriate ingress rules set up to allow access to the RDS DB instance.
         /// This attribute is used by Data Pipeline to carry out the copy operation from Amazon
-        /// RDS to an Amazon S3 task.</para>
+        /// RDS to an Amazon S3 task.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

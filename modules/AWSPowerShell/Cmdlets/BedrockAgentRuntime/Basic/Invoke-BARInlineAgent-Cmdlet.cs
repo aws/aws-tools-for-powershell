@@ -68,7 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// <summary>
         /// <para>
         /// <para> A list of action groups with each action group defining the action the inline agent
-        /// needs to carry out. </para>
+        /// needs to carry out. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +120,11 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// <summary>
         /// <para>
         /// <para> Settings for an inline agent collaborator called with <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeInlineAgent.html">InvokeInlineAgent</a>.
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +135,11 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter Collaborator
         /// <summary>
         /// <para>
-        /// <para> List of collaborator inline agents. </para>
+        /// <para> List of collaborator inline agents. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,7 +198,11 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter InlineSessionState_File
         /// <summary>
         /// <para>
-        /// <para> Contains information about the files used by code interpreter. </para>
+        /// <para> Contains information about the files used by code interpreter. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -294,7 +310,11 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter KnowledgeBases
         /// <summary>
         /// <para>
-        /// <para> Contains information of the knowledge bases to associate with. </para>
+        /// <para> Contains information of the knowledge bases to associate with. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -328,7 +348,11 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter ConversationHistory_Message
         /// <summary>
         /// <para>
-        /// <para>The conversation's messages.</para>
+        /// <para>The conversation's messages.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -381,7 +405,11 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// <para>
         /// <para>Contains configurations to override a prompt template in one part of an agent sequence.
         /// For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced
-        /// prompts</a>. </para>
+        /// prompts</a>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -393,7 +421,11 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// <summary>
         /// <para>
         /// <para> Contains attributes that persist across a session and the values of those attributes.
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -407,7 +439,11 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// <para> Contains information about the results from the action group invocation. For more
         /// information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return
         /// control to the agent developer</a>. </para><note><para>If you include this field in the <c>sessionState</c> field, the <c>inputText</c> field
-        /// will be ignored.</para></note>
+        /// will be ignored.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -419,7 +455,11 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// <summary>
         /// <para>
         /// <para> Contains attributes that persist across a session and the values of those attributes.
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

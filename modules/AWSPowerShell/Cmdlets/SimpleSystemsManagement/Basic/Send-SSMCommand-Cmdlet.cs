@@ -48,7 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter AlarmConfiguration_Alarm
         /// <summary>
         /// <para>
-        /// <para>The name of the CloudWatch alarm specified in the configuration.</para>
+        /// <para>The name of the CloudWatch alarm specified in the configuration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,7 +171,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// node IDs, we recommend using the <c>Targets</c> option instead. Using <c>Targets</c>,
         /// which accepts tag key-value pairs to identify the managed nodes to send commands to,
         /// you can a send command to tens, hundreds, or thousands of nodes at once.</para><para>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Run
-        /// commands at scale</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
+        /// commands at scale</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -222,7 +230,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The different events for which you can receive notifications. To learn more about
         /// these events, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Monitoring
         /// Systems Manager status changes using Amazon SNS notifications</a> in the <i>Amazon
-        /// Web Services Systems Manager User Guide</i>.</para>
+        /// Web Services Systems Manager User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -277,7 +289,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>The required and optional parameters specified in the document being run.</para>
+        /// <para>The required and optional parameters specified in the document being run.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -308,7 +324,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// key-value pairs to identify managed nodes, you can send a command to tens, hundreds,
         /// or thousands of nodes at once.</para><para>To send a command to a smaller number of managed nodes, you can use the <c>InstanceIds</c>
         /// option instead.</para><para>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Run
-        /// commands at scale</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
+        /// commands at scale</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

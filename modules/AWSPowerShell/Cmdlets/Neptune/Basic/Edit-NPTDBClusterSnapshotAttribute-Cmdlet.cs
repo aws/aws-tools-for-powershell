@@ -106,7 +106,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// set this list to include one or more Amazon account IDs, or <c>all</c> to make the
         /// manual DB cluster snapshot restorable by any Amazon account. Do not add the <c>all</c>
         /// value for any manual DB cluster snapshots that contain private information that you
-        /// don't want available to all Amazon accounts.</para>
+        /// don't want available to all Amazon accounts.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// snapshot, set this list to include one or more Amazon account identifiers, or <c>all</c>
         /// to remove authorization for any Amazon account to copy or restore the DB cluster snapshot.
         /// If you specify <c>all</c>, an Amazon account whose account ID is explicitly added
-        /// to the <c>restore</c> attribute can still copy or restore a manual DB cluster snapshot.</para>
+        /// to the <c>restore</c> attribute can still copy or restore a manual DB cluster snapshot.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

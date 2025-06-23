@@ -122,7 +122,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>An array of <c>BlockDeviceMapping</c> objects that specify the instance's block devices.
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block
-        /// Device Mapping</a>. Note that block device mappings are not supported for custom AMIs.</para>
+        /// Device Mapping</a>. Note that block device mappings are not supported for custom AMIs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,7 +194,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter LayerId
         /// <summary>
         /// <para>
-        /// <para>An array that contains the instance's layer IDs.</para>
+        /// <para>An array that contains the instance's layer IDs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

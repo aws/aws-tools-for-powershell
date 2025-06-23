@@ -62,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Filters_Channel
         /// <summary>
         /// <para>
-        /// <para>The channel to use to filter the metrics.</para>
+        /// <para>The channel to use to filter the metrics.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>The grouping applied to the metrics returned. For example, when results are grouped
         /// by queue, the metrics returned are grouped by queue. The values returned apply to
         /// the metrics for each queue rather than aggregated for all queues.</para><para>If no grouping is specified, a summary of metrics for all queues is returned.</para><para>RoutingStepExpression is not a valid filter for GetMetricData and we recommend switching
-        /// to GetMetricDataV2 for more up-to-date features.</para>
+        /// to GetMetricDataV2 for more up-to-date features.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +118,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics
         /// definition</a> in the <i>Amazon Connect Administrator Guide</i>.</para><note><para>This API does not support a contacts incoming metric (there's no CONTACTS_INCOMING
         /// metric missing from the documented list). </para></note><dl><dt>ABANDON_TIME</dt><dd><para>Unit: SECONDS</para><para>Statistic: AVG</para></dd><dt>AFTER_CONTACT_WORK_TIME</dt><dd><para>Unit: SECONDS</para><para>Statistic: AVG</para></dd><dt>API_CONTACTS_HANDLED</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CALLBACK_CONTACTS_HANDLED</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_ABANDONED</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_AGENT_HUNG_UP_FIRST</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_CONSULTED</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_HANDLED</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_HANDLED_INCOMING</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_HANDLED_OUTBOUND</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_HOLD_ABANDONS</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_MISSED</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_QUEUED</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_TRANSFERRED_IN</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_TRANSFERRED_IN_FROM_QUEUE</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_TRANSFERRED_OUT</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt><dd><para>Unit: COUNT</para><para>Statistic: SUM</para></dd><dt>HANDLE_TIME</dt><dd><para>Unit: SECONDS</para><para>Statistic: AVG</para></dd><dt>HOLD_TIME</dt><dd><para>Unit: SECONDS</para><para>Statistic: AVG</para></dd><dt>INTERACTION_AND_HOLD_TIME</dt><dd><para>Unit: SECONDS</para><para>Statistic: AVG</para></dd><dt>INTERACTION_TIME</dt><dd><para>Unit: SECONDS</para><para>Statistic: AVG</para></dd><dt>OCCUPANCY</dt><dd><para>Unit: PERCENT</para><para>Statistic: AVG</para></dd><dt>QUEUE_ANSWER_TIME</dt><dd><para>Unit: SECONDS</para><para>Statistic: AVG</para></dd><dt>QUEUED_TIME</dt><dd><para>Unit: SECONDS</para><para>Statistic: MAX</para></dd><dt>SERVICE_LEVEL</dt><dd><para>You can include up to 20 SERVICE_LEVEL metrics in a request.</para><para>Unit: PERCENT</para><para>Statistic: AVG</para><para>Threshold: For <c>ThresholdValue</c>, enter any whole number from 1 to 604800 (inclusive),
-        /// in seconds. For <c>Comparison</c>, you must enter <c>LT</c> (for "Less than"). </para></dd></dl>
+        /// in seconds. For <c>Comparison</c>, you must enter <c>LT</c> (for "Less than"). </para></dd></dl><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -148,7 +160,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>
         /// <para>The queues to use to filter the metrics. You should specify at least one queue, and
         /// can specify up to 100 queues per request. The <c>GetCurrentMetricsData</c> API in
-        /// particular requires a queue when you include a <c>Filter</c> in your request. </para>
+        /// particular requires a queue when you include a <c>Filter</c> in your request. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,7 +175,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Filters_RoutingProfile
         /// <summary>
         /// <para>
-        /// <para>A list of up to 100 routing profile IDs or ARNs.</para>
+        /// <para>A list of up to 100 routing profile IDs or ARNs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,7 +191,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>A list of expressions as a filter, in which an expression is an object of a step in
-        /// a routing criteria.</para>
+        /// a routing criteria.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

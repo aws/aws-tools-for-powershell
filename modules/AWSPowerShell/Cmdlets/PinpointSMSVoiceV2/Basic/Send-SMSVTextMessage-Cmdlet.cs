@@ -69,7 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>You can specify custom data in this field. If you do, that data is logged to the event
-        /// destination.</para>
+        /// destination.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// completing the sender ID registration process.</para></li><li><para><c>IN_TEMPLATE_ID</c> The template ID that you received after completing the sender
         /// ID registration process.</para><important><para>Make sure that the Template ID that you specify matches your message template exactly.
         /// If your message doesn't match the template that you provided during the registration
-        /// process, the mobile carriers might reject your message.</para></important></li></ul>
+        /// process, the mobile carriers might reject your message.</para></important></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

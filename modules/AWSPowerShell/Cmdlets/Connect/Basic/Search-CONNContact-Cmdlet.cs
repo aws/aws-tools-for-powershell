@@ -47,7 +47,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchCriteria_AgentId
         /// <summary>
         /// <para>
-        /// <para>The identifiers of agents who handled the contacts.</para>
+        /// <para>The identifiers of agents who handled the contacts.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchCriteria_Channel
         /// <summary>
         /// <para>
-        /// <para>The list of channels associated with contacts.</para>
+        /// <para>The list of channels associated with contacts.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Transcript_Criterion
         /// <summary>
         /// <para>
-        /// <para>The list of search criteria based on Contact Lens conversational analytics transcript.</para>
+        /// <para>The list of search criteria based on Contact Lens conversational analytics transcript.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +93,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The list of criteria based on user-defined contact attributes that are configured
-        /// for contact search.</para>
+        /// for contact search.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchableSegmentAttributes_Criterion
         /// <summary>
         /// <para>
-        /// <para>The list of criteria based on searchable segment attributes.</para>
+        /// <para>The list of criteria based on searchable segment attributes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,7 +150,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchCriteria_InitiationMethod
         /// <summary>
         /// <para>
-        /// <para>The list of initiation methods associated with contacts.</para>
+        /// <para>The list of initiation methods associated with contacts.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,7 +183,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter AgentHierarchyGroups_L1Id
         /// <summary>
         /// <para>
-        /// <para>The identifiers for level 1 hierarchy groups.</para>
+        /// <para>The identifiers for level 1 hierarchy groups.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +198,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter AgentHierarchyGroups_L2Id
         /// <summary>
         /// <para>
-        /// <para>The identifiers for level 2 hierarchy groups.</para>
+        /// <para>The identifiers for level 2 hierarchy groups.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,7 +213,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter AgentHierarchyGroups_L3Id
         /// <summary>
         /// <para>
-        /// <para>The identifiers for level 3 hierarchy groups.</para>
+        /// <para>The identifiers for level 3 hierarchy groups.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,7 +228,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter AgentHierarchyGroups_L4Id
         /// <summary>
         /// <para>
-        /// <para>The identifiers for level 4 hierarchy groups.</para>
+        /// <para>The identifiers for level 4 hierarchy groups.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,7 +243,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter AgentHierarchyGroups_L5Id
         /// <summary>
         /// <para>
-        /// <para>The identifiers for level 5 hierarchy groups.</para>
+        /// <para>The identifiers for level 5 hierarchy groups.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -261,7 +305,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchCriteria_QueueId
         /// <summary>
         /// <para>
-        /// <para>The list of queue IDs associated with contacts.</para>
+        /// <para>The list of queue IDs associated with contacts.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -341,7 +341,11 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter NewBudget_Metric
         /// <summary>
         /// <para>
-        /// <para>The definition for how the budget data is aggregated.</para>
+        /// <para>The definition for how the budget data is aggregated.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -366,7 +370,11 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         /// also contain <c>BudgetLimit</c> representing the current month or quarter limit present
         /// in <c>PlannedBudgetLimits</c>. This only applies to budgets that are created with
         /// <c>PlannedBudgetLimits</c>. Budgets that are created without <c>PlannedBudgetLimits</c>
-        /// only contain <c>BudgetLimit</c>. They don't contain <c>PlannedBudgetLimits</c>.</para>
+        /// only contain <c>BudgetLimit</c>. They don't contain <c>PlannedBudgetLimits</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -471,7 +479,11 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         /// <para>
         /// <para>The cost filters, such as <c>Region</c>, <c>Service</c>, <c>LinkedAccount</c>, <c>Tag</c>,
         /// or <c>CostCategory</c>, that are applied to a budget.</para><para>Amazon Web Services Budgets supports the following services as a <c>Service</c> filter
-        /// for RI budgets:</para><ul><li><para>Amazon EC2</para></li><li><para>Amazon Redshift</para></li><li><para>Amazon Relational Database Service</para></li><li><para>Amazon ElastiCache</para></li><li><para>Amazon OpenSearch Service</para></li></ul>
+        /// for RI budgets:</para><ul><li><para>Amazon EC2</para></li><li><para>Amazon Redshift</para></li><li><para>Amazon Relational Database Service</para></li><li><para>Amazon ElastiCache</para></li><li><para>Amazon OpenSearch Service</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

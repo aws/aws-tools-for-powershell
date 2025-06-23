@@ -51,7 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         /// <summary>
         /// <para>
         /// <para>Filters to scope the results. The following filters and logical operators are supported:</para><ul><li><para><c>resourceArn</c> - The ARN of the license configuration resource.</para></li><li><para><c>resourceType</c> - The resource type (<c>EC2_INSTANCE</c> | <c>EC2_HOST</c> |
-        /// <c>EC2_AMI</c> | <c>SYSTEMS_MANAGER_MANAGED_INSTANCE</c>).</para></li><li><para><c>resourceAccount</c> - The ID of the account that owns the resource.</para></li></ul>
+        /// <c>EC2_AMI</c> | <c>SYSTEMS_MANAGER_MANAGED_INSTANCE</c>).</para></li><li><para><c>resourceAccount</c> - The ID of the account that owns the resource.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

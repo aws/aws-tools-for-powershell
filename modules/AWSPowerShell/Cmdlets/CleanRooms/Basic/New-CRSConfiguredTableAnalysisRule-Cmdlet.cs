@@ -89,7 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter Aggregation_AggregateColumn
         /// <summary>
         /// <para>
-        /// <para>The columns that query runners are allowed to use in aggregation queries.</para>
+        /// <para>The columns that query runners are allowed to use in aggregation queries.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,7 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter Custom_AllowedAnalysis
         /// <summary>
         /// <para>
-        /// <para>The ARN of the analysis templates that are allowed by the custom analysis rule.</para>
+        /// <para>The ARN of the analysis templates that are allowed by the custom analysis rule.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +120,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <summary>
         /// <para>
         /// <para>The IDs of the Amazon Web Services accounts that are allowed to query by the custom
-        /// analysis rule. Required when <c>allowedAnalyses</c> is <c>ANY_QUERY</c>.</para>
+        /// analysis rule. Required when <c>allowedAnalyses</c> is <c>ANY_QUERY</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +136,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <summary>
         /// <para>
         /// <para>Which logical operators (if any) are to be used in an INNER JOIN match condition.
-        /// Default is <c>AND</c>.</para>
+        /// Default is <c>AND</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +152,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <summary>
         /// <para>
         /// <para>The logical operators (if any) that are to be used in an INNER JOIN match condition.
-        /// Default is <c>AND</c>.</para>
+        /// Default is <c>AND</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,7 +187,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <para>The name of the column (such as user_id) that contains the unique identifier of your
         /// users whose privacy you want to protect. If you want to turn on diﬀerential privacy
         /// for two or more tables in a collaboration, you must conﬁgure the same column as the
-        /// user identiﬁer column in both analysis rules.</para>
+        /// user identiﬁer column in both analysis rules.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -196,7 +220,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter Aggregation_DimensionColumn
         /// <summary>
         /// <para>
-        /// <para>The columns that query runners are allowed to select, group by, or filter by.</para>
+        /// <para>The columns that query runners are allowed to select, group by, or filter by.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,7 +235,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter Custom_DisallowedOutputColumn
         /// <summary>
         /// <para>
-        /// <para> A list of columns that aren't allowed to be shown in the query output.</para>
+        /// <para> A list of columns that aren't allowed to be shown in the query output.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -219,7 +251,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <summary>
         /// <para>
         /// <para>Columns in configured table that can be used in join statements and/or as aggregate
-        /// columns. They can never be outputted directly.</para>
+        /// columns. They can never be outputted directly.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -231,7 +267,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <summary>
         /// <para>
         /// <para>Columns that can be used to join a configured table with the table of the member who
-        /// can query and other members' configured tables.</para>
+        /// can query and other members' configured tables.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -255,7 +295,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter List_ListColumn
         /// <summary>
         /// <para>
-        /// <para>Columns that can be listed in the output.</para>
+        /// <para>Columns that can be listed in the output.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -267,7 +311,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <summary>
         /// <para>
         /// <para>Columns that must meet a specific threshold value (after an aggregation function is
-        /// applied to it) for each output row to be returned.</para>
+        /// applied to it) for each output row to be returned.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -279,7 +327,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <summary>
         /// <para>
         /// <para>Set of scalar functions that are allowed to be used on dimension columns and the output
-        /// of aggregation of metrics.</para>
+        /// of aggregation of metrics.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

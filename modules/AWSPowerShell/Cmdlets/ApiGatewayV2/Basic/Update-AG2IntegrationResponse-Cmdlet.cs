@@ -134,7 +134,11 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         ///                or integration.response.body.<replaceable>{JSON-expression}</replaceable>
         ///               , where                   <replaceable>{name}</replaceable>        
         ///        is a valid and unique response header name and                   <replaceable>{JSON-expression}</replaceable>
-        ///                is a valid JSON expression without the $ prefix.</para>
+        ///                is a valid JSON expression without the $ prefix.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,7 +151,11 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// <para>
         /// <para>The collection of response templates for the integration response as a string-to-string
         /// map of key-value pairs. Response templates are represented as a key/value map, with
-        /// a content-type as the key and a template as the value.</para>
+        /// a content-type as the key and a template as the value.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -83,7 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Configuration information for Amazon SageMaker Debugger rules for profiling system
-        /// and framework metrics.</para>
+        /// and framework metrics.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +117,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// for the <c>ProfilingParameters</c> parameter. To learn more about how to configure
         /// the <c>ProfilingParameters</c> parameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use
         /// the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug
-        /// Your Training Job</a>. </para>
+        /// Your Training Job</a>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

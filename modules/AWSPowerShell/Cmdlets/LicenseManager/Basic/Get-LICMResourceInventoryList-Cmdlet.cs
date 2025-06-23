@@ -56,7 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         /// | <c>BEGINS_WITH</c>.</para></li><li><para><c>resource_id</c> - The ID of the resource. Logical operators are <c>EQUALS</c>
         /// | <c>NOT_EQUALS</c>.</para></li><li><para><c>tag:&lt;key&gt;</c> - The key/value combination of a tag assigned to the resource.
         /// Logical operators are <c>EQUALS</c> (single account) or <c>EQUALS</c> | <c>NOT_EQUALS</c>
-        /// (cross account).</para></li></ul>
+        /// (cross account).</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

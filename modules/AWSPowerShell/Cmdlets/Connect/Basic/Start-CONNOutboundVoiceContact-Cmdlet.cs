@@ -70,7 +70,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>
         /// <para>A custom key-value pair using an attribute map. The attributes are standard Amazon
         /// Connect attributes, and can be accessed in flows just like any other contact attributes.</para><para>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute
-        /// keys can include only alphanumeric, dash, and underscore characters.</para>
+        /// keys can include only alphanumeric, dash, and underscore characters.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -208,7 +212,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Contacts
         /// can have the following reference types at the time of creation: <c>URL</c> | <c>NUMBER</c>
         /// | <c>STRING</c> | <c>DATE</c> | <c>EMAIL</c>. <c>ATTACHMENT</c> is not a supported
-        /// reference type during voice contact creation.</para>
+        /// reference type during voice contact creation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

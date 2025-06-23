@@ -66,7 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// all of the data is exported.</para><para>Valid Values:</para><ul><li><para><c>database</c> - Export all the data from a specified database.</para></li><li><para><c>database.table</c><i>table-name</i> - Export a table of the snapshot or cluster.
         /// This format is valid only for RDS for MySQL, RDS for MariaDB, and Aurora MySQL.</para></li><li><para><c>database.schema</c><i>schema-name</i> - Export a database schema of the snapshot
         /// or cluster. This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</para></li><li><para><c>database.schema.table</c><i>table-name</i> - Export a table of the database schema.
-        /// This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</para></li></ul>
+        /// This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

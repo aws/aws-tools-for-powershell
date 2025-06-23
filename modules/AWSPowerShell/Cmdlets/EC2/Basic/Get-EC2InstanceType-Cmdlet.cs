@@ -104,7 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <c>capacity-block</c>).</para></li><li><para><c>supported-virtualization-type</c> - The virtualization type (<c>hvm</c> | <c>paravirtual</c>).</para></li><li><para><c>vcpu-info.default-cores</c> - The default number of cores for the instance type.</para></li><li><para><c>vcpu-info.default-threads-per-core</c> - The default number of threads per core
         /// for the instance type.</para></li><li><para><c>vcpu-info.default-vcpus</c> - The default number of vCPUs for the instance type.</para></li><li><para><c>vcpu-info.valid-cores</c> - The number of cores that can be configured for the
         /// instance type.</para></li><li><para><c>vcpu-info.valid-threads-per-core</c> - The number of threads per core that can
-        /// be configured for the instance type. For example, "1" or "1,2".</para></li></ul>
+        /// be configured for the instance type. For example, "1" or "1,2".</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +119,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance types.</para>
+        /// <para>The instance types.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

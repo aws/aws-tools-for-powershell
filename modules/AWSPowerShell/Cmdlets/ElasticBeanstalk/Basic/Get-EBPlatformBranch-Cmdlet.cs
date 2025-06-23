@@ -60,7 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// terms. Most operators take a single value. The <c>in</c> and <c>not_in</c> operators
         /// can take multiple values.</para><ul><li><para><c>Attribute = BranchName</c>:</para><ul><li><para><c>Operator</c>: <c>=</c> | <c>!=</c> | <c>begins_with</c> | <c>ends_with</c> | <c>contains</c>
         /// | <c>in</c> | <c>not_in</c></para></li></ul></li><li><para><c>Attribute = LifecycleState</c>:</para><ul><li><para><c>Operator</c>: <c>=</c> | <c>!=</c> | <c>in</c> | <c>not_in</c></para></li><li><para><c>Values</c>: <c>beta</c> | <c>supported</c> | <c>deprecated</c> | <c>retired</c></para></li></ul></li><li><para><c>Attribute = PlatformName</c>:</para><ul><li><para><c>Operator</c>: <c>=</c> | <c>!=</c> | <c>begins_with</c> | <c>ends_with</c> | <c>contains</c>
-        /// | <c>in</c> | <c>not_in</c></para></li></ul></li><li><para><c>Attribute = TierType</c>:</para><ul><li><para><c>Operator</c>: <c>=</c> | <c>!=</c></para></li><li><para><c>Values</c>: <c>WebServer/Standard</c> | <c>Worker/SQS/HTTP</c></para></li></ul></li></ul><para>Array size: limited to 10 <c>SearchFilter</c> objects.</para><para>Within each <c>SearchFilter</c> item, the <c>Values</c> array is limited to 10 items.</para>
+        /// | <c>in</c> | <c>not_in</c></para></li></ul></li><li><para><c>Attribute = TierType</c>:</para><ul><li><para><c>Operator</c>: <c>=</c> | <c>!=</c></para></li><li><para><c>Values</c>: <c>WebServer/Standard</c> | <c>Worker/SQS/HTTP</c></para></li></ul></li></ul><para>Array size: limited to 10 <c>SearchFilter</c> objects.</para><para>Within each <c>SearchFilter</c> item, the <c>Values</c> array is limited to 10 items.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

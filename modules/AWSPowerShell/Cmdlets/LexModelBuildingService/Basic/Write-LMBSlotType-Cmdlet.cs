@@ -108,7 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// resolution list is passed to the function. If you are not using a Lambda function
         /// you can choose to return the value that the user entered or the first value in the
         /// resolution list as the slot value. The <c>valueSelectionStrategy</c> field indicates
-        /// the option to use. </para>
+        /// the option to use. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,7 +155,11 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <summary>
         /// <para>
         /// <para>Configuration information that extends the parent built-in slot type. The configuration
-        /// is added to the settings for the parent slot type.</para>
+        /// is added to the settings for the parent slot type.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

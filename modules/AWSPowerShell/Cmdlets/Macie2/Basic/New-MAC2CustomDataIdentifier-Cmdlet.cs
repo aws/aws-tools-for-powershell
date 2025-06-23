@@ -64,7 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <para>An array that lists specific character sequences (<i>ignore words</i>) to exclude
         /// from the results. If the text matched by the regular expression contains any string
         /// in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore
-        /// words. Each ignore word can contain 4-90 UTF-8 characters. Ignore words are case sensitive.</para>
+        /// words. Each ignore word can contain 4-90 UTF-8 characters. Ignore words are case sensitive.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <para>An array that lists specific character sequences (<i>keywords</i>), one of which must
         /// precede and be within proximity (maximumMatchDistance) of the regular expression to
         /// match. The array can contain as many as 50 keywords. Each keyword can contain 3-90
-        /// UTF-8 characters. Keywords aren't case sensitive.</para>
+        /// UTF-8 characters. Keywords aren't case sensitive.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,7 +157,11 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// 1 for LOW, 50 for MEDIUM, and 100 for HIGH. If an S3 object contains fewer occurrences
         /// than the lowest specified threshold, Amazon Macie doesn't create a finding.</para><para>If you don't specify any values for this array, Macie creates findings for S3 objects
         /// that contain at least one occurrence of text that matches the detection criteria,
-        /// and Macie assigns the MEDIUM severity to those findings.</para>
+        /// and Macie assigns the MEDIUM severity to those findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,7 +175,11 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <para>A map of key-value pairs that specifies the tags to associate with the custom data
         /// identifier.</para><para>A custom data identifier can have a maximum of 50 tags. Each tag consists of a tag
         /// key and an associated tag value. The maximum length of a tag key is 128 characters.
-        /// The maximum length of a tag value is 256 characters.</para>
+        /// The maximum length of a tag value is 256 characters.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -169,7 +169,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>The key value pairs that describe required claims in the identity token. If set, each
         /// claim is verified to be present in the token with a matching value. For the maximum
         /// number of claims that you can require, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html">Amazon
-        /// EKS service quotas</a> in the <i>Amazon EKS User Guide</i>.</para>
+        /// EKS service quotas</a> in the <i>Amazon EKS User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,7 +186,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>
         /// <para>Metadata that assists with categorization and organization. Each tag consists of a
         /// key and an optional value. You define both. Tags don't propagate to any other cluster
-        /// or Amazon Web Services resources.</para>
+        /// or Amazon Web Services resources.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

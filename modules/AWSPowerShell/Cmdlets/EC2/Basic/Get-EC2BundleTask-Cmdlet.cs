@@ -58,7 +58,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter BundleId
         /// <summary>
         /// <para>
-        /// <para>The bundle task IDs.</para><para>Default: Describes all your bundle tasks.</para>
+        /// <para>The bundle task IDs.</para><para>Default: Describes all your bundle tasks.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -82,7 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The filters.</para><ul><li><para><c>bundle-id</c> - The ID of the bundle task.</para></li><li><para><c>error-code</c> - If the task failed, the error code returned.</para></li><li><para><c>error-message</c> - If the task failed, the error message returned.</para></li><li><para><c>instance-id</c> - The ID of the instance.</para></li><li><para><c>progress</c> - The level of task completion, as a percentage (for example, 20%).</para></li><li><para><c>s3-bucket</c> - The Amazon S3 bucket to store the AMI.</para></li><li><para><c>s3-prefix</c> - The beginning of the AMI name.</para></li><li><para><c>start-time</c> - The time the task started (for example, 2013-09-15T17:15:20.000Z).</para></li><li><para><c>state</c> - The state of the task (<c>pending</c> | <c>waiting-for-shutdown</c>
-        /// | <c>bundling</c> | <c>storing</c> | <c>cancelling</c> | <c>complete</c> | <c>failed</c>).</para></li><li><para><c>update-time</c> - The time of the most recent update for the task.</para></li></ul>
+        /// | <c>bundling</c> | <c>storing</c> | <c>cancelling</c> | <c>complete</c> | <c>failed</c>).</para></li><li><para><c>update-time</c> - The time of the most recent update for the task.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

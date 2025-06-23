@@ -89,10 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// <para>The bucket name.</para><para><b>Directory buckets </b> - When you use this operation with a directory bucket,
-        /// you must use path-style requests in the format <c>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i></c>. Virtual-hosted-style requests aren't supported. Directory bucket names must
-        /// be unique in the chosen Availability Zone. Bucket names must also follow the format
-        /// <c><i>bucket_base_name</i>--<i>az_id</i>--x-s3</c> (for example, <c><i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</c>).
-        /// For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory
+        /// you must use path-style requests in the format <c>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i></c>. Virtual-hosted-style requests aren't supported. Directory bucket names must
+        /// be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must
+        /// also follow the format <c><i>bucket-base-name</i>--<i>zone-id</i>--x-s3</c> (for
+        /// example, <c><i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</c>). For information
+        /// about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory
         /// bucket naming rules</a> in the <i>Amazon S3 User Guide</i></para>
         /// </para>
         /// </summary>
@@ -105,7 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
         /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <c>403 Forbidden</c> (access denied).</para>
+        /// <c>403 Forbidden</c> (access denied).</para><note><para>For directory buckets, this header is not supported in this API operation. If you
+        /// specify this header, the request fails with the HTTP status code <c>501 Not Implemented</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -71,7 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// io1 | io2 | gp2 | sc1 | st1).</para></li><li><para><c>originalMultiAttachEnabled</c> - Indicates whether Multi-Attach support was enabled
         /// (true | false).</para></li><li><para><c>start-time</c> - The modification start time.</para></li><li><para><c>target-iops</c> - The target IOPS rate of the volume.</para></li><li><para><c>target-size</c> - The target size of the volume, in GiB.</para></li><li><para><c>target-volume-type</c> - The target volume type of the volume (standard | io1
         /// | io2 | gp2 | sc1 | st1).</para></li><li><para><c>targetMultiAttachEnabled</c> - Indicates whether Multi-Attach support is to be
-        /// enabled (true | false).</para></li><li><para><c>volume-id</c> - The ID of the volume.</para></li></ul>
+        /// enabled (true | false).</para></li><li><para><c>volume-id</c> - The ID of the volume.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -82,7 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VolumeId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the volumes.</para>
+        /// <para>The IDs of the volumes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

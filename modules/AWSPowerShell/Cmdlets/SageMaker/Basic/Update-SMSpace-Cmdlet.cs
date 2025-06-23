@@ -66,7 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A list of Git repositories that SageMaker automatically displays to users for cloning
-        /// in the JupyterLab application.</para>
+        /// in the JupyterLab application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A list of Git repositories that SageMaker AI automatically displays to users for cloning
-        /// in the JupyterServer application.</para>
+        /// in the JupyterServer application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A file system, created by you, that you assign to a space for an Amazon SageMaker
-        /// AI Domain. Permitted users can access this file system in Amazon SageMaker AI Studio.</para>
+        /// AI Domain. Permitted users can access this file system in Amazon SageMaker AI Studio.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +114,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A list of custom SageMaker AI images that are configured to run as a KernelGateway
-        /// app.</para><para>The maximum number of custom images are as follows.</para><ul><li><para>On a domain level: 200</para></li><li><para>On a space level: 5</para></li><li><para>On a user profile level: 5</para></li></ul>
+        /// app.</para><para>The maximum number of custom images are as follows.</para><ul><li><para>On a domain level: 200</para></li><li><para>On a space level: 5</para></li><li><para>On a user profile level: 5</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -262,7 +278,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the JupyterServerApp.
         /// If you use this parameter, the <c>DefaultResourceSpec</c> parameter is also required.</para><note><para>To remove a Lifecycle Config, you must set <c>LifecycleConfigArns</c> to an empty
-        /// list.</para></note>
+        /// list.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -275,7 +295,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the the
         /// user profile or domain.</para><note><para>To remove a Lifecycle Config, you must set <c>LifecycleConfigArns</c> to an empty
-        /// list.</para></note>
+        /// list.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

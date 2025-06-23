@@ -22,9 +22,11 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.SecurityHub;
 using Amazon.SecurityHub.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
@@ -48,6 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Comment
         /// <summary>
@@ -63,7 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter FindingIdentifier
         /// <summary>
         /// <para>
-        /// <para>Provides information to identify a specific V2 finding.</para>
+        /// <para>Provides information to identify a specific V2 finding.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para>
         /// <para>The list of finding <c>metadata.uid</c> to indicate findings to update. Finding <c>metadata.uid</c>
         /// is a globally unique identifier associated with the finding. Customers cannot use
-        /// <c>MetadataUids</c> together with <c>FindingIdentifiers</c>.</para>
+        /// <c>MetadataUids</c> together with <c>FindingIdentifiers</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,9 +141,13 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = string.Empty;
@@ -236,13 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "BatchUpdateFindingsV2");
             try
             {
-                #if DESKTOP
-                return client.BatchUpdateFindingsV2(request);
-                #elif CORECLR
-                return client.BatchUpdateFindingsV2Async(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.BatchUpdateFindingsV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

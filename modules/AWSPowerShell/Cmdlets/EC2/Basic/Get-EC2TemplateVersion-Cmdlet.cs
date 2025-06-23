@@ -68,7 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// metadata service is enabled (<c>enabled</c> | <c>disabled</c>).</para></li><li><para><c>host-resource-group-arn</c> - The ARN of the host resource group in which to launch
         /// the instances.</para></li><li><para><c>http-tokens</c> - The state of token usage for your instance metadata requests
         /// (<c>optional</c> | <c>required</c>).</para></li><li><para><c>iam-instance-profile</c> - The ARN of the IAM instance profile.</para></li><li><para><c>image-id</c> - The ID of the AMI.</para></li><li><para><c>instance-type</c> - The instance type.</para></li><li><para><c>is-default-version</c> - A boolean that indicates whether the launch template
-        /// version is the default version.</para></li><li><para><c>kernel-id</c> - The kernel ID.</para></li><li><para><c>license-configuration-arn</c> - The ARN of the license configuration.</para></li><li><para><c>network-card-index</c> - The index of the network card.</para></li><li><para><c>ram-disk-id</c> - The RAM disk ID.</para></li></ul>
+        /// version is the default version.</para></li><li><para><c>kernel-id</c> - The kernel ID.</para></li><li><para><c>license-configuration-arn</c> - The ARN of the license configuration.</para></li><li><para><c>network-card-index</c> - The index of the network card.</para></li><li><para><c>ram-disk-id</c> - The RAM disk ID.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,7 +147,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// the valid value is <c>$Latest</c>. To describe all launch templates in your account
         /// that are defined as the default version, the valid value is <c>$Default</c>. You can
         /// specify <c>$Latest</c> and <c>$Default</c> in the same request. You cannot specify
-        /// numbers.</para>
+        /// numbers.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

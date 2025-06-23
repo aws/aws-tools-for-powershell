@@ -73,7 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// connect with your Azure Blob Storage container. If you are setting up an agentless
         /// cross-cloud transfer, you do not need to specify a value for this parameter.</para><para>You can specify more than one agent. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html">Using
         /// multiple agents for your transfer</a>.</para><note><para>You cannot add or remove agents from a storage location after you initially create
-        /// it.</para></note>
+        /// it.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

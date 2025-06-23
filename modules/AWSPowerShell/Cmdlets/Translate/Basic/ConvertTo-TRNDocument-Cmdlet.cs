@@ -198,7 +198,11 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         /// source terms and the desired translation for each term. A terminology list can contain
         /// a maximum of 256 terms. You can use one custom terminology resource in your translation
         /// request.</para><para>Use the <a>ListTerminologies</a> operation to get the available terminology lists.</para><para>For more information about custom terminology lists, see <a href="https://docs.aws.amazon.com/translate/latest/dg/how-custom-terminology.html">Custom
-        /// terminology</a>.</para>
+        /// terminology</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

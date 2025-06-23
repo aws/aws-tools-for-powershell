@@ -72,7 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// is returned.</para></li></ul><note><para>If one or more trail names are specified, information is returned only if the names
         /// match the names of trails belonging only to the current Region and current account.
         /// To return information about a trail in another Region, you must specify its trail
-        /// ARN.</para></note>
+        /// ARN.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

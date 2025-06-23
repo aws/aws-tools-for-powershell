@@ -86,7 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>If the value of <c>NodeGroupCount</c> is less than the current number of node groups
         /// (shards), then either <c>NodeGroupsToRemove</c> or <c>NodeGroupsToRetain</c> is required.
         /// <c>NodeGroupsToRemove</c> is a list of <c>NodeGroupId</c>s to remove from the cluster.</para><para>ElastiCache will attempt to remove all node groups listed by <c>NodeGroupsToRemove</c>
-        /// from the cluster.</para>
+        /// from the cluster.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>If the value of <c>NodeGroupCount</c> is less than the current number of node groups
         /// (shards), then either <c>NodeGroupsToRemove</c> or <c>NodeGroupsToRetain</c> is required.
         /// <c>NodeGroupsToRetain</c> is a list of <c>NodeGroupId</c>s to retain in the cluster.</para><para>ElastiCache will attempt to remove all node groups except those listed by <c>NodeGroupsToRetain</c>
-        /// from the cluster.</para>
+        /// from the cluster.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,7 +140,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// (shards), you can use this parameter to specify the preferred availability zones of
         /// the cluster's shards. If you omit this parameter ElastiCache selects availability
         /// zones for you.</para><para>You can specify this parameter only if the value of <c>NodeGroupCount</c> is greater
-        /// than the current number of node groups (shards).</para>
+        /// than the current number of node groups (shards).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

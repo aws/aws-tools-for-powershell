@@ -59,7 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         #region Parameter SourceServer
         /// <summary>
         /// <para>
-        /// <para>The Source Servers that we want to start a Recovery Job for.</para>
+        /// <para>The Source Servers that we want to start a Recovery Job for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +81,11 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to be associated with the Recovery Job.</para>
+        /// <para>The tags to be associated with the Recovery Job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -73,7 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_Area
         /// <summary>
         /// <para>
-        /// <para>Areas to be avoided.</para>
+        /// <para>Areas to be avoided.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,7 +199,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Exclude_Country
         /// <summary>
         /// <para>
-        /// <para>List of countries to be avoided defined by two-letter or three-letter country codes.</para>
+        /// <para>List of countries to be avoided defined by two-letter or three-letter country codes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -238,7 +246,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <summary>
         /// <para>
         /// <para>The final position for the route. In the World Geodetic System (WGS 84) format: <c>[longitude,
-        /// latitude]</c>.</para>
+        /// latitude]</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -338,7 +350,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_HazardousCargo
         /// <summary>
         /// <para>
-        /// <para>List of Hazardous cargo contained in the vehicle.</para>
+        /// <para>List of Hazardous cargo contained in the vehicle.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -444,7 +460,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Language
         /// <summary>
         /// <para>
-        /// <para>List of languages for instructions within steps in the response.</para><note><para>Instructions in the requested language are returned only if they are available.</para></note>
+        /// <para>List of languages for instructions within steps in the response.</para><note><para>Instructions in the requested language are returned only if they are available.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -488,7 +508,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <para>A list of optional additional parameters such as timezone that can be requested for
         /// each result.</para><ul><li><para><c>Elevation</c>: Retrieves the elevation information for each location.</para></li><li><para><c>Incidents</c>: Provides information on traffic incidents along the route.</para></li><li><para><c>PassThroughWaypoints</c>: Indicates waypoints that are passed through without
         /// stopping.</para></li><li><para><c>Summary</c>: Returns a summary of the route, including distance and duration.</para></li><li><para><c>Tolls</c>: Supplies toll cost information along the route.</para></li><li><para><c>TravelStepInstructions</c>: Provides step-by-step instructions for travel along
-        /// the route.</para></li><li><para><c>TruckRoadTypes</c>: Returns information about road types suitable for trucks.</para></li><li><para><c>TypicalDuration</c>: Gives typical travel duration based on historical data.</para></li><li><para><c>Zones</c>: Specifies the time zone information for each waypoint.</para></li></ul>
+        /// the route.</para></li><li><para><c>TruckRoadTypes</c>: Returns information about road types suitable for trucks.</para></li><li><para><c>TypicalDuration</c>: Gives typical travel duration based on historical data.</para></li><li><para><c>Zones</c>: Specifies the time zone information for each waypoint.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -654,7 +678,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Origin
         /// <summary>
         /// <para>
-        /// <para>The start position for the route.</para>
+        /// <para>The start position for the route.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -682,7 +710,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter DestinationOptions_SideOfStreet_Position
         /// <summary>
         /// <para>
-        /// <para>Position defined as <c>[longitude, latitude]</c>.</para>
+        /// <para>Position defined as <c>[longitude, latitude]</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -692,7 +724,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter OriginOptions_SideOfStreet_Position
         /// <summary>
         /// <para>
-        /// <para>Position defined as <c>[longitude, latitude]</c>.</para>
+        /// <para>Position defined as <c>[longitude, latitude]</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -746,7 +782,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Driver_Schedule
         /// <summary>
         /// <para>
-        /// <para>Driver work-rest schedule. Stops are added to fulfil the provided rest schedule.</para>
+        /// <para>Driver work-rest schedule. Stops are added to fulfil the provided rest schedule.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -778,7 +818,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <summary>
         /// <para>
         /// <para>A list of optional features such as SpeedLimit that can be requested for a Span. A
-        /// span is a section of a Leg for which the requested features have the same values.</para>
+        /// span is a section of a Leg for which the requested features have the same values.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -928,7 +972,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <summary>
         /// <para>
         /// <para>Truck road type identifiers. <c>BK1</c> through <c>BK4</c> apply only to Sweden. <c>A2,A4,B2,B4,C,D,ET2,ET4</c>
-        /// apply only to Mexico.</para><note><para>There are currently no other supported values as of 26th April 2024.</para></note>
+        /// apply only to Mexico.</para><note><para>There are currently no other supported values as of 26th April 2024.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1041,7 +1089,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Waypoint
         /// <summary>
         /// <para>
-        /// <para>List of waypoints between the Origin and Destination.</para>
+        /// <para>List of waypoints between the Origin and Destination.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1075,7 +1127,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_ZoneCategory
         /// <summary>
         /// <para>
-        /// <para>Zone categories to be avoided.</para>
+        /// <para>Zone categories to be avoided.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

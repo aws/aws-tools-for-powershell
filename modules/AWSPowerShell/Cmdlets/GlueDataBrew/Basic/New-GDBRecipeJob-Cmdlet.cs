@@ -50,7 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// <summary>
         /// <para>
         /// <para>Represents a list of JDBC database output objects which defines the output destination
-        /// for a DataBrew recipe job to write to. </para>
+        /// for a DataBrew recipe job to write to. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -62,7 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// <summary>
         /// <para>
         /// <para>One or more artifacts that represent the Glue Data Catalog output from running the
-        /// job.</para>
+        /// job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,7 +173,11 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter Output
         /// <summary>
         /// <para>
-        /// <para>One or more artifacts that represent the output from running the job.</para>
+        /// <para>One or more artifacts that represent the output from running the job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -215,7 +227,11 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Metadata tags to apply to this job.</para>
+        /// <para>Metadata tags to apply to this job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

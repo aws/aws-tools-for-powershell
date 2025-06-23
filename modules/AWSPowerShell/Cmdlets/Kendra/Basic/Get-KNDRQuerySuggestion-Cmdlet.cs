@@ -54,7 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <para>
         /// <para>The list of additional document field/attribute keys or field names to include in
         /// the response. You can use additional fields to provide extra information in the response.
-        /// Additional fields are not used to based suggestions on.</para>
+        /// Additional fields are not used to based suggestions on.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The list of data source groups you want to filter search results based on groups'
-        /// access to documents in that data source.</para>
+        /// access to documents in that data source.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The list of groups you want to filter search results based on the groups' access to
-        /// documents.</para>
+        /// documents.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,7 +160,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <para>
         /// <para>The list of document field/attribute keys or field names to use for query suggestions.
         /// If the content within any of the fields match what your user starts typing as their
-        /// query, then the field content is returned as a query suggestion.</para>
+        /// query, then the field content is returned as a query suggestion.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,7 +178,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <para>The suggestions type to base query suggestions on. The suggestion types are query
         /// history or document fields/attributes. You can set one type or the other.</para><para>If you set query history as your suggestions type, Amazon Kendra suggests queries
         /// relevant to your users based on popular queries in the query history.</para><para>If you set document fields/attributes as your suggestions type, Amazon Kendra suggests
-        /// queries relevant to your users based on the contents of document fields.</para>
+        /// queries relevant to your users based on the contents of document fields.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

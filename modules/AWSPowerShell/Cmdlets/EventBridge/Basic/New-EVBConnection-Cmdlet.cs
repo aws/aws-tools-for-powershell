@@ -105,7 +105,11 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter InvocationHttpParameters_BodyParameter
         /// <summary>
         /// <para>
-        /// <para>Any additional body string parameters for the connection.</para>
+        /// <para>Any additional body string parameters for the connection.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +120,11 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter OAuthHttpParameters_BodyParameter
         /// <summary>
         /// <para>
-        /// <para>Any additional body string parameters for the connection.</para>
+        /// <para>Any additional body string parameters for the connection.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,7 +168,11 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter InvocationHttpParameters_HeaderParameter
         /// <summary>
         /// <para>
-        /// <para>Any additional header parameters for the connection.</para>
+        /// <para>Any additional header parameters for the connection.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,7 +183,11 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter OAuthHttpParameters_HeaderParameter
         /// <summary>
         /// <para>
-        /// <para>Any additional header parameters for the connection.</para>
+        /// <para>Any additional header parameters for the connection.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -236,7 +252,11 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter InvocationHttpParameters_QueryStringParameter
         /// <summary>
         /// <para>
-        /// <para>Any additional query string parameters for the connection.</para>
+        /// <para>Any additional query string parameters for the connection.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -247,7 +267,11 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter OAuthHttpParameters_QueryStringParameter
         /// <summary>
         /// <para>
-        /// <para>Any additional query string parameters for the connection.</para>
+        /// <para>Any additional query string parameters for the connection.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

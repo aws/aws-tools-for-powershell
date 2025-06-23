@@ -57,7 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// to implement <c>additionalInfo</c> through the Resilience Hub console rather than
         /// using an API call, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/app-config-param.html">Configure
         /// the application configuration parameters</a>.</para><note><para>Currently, this parameter accepts a key-value mapping (in a string format) of only
-        /// one failover region and one associated account.</para><para>Key: <c>"failover-regions"</c></para><para>Value: <c>"[{"region":"&lt;REGION&gt;", "accounts":[{"id":"&lt;ACCOUNT_ID&gt;"}]}]"</c></para></note>
+        /// one failover region and one associated account.</para><para>Key: <c>"failover-regions"</c></para><para>Value: <c>"[{"region":"&lt;REGION&gt;", "accounts":[{"id":"&lt;ACCOUNT_ID&gt;"}]}]"</c></para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

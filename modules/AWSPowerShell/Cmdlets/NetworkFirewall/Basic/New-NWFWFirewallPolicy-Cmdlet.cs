@@ -138,7 +138,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// variable. If your firewall uses an inspection VPC, you might want to override the
         /// <c>HOME_NET</c> variable with the CIDRs of your home networks. If you don't override
         /// <c>HOME_NET</c> with your own CIDRs, Network Firewall by default uses the CIDR of
-        /// your inspection VPC.</para>
+        /// your inspection VPC.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,7 +156,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>The default actions to take on a packet that doesn't match any stateful rules. The
         /// stateful default action is optional, and is only valid when using the strict rule
         /// order.</para><para>Valid values of the stateful default action:</para><ul><li><para>aws:drop_strict</para></li><li><para>aws:drop_established</para></li><li><para>aws:alert_strict</para></li><li><para>aws:alert_established</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html">Strict
-        /// evaluation order</a> in the <i>Network Firewall Developer Guide</i>. </para>
+        /// evaluation order</a> in the <i>Network Firewall Developer Guide</i>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,7 +172,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>References to the stateful rule groups that are used in the policy. These define the
-        /// inspection criteria in stateful rules. </para>
+        /// inspection criteria in stateful rules. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,7 +189,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>
         /// <para>The custom action definitions that are available for use in the firewall policy's
         /// <c>StatelessDefaultActions</c> setting. You name each custom action that you define,
-        /// and then you can use it by name in your default actions specifications.</para>
+        /// and then you can use it by name in your default actions specifications.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,7 +210,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <c>aws:forward_to_sfe</c>. In addition, you can specify custom actions that are compatible
         /// with your standard section choice.</para><para>For example, you could specify <c>["aws:pass"]</c> or you could specify <c>["aws:pass",
         /// “customActionName”]</c>. For information about compatibility, see the custom action
-        /// descriptions under <a>CustomAction</a>.</para>
+        /// descriptions under <a>CustomAction</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -220,7 +240,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <c>aws:forward_to_sfe</c>. In addition, you can specify custom actions that are compatible
         /// with your standard section choice.</para><para>For example, you could specify <c>["aws:pass"]</c> or you could specify <c>["aws:pass",
         /// “customActionName”]</c>. For information about compatibility, see the custom action
-        /// descriptions under <a>CustomAction</a>.</para>
+        /// descriptions under <a>CustomAction</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -239,7 +263,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>References to the stateless rule groups that are used in the policy. These define
-        /// the matching criteria in stateless rules. </para>
+        /// the matching criteria in stateless rules. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -275,7 +303,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The key:value pairs to associate with the resource.</para>
+        /// <para>The key:value pairs to associate with the resource.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

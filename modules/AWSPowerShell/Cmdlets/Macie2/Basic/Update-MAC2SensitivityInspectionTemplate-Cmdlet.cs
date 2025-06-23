@@ -48,7 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter Includes_AllowListId
         /// <summary>
         /// <para>
-        /// <para>An array of unique identifiers, one for each allow list to include.</para>
+        /// <para>An array of unique identifiers, one for each allow list to include.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter Includes_CustomDataIdentifierId
         /// <summary>
         /// <para>
-        /// <para>An array of unique identifiers, one for each custom data identifier to include.</para>
+        /// <para>An array of unique identifiers, one for each custom data identifier to include.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +106,11 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <summary>
         /// <para>
         /// <para>An array of unique identifiers, one for each managed data identifier to exclude. To
-        /// retrieve a list of valid values, use the ListManagedDataIdentifiers operation.</para>
+        /// retrieve a list of valid values, use the ListManagedDataIdentifiers operation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <para>An array of unique identifiers, one for each managed data identifier to include.</para><para>Amazon Macie uses these managed data identifiers in addition to managed data identifiers
         /// that are subsequently released and recommended for automated sensitive data discovery.
         /// To retrieve a list of valid values for the managed data identifiers that are currently
-        /// available, use the ListManagedDataIdentifiers operation.</para><para />
+        /// available, use the ListManagedDataIdentifiers operation.</para><para /><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

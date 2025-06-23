@@ -77,7 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// privileges on the file share. These users can do all file operations as the super-user.
         /// Acceptable formats include: <c>DOMAIN\User1</c>, <c>user1</c>, <c>@group1</c>, and
         /// <c>@DOMAIN\group1</c>.</para><important><para>Use this option very carefully, because any user in this list can do anything they
-        /// like on the file share, regardless of file permissions.</para></important>
+        /// like on the file share, regardless of file permissions.</para></important><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -219,7 +223,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>A list of users or groups in the Active Directory that are not allowed to access the
         /// file share. A group must be prefixed with the @ character. Acceptable formats include:
         /// <c>DOMAIN\User1</c>, <c>user1</c>, <c>@group1</c>, and <c>@DOMAIN\group1</c>. Can
-        /// only be set if Authentication is set to <c>ActiveDirectory</c>.</para>
+        /// only be set if Authentication is set to <c>ActiveDirectory</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -367,7 +375,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// key-value pair.</para><note><para>Valid characters for key and value are letters, spaces, and numbers representable
         /// in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
         /// length of a tag's key is 128 characters, and the maximum length for a tag's value
-        /// is 256.</para></note>
+        /// is 256.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -381,7 +393,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>A list of users or groups in the Active Directory that are allowed to access the file
         /// <a href="" /> share. A group must be prefixed with the @ character. Acceptable formats
         /// include: <c>DOMAIN\User1</c>, <c>user1</c>, <c>@group1</c>, and <c>@DOMAIN\group1</c>.
-        /// Can only be set if Authentication is set to <c>ActiveDirectory</c>.</para>
+        /// Can only be set if Authentication is set to <c>ActiveDirectory</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

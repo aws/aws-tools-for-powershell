@@ -48,7 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Filters_Agent
         /// <summary>
         /// <para>
-        /// <para>A list of up to 100 agent IDs or ARNs.</para>
+        /// <para>A list of up to 100 agent IDs or ARNs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,7 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>A list of up to 9 <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">contact
-        /// states</a>.</para>
+        /// states</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Filters_Queue
         /// <summary>
         /// <para>
-        /// <para>A list of up to 100 queues or ARNs.</para>
+        /// <para>A list of up to 100 queues or ARNs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,7 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Filters_RoutingProfile
         /// <summary>
         /// <para>
-        /// <para>A list of up to 100 routing profile IDs or ARNs.</para>
+        /// <para>A list of up to 100 routing profile IDs or ARNs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Filters_UserHierarchyGroup
         /// <summary>
         /// <para>
-        /// <para>A UserHierarchyGroup ID or ARN.</para>
+        /// <para>A UserHierarchyGroup ID or ARN.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

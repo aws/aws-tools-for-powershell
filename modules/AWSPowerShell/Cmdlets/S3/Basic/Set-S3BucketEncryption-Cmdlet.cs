@@ -120,10 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Set", "S3BucketEncryption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutBucketEncryption API operation.", Operation = new[] {"PutBucketEncryption"}, SelectReturnType = typeof(Amazon.S3.PutBucketEncryptionResponse))]
-    [AWSCmdletOutput("None or Amazon.S3.PutBucketEncryptionResponse",
+    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutBucketEncryption API operation.", Operation = new[] {"PutBucketEncryption"}, SelectReturnType = typeof(Amazon.S3.Model.PutBucketEncryptionResponse))]
+    [AWSCmdletOutput("None or Amazon.S3.Model.PutBucketEncryptionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3.PutBucketEncryptionResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.S3.Model.PutBucketEncryptionResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetS3BucketEncryptionCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
@@ -134,15 +134,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <para>Specifies default encryption for a bucket using server-side encryption with different key options.</para><para><b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests 
-        /// in the format <c>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i></c>. 
-        /// 
-        /// Virtual-hosted-style requests aren't supported. 
-        /// Directory bucket names must be unique in the chosen Availability Zone. 
-        /// Bucket names must also follow the format <c><i>bucket_base_name</i>--<i>az_id</i>--x-s3</c> (for example, <c><i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</c>). 
-        /// 
-        /// For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> 
-        /// in the <i>Amazon S3 User Guide</i>.</para>
+        /// <para>Specifies default encryption for a bucket using server-side encryption with different
+        /// key options.</para><para><b>Directory buckets </b> - When you use this operation with a directory bucket,
+        /// you must use path-style requests in the format <c>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i></c>. Virtual-hosted-style requests aren't supported. Directory bucket names must
+        /// be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must
+        /// also follow the format <c><i>bucket-base-name</i>--<i>zone-id</i>--x-s3</c> (for
+        /// example, <c><i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</c>). For information
+        /// about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory
+        /// bucket naming rules</a> in the <i>Amazon S3 User Guide</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -152,14 +151,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ChecksumAlgorithm
         /// <summary>
         /// <para>
-        /// <para>Indicates the algorithm used to create the checksum for the object when you use the
+        /// <para>Indicates the algorithm used to create the checksum for the request when you use the
         /// SDK. This header will not provide any additional functionality if you don't use the
         /// SDK. When you send this header, there must be a corresponding <c>x-amz-checksum</c>
-        /// or <c>x-amz-trailer</c> header sent. Otherwise, Amazon S3 fails the request
-        /// with the HTTP status code <c>400 Bad Request</c>. For more information, see
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// or <c>x-amz-trailer</c> header sent. Otherwise, Amazon S3 fails the request with the
+        /// HTTP status code <c>400 Bad Request</c>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
         /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>If you provide an individual checksum, Amazon S3 ignores any provided <c>ChecksumAlgorithm</c>
-        /// parameter.</para><para>For directory buckets, when you use Amazon Web Services SDKs, <c>CRC32</c> is the default checksum algorithm that's used for performance.</para>
+        /// parameter.</para><note><para>For directory buckets, when you use Amazon Web Services SDKs, <c>CRC32</c> is the
+        /// default checksum algorithm that's used for performance.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// <para>The Base64 encoded 128-bit <c>MD5</c> digest of the server-side encryption configuration.</para><para>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon
-        /// Web Services SDKs, this field is calculated automatically.</para><para>This functionality is not supported for directory buckets.</para>
+        /// Web Services SDKs, this field is calculated automatically.</para><note><para>This functionality is not supported for directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,8 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
         /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <c>403 Forbidden</c> (access denied).</para><para>For directory buckets, this header is not supported in this API operation. 
-        /// If you specify this header, the request fails with the HTTP status code <c>501 Not Implemented</c>.</para>
+        /// <c>403 Forbidden</c> (access denied).</para><note><para>For directory buckets, this header is not supported in this API operation. If you
+        /// specify this header, the request fails with the HTTP status code <c>501 Not Implemented</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,7 +193,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ServerSideEncryptionConfiguration_ServerSideEncryptionRule
         /// <summary>
         /// <para>
-        /// Container for information about a particular server-side encryption configuration rule.
+        /// <para>Container for information about a particular server-side encryption configuration
+        /// rule.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3.PutBucketEncryptionResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3.Model.PutBucketEncryptionResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -244,17 +248,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.S3.PutBucketEncryptionResponse, SetS3BucketEncryptionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.S3.Model.PutBucketEncryptionResponse, SetS3BucketEncryptionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BucketName = this.BucketName;
             context.ChecksumAlgorithm = this.ChecksumAlgorithm;
             context.ContentMD5 = this.ContentMD5;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             if (this.ServerSideEncryptionConfiguration_ServerSideEncryptionRule != null)
             {
                 context.ServerSideEncryptionConfiguration_ServerSideEncryptionRule = new List<Amazon.S3.Model.ServerSideEncryptionRule>(this.ServerSideEncryptionConfiguration_ServerSideEncryptionRule);
             }
-            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -283,6 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.ContentMD5 = cmdletContext.ContentMD5;
             }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+            }
             
              // populate ServerSideEncryptionConfiguration
             var requestServerSideEncryptionConfigurationIsNull = true;
@@ -301,10 +309,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestServerSideEncryptionConfigurationIsNull)
             {
                 request.ServerSideEncryptionConfiguration = null;
-            }
-            if (cmdletContext.ExpectedBucketOwner != null)
-            {
-                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -339,7 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #region AWS Service Operation Call
         
-        private Amazon.S3.PutBucketEncryptionResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketEncryptionRequest request)
+        private Amazon.S3.Model.PutBucketEncryptionResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketEncryptionRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "PutBucketEncryption");
             try
@@ -364,9 +368,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String BucketName { get; set; }
             public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public System.String ContentMD5 { get; set; }
-            public List<Amazon.S3.Model.ServerSideEncryptionRule> ServerSideEncryptionConfiguration_ServerSideEncryptionRule { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
-            public System.Func<Amazon.S3.PutBucketEncryptionResponse, SetS3BucketEncryptionCmdlet, object> Select { get; set; } =
+            public List<Amazon.S3.Model.ServerSideEncryptionRule> ServerSideEncryptionConfiguration_ServerSideEncryptionRule { get; set; }
+            public System.Func<Amazon.S3.Model.PutBucketEncryptionResponse, SetS3BucketEncryptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

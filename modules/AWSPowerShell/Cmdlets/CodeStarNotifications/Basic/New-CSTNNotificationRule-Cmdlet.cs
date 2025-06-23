@@ -85,7 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
         /// <summary>
         /// <para>
         /// <para>A list of event types associated with this notification rule. For a list of allowed
-        /// events, see <a>EventTypeSummary</a>.</para>
+        /// events, see <a>EventTypeSummary</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -153,7 +157,11 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
         /// <summary>
         /// <para>
         /// <para>A list of tags to apply to this notification rule. Key names cannot start with "<c>aws</c>".
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,7 +173,11 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
         /// <summary>
         /// <para>
         /// <para>A list of Amazon Resource Names (ARNs) of Amazon Simple Notification Service topics
-        /// and Chatbot clients to associate with the notification rule.</para>
+        /// and Chatbot clients to associate with the notification rule.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -109,7 +109,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// you must choose one or the other.</para><para>Each language has a character set that contains all allowed characters for that specific
         /// language. If you use unsupported characters, your custom vocabulary filter request
         /// fails. Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character
-        /// Sets for Custom Vocabularies</a> to get the character set for your language.</para>
+        /// Sets for Custom Vocabularies</a> to get the character set for your language.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>Adds one or more custom tags, each in the form of a key:value pair, to a new custom
         /// vocabulary at the time you create this new custom vocabulary.</para><para>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
-        /// resources</a>.</para>
+        /// resources</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

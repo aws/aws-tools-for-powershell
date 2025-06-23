@@ -149,7 +149,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// compute environments</a> in the <i>Batch User Guide</i>. To remove the Amazon EC2
         /// configuration and any custom AMI ID specified in <c>imageIdOverride</c>, set this
         /// value to an empty string.</para><para>One or two values can be provided.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
-        /// specify it.</para></note>
+        /// specify it.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,7 +228,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// compute environment must share the same architecture. For example, you can't mix x86
         /// and ARM instances in the same compute environment.</para></note><note><para>Currently, <c>optimal</c> uses instance types from the C4, M4, and R4 instance families.
         /// In Regions that don't have instance types from those instance families, instance types
-        /// from the C5, M5, and R5 instance families are used.</para></note>
+        /// from the C5, M5, and R5 instance families are used.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -302,7 +310,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// instance types or families for each compute environment.</para><note><para>To unset all override templates for a compute environment, you can pass an empty array
         /// to the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateComputeEnvironment.html">UpdateComputeEnvironment.overrides</a>
         /// parameter, or not include the <c>overrides</c> parameter when submitting the <c>UpdateComputeEnvironment</c>
-        /// API operation.</para></note>
+        /// API operation.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -338,7 +350,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// For Amazon EC2 compute resources, providing an empty list removes the security groups
         /// from the compute resource.</para><para>When updating a compute environment, changing the Amazon EC2 security groups requires
         /// an infrastructure update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
-        /// compute environments</a> in the <i>Batch User Guide</i>.</para>
+        /// compute environments</a> in the <i>Batch User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -408,7 +424,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// EKS and Amazon Web Services Local Zones</a> in the <i>Amazon EKS User Guide</i> and
         /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-regions-zones.html#clusters-local-zones">
         /// Amazon ECS clusters in Local Zones, Wavelength Zones, and Amazon Web Services Outposts</a>
-        /// in the <i>Amazon ECS Developer Guide</i>.</para><para>Batch on Fargate doesn't currently support Local Zones.</para></note>
+        /// in the <i>Amazon ECS Developer Guide</i>.</para><para>Batch on Fargate doesn't currently support Local Zones.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -427,7 +447,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// the Batch <c>ListTagsForResource</c> API operation.</para><para>When updating a compute environment, changing this setting requires an infrastructure
         /// update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
         /// compute environments</a> in the <i>Batch User Guide</i>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
-        /// specify it.</para></note>
+        /// specify it.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

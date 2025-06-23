@@ -255,7 +255,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>Key-value pairs that can be used to group and search for connectors. Tags are metadata
-        /// attached to connectors for any purpose.</para>
+        /// attached to connectors for any purpose.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -277,7 +281,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <c>ecdsa-sha2-nistp384</c>, or <c>ecdsa-sha2-nistp521</c>, depending on the size of
         /// the key you generated.</para></li></ul><para>Run this command to retrieve the SFTP server host key, where your SFTP server name
         /// is <c>ftp.host.com</c>.</para><para><c>ssh-keyscan ftp.host.com</c></para><para>This prints the public host key to standard output.</para><para><c>ftp.host.com ssh-rsa AAAAB3Nza...&lt;long-string-for-public-key</c></para><para>Copy and paste this string into the <c>TrustedHostKeys</c> field for the <c>create-connector</c>
-        /// command or into the <b>Trusted host keys</b> field in the console.</para>
+        /// command or into the <b>Trusted host keys</b> field in the console.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

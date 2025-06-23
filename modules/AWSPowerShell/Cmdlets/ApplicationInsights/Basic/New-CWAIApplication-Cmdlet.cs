@@ -150,7 +150,11 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         /// <para>
         /// <para>List of tags to add to the application. tag key (<c>Key</c>) and an associated tag
         /// value (<c>Value</c>). The maximum length of a tag key is 128 characters. The maximum
-        /// length of a tag value is 256 characters.</para>
+        /// length of a tag value is 256 characters.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -58,7 +58,11 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter Filters_ApplicationIDs
         /// <summary>
         /// <para>
-        /// <para>Request to filter Source Servers list by application IDs.</para>
+        /// <para>Request to filter Source Servers list by application IDs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter Filters_LifeCycleState
         /// <summary>
         /// <para>
-        /// <para>Request to filter Source Servers list by life cycle states.</para>
+        /// <para>Request to filter Source Servers list by life cycle states.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter Filters_ReplicationType
         /// <summary>
         /// <para>
-        /// <para>Request to filter Source Servers list by replication type.</para>
+        /// <para>Request to filter Source Servers list by replication type.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,7 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter Filters_SourceServerIDs
         /// <summary>
         /// <para>
-        /// <para>Request to filter Source Servers list by Source Server ID.</para>
+        /// <para>Request to filter Source Servers list by Source Server ID.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

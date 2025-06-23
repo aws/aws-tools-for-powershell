@@ -146,7 +146,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>
         /// <para>Tags associated with the resource.</para><note><para>This field is not to be confused with the Amazon Web Services-wide tag feature for
         /// Amazon Web Services resources. Tags for <c>PutResourceConfig</c> are tags that you
-        /// supply for the configuration items of your custom resources.</para></note>
+        /// supply for the configuration items of your custom resources.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

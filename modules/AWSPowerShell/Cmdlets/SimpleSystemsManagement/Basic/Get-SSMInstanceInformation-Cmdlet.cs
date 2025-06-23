@@ -65,7 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>One or more filters. Use a filter to return a more specific list of managed nodes.
         /// You can filter based on tags applied to your managed nodes. Tag filters can't be combined
         /// with other filter types. Use this <c>Filters</c> data type instead of <c>InstanceInformationFilterList</c>,
-        /// which is deprecated.</para>
+        /// which is deprecated.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>This is a legacy method. We recommend that you don't use this method. Instead, use
         /// the <c>Filters</c> data type. <c>Filters</c> enables you to return node information
         /// by filtering based on tags applied to managed nodes.</para><note><para>Attempting to use <c>InstanceInformationFilterList</c> and <c>Filters</c> leads to
-        /// an exception error. </para></note>
+        /// an exception error. </para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

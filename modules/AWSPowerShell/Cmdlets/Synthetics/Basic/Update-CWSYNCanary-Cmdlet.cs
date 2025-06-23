@@ -103,7 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <para>
         /// <para>An array of screenshots that will be used as the baseline for visual monitoring in
         /// future runs of this canary. If there is a screenshot that you don't want to be used
-        /// for visual monitoring, remove it from this array.</para>
+        /// for visual monitoring, remove it from this array.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,7 +164,11 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// keys, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime">
         /// Runtime environment variables</a>.</para><important><para>Environment variable keys and values are encrypted at rest using Amazon Web Services
         /// owned KMS keys. However, the environment variables are not encrypted on the client
-        /// side. Do not store sensitive information in them.</para></important>
+        /// side. Do not store sensitive information in them.</para></important><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -361,7 +369,11 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the security groups for this canary.</para>
+        /// <para>The IDs of the security groups for this canary.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -372,7 +384,11 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter VpcConfig_SubnetId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the subnets where this canary is to run.</para>
+        /// <para>The IDs of the subnets where this canary is to run.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

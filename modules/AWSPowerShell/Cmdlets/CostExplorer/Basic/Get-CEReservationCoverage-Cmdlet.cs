@@ -109,7 +109,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter GroupBy
         /// <summary>
         /// <para>
-        /// <para>You can group the data by the following attributes:</para><ul><li><para>AZ</para></li><li><para>CACHE_ENGINE</para></li><li><para>DATABASE_ENGINE</para></li><li><para>DEPLOYMENT_OPTION</para></li><li><para>INSTANCE_TYPE</para></li><li><para>INVOICING_ENTITY</para></li><li><para>LINKED_ACCOUNT</para></li><li><para>OPERATING_SYSTEM</para></li><li><para>PLATFORM</para></li><li><para>REGION</para></li><li><para>TENANCY</para></li></ul>
+        /// <para>You can group the data by the following attributes:</para><ul><li><para>AZ</para></li><li><para>CACHE_ENGINE</para></li><li><para>DATABASE_ENGINE</para></li><li><para>DEPLOYMENT_OPTION</para></li><li><para>INSTANCE_TYPE</para></li><li><para>INVOICING_ENTITY</para></li><li><para>LINKED_ACCOUNT</para></li><li><para>OPERATING_SYSTEM</para></li><li><para>PLATFORM</para></li><li><para>REGION</para></li><li><para>TENANCY</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,7 +134,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>The measurement that you want your reservation coverage reported in.</para><para>Valid values are <c>Hour</c>, <c>Unit</c>, and <c>Cost</c>. You can use multiple values
-        /// in a request.</para>
+        /// in a request.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

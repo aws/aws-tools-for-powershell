@@ -320,7 +320,11 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// <summary>
         /// <para>
         /// <para>A structure that maps names of parameters used in the Amazon S3 path of a dataset
-        /// to their definitions.</para>
+        /// to their definitions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -343,7 +347,11 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter Excel_SheetIndex
         /// <summary>
         /// <para>
-        /// <para>One or more sheet numbers in the Excel file that will be included in the dataset.</para>
+        /// <para>One or more sheet numbers in the Excel file that will be included in the dataset.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -354,7 +362,11 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter Excel_SheetName
         /// <summary>
         /// <para>
-        /// <para>One or more named sheets in the Excel file that will be included in the dataset.</para>
+        /// <para>One or more named sheets in the Excel file that will be included in the dataset.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -389,7 +401,11 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Metadata tags to apply to this dataset.</para>
+        /// <para>Metadata tags to apply to this dataset.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -400,7 +416,11 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter LastModifiedDateCondition_ValuesMap
         /// <summary>
         /// <para>
-        /// <para>The map of substitution variable names to their values used in this filter expression.</para>
+        /// <para>The map of substitution variable names to their values used in this filter expression.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

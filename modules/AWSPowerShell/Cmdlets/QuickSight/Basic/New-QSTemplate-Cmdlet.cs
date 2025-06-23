@@ -110,7 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Definition_CalculatedField
         /// <summary>
         /// <para>
-        /// <para>An array of calculated field definitions for the template.</para>
+        /// <para>An array of calculated field definitions for the template.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para> An array of template-level column configurations. Column configurations are used
-        /// to set default formatting for a column that's used throughout a template. </para>
+        /// to set default formatting for a column that's used throughout a template. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>An array of dataset configurations. These configurations define the required columns
-        /// for each dataset used within a template.</para>
+        /// for each dataset used within a template.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,7 +158,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>A structure containing information about the dataset references used as placeholders
-        /// in the template.</para>
+        /// in the template.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,7 +173,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Options_ExcludedDataSetArn
         /// <summary>
         /// <para>
-        /// <para>A list of dataset ARNS to exclude from Dashboard Q&amp;A.</para>
+        /// <para>A list of dataset ARNS to exclude from Dashboard Q&amp;A.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +189,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>Filter definitions for a template.</para><para>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html">Filtering
-        /// Data</a> in the <i>Amazon QuickSight User Guide</i>. </para>
+        /// Data</a> in the <i>Amazon QuickSight User Guide</i>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -262,7 +286,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>An array of parameter declarations for a template.</para><para><i>Parameters</i> are named variables that can transfer a value for use by an action
         /// or an object.</para><para>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters
-        /// in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>. </para>
+        /// in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -273,7 +301,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Permission
         /// <summary>
         /// <para>
-        /// <para>A list of resource permissions to be set on the template. </para>
+        /// <para>A list of resource permissions to be set on the template. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -346,7 +378,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Definition_Sheet
         /// <summary>
         /// <para>
-        /// <para>An array of sheet definitions for a template.</para>
+        /// <para>An array of sheet definitions for a template.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -357,7 +393,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Definition_StaticFile
         /// <summary>
         /// <para>
-        /// <para>The static files for the definition.</para>
+        /// <para>The static files for the definition.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -369,7 +409,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-        /// resource.</para>
+        /// resource.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

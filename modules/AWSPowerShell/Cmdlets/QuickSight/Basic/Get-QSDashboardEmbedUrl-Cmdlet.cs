@@ -80,7 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// access to. Currently, the <c>IdentityType</c> parameter must be set to <c>ANONYMOUS</c>
         /// because other identity types authenticate as Amazon QuickSight or IAM users. For example,
         /// if you set "<c>--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type
-        /// ANONYMOUS</c>", the session can access all three dashboards.</para>
+        /// ANONYMOUS</c>", the session can access all three dashboards.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

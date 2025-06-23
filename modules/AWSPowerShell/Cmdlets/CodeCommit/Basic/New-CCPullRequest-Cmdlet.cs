@@ -74,7 +74,11 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <para>
         /// <para>The targets for the pull request, including the source of the code to be reviewed
         /// (the source branch) and the destination where the creator of the pull request intends
-        /// the code to be merged after the pull request is closed (the destination branch).</para>
+        /// the code to be merged after the pull request is closed (the destination branch).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

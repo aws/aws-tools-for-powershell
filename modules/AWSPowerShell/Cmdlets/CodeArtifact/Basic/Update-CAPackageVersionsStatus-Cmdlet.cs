@@ -175,7 +175,11 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <para>
         /// <para> A map of package versions and package version revisions. The map <c>key</c> is the
         /// package version (for example, <c>3.5.2</c>), and the map <c>value</c> is the package
-        /// version revision. </para>
+        /// version revision. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,7 +191,11 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <summary>
         /// <para>
         /// <para> An array of strings that specify the versions of the package with the statuses to
-        /// update. </para>
+        /// update. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

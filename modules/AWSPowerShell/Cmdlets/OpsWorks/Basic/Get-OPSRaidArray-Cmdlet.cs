@@ -69,7 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>An array of RAID array IDs. If you use this parameter, <c>DescribeRaidArrays</c> returns
         /// descriptions of the specified arrays. Otherwise, it returns a description of every
-        /// array.</para>
+        /// array.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

@@ -92,7 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>Attributes supported as an alias for this user pool. For more information about alias
         /// attributes, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases">Customizing
-        /// sign-in attributes</a>.</para>
+        /// sign-in attributes</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +121,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The sign-in methods that a user pool supports as the first factor. You can permit
         /// users to start authentication with a standard username and password, or with other
-        /// one-time password and hardware factors.</para>
+        /// one-time password and hardware factors.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,7 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// require that your users verify attribute changes before Amazon Cognito updates them.
         /// In a user pool where <c>AttributesRequireVerificationBeforeUpdate</c> is false, API
         /// operations that change attribute values can immediately update a user’s <c>email</c>
-        /// or <c>phone_number</c> attribute.</para>
+        /// or <c>phone_number</c> attribute.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,7 +161,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The attributes that you want your user pool to automatically verify. For more information,
         /// see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves">Verifying
-        /// contact information at sign-up</a>.</para>
+        /// contact information at sign-up</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -676,7 +692,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>The list of options and priorities for user message delivery in forgot-password operations.
         /// Sets or displays user pool preferences for email or SMS message priority, whether
         /// users should fall back to a second delivery method, and whether passwords should only
-        /// be reset by administrators.</para>
+        /// be reset by administrators.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -748,7 +768,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>An array of attributes for the new user pool. You can add custom attributes and modify
         /// the properties of default attributes. The specifications in this parameter set the
         /// required attributes in your user pool. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html">Working
-        /// with user attributes</a>.</para>
+        /// with user attributes</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -894,7 +918,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>Specifies whether a user can use an email address or phone number as a username when
         /// they sign up. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases">Customizing
-        /// sign-in attributes</a>.</para>
+        /// sign-in attributes</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -907,7 +935,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The tag keys and values to assign to the user pool. A tag is a label that you can
         /// use to categorize and manage user pools in different ways, such as by purpose, owner,
-        /// environment, or other criteria.</para>
+        /// environment, or other criteria.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

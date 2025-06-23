@@ -65,12 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <para>Deletes the replication subresource associated with the specified bucket.</para><note><para>There is usually some time lag before
-        /// replication configuration deletion is fully propagated to all the
-        /// Amazon S3 systems.</para></note><para> For more information, see
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">
-        /// Cross-Region Replication (CRR)</a> in the Amazon S3 Developer
-        /// Guide. </para>
+        /// <para> The bucket name. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -82,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
         /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <code>403 Forbidden</code> (access denied).</para>
+        /// <c>403 Forbidden</c> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

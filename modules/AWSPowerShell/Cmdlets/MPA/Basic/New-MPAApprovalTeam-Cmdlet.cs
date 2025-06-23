@@ -22,9 +22,11 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.MPA;
 using Amazon.MPA.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.MPA
 {
     /// <summary>
@@ -40,15 +42,18 @@ namespace Amazon.PowerShell.Cmdlets.MPA
     public partial class NewMPAApprovalTeamCmdlet : AmazonMPAClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Approver
         /// <summary>
         /// <para>
         /// <para>An array of <c>ApprovalTeamRequesterApprovers</c> objects. Contains details for the
-        /// approvers in the team.</para>
+        /// approvers in the team.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -115,7 +120,11 @@ namespace Amazon.PowerShell.Cmdlets.MPA
         /// the permissions for team resources.</para><para>The protected operation for a service integration might require specific permissions.
         /// For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-integrations.html">How
         /// other services work with Multi-party approval</a> in the <i>Multi-party approval User
-        /// Guide</i>.</para>
+        /// Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -133,7 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.MPA
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags you want to attach to the team.</para>
+        /// <para>Tags you want to attach to the team.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,9 +195,13 @@ namespace Amazon.PowerShell.Cmdlets.MPA
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
@@ -359,13 +376,7 @@ namespace Amazon.PowerShell.Cmdlets.MPA
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Multi-party Approval", "CreateApprovalTeam");
             try
             {
-                #if DESKTOP
-                return client.CreateApprovalTeam(request);
-                #elif CORECLR
-                return client.CreateApprovalTeamAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.CreateApprovalTeamAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

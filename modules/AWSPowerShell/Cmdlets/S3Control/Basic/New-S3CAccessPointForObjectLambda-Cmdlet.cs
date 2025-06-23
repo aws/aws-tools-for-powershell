@@ -74,7 +74,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>A container for allowed features. Valid inputs are <c>GetObject-Range</c>, <c>GetObject-PartNumber</c>,
-        /// <c>HeadObject-Range</c>, and <c>HeadObject-PartNumber</c>.</para>
+        /// <c>HeadObject-Range</c>, and <c>HeadObject-PartNumber</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +133,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter Configuration_TransformationConfiguration
         /// <summary>
         /// <para>
-        /// <para>A container for transformation configurations for an Object Lambda Access Point.</para>
+        /// <para>A container for transformation configurations for an Object Lambda Access Point.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

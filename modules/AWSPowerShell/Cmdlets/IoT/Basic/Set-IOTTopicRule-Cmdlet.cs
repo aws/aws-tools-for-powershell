@@ -56,7 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter TopicRulePayload_Action
         /// <summary>
         /// <para>
-        /// <para>The actions associated with the rule.</para>
+        /// <para>The actions associated with the rule.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -192,7 +196,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Kafka_ClientProperty
         /// <summary>
         /// <para>
-        /// <para>Properties of the Apache Kafka producer client.</para>
+        /// <para>Properties of the Apache Kafka producer client.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -300,7 +308,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Timestream_Dimension
         /// <summary>
         /// <para>
-        /// <para>Metadata attributes of the time series that are written in each measure record.</para>
+        /// <para>Metadata attributes of the time series that are written in each measure record.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -391,7 +403,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Http_Header
         /// <summary>
         /// <para>
-        /// <para>The HTTP headers to send with the message data.</para>
+        /// <para>The HTTP headers to send with the message data.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -402,7 +418,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Kafka_Header
         /// <summary>
         /// <para>
-        /// <para>The list of Kafka headers that you specify.</para>
+        /// <para>The list of Kafka headers that you specify.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -689,7 +709,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter IotSiteWise_PutAssetPropertyValueEntry
         /// <summary>
         /// <para>
-        /// <para>A list of asset property value entries.</para>
+        /// <para>A list of asset property value entries.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1295,7 +1319,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Headers_UserProperty
         /// <summary>
         /// <para>
-        /// <para>An array of key-value pairs that you define in the MQTT5 header.</para>
+        /// <para>An array of key-value pairs that you define in the MQTT5 header.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

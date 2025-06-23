@@ -75,7 +75,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>A custom key-value pair using an attribute map. The attributes are standard Amazon
         /// Connect attributes. They can be accessed in flows just like any other contact attributes.
         /// </para><para>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute
-        /// keys can include only alphanumeric, dash, and underscore characters.</para>
+        /// keys can include only alphanumeric, dash, and underscore characters.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,7 +228,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// be accessed in flows.</para><para>Attribute keys can include only alphanumeric, -, and _.</para><para>This field can be used to show channel subtype, such as <c>connect:Guide</c>.</para><note><para>The types <c>application/vnd.amazonaws.connect.message.interactive</c> and <c>application/vnd.amazonaws.connect.message.interactive.response</c>
         /// must be present in the SupportedMessagingContentTypes field of this API in order to
         /// set <c>SegmentAttributes</c> as {<c> "connect:Subtype": {"valueString" : "connect:Guide"
-        /// }}</c>.</para></note>
+        /// }}</c>.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -253,7 +261,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// text/plain]</c>, <c>[text/plain, application/json, application/vnd.amazonaws.connect.message.interactive.response]</c>.
         /// </para><note><para>The type <c>application/vnd.amazonaws.connect.message.interactive</c> is required
         /// to use the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/show-view-block.html">Show
-        /// view</a> flow block.</para></note>
+        /// view</a> flow block.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -65,7 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The list of all content type headers that Amazon SageMaker AI will treat as CSV and
-        /// capture accordingly.</para>
+        /// capture accordingly.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The list of all content type headers that SageMaker AI will treat as JSON and capture
-        /// accordingly.</para>
+        /// accordingly.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,7 +181,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para> An array of <c>ModelVariantConfig</c> objects. There is one for each variant in the
         /// inference experiment. Each <c>ModelVariantConfig</c> object in the array describes
-        /// the infrastructure configuration for the corresponding variant. </para>
+        /// the infrastructure configuration for the corresponding variant. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -227,7 +239,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ShadowModeConfig_ShadowModelVariant
         /// <summary>
         /// <para>
-        /// <para>List of shadow variant configurations.</para>
+        /// <para>List of shadow variant configurations.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -275,7 +291,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para> Array of key-value pairs. You can use tags to categorize your Amazon Web Services
         /// resources in different ways, for example, by purpose, owner, or environment. For more
         /// information, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/tagging.html">Tagging
-        /// your Amazon Web Services Resources</a>. </para>
+        /// your Amazon Web Services Resources</a>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

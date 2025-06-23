@@ -22,25 +22,16 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.S3;
 using Amazon.S3.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// <important><para>
-    /// End of support notice: Beginning October 1, 2025, Amazon S3 will discontinue support
-    /// for creating new Email Grantee Access Control Lists (ACL). Email Grantee ACLs created
-    /// prior to this date will continue to work and remain accessible through the Amazon
-    /// Web Services Management Console, Command Line Interface (CLI), SDKs, and REST API.
-    /// However, you will no longer be able to create new Email Grantee ACLs. 
-    /// </para><para>
-    /// This change affects the following Amazon Web Services Regions: US East (N. Virginia)
-    /// Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore)
-    /// Region, Asia Pacific (Sydney) Region, Asia Pacific (Tokyo) Region, Europe (Ireland)
-    /// Region, and South America (São Paulo) Region.
-    /// </para></important><note><para>
-    /// This operation is not supported for directory buckets.
+    /// <note><para>
+    /// This operation is not supported by directory buckets.
     /// </para></note><para>
     /// Sets the permissions on an existing bucket using access control lists (ACL). For more
     /// information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using
@@ -122,9 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// do both.
     /// </para></dd><dt>Grantee Values</dt><dd><para>
     /// You can specify the person (grantee) to whom you're assigning access rights (using
-    /// request elements) in the following ways. For examples of how to specify these grantee
-    /// values in JSON format, see the Amazon Web Services CLI example in <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html">
-    /// Enabling Amazon S3 server access logging</a> in the <i>Amazon S3 User Guide</i>.
+    /// request elements) in the following ways:
     /// </para><ul><li><para>
     /// By the person's ID:
     /// </para><para><c>&lt;Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser"&gt;&lt;ID&gt;&lt;&gt;ID&lt;&gt;&lt;/ID&gt;&lt;DisplayName&gt;&lt;&gt;GranteesEmail&lt;&gt;&lt;/DisplayName&gt;
@@ -161,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// and Endpoints</a> in the Amazon Web Services General Reference.
     /// </para></note></li></ul></dd></dl><para>
     /// The following operations are related to <c>PutBucketAcl</c>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html">DeleteBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html">DeleteBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a></para></li></ul><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Set", "S3ACL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -170,10 +159,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3.Model.PutACLResponse) be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("This cmdlet is deprecated, use Set-S3BucketACL or Set-S3ObjectACL instead.")]
     public partial class SetS3ACLCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter BucketName
         /// <summary>
@@ -264,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Owner_Id
         /// <summary>
         /// <para>
-        /// The unique identifier of the owner.
+        /// <para>Container for the ID of the owner.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -314,16 +305,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public string Select { get; set; } = "*";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the BucketName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^BucketName' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^BucketName' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -334,9 +315,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "s3";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Key), MyInvocation.BoundParameters);
@@ -350,21 +335,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.S3.Model.PutACLResponse, SetS3ACLCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.BucketName;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Owner_DisplayName = this.Owner_DisplayName;
             context.Owner_Id = this.Owner_Id;
             if (this.AccessControlList_Grant != null)
@@ -509,13 +484,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "PutACL");
             try
             {
-                #if DESKTOP
-                return client.PutACL(request);
-                #elif CORECLR
-                return client.PutACLAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.PutACLAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

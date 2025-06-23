@@ -142,7 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>A list of cache security group names to authorize for the clusters in this replication
         /// group. This change is asynchronously applied as soon as possible.</para><para>This parameter can be used only with replication group containing clusters running
-        /// outside of an Amazon Virtual Private Cloud (Amazon VPC).</para><para>Constraints: Must contain no more than 255 alphanumeric characters. Must not be <c>Default</c>.</para>
+        /// outside of an Amazon Virtual Private Cloud (Amazon VPC).</para><para>Constraints: Must contain no more than 255 alphanumeric characters. Must not be <c>Default</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,7 +211,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter LogDeliveryConfiguration
         /// <summary>
         /// <para>
-        /// <para>Specifies the destination, format and type of the logs.</para>
+        /// <para>Specifies the destination, format and type of the logs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -314,7 +322,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>Specifies the VPC Security Groups associated with the clusters in the replication
         /// group.</para><para>This parameter can be used only with replication group containing clusters running
-        /// in an Amazon Virtual Private Cloud (Amazon VPC).</para>
+        /// in an Amazon Virtual Private Cloud (Amazon VPC).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -392,7 +404,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter UserGroupIdsToAdd
         /// <summary>
         /// <para>
-        /// <para>The ID of the user group you are associating with the replication group.</para>
+        /// <para>The ID of the user group you are associating with the replication group.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -403,7 +419,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The ID of the user group to disassociate from the replication group, meaning the users
-        /// in the group no longer can access the replication group.</para>
+        /// in the group no longer can access the replication group.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

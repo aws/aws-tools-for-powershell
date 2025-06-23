@@ -113,7 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// The <c>perMessageGroupId</c> value is allowed only when the value for <c>DeduplicationScope</c>
         /// is <c>messageGroup</c>.</para></li></ul><para>To enable high throughput for FIFO queues, do the following:</para><ul><li><para>Set <c>DeduplicationScope</c> to <c>messageGroup</c>.</para></li><li><para>Set <c>FifoThroughputLimit</c> to <c>perMessageGroupId</c>.</para></li></ul><para>If you set these attributes to anything other than the values shown for enabling high
         /// throughput, normal throughput is in effect and deduplication occurs as specified.</para><para>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas
-        /// related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</para>
+        /// related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

@@ -79,7 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para>
         /// <para>A list of findings to import. To successfully import a finding, it must follow the
         /// <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html">Amazon
-        /// Web Services Security Finding Format</a>. Maximum of 100 findings per request.</para>
+        /// Web Services Security Finding Format</a>. Maximum of 100 findings per request.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

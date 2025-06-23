@@ -71,9 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>The name of the bucket for which to get the location.</para><para>When you use this API operation with an access point, provide the alias of the access
         /// point in place of the bucket name.</para><para>When you use this API operation with an Object Lambda access point, provide the alias
         /// of the Object Lambda access point in place of the bucket name. If the Object Lambda
-        /// access point alias in a request is not valid, the error code <code>InvalidAccessPointAliasError</code>
-        /// is returned. For more information about <code>InvalidAccessPointAliasError</code>,
-        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List
+        /// access point alias in a request is not valid, the error code <c>InvalidAccessPointAliasError</c>
+        /// is returned. For more information about <c>InvalidAccessPointAliasError</c>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List
         /// of Error Codes</a>.</para>
         /// </para>
         /// </summary>
@@ -86,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
         /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <code>403 Forbidden</code> (access denied).</para>
+        /// <c>403 Forbidden</c> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

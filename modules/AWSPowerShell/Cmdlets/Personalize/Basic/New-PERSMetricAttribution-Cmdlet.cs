@@ -83,7 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <para>A list of metric attributes for the metric attribution. Each metric attribute specifies
         /// an event type to track and a function. Available functions are <c>SUM()</c> or <c>SAMPLECOUNT()</c>.
         /// For SUM() functions, provide the dataset type (either Interactions or Items) and column
-        /// to sum as a parameter. For example SUM(Items.PRICE).</para>
+        /// to sum as a parameter. For example SUM(Items.PRICE).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

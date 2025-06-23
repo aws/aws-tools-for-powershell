@@ -66,7 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         /// <summary>
         /// <para>
         /// <para>Specifies the archive rules to add for the analyzer. Archive rules automatically archive
-        /// findings that meet the criteria you define for the rule.</para>
+        /// findings that meet the criteria you define for the rule.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         /// <summary>
         /// <para>
         /// <para>A list of rules for the analyzer containing criteria to exclude from analysis. Entities
-        /// that meet the rule criteria will not generate findings.</para>
+        /// that meet the rule criteria will not generate findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         /// <summary>
         /// <para>
         /// <para>A list of rules for the internal access analyzer containing criteria to include in
-        /// analysis. Only resources that meet the rule criteria will generate findings.</para>
+        /// analysis. Only resources that meet the rule criteria will generate findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +116,11 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         /// <para>An array of key-value pairs to apply to the analyzer. You can use the set of Unicode
         /// letters, digits, whitespace, <c>_</c>, <c>.</c>, <c>/</c>, <c>=</c>, <c>+</c>, and
         /// <c>-</c>.</para><para>For the tag key, you can specify a value that is 1 to 128 characters in length and
-        /// cannot be prefixed with <c>aws:</c>.</para><para>For the tag value, you can specify a value that is 0 to 256 characters in length.</para>
+        /// cannot be prefixed with <c>aws:</c>.</para><para>For the tag value, you can specify a value that is 0 to 256 characters in length.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

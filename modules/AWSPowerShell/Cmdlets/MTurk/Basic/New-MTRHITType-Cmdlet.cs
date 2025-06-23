@@ -122,7 +122,11 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         /// HIT can have between zero and ten Qualification requirements. All requirements must
         /// be met in order for a Worker to accept the HIT. Additionally, other actions can be
         /// restricted using the <c>ActionsGuarded</c> field on each <c>QualificationRequirement</c>
-        /// structure. </para>
+        /// structure. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

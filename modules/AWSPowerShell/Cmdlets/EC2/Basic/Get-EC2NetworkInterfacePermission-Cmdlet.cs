@@ -52,7 +52,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// permission.</para></li><li><para><c>network-interface-permission.network-interface-id</c> - The ID of the network
         /// interface.</para></li><li><para><c>network-interface-permission.aws-account-id</c> - The Amazon Web Services account
         /// ID.</para></li><li><para><c>network-interface-permission.aws-service</c> - The Amazon Web Services service.</para></li><li><para><c>network-interface-permission.permission</c> - The type of permission (<c>INSTANCE-ATTACH</c>
-        /// | <c>EIP-ASSOCIATE</c>).</para></li></ul>
+        /// | <c>EIP-ASSOCIATE</c>).</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NetworkInterfacePermissionId
         /// <summary>
         /// <para>
-        /// <para>The network interface permission IDs.</para>
+        /// <para>The network interface permission IDs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

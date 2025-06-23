@@ -93,17 +93,19 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <para>The bucket name to get the bucket policy for.</para><para><b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style 
-        /// requests in the format <c>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i></c>. Virtual-hosted-style 
-        /// requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket 
-        /// names must also follow the format <c><i>bucket-base-name</i>--<i>zone-id</i>--x-s3</c> (for example, <c><i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</c>). For 
-        /// information about bucket naming restrictions, see 
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in 
-        /// the <i>Amazon S3 User Guide</i></para><para><b>Access points</b> - When you use this API operation with an access point, provide the 
-        /// alias of the access point in place of the bucket name.</para><para><b>Object Lambda access points</b> - When you use this API operation 
-        /// with an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name. If the Object Lambda 
-        /// access point alias in a request is not valid, the error code <c>InvalidAccessPointAliasError</c> is returned. For more information about <c>InvalidAccessPointAliasError</c>, see 
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List of Error Codes</a>.</para><note><para>Object Lambda access points are not supported by directory buckets.</para></note>
+        /// <para>The bucket name to get the bucket policy for.</para><para><b>Directory buckets </b> - When you use this operation with a directory bucket,
+        /// you must use path-style requests in the format <c>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i></c>. Virtual-hosted-style requests aren't supported. Directory bucket names must
+        /// be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must
+        /// also follow the format <c><i>bucket-base-name</i>--<i>zone-id</i>--x-s3</c> (for
+        /// example, <c><i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</c>). For information
+        /// about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory
+        /// bucket naming rules</a> in the <i>Amazon S3 User Guide</i></para><para><b>Access points</b> - When you use this API operation with an access point, provide
+        /// the alias of the access point in place of the bucket name.</para><para><b>Object Lambda access points</b> - When you use this API operation with an Object
+        /// Lambda access point, provide the alias of the Object Lambda access point in place
+        /// of the bucket name. If the Object Lambda access point alias in a request is not valid,
+        /// the error code <c>InvalidAccessPointAliasError</c> is returned. For more information
+        /// about <c>InvalidAccessPointAliasError</c>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List
+        /// of Error Codes</a>.</para><note><para>Object Lambda access points are not supported by directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -79,7 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Instance
         /// <summary>
         /// <para>
-        /// <para>The instances.</para>
+        /// <para>The instances.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,7 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The reason codes that describe the health state of your instance.</para><ul><li><para><c>instance-stuck-in-state</c>: My instance is stuck in a state.</para></li><li><para><c>unresponsive</c>: My instance is unresponsive.</para></li><li><para><c>not-accepting-credentials</c>: My instance is not accepting my credentials.</para></li><li><para><c>password-not-available</c>: A password is not available for my instance.</para></li><li><para><c>performance-network</c>: My instance is experiencing performance problems that
         /// I believe are network related.</para></li><li><para><c>performance-instance-store</c>: My instance is experiencing performance problems
         /// that I believe are related to the instance stores.</para></li><li><para><c>performance-ebs-volume</c>: My instance is experiencing performance problems that
-        /// I believe are related to an EBS volume.</para></li><li><para><c>performance-other</c>: My instance is experiencing performance problems.</para></li><li><para><c>other</c>: [explain using the description parameter]</para></li></ul>
+        /// I believe are related to an EBS volume.</para></li><li><para><c>performance-other</c>: My instance is experiencing performance problems.</para></li><li><para><c>other</c>: [explain using the description parameter]</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

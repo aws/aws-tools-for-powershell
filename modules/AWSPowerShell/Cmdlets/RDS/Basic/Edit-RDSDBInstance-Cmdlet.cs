@@ -274,7 +274,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A list of DB security groups to authorize on this DB instance. Changing this setting
-        /// doesn't result in an outage and the change is asynchronously applied as soon as possible.</para><para>This setting doesn't apply to RDS Custom DB instances.</para><para>Constraints:</para><ul><li><para>If supplied, must match existing DB security groups.</para></li></ul>
+        /// doesn't result in an outage and the change is asynchronously applied as soon as possible.</para><para>This setting doesn't apply to RDS Custom DB instances.</para><para>Constraints:</para><ul><li><para>If supplied, must match existing DB security groups.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -335,7 +339,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CloudwatchLogsExportConfiguration_DisableLogType
         /// <summary>
         /// <para>
-        /// <para>The list of log types to disable.</para><para>The following values are valid for each DB engine:</para><ul><li><para>Aurora MySQL - <c>audit | error | general | slowquery</c></para></li><li><para>Aurora PostgreSQL - <c>postgresql</c></para></li><li><para>RDS for MySQL - <c>error | general | slowquery</c></para></li><li><para>RDS for PostgreSQL - <c>postgresql | upgrade</c></para></li></ul>
+        /// <para>The list of log types to disable.</para><para>The following values are valid for each DB engine:</para><ul><li><para>Aurora MySQL - <c>audit | error | general | slowquery</c></para></li><li><para>Aurora PostgreSQL - <c>postgresql</c></para></li><li><para>RDS for MySQL - <c>error | general | slowquery</c></para></li><li><para>RDS for PostgreSQL - <c>postgresql | upgrade</c></para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -372,7 +380,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.</para><para>Constraints:</para><ul><li><para>Two IP addresses must be provided. If there isn't a secondary domain controller, use
-        /// the IP address of the primary domain controller for both entries in the list.</para></li></ul><para>Example: <c>123.124.125.126,234.235.236.237</c></para>
+        /// the IP address of the primary domain controller for both entries in the list.</para></li></ul><para>Example: <c>123.124.125.126,234.235.236.237</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -443,7 +455,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CloudwatchLogsExportConfiguration_EnableLogType
         /// <summary>
         /// <para>
-        /// <para>The list of log types to enable.</para><para>The following values are valid for each DB engine:</para><ul><li><para>Aurora MySQL - <c>audit | error | general | slowquery</c></para></li><li><para>Aurora PostgreSQL - <c>postgresql</c></para></li><li><para>RDS for MySQL - <c>error | general | slowquery</c></para></li><li><para>RDS for PostgreSQL - <c>postgresql | upgrade</c></para></li></ul>
+        /// <para>The list of log types to enable.</para><para>The following values are valid for each DB engine:</para><ul><li><para>Aurora MySQL - <c>audit | error | general | slowquery</c></para></li><li><para>Aurora PostgreSQL - <c>postgresql</c></para></li><li><para>RDS for MySQL - <c>error | general | slowquery</c></para></li><li><para>RDS for PostgreSQL - <c>postgresql | upgrade</c></para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -781,7 +797,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The number of CPU cores and the number of threads per core for the DB instance class
-        /// of the DB instance.</para><para>This setting doesn't apply to RDS Custom DB instances.</para>
+        /// of the DB instance.</para><para>This setting doesn't apply to RDS Custom DB instances.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -938,7 +958,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A list of Amazon EC2 VPC security groups to associate with this DB instance. This
         /// change is asynchronously applied as soon as possible.</para><para>This setting doesn't apply to the following DB instances:</para><ul><li><para>Amazon Aurora (The associated list of EC2 VPC security groups is managed by the DB
-        /// cluster. For more information, see <c>ModifyDBCluster</c>.)</para></li><li><para>RDS Custom</para></li></ul><para>Constraints:</para><ul><li><para>If supplied, must match existing VPC security group IDs.</para></li></ul>
+        /// cluster. For more information, see <c>ModifyDBCluster</c>.)</para></li><li><para>RDS Custom</para></li></ul><para>Constraints:</para><ul><li><para>If supplied, must match existing VPC security group IDs.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

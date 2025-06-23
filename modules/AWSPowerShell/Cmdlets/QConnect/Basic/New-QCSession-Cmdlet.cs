@@ -51,7 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// <summary>
         /// <para>
         /// <para>The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that
-        /// should be used by Amazon Q in Connect for this Session.</para>
+        /// should be used by Amazon Q in Connect for this Session.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -61,7 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter TagFilter_AndCondition
         /// <summary>
         /// <para>
-        /// <para>A list of conditions which would be applied together with an <c>AND</c> condition.</para>
+        /// <para>A list of conditions which would be applied together with an <c>AND</c> condition.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,7 +136,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter TagFilter_OrCondition
         /// <summary>
         /// <para>
-        /// <para>A list of conditions which would be applied together with an <c>OR</c> condition.</para>
+        /// <para>A list of conditions which would be applied together with an <c>OR</c> condition.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +151,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags used to organize, track, or control access for this resource.</para>
+        /// <para>The tags used to organize, track, or control access for this resource.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

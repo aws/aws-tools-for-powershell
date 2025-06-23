@@ -59,7 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter ExternalFiltering_AuthorizedTarget
         /// <summary>
         /// <para>
-        /// <para>List of third-party application <c>ARNs</c> integrated with Lake Formation.</para>
+        /// <para>List of third-party application <c>ARNs</c> integrated with Lake Formation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// unit ARNs that are allowed to access to access data managed by Lake Formation. </para><para>If the <c>ShareRecipients</c> list includes valid values, then the resource share
         /// is updated with the principals you want to have access to the resources.</para><para>If the <c>ShareRecipients</c> value is null, both the list of share recipients and
         /// the resource share remain unchanged.</para><para>If the <c>ShareRecipients</c> value is an empty list, then the existing share recipients
-        /// list will be cleared, and the resource share will be deleted.</para>
+        /// list will be cleared, and the resource share will be deleted.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

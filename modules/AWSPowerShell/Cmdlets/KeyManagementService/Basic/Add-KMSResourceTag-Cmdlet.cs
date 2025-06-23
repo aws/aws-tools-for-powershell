@@ -105,7 +105,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// be an empty (null) string. </para><important><para>Do not include confidential or sensitive information in this field. This field may
         /// be displayed in plaintext in CloudTrail logs and other output.</para></important><para>You cannot have more than one tag on a KMS key with the same tag key. If you specify
         /// an existing tag key with a different tag value, KMS replaces the current tag value
-        /// with the specified one.</para>
+        /// with the specified one.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

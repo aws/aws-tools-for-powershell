@@ -151,7 +151,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter CloudwatchLogsExportConfiguration_DisableLogType
         /// <summary>
         /// <para>
-        /// <para>The list of log types to disable.</para>
+        /// <para>The list of log types to disable.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,7 +177,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter CloudwatchLogsExportConfiguration_EnableLogType
         /// <summary>
         /// <para>
-        /// <para>The list of log types to enable.</para>
+        /// <para>The list of log types to enable.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -299,7 +307,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of VPC security groups that the DB cluster will belong to.</para>
+        /// <para>A list of VPC security groups that the DB cluster will belong to.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

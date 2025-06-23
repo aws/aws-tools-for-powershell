@@ -62,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Filter tasks using the <c>task-state</c> filter and one of the following values: <c>active</c>,
-        /// <c>completed</c>, <c>deleting</c>, or <c>deleted</c>.</para>
+        /// <c>completed</c>, <c>deleting</c>, or <c>deleted</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ImportTaskId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the import image tasks.</para>
+        /// <para>The IDs of the import image tasks.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -69,7 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <para>
         /// <para> A list of AWS account IDs. When specified, the response includes engagements created
         /// by these accounts. This filter is useful for finding engagements created by specific
-        /// team members. </para>
+        /// team members. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter EngagementIdentifier
         /// <summary>
         /// <para>
-        /// <para>An array of strings representing engagement identifiers to retrieve.</para>
+        /// <para>An array of strings representing engagement identifiers to retrieve.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <summary>
         /// <para>
         /// <para>An array of strings representing AWS Account IDs. Use this to exclude engagements
-        /// created by specific users. </para>
+        /// created by specific users. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

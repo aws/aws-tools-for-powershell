@@ -62,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <c>id</c>, <c>lastRecordId</c>, <c>idempotencyToken</c>, <c>name</c>, <c>physicalId</c>,
         /// <c>productId</c>, <c>provisioningArtifactId</c>, <c>type</c>, <c>status</c>, <c>tags</c>,
         /// <c>userArn</c>, <c>userArnSession</c>, <c>lastProvisioningRecordId</c>, <c>lastSuccessfulProvisioningRecordId</c>,
-        /// <c>productName</c>, and <c>provisioningArtifactName</c>.</para><para>Example: <c>"SearchQuery":["status:AVAILABLE"]</c></para>
+        /// <c>productName</c>, and <c>provisioningArtifactName</c>.</para><para>Example: <c>"SearchQuery":["status:AVAILABLE"]</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -104,7 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>One or more Availability Zones for the group.</para>
+        /// <para>One or more Availability Zones for the group.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,7 +147,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter CapacityReservationTarget_CapacityReservationId
         /// <summary>
         /// <para>
-        /// <para> The Capacity Reservation IDs to launch instances into. </para>
+        /// <para> The Capacity Reservation IDs to launch instances into. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,7 +179,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter CapacityReservationTarget_CapacityReservationResourceGroupArn
         /// <summary>
         /// <para>
-        /// <para> The resource group ARNs of the Capacity Reservation to launch instances into. </para>
+        /// <para> The resource group ARNs of the Capacity Reservation to launch instances into. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -473,7 +485,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// termination policies for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling
         /// User Guide</i>.</para><para>Valid values: <c>Default</c> | <c>AllocationStrategy</c> | <c>ClosestToNextInstanceHour</c>
         /// | <c>NewestInstance</c> | <c>OldestInstance</c> | <c>OldestLaunchConfiguration</c>
-        /// | <c>OldestLaunchTemplate</c> | <c>arn:aws:lambda:region:account-id:function:my-function:my-alias</c></para>
+        /// | <c>OldestLaunchTemplate</c> | <c>arn:aws:lambda:region:account-id:function:my-function:my-alias</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

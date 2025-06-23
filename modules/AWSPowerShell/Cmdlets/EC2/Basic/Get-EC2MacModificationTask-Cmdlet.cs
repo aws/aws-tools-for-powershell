@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? DryRun { get; set; }
         #endregion
         
@@ -64,7 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Specifies one or more filters for the request:</para><ul><li><para><c>instance-id</c> - The ID of the instance for which the task was created.</para></li><li><para><c>task-state</c> - The state of the task (<c>successful</c> | <c>failed</c> | <c>in-progress</c>
         /// | <c>pending</c>).</para></li><li><para><c>mac-system-integrity-protection-configuration.sip-status</c> - The overall SIP
-        /// state requested in the task (<c>enabled</c> | <c>disabled</c>).</para></li><li><para><c>start-time</c> - The date and time the task was created.</para></li><li><para><c>task-type</c> - The type of task (<c>sip-modification</c> | <c>volume-ownership-delegation</c>).</para></li></ul>
+        /// state requested in the task (<c>enabled</c> | <c>disabled</c>).</para></li><li><para><c>start-time</c> - The date and time the task was created.</para></li><li><para><c>task-type</c> - The type of task (<c>sip-modification</c> | <c>volume-ownership-delegation</c>).</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MacModificationTaskId
         /// <summary>
         /// <para>
-        /// <para>The ID of task.</para>
+        /// <para>The ID of task.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

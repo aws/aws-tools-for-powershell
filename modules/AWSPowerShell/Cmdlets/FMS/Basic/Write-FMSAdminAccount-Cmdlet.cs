@@ -62,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// administrator can apply policies to all members of the organization except for the
         /// accounts in this list. If <c>ExcludeSpecifiedAccounts</c> is set to <c>false</c>,
         /// then the Firewall Manager administrator can only apply policies to the accounts in
-        /// this list.</para>
+        /// this list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,7 +190,11 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// then the Firewall Manager administrator can apply policies to all OUs in the organization
         /// except for the OUs in this list. If <c>OrganizationalUnitScope$ExcludeSpecifiedOrganizationalUnits</c>
         /// is set to <c>false</c>, then the Firewall Manager administrator can only apply policies
-        /// to the OUs in this list.</para>
+        /// to the OUs in this list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,7 +205,11 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter PolicyTypeScope_PolicyType
         /// <summary>
         /// <para>
-        /// <para>The list of policy types that the specified Firewall Manager administrator can manage.</para>
+        /// <para>The list of policy types that the specified Firewall Manager administrator can manage.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -209,7 +221,11 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services Regions that the specified Firewall Manager administrator
-        /// can perform actions in.</para>
+        /// can perform actions in.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

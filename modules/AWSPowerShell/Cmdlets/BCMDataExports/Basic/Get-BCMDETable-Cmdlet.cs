@@ -68,7 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.BCMDE
         /// <para>TableProperties are additional configurations you can provide to change the data and
         /// schema of a table. Each table can have different TableProperties. Tables are not required
         /// to have any TableProperties. Each table property has a default value that it assumes
-        /// if not specified.</para>
+        /// if not specified.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

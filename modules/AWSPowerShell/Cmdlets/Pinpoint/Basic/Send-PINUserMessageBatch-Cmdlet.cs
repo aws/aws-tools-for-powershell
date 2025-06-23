@@ -363,7 +363,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <para>A map of custom attribute-value pairs. For a push notification, Amazon Pinpoint adds
         /// these attributes to the data.pinpoint object in the body of the notification payload.
         /// Amazon Pinpoint also provides these attributes in the events that it generates for
-        /// users-messages deliveries.</para>
+        /// users-messages deliveries.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -375,7 +379,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <para>
         /// <para>The JSON data payload to use for the push notification, if the notification is a silent
         /// push notification. This payload is added to the data.pinpoint.jsonBody object of the
-        /// notification.</para>
+        /// notification.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -387,7 +395,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The JSON payload to use for a silent push notification. This payload is added to the
-        /// data.pinpoint.jsonBody object of the notification.</para>
+        /// data.pinpoint.jsonBody object of the notification.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -400,7 +412,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <para>
         /// <para>The JSON data payload to use for the push notification, if the notification is a silent
         /// push notification. This payload is added to the data.pinpoint.jsonBody object of the
-        /// notification.</para>
+        /// notification.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -413,7 +429,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <para>
         /// <para>The JSON data payload to use for the default push notification, if the notification
         /// is a silent push notification. This payload is added to the data.pinpoint.jsonBody
-        /// object of the notification.</para>
+        /// object of the notification.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -473,7 +493,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <para>
         /// <para>The JSON data payload to use for the push notification, if the notification is a silent
         /// push notification. This payload is added to the data.pinpoint.jsonBody object of the
-        /// notification.</para>
+        /// notification.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -533,7 +557,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter SimpleEmail_Header
         /// <summary>
         /// <para>
-        /// <para>The list of MessageHeaders for the email. You can have up to 15 Headers.</para>
+        /// <para>The list of MessageHeaders for the email. You can have up to 15 Headers.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -920,7 +948,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The reply-to email address(es) for the email message. If a recipient replies to the
-        /// email, each reply-to address receives the reply.</para>
+        /// email, each reply-to address receives the reply.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1125,7 +1157,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The default message variables to use in the notification message. You can override
-        /// the default variables with individual address variables.</para>
+        /// the default variables with individual address variables.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1137,7 +1173,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The default message variables to use in the notification message. You can override
-        /// these default variables with individual address variables.</para>
+        /// these default variables with individual address variables.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1149,7 +1189,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The default message variables to use in the notification message. You can override
-        /// the default variables with individual address variables.</para>
+        /// the default variables with individual address variables.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1161,7 +1205,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The default message variables to use in the message. You can override these default
-        /// variables with individual address variables.</para>
+        /// variables with individual address variables.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1173,7 +1221,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The default message variables to use in the notification message. You can override
-        /// the default variables with individual address variables.</para>
+        /// the default variables with individual address variables.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1185,7 +1237,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The default message variables to use in the email message. You can override the default
-        /// variables with individual address variables.</para>
+        /// variables with individual address variables.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1197,7 +1253,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The default message variables to use in the notification message. You can override
-        /// the default variables with individual address variables.</para>
+        /// the default variables with individual address variables.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1209,7 +1269,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The message variables to use in the SMS message. You can override the default variables
-        /// with individual address variables.</para>
+        /// with individual address variables.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1221,7 +1285,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The default message variables to use in the voice message. You can override the default
-        /// variables with individual address variables.</para>
+        /// variables with individual address variables.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1428,7 +1496,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <para>A map that associates user IDs with <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration">EndpointSendConfiguration</a>
         /// objects. You can use an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration">EndpointSendConfiguration</a>
         /// object to tailor the message for a user by specifying settings such as content overrides
-        /// and message variables.</para>
+        /// and message variables.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

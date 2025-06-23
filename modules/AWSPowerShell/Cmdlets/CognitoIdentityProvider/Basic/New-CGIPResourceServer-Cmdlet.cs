@@ -98,7 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>A list of custom scopes. Each scope is a key-value map with the keys <c>ScopeName</c>
         /// and <c>ScopeDescription</c>. The name of a custom scope is a combination of <c>ScopeName</c>
-        /// and the resource server <c>Name</c> in this request, for example <c>MyResourceServerName/MyScopeName</c>.</para>
+        /// and the resource server <c>Name</c> in this request, for example <c>MyResourceServerName/MyScopeName</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

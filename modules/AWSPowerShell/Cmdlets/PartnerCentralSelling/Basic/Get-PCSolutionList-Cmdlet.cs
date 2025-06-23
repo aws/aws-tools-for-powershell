@@ -73,7 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <para>
         /// <para>Filters the solutions based on the category to which they belong. This allows partners
         /// to search for solutions within specific categories, such as <c>Software</c>, <c>Consulting</c>,
-        /// or <c>Managed Services</c>.</para>
+        /// or <c>Managed Services</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <summary>
         /// <para>
         /// <para>Filters the solutions based on their unique identifier. Use this filter to retrieve
-        /// specific solutions by providing the solution's identifier for accurate results.</para>
+        /// specific solutions by providing the solution's identifier for accurate results.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -118,7 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <summary>
         /// <para>
         /// <para>Filters solutions based on their status. This filter helps partners manage their solution
-        /// portfolios effectively.</para>
+        /// portfolios effectively.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

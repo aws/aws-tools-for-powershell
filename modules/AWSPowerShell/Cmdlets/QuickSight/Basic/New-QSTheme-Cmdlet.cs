@@ -113,7 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DataColorPalette_Color
         /// <summary>
         /// <para>
-        /// <para>The hexadecimal codes for the colors.</para>
+        /// <para>The hexadecimal codes for the colors.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,7 +185,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Typography_FontFamily
         /// <summary>
         /// <para>
-        /// <para>Determines the list of font families.</para>
+        /// <para>Determines the list of font families.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -215,7 +223,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DataColorPalette_MinMaxGradient
         /// <summary>
         /// <para>
-        /// <para>The minimum and maximum hexadecimal codes that describe a color gradient. </para>
+        /// <para>The minimum and maximum hexadecimal codes that describe a color gradient. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -243,7 +255,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Permission
         /// <summary>
         /// <para>
-        /// <para>A valid grouping of resource permissions to apply to the new theme. </para>
+        /// <para>A valid grouping of resource permissions to apply to the new theme. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -359,7 +375,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>A map of the key-value pairs for the resource tag or tags that you want to add to
-        /// the resource.</para>
+        /// the resource.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

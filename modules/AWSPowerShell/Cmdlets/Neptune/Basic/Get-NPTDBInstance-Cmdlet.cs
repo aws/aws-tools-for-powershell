@@ -68,7 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// Names (ARNs). The results list will only include information about the DB instances
         /// associated with the DB clusters identified by these ARNs.</para></li><li><para><c>engine</c> - Accepts an engine name (such as <c>neptune</c>), and restricts the
         /// results list to DB instances created by that engine.</para></li></ul><para>For example, to invoke this API from the Amazon CLI and filter so that only Neptune
-        /// DB instances are returned, you could use the following command:</para>
+        /// DB instances are returned, you could use the following command:</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

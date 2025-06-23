@@ -56,7 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para> A list of locations to allow game session placement in, in the form of Amazon Web
-        /// Services Region codes such as <c>us-west-2</c>. </para>
+        /// Services Region codes such as <c>us-west-2</c>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +84,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A list of fleets and/or fleet aliases that can be used to fulfill game session placement
         /// requests in the queue. Destinations are identified by either a fleet ARN or a fleet
         /// alias ARN, and are listed in order of placement preference. When updating this list,
-        /// provide a complete list of destinations.</para>
+        /// provide a complete list of destinations.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,6 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// This property can be used to determine if the related property
         /// was returned by a service response or if the related property
         /// should be sent to the service during a service call.
+        /// <para>If this property is set to false the property <seealso cref="P:Amazon.GameLift.Model.UpdateGameSessionQueueRequest.Destinations" /> will be reset to null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,6 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// This property can be used to determine if the related property
         /// was returned by a service response or if the related property
         /// should be sent to the service during a service call.
+        /// <para>If this property is set to false the property <seealso cref="P:Amazon.GameLift.Model.UpdateGameSessionQueueRequest.PlayerLatencyPolicies" /> will be reset to null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +133,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// property includes <c>LOCATION</c>. Locations can include Amazon Web Services Region
         /// codes (such as <c>us-west-2</c>), local zones, and custom locations (for Anywhere
         /// fleets). Each location must be listed only once. For details, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">Amazon
-        /// GameLift service locations.</a></para>
+        /// GameLift service locations.</a></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,7 +181,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// sessions placement requests. Use multiple policies to gradually relax the cap over
         /// time if Amazon GameLift can't make a placement. Policies are evaluated in order starting
         /// with the lowest maximum latency value. When updating policies, provide a complete
-        /// collection of policies.</para>
+        /// collection of policies.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,7 +203,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// hosting costs. Cost is evaluated based on the destination's location, instance type,
         /// and fleet type (Spot or On-Demand).</para></li><li><para><c>DESTINATION</c> -- Amazon GameLift prioritizes based on the list order of destinations
         /// in the queue configuration.</para></li><li><para><c>LOCATION</c> -- Amazon GameLift prioritizes based on the provided order of locations,
-        /// as defined in <c>LocationOrder</c>. </para></li></ul>
+        /// as defined in <c>LocationOrder</c>. </para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

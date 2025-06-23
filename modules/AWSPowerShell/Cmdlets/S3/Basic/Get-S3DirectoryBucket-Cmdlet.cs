@@ -70,10 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ContinuationToken
         /// <summary>
         /// <para>
-        /// <para><code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued
-        /// on this bucket with a token. <code>ContinuationToken</code> is obfuscated and is not
-        /// a real key. You can use this <code>ContinuationToken</code> for pagination of the
-        /// list results. </para>
+        /// <para><c>ContinuationToken</c> indicates to Amazon S3 that the list is being continued
+        /// on buckets in this account with a token. <c>ContinuationToken</c> is obfuscated and
+        /// is not a real bucket name. You can use this <c>ContinuationToken</c> for the pagination
+        /// of the list results. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

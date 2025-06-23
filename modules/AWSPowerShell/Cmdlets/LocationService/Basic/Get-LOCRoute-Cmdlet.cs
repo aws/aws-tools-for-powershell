@@ -161,7 +161,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// Geodetic System (WGS 84)</a> format: <c>[longitude, latitude]</c>.</para><ul><li><para>For example, <c>[-123.115, 49.285]</c></para></li></ul><note><para>If you specify a departure that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">moves
         /// the position to the nearest road</a>. If Esri is the provider for your route calculator,
         /// specifying a route that is longer than 400 km returns a <c>400 RoutesValidationException</c>
-        /// error.</para></note><para>Valid Values: <c>[-180 to 180,-90 to 90]</c></para>
+        /// error.</para></note><para>Valid Values: <c>[-180 to 180,-90 to 90]</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -193,7 +197,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>
         /// <para>The finish position for the route. Defined in <a href="https://earth-info.nga.mil/index.php?dir=wgs84&amp;action=wgs84">World
         /// Geodetic System (WGS 84)</a> format: <c>[longitude, latitude]</c>.</para><ul><li><para> For example, <c>[-122.339, 47.615]</c></para></li></ul><note><para>If you specify a destination that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">moves
-        /// the position to the nearest road</a>. </para></note><para>Valid Values: <c>[-180 to 180,-90 to 90]</c></para>
+        /// the position to the nearest road</a>. </para></note><para>Valid Values: <c>[-180 to 180,-90 to 90]</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -334,7 +342,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// follows the order that the waypoint positions are given <c>[[-122.757, 49.0021],[-122.349,
         /// 47.620]]</c></para></li></ul><note><para>If you specify a waypoint position that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">moves
         /// the position to the nearest road</a>. </para><para>Specifying more than 23 waypoints returns a <c>400 ValidationException</c> error.</para><para>If Esri is the provider for your route calculator, specifying a route that is longer
-        /// than 400 km returns a <c>400 RoutesValidationException</c> error.</para></note><para>Valid Values: <c>[-180 to 180,-90 to 90]</c></para>
+        /// than 400 km returns a <c>400 RoutesValidationException</c> error.</para></note><para>Valid Values: <c>[-180 to 180,-90 to 90]</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

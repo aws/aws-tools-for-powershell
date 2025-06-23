@@ -124,7 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>An array of requests that defines additional treatments for the campaign, in addition
-        /// to the default treatment for the campaign.</para>
+        /// to the default treatment for the campaign.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,7 +158,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>One or more custom attributes that your application reports to Amazon Pinpoint. You
-        /// can use these attributes as selection criteria when you create an event filter.</para>
+        /// can use these attributes as selection criteria when you create an event filter.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -270,7 +278,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter InAppMessage_Content
         /// <summary>
         /// <para>
-        /// <para>In-app message content.</para>
+        /// <para>In-app message content.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -281,7 +293,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter InAppMessage_CustomConfig
         /// <summary>
         /// <para>
-        /// <para>Custom config to be sent to client.</para>
+        /// <para>Custom config to be sent to client.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -372,7 +388,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <para>
         /// <para>The types of endpoints to send the campaign or treatment to. Each valid value maps
         /// to a type of channel that you can associate with an endpoint by using the ChannelType
-        /// property of an endpoint.</para>
+        /// property of an endpoint.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -447,7 +467,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The list of <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-campaigns-campaign-id.html#apps-application-id-campaigns-campaign-id-model-messageheader">MessageHeaders</a>
-        /// for the email. You can have up to 15 MessageHeaders for each email.</para>
+        /// for the email. You can have up to 15 MessageHeaders for each email.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -854,7 +878,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>One or more custom metrics that your application reports to Amazon Pinpoint. You can
-        /// use these metrics as selection criteria when you create an event filter.</para>
+        /// use these metrics as selection criteria when you create an event filter.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1180,7 +1208,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// in the <i>API Reference for Amazon Pinpoint</i>, <a href="https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html">resourcegroupstaggingapi</a>
         /// commands in the <i>AWS Command Line Interface Documentation</i> or <a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html">resourcegroupstaggingapi</a>
         /// in the <i>AWS SDK</i>.</para></note><para>(Deprecated) A string-to-string map of key-value pairs that defines the tags to associate
-        /// with the campaign. Each tag consists of a required tag key and an associated tag value.</para>
+        /// with the campaign. Each tag consists of a required tag key and an associated tag value.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1460,7 +1492,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <para>
         /// <para>The criteria values to use for the segment dimension. Depending on the value of the
         /// DimensionType property, endpoints are included or excluded from the segment if their
-        /// values match the criteria values.</para>
+        /// values match the criteria values.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

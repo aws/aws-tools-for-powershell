@@ -92,7 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>Information on each player to be matched. This information must include a player ID,
         /// and may contain player attributes and latency data to be used in the matchmaking process.
         /// After a successful match, <c>Player</c> objects contain the name of the team the player
-        /// is assigned to.</para><para>You can include up to 10 <c>Players</c> in a <c>StartMatchmaking</c> request.</para>
+        /// is assigned to.</para><para>You can include up to 10 <c>Players</c> in a <c>StartMatchmaking</c> request.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

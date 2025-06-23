@@ -61,7 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// L R2</c> AND an attribute name <c>Vehicle.Color</c> that contains a value of "<c>Blue</c>".
         /// A request must contain unique values for the <c>attributeNames</c> filter and the
         /// matching number of <c>attributeValues</c> filters to return the subset of vehicles
-        /// that match the attributes filter condition.</para>
+        /// that match the attributes filter condition.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <c>Vehicle.Body.Engine.Type</c> that contains a value of <c>1.3 L R2</c> AND an attribute
         /// name <c>Vehicle.Color</c> that contains a value of "<c>Blue</c>". A request must contain
         /// unique values for the <c>attributeNames</c> filter and the matching number of <c>attributeValues</c>
-        /// filter to return the subset of vehicles that match the attributes filter condition.</para>
+        /// filter to return the subset of vehicles that match the attributes filter condition.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

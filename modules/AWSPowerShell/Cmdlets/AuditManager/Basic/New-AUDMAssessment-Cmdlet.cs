@@ -49,7 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         /// <summary>
         /// <para>
         /// <para> The Amazon Web Services accounts that are included in the scope of the assessment.
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter Role
         /// <summary>
         /// <para>
-        /// <para> The list of roles for the assessment. </para>
+        /// <para> The list of roles for the assessment. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -143,7 +151,11 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> The tags that are associated with the assessment. </para>
+        /// <para> The tags that are associated with the assessment. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,7 +169,11 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         /// <para> The Amazon Web Services services that are included in the scope of the assessment.
         /// </para><important><para>This API parameter is no longer supported. If you use this parameter to specify one
         /// or more Amazon Web Services services, Audit Manager ignores this input. Instead, the
-        /// value for <c>awsServices</c> will show as empty.</para></important>
+        /// value for <c>awsServices</c> will show as empty.</para></important><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

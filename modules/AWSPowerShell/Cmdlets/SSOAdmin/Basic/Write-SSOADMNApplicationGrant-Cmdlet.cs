@@ -107,7 +107,11 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         /// <summary>
         /// <para>
         /// <para>A list of allowed token issuers trusted by the Identity Center instances for this
-        /// application.</para><note><para><c>AuthorizedTokenIssuers</c> is required when the grant type is <c>JwtBearerGrant</c>.</para></note>
+        /// application.</para><note><para><c>AuthorizedTokenIssuers</c> is required when the grant type is <c>JwtBearerGrant</c>.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +140,11 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         /// <summary>
         /// <para>
         /// <para>A list of URIs that are valid locations to redirect a user's browser after the user
-        /// is authorized.</para><note><para>RedirectUris is required when the grant type is <c>authorization_code</c>.</para></note>
+        /// is authorized.</para><note><para>RedirectUris is required when the grant type is <c>authorization_code</c>.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

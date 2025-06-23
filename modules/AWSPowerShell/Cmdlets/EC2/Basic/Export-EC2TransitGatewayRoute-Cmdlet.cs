@@ -72,7 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>One or more filters. The possible values are:</para><ul><li><para><c>attachment.transit-gateway-attachment-id</c> - The id of the transit gateway attachment.</para></li><li><para><c>attachment.resource-id</c> - The resource id of the transit gateway attachment.</para></li><li><para><c>route-search.exact-match</c> - The exact match of the specified filter.</para></li><li><para><c>route-search.longest-prefix-match</c> - The longest prefix that matches the route.</para></li><li><para><c>route-search.subnet-of-match</c> - The routes with a subnet that match the specified
         /// CIDR filter.</para></li><li><para><c>route-search.supernet-of-match</c> - The routes with a CIDR that encompass the
         /// CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route
-        /// table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.</para></li><li><para><c>state</c> - The state of the route (<c>active</c> | <c>blackhole</c>).</para></li><li><para><c>transit-gateway-route-destination-cidr-block</c> - The CIDR range.</para></li><li><para><c>type</c> - The type of route (<c>propagated</c> | <c>static</c>).</para></li></ul>
+        /// table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.</para></li><li><para><c>state</c> - The state of the route (<c>active</c> | <c>blackhole</c>).</para></li><li><para><c>transit-gateway-route-destination-cidr-block</c> - The CIDR range.</para></li><li><para><c>type</c> - The type of route (<c>propagated</c> | <c>static</c>).</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

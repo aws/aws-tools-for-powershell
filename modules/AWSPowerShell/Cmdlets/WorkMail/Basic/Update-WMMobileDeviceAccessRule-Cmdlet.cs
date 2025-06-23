@@ -58,7 +58,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter DeviceModel
         /// <summary>
         /// <para>
-        /// <para>Device models that the updated rule will match.</para>
+        /// <para>Device models that the updated rule will match.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter DeviceOperatingSystem
         /// <summary>
         /// <para>
-        /// <para>Device operating systems that the updated rule will match.</para>
+        /// <para>Device operating systems that the updated rule will match.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter DeviceType
         /// <summary>
         /// <para>
-        /// <para>Device types that the updated rule will match.</para>
+        /// <para>Device types that the updated rule will match.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter DeviceUserAgent
         /// <summary>
         /// <para>
-        /// <para>User agents that the updated rule will match.</para>
+        /// <para>User agents that the updated rule will match.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,7 +170,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
         /// <summary>
         /// <para>
         /// <para>Device models that the updated rule <b>will not</b> match. All other device models
-        /// will match.</para>
+        /// will match.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,7 +186,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
         /// <summary>
         /// <para>
         /// <para>Device operating systems that the updated rule <b>will not</b> match. All other device
-        /// operating systems will match.</para>
+        /// operating systems will match.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,7 +202,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
         /// <summary>
         /// <para>
         /// <para>Device types that the updated rule <b>will not</b> match. All other device types will
-        /// match.</para>
+        /// match.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,7 +218,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
         /// <summary>
         /// <para>
         /// <para>User agents that the updated rule <b>will not</b> match. All other user agents will
-        /// match.</para>
+        /// match.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

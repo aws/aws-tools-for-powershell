@@ -22,9 +22,11 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.AIOps;
 using Amazon.AIOps.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.AIOps
 {
     /// <summary>
@@ -72,6 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ChatbotNotificationChannel
         /// <summary>
@@ -82,7 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
         /// of one or more Amazon Q in chat applications configurations that you want to associate
         /// with that topic. For more information about these configuration ARNs, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html">Getting
         /// started with Amazon Q in chat applications</a> and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies">Resource
-        /// type defined by Amazon Web Services Chatbot</a>.</para>
+        /// type defined by Amazon Web Services Chatbot</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,7 +179,11 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
         /// deployed these features, Amazon Q will attempt to identify possible relationships.
         /// Tag boundaries can be used to narrow the resources that will be discovered by Amazon
         /// Q in these cases.</para><para>You don't need to enter tags created by myApplications or CloudFormation, because
-        /// Amazon Q can automatically detect those tags.</para>
+        /// Amazon Q can automatically detect those tags.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,7 +199,11 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
         /// you create the investigation group, you must have the <c>cloudwatch:TagResource</c>
         /// permission.</para><para>Tags can help you organize and categorize your resources. You can also use them to
         /// scope user permissions by granting a user permission to access or change only resources
-        /// with certain tag values.</para>
+        /// with certain tag values.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -229,9 +244,13 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = string.Empty;
@@ -411,13 +430,7 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AI Ops", "CreateInvestigationGroup");
             try
             {
-                #if DESKTOP
-                return client.CreateInvestigationGroup(request);
-                #elif CORECLR
-                return client.CreateInvestigationGroupAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.CreateInvestigationGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

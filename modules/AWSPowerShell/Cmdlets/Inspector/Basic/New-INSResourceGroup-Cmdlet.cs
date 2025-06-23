@@ -51,7 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter ResourceGroupTag
         /// <summary>
         /// <para>
-        /// <para>A collection of keys and an array of possible values, '[{"key":"key1","values":["Value1","Value2"]},{"key":"Key2","values":["Value3"]}]'.</para><para>For example,'[{"key":"Name","values":["TestEC2Instance"]}]'.</para>
+        /// <para>A collection of keys and an array of possible values, '[{"key":"key1","values":["Value1","Value2"]},{"key":"Key2","values":["Value3"]}]'.</para><para>For example,'[{"key":"Name","values":["TestEC2Instance"]}]'.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

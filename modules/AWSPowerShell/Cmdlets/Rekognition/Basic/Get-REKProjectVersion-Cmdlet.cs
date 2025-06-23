@@ -78,7 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// to 10 model or project version names to the list. If you don't specify a value, all
         /// project version descriptions are returned. A version name is part of a project version
         /// ARN. For example, <c>my-model.2020-01-21T09.10.15</c> is the version name in the following
-        /// ARN. <c>arn:aws:rekognition:us-east-1:123456789012:project/getting-started/version/<i>my-model.2020-01-21T09.10.15</i>/1234567890123</c>.</para>
+        /// ARN. <c>arn:aws:rekognition:us-east-1:123456789012:project/getting-started/version/<i>my-model.2020-01-21T09.10.15</i>/1234567890123</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

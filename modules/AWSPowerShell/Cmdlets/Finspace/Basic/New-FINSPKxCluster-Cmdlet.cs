@@ -88,7 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// <summary>
         /// <para>
         /// <para>The configurations for a read only cache storage associated with a cluster. This cache
-        /// will be stored as an FSx Lustre that reads from the S3 store. </para>
+        /// will be stored as an FSx Lustre that reads from the S3 store. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,7 +162,11 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         #region Parameter CommandLineArgument
         /// <summary>
         /// <para>
-        /// <para>Defines the key-value pairs to make them available inside the cluster.</para>
+        /// <para>Defines the key-value pairs to make them available inside the cluster.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,7 +188,11 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         #region Parameter Databases
         /// <summary>
         /// <para>
-        /// <para>A list of databases that will be available for querying.</para>
+        /// <para>A list of databases that will be available for querying.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -417,7 +429,11 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// <summary>
         /// <para>
         /// <para>The unique identifier of the VPC security group applied to the VPC endpoint ENI for
-        /// the cluster.</para>
+        /// the cluster.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -439,7 +455,11 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// <summary>
         /// <para>
         /// <para>The identifier of the subnet that the Privatelink VPC endpoint uses to connect to
-        /// the cluster.</para>
+        /// the cluster.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -450,7 +470,11 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of key-value pairs to label the cluster. You can add up to 50 tags to a cluster.</para>
+        /// <para>A list of key-value pairs to label the cluster. You can add up to 50 tags to a cluster.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -461,7 +485,11 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         #region Parameter TickerplantLogConfiguration_TickerplantLogVolume
         /// <summary>
         /// <para>
-        /// <para> The name of the volumes for tickerplant logs. </para>
+        /// <para> The name of the volumes for tickerplant logs. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

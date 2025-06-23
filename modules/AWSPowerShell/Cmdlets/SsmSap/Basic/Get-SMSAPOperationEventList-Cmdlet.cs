@@ -55,7 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         /// <summary>
         /// <para>
         /// <para>Optionally specify filters to narrow the returned operation event items.</para><para>Valid filter names include <c>status</c>, <c>resourceID</c>, and <c>resourceType</c>.
-        /// The valid operator for all three filters is <c>Equals</c>.</para>
+        /// The valid operator for all three filters is <c>Equals</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

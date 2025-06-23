@@ -62,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><c>local-address</c> - The local address.</para></li><li><para><c>local-bgp-asn</c> - The Border Gateway Protocol (BGP) Autonomous System Number
         /// (ASN) of the local gateway.</para></li><li><para><c>local-gateway-id</c> - The ID of the local gateway.</para></li><li><para><c>local-gateway-virtual-interface-id</c> - The ID of the virtual interface.</para></li><li><para><c>owner-id</c> - The ID of the Amazon Web Services account that owns the local gateway
-        /// virtual interface.</para></li><li><para><c>peer-address</c> - The peer address.</para></li><li><para><c>peer-bgp-asn</c> - The peer BGP ASN.</para></li><li><para><c>vlan</c> - The ID of the VLAN.</para></li></ul>
+        /// virtual interface.</para></li><li><para><c>peer-address</c> - The peer address.</para></li><li><para><c>peer-bgp-asn</c> - The peer BGP ASN.</para></li><li><para><c>vlan</c> - The ID of the VLAN.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LocalGatewayVirtualInterfaceId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the virtual interfaces.</para>
+        /// <para>The IDs of the virtual interfaces.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

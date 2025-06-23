@@ -66,7 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>The tags to add to the resource. You can add up to 50 tags at a time. The tag keys
-        /// can be no longer than 128 characters. The tag values can be no longer than 256 characters.</para>
+        /// can be no longer than 128 characters. The tag values can be no longer than 256 characters.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

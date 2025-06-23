@@ -51,7 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         /// <summary>
         /// <para>
         /// <para>One or more security groups used to control access from streaming instances to your
-        /// VPC.</para>
+        /// VPC.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +74,11 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         /// <summary>
         /// <para>
         /// <para>The subnets in which network interfaces are created to connect streaming instances
-        /// to your VPC. At least two of these subnets must be in different availability zones.</para>
+        /// to your VPC. At least two of these subnets must be in different availability zones.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,7 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to add to the network settings resource. A tag is a key-value pair.</para>
+        /// <para>The tags to add to the network settings resource. A tag is a key-value pair.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

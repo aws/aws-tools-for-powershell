@@ -50,7 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         /// <para>
         /// <para>A list of country codes that control geoblocking restriction. Allowed values are the
         /// officially assigned <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO
-        /// 3166-1 alpha-2</a> codes. Default: All countries (an empty array).</para>
+        /// 3166-1 alpha-2</a> codes. Default: All countries (an empty array).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         /// <para>
         /// <para>A list of origin sites that control CORS restriction. Allowed values are the same
         /// as valid values of the Origin header defined at <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin</a>.
-        /// Default: All origins (an empty array).</para>
+        /// Default: All origins (an empty array).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

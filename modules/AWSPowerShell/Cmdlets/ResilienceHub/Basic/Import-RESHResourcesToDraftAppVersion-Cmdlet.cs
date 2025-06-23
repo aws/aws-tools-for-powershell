@@ -71,7 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter EksSource
         /// <summary>
         /// <para>
-        /// <para>The input sources of the Amazon Elastic Kubernetes Service resources you need to import.</para>
+        /// <para>The input sources of the Amazon Elastic Kubernetes Service resources you need to import.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter SourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) for the resources.</para>
+        /// <para>The Amazon Resource Names (ARNs) for the resources.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter TerraformSource
         /// <summary>
         /// <para>
-        /// <para> A list of terraform file s3 URLs you need to import. </para>
+        /// <para> A list of terraform file s3 URLs you need to import. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

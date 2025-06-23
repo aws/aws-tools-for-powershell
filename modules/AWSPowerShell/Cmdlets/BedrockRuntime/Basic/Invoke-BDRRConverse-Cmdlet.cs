@@ -110,7 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         /// <c>additionalModelResponseFieldPaths</c>.</para><para><c>[ "/stop_sequence" ]</c></para><para>For information about the JSON Pointer syntax, see the <a href="https://datatracker.ietf.org/doc/html/rfc6901">Internet
         /// Engineering Task Force (IETF)</a> documentation.</para><para><c>Converse</c> and <c>ConverseStream</c> reject an empty JSON Pointer or incorrectly
         /// structured JSON Pointer with a <c>400</c> error code. if the JSON Pointer is valid,
-        /// but the requested field is not in the model response, it is ignored by <c>Converse</c>.</para>
+        /// but the requested field is not in the model response, it is ignored by <c>Converse</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,7 +193,11 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         #region Parameter Message
         /// <summary>
         /// <para>
-        /// <para>The messages that you want to send to the model.</para>
+        /// <para>The messages that you want to send to the model.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -241,7 +249,11 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         /// <para>
         /// <para>Contains a map of variables in a prompt from Prompt management to objects containing
         /// the values to fill in for them when running model invocation. This field is ignored
-        /// if you don't specify a prompt resource in the <c>modelId</c> field.</para>
+        /// if you don't specify a prompt resource in the <c>modelId</c> field.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -252,7 +264,11 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         #region Parameter RequestMetadata
         /// <summary>
         /// <para>
-        /// <para>Key-value pairs that you can use to filter invocation logs.</para>
+        /// <para>Key-value pairs that you can use to filter invocation logs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -263,7 +279,11 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         /// <summary>
         /// <para>
         /// <para>A list of stop sequences. A stop sequence is a sequence of characters that causes
-        /// the model to stop generating the response. </para>
+        /// the model to stop generating the response. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -275,7 +295,11 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         /// <summary>
         /// <para>
         /// <para>A prompt that provides instructions or context to the model about the task it should
-        /// perform, or the persona it should adopt during the conversation.</para>
+        /// perform, or the persona it should adopt during the conversation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -300,7 +324,11 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         #region Parameter ToolConfig_Tool
         /// <summary>
         /// <para>
-        /// <para>An array of tools that you want to pass to a model.</para>
+        /// <para>An array of tools that you want to pass to a model.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

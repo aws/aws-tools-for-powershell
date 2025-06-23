@@ -61,7 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more filters. The possible values are:</para><ul><li><para><c>state</c> - The state of the Connect peer (<c>pending</c> | <c>available</c> |
-        /// <c>deleting</c> | <c>deleted</c>).</para></li><li><para><c>transit-gateway-attachment-id</c> - The ID of the attachment.</para></li><li><para><c>transit-gateway-connect-peer-id</c> - The ID of the Connect peer.</para></li></ul>
+        /// <c>deleting</c> | <c>deleted</c>).</para></li><li><para><c>transit-gateway-attachment-id</c> - The ID of the attachment.</para></li><li><para><c>transit-gateway-connect-peer-id</c> - The ID of the Connect peer.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TransitGatewayConnectPeerId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the Connect peers.</para>
+        /// <para>The IDs of the Connect peers.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

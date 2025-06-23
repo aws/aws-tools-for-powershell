@@ -111,7 +111,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>A list of subnet IDs to associate with the Amazon EMR Studio. The list can include
         /// new subnet IDs, but must also include all of the subnet IDs previously associated
         /// with the Studio. The list order does not matter. A Studio can have a maximum of 5
-        /// subnets. The subnets must belong to the same VPC as the Studio. </para>
+        /// subnets. The subnets must belong to the same VPC as the Studio. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

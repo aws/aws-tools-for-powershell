@@ -70,7 +70,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         /// Both the key and its associated value are removed. </para><para>This parameter to the API requires a JSON text string argument. For information on
         /// how to format a JSON parameter for the various command line tool environments, see
         /// <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html#cli-using-param-json">Using
-        /// JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. </para>
+        /// JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

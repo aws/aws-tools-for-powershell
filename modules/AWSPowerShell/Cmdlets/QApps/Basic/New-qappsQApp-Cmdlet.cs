@@ -49,7 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.qapps
         #region Parameter AppDefinition_Card
         /// <summary>
         /// <para>
-        /// <para>The cards that make up the Q App definition.</para>
+        /// <para>The cards that make up the Q App definition.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -104,7 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.qapps
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Optional tags to associate with the new Q App.</para>
+        /// <para>Optional tags to associate with the new Q App.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

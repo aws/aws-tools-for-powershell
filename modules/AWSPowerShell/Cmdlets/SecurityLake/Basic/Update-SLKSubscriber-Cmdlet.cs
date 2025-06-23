@@ -73,7 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         /// <para>
         /// <para>The supported Amazon Web Services services from which logs and events are collected.
         /// For the list of supported Amazon Web Services services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon
-        /// Security Lake User Guide</a>.</para>
+        /// Security Lake User Guide</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

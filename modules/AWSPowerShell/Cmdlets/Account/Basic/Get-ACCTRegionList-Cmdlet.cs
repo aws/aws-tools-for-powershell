@@ -72,7 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         /// <para>
         /// <para>A list of Region statuses (Enabling, Enabled, Disabling, Disabled, Enabled_by_default)
         /// to use to filter the list of Regions for a given account. For example, passing in
-        /// a value of ENABLING will only return a list of Regions with a Region status of ENABLING.</para>
+        /// a value of ENABLING will only return a list of Regions with a Region status of ENABLING.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

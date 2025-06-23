@@ -113,7 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// Don't include an * at the end.</para><para>A <c>StartQuery</c> operation must include exactly one of the following parameters:
         /// <c>logGroupName</c>, <c>logGroupNames</c>, or <c>logGroupIdentifiers</c>. The exception
         /// is queries using the OpenSearch Service SQL query language, where you specify the
-        /// log group names inside the <c>querystring</c> instead of here. </para>
+        /// log group names inside the <c>querystring</c> instead of here. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,7 +144,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>The list of log groups to be queried. You can include up to 50 log groups.</para><note><para>A <c>StartQuery</c> operation must include exactly one of the following parameters:
         /// <c>logGroupName</c>, <c>logGroupNames</c>, or <c>logGroupIdentifiers</c>. The exception
         /// is queries using the OpenSearch Service SQL query language, where you specify the
-        /// log group names inside the <c>querystring</c> instead of here.</para></note>
+        /// log group names inside the <c>querystring</c> instead of here.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

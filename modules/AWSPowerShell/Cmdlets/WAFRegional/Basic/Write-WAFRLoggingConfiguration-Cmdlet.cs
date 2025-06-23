@@ -74,7 +74,11 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter LoggingConfiguration_LogDestinationConfig
         /// <summary>
         /// <para>
-        /// <para>An array of Amazon Kinesis Data Firehose ARNs.</para>
+        /// <para>An array of Amazon Kinesis Data Firehose ARNs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,7 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         /// <summary>
         /// <para>
         /// <para>The parts of the request that you want redacted from the logs. For example, if you
-        /// redact the cookie field, the cookie field in the firehose will be <c>xxx</c>. </para>
+        /// redact the cookie field, the cookie field in the firehose will be <c>xxx</c>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -111,7 +111,11 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// included in the configuration (passed an empty array) then no IP addresses are allowed
         /// to access the workspace. You create a prefix list using the Amazon VPC console.</para><para>Prefix list IDs have the format <c>pl-<i>1a2b3c4d</i></c>.</para><para>For more information about prefix lists, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html">Group
         /// CIDR blocks using managed prefix lists</a>in the <i>Amazon Virtual Private Cloud User
-        /// Guide</i>.</para>
+        /// Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,7 +151,11 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <summary>
         /// <para>
         /// <para>The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana
-        /// workspace to connect. Duplicates not allowed.</para>
+        /// workspace to connect. Duplicates not allowed.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +178,11 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <summary>
         /// <para>
         /// <para>The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace
-        /// to connect. Duplicates not allowed.</para>
+        /// to connect. Duplicates not allowed.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,7 +199,11 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// If you pass in an empty array of strings, then no VPCs are allowed to access the workspace.</para><para>VPC endpoint IDs have the format <c>vpce-<i>1a2b3c4d</i></c>.</para><para>For more information about creating an interface VPC endpoint, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/VPC-endpoints">Interface
         /// VPC endpoints</a> in the <i>Amazon Managed Grafana User Guide</i>.</para><note><para>The only VPC endpoints that can be specified here are interface VPC endpoints for
         /// Grafana workspaces (using the <c>com.amazonaws.[region].grafana-workspace</c> service
-        /// endpoint). Other VPC endpoints are ignored.</para></note>
+        /// endpoint). Other VPC endpoints are ignored.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,7 +214,11 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         #region Parameter WorkspaceDataSource
         /// <summary>
         /// <para>
-        /// <para>This parameter is for internal use only, and should not be used.</para>
+        /// <para>This parameter is for internal use only, and should not be used.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -248,7 +268,11 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <para>
         /// <para>Specify the Amazon Web Services notification channels that you plan to use in this
         /// workspace. Specifying these data sources here enables Amazon Managed Grafana to create
-        /// IAM roles and permissions that allow Amazon Managed Grafana to use these channels.</para>
+        /// IAM roles and permissions that allow Amazon Managed Grafana to use these channels.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -260,7 +284,11 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <summary>
         /// <para>
         /// <para>Specifies the organizational units that this workspace is allowed to use data sources
-        /// from, if this workspace is in an account that is part of an organization.</para>
+        /// from, if this workspace is in an account that is part of an organization.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

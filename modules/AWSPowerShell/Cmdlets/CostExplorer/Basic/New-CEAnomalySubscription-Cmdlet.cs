@@ -80,7 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AnomalySubscription_MonitorArnList
         /// <summary>
         /// <para>
-        /// <para>A list of cost anomaly monitors. </para>
+        /// <para>A list of cost anomaly monitors. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,7 +106,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// The following restrictions apply to resource tags:</para><ul><li><para>Although the maximum number of array members is 200, you can assign a maximum of 50
         /// user-tags to one resource. The remaining are reserved for Amazon Web Services use</para></li><li><para>The maximum length of a key is 128 characters</para></li><li><para>The maximum length of a value is 256 characters</para></li><li><para>Keys and values can only contain alphanumeric characters, spaces, and any of the following:
         /// <c>_.:/=+@-</c></para></li><li><para>Keys and values are case sensitive</para></li><li><para>Keys and values are trimmed for any leading or trailing whitespaces</para></li><li><para>Don’t use <c>aws:</c> as a prefix for your keys. This prefix is reserved for Amazon
-        /// Web Services use</para></li></ul>
+        /// Web Services use</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +121,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AnomalySubscription_Subscriber
         /// <summary>
         /// <para>
-        /// <para>A list of subscribers to notify. </para>
+        /// <para>A list of subscribers to notify. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -54,7 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// the <c>AlternateDataSourceParameters</c> allow list. If the structures are an exact
         /// match, the request is allowed to use the new data source with the existing credentials.
         /// If the <c>AlternateDataSourceParameters</c> list is null, the <c>DataSourceParameters</c>
-        /// originally used with these <c>Credentials</c> is automatically allowed.</para>
+        /// originally used with these <c>Credentials</c> is automatically allowed.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -337,7 +341,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>A list of groups whose permissions will be granted to Amazon QuickSight to access
         /// the cluster. These permissions are combined with the permissions granted to Amazon
         /// QuickSight by the <c>DatabaseUser</c>. If you choose to include this parameter, the
-        /// <c>RoleArn</c> must grant access to <c>redshift:JoinGroup</c>.</para>
+        /// <c>RoleArn</c> must grant access to <c>redshift:JoinGroup</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -446,7 +454,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter FolderArn
         /// <summary>
         /// <para>
-        /// <para>When you create the data source, Amazon QuickSight adds the data source to these folders.</para>
+        /// <para>When you create the data source, Amazon QuickSight adds the data source to these folders.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -734,7 +746,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Permission
         /// <summary>
         /// <para>
-        /// <para>A list of resource permissions on the data source.</para>
+        /// <para>A list of resource permissions on the data source.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1034,7 +1050,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-        /// data source.</para>
+        /// data source.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

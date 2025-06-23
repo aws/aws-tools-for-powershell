@@ -125,7 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         /// <para>
         /// <para>An array of <c>SqlInjectionMatchSetUpdate</c> objects that you want to insert into
         /// or delete from a <a>SqlInjectionMatchSet</a>. For more information, see the applicable
-        /// data types:</para><ul><li><para><a>SqlInjectionMatchSetUpdate</a>: Contains <c>Action</c> and <c>SqlInjectionMatchTuple</c></para></li><li><para><a>SqlInjectionMatchTuple</a>: Contains <c>FieldToMatch</c> and <c>TextTransformation</c></para></li><li><para><a>FieldToMatch</a>: Contains <c>Data</c> and <c>Type</c></para></li></ul>
+        /// data types:</para><ul><li><para><a>SqlInjectionMatchSetUpdate</a>: Contains <c>Action</c> and <c>SqlInjectionMatchTuple</c></para></li><li><para><a>SqlInjectionMatchTuple</a>: Contains <c>FieldToMatch</c> and <c>TextTransformation</c></para></li><li><para><a>FieldToMatch</a>: Contains <c>Data</c> and <c>Type</c></para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -48,7 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter AlarmConfiguration_Alarm
         /// <summary>
         /// <para>
-        /// <para>The name of the CloudWatch alarm specified in the configuration.</para>
+        /// <para>The name of the CloudWatch alarm specified in the configuration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -273,7 +277,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The different events for which you can receive notifications. To learn more about
         /// these events, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Monitoring
         /// Systems Manager status changes using Amazon SNS notifications</a> in the <i>Amazon
-        /// Web Services Systems Manager User Guide</i>.</para>
+        /// Web Services Systems Manager User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -328,7 +336,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// when it runs, instead use the <c>Parameters</c> option in the <c>TaskInvocationParameters</c>
         /// structure. For information about how Systems Manager handles these options for the
         /// supported maintenance window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</para><para>For <c>AUTOMATION</c> task types, Amazon Web Services Systems Manager ignores any
-        /// values specified for these parameters.</para></note>
+        /// values specified for these parameters.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -339,7 +351,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RunCommand_Parameter
         /// <summary>
         /// <para>
-        /// <para>The parameters for the <c>RUN_COMMAND</c> task execution.</para>
+        /// <para>The parameters for the <c>RUN_COMMAND</c> task execution.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -463,7 +479,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// (Automation, Lambda, and Step Functions). For more information about running tasks
         /// that don't specify targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">Registering
         /// maintenance window tasks without targets</a> in the <i>Amazon Web Services Systems
-        /// Manager User Guide</i>.</para></note><para>Specify managed nodes using the following format: </para><para><c>Key=InstanceIds,Values=&lt;instance-id-1&gt;,&lt;instance-id-2&gt;</c></para><para>Specify maintenance window targets using the following format:</para><para><c>Key=WindowTargetIds,Values=&lt;window-target-id-1&gt;,&lt;window-target-id-2&gt;</c></para>
+        /// Manager User Guide</i>.</para></note><para>Specify managed nodes using the following format: </para><para><c>Key=InstanceIds,Values=&lt;instance-id-1&gt;,&lt;instance-id-2&gt;</c></para><para>Specify maintenance window targets using the following format:</para><para><c>Key=WindowTargetIds,Values=&lt;window-target-id-1&gt;,&lt;window-target-id-2&gt;</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -494,7 +514,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The parameters that should be passed to the task when it is run.</para><note><para><c>TaskParameters</c> has been deprecated. To specify parameters to pass to a task
         /// when it runs, instead use the <c>Parameters</c> option in the <c>TaskInvocationParameters</c>
         /// structure. For information about how Systems Manager handles these options for the
-        /// supported maintenance window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</para></note>
+        /// supported maintenance window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

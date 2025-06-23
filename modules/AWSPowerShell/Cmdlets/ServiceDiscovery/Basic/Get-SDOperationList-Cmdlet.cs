@@ -50,7 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <para>
         /// <para>A complex type that contains specifications for the operations that you want to list,
         /// for example, operations that you started between a specified start date and end date.</para><para>If you specify more than one filter, an operation must match all filters to be returned
-        /// by <c>ListOperations</c>.</para>
+        /// by <c>ListOperations</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

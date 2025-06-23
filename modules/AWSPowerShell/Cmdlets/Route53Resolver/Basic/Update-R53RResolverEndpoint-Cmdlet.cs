@@ -65,7 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// DoH, or DoH-FIPS. This is to prevent a sudden disruption to incoming traffic that
         /// relies on Do53. To change the protocol from Do53 to DoH, or DoH-FIPS, you must first
         /// enable both Do53 and DoH, or Do53 and DoH-FIPS, to make sure that all incoming traffic
-        /// has transferred to using the DoH protocol, or DoH-FIPS, and then remove the Do53.</para></important>
+        /// has transferred to using the DoH protocol, or DoH-FIPS, and then remove the Do53.</para></important><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +111,11 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <para>
         /// <para> Specifies the IPv6 address when you update the Resolver endpoint from IPv4 to dual-stack.
         /// If you don't specify an IPv6 address, one will be automatically chosen from your subnet.
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

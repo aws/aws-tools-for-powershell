@@ -53,7 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.INV
         /// invoice units that match only the specified accounts. If multiple accounts are provided,
         /// the result is an <c>OR</c> condition (match any) of the specified accounts. The specified
         /// account IDs are matched with either the receiver or the linked accounts in the rules.
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +84,11 @@ namespace Amazon.PowerShell.Cmdlets.INV
         /// invoice units that match only the specified accounts. If multiple accounts are provided,
         /// the result is an <c>OR</c> condition (match any) of the specified accounts. This filter
         /// only matches the specified accounts on the invoice receivers of the invoice units.
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +102,11 @@ namespace Amazon.PowerShell.Cmdlets.INV
         /// <para> An optional input to the list API. You can specify a list of invoice unit names inside
         /// filters to return invoice units that match only the specified invoice unit names.
         /// If multiple names are provided, the result is an <c>OR</c> condition (match any) of
-        /// the specified invoice unit names. </para>
+        /// the specified invoice unit names. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

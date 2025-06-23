@@ -66,7 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>Details of the Amazon Web Services account IDs used to filter findings.</para>
+        /// <para>Details of the Amazon Web Services account IDs used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_CodeRepositoryProjectName
         /// <summary>
         /// <para>
-        /// <para>Filter criteria for findings based on the project name in a code repository.</para>
+        /// <para>Filter criteria for findings based on the project name in a code repository.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +95,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <summary>
         /// <para>
         /// <para>Filter criteria for findings based on the repository provider type (such as GitHub,
-        /// GitLab, etc.).</para>
+        /// GitLab, etc.).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <summary>
         /// <para>
         /// <para>The name of the detector used to identify a code vulnerability in a Lambda function
-        /// used to filter findings.</para>
+        /// used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +128,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// tags group related vulnerabilities by common themes or tactics. For a list of available
         /// tags by programming language, see <a href="https://docs.aws.amazon.com/codeguru/detector-library/java/tags/">Java
         /// tags</a>, or <a href="https://docs.aws.amazon.com/codeguru/detector-library/python/tags/">Python
-        /// tags</a>. </para>
+        /// tags</a>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +144,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <summary>
         /// <para>
         /// <para>The file path to the file in a Lambda function that contains a code vulnerability
-        /// used to filter findings.</para>
+        /// used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +158,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_ComponentId
         /// <summary>
         /// <para>
-        /// <para>Details of the component IDs used to filter findings.</para>
+        /// <para>Details of the component IDs used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +172,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_ComponentType
         /// <summary>
         /// <para>
-        /// <para>Details of the component types used to filter findings.</para>
+        /// <para>Details of the component types used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,7 +196,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_Ec2InstanceImageId
         /// <summary>
         /// <para>
-        /// <para>Details of the Amazon EC2 instance image IDs used to filter findings.</para>
+        /// <para>Details of the Amazon EC2 instance image IDs used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,7 +210,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_Ec2InstanceSubnetId
         /// <summary>
         /// <para>
-        /// <para>Details of the Amazon EC2 instance subnet IDs used to filter findings.</para>
+        /// <para>Details of the Amazon EC2 instance subnet IDs used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,7 +224,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_Ec2InstanceVpcId
         /// <summary>
         /// <para>
-        /// <para>Details of the Amazon EC2 instance VPC IDs used to filter findings.</para>
+        /// <para>Details of the Amazon EC2 instance VPC IDs used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,7 +238,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_EcrImageArchitecture
         /// <summary>
         /// <para>
-        /// <para>Details of the Amazon ECR image architecture types used to filter findings.</para>
+        /// <para>Details of the Amazon ECR image architecture types used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,7 +252,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_EcrImageHash
         /// <summary>
         /// <para>
-        /// <para>Details of the Amazon ECR image hashes used to filter findings.</para>
+        /// <para>Details of the Amazon ECR image hashes used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -215,7 +267,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <summary>
         /// <para>
         /// <para>Filter criteria indicating when details for an Amazon ECR image include when an Amazon
-        /// ECR image is in use.</para>
+        /// ECR image is in use.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -226,7 +282,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <summary>
         /// <para>
         /// <para>Filter criteria indicating when an Amazon ECR image was last used in an Amazon ECS
-        /// cluster task or Amazon EKS cluster pod.</para>
+        /// cluster task or Amazon EKS cluster pod.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -236,7 +296,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_EcrImagePushedAt
         /// <summary>
         /// <para>
-        /// <para>Details on the Amazon ECR image push date and time used to filter findings.</para>
+        /// <para>Details on the Amazon ECR image push date and time used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -246,7 +310,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_EcrImageRegistry
         /// <summary>
         /// <para>
-        /// <para>Details on the Amazon ECR registry used to filter findings.</para>
+        /// <para>Details on the Amazon ECR registry used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -256,7 +324,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_EcrImageRepositoryName
         /// <summary>
         /// <para>
-        /// <para>Details on the name of the Amazon ECR repository used to filter findings.</para>
+        /// <para>Details on the name of the Amazon ECR repository used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -266,7 +338,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_EcrImageTag
         /// <summary>
         /// <para>
-        /// <para>The tags attached to the Amazon ECR container image.</para>
+        /// <para>The tags attached to the Amazon ECR container image.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -277,7 +353,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_EpssScore
         /// <summary>
         /// <para>
-        /// <para>The EPSS score used to filter findings.</para>
+        /// <para>The EPSS score used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -287,7 +367,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_ExploitAvailable
         /// <summary>
         /// <para>
-        /// <para>Filters the list of Amazon Web Services Lambda findings by the availability of exploits.</para>
+        /// <para>Filters the list of Amazon Web Services Lambda findings by the availability of exploits.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -297,7 +381,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_FindingArn
         /// <summary>
         /// <para>
-        /// <para>Details on the finding ARNs used to filter findings.</para>
+        /// <para>Details on the finding ARNs used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -307,7 +395,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_FindingStatus
         /// <summary>
         /// <para>
-        /// <para>Details on the finding status types used to filter findings.</para>
+        /// <para>Details on the finding status types used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -317,7 +409,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_FindingType
         /// <summary>
         /// <para>
-        /// <para>Details on the finding types used to filter findings.</para>
+        /// <para>Details on the finding types used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -327,7 +423,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_FirstObservedAt
         /// <summary>
         /// <para>
-        /// <para>Details on the date and time a finding was first seen used to filter findings.</para>
+        /// <para>Details on the date and time a finding was first seen used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -340,7 +440,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <para>Details on whether a fix is available through a version update. This value can be
         /// <c>YES</c>, <c>NO</c>, or <c>PARTIAL</c>. A <c>PARTIAL</c> fix means that some, but
         /// not all, of the packages identified in the finding have fixes available through updated
-        /// versions.</para>
+        /// versions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -350,7 +454,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_InspectorScore
         /// <summary>
         /// <para>
-        /// <para>The Amazon Inspector score to filter on.</para>
+        /// <para>The Amazon Inspector score to filter on.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -360,7 +468,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_LambdaFunctionExecutionRoleArn
         /// <summary>
         /// <para>
-        /// <para>Filters the list of Amazon Web Services Lambda functions by execution role.</para>
+        /// <para>Filters the list of Amazon Web Services Lambda functions by execution role.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -372,7 +484,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <para>
         /// <para>Filters the list of Amazon Web Services Lambda functions by the date and time that
         /// a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO
-        /// 8601 format</a></para>
+        /// 8601 format</a></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -383,7 +499,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <summary>
         /// <para>
         /// <para>Filters the list of Amazon Web Services Lambda functions by the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">
-        /// layers</a>. A Lambda function can have up to five layers.</para>
+        /// layers</a>. A Lambda function can have up to five layers.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -394,7 +514,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_LambdaFunctionName
         /// <summary>
         /// <para>
-        /// <para>Filters the list of Amazon Web Services Lambda functions by the name of the function.</para>
+        /// <para>Filters the list of Amazon Web Services Lambda functions by the name of the function.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -405,7 +529,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <summary>
         /// <para>
         /// <para>Filters the list of Amazon Web Services Lambda functions by the runtime environment
-        /// for the Lambda function.</para>
+        /// for the Lambda function.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -415,7 +543,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_LastObservedAt
         /// <summary>
         /// <para>
-        /// <para>Details on the date and time a finding was last seen used to filter findings.</para>
+        /// <para>Details on the date and time a finding was last seen used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -444,7 +576,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_NetworkProtocol
         /// <summary>
         /// <para>
-        /// <para>Details on network protocol used to filter findings.</para>
+        /// <para>Details on network protocol used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -454,7 +590,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_PortRange
         /// <summary>
         /// <para>
-        /// <para>Details on the port ranges used to filter findings.</para>
+        /// <para>Details on the port ranges used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -474,7 +614,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_RelatedVulnerability
         /// <summary>
         /// <para>
-        /// <para>Details on the related vulnerabilities used to filter findings.</para>
+        /// <para>Details on the related vulnerabilities used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -485,7 +629,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_ResourceId
         /// <summary>
         /// <para>
-        /// <para>Details on the resource IDs used to filter findings.</para>
+        /// <para>Details on the resource IDs used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -495,7 +643,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_ResourceTag
         /// <summary>
         /// <para>
-        /// <para>Details on the resource tags used to filter findings.</para>
+        /// <para>Details on the resource tags used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -506,7 +658,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_ResourceType
         /// <summary>
         /// <para>
-        /// <para>Details on the resource types used to filter findings.</para>
+        /// <para>Details on the resource types used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -516,7 +672,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_Severity
         /// <summary>
         /// <para>
-        /// <para>Details on the severity used to filter findings.</para>
+        /// <para>Details on the severity used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -526,7 +686,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of tags for the filter.</para>
+        /// <para>A list of tags for the filter.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -537,7 +701,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_Title
         /// <summary>
         /// <para>
-        /// <para>Details on the finding title used to filter findings.</para>
+        /// <para>Details on the finding title used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -547,7 +715,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_UpdatedAt
         /// <summary>
         /// <para>
-        /// <para>Details on the date and time a finding was last updated at used to filter findings.</para>
+        /// <para>Details on the date and time a finding was last updated at used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -557,7 +729,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_VendorSeverity
         /// <summary>
         /// <para>
-        /// <para>Details on the vendor severity used to filter findings.</para>
+        /// <para>Details on the vendor severity used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -567,7 +743,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_VulnerabilityId
         /// <summary>
         /// <para>
-        /// <para>Details on the vulnerability ID used to filter findings.</para>
+        /// <para>Details on the vulnerability ID used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -577,7 +757,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_VulnerabilitySource
         /// <summary>
         /// <para>
-        /// <para>Details on the vulnerability type used to filter findings.</para>
+        /// <para>Details on the vulnerability type used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -587,7 +771,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_VulnerablePackage
         /// <summary>
         /// <para>
-        /// <para>Details on the vulnerable packages used to filter findings.</para>
+        /// <para>Details on the vulnerable packages used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

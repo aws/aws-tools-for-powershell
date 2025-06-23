@@ -217,7 +217,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para> Contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes
-        /// are allowed. </para>
+        /// are allowed. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -228,7 +232,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para> Contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes
-        /// are allowed. </para>
+        /// are allowed. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -238,7 +246,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter StorageLensGroup_Filter_Or_MatchAnyPrefix
         /// <summary>
         /// <para>
-        /// <para> Filters objects that match any of the specified prefixes. </para>
+        /// <para> Filters objects that match any of the specified prefixes. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -249,7 +261,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para> Contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes
-        /// are allowed. </para>
+        /// are allowed. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -260,7 +276,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para> Contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes
-        /// are allowed. </para>
+        /// are allowed. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -270,7 +290,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter StorageLensGroup_Filter_Or_MatchAnySuffix
         /// <summary>
         /// <para>
-        /// <para> Filters objects that match any of the specified suffixes. </para>
+        /// <para> Filters objects that match any of the specified suffixes. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -281,7 +305,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para> Contains the list of object tags. At least one object tag must be specified. Up to
-        /// 10 object tags are allowed. </para>
+        /// 10 object tags are allowed. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -292,7 +320,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para> Contains the list of S3 object tags. At least one object tag must be specified. Up
-        /// to 10 object tags are allowed. </para>
+        /// to 10 object tags are allowed. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -302,7 +334,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter StorageLensGroup_Filter_Or_MatchAnyTag
         /// <summary>
         /// <para>
-        /// <para> Filters objects that match any of the specified S3 object tags. </para>
+        /// <para> Filters objects that match any of the specified S3 object tags. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -341,7 +377,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para> The Amazon Web Services resource tags that you're adding to your Storage Lens group.
-        /// This parameter is optional. </para>
+        /// This parameter is optional. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

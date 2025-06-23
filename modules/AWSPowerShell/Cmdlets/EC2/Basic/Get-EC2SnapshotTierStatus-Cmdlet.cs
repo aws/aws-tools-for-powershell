@@ -63,7 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The filters.</para><ul><li><para><c>snapshot-id</c> - The snapshot ID.</para></li><li><para><c>volume-id</c> - The ID of the volume the snapshot is for.</para></li><li><para><c>last-tiering-operation</c> - The state of the last archive or restore action.
         /// (<c>archival-in-progress</c> | <c>archival-completed</c> | <c>archival-failed</c>
         /// | <c>permanent-restore-in-progress</c> | <c>permanent-restore-completed</c> | <c>permanent-restore-failed</c>
-        /// | <c>temporary-restore-in-progress</c> | <c>temporary-restore-completed</c> | <c>temporary-restore-failed</c>)</para></li></ul>
+        /// | <c>temporary-restore-in-progress</c> | <c>temporary-restore-completed</c> | <c>temporary-restore-failed</c>)</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

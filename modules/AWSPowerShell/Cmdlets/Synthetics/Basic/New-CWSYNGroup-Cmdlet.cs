@@ -88,7 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <para>A list of key-value pairs to associate with the group. You can associate as many as
         /// 50 tags with a group.</para><para>Tags can help you organize and categorize your resources. You can also use them to
         /// scope user permissions, by granting a user permission to access or change only the
-        /// resources that have certain tag values.</para>
+        /// resources that have certain tag values.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -58,7 +58,11 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         /// <para>To update variation configurations for this feature, or add new ones, specify this
         /// structure. In this array, include any variations that you want to add or update. If
         /// the array includes a variation name that already exists for this feature, it is updated.
-        /// If it includes a new variation name, it is added as a new variation.</para>
+        /// If it includes a new variation name, it is added as a new variation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         /// user is specified by a key-value pair . For each key, specify a user by entering their
         /// user ID, account ID, or some other identifier. For the value, specify the name of
         /// the variation that they are to be served.</para><para>This parameter is limited to 2500 overrides or a total of 40KB. The 40KB limit includes
-        /// an overhead of 6 bytes per override.</para>
+        /// an overhead of 6 bytes per override.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,7 +163,11 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         /// <para>
         /// <para>Removes a variation from the feature. If the variation you specify doesn't exist,
         /// then this makes no change and does not report an error.</para><para>This operation fails if you try to remove a variation that is part of an ongoing launch
-        /// or experiment.</para>
+        /// or experiment.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

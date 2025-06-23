@@ -75,7 +75,11 @@ namespace Amazon.PowerShell.Cmdlets.EMS
         /// has two tags (customer:CompanyA and priority:High). You want to change the priority
         /// tag and also add a third tag (type:Contract). For TagResource, you specify the following
         /// tags: priority:Medium, type:Contract. The result is that your container has three
-        /// tags: customer:CompanyA, priority:Medium, and type:Contract.</para>
+        /// tags: customer:CompanyA, priority:Medium, and type:Contract.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

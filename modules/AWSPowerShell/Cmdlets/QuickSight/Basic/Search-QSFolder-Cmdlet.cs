@@ -67,7 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The filters to apply to the search. Currently, you can search only by the parent folder
         /// ARN. For example, <c>"Filters": [ { "Name": "PARENT_FOLDER_ARN", "Operator": "StringEquals",
-        /// "Value": "arn:aws:quicksight:us-east-1:1:folder/folderId" } ]</c>.</para>
+        /// "Value": "arn:aws:quicksight:us-east-1:1:folder/folderId" } ]</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

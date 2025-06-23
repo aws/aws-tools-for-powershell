@@ -64,7 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// and values are case-sensitive.</para><para>Supported filters include the following:</para><ul><li><para><c>export-task-identifier</c> - An identifier for the snapshot or cluster export
         /// task.</para></li><li><para><c>s3-bucket</c> - The Amazon S3 bucket the data is exported to.</para></li><li><para><c>source-arn</c> - The Amazon Resource Name (ARN) of the snapshot or cluster exported
         /// to Amazon S3.</para></li><li><para><c>status</c> - The status of the export task. Must be lowercase. Valid statuses
-        /// are the following:</para><ul><li><para><c>canceled</c></para></li><li><para><c>canceling</c></para></li><li><para><c>complete</c></para></li><li><para><c>failed</c></para></li><li><para><c>in_progress</c></para></li><li><para><c>starting</c></para></li></ul></li></ul>
+        /// are the following:</para><ul><li><para><c>canceled</c></para></li><li><para><c>canceling</c></para></li><li><para><c>complete</c></para></li><li><para><c>failed</c></para></li><li><para><c>in_progress</c></para></li><li><para><c>starting</c></para></li></ul></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

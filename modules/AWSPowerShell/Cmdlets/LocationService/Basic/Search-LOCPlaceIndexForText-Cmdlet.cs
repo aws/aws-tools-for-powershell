@@ -65,7 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// the X coordinate, or longitude; the second number represents the Y coordinate, or
         /// latitude.</para><para>For example, <c>[-123.1174, 49.2847]</c> represents the position with longitude <c>-123.1174</c>
         /// and latitude <c>49.2847</c>.</para><note><para><c>BiasPosition</c> and <c>FilterBBox</c> are mutually exclusive. Specifying both
-        /// options results in an error. </para></note>
+        /// options results in an error. </para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// of the northeast corner of the bounding box.</para><para>For example, <c>[-12.7935, -37.4835, -12.0684, -36.9542]</c> represents a bounding
         /// box where the southwest corner has longitude <c>-12.7935</c> and latitude <c>-37.4835</c>,
         /// and the northeast corner has longitude <c>-12.0684</c> and latitude <c>-36.9542</c>.</para><note><para><c>FilterBBox</c> and <c>BiasPosition</c> are mutually exclusive. Specifying both
-        /// options results in an error. </para></note>
+        /// options results in an error. </para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +105,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// you include more than one category, the results will include results that match <i>any</i>
         /// of the categories listed.</para><para>For more information about using categories, including a list of Amazon Location categories,
         /// see <a href="https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html">Categories
-        /// and filtering</a>, in the <i>Amazon Location Service Developer Guide</i>.</para>
+        /// and filtering</a>, in the <i>Amazon Location Service Developer Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>An optional parameter that limits the search results by returning only places that
         /// are in a specified list of countries.</para><ul><li><para>Valid values include <a href="https://www.iso.org/iso-3166-country-codes.html">ISO
         /// 3166</a> 3-digit country codes. For example, Australia uses three upper-case characters:
-        /// <c>AUS</c>.</para></li></ul>
+        /// <c>AUS</c>.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

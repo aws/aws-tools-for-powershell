@@ -86,7 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <para>
         /// <para>The properties to put for the specified run.</para><para>Run properties may be logged. Do not pass plaintext secrets as properties. Retrieve
         /// secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret
-        /// management mechanism if you intend to use them within the workflow run.</para>
+        /// management mechanism if you intend to use them within the workflow run.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

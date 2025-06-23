@@ -59,7 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter SchemaDefinition_AllColumn
         /// <summary>
         /// <para>
-        /// <para>The regular columns of the table.</para>
+        /// <para>The regular columns of the table.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,7 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter SchemaDefinition_ClusteringKey
         /// <summary>
         /// <para>
-        /// <para>The columns that are part of the clustering key of the table.</para>
+        /// <para>The columns that are part of the clustering key of the table.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -236,7 +244,11 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter SchemaDefinition_PartitionKey
         /// <summary>
         /// <para>
-        /// <para>The columns that are part of the partition key of the table .</para>
+        /// <para>The columns that are part of the partition key of the table .</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -273,7 +285,11 @@ namespace Amazon.PowerShell.Cmdlets.KS
         /// remains synchronized between all replicas to ensure that there's enough capacity to
         /// replicate writes across all Regions. To define the read capacity for a table replica
         /// in a specific Region, you can do so by configuring the following parameters.</para><ul><li><para><c>region</c>: The Region where these settings are applied. (Required)</para></li><li><para><c>readCapacityUnits</c>: The provisioned read capacity units. (Optional)</para></li><li><para><c>readCapacityAutoScaling</c>: The read capacity auto scaling settings for the table.
-        /// (Optional) </para></li></ul>
+        /// (Optional) </para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -333,7 +349,11 @@ namespace Amazon.PowerShell.Cmdlets.KS
         /// <summary>
         /// <para>
         /// <para>The columns that have been defined as <c>STATIC</c>. Static columns store values that
-        /// are shared by all rows in the same partition.</para>
+        /// are shared by all rows in the same partition.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -396,7 +416,11 @@ namespace Amazon.PowerShell.Cmdlets.KS
         /// <para>
         /// <para>A list of key-value pair tags to be attached to the resource. </para><para>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html">Adding
         /// tags and labels to Amazon Keyspaces resources</a> in the <i>Amazon Keyspaces Developer
-        /// Guide</i>.</para>
+        /// Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

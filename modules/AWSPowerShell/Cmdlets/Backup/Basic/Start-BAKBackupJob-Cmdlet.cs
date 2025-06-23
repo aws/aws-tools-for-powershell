@@ -50,7 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>The backup option for a selected resource. This option is only available for Windows
         /// Volume Shadow Copy Service (VSS) backup jobs.</para><para>Valid values: Set to <c>"WindowsVSS":"enabled"</c> to enable the <c>WindowsVSS</c>
         /// backup option and create a Windows VSS backup. Set to <c>"WindowsVSS""disabled"</c>
-        /// to create a regular backup. The <c>WindowsVSS</c> option is not enabled by default.</para>
+        /// to create a regular backup. The <c>WindowsVSS</c> option is not enabled by default.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,7 +177,11 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter RecoveryPointTag
         /// <summary>
         /// <para>
-        /// <para>The tags to assign to the resources.</para>
+        /// <para>The tags to assign to the resources.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -60,7 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         #region Parameter ConfigurationOverrides_ApplicationConfiguration
         /// <summary>
         /// <para>
-        /// <para>The configurations for the application running by the job run. </para>
+        /// <para>The configurations for the application running by the job run. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +107,11 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         #region Parameter SparkSubmitJobDriver_EntryPointArgument
         /// <summary>
         /// <para>
-        /// <para>The arguments for job application.</para>
+        /// <para>The arguments for job application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         #region Parameter JobTemplateParameter
         /// <summary>
         /// <para>
-        /// <para>The values of job template parameters to start a job run.</para>
+        /// <para>The values of job template parameters to start a job run.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -265,7 +277,11 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags assigned to job runs.</para>
+        /// <para>The tags assigned to job runs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

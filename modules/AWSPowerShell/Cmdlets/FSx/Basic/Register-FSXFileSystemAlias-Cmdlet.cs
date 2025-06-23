@@ -66,7 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// name has to comply with the following formatting requirements:</para><ul><li><para>Formatted as a fully-qualified domain name (FQDN), <i><c>hostname.domain</c></i>,
         /// for example, <c>accounting.corp.example.com</c>.</para></li><li><para>Can contain alphanumeric characters and the hyphen (-).</para></li><li><para>Cannot start or end with a hyphen.</para></li><li><para>Can start with a numeric.</para></li></ul><para>For DNS alias names, Amazon FSx stores alphabetic characters as lowercase letters
         /// (a-z), regardless of how you specify them: as uppercase letters, lowercase letters,
-        /// or the corresponding letters in escape codes.</para>
+        /// or the corresponding letters in escape codes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

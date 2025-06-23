@@ -85,7 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// always creates the organization <c>default</c>. In Puppet, this parameter is ignored.</para></li><li><para><b>NodeEnvironment</b> In Chef, a node environment (for example, development, staging,
         /// or one-box). In Puppet, this parameter is ignored.</para></li><li><para><b>NodeClientVersion</b> In Chef, the version of the Chef engine (three numbers separated
         /// by dots, such as 13.8.5). If this attribute is empty, OpsWorks for Chef Automate uses
-        /// the most current version. In Puppet, this parameter is ignored.</para></li></ul>
+        /// the most current version. In Puppet, this parameter is ignored.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

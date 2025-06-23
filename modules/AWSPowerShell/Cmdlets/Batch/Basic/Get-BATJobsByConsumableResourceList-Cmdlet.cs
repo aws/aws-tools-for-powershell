@@ -68,7 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>The filters to apply to the job list query. If used, only those jobs requiring the
         /// specified consumable resource (<c>consumableResource</c>) and that match the value
         /// of the filters are listed. The filter names and values can be:</para><ul><li><para>name: <c>JOB_STATUS</c></para><para>values: <c>SUBMITTED | PENDING | RUNNABLE | STARTING | RUNNING | SUCCEEDED | FAILED</c></para></li><li><para>name: <c>JOB_NAME </c></para><para>The values are case-insensitive matches for the job name. If a filter value ends with
-        /// an asterisk (*), it matches any job name that begins with the string before the '*'.</para></li></ul>
+        /// an asterisk (*), it matches any job name that begins with the string before the '*'.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

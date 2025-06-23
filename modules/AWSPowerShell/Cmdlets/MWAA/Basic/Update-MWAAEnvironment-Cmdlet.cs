@@ -50,7 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <para>
         /// <para>A list of key-value pairs containing the Apache Airflow configuration options you
         /// want to attach to your environment. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html">Apache
-        /// Airflow configuration options</a>.</para>
+        /// Airflow configuration options</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -378,7 +382,11 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <para>
         /// <para>A list of security group IDs. A security group must be attached to the same VPC as
         /// the subnets. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html">Security
-        /// in your VPC on Amazon MWAA</a>.</para>
+        /// in your VPC on Amazon MWAA</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

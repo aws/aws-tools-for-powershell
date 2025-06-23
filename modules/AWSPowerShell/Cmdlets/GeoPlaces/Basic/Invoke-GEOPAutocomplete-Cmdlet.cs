@@ -22,9 +22,11 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.GeoPlaces;
 using Amazon.GeoPlaces.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.GEOP
 {
     /// <summary>
@@ -44,16 +46,17 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
     public partial class InvokeGEOPAutocompleteCmdlet : AmazonGeoPlacesClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AdditionalFeature
         /// <summary>
         /// <para>
-        /// <para>A list of optional additional parameters that can be requested for each result.</para>
+        /// <para>A list of optional additional parameters that can be requested for each result.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +70,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// <para>The position in longitude and latitude that the results should be close to. Typically,
         /// place results returned are ranked higher the closer they are to this position. Stored
         /// in <c>[lng, lat]</c> and in the WSG84 format.</para><note><para>The fields <c>BiasPosition</c>, <c>FilterBoundingBox</c>, and <c>FilterCircle</c>
-        /// are mutually exclusive.</para></note>
+        /// are mutually exclusive.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// <para>
         /// <para>The bounding box enclosing the geometric shape (area or line) that an individual result
         /// covers.</para><para>The bounding box formed is defined as a set 4 coordinates: <c>[{westward lng}, {southern
-        /// lat}, {eastward lng}, {northern lat}]</c></para>
+        /// lat}, {eastward lng}, {northern lat}]</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +100,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter Circle_Center
         /// <summary>
         /// <para>
-        /// <para>The center position, in longitude and latitude, of the <c>FilterCircle</c>.</para>
+        /// <para>The center position, in longitude and latitude, of the <c>FilterCircle</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +116,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// <summary>
         /// <para>
         /// <para> A list of countries that all results must be in. Countries are represented by either
-        /// their alpha-2 or alpha-3 character codes.</para>
+        /// their alpha-2 or alpha-3 character codes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +131,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter Filter_IncludePlaceType
         /// <summary>
         /// <para>
-        /// <para>The included place types.</para>
+        /// <para>The included place types.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -233,16 +256,6 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         public string Select { get; set; } = "*";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the QueryText parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^QueryText' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^QueryText' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -253,9 +266,13 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.QueryText), MyInvocation.BoundParameters);
@@ -269,21 +286,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.GeoPlaces.Model.AutocompleteResponse, InvokeGEOPAutocompleteCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.QueryText;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.AdditionalFeature != null)
             {
                 context.AdditionalFeature = new List<System.String>(this.AdditionalFeature);
@@ -486,13 +493,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Location Service Places V2", "Autocomplete");
             try
             {
-                #if DESKTOP
-                return client.Autocomplete(request);
-                #elif CORECLR
-                return client.AutocompleteAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.AutocompleteAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -49,7 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// <summary>
         /// <para>
         /// <para> A list of filters used to match properties for outbound cross-cluster search connection.
-        /// Available <c><a>Filter</a></c> names for this operation are: <ul><li>cross-cluster-search-connection-id</li><li>destination-domain-info.domain-name</li><li>destination-domain-info.owner-id</li><li>destination-domain-info.region</li><li>source-domain-info.domain-name</li></ul></para>
+        /// Available <c><a>Filter</a></c> names for this operation are: <ul><li>cross-cluster-search-connection-id</li><li>destination-domain-info.domain-name</li><li>destination-domain-info.owner-id</li><li>destination-domain-info.region</li><li>source-domain-info.domain-name</li></ul></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

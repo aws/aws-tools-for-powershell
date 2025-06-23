@@ -107,7 +107,11 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// that each call of the <c>PutGraphqlApiEnvironmentVariables</c> action will result
         /// in the overwriting of the existing environmental variable list of that API. This means
         /// the existing environmental variables will be lost. To avoid this, you must include
-        /// all existing and new environmental variables in the list each time you call this action.</para>
+        /// all existing and new environmental variables in the list each time you call this action.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

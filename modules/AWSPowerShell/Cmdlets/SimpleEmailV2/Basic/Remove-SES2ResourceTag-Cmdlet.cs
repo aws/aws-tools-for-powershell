@@ -69,7 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <para>The tags (tag keys) that you want to remove from the resource. When you specify a
         /// tag key, the action removes both that key and its associated tag value.</para><para>To remove more than one tag from the resource, append the <c>TagKeys</c> parameter
         /// and argument for each additional tag to remove, separated by an ampersand. For example:
-        /// <c>/v2/email/tags?ResourceArn=ResourceArn&amp;TagKeys=Key1&amp;TagKeys=Key2</c></para>
+        /// <c>/v2/email/tags?ResourceArn=ResourceArn&amp;TagKeys=Key1&amp;TagKeys=Key2</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

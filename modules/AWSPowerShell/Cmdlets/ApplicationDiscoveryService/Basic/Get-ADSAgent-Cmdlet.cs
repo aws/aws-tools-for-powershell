@@ -51,7 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <summary>
         /// <para>
         /// <para>The agent or the collector IDs for which you want information. If you specify no IDs,
-        /// the system returns information about all agents/collectors associated with your user.</para>
+        /// the system returns information about all agents/collectors associated with your user.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <summary>
         /// <para>
         /// <para>You can filter the request using various logical operators and a <i>key</i>-<i>value</i>
-        /// format. For example: </para><para><c>{"key": "collectionStatus", "value": "STARTED"}</c></para>
+        /// format. For example: </para><para><c>{"key": "collectionStatus", "value": "STARTED"}</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

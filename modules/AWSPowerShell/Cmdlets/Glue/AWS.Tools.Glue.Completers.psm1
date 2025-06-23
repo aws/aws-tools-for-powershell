@@ -111,6 +111,16 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.CompactionStrategy
+        {
+            ($_ -eq "New-GLUETableOptimizer/IcebergConfiguration_Strategy") -Or
+            ($_ -eq "Update-GLUETableOptimizer/IcebergConfiguration_Strategy")
+        }
+        {
+            $v = "binpack","sort","z-order"
+            break
+        }
+
         # Amazon.Glue.Compatibility
         {
             ($_ -eq "New-GLUESchema/Compatibility") -Or
@@ -462,6 +472,7 @@ $GLUE_map = @{
     "Filter_Status"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Filter_TaskRunType"=@("Get-GLUEMLTaskRunList")
     "Filter_TransformType"=@("Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
+    "IcebergConfiguration_Strategy"=@("New-GLUETableOptimizer","Update-GLUETableOptimizer")
     "IcebergInput_MetadataOperation"=@("New-GLUETable")
     "InclusionAnnotation"=@("Write-GLUEDataQualityProfileAnnotation")
     "JobBookmarksEncryption_JobBookmarksEncryptionMode"=@("New-GLUESecurityConfiguration")

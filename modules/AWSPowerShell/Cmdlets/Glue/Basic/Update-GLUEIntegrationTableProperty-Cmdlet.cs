@@ -58,7 +58,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SourceTableConfig_Field
         /// <summary>
         /// <para>
-        /// <para>A list of fields used for column-level filtering. Currently unsupported.</para>
+        /// <para>A list of fields used for column-level filtering. Currently unsupported.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter TargetTableConfig_PartitionSpec
         /// <summary>
         /// <para>
-        /// <para>Determines the file layout on the target.</para>
+        /// <para>Determines the file layout on the target.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <para>
         /// <para>Provide the primary key set for this table. Currently supported specifically for SAP
         /// <c>EntityOf</c> entities upon request. Contact Amazon Web Services Support to make
-        /// this feature available.</para>
+        /// this feature available.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

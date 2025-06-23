@@ -85,7 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// and their supported values.</para><para> To exclude DocumentationParts from the import, set <c>parameters</c> as <c>ignore=documentation</c>.</para><para> To configure the endpoint type, set <c>parameters</c> as <c>endpointConfigurationTypes=EDGE</c>,
         /// <c>endpointConfigurationTypes=REGIONAL</c>, or <c>endpointConfigurationTypes=PRIVATE</c>.
         /// The default endpoint type is <c>EDGE</c>.</para><para> To handle imported <c>basepath</c>, set <c>parameters</c> as <c>basepath=ignore</c>,
-        /// <c>basepath=prepend</c> or <c>basepath=split</c>.</para>
+        /// <c>basepath=prepend</c> or <c>basepath=split</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

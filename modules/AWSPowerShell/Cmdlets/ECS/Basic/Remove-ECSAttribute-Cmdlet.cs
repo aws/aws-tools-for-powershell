@@ -51,7 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>The attributes to delete from your resource. You can specify up to 10 attributes for
         /// each request. For custom attributes, specify the attribute name and target ID, but
         /// don't specify the value. If you specify the target ID using the short form, you must
-        /// also specify the target type.</para>
+        /// also specify the target type.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

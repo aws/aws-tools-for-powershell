@@ -106,7 +106,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// were created. For an example, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations">Dimension
         /// Combinations</a> in the <i>Amazon CloudWatch User Guide</i>. For more information
         /// about specifying dimensions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publishing
-        /// Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</para>
+        /// Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -138,7 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>The percentile statistics. Specify values between p0.0 and p100. When calling <c>GetMetricStatistics</c>,
         /// you must specify either <c>Statistics</c> or <c>ExtendedStatistics</c>, but not both.
         /// Percentile statistics are not available for metrics when any of the metric values
-        /// are negative numbers.</para>
+        /// are negative numbers.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -236,7 +244,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>The metric statistics, other than percentile. For percentile statistics, use <c>ExtendedStatistics</c>.
         /// When calling <c>GetMetricStatistics</c>, you must specify either <c>Statistics</c>
-        /// or <c>ExtendedStatistics</c>, but not both.</para>
+        /// or <c>ExtendedStatistics</c>, but not both.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

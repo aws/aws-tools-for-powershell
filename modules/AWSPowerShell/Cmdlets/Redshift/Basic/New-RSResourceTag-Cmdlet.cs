@@ -79,7 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// is passed in with the parameter <c>Key</c> and the corresponding value is passed in
         /// with the parameter <c>Value</c>. The <c>Key</c> and <c>Value</c> parameters are separated
         /// by a comma (,). Separate multiple tags with a space. For example, <c>--tags "Key"="owner","Value"="admin"
-        /// "Key"="environment","Value"="test" "Key"="version","Value"="1.0"</c>. </para>
+        /// "Key"="environment","Value"="test" "Key"="version","Value"="1.0"</c>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

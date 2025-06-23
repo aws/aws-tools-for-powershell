@@ -1,0 +1,3 @@
+﻿# WorkspacesInstances
+
+Export-ModuleMember -Alias *

@@ -58,7 +58,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>Specifies the custom layers for the style. Leave unset to not enable any custom layer,
         /// or, for styles that support custom layers, you can enable layer(s), such as POI layer
         /// for the VectorEsriNavigation style. Default is <c>unset</c>.</para><note><para>Not all map resources or styles support custom layers. See Custom Layers for more
-        /// information.</para></note>
+        /// information.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,7 +177,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>
         /// <para>Applies one or more tags to the map resource. A tag is a key-value pair helps manage,
         /// identify, search, and filter your resources by labelling them.</para><para>Format: <c>"key" : "value"</c></para><para>Restrictions:</para><ul><li><para>Maximum 50 tags per resource</para></li><li><para>Each resource tag must be unique with a maximum of one value.</para></li><li><para>Maximum key length: 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length: 256 Unicode characters in UTF-8</para></li><li><para>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
-        /// = . _ : / @. </para></li><li><para>Cannot use "aws:" as a prefix for a key.</para></li></ul>
+        /// = . _ : / @. </para></li><li><para>Cannot use "aws:" as a prefix for a key.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

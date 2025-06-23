@@ -63,7 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter QuerySessionContext_AdditionalContext
         /// <summary>
         /// <para>
-        /// <para>An opaque string-string map passed by the query engine.</para>
+        /// <para>An opaque string-string map passed by the query engine.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,7 +180,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The Lake Formation data permissions of the caller on the table. Used to authorize
-        /// the call when no view context is found.</para>
+        /// the call when no view context is found.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,7 +235,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter AuditContext_RequestedColumn
         /// <summary>
         /// <para>
-        /// <para>The requested columns for audit.</para>
+        /// <para>The requested columns for audit.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -264,7 +276,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// if the third-party engine calling the <c>GetUnfilteredTableMetadata</c> operation
         /// can enforce only column-level filtering, and the user has nested cell filtering applied
         /// on the table, Lake Formation throws an exception, and will not return unfiltered table
-        /// metadata and data access credentials.</para>
+        /// metadata and data access credentials.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -151,7 +151,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>The new list of VPC security groups to be associated with the serverless cache. Populating
         /// this list means the current VPC security groups will be removed. This security group
         /// is used to authorize traffic access for the VPC end-point (private-link). Default
-        /// = NULL - the existing list of VPC security groups is not removed.</para>
+        /// = NULL - the existing list of VPC security groups is not removed.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

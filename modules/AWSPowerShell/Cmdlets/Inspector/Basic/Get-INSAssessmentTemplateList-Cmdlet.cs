@@ -50,7 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// <summary>
         /// <para>
         /// <para>A list of ARNs that specifies the assessment targets whose assessment templates you
-        /// want to list.</para>
+        /// want to list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -98,7 +102,11 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// <para>
         /// <para>For a record to match a filter, the values that are specified for this data type property
         /// must be contained in the list of values of the <b>rulesPackageArns</b> property of
-        /// the <a>AssessmentTemplate</a> data type.</para>
+        /// the <a>AssessmentTemplate</a> data type.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

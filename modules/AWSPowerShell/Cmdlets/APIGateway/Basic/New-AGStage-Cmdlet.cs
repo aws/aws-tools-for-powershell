@@ -164,7 +164,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>
         /// <para>Stage variables overridden for a canary release deployment, including new stage variables
         /// introduced in the canary. These stage variables are represented as a string-to-string
-        /// map between stage variable names and their values.</para>
+        /// map between stage variable names and their values.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,7 +181,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>
         /// <para>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag
         /// key can be up to 128 characters and must not start with <c>aws:</c>. The tag value
-        /// can be up to 256 characters.</para>
+        /// can be up to 256 characters.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -209,7 +217,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>A map that defines the stage variables for the new Stage resource. Variable names
-        /// can have alphanumeric and underscore characters, and the values must match <c>[A-Za-z0-9-._~:/?#&amp;=,]+</c>.</para>
+        /// can have alphanumeric and underscore characters, and the values must match <c>[A-Za-z0-9-._~:/?#&amp;=,]+</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

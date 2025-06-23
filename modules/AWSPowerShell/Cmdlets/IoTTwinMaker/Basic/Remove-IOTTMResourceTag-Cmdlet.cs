@@ -66,7 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         /// <summary>
         /// <para>
         /// <para>A list of tag key names to remove from the resource. You don't specify the value.
-        /// Both the key and its associated value are removed.</para>
+        /// Both the key and its associated value are removed.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

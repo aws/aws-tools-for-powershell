@@ -80,7 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Specifies data Model Monitor will capture. You can configure whether to collect only
-        /// input, only output, or both</para>
+        /// input, only output, or both</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The list of all content type headers that Amazon SageMaker AI will treat as CSV and
-        /// capture accordingly.</para>
+        /// capture accordingly.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,7 +213,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The names of the features. If provided, these are included in the endpoint response
         /// payload to help readability of the <c>InvokeEndpoint</c> output. See the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response">Response</a>
-        /// section under <b>Invoke the endpoint</b> in the Developer Guide for more information.</para>
+        /// section under <b>Invoke the endpoint</b> in the Developer Guide for more information.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -235,7 +247,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// example, <c>['text']</c>). If <c>FeatureTypes</c> is not provided, the explainer infers
         /// the feature types based on the baseline data. The feature types are included in the
         /// endpoint response payload. For additional information see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response">response</a>
-        /// section under <b>Invoke the endpoint</b> in the Developer Guide for more information.</para>
+        /// section under <b>Invoke the endpoint</b> in the Developer Guide for more information.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -261,7 +277,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The Amazon SNS topics where you want the inference response to be included.</para><note><para>The inference response is included only if the response size is less than or equal
-        /// to 128 KB.</para></note>
+        /// to 128 KB.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -284,7 +304,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The list of all content type headers that SageMaker AI will treat as JSON and capture
-        /// accordingly.</para>
+        /// accordingly.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -360,7 +384,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// help readability for the output of the <c>InvokeEndpoint</c> API. See the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response">response</a>
         /// section under <b>Invoke the endpoint</b> in the Developer Guide for more information.
         /// If there are no label headers in the model container output, provide them manually
-        /// using this parameter.</para>
+        /// using this parameter.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -498,7 +526,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>An array of <c>ProductionVariant</c> objects, one for each model that you want to
-        /// host at this endpoint.</para>
+        /// host at this endpoint.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -539,7 +571,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The VPC security group IDs, in the form <c>sg-xxxxxxxx</c>. Specify the security groups
-        /// for the VPC that is specified in the <c>Subnets</c> field.</para>
+        /// for the VPC that is specified in the <c>Subnets</c> field.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -565,7 +601,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>An array of <c>ProductionVariant</c> objects, one for each model that you want to
         /// host at this endpoint in shadow mode with production traffic replicated from the model
         /// specified on <c>ProductionVariants</c>. If you use this field, you can only specify
-        /// one variant for <c>ProductionVariants</c> and one variant for <c>ShadowProductionVariants</c>.</para>
+        /// one variant for <c>ProductionVariants</c> and one variant for <c>ShadowProductionVariants</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -617,7 +657,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The ID of the subnets in the VPC to which you want to connect your training job or
         /// model. For information about the availability of specific instance types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html">Supported
-        /// Instance Types and Availability Zones</a>.</para>
+        /// Instance Types and Availability Zones</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -643,7 +687,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
         /// resources in different ways, for example, by purpose, owner, or environment. For more
         /// information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// Amazon Web Services Resources</a>.</para>
+        /// Amazon Web Services Resources</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

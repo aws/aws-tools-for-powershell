@@ -91,7 +91,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>Additional attributes of the entity that are not used to specify the identity of the
         /// entity. A list of key-value pairs.</para><para>For details about how to use the attributes, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/adding-your-own-related-telemetry.html">How
-        /// to add related information to telemetry</a> in the <i>CloudWatch User Guide</i>.</para>
+        /// to add related information to telemetry</a> in the <i>CloudWatch User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>The attributes of the entity which identify the specific entity, as a list of key-value
         /// pairs. Entities with the same <c>keyAttributes</c> are considered to be the same entity.</para><para>There are five allowed attributes (key names): <c>Type</c>, <c>ResourceType</c>, <c>Identifier</c><c>Name</c>, and <c>Environment</c>.</para><para>For details about how to use the key attributes, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/adding-your-own-related-telemetry.html">How
-        /// to add related information to telemetry</a> in the <i>CloudWatch User Guide</i>.</para>
+        /// to add related information to telemetry</a> in the <i>CloudWatch User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogEvent
         /// <summary>
         /// <para>
-        /// <para>The log events.</para>
+        /// <para>The log events.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

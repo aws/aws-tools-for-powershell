@@ -131,7 +131,11 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>
         /// <para>Tags to associate with the endpoint. A tag is a key-value pair that adds metadata
         /// to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint
-        /// to indicate its use by the sales department. </para>
+        /// to indicate its use by the sales department. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

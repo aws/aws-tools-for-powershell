@@ -199,7 +199,11 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// must use ASCII characters.</para></li><li><para><c>PUPPET_R10K_REMOTE</c>: The r10k remote is the URL of your control repository
         /// (for example, ssh://git@your.git-repo.com:user/control-repo.git). Specifying an r10k
         /// remote opens TCP port 8170.</para></li><li><para><c>PUPPET_R10K_PRIVATE_KEY</c>: If you are using a private Git repository, add PUPPET_R10K_PRIVATE_KEY
-        /// to specify a PEM-encoded private SSH key.</para></li></ul>
+        /// to specify a PEM-encoded private SSH key.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -316,7 +320,11 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <para> A list of security group IDs to attach to the Amazon EC2 instance. If you add this
         /// parameter, the specified security groups must be within the VPC that is specified
         /// by <c>SubnetIds</c>. </para><para> If you do not specify this parameter, AWS OpsWorks CM creates one new security group
-        /// that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone). </para>
+        /// that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone). </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -372,7 +380,11 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// a VPC. The VPC must have "Auto Assign Public IP" enabled. </para><para> EC2-VPC customers: This field is optional. If you do not specify subnet IDs, your
         /// EC2 instances are created in a default subnet that is selected by Amazon EC2. If you
         /// specify subnet IDs, the VPC must have "Auto Assign Public IP" enabled. </para><para>For more information about supported Amazon EC2 platforms, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
-        /// Platforms</a>.</para>
+        /// Platforms</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -386,7 +398,11 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <para>A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef
         /// Automate or AWS OpsWorks for Puppet Enterprise server.</para><ul><li><para>The key cannot be empty.</para></li><li><para>The key can be a maximum of 127 characters, and can contain only Unicode letters,
         /// numbers, or separators, or the following special characters: <c>+ - = . _ : / @</c></para></li><li><para>The value can be a maximum 255 characters, and contain only Unicode letters, numbers,
-        /// or separators, or the following special characters: <c>+ - = . _ : / @</c></para></li><li><para>Leading and trailing white spaces are trimmed from both the key and value.</para></li><li><para>A maximum of 50 user-applied tags is allowed for any AWS OpsWorks-CM server.</para></li></ul>
+        /// or separators, or the following special characters: <c>+ - = . _ : / @</c></para></li><li><para>Leading and trailing white spaces are trimmed from both the key and value.</para></li><li><para>A maximum of 50 user-applied tags is allowed for any AWS OpsWorks-CM server.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

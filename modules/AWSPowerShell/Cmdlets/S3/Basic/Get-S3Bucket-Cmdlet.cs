@@ -75,7 +75,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketRegion
         /// <summary>
         /// <para>
-        /// <para>Limits the response to buckets that are located in the specified Amazon Web Services region.</para><note><para>Requests made to an endpoint in a region that is different from the bucket-region parameter are not supported. For example, if you want to limit the response to your buckets in us-west-2 region, the request must be made to an endpoint in us-west-2.</para></note>
+        /// <para>Limits the response to buckets that are located in the specified Amazon Web Services
+        /// Region. The Amazon Web Services Region must be expressed according to the Amazon Web
+        /// Services Region code, such as <c>us-west-2</c> for the US West (Oregon) Region. For
+        /// a list of the valid values for all of the Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions
+        /// and Endpoints</a>.</para><note><para>Requests made to a Regional endpoint that is different from the <c>bucket-region</c>
+        /// parameter are not supported. For example, if you want to limit the response to your
+        /// buckets in Region <c>us-west-2</c>, the request must be made to an endpoint in Region
+        /// <c>us-west-2</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,9 +92,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ContinuationToken
         /// <summary>
         /// <para>
-        /// <para><c>ContinuationToken</c> indicates to Amazon S3 that the list is being continued on this bucket with a token. 
-        /// <c>ContinuationToken</c> is obfuscated and is not a real key. You can use this <c>ContinuationToken</c> for pagination of the list results. </para><para>Length Constraints: Minimum length of 0. Maximum length of 1024.</para><para>Required: No.</para><note><para>If you specify the <c>bucket-region</c>, <c>prefix</c>, or <c>continuation-token</c> query parameters without using <c>max-buckets</c> 
-        /// to set the maximum number of buckets returned in the response, Amazon S3 applies a default page size of 10,000 and provides a continuation token if there are more buckets.</para></note>
+        /// <para><c>ContinuationToken</c> indicates to Amazon S3 that the list is being continued
+        /// on this bucket with a token. <c>ContinuationToken</c> is obfuscated and is not a real
+        /// key. You can use this <c>ContinuationToken</c> for pagination of the list results.
+        /// </para><para>Length Constraints: Minimum length of 0. Maximum length of 1024.</para><para>Required: No.</para><note><para>If you specify the <c>bucket-region</c>, <c>prefix</c>, or <c>continuation-token</c>
+        /// query parameters without using <c>max-buckets</c> to set the maximum number of buckets
+        /// returned in the response, Amazon S3 applies a default page size of 10,000 and provides
+        /// a continuation token if there are more buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,8 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter MaxBucket
         /// <summary>
         /// <para>
-        /// <para>Maximum number of buckets to be returned in response. When the number is more than the count of buckets that are
-        /// owned by an Amazon Web Services account, return all the buckets in response.</para>
+        /// <para>Maximum number of buckets to be returned in response. When the number is more than
+        /// the count of buckets that are owned by an Amazon Web Services account, return all
+        /// the buckets in response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Prefix
         /// <summary>
         /// <para>
-        /// Limits the response to bucket names that begin with the specified bucket name prefix.
+        /// <para>Limits the response to bucket names that begin with the specified bucket name prefix.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,10 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.Select = CreateSelectDelegate<Amazon.S3.Model.ListBucketsResponse, GetS3BucketCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.BucketRegion = this.BucketRegion;
             context.ContinuationToken = this.ContinuationToken;
             context.MaxBucket = this.MaxBucket;
             context.Prefix = this.Prefix;
-            context.BucketRegion = this.BucketRegion;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -166,6 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // create request
             var request = new Amazon.S3.Model.ListBucketsRequest();
             
+            if (cmdletContext.BucketRegion != null)
+            {
+                request.BucketRegion = cmdletContext.BucketRegion;
+            }
             if (cmdletContext.ContinuationToken != null)
             {
                 request.ContinuationToken = cmdletContext.ContinuationToken;
@@ -177,10 +193,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.Prefix != null)
             {
                 request.Prefix = cmdletContext.Prefix;
-            }
-            if (cmdletContext.BucketRegion != null)
-            {
-                request.BucketRegion = cmdletContext.BucketRegion;
             }
             
             CmdletOutput output;
@@ -237,10 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String BucketRegion { get; set; }
             public System.String ContinuationToken { get; set; }
             public System.Int32? MaxBucket { get; set; }
             public System.String Prefix { get; set; }
-            public System.String BucketRegion { get; set; }
             public System.Func<Amazon.S3.Model.ListBucketsResponse, GetS3BucketCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Buckets;
         }

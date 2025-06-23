@@ -118,7 +118,11 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// rightsizing recommendations. You can specify this preference as a combination of include
         /// and exclude lists. You must specify either an <c>includeList</c> or <c>excludeList</c>.
         /// If the preference is an empty set of resource type values, an error occurs. </para><note><para>You can only set this preference for the Amazon EC2 instance and Auto Scaling group
-        /// resource types.</para></note>
+        /// resource types.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,7 +180,11 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <para> The preference to control the resource’s CPU utilization threshold, CPU utilization
         /// headroom, and memory utilization headroom. When this preference isn't specified, we
         /// use the following default values. </para><para>CPU utilization:</para><ul><li><para><c>P99_5</c> for threshold</para></li><li><para><c>PERCENT_20</c> for headroom</para></li></ul><para>Memory utilization:</para><ul><li><para><c>PERCENT_20</c> for headroom</para></li></ul><note><ul><li><para>You can only set CPU and memory utilization preferences for the Amazon EC2 instance
-        /// resource type.</para></li><li><para>The threshold setting isn’t available for memory utilization.</para></li></ul></note>
+        /// resource type.</para></li><li><para>The threshold setting isn’t available for memory utilization.</para></li></ul></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

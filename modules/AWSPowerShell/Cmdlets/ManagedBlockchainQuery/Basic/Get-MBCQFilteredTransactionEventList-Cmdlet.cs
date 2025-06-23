@@ -53,7 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         /// <summary>
         /// <para>
         /// <para>The container to determine whether to list results that have only reached <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality"><i>finality</i></a>. Transactions that have reached finality are always part of the
-        /// response.</para>
+        /// response.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         #region Parameter AddressIdentifierFilter_TransactionEventToAddress
         /// <summary>
         /// <para>
-        /// <para>The container for the recipient address of the transaction. </para>
+        /// <para>The container for the recipient address of the transaction. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

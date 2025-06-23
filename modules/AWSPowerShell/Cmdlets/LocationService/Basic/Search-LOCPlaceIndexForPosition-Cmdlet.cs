@@ -95,7 +95,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>
         /// <para>Specifies the longitude and latitude of the position to query.</para><para> This parameter must contain a pair of numbers. The first number represents the X
         /// coordinate, or longitude; the second number represents the Y coordinate, or latitude.</para><para>For example, <c>[-123.1174, 49.2847]</c> represents a position with longitude <c>-123.1174</c>
-        /// and latitude <c>49.2847</c>.</para>
+        /// and latitude <c>49.2847</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

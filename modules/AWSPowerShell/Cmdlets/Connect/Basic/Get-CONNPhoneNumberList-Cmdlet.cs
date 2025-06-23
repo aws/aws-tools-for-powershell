@@ -85,7 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter PhoneNumberCountryCode
         /// <summary>
         /// <para>
-        /// <para>The ISO country code.</para>
+        /// <para>The ISO country code.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>The type of phone number.</para><note><para>We recommend using <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html">ListPhoneNumbersV2</a>
         /// to return phone number types. While ListPhoneNumbers returns number types <c>UIFN</c>,
         /// <c>SHARED</c>, <c>THIRD_PARTY_TF</c>, and <c>THIRD_PARTY_DID</c>, it incorrectly lists
-        /// them as <c>TOLL_FREE</c> or <c>DID</c>. </para></note>
+        /// them as <c>TOLL_FREE</c> or <c>DID</c>. </para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

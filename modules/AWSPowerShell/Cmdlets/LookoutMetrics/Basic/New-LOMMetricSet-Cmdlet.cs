@@ -239,7 +239,11 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         #region Parameter DimensionFilterList
         /// <summary>
         /// <para>
-        /// <para>A list of filters that specify which data is kept for anomaly detection.</para>
+        /// <para>A list of filters that specify which data is kept for anomaly detection.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -249,7 +253,11 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         #region Parameter DimensionList
         /// <summary>
         /// <para>
-        /// <para>A list of the fields you want to treat as dimensions.</para>
+        /// <para>A list of the fields you want to treat as dimensions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -294,7 +302,11 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         #region Parameter CsvFormatDescriptor_HeaderList
         /// <summary>
         /// <para>
-        /// <para>A list of the source CSV file's headers, if any.</para>
+        /// <para>A list of the source CSV file's headers, if any.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -305,7 +317,11 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         #region Parameter S3SourceConfig_HistoricalDataPathList
         /// <summary>
         /// <para>
-        /// <para>A list of paths to the historical data files.</para>
+        /// <para>A list of paths to the historical data files.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -316,7 +332,11 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         #region Parameter MetricList
         /// <summary>
         /// <para>
-        /// <para>A list of metrics that the dataset will contain.</para>
+        /// <para>A list of metrics that the dataset will contain.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -516,7 +536,11 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         #region Parameter MetricSource_RDSSourceConfig_VpcConfiguration_SecurityGroupIdList
         /// <summary>
         /// <para>
-        /// <para>An array of strings containing the list of security groups.</para>
+        /// <para>An array of strings containing the list of security groups.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -527,7 +551,11 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         #region Parameter MetricSource_RedshiftSourceConfig_VpcConfiguration_SecurityGroupIdList
         /// <summary>
         /// <para>
-        /// <para>An array of strings containing the list of security groups.</para>
+        /// <para>An array of strings containing the list of security groups.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -537,7 +565,11 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         #region Parameter MetricSource_RDSSourceConfig_VpcConfiguration_SubnetIdList
         /// <summary>
         /// <para>
-        /// <para>An array of strings containing the Amazon VPC subnet IDs (e.g., <c>subnet-0bb1c79de3EXAMPLE</c>.</para>
+        /// <para>An array of strings containing the Amazon VPC subnet IDs (e.g., <c>subnet-0bb1c79de3EXAMPLE</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -548,7 +580,11 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         #region Parameter MetricSource_RedshiftSourceConfig_VpcConfiguration_SubnetIdList
         /// <summary>
         /// <para>
-        /// <para>An array of strings containing the Amazon VPC subnet IDs (e.g., <c>subnet-0bb1c79de3EXAMPLE</c>.</para>
+        /// <para>An array of strings containing the Amazon VPC subnet IDs (e.g., <c>subnet-0bb1c79de3EXAMPLE</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -592,7 +628,11 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         /// <summary>
         /// <para>
         /// <para>A list of <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a>
-        /// to apply to the dataset.</para>
+        /// to apply to the dataset.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -603,7 +643,11 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         #region Parameter S3SourceConfig_TemplatedPathList
         /// <summary>
         /// <para>
-        /// <para>A list of templated paths to the source files.</para>
+        /// <para>A list of templated paths to the source files.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

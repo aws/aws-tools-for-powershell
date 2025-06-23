@@ -66,7 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         /// <c>MaillingAddress</c>, and <c>ShippingAddress</c>.</para><para>You only can use the Address type in the <c>MatchingRule</c>. For example, if you
         /// want to match profile based on <c>BusinessAddress.City</c> or <c>MaillingAddress.City</c>,
         /// you need to choose the <c>BusinessAddress</c> and the <c>MaillingAddress</c> to represent
-        /// the Address type and specify the <c>Address.City</c> on the matching rule.</para>
+        /// the Address type and specify the <c>Address.City</c> on the matching rule.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,7 +193,11 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         /// if you want to match profile based on <c>PersonalEmailAddress</c> or <c>BusinessEmailAddress</c>,
         /// you need to choose the <c>PersonalEmailAddress</c> and the <c>BusinessEmailAddress</c>
         /// to represent the <c>EmailAddress</c> type and only specify the <c>EmailAddress</c>
-        /// on the matching rule.</para>
+        /// on the matching rule.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -231,7 +239,11 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter Consolidation_MatchingAttributesList
         /// <summary>
         /// <para>
-        /// <para>A list of matching criteria.</para>
+        /// <para>A list of matching criteria.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -243,7 +255,11 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         /// <summary>
         /// <para>
         /// <para>Configures how the rule-based matching process should match profiles. You can have
-        /// up to 15 <c>MatchingRule</c> in the <c>MatchingRules</c>.</para>
+        /// up to 15 <c>MatchingRule</c> in the <c>MatchingRules</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -291,7 +307,11 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         /// and <c>MobilePhoneNumber</c>.</para><para>You only can use the <c>PhoneNumber</c> type in the <c>MatchingRule</c>. For example,
         /// if you want to match a profile based on <c>Phone</c> or <c>HomePhone</c>, you need
         /// to choose the <c>Phone</c> and the <c>HomePhone</c> to represent the <c>PhoneNumber</c>
-        /// type and only specify the <c>PhoneNumber</c> on the matching rule.</para>
+        /// type and only specify the <c>PhoneNumber</c> on the matching rule.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -367,7 +387,11 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags used to organize, track, or control access for this resource.</para>
+        /// <para>The tags used to organize, track, or control access for this resource.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

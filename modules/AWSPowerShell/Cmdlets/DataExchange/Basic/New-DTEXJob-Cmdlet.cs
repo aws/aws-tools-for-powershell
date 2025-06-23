@@ -103,7 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         #region Parameter ExportAssetsToS3_AssetDestination
         /// <summary>
         /// <para>
-        /// <para>The destination for the asset.</para>
+        /// <para>The destination for the asset.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,7 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         #region Parameter ImportAssetsFromRedshiftDataShares_AssetSource
         /// <summary>
         /// <para>
-        /// <para>A list of Amazon Redshift datashare assets.</para>
+        /// <para>A list of Amazon Redshift datashare assets.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,7 +156,11 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         #region Parameter ImportAssetsFromS3_AssetSource
         /// <summary>
         /// <para>
-        /// <para>Is a list of Amazon S3 bucket and object key pairs.</para>
+        /// <para>Is a list of Amazon S3 bucket and object key pairs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -281,7 +293,11 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         #region Parameter Database_Expression
         /// <summary>
         /// <para>
-        /// <para>A list of LF-tag conditions that apply to database resources.</para>
+        /// <para>A list of LF-tag conditions that apply to database resources.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -292,7 +308,11 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         #region Parameter Table_Expression
         /// <summary>
         /// <para>
-        /// <para>A list of LF-tag conditions that apply to table resources.</para>
+        /// <para>A list of LF-tag conditions that apply to table resources.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -303,7 +323,11 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         #region Parameter AssetSource_KeyPrefix
         /// <summary>
         /// <para>
-        /// <para>Organizes Amazon S3 asset key prefixes stored in an Amazon S3 bucket.</para>
+        /// <para>Organizes Amazon S3 asset key prefixes stored in an Amazon S3 bucket.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -314,7 +338,11 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         #region Parameter AssetSource_Key
         /// <summary>
         /// <para>
-        /// <para>The keys used to create the Amazon S3 data access.</para>
+        /// <para>The keys used to create the Amazon S3 data access.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -349,7 +377,11 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         /// <summary>
         /// <para>
         /// <para>List of AWS KMS CMKs (Key Management System Customer Managed Keys) and ARNs used to
-        /// encrypt S3 objects being shared in this S3 Data Access asset.</para>
+        /// encrypt S3 objects being shared in this S3 Data Access asset.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -372,7 +404,11 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         #region Parameter Database_Permission
         /// <summary>
         /// <para>
-        /// <para>The permissions granted to subscribers on database resources.</para>
+        /// <para>The permissions granted to subscribers on database resources.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -383,7 +419,11 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         #region Parameter Table_Permission
         /// <summary>
         /// <para>
-        /// <para>The permissions granted to subscribers on table resources.</para>
+        /// <para>The permissions granted to subscribers on table resources.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -406,7 +446,11 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         #region Parameter ExportRevisionsToS3_RevisionDestination
         /// <summary>
         /// <para>
-        /// <para>The destination for the revision.</para>
+        /// <para>The destination for the revision.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

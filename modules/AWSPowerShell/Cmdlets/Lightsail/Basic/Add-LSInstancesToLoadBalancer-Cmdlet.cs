@@ -62,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>An array of strings representing the instance name(s) you want to attach to your load
         /// balancer.</para><para>An instance must be <c>running</c> before you can attach it to your load balancer.</para><para>There are no additional limits on the number of instances you can attach to your load
         /// balancer, aside from the limit of Lightsail instances you can create in your account
-        /// (20).</para>
+        /// (20).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -80,7 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// 3000 messages per second or 20MB per second, whichever comes first.</para></li><li><para><c>MessageGroup</c> – The scope of deduplication is within each individual message
         /// group, which enables higher throughput per topic subject to regional quotas. For more
         /// information on quotas or to request an increase, see <a href="https://docs.aws.amazon.com/general/latest/gr/sns.html">Amazon
-        /// SNS service quotas</a> in the Amazon Web Services General Reference.</para></li></ul></li></ul>
+        /// SNS service quotas</a> in the Amazon Web Services General Reference.</para></li></ul></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>The list of tags to add to a new topic.</para><note><para>To be able to tag a topic on creation, you must have the <c>sns:CreateTopic</c> and
-        /// <c>sns:TagResource</c> permissions.</para></note>
+        /// <c>sns:TagResource</c> permissions.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

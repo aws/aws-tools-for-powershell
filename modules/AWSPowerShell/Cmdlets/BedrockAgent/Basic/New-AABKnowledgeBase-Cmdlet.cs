@@ -178,7 +178,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <summary>
         /// <para>
         /// <para>An array of objects, each of which defines information about example queries to help
-        /// the query engine generate appropriate SQL queries.</para>
+        /// the query engine generate appropriate SQL queries.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -513,7 +517,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter RedshiftConfiguration_StorageConfiguration
         /// <summary>
         /// <para>
-        /// <para>Specifies configurations for Amazon Redshift database storage.</para>
+        /// <para>Specifies configurations for Amazon Redshift database storage.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -525,7 +533,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <summary>
         /// <para>
         /// <para>A list of objects specifying storage locations for images extracted from multimodal
-        /// documents in your data source.</para>
+        /// documents in your data source.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -547,7 +559,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter GenerationContext_Table
         /// <summary>
         /// <para>
-        /// <para>An array of objects, each of which defines information about a table in the database.</para>
+        /// <para>An array of objects, each of which defines information about a table in the database.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -559,7 +575,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <summary>
         /// <para>
         /// <para>Specify the key-value pairs for the tags that you want to attach to your knowledge
-        /// base in this object.</para>
+        /// base in this object.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

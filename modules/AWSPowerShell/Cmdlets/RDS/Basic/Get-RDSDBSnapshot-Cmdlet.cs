@@ -82,7 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A filter that specifies one or more DB snapshots to describe.</para><para>Supported filters:</para><ul><li><para><c>db-instance-id</c> - Accepts DB instance identifiers and DB instance Amazon Resource
-        /// Names (ARNs).</para></li><li><para><c>db-snapshot-id</c> - Accepts DB snapshot identifiers.</para></li><li><para><c>dbi-resource-id</c> - Accepts identifiers of source DB instances.</para></li><li><para><c>snapshot-type</c> - Accepts types of DB snapshots.</para></li><li><para><c>engine</c> - Accepts names of database engines.</para></li></ul>
+        /// Names (ARNs).</para></li><li><para><c>db-snapshot-id</c> - Accepts DB snapshot identifiers.</para></li><li><para><c>dbi-resource-id</c> - Accepts identifiers of source DB instances.</para></li><li><para><c>snapshot-type</c> - Accepts types of DB snapshots.</para></li><li><para><c>engine</c> - Accepts names of database engines.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -50,7 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
         /// <para>
         /// <para>The filters to use to return information by service or resource type. Valid filters
         /// include target type, target address, and target status.</para><note><para>A filter with the same name can appear more than once when used with OR statements.
-        /// Filters with different names should be applied with AND statements.</para></note>
+        /// Filters with different names should be applied with AND statements.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -64,7 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.C9
         /// <summary>
         /// <para>
         /// <para>The type of environment member permissions to get information about. Available values
-        /// include:</para><ul><li><para><c>owner</c>: Owns the environment.</para></li><li><para><c>read-only</c>: Has read-only access to the environment.</para></li><li><para><c>read-write</c>: Has read-write access to the environment.</para></li></ul><para>If no value is specified, information about all environment members are returned.</para>
+        /// include:</para><ul><li><para><c>owner</c>: Owns the environment.</para></li><li><para><c>read-only</c>: Has read-only access to the environment.</para></li><li><para><c>read-write</c>: Has read-write access to the environment.</para></li></ul><para>If no value is specified, information about all environment members are returned.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

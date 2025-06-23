@@ -322,7 +322,11 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The identifiers of the security groups for the fleet or image builder.</para>
+        /// <para>The identifiers of the security groups for the fleet or image builder.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -349,7 +353,11 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <para>
         /// <para>The identifiers of the subnets to which a network interface is attached from the fleet
         /// instance or image builder instance. Fleet instances use one or more subnets. Image
-        /// builder instances use one subnet.</para>
+        /// builder instances use one subnet.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -364,7 +372,11 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// optional. For example, Environment=Test. If you do not specify a value, Environment=.
         /// </para><para>If you do not specify a value, the value is set to an empty string.</para><para>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8,
         /// and the following special characters: </para><para>_ . : / = + \ - @</para><para>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-        /// Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</para>
+        /// Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -377,7 +389,11 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <para>
         /// <para>The USB device filter strings that specify which USB devices a user can redirect to
         /// the fleet streaming session, when using the Windows native client. This is allowed
-        /// but not required for Elastic fleets.</para>
+        /// but not required for Elastic fleets.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

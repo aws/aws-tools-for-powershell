@@ -158,7 +158,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>A list of cluster security groups to be authorized on this cluster. This change is
         /// asynchronously applied as soon as possible.</para><para>Security groups currently associated with the cluster, and not in the list of groups
-        /// to apply, will be revoked from the cluster.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
+        /// to apply, will be revoked from the cluster.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -430,7 +434,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>A list of virtual private cloud (VPC) security groups to be associated with the cluster.
-        /// This change is asynchronously applied as soon as possible.</para>
+        /// This change is asynchronously applied as soon as possible.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

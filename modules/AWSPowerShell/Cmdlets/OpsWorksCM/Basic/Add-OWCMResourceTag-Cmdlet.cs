@@ -70,7 +70,11 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <para>A map that contains tag keys and tag values to attach to AWS OpsWorks-CM servers or
         /// backups.</para><ul><li><para>The key cannot be empty.</para></li><li><para>The key can be a maximum of 127 characters, and can contain only Unicode letters,
         /// numbers, or separators, or the following special characters: <c>+ - = . _ : /</c></para></li><li><para>The value can be a maximum 255 characters, and contain only Unicode letters, numbers,
-        /// or separators, or the following special characters: <c>+ - = . _ : /</c></para></li><li><para>Leading and trailing white spaces are trimmed from both the key and value.</para></li><li><para>A maximum of 50 user-applied tags is allowed for any AWS OpsWorks-CM server or backup.</para></li></ul>
+        /// or separators, or the following special characters: <c>+ - = . _ : /</c></para></li><li><para>Leading and trailing white spaces are trimmed from both the key and value.</para></li><li><para>A maximum of 50 user-applied tags is allowed for any AWS OpsWorks-CM server or backup.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -51,7 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AddRouteTableId
         /// <summary>
         /// <para>
-        /// <para>(Gateway endpoint) The IDs of the route tables to associate with the endpoint.</para>
+        /// <para>(Gateway endpoint) The IDs of the route tables to associate with the endpoint.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>(Interface endpoint) The IDs of the security groups to associate with the endpoint
-        /// network interfaces.</para>
+        /// network interfaces.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +84,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>(Interface and Gateway Load Balancer endpoints) The IDs of the subnets in which to
         /// serve the endpoint. For a Gateway Load Balancer endpoint, you can specify only one
-        /// subnet.</para>
+        /// subnet.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,7 +168,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RemoveRouteTableId
         /// <summary>
         /// <para>
-        /// <para>(Gateway endpoint) The IDs of the route tables to disassociate from the endpoint.</para>
+        /// <para>(Gateway endpoint) The IDs of the route tables to disassociate from the endpoint.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,7 +184,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>(Interface endpoint) The IDs of the security groups to disassociate from the endpoint
-        /// network interfaces.</para>
+        /// network interfaces.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,7 +199,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RemoveSubnetId
         /// <summary>
         /// <para>
-        /// <para>(Interface endpoint) The IDs of the subnets from which to remove the endpoint.</para>
+        /// <para>(Interface endpoint) The IDs of the subnets from which to remove the endpoint.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,7 +225,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SubnetConfiguration
         /// <summary>
         /// <para>
-        /// <para>The subnet configurations for the endpoint.</para>
+        /// <para>The subnet configurations for the endpoint.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

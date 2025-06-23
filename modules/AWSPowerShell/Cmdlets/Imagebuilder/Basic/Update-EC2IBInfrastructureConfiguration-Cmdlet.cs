@@ -159,7 +159,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>
         /// <para>The instance types of the infrastructure configuration. You can specify one or more
         /// instance types to use for this build. The service will pick one of these instance
-        /// types based on availability.</para>
+        /// types based on availability.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,7 +185,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ResourceTag
         /// <summary>
         /// <para>
-        /// <para>The tags attached to the resource created by Image Builder.</para>
+        /// <para>The tags attached to the resource created by Image Builder.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -215,7 +223,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The security group IDs to associate with the instance used to customize your Amazon
-        /// EC2 AMI.</para>
+        /// EC2 AMI.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

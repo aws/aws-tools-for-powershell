@@ -106,7 +106,11 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter RecommendationId
         /// <summary>
         /// <para>
-        /// <para>Identifiers for the recommendations used to create a recommendation template.</para>
+        /// <para>Identifiers for the recommendations used to create a recommendation template.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +121,11 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter RecommendationType
         /// <summary>
         /// <para>
-        /// <para>An array of strings that specify the recommendation template type or types.</para><dl><dt>Alarm</dt><dd><para>The template is an <a>AlarmRecommendation</a> template.</para></dd><dt>Sop</dt><dd><para>The template is a <a>SopRecommendation</a> template.</para></dd><dt>Test</dt><dd><para>The template is a <a>TestRecommendation</a> template.</para></dd></dl>
+        /// <para>An array of strings that specify the recommendation template type or types.</para><dl><dt>Alarm</dt><dd><para>The template is an <a>AlarmRecommendation</a> template.</para></dd><dt>Sop</dt><dd><para>The template is a <a>SopRecommendation</a> template.</para></dd><dt>Test</dt><dd><para>The template is a <a>TestRecommendation</a> template.</para></dd></dl><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +137,11 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <summary>
         /// <para>
         /// <para>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services
-        /// resource. Each tag consists of a key/value pair.</para>
+        /// resource. Each tag consists of a key/value pair.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

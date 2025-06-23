@@ -66,7 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <summary>
         /// <para>
         /// <para>The caching keys for a resolver that has caching activated.</para><para>Valid values are entries from the <c>$context.arguments</c>, <c>$context.source</c>,
-        /// and <c>$context.identity</c> maps.</para>
+        /// and <c>$context.identity</c> maps.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,7 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter PipelineConfig_Function
         /// <summary>
         /// <para>
-        /// <para>A list of <c>Function</c> objects.</para>
+        /// <para>A list of <c>Function</c> objects.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

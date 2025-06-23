@@ -61,7 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <c>{"Key": "difficulty", "Value": "novice"}</c>. You can use this parameter to modify
         /// game properties in an active game session. This action adds new properties and modifies
         /// existing properties. There is no way to delete properties. For an example, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-update">Update
-        /// the value of a game property</a>. </para>
+        /// the value of a game property</a>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

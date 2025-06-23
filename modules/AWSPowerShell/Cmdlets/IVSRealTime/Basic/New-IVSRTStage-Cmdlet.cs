@@ -47,7 +47,11 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         #region Parameter AutoParticipantRecordingConfiguration_MediaType
         /// <summary>
         /// <para>
-        /// <para>Types of media to be recorded. Default: <c>AUDIO_VIDEO</c>.</para>
+        /// <para>Types of media to be recorded. Default: <c>AUDIO_VIDEO</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         #region Parameter ParticipantTokenConfiguration
         /// <summary>
         /// <para>
-        /// <para>Array of participant token configuration objects to attach to the new stage.</para>
+        /// <para>Array of participant token configuration objects to attach to the new stage.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         /// generated thumbnails in a serial manner, to the media/thumbnails/high directory. <c>LATEST</c>
         /// saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites
         /// it at the interval specified by <c>targetIntervalSeconds</c>. You can enable both
-        /// <c>SEQUENTIAL</c> and <c>LATEST</c>. Default: <c>SEQUENTIAL</c>.</para>
+        /// <c>SEQUENTIAL</c> and <c>LATEST</c>. Default: <c>SEQUENTIAL</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,7 +161,11 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         /// See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best
         /// practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details,
         /// including restrictions that apply to tags and "Tag naming limits and requirements";
-        /// Amazon IVS has no constraints on tags beyond what is documented there. </para>
+        /// Amazon IVS has no constraints on tags beyond what is documented there. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

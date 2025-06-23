@@ -62,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ReservedInstanceId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the Convertible Reserved Instances to exchange.</para>
+        /// <para>The IDs of the Convertible Reserved Instances to exchange.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The configuration of the target Convertible Reserved Instance to exchange for your
-        /// current Convertible Reserved Instances.</para>
+        /// current Convertible Reserved Instances.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

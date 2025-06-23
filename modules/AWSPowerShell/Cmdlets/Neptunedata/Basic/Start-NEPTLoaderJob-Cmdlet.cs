@@ -69,7 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         /// until <c>Job-A</c> and <c>Job-B</c> have completed successfully. If either one of
         /// them fails, Job-C will not be executed, and its status will be set to <c>LOAD_FAILED_BECAUSE_DEPENDENCY_NOT_SATISFIED</c>.</para><para>You can set up multiple levels of dependency in this way, so that the failure of one
         /// job will cause all requests that are directly or indirectly dependent on it to be
-        /// cancelled.</para>
+        /// cancelled.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,7 +189,11 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         /// string values("") as node and edge properties when loading CSV data. If <c>allowEmptyStrings</c>
         /// is set to <c>false</c> (the default), such empty strings are treated as nulls and
         /// are not loaded.</para><para>If <c>allowEmptyStrings</c> is set to <c>true</c>, the loader treats empty strings
-        /// as valid property values and loads them accordingly.</para></li></ul>
+        /// as valid property values and loads them accordingly.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

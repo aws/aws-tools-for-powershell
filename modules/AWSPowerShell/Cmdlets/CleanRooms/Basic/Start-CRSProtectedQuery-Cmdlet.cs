@@ -93,7 +93,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <para>
         /// <para> A list of locations where you want to distribute the protected query results. Each
         /// location must specify either an S3 destination or a collaboration member destination.</para><important><para>You can't specify more than one S3 location.</para><para>You can't specify the query runner's account as a member location.</para><para>You must include either an S3 or member output configuration for each location, but
-        /// not both.</para></important>
+        /// not both.</para></important><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +137,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter SqlParameters_Parameter
         /// <summary>
         /// <para>
-        /// <para>The protected query SQL parameters.</para>
+        /// <para>The protected query SQL parameters.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

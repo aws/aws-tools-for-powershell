@@ -67,7 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// the Availability Zone for the new Reserved Instances.</para></li><li><para><c>modification-result.target-configuration.instance-count </c> - The number of new
         /// Reserved Instances.</para></li><li><para><c>modification-result.target-configuration.instance-type</c> - The instance type
         /// of the new Reserved Instances.</para></li><li><para><c>reserved-instances-id</c> - The ID of the Reserved Instances modified.</para></li><li><para><c>reserved-instances-modification-id</c> - The ID of the modification request.</para></li><li><para><c>status</c> - The status of the Reserved Instances modification request (<c>processing</c>
-        /// | <c>fulfilled</c> | <c>failed</c>).</para></li><li><para><c>status-message</c> - The reason for the status.</para></li><li><para><c>update-date</c> - The time when the modification request was last updated.</para></li></ul>
+        /// | <c>fulfilled</c> | <c>failed</c>).</para></li><li><para><c>status-message</c> - The reason for the status.</para></li><li><para><c>update-date</c> - The time when the modification request was last updated.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ReservedInstancesModificationId
         /// <summary>
         /// <para>
-        /// <para>IDs for the submitted modification request.</para>
+        /// <para>IDs for the submitted modification request.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

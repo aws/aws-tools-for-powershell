@@ -190,7 +190,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case-sensitive.</para></li><li><para>Do not use <c>aws:</c>, <c>AWS:</c>, or any upper or lowercase combination of such
         /// as a prefix for either keys or values as it is reserved for Amazon Web Services use.
         /// You cannot edit or delete tag keys or values with this prefix. Tags with this prefix
-        /// do not count against your tags per resource limit.</para></li></ul>
+        /// do not count against your tags per resource limit.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

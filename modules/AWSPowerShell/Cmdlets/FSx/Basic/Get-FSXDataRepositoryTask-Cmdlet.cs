@@ -65,7 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>(Optional) You can use filters to narrow the <c>DescribeDataRepositoryTasks</c> response
         /// to include just tasks for specific file systems, or tasks in a specific lifecycle
-        /// state.</para>
+        /// state.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter TaskId
         /// <summary>
         /// <para>
-        /// <para>(Optional) IDs of the tasks whose descriptions you want to retrieve (String).</para>
+        /// <para>(Optional) IDs of the tasks whose descriptions you want to retrieve (String).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

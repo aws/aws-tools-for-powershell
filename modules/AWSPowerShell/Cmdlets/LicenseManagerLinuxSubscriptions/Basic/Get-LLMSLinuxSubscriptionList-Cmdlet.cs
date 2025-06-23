@@ -52,7 +52,11 @@ namespace Amazon.PowerShell.Cmdlets.LLMS
         /// <para>An array of structures that you can use to filter the results to those that match
         /// one or more sets of key-value pairs that you specify. For example, you can filter
         /// by the name of <c>Subscription</c> with an optional operator to see subscriptions
-        /// that match, partially match, or don't match a certain subscription's name.</para><para>The valid names for this filter are:</para><ul><li><para><c>Subscription</c></para></li></ul><para>The valid Operators for this filter are:</para><ul><li><para><c>contains</c></para></li><li><para><c>equals</c></para></li><li><para><c>Notequal</c></para></li></ul>
+        /// that match, partially match, or don't match a certain subscription's name.</para><para>The valid names for this filter are:</para><ul><li><para><c>Subscription</c></para></li></ul><para>The valid Operators for this filter are:</para><ul><li><para><c>contains</c></para></li><li><para><c>equals</c></para></li><li><para><c>Notequal</c></para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

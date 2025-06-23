@@ -73,7 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>Defines an array of individual custom action definitions that are available for use
         /// by the stateless rules in this <c>StatelessRulesAndCustomActions</c> specification.
         /// You name each custom action that you define, and then you can use it by name in your
-        /// <a>StatelessRule</a><a>RuleDefinition</a><c>Actions</c> specification.</para>
+        /// <a>StatelessRule</a><a>RuleDefinition</a><c>Actions</c> specification.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter ReferenceSets_IPSetReference
         /// <summary>
         /// <para>
-        /// <para>The list of IP set references.</para>
+        /// <para>The list of IP set references.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter RuleVariables_IPSet
         /// <summary>
         /// <para>
-        /// <para>A list of IP addresses and address ranges, in CIDR notation. </para>
+        /// <para>A list of IP addresses and address ranges, in CIDR notation. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,7 +171,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter RuleVariables_PortSet
         /// <summary>
         /// <para>
-        /// <para>A list of port ranges. </para>
+        /// <para>A list of port ranges. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,7 +207,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter SummaryConfiguration_RuleOption
         /// <summary>
         /// <para>
-        /// <para>Specifies the selected rule options returned by <a>DescribeRuleGroupSummary</a>.</para>
+        /// <para>Specifies the selected rule options returned by <a>DescribeRuleGroupSummary</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -276,7 +296,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// stateful rule group. Use this option to specify simple Suricata rules with protocol,
         /// source and destination, ports, direction, and rule options. For information about
         /// the Suricata <c>Rules</c> format, see <a href="https://suricata.readthedocs.io/en/suricata-7.0.3/rules/intro.html">Rules
-        /// Format</a>. </para>
+        /// Format</a>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -287,7 +311,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter StatelessRulesAndCustomActions_StatelessRule
         /// <summary>
         /// <para>
-        /// <para>Defines the set of stateless rules for use in a stateless rule group. </para>
+        /// <para>Defines the set of stateless rules for use in a stateless rule group. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -302,7 +330,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// are the following:</para><ul><li><para>Explicit names. For example, <c>abc.example.com</c> matches only the domain <c>abc.example.com</c>.</para></li><li><para>Names that use a domain wildcard, which you indicate with an initial '<c>.</c>'. For
         /// example,<c>.example.com</c> matches <c>example.com</c> and matches all subdomains
         /// of <c>example.com</c>, such as <c>abc.example.com</c> and <c>www.example.com</c>.
-        /// </para></li></ul>
+        /// </para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -314,7 +346,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>The protocols you want to inspect. Specify <c>TLS_SNI</c> for <c>HTTPS</c>. Specify
-        /// <c>HTTP_HOST</c> for <c>HTTP</c>. You can specify either or both. </para>
+        /// <c>HTTP_HOST</c> for <c>HTTP</c>. You can specify either or both. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

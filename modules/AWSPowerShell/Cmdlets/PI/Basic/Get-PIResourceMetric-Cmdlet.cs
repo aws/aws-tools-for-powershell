@@ -97,7 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// Insights metric and specify an aggregate function, and you can provide filtering criteria.
         /// You must append the aggregate function to the metric. For example, to find the average
         /// for the metric <c>db.load</c> you must use <c>db.load.avg</c>. Valid values for aggregate
-        /// functions include <c>.avg</c>, <c>.min</c>, <c>.max</c>, and <c>.sum</c>.</para>
+        /// functions include <c>.avg</c>, <c>.min</c>, <c>.max</c>, and <c>.sum</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

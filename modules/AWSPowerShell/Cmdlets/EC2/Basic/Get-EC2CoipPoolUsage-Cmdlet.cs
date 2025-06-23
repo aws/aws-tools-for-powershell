@@ -61,7 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><c>coip-address-usage.allocation-id</c> - The allocation ID of the address.</para></li><li><para><c>coip-address-usage.aws-account-id</c> - The ID of the Amazon Web Services account
         /// that is using the customer-owned IP address.</para></li><li><para><c>coip-address-usage.aws-service</c> - The Amazon Web Services service that is using
-        /// the customer-owned IP address.</para></li><li><para><c>coip-address-usage.co-ip</c> - The customer-owned IP address.</para></li></ul>
+        /// the customer-owned IP address.</para></li><li><para><c>coip-address-usage.co-ip</c> - The customer-owned IP address.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

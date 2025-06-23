@@ -171,7 +171,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The block device mapping, which defines the EBS volumes and instance store volumes
         /// to attach to the instance at launch. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block
-        /// device mappings</a> in the <i>Amazon EC2 User Guide</i>.</para>
+        /// device mappings</a> in the <i>Amazon EC2 User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -306,7 +310,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ElasticGpuSpecification
         /// <summary>
         /// <para>
-        /// <para>An elastic GPU to associate with the instance.</para><note><para>Amazon Elastic Graphics reached end of life on January 8, 2024.</para></note>
+        /// <para>An elastic GPU to associate with the instance.</para><note><para>Amazon Elastic Graphics reached end of life on January 8, 2024.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -316,7 +324,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ElasticInferenceAccelerator
         /// <summary>
         /// <para>
-        /// <para>An elastic inference accelerator to associate with the instance.</para><note><para>Amazon Elastic Inference is no longer available.</para></note>
+        /// <para>An elastic inference accelerator to associate with the instance.</para><note><para>Amazon Elastic Inference is no longer available.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -569,7 +581,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The IPv6 addresses from the range of the subnet to associate with the primary network
         /// interface. You cannot specify this option and the option to assign a number of IPv6
         /// addresses in the same request. You cannot specify this option if you've specified
-        /// a minimum number of instances to launch.</para><para>You cannot specify this option and the network interfaces option in the same request.</para>
+        /// a minimum number of instances to launch.</para><para>You cannot specify this option and the network interfaces option in the same request.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -615,7 +631,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LicenseSpecification
         /// <summary>
         /// <para>
-        /// <para>The license configurations.</para>
+        /// <para>The license configurations.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -678,7 +698,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NetworkInterface
         /// <summary>
         /// <para>
-        /// <para>The network interfaces to associate with the instance.</para>
+        /// <para>The network interfaces to associate with the instance.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -740,7 +764,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The IDs of the security groups. You can create a security group using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</para><para>If you specify a network interface, you must specify any security groups as part of
-        /// the network interface instead of using this parameter.</para>
+        /// the network interface instead of using this parameter.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -752,7 +780,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>[Default VPC] The names of the security groups.</para><para>If you specify a network interface, you must specify any security groups as part of
-        /// the network interface instead of using this parameter.</para><para>Default: Amazon EC2 uses the default security group.</para>
+        /// the network interface instead of using this parameter.</para><para>Default: Amazon EC2 uses the default security group.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -784,7 +816,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
-        /// <para>The tags to apply to the resources that are created during instance launch.</para><para>You can specify tags for the following resources only:</para><ul><li><para>Instances</para></li><li><para>Volumes</para></li><li><para>Spot Instance requests</para></li><li><para>Network interfaces</para></li></ul><para>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</para>
+        /// <para>The tags to apply to the resources that are created during instance launch.</para><para>You can specify tags for the following resources only:</para><ul><li><para>Instances</para></li><li><para>Volumes</para></li><li><para>Spot Instance requests</para></li><li><para>Network interfaces</para></li></ul><para>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

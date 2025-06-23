@@ -69,7 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         /// <para>
         /// <para>The routing controls that are part of transactions that are evaluated to determine
         /// if a request to change a routing control state is allowed. For example, you might
-        /// include three routing controls, one for each of three Amazon Web Services Regions.</para>
+        /// include three routing controls, one for each of three Amazon Web Services Regions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +105,11 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         /// <summary>
         /// <para>
         /// <para>The gating controls for the new gating rule. That is, routing controls that are evaluated
-        /// by the rule configuration that you specify.</para>
+        /// by the rule configuration that you specify.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,7 +162,11 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags associated with the safety rule.</para>
+        /// <para>The tags associated with the safety rule.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +182,11 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         /// one for each of three Amazon Web Services Regions. Now you specify ATLEAST 2 as your
         /// RuleConfig. With these settings, you can only change (set or unset) the routing controls
         /// that you have specified as TargetControls if that rule evaluates to true.</para><para>In other words, your ability to change the routing controls that you have specified
-        /// as TargetControls is gated by the rule that you set for the routing controls in GatingControls.</para>
+        /// as TargetControls is gated by the rule that you set for the routing controls in GatingControls.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -60,7 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The names of one or more policies. If you omit this property, all policies are described.
         /// If a group name is provided, the results are limited to that group. If you specify
-        /// an unknown policy name, it is ignored with no error.</para><para>Array Members: Maximum number of 50 items.</para>
+        /// an unknown policy name, it is ignored with no error.</para><para>Array Members: Maximum number of 50 items.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -72,7 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>One or more policy types. The valid values are <c>SimpleScaling</c>, <c>StepScaling</c>,
-        /// <c>TargetTrackingScaling</c>, and <c>PredictiveScaling</c>.</para>
+        /// <c>TargetTrackingScaling</c>, and <c>PredictiveScaling</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

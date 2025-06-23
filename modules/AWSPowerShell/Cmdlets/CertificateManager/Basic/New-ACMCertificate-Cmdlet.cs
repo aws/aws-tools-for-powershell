@@ -119,7 +119,11 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <summary>
         /// <para>
         /// <para>The domain name that you want ACM to use to send you emails so that you can validate
-        /// domain ownership.</para>
+        /// domain ownership.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -199,7 +203,11 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// examples: </para><ul><li><para><c>(63 octets).(63 octets).(63 octets).(61 octets)</c> is legal because the total
         /// length is 253 octets (63+1+63+1+63+1+61) and no label exceeds 63 octets.</para></li><li><para><c>(64 octets).(63 octets).(63 octets).(61 octets)</c> is not legal because the total
         /// length exceeds 253 octets (64+1+63+1+63+1+61) and the first label exceeds 63 octets.</para></li><li><para><c>(63 octets).(63 octets).(63 octets).(62 octets)</c> is not legal because the total
-        /// length of the DNS name (63+1+63+1+63+1+62) exceeds 253 octets.</para></li></ul>
+        /// length of the DNS name (63+1+63+1+63+1+62) exceeds 253 octets.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,7 +218,11 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>One or more resource tags to associate with the certificate.</para>
+        /// <para>One or more resource tags to associate with the certificate.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

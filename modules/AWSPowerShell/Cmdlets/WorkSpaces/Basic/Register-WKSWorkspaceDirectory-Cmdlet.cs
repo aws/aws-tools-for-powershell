@@ -119,7 +119,11 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <para>The identifiers of the subnets for your virtual private cloud (VPC). Make sure that
         /// the subnets are in supported Availability Zones. The subnets must also be in separate
         /// Availability Zones. If these conditions are not met, you will receive an OperationNotSupportedException
-        /// error.</para>
+        /// error.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,7 +134,11 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags associated with the directory.</para>
+        /// <para>The tags associated with the directory.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

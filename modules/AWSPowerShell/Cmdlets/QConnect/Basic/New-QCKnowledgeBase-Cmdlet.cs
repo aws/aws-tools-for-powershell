@@ -146,7 +146,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// <para>
         /// <para>A list of one or more exclusion regular expression patterns to exclude certain URLs.
         /// If you specify an inclusion and exclusion filter/pattern and both match a URL, the
-        /// exclusion filter takes precedence and the web content of the URL isn’t crawled.</para>
+        /// exclusion filter takes precedence and the web content of the URL isn’t crawled.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,7 +163,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// <para>
         /// <para>A list of one or more inclusion regular expression patterns to include certain URLs.
         /// If you specify an inclusion and exclusion filter/pattern and both match a URL, the
-        /// exclusion filter takes precedence and the web content of the URL isn’t crawled.</para>
+        /// exclusion filter takes precedence and the web content of the URL isn’t crawled.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,7 +211,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter HierarchicalChunkingConfiguration_LevelConfiguration
         /// <summary>
         /// <para>
-        /// <para>Token settings for each layer.</para>
+        /// <para>Token settings for each layer.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -272,7 +284,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// <c>sys_mod_count</c>, <c>workflow_state</c>, and <c>active</c>. </para></li><li><para>For <a href="https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/">
         /// Zendesk</a>, you must include at least <c>id</c>, <c>title</c>, <c>updated_at</c>,
         /// and <c>draft</c>. </para></li></ul><para>Make sure to include additional fields. These fields are indexed and used to source
-        /// recommendations. </para>
+        /// recommendations. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -356,7 +372,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter UrlConfiguration_SeedUrl
         /// <summary>
         /// <para>
-        /// <para>List of URLs for crawling.</para>
+        /// <para>List of URLs for crawling.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -367,7 +387,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags used to organize, track, or control access for this resource.</para>
+        /// <para>The tags used to organize, track, or control access for this resource.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

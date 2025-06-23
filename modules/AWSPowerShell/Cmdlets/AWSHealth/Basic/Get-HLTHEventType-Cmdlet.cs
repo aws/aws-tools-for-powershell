@@ -62,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         /// <para>
         /// <para>A list of event type category codes. Possible values are <c>issue</c>, <c>accountNotification</c>,
         /// or <c>scheduledChange</c>. Currently, the <c>investigation</c> value isn't supported
-        /// at this time.</para>
+        /// at this time.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EventTypeCode
         /// <summary>
         /// <para>
-        /// <para>A list of event type codes.</para>
+        /// <para>A list of event type codes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services services associated with the event. For example, <c>EC2</c>,
-        /// <c>RDS</c>.</para>
+        /// <c>RDS</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

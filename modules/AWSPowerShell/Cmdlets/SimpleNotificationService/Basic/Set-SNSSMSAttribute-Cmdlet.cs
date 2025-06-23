@@ -89,7 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// message that was successfully delivered by your Amazon Web Services account:</para><ul><li><para>Time that the message was published (in UTC)</para></li><li><para>Message ID</para></li><li><para>Destination phone number</para></li><li><para>Message type</para></li><li><para>Delivery status</para></li><li><para>Message price (in USD)</para></li><li><para>Part number (a message is split into multiple parts if it is too long for a single
         /// message)</para></li><li><para>Total number of parts</para></li></ul><para>To receive the report, the bucket must have a policy that allows the Amazon SNS service
         /// principal to perform the <c>s3:PutObject</c> and <c>s3:GetBucketLocation</c> actions.</para><para>For an example bucket policy and usage report, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_stats.html">Monitoring
-        /// SMS Activity</a> in the <i>Amazon SNS Developer Guide</i>.</para>
+        /// SMS Activity</a> in the <i>Amazon SNS Developer Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

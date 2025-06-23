@@ -90,7 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         /// <summary>
         /// <para>
         /// <para>A list of <c>InputSource</c> objects, which have the fields <c>InputSourceARN</c>
-        /// and <c>SchemaName</c>.</para>
+        /// and <c>SchemaName</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -132,7 +136,11 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         /// <summary>
         /// <para>
         /// <para>A list of <c>OutputSource</c> objects, each of which contains fields <c>OutputS3Path</c>,
-        /// <c>ApplyNormalization</c>, and <c>Output</c>.</para>
+        /// <c>ApplyNormalization</c>, and <c>Output</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -207,7 +215,11 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter RuleBasedProperties_Rule
         /// <summary>
         /// <para>
-        /// <para>A list of <c>Rule</c> objects, each of which have fields <c>RuleName</c> and <c>MatchingKeys</c>.</para>
+        /// <para>A list of <c>Rule</c> objects, each of which have fields <c>RuleName</c> and <c>MatchingKeys</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

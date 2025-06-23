@@ -51,7 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para>
         /// <para> Specifies what you want to detect in the video, such as people, packages, or pets.
         /// The current valid labels you can include in this list are: "PERSON", "PET", "PACKAGE",
-        /// and "ALL". </para>
+        /// and "ALL". </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +105,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter ParametersToDelete
         /// <summary>
         /// <para>
-        /// <para> A list of parameters you want to delete from the stream processor. </para>
+        /// <para> A list of parameters you want to delete from the stream processor. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +120,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para> Specifies locations in the frames where Amazon Rekognition checks for objects or
-        /// people. This is an optional parameter for label detection stream processors. </para>
+        /// people. This is an optional parameter for label detection stream processors. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

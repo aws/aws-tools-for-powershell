@@ -98,7 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         #region Parameter MetricName
         /// <summary>
         /// <para>
-        /// <para>The names of the experiment metrics that you want to see the results of.</para>
+        /// <para>The names of the experiment metrics that you want to see the results of.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -145,7 +149,11 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         /// <summary>
         /// <para>
         /// <para>The names of the report types that you want to see. Currently, <c>BayesianInference</c>
-        /// is the only valid value.</para>
+        /// is the only valid value.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,7 +174,11 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         /// parameter between each variation and the default variation. </para></li><li><para><c>BaseStat</c> returns the statistical values collected for the metric for each
         /// variation. The statistic uses the same statistic specified in the <c>baseStat</c>
         /// parameter. Therefore, if <c>baseStat</c> is <c>mean</c>, this returns the mean of
-        /// the values collected for each variation.</para></li></ul>
+        /// the values collected for each variation.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,7 +199,11 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         #region Parameter TreatmentName
         /// <summary>
         /// <para>
-        /// <para>The names of the experiment treatments that you want to see the results for.</para>
+        /// <para>The names of the experiment treatments that you want to see the results for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

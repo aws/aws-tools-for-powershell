@@ -279,7 +279,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>One or more optional tags associated with resources used by the DMS Serverless replication.
         /// For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tagging.html">
-        /// Tagging resources in Database Migration Service</a>.</para>
+        /// Tagging resources in Database Migration Service</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -309,7 +313,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless
-        /// replication. The VPC security group must work with the VPC containing the replication.</para>
+        /// replication. The VPC security group must work with the VPC containing the replication.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

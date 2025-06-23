@@ -60,7 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <para>
         /// <para>A list of one or more identities. You can specify an identity by using its name or
         /// by using its Amazon Resource Name (ARN). Examples: <c>user@example.com</c>, <c>example.com</c>,
-        /// <c>arn:aws:ses:us-east-1:123456789012:identity/example.com</c>.</para>
+        /// <c>arn:aws:ses:us-east-1:123456789012:identity/example.com</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

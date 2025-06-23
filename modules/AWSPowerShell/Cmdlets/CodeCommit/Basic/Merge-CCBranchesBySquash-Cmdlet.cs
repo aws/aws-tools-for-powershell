@@ -95,7 +95,11 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter ConflictResolution_DeleteFile
         /// <summary>
         /// <para>
-        /// <para>Files to be deleted as part of the merge conflict resolution.</para>
+        /// <para>Files to be deleted as part of the merge conflict resolution.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,7 +152,11 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter ConflictResolution_ReplaceContent
         /// <summary>
         /// <para>
-        /// <para>Files to have content replaced as part of the merge conflict resolution.</para>
+        /// <para>Files to have content replaced as part of the merge conflict resolution.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,7 +184,11 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter ConflictResolution_SetFileMode
         /// <summary>
         /// <para>
-        /// <para>File modes that are set as part of the merge conflict resolution.</para>
+        /// <para>File modes that are set as part of the merge conflict resolution.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -97,7 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter ImpactedAccountsToAdd
         /// <summary>
         /// <para>
-        /// <para>Optional element for UpdateCase to provide content to add accounts impacted.</para>
+        /// <para>Optional element for UpdateCase to provide content to add accounts impacted.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +111,11 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter ImpactedAccountsToDelete
         /// <summary>
         /// <para>
-        /// <para>Optional element for UpdateCase to provide content to add accounts impacted.</para>
+        /// <para>Optional element for UpdateCase to provide content to add accounts impacted.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter ImpactedAwsRegionsToAdd
         /// <summary>
         /// <para>
-        /// <para>Optional element for UpdateCase to provide content to add regions impacted.</para>
+        /// <para>Optional element for UpdateCase to provide content to add regions impacted.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +139,11 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter ImpactedAwsRegionsToDelete
         /// <summary>
         /// <para>
-        /// <para>Optional element for UpdateCase to provide content to remove regions impacted.</para>
+        /// <para>Optional element for UpdateCase to provide content to remove regions impacted.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,7 +153,11 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter ImpactedServicesToAdd
         /// <summary>
         /// <para>
-        /// <para>Optional element for UpdateCase to provide content to add services impacted.</para>
+        /// <para>Optional element for UpdateCase to provide content to add services impacted.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,7 +167,11 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter ImpactedServicesToDelete
         /// <summary>
         /// <para>
-        /// <para>Optional element for UpdateCase to provide content to remove services impacted.</para>
+        /// <para>Optional element for UpdateCase to provide content to remove services impacted.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +193,11 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         /// <summary>
         /// <para>
         /// <para>Optional element for UpdateCase to provide content to add additional suspicious IP
-        /// addresses related to a case. </para>
+        /// addresses related to a case. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,7 +208,11 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         /// <summary>
         /// <para>
         /// <para>Optional element for UpdateCase to provide content to remove suspicious IP addresses
-        /// from a case.</para>
+        /// from a case.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,7 +233,11 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         /// <summary>
         /// <para>
         /// <para>Optional element for UpdateCase to provide content to add additional watchers to a
-        /// case.</para>
+        /// case.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -212,7 +248,11 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         /// <summary>
         /// <para>
         /// <para>Optional element for UpdateCase to provide content to remove existing watchers from
-        /// a case.</para>
+        /// a case.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

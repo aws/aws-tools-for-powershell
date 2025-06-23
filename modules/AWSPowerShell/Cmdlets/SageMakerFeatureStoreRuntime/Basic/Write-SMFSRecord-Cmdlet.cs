@@ -86,7 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         /// <summary>
         /// <para>
         /// <para>List of FeatureValues to be inserted. This will be a full over-write. If you only
-        /// want to update few of the feature values, do the following:</para><ul><li><para>Use <c>GetRecord</c> to retrieve the latest record.</para></li><li><para>Update the record returned from <c>GetRecord</c>. </para></li><li><para>Use <c>PutRecord</c> to update feature values.</para></li></ul>
+        /// want to update few of the feature values, do the following:</para><ul><li><para>Use <c>GetRecord</c> to retrieve the latest record.</para></li><li><para>Update the record returned from <c>GetRecord</c>. </para></li><li><para>Use <c>PutRecord</c> to update feature values.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -104,7 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         /// <summary>
         /// <para>
         /// <para>A list of stores to which you're adding the record. By default, Feature Store adds
-        /// the record to all of the stores that you're using for the <c>FeatureGroup</c>.</para>
+        /// the record to all of the stores that you're using for the <c>FeatureGroup</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

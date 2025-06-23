@@ -73,7 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter Details_RoutesDetail
         /// <summary>
         /// <para>
-        /// <para>A list of route configuration details. Must contain exactly one route configuration.</para>
+        /// <para>A list of route configuration details. Must contain exactly one route configuration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,7 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>An array of objects that define the tags (keys and values) to associate with the multi-region
-        /// endpoint (global-endpoint).</para>
+        /// endpoint (global-endpoint).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

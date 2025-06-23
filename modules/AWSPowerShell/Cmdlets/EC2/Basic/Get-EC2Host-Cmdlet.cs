@@ -60,7 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// the host.</para></li><li><para><c>host-reservation-id</c> - The ID of the reservation assigned to this host.</para></li><li><para><c>instance-type</c> - The instance type size that the Dedicated Host is configured
         /// to support.</para></li><li><para><c>state</c> - The allocation state of the Dedicated Host (<c>available</c> | <c>under-assessment</c>
         /// | <c>permanent-failure</c> | <c>released</c> | <c>released-permanent-failure</c>).</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
-        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li></ul>
+        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +74,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter HostId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the Dedicated Hosts. The IDs are used for targeted instance launches.</para>
+        /// <para>The IDs of the Dedicated Hosts. The IDs are used for targeted instance launches.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

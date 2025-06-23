@@ -50,7 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter AllowedOperation
         /// <summary>
         /// <para>
-        /// <para>Allowed operations for the grant.</para>
+        /// <para>Allowed operations for the grant.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -120,7 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         /// <summary>
         /// <para>
         /// <para>The grant principals. You can specify one of the following as an Amazon Resource Name
-        /// (ARN):</para><ul><li><para>An Amazon Web Services account, which includes only the account specified.</para></li></ul><ul><li><para>An organizational unit (OU), which includes all accounts in the OU.</para></li></ul><ul><li><para>An organization, which will include all accounts across your organization.</para></li></ul>
+        /// (ARN):</para><ul><li><para>An Amazon Web Services account, which includes only the account specified.</para></li></ul><ul><li><para>An organizational unit (OU), which includes all accounts in the OU.</para></li></ul><ul><li><para>An organization, which will include all accounts across your organization.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -140,7 +148,11 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         /// <para>
         /// <para>Tags to add to the grant. For more information about tagging support in License Manager,
         /// see the <a href="https://docs.aws.amazon.com/license-manager/latest/APIReference/API_TagResource.html">TagResource</a>
-        /// operation.</para>
+        /// operation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

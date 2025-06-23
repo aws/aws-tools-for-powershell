@@ -100,7 +100,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// you must add <c>client_credentials</c> as the only allowed OAuth flow.</para><dl><dt>code</dt><dd><para>Use a code grant flow, which provides an authorization code as the response. This
         /// code can be exchanged for access tokens with the <c>/oauth2/token</c> endpoint.</para></dd><dt>implicit</dt><dd><para>Issue the access token, and the ID token when scopes like <c>openid</c> and <c>profile</c>
         /// are requested, directly to your user.</para></dd><dt>client_credentials</dt><dd><para>Issue the access token from the <c>/oauth2/token</c> endpoint directly to a non-person
-        /// user, authorized by a combination of the client ID and client secret.</para></dd></dl>
+        /// user, authorized by a combination of the client ID and client secret.</para></dd></dl><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +137,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// API operations, user data from the <c>userInfo</c> endpoint, and third-party APIs.
         /// Scope values include <c>phone</c>, <c>email</c>, <c>openid</c>, and <c>profile</c>.
         /// The <c>aws.cognito.signin.user.admin</c> scope authorizes user self-service operations.
-        /// Custom scopes with resource servers authorize access to external APIs.</para>
+        /// Custom scopes with resource servers authorize access to external APIs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,7 +197,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// requests with <c>redirect_uri</c> values that aren't in the list of <c>CallbackURLs</c>
         /// that you provide in this parameter.</para></li><li><para>Not include a fragment component.</para></li></ul><para>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection
         /// Endpoint</a>.</para><para>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes
-        /// only.</para><para>App callback URLs such as myapp://example are also supported.</para>
+        /// only.</para><para>App callback URLs such as myapp://example are also supported.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -277,7 +289,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// protocol to verify passwords.</para></li><li><para><c>ALLOW_USER_SRP_AUTH</c>: Enable SRP-based authentication.</para></li><li><para><c>ALLOW_REFRESH_TOKEN_AUTH</c>: Enable authflow to refresh tokens.</para></li></ul><para>In some environments, you will see the values <c>ADMIN_NO_SRP_AUTH</c>, <c>CUSTOM_AUTH_FLOW_ONLY</c>,
         /// or <c>USER_PASSWORD_AUTH</c>. You can't assign these legacy <c>ExplicitAuthFlows</c>
         /// values to user pool clients at the same time as values that begin with <c>ALLOW_</c>,
-        /// like <c>ALLOW_USER_SRP_AUTH</c>.</para>
+        /// like <c>ALLOW_USER_SRP_AUTH</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -358,7 +374,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// to be the permitted targets of <c>logout_uri</c>. A typical use of these URLs is when
         /// a user selects "Sign out" and you redirect them to your public homepage. For more
         /// information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout
-        /// endpoint</a>.</para>
+        /// endpoint</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -395,7 +415,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// attributes of your user pool. When your user pool app client has read access to these
         /// default attributes, <c>ReadAttributes</c> doesn't return any information. Amazon Cognito
         /// only populates <c>ReadAttributes</c> in the API response if you have specified your
-        /// own custom set of read attributes.</para>
+        /// own custom set of read attributes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -473,7 +497,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// from this list doesn't prevent authentication operations for local users with the
         /// user pools API in an Amazon Web Services SDK. The only way to prevent SDK-based authentication
         /// is to block access with a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html">WAF
-        /// rule</a>. </para>
+        /// rule</a>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -523,7 +551,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// attributes when users sign in to your application through an IdP. If your app client
         /// does not have write access to a mapped attribute, Amazon Cognito throws an error when
         /// it tries to update the attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying
-        /// IdP Attribute Mappings for Your user pool</a>.</para>
+        /// IdP Attribute Mappings for Your user pool</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

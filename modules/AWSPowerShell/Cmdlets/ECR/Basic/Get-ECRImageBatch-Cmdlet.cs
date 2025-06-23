@@ -55,7 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <summary>
         /// <para>
         /// <para>The accepted media types for the request.</para><para>Valid values: <c>application/vnd.docker.distribution.manifest.v1+json</c> | <c>application/vnd.docker.distribution.manifest.v2+json</c>
-        /// | <c>application/vnd.oci.image.manifest.v1+json</c></para>
+        /// | <c>application/vnd.oci.image.manifest.v1+json</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <summary>
         /// <para>
         /// <para>A list of image ID references that correspond to images to describe. The format of
-        /// the <c>imageIds</c> reference is <c>imageTag=tag</c> or <c>imageDigest=digest</c>.</para>
+        /// the <c>imageIds</c> reference is <c>imageTag=tag</c> or <c>imageDigest=digest</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

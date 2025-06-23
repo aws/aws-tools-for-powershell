@@ -73,7 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ScalingProcess
         /// <summary>
         /// <para>
-        /// <para>One or more of the following processes:</para><ul><li><para><c>Launch</c></para></li><li><para><c>Terminate</c></para></li><li><para><c>AddToLoadBalancer</c></para></li><li><para><c>AlarmNotification</c></para></li><li><para><c>AZRebalance</c></para></li><li><para><c>HealthCheck</c></para></li><li><para><c>InstanceRefresh</c></para></li><li><para><c>ReplaceUnhealthy</c></para></li><li><para><c>ScheduledActions</c></para></li></ul><para>If you omit this property, all processes are specified.</para>
+        /// <para>One or more of the following processes:</para><ul><li><para><c>Launch</c></para></li><li><para><c>Terminate</c></para></li><li><para><c>AddToLoadBalancer</c></para></li><li><para><c>AlarmNotification</c></para></li><li><para><c>AZRebalance</c></para></li><li><para><c>HealthCheck</c></para></li><li><para><c>InstanceRefresh</c></para></li><li><para><c>ReplaceUnhealthy</c></para></li><li><para><c>ScheduledActions</c></para></li></ul><para>If you omit this property, all processes are specified.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

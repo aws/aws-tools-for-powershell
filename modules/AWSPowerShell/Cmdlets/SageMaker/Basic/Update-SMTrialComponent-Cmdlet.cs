@@ -71,7 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Replaces all of the component's input artifacts with the specified artifacts or adds
         /// new input artifacts. Existing input artifacts are replaced if the trial component
-        /// is updated with an identical input artifact key.</para>
+        /// is updated with an identical input artifact key.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter InputArtifactsToRemove
         /// <summary>
         /// <para>
-        /// <para>The input artifacts to remove from the component.</para>
+        /// <para>The input artifacts to remove from the component.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Replaces all of the component's output artifacts with the specified artifacts or adds
         /// new output artifacts. Existing output artifacts are replaced if the trial component
-        /// is updated with an identical output artifact key.</para>
+        /// is updated with an identical output artifact key.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OutputArtifactsToRemove
         /// <summary>
         /// <para>
-        /// <para>The output artifacts to remove from the component.</para>
+        /// <para>The output artifacts to remove from the component.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Replaces all of the component's hyperparameters with the specified hyperparameters
         /// or add new hyperparameters. Existing hyperparameters are replaced if the trial component
-        /// is updated with an identical hyperparameter key.</para>
+        /// is updated with an identical hyperparameter key.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,7 +158,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ParametersToRemove
         /// <summary>
         /// <para>
-        /// <para>The hyperparameters to remove from the component.</para>
+        /// <para>The hyperparameters to remove from the component.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

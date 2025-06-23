@@ -64,7 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EntityArn
         /// <summary>
         /// <para>
-        /// <para>A list of entity ARNs (unique identifiers).</para>
+        /// <para>A list of entity ARNs (unique identifiers).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EntityValue
         /// <summary>
         /// <para>
-        /// <para>A list of IDs for affected entities.</para>
+        /// <para>A list of IDs for affected entities.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +95,11 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         /// <summary>
         /// <para>
         /// <para>A list of event ARNs (unique identifiers). For example: <c>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456",
-        /// "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</c></para>
+        /// "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -105,7 +117,11 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_LastUpdatedTime
         /// <summary>
         /// <para>
-        /// <para>A list of the most recent dates and times that the entity was updated.</para>
+        /// <para>A list of the most recent dates and times that the entity was updated.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_StatusCode
         /// <summary>
         /// <para>
-        /// <para>A list of entity status codes (<c>IMPAIRED</c>, <c>UNIMPAIRED</c>, or <c>UNKNOWN</c>).</para>
+        /// <para>A list of entity status codes (<c>IMPAIRED</c>, <c>UNIMPAIRED</c>, or <c>UNKNOWN</c>).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,7 +158,11 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Tag
         /// <summary>
         /// <para>
-        /// <para>A map of entity tags attached to the affected entity.</para><note><para>Currently, the <c>tags</c> property isn't supported.</para></note>
+        /// <para>A map of entity tags attached to the affected entity.</para><note><para>Currently, the <c>tags</c> property isn't supported.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -73,7 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// <para>
         /// <para>How users for a specific identity provider are to mapped to roles. This is a string
         /// to <a>RoleMapping</a> object map. The string identifies the identity provider, for
-        /// example, <c>graph.facebook.com</c> or <c>cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id</c>.</para><para>Up to 25 rules can be specified per identity provider.</para>
+        /// example, <c>graph.facebook.com</c> or <c>cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id</c>.</para><para>Up to 25 rules can be specified per identity provider.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// <summary>
         /// <para>
         /// <para>The map of roles associated with this pool. For a given role, the key will be either
-        /// "authenticated" or "unauthenticated" and the value will be the Role ARN.</para>
+        /// "authenticated" or "unauthenticated" and the value will be the Role ARN.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -127,7 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of the tag keys and values that you want to associate with the endpoint.</para>
+        /// <para>A list of the tag keys and values that you want to associate with the endpoint.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>The IPs that you want Resolver to forward DNS queries to. You can specify either Ipv4
-        /// or Ipv6 addresses but not both in the same rule. Separate IP addresses with a space.</para><para><c>TargetIps</c> is available only when the value of <c>Rule type</c> is <c>FORWARD</c>.</para>
+        /// or Ipv6 addresses but not both in the same rule. Separate IP addresses with a space.</para><para><c>TargetIps</c> is available only when the value of <c>Rule type</c> is <c>FORWARD</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

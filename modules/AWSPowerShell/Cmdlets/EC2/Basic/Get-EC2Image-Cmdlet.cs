@@ -97,7 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// with that specific Amazon Web Services account ID are returned. However, AMIs that
         /// are shared with the account’s organization or organizational unit (OU) are not returned.</para></li><li><para>If you specify <c>self</c> or your own Amazon Web Services account ID, AMIs shared
         /// with your account are returned. In addition, AMIs that are shared with the organization
-        /// or OU of which you are member are also returned. </para></li><li><para>If you specify <c>all</c>, all public AMIs are returned.</para></li></ul>
+        /// or OU of which you are member are also returned. </para></li><li><para>If you specify <c>all</c>, all public AMIs are returned.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -132,7 +136,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// Use the tag key in the filter name and the tag value as the filter value. For example,
         /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
         /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
-        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>virtualization-type</c> - The virtualization type (<c>paravirtual</c> | <c>hvm</c>).</para></li></ul>
+        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>virtualization-type</c> - The virtualization type (<c>paravirtual</c> | <c>hvm</c>).</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
@@ -143,7 +151,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ImageId
         /// <summary>
         /// <para>
-        /// <para>The image IDs.</para><para>Default: Describes all images available to you.</para>
+        /// <para>The image IDs.</para><para>Default: Describes all images available to you.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -178,7 +190,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>Scopes the results to images with the specified owners. You can specify a combination
         /// of Amazon Web Services account IDs, <c>self</c>, <c>amazon</c>, <c>aws-backup-vault</c>,
         /// and <c>aws-marketplace</c>. If you omit this parameter, the results include all images
-        /// for which you have launch permissions, regardless of ownership.</para>
+        /// for which you have launch permissions, regardless of ownership.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

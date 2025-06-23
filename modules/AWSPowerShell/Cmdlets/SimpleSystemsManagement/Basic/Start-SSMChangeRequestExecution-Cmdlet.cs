@@ -116,7 +116,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>A key-value map of parameters that match the declared parameters in the change template
-        /// document.</para>
+        /// document.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,7 +132,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Information about the Automation runbooks that are run during the runbook workflow.</para><note><para>The Automation runbooks specified for the runbook workflow can't run until all required
-        /// approvals for the change request have been received.</para></note>
+        /// approvals for the change request have been received.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -175,7 +183,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// you could specify the following key-value pairs:</para><ul><li><para><c>Key=Environment,Value=Production</c></para></li><li><para><c>Key=Region,Value=us-east-2</c></para></li></ul><note><para>The <c>Array Members</c> maximum value is reported as 1000. This number includes capacity
         /// reserved for internal operations. When calling the <c>StartChangeRequestExecution</c>
         /// action, you can specify a maximum of 5 tags. You can, however, use the <a>AddTagsToResource</a>
-        /// action to add up to a total of 50 tags to an existing change request configuration.</para></note>
+        /// action to add up to a total of 50 tags to an existing change request configuration.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

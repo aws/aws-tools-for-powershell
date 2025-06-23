@@ -79,7 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// <summary>
         /// <para>
         /// <para>The port range to support for connections from clients to your accelerator.</para><para>Separately, you set port ranges for endpoints. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-custom-routing-endpoints.html">About
-        /// endpoints for custom routing accelerators</a>.</para>
+        /// endpoints for custom routing accelerators</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

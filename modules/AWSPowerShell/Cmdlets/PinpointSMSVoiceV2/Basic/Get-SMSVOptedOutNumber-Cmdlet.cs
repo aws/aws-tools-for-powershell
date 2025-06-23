@@ -59,7 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>An array of OptedOutFilter objects to filter the results on.</para>
+        /// <para>An array of OptedOutFilter objects to filter the results on.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +74,11 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter OptedOutNumber
         /// <summary>
         /// <para>
-        /// <para>An array of phone numbers to search for in the OptOutList.</para><para>If you specify an opted out number that isn't valid, an exception is returned.</para>
+        /// <para>An array of phone numbers to search for in the OptOutList.</para><para>If you specify an opted out number that isn't valid, an exception is returned.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

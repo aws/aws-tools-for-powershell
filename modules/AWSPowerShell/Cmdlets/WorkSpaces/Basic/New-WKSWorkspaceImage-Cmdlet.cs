@@ -83,7 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <para>
         /// <para>The tags that you want to add to the new WorkSpace image. To add tags when you're
         /// creating the image, you must create an IAM policy that grants your IAM user permission
-        /// to use <c>workspaces:CreateTags</c>.</para>
+        /// to use <c>workspaces:CreateTags</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

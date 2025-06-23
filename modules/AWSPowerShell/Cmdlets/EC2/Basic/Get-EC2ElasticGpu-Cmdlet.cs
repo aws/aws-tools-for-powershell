@@ -64,7 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ElasticGpuId
         /// <summary>
         /// <para>
-        /// <para>The Elastic Graphics accelerator IDs.</para>
+        /// <para>The Elastic Graphics accelerator IDs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// resides.</para></li><li><para><c>elastic-gpu-health</c> - The status of the Elastic Graphics accelerator (<c>OK</c>
         /// | <c>IMPAIRED</c>).</para></li><li><para><c>elastic-gpu-state</c> - The state of the Elastic Graphics accelerator (<c>ATTACHED</c>).</para></li><li><para><c>elastic-gpu-type</c> - The type of Elastic Graphics accelerator; for example,
         /// <c>eg1.medium</c>.</para></li><li><para><c>instance-id</c> - The ID of the instance to which the Elastic Graphics accelerator
-        /// is associated.</para></li></ul>
+        /// is associated.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

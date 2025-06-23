@@ -90,7 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>A list of tags, in the form of name/value pairs, to apply to an email that you send
-        /// to a destination using <c>SendBulkTemplatedEmail</c>.</para>
+        /// to a destination using <c>SendBulkTemplatedEmail</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <para>
         /// <para>One or more <c>Destination</c> objects. All of the recipients in a <c>Destination</c>
         /// receive the same version of the email. You can specify up to 50 <c>Destination</c>
-        /// objects within a <c>Destinations</c> array.</para>
+        /// objects within a <c>Destinations</c> array.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -142,7 +150,11 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>The reply-to email address(es) for the message. If the recipient replies to the message,
-        /// each reply-to address receives the reply.</para>
+        /// each reply-to address receives the reply.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

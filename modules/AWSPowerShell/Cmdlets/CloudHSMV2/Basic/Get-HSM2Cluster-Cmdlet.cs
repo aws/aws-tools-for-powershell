@@ -61,7 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         /// <para>
         /// <para>One or more filters to limit the items returned in the response.</para><para>Use the <c>clusterIds</c> filter to return only the specified clusters. Specify clusters
         /// by their cluster identifier (ID).</para><para>Use the <c>vpcIds</c> filter to return only the clusters in the specified virtual
-        /// private clouds (VPCs). Specify VPCs by their VPC identifier (ID).</para><para>Use the <c>states</c> filter to return only clusters that match the specified state.</para>
+        /// private clouds (VPCs). Specify VPCs by their VPC identifier (ID).</para><para>Use the <c>states</c> filter to return only clusters that match the specified state.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

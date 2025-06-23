@@ -87,7 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// refer to the Compatibility Guidance in the troubleshooting section of the Developer
         /// Guide.</para></note><para><c>AdditionalEnvironmentVariables</c> and <c>AdditionalLaunchArgs</c> have similar
         /// purposes. <c>AdditionalEnvironmentVariables</c> passes data using environment variables;
-        /// while <c>AdditionalLaunchArgs</c> passes data using command-line arguments.</para>
+        /// while <c>AdditionalLaunchArgs</c> passes data using command-line arguments.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +107,11 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// You can also provide custom arguments that Amazon GameLift Streams passes to your
         /// game client.</para><para><c>AdditionalEnvironmentVariables</c> and <c>AdditionalLaunchArgs</c> have similar
         /// purposes. <c>AdditionalEnvironmentVariables</c> passes data using environment variables;
-        /// while <c>AdditionalLaunchArgs</c> passes data using command-line arguments.</para>
+        /// while <c>AdditionalLaunchArgs</c> passes data using command-line arguments.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,7 +192,11 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// GameLift Streams attempts to start a stream session in the primary location. </para><para> This value is A set of location names. For example, <c>us-east-1</c>. For a complete
         /// list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions,
         /// quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>.
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

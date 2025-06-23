@@ -71,7 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>
         /// <para>The filter to limit the step list based on the identifier of the steps. You can specify
         /// a maximum of ten Step IDs. The character constraint applies to the overall length
-        /// of the array.</para>
+        /// of the array.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter StepState
         /// <summary>
         /// <para>
-        /// <para>The filter to limit the step list based on certain states.</para>
+        /// <para>The filter to limit the step list based on certain states.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

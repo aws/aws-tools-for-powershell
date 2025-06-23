@@ -88,7 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter CacheBehavior
         /// <summary>
         /// <para>
-        /// <para>An array of objects that describe the per-path cache behavior for the distribution.</para>
+        /// <para>An array of objects that describe the per-path cache behavior for the distribution.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter ForwardedCookies_CookiesAllowList
         /// <summary>
         /// <para>
-        /// <para>The specific cookies to forward to your distribution's origin.</para>
+        /// <para>The specific cookies to forward to your distribution's origin.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,7 +174,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter ForwardedHeaders_HeadersAllowList
         /// <summary>
         /// <para>
-        /// <para>The specific headers to forward to your distribution's origin.</para>
+        /// <para>The specific headers to forward to your distribution's origin.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -275,7 +287,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The specific query strings that the distribution forwards to the origin.</para><para>Your distribution will cache content based on the specified query strings.</para><para>If the <c>option</c> parameter is true, then your distribution forwards all query
-        /// strings, regardless of what you specify using the <c>queryStringsAllowList</c> parameter.</para>
+        /// strings, regardless of what you specify using the <c>queryStringsAllowList</c> parameter.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

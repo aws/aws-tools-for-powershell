@@ -64,7 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter EnabledRegion
         /// <summary>
         /// <para>
-        /// <para>Specifies the enabled Amazon Web Services Regions.</para>
+        /// <para>Specifies the enabled Amazon Web Services Regions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -119,7 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter ProvisioningConfiguration
         /// <summary>
         /// <para>
-        /// <para>The provisioning configuration of a blueprint.</para>
+        /// <para>The provisioning configuration of a blueprint.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,7 +148,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter RegionalParameter
         /// <summary>
         /// <para>
-        /// <para>The regional parameters in the environment blueprint.</para>
+        /// <para>The regional parameters in the environment blueprint.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -68,7 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para> A key used to filter the returned targets. The two valid values are:</para><ul><li><para><c>TargetStatus</c> - A <c>TargetStatus</c> filter string can be <c>Failed</c>, <c>InProgress</c>,
         /// <c>Pending</c>, <c>Ready</c>, <c>Skipped</c>, <c>Succeeded</c>, or <c>Unknown</c>.
         /// </para></li><li><para><c>ServerInstanceLabel</c> - A <c>ServerInstanceLabel</c> filter string can be <c>Blue</c>
-        /// or <c>Green</c>. </para></li></ul>
+        /// or <c>Green</c>. </para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

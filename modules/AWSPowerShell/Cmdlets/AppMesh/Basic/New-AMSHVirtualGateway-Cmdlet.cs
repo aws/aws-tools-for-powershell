@@ -60,7 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Acm_CertificateAuthorityArn
         /// <summary>
         /// <para>
-        /// <para>One or more ACM Amazon Resource Name (ARN)s.</para>
+        /// <para>One or more ACM Amazon Resource Name (ARN)s.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Match_Exact
         /// <summary>
         /// <para>
-        /// <para>The values sent must match the specified values exactly.</para>
+        /// <para>The values sent must match the specified values exactly.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Format_Json
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +139,11 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The listeners that the mesh endpoint is expected to receive inbound traffic from.
-        /// You can specify one listener.</para>
+        /// You can specify one listener.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -191,7 +207,11 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Tls_Port
         /// <summary>
         /// <para>
-        /// <para>One or more ports that the policy is enforced for.</para>
+        /// <para>One or more ports that the policy is enforced for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -241,7 +261,11 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <para>Optional metadata that you can apply to the virtual gateway to assist with categorization
         /// and organization. Each tag consists of a key and an optional value, both of which
         /// you define. Tag keys can have a maximum character length of 128 characters, and tag
-        /// values can have a maximum length of 256 characters.</para>
+        /// values can have a maximum length of 256 characters.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

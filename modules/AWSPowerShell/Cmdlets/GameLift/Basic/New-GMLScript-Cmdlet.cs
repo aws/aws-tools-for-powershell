@@ -140,7 +140,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UntagResource.html">UntagResource</a>,
         /// and <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListTagsForResource.html">ListTagsForResource</a>
         /// to add, remove, and view tags. The maximum tag limit may be lower than stated. See
-        /// the Amazon Web Services General Reference for actual tagging limits.</para>
+        /// the Amazon Web Services General Reference for actual tagging limits.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

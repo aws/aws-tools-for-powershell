@@ -80,7 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <summary>
         /// <para>
         /// <para>A set of up to 50 key-value pairs to use to create the tags. A tag consists of a required
-        /// key and an optional value. You can add up to 50 tags per resource.</para>
+        /// key and an optional value. You can add up to 50 tags per resource.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

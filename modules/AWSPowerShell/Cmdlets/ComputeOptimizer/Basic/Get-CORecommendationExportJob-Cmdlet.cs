@@ -56,7 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <summary>
         /// <para>
         /// <para>An array of objects to specify a filter that returns a more specific list of export
-        /// jobs.</para>
+        /// jobs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <summary>
         /// <para>
         /// <para>The identification numbers of the export jobs to return.</para><para>An export job ID is returned when you create an export using the <a>ExportAutoScalingGroupRecommendations</a>
-        /// or <a>ExportEC2InstanceRecommendations</a> actions.</para><para>All export jobs created in the last seven days are returned if this parameter is omitted.</para>
+        /// or <a>ExportEC2InstanceRecommendations</a> actions.</para><para>All export jobs created in the last seven days are returned if this parameter is omitted.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

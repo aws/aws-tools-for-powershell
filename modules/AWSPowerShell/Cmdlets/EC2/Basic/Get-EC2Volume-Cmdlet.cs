@@ -87,7 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
         /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
         /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>volume-id</c> - The volume ID.</para></li><li><para><c>volume-type</c> - The Amazon EBS volume type (<c>gp2</c> | <c>gp3</c> | <c>io1</c>
-        /// | <c>io2</c> | <c>st1</c> | <c>sc1</c>| <c>standard</c>)</para></li></ul>
+        /// | <c>io2</c> | <c>st1</c> | <c>sc1</c>| <c>standard</c>)</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, ParameterSetName = "ByFilter")]
@@ -98,7 +102,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VolumeId
         /// <summary>
         /// <para>
-        /// <para>The volume IDs. If not specified, then all volumes are included in the response.</para>
+        /// <para>The volume IDs. If not specified, then all volumes are included in the response.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, ParameterSetName = "ByID")]

@@ -57,7 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <para> Return the Amazon ECS service recommendations to the specified Amazon Web Services
         /// account IDs. </para><para>If your account is the management account or the delegated administrator of an organization,
         /// use this parameter to return the Amazon ECS service recommendations to specific member
-        /// accounts.</para><para>You can only specify one account ID per request.</para>
+        /// accounts.</para><para>You can only specify one account ID per request.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <summary>
         /// <para>
         /// <para> An array of objects to specify a filter that returns a more specific list of Amazon
-        /// ECS service recommendations. </para>
+        /// ECS service recommendations. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter ServiceArn
         /// <summary>
         /// <para>
-        /// <para> The ARN that identifies the Amazon ECS service. </para><para> The following is the format of the ARN: </para><para><c>arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name</c></para>
+        /// <para> The ARN that identifies the Amazon ECS service. </para><para> The following is the format of the ARN: </para><para><c>arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

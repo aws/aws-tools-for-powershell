@@ -209,7 +209,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// | <c>RunInstances:0800</c> | <c>RunInstances:0102</c> | <c>RunInstances:0006</c> |
         /// <c>RunInstances:0202</c>).</para></li><li><para><c>usage-operation-update-time</c> - The time that the usage operation was last updated,
         /// for example, <c>2022-09-15T17:15:20.000Z</c>.</para></li><li><para><c>virtualization-type</c> - The virtualization type of the instance (<c>paravirtual</c>
-        /// | <c>hvm</c>).</para></li><li><para><c>vpc-id</c> - The ID of the VPC that the instance is running in.</para></li></ul>
+        /// | <c>hvm</c>).</para></li><li><para><c>vpc-id</c> - The ID of the VPC that the instance is running in.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -220,7 +224,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The instance IDs.</para><para>Default: Describes all your instances.</para>
+        /// <para>The instance IDs.</para><para>Default: Describes all your instances.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

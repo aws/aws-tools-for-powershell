@@ -61,7 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Filters_ConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>Filters the results by Config rule names.</para>
+        /// <para>Filters the results by Config rule names.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>Filters the results by resource IDs.</para><note><para>This is valid only when you provide resource type. If there is no resource type, you
-        /// will see an error.</para></note>
+        /// will see an error.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

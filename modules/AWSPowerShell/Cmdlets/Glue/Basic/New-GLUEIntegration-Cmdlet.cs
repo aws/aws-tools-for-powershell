@@ -49,7 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>An optional set of non-secret key–value pairs that contains additional contextual
-        /// information for encryption. This can only be provided if <c>KMSKeyId</c> is provided.</para>
+        /// information for encryption. This can only be provided if <c>KMSKeyId</c> is provided.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,7 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Metadata assigned to the resource consisting of a list of key-value pairs.</para>
+        /// <para>Metadata assigned to the resource consisting of a list of key-value pairs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -69,7 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         /// data. The order of the list determines the partition hierarchy. The name and type
         /// of each partition key as well as the partition key order cannot be changed after the
         /// table is created. However, the enforcement level of each partition key can be changed.
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,7 +186,11 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> A list of key-value pairs to label the table. </para>
+        /// <para> A list of key-value pairs to label the table. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

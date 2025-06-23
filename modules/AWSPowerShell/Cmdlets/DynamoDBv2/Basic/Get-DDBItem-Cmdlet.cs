@@ -59,7 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>
         /// <para>This is a legacy parameter. Use <c>ProjectionExpression</c> instead. For more information,
         /// see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a>
-        /// in the <i>Amazon DynamoDB Developer Guide</i>.</para>
+        /// in the <i>Amazon DynamoDB Developer Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you
         /// could specify the following for <c>ExpressionAttributeNames</c>:</para><ul><li><para><c>{"#P":"Percentile"}</c></para></li></ul><para>You could then use this substitution in an expression, as in this example:</para><ul><li><para><c>#P = :val</c></para></li></ul><note><para>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>,
         /// which are placeholders for the actual value at runtime.</para></note><para>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying
-        /// Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para>
+        /// Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>A map of attribute names to <c>AttributeValue</c> objects, representing the primary
         /// key of the item to retrieve.</para><para>For the primary key, you must provide all of the attributes. For example, with a simple
         /// primary key, you only need to provide a value for the partition key. For a composite
-        /// primary key, you must provide values for both the partition key and the sort key.</para>
+        /// primary key, you must provide values for both the partition key and the sort key.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

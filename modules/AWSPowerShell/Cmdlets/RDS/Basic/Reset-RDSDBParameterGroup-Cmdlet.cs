@@ -77,7 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// value for both dynamic and static parameters, and changes are applied when DB instance
         /// reboots.</para><para><b>MariaDB</b></para><para>Valid Values (for Apply method): <c>immediate</c> | <c>pending-reboot</c></para><para>You can use the immediate value with dynamic parameters only. You can use the <c>pending-reboot</c>
         /// value for both dynamic and static parameters, and changes are applied when DB instance
-        /// reboots.</para><para><b>Oracle</b></para><para>Valid Values (for Apply method): <c>pending-reboot</c></para>
+        /// reboots.</para><para><b>Oracle</b></para><para>Valid Values (for Apply method): <c>pending-reboot</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

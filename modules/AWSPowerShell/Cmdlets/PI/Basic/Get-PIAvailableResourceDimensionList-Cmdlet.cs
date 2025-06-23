@@ -53,7 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// multiple actions, then the response will contain the dimensions common for all the
         /// actions.</para><para>When you don't specify this request parameter or provide an empty list, the response
         /// contains all the available dimensions for the target database engine whether or not
-        /// you are authorized to access them.</para>
+        /// you are authorized to access them.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.PI
         #region Parameter Metric
         /// <summary>
         /// <para>
-        /// <para>The types of metrics for which to retrieve dimensions. Valid values include <c>db.load</c>.</para>
+        /// <para>The types of metrics for which to retrieve dimensions. Valid values include <c>db.load</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

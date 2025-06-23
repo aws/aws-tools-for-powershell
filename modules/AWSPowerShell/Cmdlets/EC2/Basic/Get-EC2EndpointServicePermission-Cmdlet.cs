@@ -62,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The filters.</para><ul><li><para><c>principal</c> - The ARN of the principal.</para></li><li><para><c>principal-type</c> - The principal type (<c>All</c> | <c>Service</c> | <c>OrganizationUnit</c>
-        /// | <c>Account</c> | <c>User</c> | <c>Role</c>).</para></li></ul>
+        /// | <c>Account</c> | <c>User</c> | <c>Role</c>).</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

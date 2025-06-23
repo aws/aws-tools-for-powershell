@@ -56,7 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// will set this to false when a notification service indicates to Amazon SNS that the
         /// endpoint is invalid. Users can set it back to true, typically after updating Token.</para></li><li><para><c>Token</c> – device token, also referred to as a registration id, for an app and
         /// mobile device. This is returned from the notification service when an app and mobile
-        /// device are registered with the notification service.</para></li></ul>
+        /// device are registered with the notification service.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

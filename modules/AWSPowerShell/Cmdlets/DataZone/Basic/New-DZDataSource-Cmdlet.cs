@@ -48,7 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The metadata forms that are to be attached to the assets that this data source works
-        /// with.</para>
+        /// with.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -232,7 +236,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The relational filter configurations included in the configuration details of the
-        /// Amazon Web Services Glue data source.</para>
+        /// Amazon Web Services Glue data source.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -244,7 +252,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The relational filger configurations included in the configuration details of the
-        /// Amazon Redshift data source.</para>
+        /// Amazon Redshift data source.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -287,7 +299,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter SageMakerRunConfiguration_TrackingAsset
         /// <summary>
         /// <para>
-        /// <para>The tracking assets of the Amazon SageMaker run.</para>
+        /// <para>The tracking assets of the Amazon SageMaker run.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -76,7 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// configured in the Manage QuickSight menu in the Amazon QuickSight console. Instead,
         /// it allows only the domains that you include in this parameter. You can list up to
         /// three domains or subdomains in each API call.</para><para>To include all subdomains under a specific domain to the allow list, use <c>*</c>.
-        /// For example, <c>https://*.sapp.amazon.com</c> includes all subdomains under <c>https://sapp.amazon.com</c>.</para>
+        /// For example, <c>https://*.sapp.amazon.com</c> includes all subdomains under <c>https://sapp.amazon.com</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>The Amazon Resource Names (ARNs) for the Amazon QuickSight resources that the user
         /// is authorized to access during the lifetime of the session.</para><para>If you choose <c>Dashboard</c> embedding experience, pass the list of dashboard ARNs
         /// in the account that you want the user to be able to view.</para><para>If you want to make changes to the theme of your embedded content, pass a list of
-        /// theme ARNs that the anonymous users need access to.</para><para>Currently, you can pass up to 25 theme ARNs in each API call.</para>
+        /// theme ARNs that the anonymous users need access to.</para><para>Currently, you can pass up to 25 theme ARNs in each API call.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -140,7 +148,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Dashboard_DisabledFeature
         /// <summary>
         /// <para>
-        /// <para>A list of all disabled features of a specified anonymous dashboard.</para>
+        /// <para>A list of all disabled features of a specified anonymous dashboard.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,7 +174,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Dashboard_EnabledFeature
         /// <summary>
         /// <para>
-        /// <para>A list of all enabled features of a specified anonymous dashboard.</para>
+        /// <para>A list of all enabled features of a specified anonymous dashboard.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -252,7 +268,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// sure that you have configured the relevant datasets using the <c>DataSet$RowLevelPermissionTagConfiguration</c>
         /// parameter so that session tags can be used to provide row-level security.</para><para>These are not the tags used for the Amazon Web Services resource tagging feature.
         /// For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using
-        /// Row-Level Security (RLS) with Tags</a>in the <i>Amazon QuickSight User Guide</i>.</para>
+        /// Row-Level Security (RLS) with Tags</a>in the <i>Amazon QuickSight User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -57,7 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>An ordered list of actions to perform on messages that match at least one of the recipient
-        /// email addresses or domains specified in the receipt rule.</para>
+        /// email addresses or domains specified in the receipt rule.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +101,11 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>The recipient domains and email addresses that the receipt rule applies to. If this
-        /// field is not specified, this rule matches all recipients on all verified domains.</para>
+        /// field is not specified, this rule matches all recipients on all verified domains.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

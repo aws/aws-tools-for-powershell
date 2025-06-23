@@ -51,7 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         /// <para>Filters to scope the results. The following filters and logical operators are supported:</para><ul><li><para><c>licenseCountingType</c> - The dimension for which licenses are counted. Possible
         /// values are <c>vCPU</c> | <c>Instance</c> | <c>Core</c> | <c>Socket</c>.</para></li><li><para><c>enforceLicenseCount</c> - A Boolean value that indicates whether hard license
         /// enforcement is used.</para></li><li><para><c>usagelimitExceeded</c> - A Boolean value that indicates whether the available
-        /// licenses have been exceeded.</para></li></ul>
+        /// licenses have been exceeded.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -62,7 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter LicenseConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Names (ARN) of the license configurations.</para>
+        /// <para>Amazon Resource Names (ARN) of the license configurations.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

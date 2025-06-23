@@ -77,7 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter TestingData_Asset
         /// <summary>
         /// <para>
-        /// <para>The assets used for testing.</para>
+        /// <para>The assets used for testing.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter TrainingData_Asset
         /// <summary>
         /// <para>
-        /// <para>A manifest file that contains references to the training images and ground-truth annotations.</para>
+        /// <para>A manifest file that contains references to the training images and ground-truth annotations.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,7 +185,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> A set of tags (key-value pairs) that you want to attach to the project version. </para>
+        /// <para> A set of tags (key-value pairs) that you want to attach to the project version. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

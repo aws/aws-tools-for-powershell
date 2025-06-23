@@ -112,7 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// tag keys, cost categories, or any two group by types.</para><para>Valid values for the <c>DIMENSION</c> type are <c>AZ</c>, <c>INSTANCE_TYPE</c>, <c>LEGAL_ENTITY_NAME</c>,
         /// <c>INVOICING_ENTITY</c>, <c>LINKED_ACCOUNT</c>, <c>OPERATION</c>, <c>PLATFORM</c>,
         /// <c>PURCHASE_TYPE</c>, <c>SERVICE</c>, <c>TENANCY</c>, <c>RECORD_TYPE</c>, and <c>USAGE_TYPE</c>.</para><para>When you group by the <c>TAG</c> type and include a valid tag key, you get all tag
-        /// values, including empty strings.</para>
+        /// values, including empty strings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,7 +135,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// across all of Amazon EC2, the results aren't meaningful because Amazon EC2 compute
         /// hours and data transfer are measured in different units (for example, hours and GB).
         /// To get more meaningful <c>UsageQuantity</c> metrics, filter by <c>UsageType</c> or
-        /// <c>UsageTypeGroups</c>. </para></note><para><c>Metrics</c> is required for <c>GetCostAndUsage</c> requests.</para>
+        /// <c>UsageTypeGroups</c>. </para></note><para><c>Metrics</c> is required for <c>GetCostAndUsage</c> requests.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

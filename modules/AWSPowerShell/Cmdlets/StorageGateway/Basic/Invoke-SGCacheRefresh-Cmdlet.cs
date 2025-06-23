@@ -105,7 +105,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// is [<c>"/"</c>]. The default refreshes objects and folders at the root of the Amazon
         /// S3 bucket. If <c>Recursive</c> is set to <c>true</c>, the entire S3 bucket that the
         /// file share has access to is refreshed.</para><para>Do not include <c>/</c> when specifying folder names. For example, you would specify
-        /// <c>samplefolder</c> rather than <c>samplefolder/</c>.</para>
+        /// <c>samplefolder</c> rather than <c>samplefolder/</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

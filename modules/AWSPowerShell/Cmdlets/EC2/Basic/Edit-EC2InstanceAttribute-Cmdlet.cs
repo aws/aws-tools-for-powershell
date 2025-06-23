@@ -86,7 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// to Fargate tasks.</para><para>To add instance store volumes to an Amazon EBS-backed instance, you must add them
         /// when you launch the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM">Update
         /// the block device mapping when launching an instance</a> in the <i>Amazon EC2 User
-        /// Guide</i>.</para>
+        /// Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,7 +163,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Replaces the security groups of the instance with the specified security groups. You
         /// must specify the ID of at least one security group, even if it's just the default
-        /// security group for the VPC.</para>
+        /// security group for the VPC.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -88,7 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The block device mapping entries that define the block devices to attach to the instances
         /// at launch. By default, the block devices specified in the block device mapping for
         /// the AMI are used. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block
-        /// device mappings</a> in the <i>Amazon EC2 User Guide</i>.</para>
+        /// device mappings</a> in the <i>Amazon EC2 User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ClassicLinkVPCSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>Available for backward compatibility.</para>
+        /// <para>Available for backward compatibility.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -310,7 +318,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>A list that contains the security group IDs to assign to the instances in the Auto
         /// Scaling group. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html">Control
         /// traffic to your Amazon Web Services resources using security groups</a> in the <i>Amazon
-        /// Virtual Private Cloud User Guide</i>.</para>
+        /// Virtual Private Cloud User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]

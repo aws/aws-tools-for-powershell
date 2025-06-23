@@ -61,7 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>An optional list of structures that control how <c>Analysis</c> resources are parameterized
-        /// in the returned CloudFormation template.</para>
+        /// in the returned CloudFormation template.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +111,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>An optional list of structures that control how <c>Dashboard</c> resources are parameterized
-        /// in the returned CloudFormation template.</para>
+        /// in the returned CloudFormation template.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>An optional list of structures that control how <c>DataSet</c> resources are parameterized
-        /// in the returned CloudFormation template.</para>
+        /// in the returned CloudFormation template.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,7 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>An optional list of structures that control how <c>DataSource</c> resources are parameterized
-        /// in the returned CloudFormation template.</para>
+        /// in the returned CloudFormation template.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,7 +176,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>An optional list of structures that controls how <c>Folder</c> resources are parameterized
-        /// in the returned CloudFormation template.</para>
+        /// in the returned CloudFormation template.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -250,7 +270,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>An optional list of structures that control how <c>RefreshSchedule</c> resources are
-        /// parameterized in the returned CloudFormation template.</para>
+        /// parameterized in the returned CloudFormation template.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -262,7 +286,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>An array of resource ARNs to export. The following resources are supported.</para><ul><li><para><c>Analysis</c></para></li><li><para><c>Dashboard</c></para></li><li><para><c>DataSet</c></para></li><li><para><c>DataSource</c></para></li><li><para><c>RefreshSchedule</c></para></li><li><para><c>Theme</c></para></li><li><para><c>VPCConnection</c></para></li></ul><para>The API caller must have the necessary permissions in their IAM role to access each
-        /// resource before the resources can be exported.</para>
+        /// resource before the resources can be exported.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -293,7 +321,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>An optional list of structures that control how <c>Theme</c> resources are parameterized
-        /// in the returned CloudFormation template.</para>
+        /// in the returned CloudFormation template.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -305,7 +337,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>An optional list of structures that control how <c>VPCConnection</c> resources are
-        /// parameterized in the returned CloudFormation template.</para>
+        /// parameterized in the returned CloudFormation template.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

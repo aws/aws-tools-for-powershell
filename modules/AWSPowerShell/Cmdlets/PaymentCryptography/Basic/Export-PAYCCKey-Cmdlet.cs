@@ -623,7 +623,11 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// for information on allowed data type for optional blocks.</para><para>Optional block character limit is 112 characters. For each optional block, 2 characters
         /// are reserved for optional block ID and 2 characters reserved for optional block length.
         /// More than one optional blocks can be included as long as the combined length does
-        /// not increase 112 characters.</para>
+        /// not increase 112 characters.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -639,7 +643,11 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// for information on allowed data type for optional blocks.</para><para>Optional block character limit is 112 characters. For each optional block, 2 characters
         /// are reserved for optional block ID and 2 characters reserved for optional block length.
         /// More than one optional blocks can be included as long as the combined length does
-        /// not increase 112 characters.</para>
+        /// not increase 112 characters.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -655,7 +663,11 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// for information on allowed data type for optional blocks.</para><para>Optional block character limit is 112 characters. For each optional block, 2 characters
         /// are reserved for optional block ID and 2 characters reserved for optional block length.
         /// More than one optional blocks can be included as long as the combined length does
-        /// not increase 112 characters.</para>
+        /// not increase 112 characters.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -50,7 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// <summary>
         /// <para>
         /// <para>The list of endpoint objects. A resource must be valid and active when you add it
-        /// as an endpoint.</para>
+        /// as an endpoint.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,6 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// This property can be used to determine if the related property
         /// was returned by a service response or if the related property
         /// should be sent to the service during a service call.
+        /// <para>If this property is set to false the property <seealso cref="P:Amazon.GlobalAccelerator.Model.UpdateEndpointGroupRequest.EndpointConfigurations" /> will be reset to null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,6 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// This property can be used to determine if the related property
         /// was returned by a service response or if the related property
         /// should be sent to the service during a service call.
+        /// <para>If this property is set to false the property <seealso cref="P:Amazon.GlobalAccelerator.Model.UpdateEndpointGroupRequest.PortOverrides" /> will be reset to null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,7 +164,11 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// of this endpoint group. For example, you can create a port override in which the listener
         /// receives user traffic on ports 80 and 443, but your accelerator routes that traffic
         /// to ports 1080 and 1443, respectively, on the endpoints.</para><para>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html">
-        /// Overriding listener ports</a> in the <i>Global Accelerator Developer Guide</i>.</para>
+        /// Overriding listener ports</a> in the <i>Global Accelerator Developer Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -83,7 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         /// <para>
         /// <para>Specify data sources to mount read-only files from S3 into your simulation. These
         /// files are available under <c>/opt/robomaker/datasources/data_source_name</c>. </para><note><para>There is a limit of 100 files and a combined size of 25GB for all <c>DataSourceConfig</c>
-        /// objects. </para></note>
+        /// objects. </para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,7 +169,11 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         #region Parameter RobotApplication
         /// <summary>
         /// <para>
-        /// <para>The robot application to use in the simulation job.</para>
+        /// <para>The robot application to use in the simulation job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,7 +184,11 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         #region Parameter SimulationApplication
         /// <summary>
         /// <para>
-        /// <para>The simulation application to use in the simulation job.</para>
+        /// <para>The simulation application to use in the simulation job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -200,7 +212,11 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A map that contains tag keys and tag values that are attached to the simulation job.</para>
+        /// <para>A map that contains tag keys and tag values that are attached to the simulation job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -114,7 +114,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// information, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/user-guide-for-sellers.html">Getting
         /// started as an Amazon Web Services Marketplace seller</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/ami-products.html">AMI-based
         /// products in Amazon Web Services Marketplace</a> in the <i>Amazon Web Services Marketplace
-        /// Seller Guide</i>.</para>
+        /// Seller Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +133,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// specify the encryption state of the volume.</para><para>If you create an AMI on an Outpost, then all backing snapshots must be on the same
         /// Outpost or in the Region of that Outpost. AMIs on an Outpost that include local snapshots
         /// can be used to launch instances on the same Outpost only. For more information, <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami">Create
-        /// AMIs from local snapshots</a> in the <i>Amazon EBS User Guide</i>.</para>
+        /// AMIs from local snapshots</a> in the <i>Amazon EBS User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -280,7 +288,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The tags to apply to the AMI.</para><para>To tag the AMI, the value for <c>ResourceType</c> must be <c>image</c>. If you specify
-        /// another value for <c>ResourceType</c>, the request fails.</para><para>To tag an AMI after it has been registered, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</para>
+        /// another value for <c>ResourceType</c>, the request fails.</para><para>To tag an AMI after it has been registered, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

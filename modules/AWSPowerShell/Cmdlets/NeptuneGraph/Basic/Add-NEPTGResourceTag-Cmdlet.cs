@@ -71,7 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         /// expression: <c>"^([\p{L}\p{Z}\p{N}_.:/=+\-]*)$")</c>.</para><para><b>Value</b> (string)   –   A value is the optional value of the tag. The string
         /// value can be from 1 to 256 Unicode characters in length. It can't be prefixed with
         /// <c>aws:</c> and can only contain the set of Unicode characters specified by this Java
-        /// regular expression: <c>"^([\p{L}\p{Z}\p{N}_.:/=+\-]*)$")</c>.</para>
+        /// regular expression: <c>"^([\p{L}\p{Z}\p{N}_.:/=+\-]*)$")</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

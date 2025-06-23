@@ -50,7 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The names of the parameters to delete. After deleting a parameter, wait for at least
         /// 30 seconds to create a parameter with the same name.</para><note><para>You can't enter the Amazon Resource Name (ARN) for a parameter, only the parameter
-        /// name itself.</para></note>
+        /// name itself.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

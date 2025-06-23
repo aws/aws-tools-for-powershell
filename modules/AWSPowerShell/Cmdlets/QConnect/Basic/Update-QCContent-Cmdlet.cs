@@ -87,7 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// <para>A key/value map to store attributes without affecting tagging or recommendations.
         /// For example, when synchronizing data between an external system and Amazon Q in Connect,
         /// you can store an external version identifier as metadata to utilize for determining
-        /// drift.</para>
+        /// drift.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

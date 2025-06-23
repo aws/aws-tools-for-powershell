@@ -77,7 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.FRCQ
         /// <para>
         /// <para>The filtering criteria to apply when retrieving the forecast. For example, to get
         /// the forecast for <c>client_21</c> in the electricity usage dataset, specify the following:</para><para><c>{"item_id" : "client_21"}</c></para><para>To get the full forecast, use the <a href="https://docs.aws.amazon.com/en_us/forecast/latest/dg/API_CreateForecastExportJob.html">CreateForecastExportJob</a>
-        /// operation.</para>
+        /// operation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

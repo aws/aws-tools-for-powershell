@@ -67,7 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>
         /// <para>The status of the certificates for which to return information.</para><para>For example, specify <c>ISSUED</c> to return only certificates with an <c>ISSUED</c>
         /// status.</para><para>When omitted, the response includes all of your certificates in the Amazon Web Services
-        /// Region where the request is made, regardless of their current status.</para>
+        /// Region where the request is made, regardless of their current status.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -50,7 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         #region Parameter EntityType
         /// <summary>
         /// <para>
-        /// <para>The entity types for which to search.</para>
+        /// <para>The entity types for which to search.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,7 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         /// <c>SEMANTIC_TYPE_PATH</c> and <c>REFERENCED_ENTITY_ID</c>. <c>REFERENCED_ENTITY_ID</c>
         /// filters on entities that are used by the entity in the result set. For example, you
         /// can filter on the ID of a property that is used in a state.</para><para>Multiple filters function as OR criteria in the query. Multiple values passed inside
-        /// the filter function as AND criteria.</para>
+        /// the filter function as AND criteria.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

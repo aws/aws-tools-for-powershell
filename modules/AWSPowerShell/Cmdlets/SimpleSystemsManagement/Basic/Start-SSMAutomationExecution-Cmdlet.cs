@@ -48,7 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter AlarmConfiguration_Alarm
         /// <summary>
         /// <para>
-        /// <para>The name of the CloudWatch alarm specified in the configuration.</para>
+        /// <para>The name of the CloudWatch alarm specified in the configuration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,7 +153,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>A key-value map of execution parameters, which match the declared parameters in the
-        /// Automation runbook.</para>
+        /// Automation runbook.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,7 +175,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// following key-value pairs:</para><ul><li><para><c>Key=environment,Value=test</c></para></li><li><para><c>Key=OS,Value=Windows</c></para></li></ul><note><para>The <c>Array Members</c> maximum value is reported as 1000. This number includes capacity
         /// reserved for internal operations. When calling the <c>StartAutomationExecution</c>
         /// action, you can specify a maximum of 5 tags. You can, however, use the <a>AddTagsToResource</a>
-        /// action to add up to a total of 50 tags to an existing automation configuration.</para></note>
+        /// action to add up to a total of 50 tags to an existing automation configuration.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,7 +195,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// in multiple Amazon Web Services Regions and multiple Amazon Web Services accounts.
         /// For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Running
         /// automations in multiple Amazon Web Services Regions and accounts</a> in the <i>Amazon
-        /// Web Services Systems Manager User Guide</i>. </para>
+        /// Web Services Systems Manager User Guide</i>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -206,7 +222,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
-        /// can't be specified together.</para>
+        /// can't be specified together.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -229,7 +249,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>A key-value mapping to target resources. Required if you specify TargetParameterName.</para><para>If both this parameter and the <c>TargetLocation:Targets</c> parameter are supplied,
-        /// <c>TargetLocation:Targets</c> takes precedence.</para>
+        /// <c>TargetLocation:Targets</c> takes precedence.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

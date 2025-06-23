@@ -93,7 +93,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter PolicyDetail
         /// <summary>
         /// <para>
-        /// <para>The configuration details for a lifecycle policy resource.</para>
+        /// <para>The configuration details for a lifecycle policy resource.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -112,7 +116,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>A list of recipes that are used as selection criteria for the output images that the
-        /// lifecycle policy applies to.</para>
+        /// lifecycle policy applies to.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,7 +160,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>A list of tags that are used as selection criteria for the Image Builder image resources
-        /// that the lifecycle policy applies to.</para>
+        /// that the lifecycle policy applies to.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -49,7 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Filters applied to the certificates described in the form of key-value pairs. Valid
-        /// values are <c>certificate-arn</c> and <c>certificate-id</c>.</para>
+        /// values are <c>certificate-arn</c> and <c>certificate-id</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

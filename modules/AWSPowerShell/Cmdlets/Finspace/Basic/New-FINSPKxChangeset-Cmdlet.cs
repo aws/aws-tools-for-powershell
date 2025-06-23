@@ -58,7 +58,11 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// of the database.</para><para><c>{ "changeType": "PUT", "s3Path":"s3://bucket/db/2020.01.02/", "dbPath":"/2020.01.02/"}</c></para></li><li><para>This request adds files in the given <c>s3Path</c> under the <i>taq</i> table partition
         /// of the database.</para><para><c>[ { "changeType": "PUT", "s3Path":"s3://bucket/db/2020.01.02/taq/", "dbPath":"/2020.01.02/taq/"}]</c></para></li><li><para>This request deletes the 2020.01.02 partition of the database.</para><para><c>[{ "changeType": "DELETE", "dbPath": "/2020.01.02/"} ]</c></para></li><li><para>The <i>DELETE</i> request allows you to delete the existing files under the 2020.01.02
         /// partition of the database, and the <i>PUT</i> request adds a new taq table under it.</para><para><c>[ {"changeType": "DELETE", "dbPath":"/2020.01.02/"}, {"changeType": "PUT", "s3Path":"s3://bucket/db/2020.01.02/taq/",
-        /// "dbPath":"/2020.01.02/taq/"}]</c></para></li></ol>
+        /// "dbPath":"/2020.01.02/taq/"}]</c></para></li></ol><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

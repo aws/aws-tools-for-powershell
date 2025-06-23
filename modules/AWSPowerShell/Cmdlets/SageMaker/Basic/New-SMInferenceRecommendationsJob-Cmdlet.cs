@@ -84,7 +84,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter InputConfig_EndpointConfiguration
         /// <summary>
         /// <para>
-        /// <para>Specifies the endpoint configuration to use for a job.</para>
+        /// <para>Specifies the endpoint configuration to use for a job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter InputConfig_Endpoint
         /// <summary>
         /// <para>
-        /// <para>Existing customer endpoints on which to run an Inference Recommender job.</para>
+        /// <para>Existing customer endpoints on which to run an Inference Recommender job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -256,7 +264,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The interval of time taken by a model to respond as viewed from SageMaker. The interval
         /// includes the local communication time taken to send the request and to fetch the response
         /// from the container of a model and the time taken to complete the inference in the
-        /// container.</para>
+        /// container.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -313,7 +325,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TrafficPattern_Phase
         /// <summary>
         /// <para>
-        /// <para>Defines the phases traffic specification.</para>
+        /// <para>Defines the phases traffic specification.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -367,7 +383,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The VPC security group IDs. IDs have the form of <c>sg-xxxxxxxx</c>. Specify the security
-        /// groups for the VPC that is specified in the <c>Subnets</c> field.</para>
+        /// groups for the VPC that is specified in the <c>Subnets</c> field.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -378,7 +398,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter VpcConfig_Subnet
         /// <summary>
         /// <para>
-        /// <para>The ID of the subnets in the VPC to which you want to connect your model.</para>
+        /// <para>The ID of the subnets in the VPC to which you want to connect your model.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -389,7 +413,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter PayloadConfig_SupportedContentType
         /// <summary>
         /// <para>
-        /// <para>The supported MIME types for the input data.</para>
+        /// <para>The supported MIME types for the input data.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -415,7 +443,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ContainerConfig_SupportedInstanceType
         /// <summary>
         /// <para>
-        /// <para>A list of the instance types that are used to generate inferences in real-time.</para>
+        /// <para>A list of the instance types that are used to generate inferences in real-time.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -426,7 +458,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ContainerConfig_SupportedResponseMIMEType
         /// <summary>
         /// <para>
-        /// <para>The supported MIME types for the output data.</para>
+        /// <para>The supported MIME types for the output data.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -440,7 +476,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The metadata that you apply to Amazon Web Services resources to help you categorize
         /// and organize them. Each tag consists of a key and a value, both of which you define.
         /// For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// Amazon Web Services Resources</a> in the Amazon Web Services General Reference.</para>
+        /// Amazon Web Services Resources</a> in the Amazon Web Services General Reference.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

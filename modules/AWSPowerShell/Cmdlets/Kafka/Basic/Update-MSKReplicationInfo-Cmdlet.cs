@@ -48,7 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         /// <summary>
         /// <para>
         /// <para>List of regular expression patterns indicating the consumer groups that should not
-        /// be replicated.</para>
+        /// be replicated.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         #region Parameter ConsumerGroupReplication_ConsumerGroupsToReplicate
         /// <summary>
         /// <para>
-        /// <para>List of regular expression patterns indicating the consumer groups to copy.</para>
+        /// <para>List of regular expression patterns indicating the consumer groups to copy.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,7 +202,11 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         #region Parameter TopicReplication_TopicsToExclude
         /// <summary>
         /// <para>
-        /// <para>List of regular expression patterns indicating the topics that should not be replicated.</para>
+        /// <para>List of regular expression patterns indicating the topics that should not be replicated.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,7 +216,11 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         #region Parameter TopicReplication_TopicsToReplicate
         /// <summary>
         /// <para>
-        /// <para>List of regular expression patterns indicating the topics to copy.</para>
+        /// <para>List of regular expression patterns indicating the topics to copy.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

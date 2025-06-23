@@ -62,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter SingleMetricAnomalyDetector_Dimension
         /// <summary>
         /// <para>
-        /// <para>The metric dimensions to create the anomaly detection model for.</para>
+        /// <para>The metric dimensions to create the anomaly detection model for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// is the expression that provides the time series that the anomaly detector uses as
         /// input. Designate the expression by setting <c>ReturnData</c> to <c>true</c> for this
         /// object in the array. For all other expressions and metrics, set <c>ReturnData</c>
-        /// to <c>false</c>. The designated expression must return a single time series.</para>
+        /// to <c>false</c>. The designated expression must return a single time series.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,7 +128,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Dimension
         /// <summary>
         /// <para>
-        /// <para>The metric dimensions associated with the anomaly detection model to delete.</para>
+        /// <para>The metric dimensions associated with the anomaly detection model to delete.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

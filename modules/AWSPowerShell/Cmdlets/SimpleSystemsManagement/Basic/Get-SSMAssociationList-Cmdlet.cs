@@ -54,7 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>One or more filters. Use a filter to return a more specific list of results.</para><note><para>Filtering associations using the <c>InstanceID</c> attribute only returns legacy associations
         /// created using the <c>InstanceID</c> attribute. Associations targeting the managed
         /// node that are part of the Target Attributes <c>ResourceGroup</c> or <c>Tags</c> aren't
-        /// returned.</para></note>
+        /// returned.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

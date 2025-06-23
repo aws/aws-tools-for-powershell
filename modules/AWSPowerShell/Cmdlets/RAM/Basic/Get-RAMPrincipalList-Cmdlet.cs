@@ -52,7 +52,11 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <para>Specifies that you want to list information for only the listed principals.</para><para>You can include the following values:</para><ul><li><para>An Amazon Web Services account ID, for example: <c>123456789012</c></para></li><li><para>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Name (ARN)</a> of an organization in Organizations, for example: <c>organizations::123456789012:organization/o-exampleorgid</c></para></li><li><para>An ARN of an organizational unit (OU) in Organizations, for example: <c>organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123</c></para></li><li><para>An ARN of an IAM role, for example: <c>iam::123456789012:role/rolename</c></para></li><li><para>An ARN of an IAM user, for example: <c>iam::123456789012user/username</c></para></li></ul><note><para>Not all resource types can be shared with IAM roles and users. For more information,
         /// see <a href="https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types">Sharing
-        /// with IAM roles and users</a> in the <i>Resource Access Manager User Guide</i>.</para></note>
+        /// with IAM roles and users</a> in the <i>Resource Access Manager User Guide</i>.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +100,11 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <para>
         /// <para>Specifies that you want to list information for only principals associated with the
         /// resource shares specified by a list the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs)</a>.</para>
+        /// Resource Names (ARNs)</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

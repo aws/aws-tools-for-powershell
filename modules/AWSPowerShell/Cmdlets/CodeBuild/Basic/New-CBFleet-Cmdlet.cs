@@ -248,7 +248,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>An array of <c>FleetProxyRule</c> objects that represent the specified destination
-        /// domains or IPs to allow or deny network access control to.</para>
+        /// domains or IPs to allow or deny network access control to.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -286,7 +290,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of one or more security groups IDs in your Amazon VPC.</para>
+        /// <para>A list of one or more security groups IDs in your Amazon VPC.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -297,7 +305,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter VpcConfig_Subnet
         /// <summary>
         /// <para>
-        /// <para>A list of one or more subnet IDs in your Amazon VPC.</para>
+        /// <para>A list of one or more subnet IDs in your Amazon VPC.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -309,7 +321,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>A list of tag key and value pairs associated with this compute fleet.</para><para>These tags are available for use by Amazon Web Services services that support CodeBuild
-        /// build project tags.</para>
+        /// build project tags.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -320,7 +336,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ScalingConfiguration_TargetTrackingScalingConfig
         /// <summary>
         /// <para>
-        /// <para>A list of <c>TargetTrackingScalingConfiguration</c> objects.</para>
+        /// <para>A list of <c>TargetTrackingScalingConfiguration</c> objects.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

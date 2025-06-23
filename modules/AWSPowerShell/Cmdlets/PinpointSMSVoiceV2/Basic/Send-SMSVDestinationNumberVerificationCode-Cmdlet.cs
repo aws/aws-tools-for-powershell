@@ -63,7 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>You can specify custom data in this field. If you do, that data is logged to the event
-        /// destination.</para>
+        /// destination.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <para>This field is used for any country-specific registration requirements. Currently,
         /// this setting is only used when you send messages to recipients in India using a sender
         /// ID. For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-senderid-india.html">Special
-        /// requirements for sending SMS messages to recipients in India</a>. </para>
+        /// requirements for sending SMS messages to recipients in India</a>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

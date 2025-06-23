@@ -50,7 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <summary>
         /// <para>
         /// <para>An array of filtering criteria that scope down the result list. By default, all service
-        /// instances in the Amazon Web Services account are returned.</para>
+        /// instances in the Amazon Web Services account are returned.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

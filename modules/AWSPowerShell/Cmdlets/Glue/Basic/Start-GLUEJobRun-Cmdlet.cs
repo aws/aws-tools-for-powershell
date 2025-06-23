@@ -57,7 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// Spark jobs, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
         /// Parameters Used by Glue</a> topic in the developer guide.</para><para>For information about the arguments you can provide to this field when configuring
         /// Ray jobs, see <a href="https://docs.aws.amazon.com/glue/latest/dg/author-job-ray-job-parameters.html">Using
-        /// job parameters in Ray jobs</a> in the developer guide.</para>
+        /// job parameters in Ray jobs</a> in the developer guide.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -53,7 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter AwsJobAbortConfig_AbortCriteriaList
         /// <summary>
         /// <para>
-        /// <para>The list of criteria that determine when and how to abort the job.</para>
+        /// <para>The list of criteria that determine when and how to abort the job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>A list of additional OTA update parameters, which are name-value pairs. They won't
-        /// be sent to devices as a part of the Job document.</para>
+        /// be sent to devices as a part of the Job document.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +117,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter File
         /// <summary>
         /// <para>
-        /// <para>The files to be streamed by the OTA update.</para>
+        /// <para>The files to be streamed by the OTA update.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -208,7 +220,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT],
         /// [HTTP, MQTT]. When both HTTP and MQTT are specified, the target device can choose
-        /// the protocol.</para>
+        /// the protocol.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -237,7 +253,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Metadata which can be used to manage updates.</para>
+        /// <para>Metadata which can be used to manage updates.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -248,7 +268,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The devices targeted to receive OTA updates.</para>
+        /// <para>The devices targeted to receive OTA updates.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -52,7 +52,11 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         /// <para>Filters the list of incident records you want to search through. You can filter on
         /// the following keys:</para><ul><li><para><c>creationTime</c></para></li><li><para><c>impact</c></para></li><li><para><c>status</c></para></li><li><para><c>createdBy</c></para></li></ul><para>Note the following when when you use Filters:</para><ul><li><para>If you don't specify a Filter, the response includes all incident records.</para></li><li><para>If you specify more than one filter in a single request, the response returns incident
         /// records that match all filters.</para></li><li><para>If you specify a filter with more than one value, the response returns incident records
-        /// that match any of the values provided.</para></li></ul>
+        /// that match any of the values provided.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

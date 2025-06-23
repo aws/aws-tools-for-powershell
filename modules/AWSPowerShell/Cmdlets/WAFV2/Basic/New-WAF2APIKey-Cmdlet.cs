@@ -81,7 +81,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <summary>
         /// <para>
         /// <para>The client application domains that you want to use this API key for. </para><para>Example JSON: <c>"TokenDomains": ["abc.com", "store.abc.com"]</c></para><para>Public suffixes aren't allowed. For example, you can't use <c>gov.au</c> or <c>co.uk</c>
-        /// as token domains.</para>
+        /// as token domains.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

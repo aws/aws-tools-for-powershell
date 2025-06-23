@@ -55,7 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>One or more user-defined key/value pairs to be added to the stack attributes.</para>
+        /// <para>One or more user-defined key/value pairs to be added to the stack attributes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter CustomRecipes_Configure
         /// <summary>
         /// <para>
-        /// <para>An array of custom recipe names to be run following a <c>configure</c> event.</para>
+        /// <para>An array of custom recipe names to be run following a <c>configure</c> event.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +134,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter CustomSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>An array containing the layer's custom security group IDs.</para>
+        /// <para>An array containing the layer's custom security group IDs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,7 +162,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter CustomRecipes_Deploy
         /// <summary>
         /// <para>
-        /// <para>An array of custom recipe names to be run following a <c>deploy</c> event.</para>
+        /// <para>An array of custom recipe names to be run following a <c>deploy</c> event.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,7 +240,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter CloudWatchLogsConfiguration_LogStream
         /// <summary>
         /// <para>
-        /// <para>A list of configuration options for CloudWatch Logs.</para>
+        /// <para>A list of configuration options for CloudWatch Logs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -245,7 +265,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter Package
         /// <summary>
         /// <para>
-        /// <para>An array of <c>Package</c> objects that describe the layer's packages.</para>
+        /// <para>An array of <c>Package</c> objects that describe the layer's packages.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -256,7 +280,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter CustomRecipes_Setup
         /// <summary>
         /// <para>
-        /// <para>An array of custom recipe names to be run following a <c>setup</c> event.</para>
+        /// <para>An array of custom recipe names to be run following a <c>setup</c> event.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -281,7 +309,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter CustomRecipes_Shutdown
         /// <summary>
         /// <para>
-        /// <para>An array of custom recipe names to be run following a <c>shutdown</c> event.</para>
+        /// <para>An array of custom recipe names to be run following a <c>shutdown</c> event.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -291,7 +323,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter CustomRecipes_Undeploy
         /// <summary>
         /// <para>
-        /// <para>An array of custom recipe names to be run following a <c>undeploy</c> event.</para>
+        /// <para>An array of custom recipe names to be run following a <c>undeploy</c> event.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -312,7 +348,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter VolumeConfiguration
         /// <summary>
         /// <para>
-        /// <para>A <c>VolumeConfigurations</c> object that describes the layer's Amazon EBS volumes.</para>
+        /// <para>A <c>VolumeConfigurations</c> object that describes the layer's Amazon EBS volumes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

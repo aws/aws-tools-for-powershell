@@ -54,7 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>Static information about a vehicle in a key-value pair. For example:</para><para><c>"engineType"</c> : <c>"1.3 L R2"</c></para>
+        /// <para>Static information about a vehicle in a key-value pair. For example:</para><para><c>"engineType"</c> : <c>"1.3 L R2"</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +102,11 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #region Parameter StateTemplatesToAdd
         /// <summary>
         /// <para>
-        /// <para>Associate state templates with the vehicle.</para>
+        /// <para>Associate state templates with the vehicle.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +116,11 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #region Parameter StateTemplatesToRemove
         /// <summary>
         /// <para>
-        /// <para>Remove state templates from the vehicle.</para>
+        /// <para>Remove state templates from the vehicle.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +131,11 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <summary>
         /// <para>
         /// <para>Change the <c>stateTemplateUpdateStrategy</c> of state templates already associated
-        /// with the vehicle.</para>
+        /// with the vehicle.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

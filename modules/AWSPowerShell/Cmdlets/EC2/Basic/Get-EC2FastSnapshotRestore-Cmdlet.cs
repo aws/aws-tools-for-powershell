@@ -62,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The filters. The possible values are:</para><ul><li><para><c>availability-zone</c>: The Availability Zone of the snapshot.</para></li><li><para><c>owner-id</c>: The ID of the Amazon Web Services account that enabled fast snapshot
         /// restore on the snapshot.</para></li><li><para><c>snapshot-id</c>: The ID of the snapshot.</para></li><li><para><c>state</c>: The state of fast snapshot restores for the snapshot (<c>enabling</c>
-        /// | <c>optimizing</c> | <c>enabled</c> | <c>disabling</c> | <c>disabled</c>).</para></li></ul>
+        /// | <c>optimizing</c> | <c>enabled</c> | <c>disabling</c> | <c>disabled</c>).</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

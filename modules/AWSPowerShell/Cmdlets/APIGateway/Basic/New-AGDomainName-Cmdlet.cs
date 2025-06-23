@@ -209,7 +209,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>
         /// <para>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag
         /// key can be up to 128 characters and must not start with <c>aws:</c>. The tag value
-        /// can be up to 256 characters.</para>
+        /// can be up to 256 characters.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -248,7 +252,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>A list of endpoint types of an API (RestApi) or its custom domain name (DomainName).
         /// For an edge-optimized API and its custom domain name, the endpoint type is <c>"EDGE"</c>.
         /// For a regional API and its custom domain name, the endpoint type is <c>REGIONAL</c>.
-        /// For a private API, the endpoint type is <c>PRIVATE</c>.</para>
+        /// For a private API, the endpoint type is <c>PRIVATE</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -260,7 +268,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes.
-        /// It is only supported for <c>PRIVATE</c> endpoint type.</para>
+        /// It is only supported for <c>PRIVATE</c> endpoint type.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -103,7 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// make the manual cluster snapshot restorable by any Amazon Web Services account, set
         /// it to <c>all</c>. Do not add the <c>all</c> value for any manual cluster snapshots
         /// that contain private information that you don't want to be available to all Amazon
-        /// Web Services accounts.</para>
+        /// Web Services accounts.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +122,11 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// account identifiers. To remove authorization for any Amazon Web Services account to
         /// copy or restore the cluster snapshot, set it to <c>all</c> . If you specify <c>all</c>,
         /// an Amazon Web Services account whose account ID is explicitly added to the <c>restore</c>
-        /// attribute can still copy or restore a manual cluster snapshot.</para>
+        /// attribute can still copy or restore a manual cluster snapshot.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

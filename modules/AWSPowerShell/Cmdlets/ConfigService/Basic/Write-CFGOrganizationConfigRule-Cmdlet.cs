@@ -99,7 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>A list of accounts that you can enable debug logging for your organization Config
-        /// Custom Policy rule. List is null when debug logging is enabled for all accounts.</para>
+        /// Custom Policy rule. List is null when debug logging is enabled for all accounts.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,7 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>A comma-separated list of accounts that you want to exclude from an organization Config
-        /// rule.</para>
+        /// rule.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -258,7 +266,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// delivers a configuration item as a result of a resource change.</para></li><li><para><c>OversizedConfigurationItemChangeNotification</c> - Initiates an evaluation when
         /// Config delivers an oversized configuration item. Config may generate this notification
         /// type when a resource changes and the notification exceeds the maximum size allowed
-        /// by Amazon SNS.</para></li></ul>
+        /// by Amazon SNS.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -275,7 +287,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// Config delivers an oversized configuration item. Config may generate this notification
         /// type when a resource changes and the notification exceeds the maximum size allowed
         /// by Amazon SNS.</para></li><li><para><c>ScheduledNotification</c> - Triggers a periodic evaluation at the frequency specified
-        /// for <c>MaximumExecutionFrequency</c>.</para></li></ul>
+        /// for <c>MaximumExecutionFrequency</c>.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -340,7 +356,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter OrganizationCustomPolicyRuleMetadata_ResourceTypesScope
         /// <summary>
         /// <para>
-        /// <para>The type of the Amazon Web Services resource that was evaluated.</para>
+        /// <para>The type of the Amazon Web Services resource that was evaluated.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -350,7 +370,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter OrganizationCustomRuleMetadata_ResourceTypesScope
         /// <summary>
         /// <para>
-        /// <para>The type of the Amazon Web Services resource that was evaluated.</para>
+        /// <para>The type of the Amazon Web Services resource that was evaluated.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -360,7 +384,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter OrganizationManagedRuleMetadata_ResourceTypesScope
         /// <summary>
         /// <para>
-        /// <para>The type of the Amazon Web Services resource that was evaluated.</para>
+        /// <para>The type of the Amazon Web Services resource that was evaluated.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

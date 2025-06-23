@@ -92,7 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Amis_Region
         /// <summary>
         /// <para>
-        /// <para>Configures Amazon Web Services Regions that are excluded from the lifecycle action.</para>
+        /// <para>Configures Amazon Web Services Regions that are excluded from the lifecycle action.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>Specifies Amazon Web Services accounts whose resources are excluded from the lifecycle
-        /// action.</para>
+        /// action.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,7 +164,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Amis_TagMap
         /// <summary>
         /// <para>
-        /// <para>Lists tags that should be excluded from lifecycle actions for the AMIs that have them.</para>
+        /// <para>Lists tags that should be excluded from lifecycle actions for the AMIs that have them.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

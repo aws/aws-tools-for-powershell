@@ -56,7 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <para>List of shard-level metrics to disable.</para><para>The following are the valid shard-level metrics. The value "<c>ALL</c>" disables every
         /// metric.</para><ul><li><para><c>IncomingBytes</c></para></li><li><para><c>IncomingRecords</c></para></li><li><para><c>OutgoingBytes</c></para></li><li><para><c>OutgoingRecords</c></para></li><li><para><c>WriteProvisionedThroughputExceeded</c></para></li><li><para><c>ReadProvisionedThroughputExceeded</c></para></li><li><para><c>IteratorAgeMilliseconds</c></para></li><li><para><c>ALL</c></para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring
         /// the Amazon Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon
-        /// Kinesis Data Streams Developer Guide</i>.</para>
+        /// Kinesis Data Streams Developer Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -50,7 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>
         /// <para>An array of environment template objects that are compatible with this service template
         /// version. A service instance based on this service template version can run in environments
-        /// based on compatible templates.</para>
+        /// based on compatible templates.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>An array of supported component sources. Components with supported sources can be
         /// attached to service instances based on this service template version.</para><note><para>A change to <c>supportedComponentSources</c> doesn't impact existing component attachments
         /// to instances based on this template version. A change only affects later associations.</para></note><para>For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton
-        /// components</a> in the <i>Proton User Guide</i>.</para>
+        /// components</a> in the <i>Proton User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

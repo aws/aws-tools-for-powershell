@@ -92,7 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// Resource Names (ARNs)</a> of the RAM permission to associate with the resource share.
         /// If you do not specify an ARN for the permission, RAM automatically attaches the default
         /// version of the permission for each resource type. You can associate only one permission
-        /// with each resource type included in the resource share.</para>
+        /// with each resource type included in the resource share.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <para>Specifies a list of one or more principals to associate with the resource share.</para><para>You can include the following values:</para><ul><li><para>An Amazon Web Services account ID, for example: <c>123456789012</c></para></li><li><para>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Name (ARN)</a> of an organization in Organizations, for example: <c>organizations::123456789012:organization/o-exampleorgid</c></para></li><li><para>An ARN of an organizational unit (OU) in Organizations, for example: <c>organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123</c></para></li><li><para>An ARN of an IAM role, for example: <c>iam::123456789012:role/rolename</c></para></li><li><para>An ARN of an IAM user, for example: <c>iam::123456789012user/username</c></para></li></ul><note><para>Not all resource types can be shared with IAM roles and users. For more information,
         /// see <a href="https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types">Sharing
-        /// with IAM roles and users</a> in the <i>Resource Access Manager User Guide</i>.</para></note>
+        /// with IAM roles and users</a> in the <i>Resource Access Manager User Guide</i>.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <summary>
         /// <para>
         /// <para>Specifies a list of one or more ARNs of the resources to associate with the resource
-        /// share.</para>
+        /// share.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,7 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <summary>
         /// <para>
         /// <para>Specifies from which source accounts the service principal has access to the resources
-        /// in this resource share.</para>
+        /// in this resource share.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,7 +158,11 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <summary>
         /// <para>
         /// <para>Specifies one or more tags to attach to the resource share itself. It doesn't attach
-        /// the tags to the resources associated with the resource share.</para>
+        /// the tags to the resources associated with the resource share.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

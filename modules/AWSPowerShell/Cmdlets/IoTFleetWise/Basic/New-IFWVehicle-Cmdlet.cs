@@ -72,7 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <para>Static information about a vehicle in a key-value pair. For example: <c>"engineType"</c>
         /// : <c>"1.3 L R2"</c></para><para>To use attributes with Campaigns or State Templates, you must include them using the
         /// request parameters <c>dataExtraDimensions</c> and/or <c>metadataExtraDimensions</c>
-        /// (for state templates only) when creating your campaign/state template. </para>
+        /// (for state templates only) when creating your campaign/state template. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +122,11 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <summary>
         /// <para>
         /// <para>Associate state templates with the vehicle. You can monitor the last known state of
-        /// the vehicle in near real time.</para>
+        /// the vehicle in near real time.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +137,11 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Metadata that can be used to manage the vehicle.</para>
+        /// <para>Metadata that can be used to manage the vehicle.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

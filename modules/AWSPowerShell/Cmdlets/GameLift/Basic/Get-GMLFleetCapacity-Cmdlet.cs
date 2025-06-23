@@ -78,7 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>A unique identifier for the fleet to retrieve capacity information for. You can use
         /// either the fleet ID or ARN value. Leave this parameter empty to retrieve capacity
-        /// information for all fleets.</para>
+        /// information for all fleets.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

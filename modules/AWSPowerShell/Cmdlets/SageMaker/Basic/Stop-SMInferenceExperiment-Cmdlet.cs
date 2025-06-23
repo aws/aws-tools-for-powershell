@@ -51,7 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para> An array of <c>ModelVariantConfig</c> objects. There is one for each variant that
         /// you want to deploy after the inference experiment stops. Each <c>ModelVariantConfig</c>
         /// describes the infrastructure configuration for deploying the corresponding variant.
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para> Array of key-value pairs, with names of variants mapped to actions. The possible
-        /// actions are the following: </para><ul><li><para><c>Promote</c> - Promote the shadow variant to a production variant</para></li><li><para><c>Remove</c> - Delete the variant</para></li><li><para><c>Retain</c> - Keep the variant as it is</para></li></ul>
+        /// actions are the following: </para><ul><li><para><c>Promote</c> - Promote the shadow variant to a production variant</para></li><li><para><c>Remove</c> - Delete the variant</para></li><li><para><c>Retain</c> - Keep the variant as it is</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

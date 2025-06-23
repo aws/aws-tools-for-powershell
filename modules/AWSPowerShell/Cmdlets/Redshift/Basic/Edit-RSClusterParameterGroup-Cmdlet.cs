@@ -74,7 +74,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>An array of parameters to be modified. A maximum of 20 parameters can be modified
         /// in a single request.</para><para>For each parameter to be modified, you must supply at least the parameter name and
         /// parameter value; other name-value pairs of the parameter are optional.</para><para>For the workload management (WLM) configuration, you must supply all the name-value
-        /// pairs in the wlm_json_configuration parameter.</para>
+        /// pairs in the wlm_json_configuration parameter.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

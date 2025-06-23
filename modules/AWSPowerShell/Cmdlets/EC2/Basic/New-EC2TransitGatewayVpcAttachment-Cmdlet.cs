@@ -122,7 +122,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The IDs of one or more subnets. You can specify only one subnet per Availability Zone.
         /// You must specify at least one subnet, but we recommend that you specify two subnets
         /// for better availability. The transit gateway uses one IP address from each specified
-        /// subnet.</para>
+        /// subnet.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -140,7 +144,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
-        /// <para>The tags to apply to the VPC attachment.</para>
+        /// <para>The tags to apply to the VPC attachment.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

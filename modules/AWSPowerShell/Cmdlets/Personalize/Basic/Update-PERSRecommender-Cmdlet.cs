@@ -75,7 +75,11 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// value is a list of columns. Exclude columns to control what data Amazon Personalize
         /// uses to generate recommendations.</para><para> For example, you might have a column that you want to use only to filter recommendations.
         /// You can exclude this column from training and Amazon Personalize considers it only
-        /// when filtering. </para>
+        /// when filtering. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// and <c>explorationItemAgeCutOff</c>, you want to use to configure the amount of item
         /// exploration Amazon Personalize uses when recommending items. Provide <c>itemExplorationConfig</c>
         /// data only if your recommenders generate personalized recommendations for a user (not
-        /// popular items or similar items).</para>
+        /// popular items or similar items).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

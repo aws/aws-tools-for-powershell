@@ -70,7 +70,11 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         /// key</i></para></li><li><para><c>token_url</c><i>if not available from discovery URL specified by <c>oidc_issuer</c>
         /// key</i></para></li><li><para><c>attributes_url</c><i>if not available from discovery URL specified by <c>oidc_issuer</c>
         /// key</i></para></li><li><para><c>jwks_uri</c><i>if not available from discovery URL specified by <c>oidc_issuer</c>
-        /// key</i></para></li></ul></li><li><para>For SAML providers:</para><ul><li><para><c>MetadataFile</c> OR <c>MetadataURL</c></para></li><li><para><c>IDPSignout</c> (boolean) <i>optional</i></para></li><li><para><c>IDPInit</c> (boolean) <i>optional</i></para></li><li><para><c>RequestSigningAlgorithm</c> (string) <i>optional</i> - Only accepts <c>rsa-sha256</c></para></li><li><para><c>EncryptedResponses</c> (boolean) <i>optional</i></para></li></ul></li></ul>
+        /// key</i></para></li></ul></li><li><para>For SAML providers:</para><ul><li><para><c>MetadataFile</c> OR <c>MetadataURL</c></para></li><li><para><c>IDPSignout</c> (boolean) <i>optional</i></para></li><li><para><c>IDPInit</c> (boolean) <i>optional</i></para></li><li><para><c>RequestSigningAlgorithm</c> (string) <i>optional</i> - Only accepts <c>rsa-sha256</c></para></li><li><para><c>EncryptedResponses</c> (boolean) <i>optional</i></para></li></ul></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

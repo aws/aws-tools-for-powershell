@@ -179,7 +179,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>A list of security groups to be associated with this cluster.</para><para>Default: The default cluster security group for Amazon Redshift.</para>
+        /// <para>A list of security groups to be associated with this cluster.</para><para>Default: The default cluster security group for Amazon Redshift.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -312,7 +316,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// to access other Amazon Web Services services. You must supply the IAM roles in their
         /// Amazon Resource Name (ARN) format. </para><para>The maximum number of IAM roles that you can associate is subject to a quota. For
         /// more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Quotas
-        /// and limits</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</para>
+        /// and limits</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -538,7 +546,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of tag instances.</para>
+        /// <para>A list of tag instances.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -549,7 +561,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.</para><para>Default: The default VPC security group is associated with the cluster.</para>
+        /// <para>A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.</para><para>Default: The default VPC security group is associated with the cluster.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

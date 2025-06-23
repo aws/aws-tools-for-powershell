@@ -62,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// is an array of <a>GroupConfigurationItem</a> elements. For details about the syntax
         /// of service configurations, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service
         /// configurations for Resource Groups</a>.</para><note><para>A resource group can contain either a <c>Configuration</c> or a <c>ResourceQuery</c>,
-        /// but not both.</para></note>
+        /// but not both.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to add to the group. A tag is key-value pair string.</para>
+        /// <para>The tags to add to the group. A tag is key-value pair string.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

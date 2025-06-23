@@ -70,7 +70,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><c>availability-zone</c> - The Availability Zone (for example, <c>us-west-2a</c>).</para></li><li><para><c>instance-type</c> - The instance type (for example, <c>c4.large</c>).</para></li><li><para><c>platform</c> - The platform (<c>Linux/UNIX</c> or <c>Windows</c>).</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>availability-zone</c> - The Availability Zone (for example, <c>us-west-2a</c>).</para></li><li><para><c>instance-type</c> - The instance type (for example, <c>c4.large</c>).</para></li><li><para><c>platform</c> - The platform (<c>Linux/UNIX</c> or <c>Windows</c>).</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +95,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ScheduledInstanceId
         /// <summary>
         /// <para>
-        /// <para>The Scheduled Instance IDs.</para>
+        /// <para>The Scheduled Instance IDs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

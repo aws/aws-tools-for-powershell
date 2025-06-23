@@ -50,7 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>List of CloudWatch alarms in your account that are configured to monitor metrics on
         /// an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the
-        /// deployment.</para>
+        /// deployment.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +122,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The environment variables to set in the Docker container. Each key and value in the
         /// Environment string-to-string map can have length of up to 1024. We support up to 16
-        /// entries in the map.</para>
+        /// entries in the map.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

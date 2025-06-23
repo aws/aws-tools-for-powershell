@@ -80,7 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>The <c>AutoExportPolicy</c> can have the following event values:</para><ul><li><para><c>NEW</c> - New files and directories are automatically exported to the data repository
         /// as they are added to the file system.</para></li><li><para><c>CHANGED</c> - Changes to files and directories on the file system are automatically
         /// exported to the data repository.</para></li><li><para><c>DELETED</c> - Files and directories are automatically deleted on the data repository
-        /// when they are deleted on the file system.</para></li></ul><para>You can define any combination of event types for your <c>AutoExportPolicy</c>.</para>
+        /// when they are deleted on the file system.</para></li></ul><para>You can define any combination of event types for your <c>AutoExportPolicy</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>The <c>AutoImportPolicy</c> can have the following event values:</para><ul><li><para><c>NEW</c> - Amazon FSx automatically imports metadata of files added to the linked
         /// S3 bucket that do not currently exist in the FSx file system.</para></li><li><para><c>CHANGED</c> - Amazon FSx automatically updates file metadata and invalidates existing
         /// file content on the file system as files change in the data repository.</para></li><li><para><c>DELETED</c> - Amazon FSx automatically deletes files on the file system as corresponding
-        /// files are deleted in the data repository.</para></li></ul><para>You can define any combination of event types for your <c>AutoImportPolicy</c>.</para>
+        /// files are deleted in the data repository.</para></li></ul><para>You can define any combination of event types for your <c>AutoImportPolicy</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -147,7 +147,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>
         /// <para>The value that you want to sort the data by.</para><para>The key represents cost and usage metrics. The following values are supported:</para><ul><li><para><c>BlendedCost</c></para></li><li><para><c>UnblendedCost</c></para></li><li><para><c>AmortizedCost</c></para></li><li><para><c>NetAmortizedCost</c></para></li><li><para><c>NetUnblendedCost</c></para></li><li><para><c>UsageQuantity</c></para></li><li><para><c>NormalizedUsageAmount</c></para></li></ul><para>The supported values for the <c>SortOrder</c> key are <c>ASCENDING</c> or <c>DESCENDING</c>.</para><para>When you specify a <c>SortBy</c> paramater, the context must be <c>COST_AND_USAGE</c>.
         /// Further, when using <c>SortBy</c>, <c>NextPageToken</c> and <c>SearchString</c> aren't
-        /// supported.</para>
+        /// supported.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

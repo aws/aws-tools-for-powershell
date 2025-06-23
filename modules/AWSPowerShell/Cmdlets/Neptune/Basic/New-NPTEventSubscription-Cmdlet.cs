@@ -80,7 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para> A list of event categories for a SourceType that you want to subscribe to. You can
         /// see a list of the categories for a given SourceType by using the <b>DescribeEventCategories</b>
-        /// action.</para>
+        /// action.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +117,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// specified, then all sources are included in the response. An identifier must begin
         /// with a letter and must contain only ASCII letters, digits, and hyphens; it can't end
         /// with a hyphen or contain two consecutive hyphens.</para><para>Constraints:</para><ul><li><para>If SourceIds are supplied, SourceType must also be provided.</para></li><li><para>If the source type is a DB instance, then a <c>DBInstanceIdentifier</c> must be supplied.</para></li><li><para>If the source type is a DB security group, a <c>DBSecurityGroupName</c> must be supplied.</para></li><li><para>If the source type is a DB parameter group, a <c>DBParameterGroupName</c> must be
-        /// supplied.</para></li><li><para>If the source type is a DB snapshot, a <c>DBSnapshotIdentifier</c> must be supplied.</para></li></ul>
+        /// supplied.</para></li><li><para>If the source type is a DB snapshot, a <c>DBSnapshotIdentifier</c> must be supplied.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,7 +162,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to be applied to the new event subscription.</para>
+        /// <para>The tags to be applied to the new event subscription.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

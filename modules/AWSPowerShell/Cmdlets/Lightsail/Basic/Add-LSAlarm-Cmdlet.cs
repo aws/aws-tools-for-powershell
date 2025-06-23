@@ -105,7 +105,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// for the alarm, and when the alarm is triggered.</para><para>A notification is not sent if a contact protocol is not specified, if the specified
         /// contact protocol is not configured in the Amazon Web Services Region, or if notifications
         /// are not enabled for the alarm using the <c>notificationEnabled</c> paramater.</para><para>Use the <c>CreateContactMethod</c> action to configure a contact protocol in an Amazon
-        /// Web Services Region.</para>
+        /// Web Services Region.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -211,7 +215,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// switches from an <c>ALARM</c> or <c>INSUFFICIENT_DATA</c> alarm state to an <c>OK</c>
         /// state. This can be thought of as an <i>all clear</i> alarm notification.</para></li><li><para>If you specify <c>INSUFFICIENT_DATA</c> as the alarm trigger, a notification is sent
         /// when the alarm switches from an <c>OK</c> or <c>ALARM</c> alarm state to an <c>INSUFFICIENT_DATA</c>
-        /// state.</para></li></ul><para>The notification trigger defaults to <c>ALARM</c> if you don't specify this parameter.</para>
+        /// state.</para></li></ul><para>The notification trigger defaults to <c>ALARM</c> if you don't specify this parameter.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

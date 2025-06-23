@@ -85,7 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A list of one or more tags to assign to the specified Amazon GameLift resource. Tags
         /// are developer-defined and structured as key-value pairs. The maximum tag limit may
         /// be lower than stated. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
-        /// Tagging Amazon Web Services Resources</a> for tagging limits.</para>
+        /// Tagging Amazon Web Services Resources</a> for tagging limits.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

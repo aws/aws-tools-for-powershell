@@ -80,7 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// supports for the associated migration task. This task is specified by <c>ReplicationTaskArn</c>.</para><note><para>You can't set a value for <c>Exclude</c> if you also set a value for <c>IncludeOnly</c>
         /// in the API operation.</para><para>To identify the names of the default individual assessments that DMS supports for
         /// the associated migration task, run the <c>DescribeApplicableIndividualAssessments</c>
-        /// operation using its own <c>ReplicationTaskArn</c> request parameter.</para></note>
+        /// operation using its own <c>ReplicationTaskArn</c> request parameter.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// supports for the associated migration task. This task is specified by <c>ReplicationTaskArn</c>.</para><note><para>You can't set a value for <c>IncludeOnly</c> if you also set a value for <c>Exclude</c>
         /// in the API operation. </para><para>To identify the names of the default individual assessments that DMS supports for
         /// the associated migration task, run the <c>DescribeApplicableIndividualAssessments</c>
-        /// operation using its own <c>ReplicationTaskArn</c> request parameter.</para></note>
+        /// operation using its own <c>ReplicationTaskArn</c> request parameter.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,7 +203,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>One or more tags to be assigned to the premigration assessment run that you want to
-        /// start.</para>
+        /// start.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -102,7 +102,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// | <c>io-performance</c>).</para></li><li><para><c>volume-status.details-status</c> - The status of <c>volume-status.details-name</c>
         /// (for <c>io-enabled</c>: <c>passed</c> | <c>failed</c>; for <c>io-performance</c>:
         /// <c>normal</c> | <c>degraded</c> | <c>severely-degraded</c> | <c>stalled</c>).</para></li><li><para><c>volume-status.status</c> - The status of the volume (<c>ok</c> | <c>impaired</c>
-        /// | <c>warning</c> | <c>insufficient-data</c>).</para></li></ul>
+        /// | <c>warning</c> | <c>insufficient-data</c>).</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -113,7 +117,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VolumeId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the volumes.</para><para>Default: Describes all your volumes.</para>
+        /// <para>The IDs of the volumes.</para><para>Default: Describes all your volumes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

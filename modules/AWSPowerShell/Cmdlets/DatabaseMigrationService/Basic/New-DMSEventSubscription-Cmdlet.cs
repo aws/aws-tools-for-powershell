@@ -77,7 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>A list of event categories for a source type that you want to subscribe to. For more
         /// information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working
-        /// with Events and Notifications</a> in the <i>Database Migration Service User Guide.</i></para>
+        /// with Events and Notifications</a> in the <i>Database Migration Service User Guide.</i></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>A list of identifiers for which DMS provides notification events.</para><para>If you don't specify a value, notifications are provided for all sources.</para><para>If you specify multiple values, they must be of the same type. For example, if you
         /// specify a database instance ID, then all of the other values must be database instance
-        /// IDs.</para>
+        /// IDs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,7 +158,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>One or more tags to be assigned to the event subscription.</para>
+        /// <para>One or more tags to be assigned to the event subscription.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

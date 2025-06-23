@@ -67,7 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter RequestMetadataFilters_AndAll
         /// <summary>
         /// <para>
-        /// <para>Include results where all of the based filters match.</para>
+        /// <para>Include results where all of the based filters match.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,7 +150,11 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter CustomModelTag
         /// <summary>
         /// <para>
-        /// <para>Tags to attach to the resulting custom model.</para>
+        /// <para>Tags to attach to the resulting custom model.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,7 +165,11 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter RequestMetadataFilters_Equal
         /// <summary>
         /// <para>
-        /// <para>Include results where the key equals the value.</para>
+        /// <para>Include results where the key equals the value.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +182,11 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         /// <para>
         /// <para>Parameters related to tuning the model. For details on the format for different models,
         /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html">Custom
-        /// model hyperparameters</a>.</para>
+        /// model hyperparameters</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,7 +214,11 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter JobTag
         /// <summary>
         /// <para>
-        /// <para>Tags to attach to the job.</para>
+        /// <para>Tags to attach to the job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,7 +241,11 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter RequestMetadataFilters_NotEqual
         /// <summary>
         /// <para>
-        /// <para>Include results where the key does not equal the value.</para>
+        /// <para>Include results where the key does not equal the value.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -232,7 +256,11 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter RequestMetadataFilters_OrAll
         /// <summary>
         /// <para>
-        /// <para>Include results where any of the base filters match.</para>
+        /// <para>Include results where any of the base filters match.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -302,7 +330,11 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>An array of IDs for each security group in the VPC to use.</para>
+        /// <para>An array of IDs for each security group in the VPC to use.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -313,7 +345,11 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter VpcConfig_SubnetId
         /// <summary>
         /// <para>
-        /// <para>An array of IDs for each subnet in the VPC to use.</para>
+        /// <para>An array of IDs for each subnet in the VPC to use.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -347,7 +383,11 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter ValidationDataConfig_Validator
         /// <summary>
         /// <para>
-        /// <para>Information about the validators.</para>
+        /// <para>Information about the validators.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

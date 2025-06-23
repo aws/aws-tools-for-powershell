@@ -61,7 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <para>The self-service action definition. Can be one of the following:</para><dl><dt>Name</dt><dd><para>The name of the Amazon Web Services Systems Manager document (SSM document). For example,
         /// <c>AWS-RestartEC2Instance</c>.</para><para>If you are using a shared SSM document, you must provide the ARN instead of the name.</para></dd><dt>Version</dt><dd><para>The Amazon Web Services Systems Manager automation document version. For example,
         /// <c>"Version": "1"</c></para></dd><dt>AssumeRole</dt><dd><para>The Amazon Resource Name (ARN) of the role that performs the self-service actions
-        /// on your behalf. For example, <c>"AssumeRole": "arn:aws:iam::12345678910:role/ActionRole"</c>.</para><para>To reuse the provisioned product launch role, set to <c>"AssumeRole": "LAUNCH_ROLE"</c>.</para></dd><dt>Parameters</dt><dd><para>The list of parameters in JSON format.</para><para>For example: <c>[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]</c> or <c>[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]</c>.</para></dd></dl>
+        /// on your behalf. For example, <c>"AssumeRole": "arn:aws:iam::12345678910:role/ActionRole"</c>.</para><para>To reuse the provisioned product launch role, set to <c>"AssumeRole": "LAUNCH_ROLE"</c>.</para></dd><dt>Parameters</dt><dd><para>The list of parameters in JSON format.</para><para>For example: <c>[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]</c> or <c>[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]</c>.</para></dd></dl><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

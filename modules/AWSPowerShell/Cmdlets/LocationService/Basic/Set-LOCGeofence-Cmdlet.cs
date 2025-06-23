@@ -49,7 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>A single point geometry, specifying the center of the circle, using <a href="https://gisgeography.com/wgs84-world-geodetic-system/">WGS
-        /// 84</a> coordinates, in the form <c>[longitude, latitude]</c>.</para>
+        /// 84</a> coordinates, in the form <c>[longitude, latitude]</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>Associates one of more properties with the geofence. A property is a key-value pair
-        /// stored with the geofence and added to any geofence event triggered with that geofence.</para><para>Format: <c>"key" : "value"</c></para>
+        /// stored with the geofence and added to any geofence event triggered with that geofence.</para><para>Format: <c>"key" : "value"</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +133,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// in counter-clockwise order around the ring’s interior. The linear ring is represented
         /// as an array of vertices, or an array of arrays of doubles (<c>[[double, double], ...]</c>).</para><para>A geofence consists of a single linear ring. To allow for future expansion, the Polygon
         /// parameter takes an array of linear rings, which is represented as an array of arrays
-        /// of arrays of doubles (<c>[[[double, double], ...], ...]</c>).</para><para>A linear ring for use in geofences can consist of between 4 and 1,000 vertices.</para>
+        /// of arrays of doubles (<c>[[[double, double], ...], ...]</c>).</para><para>A linear ring for use in geofences can consist of between 4 and 1,000 vertices.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

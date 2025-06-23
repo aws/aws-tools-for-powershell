@@ -117,7 +117,11 @@ namespace Amazon.PowerShell.Cmdlets.MHS
         #region Parameter Heterogeneous_TargetDatabaseEngine
         /// <summary>
         /// <para>
-        /// <para> The target database engine for heterogeneous database migration preference. </para>
+        /// <para> The target database engine for heterogeneous database migration preference. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,7 +132,11 @@ namespace Amazon.PowerShell.Cmdlets.MHS
         #region Parameter Homogeneous_TargetDatabaseEngine
         /// <summary>
         /// <para>
-        /// <para> The target database engine for homogeneous database migration preferences. </para>
+        /// <para> The target database engine for homogeneous database migration preferences. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +147,11 @@ namespace Amazon.PowerShell.Cmdlets.MHS
         #region Parameter NoPreference_TargetDatabaseEngine
         /// <summary>
         /// <para>
-        /// <para> The target database engine for database migration preference that you specify. </para>
+        /// <para> The target database engine for database migration preference that you specify. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,7 +162,11 @@ namespace Amazon.PowerShell.Cmdlets.MHS
         #region Parameter AwsManagedResources_TargetDestination
         /// <summary>
         /// <para>
-        /// <para> The choice of application destination that you specify. </para>
+        /// <para> The choice of application destination that you specify. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,7 +177,11 @@ namespace Amazon.PowerShell.Cmdlets.MHS
         #region Parameter NoPreference_TargetDestination
         /// <summary>
         /// <para>
-        /// <para> The choice of application destination that you specify. </para>
+        /// <para> The choice of application destination that you specify. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,7 +192,11 @@ namespace Amazon.PowerShell.Cmdlets.MHS
         #region Parameter SelfManageResources_TargetDestination
         /// <summary>
         /// <para>
-        /// <para> Self-managed resources target destination. </para>
+        /// <para> Self-managed resources target destination. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

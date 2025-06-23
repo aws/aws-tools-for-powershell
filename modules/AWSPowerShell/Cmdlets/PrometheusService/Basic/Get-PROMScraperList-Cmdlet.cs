@@ -55,7 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         /// <c>AND</c>'d together. For example, <c>status=ACTIVE&amp;status=CREATING&amp;alias=Test</c>,
         /// will return all scrapers that have the alias Test, and are either in status ACTIVE
         /// or CREATING.</para><para>To find all active scrapers that are sending metrics to a specific Amazon Managed
-        /// Service for Prometheus workspace, you would use the ARN of the workspace in a query:</para><para><c>status=ACTIVE&amp;destinationArn=arn:aws:aps:us-east-1:123456789012:workspace/ws-example1-1234-abcd-56ef-123456789012</c></para><para>If this is included, it filters the results to only the scrapers that match the filter.</para>
+        /// Service for Prometheus workspace, you would use the ARN of the workspace in a query:</para><para><c>status=ACTIVE&amp;destinationArn=arn:aws:aps:us-east-1:123456789012:workspace/ws-example1-1234-abcd-56ef-123456789012</c></para><para>If this is included, it filters the results to only the scrapers that match the filter.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

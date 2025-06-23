@@ -54,7 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <para>
         /// <para>A filter that specifies one or more global DB clusters to describe.</para><para>Supported filters: <c>db-cluster-id</c> accepts cluster identifiers and cluster Amazon
         /// Resource Names (ARNs). The results list will only include information about the clusters
-        /// identified by these ARNs.</para>
+        /// identified by these ARNs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

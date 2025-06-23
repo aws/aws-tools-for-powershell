@@ -62,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         /// <para>
         /// <para>The call distribution properties defined for your SIP hosts. Valid range: Minimum
         /// value of 1. Maximum value of 20. This parameter is not required, but you must specify
-        /// this parameter or <c>Disabled</c>.</para>
+        /// this parameter or <c>Disabled</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -53,7 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter AbortConfig_CriteriaList
         /// <summary>
         /// <para>
-        /// <para>The list of criteria that determine when and how to abort the job.</para>
+        /// <para>The list of criteria that determine when and how to abort the job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The list of criteria that determines how many retries are allowed for each failure
-        /// type for a job.</para>
+        /// type for a job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// when the job successfully completes. The package version must be in either the Published
         /// or Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package
         /// version lifecycle</a>.</para><para><b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package
-        /// version ARNs are allowed.</para>
+        /// version ARNs are allowed.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -196,7 +208,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>Allows you to configure an optional maintenance window for the rollout of a job document
-        /// to all devices in the target group for a job.</para>
+        /// to all devices in the target group for a job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -231,7 +247,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Metadata that can be used to manage the job template.</para>
+        /// <para>Metadata that can be used to manage the job template.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

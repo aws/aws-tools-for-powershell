@@ -53,7 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
         /// <para>
         /// <para>Access protocol actions to include in the rule. Valid values include <c>ActiveSync</c>,
         /// <c>AutoDiscover</c>, <c>EWS</c>, <c>IMAP</c>, <c>SMTP</c>, <c>WindowsOutlook</c>,
-        /// and <c>WebMail</c>.</para>
+        /// and <c>WebMail</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +102,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter ImpersonationRoleId
         /// <summary>
         /// <para>
-        /// <para>Impersonation role IDs to include in the rule.</para>
+        /// <para>Impersonation role IDs to include in the rule.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +117,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter IpRange
         /// <summary>
         /// <para>
-        /// <para>IPv4 CIDR ranges to include in the rule.</para>
+        /// <para>IPv4 CIDR ranges to include in the rule.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +151,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
         /// <para>
         /// <para>Access protocol actions to exclude from the rule. Valid values include <c>ActiveSync</c>,
         /// <c>AutoDiscover</c>, <c>EWS</c>, <c>IMAP</c>, <c>SMTP</c>, <c>WindowsOutlook</c>,
-        /// and <c>WebMail</c>.</para>
+        /// and <c>WebMail</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,7 +166,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter NotImpersonationRoleId
         /// <summary>
         /// <para>
-        /// <para>Impersonation role IDs to exclude from the rule.</para>
+        /// <para>Impersonation role IDs to exclude from the rule.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,7 +181,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter NotIpRange
         /// <summary>
         /// <para>
-        /// <para>IPv4 CIDR ranges to exclude from the rule.</para>
+        /// <para>IPv4 CIDR ranges to exclude from the rule.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,7 +196,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter NotUserId
         /// <summary>
         /// <para>
-        /// <para>User IDs to exclude from the rule.</para>
+        /// <para>User IDs to exclude from the rule.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -200,7 +228,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>User IDs to include in the rule.</para>
+        /// <para>User IDs to include in the rule.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -87,7 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <para>
         /// <para>Specify the browser extensions allowed for your Amazon Q web experience.</para><ul><li><para><c>CHROME</c> — Enables the extension for Chromium-based browsers (Google Chrome,
         /// Microsoft Edge, Opera, etc.).</para></li><li><para><c>FIREFOX</c> — Enables the extension for Mozilla Firefox.</para></li><li><para><c>CHROME</c> and <c>FIREFOX</c> — Enable the extension for Chromium-based browsers
-        /// and Mozilla Firefox.</para></li></ul>
+        /// and Mozilla Firefox.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,7 +135,11 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <para>Sets the website domain origins that are allowed to embed the Amazon Q Business web
         /// experience. The <i>domain origin</i> refers to the base URL for accessing a website
         /// including the protocol (<c>http/https</c>), the domain name, and the port number (if
-        /// specified). </para><note><para>You must only submit a <i>base URL</i> and not a full path. For example, <c>https://docs.aws.amazon.com</c>.</para></note>
+        /// specified). </para><note><para>You must only submit a <i>base URL</i> and not a full path. For example, <c>https://docs.aws.amazon.com</c>.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,7 +210,11 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <para>A list of key-value pairs that identify or categorize your Amazon Q Business web experience.
         /// You can also use tags to help control access to the web experience. Tag keys and values
         /// can consist of Unicode letters, digits, white space, and any of the following symbols:
-        /// _ . : / = + - @.</para>
+        /// _ . : / = + - @.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

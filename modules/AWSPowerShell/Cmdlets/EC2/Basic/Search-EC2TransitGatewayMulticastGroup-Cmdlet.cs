@@ -64,7 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>One or more filters. The possible values are:</para><ul><li><para><c>group-ip-address</c> - The IP address of the transit gateway multicast group.</para></li><li><para><c>is-group-member</c> - The resource is a group member. Valid values are <c>true</c>
         /// | <c>false</c>.</para></li><li><para><c>is-group-source</c> - The resource is a group source. Valid values are <c>true</c>
         /// | <c>false</c>.</para></li><li><para><c>member-type</c> - The member type. Valid values are <c>igmp</c> | <c>static</c>.</para></li><li><para><c>resource-id</c> - The ID of the resource.</para></li><li><para><c>resource-type</c> - The type of resource. Valid values are <c>vpc</c> | <c>vpn</c>
-        /// | <c>direct-connect-gateway</c> | <c>tgw-peering</c>.</para></li><li><para><c>source-type</c> - The source type. Valid values are <c>igmp</c> | <c>static</c>.</para></li><li><para><c>subnet-id</c> - The ID of the subnet.</para></li><li><para><c>transit-gateway-attachment-id</c> - The id of the transit gateway attachment.</para></li></ul>
+        /// | <c>direct-connect-gateway</c> | <c>tgw-peering</c>.</para></li><li><para><c>source-type</c> - The source type. Valid values are <c>igmp</c> | <c>static</c>.</para></li><li><para><c>subnet-id</c> - The ID of the subnet.</para></li><li><para><c>transit-gateway-attachment-id</c> - The id of the transit gateway attachment.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

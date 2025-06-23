@@ -48,7 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         /// <summary>
         /// <para>
         /// <para>Additional constraints for the password used to access the backend of your Amplify
-        /// project.</para>
+        /// project.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -308,7 +312,11 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter Settings_MfaType
         /// <summary>
         /// <para>
-        /// <para>The supported MFA types.</para>
+        /// <para>The supported MFA types.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -344,7 +352,11 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         /// <summary>
         /// <para>
         /// <para>List of OAuth-related flows used to allow your app users to authenticate from your
-        /// Amplify app.</para>
+        /// Amplify app.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -366,7 +378,11 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter OAuth_RedirectSignInURIs
         /// <summary>
         /// <para>
-        /// <para>The redirected URI for signing in to your Amplify app.</para>
+        /// <para>The redirected URI for signing in to your Amplify app.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -377,7 +393,11 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter OAuth_RedirectSignOutURIs
         /// <summary>
         /// <para>
-        /// <para>Redirect URLs that OAuth uses when a user signs out of an Amplify app.</para>
+        /// <para>Redirect URLs that OAuth uses when a user signs out of an Amplify app.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -388,7 +408,11 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         #region Parameter UserPoolConfigs_RequiredSignUpAttribute
         /// <summary>
         /// <para>
-        /// <para>The required attributes to sign up new users in the user pool.</para>
+        /// <para>The required attributes to sign up new users in the user pool.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

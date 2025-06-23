@@ -49,7 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter ConfigurationId
         /// <summary>
         /// <para>
-        /// <para>A list of configuration items with tags that you want to delete.</para>
+        /// <para>A list of configuration items with tags that you want to delete.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,7 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <summary>
         /// <para>
         /// <para>Tags that you want to delete from one or more configuration items. Specify the tags
-        /// that you want to delete in a <i>key</i>-<i>value</i> format. For example:</para><para><c>{"key": "serverType", "value": "webServer"}</c></para>
+        /// that you want to delete in a <i>key</i>-<i>value</i> format. For example:</para><para><c>{"key": "serverType", "value": "webServer"}</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

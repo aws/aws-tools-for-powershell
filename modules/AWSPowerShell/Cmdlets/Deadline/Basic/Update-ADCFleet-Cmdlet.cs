@@ -48,7 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter WorkerCapabilities_AcceleratorType
         /// <summary>
         /// <para>
-        /// <para>The accelerator types for the customer managed worker capabilities.</para>
+        /// <para>The accelerator types for the customer managed worker capabilities.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter InstanceCapabilities_AllowedInstanceType
         /// <summary>
         /// <para>
-        /// <para>The allowable Amazon EC2 instance types.</para>
+        /// <para>The allowable Amazon EC2 instance types.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +102,11 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter WorkerCapabilities_CustomAmount
         /// <summary>
         /// <para>
-        /// <para>Custom requirement ranges for customer managed worker capabilities.</para>
+        /// <para>Custom requirement ranges for customer managed worker capabilities.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +117,11 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter InstanceCapabilities_CustomAmount
         /// <summary>
         /// <para>
-        /// <para>The custom capability amounts to require for instances in this fleet.</para>
+        /// <para>The custom capability amounts to require for instances in this fleet.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +132,11 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter WorkerCapabilities_CustomAttribute
         /// <summary>
         /// <para>
-        /// <para>Custom attributes for the customer manged worker capabilities.</para>
+        /// <para>Custom attributes for the customer manged worker capabilities.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +147,11 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter InstanceCapabilities_CustomAttribute
         /// <summary>
         /// <para>
-        /// <para>The custom capability attributes to require for instances in this fleet.</para>
+        /// <para>The custom capability attributes to require for instances in this fleet.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,7 +184,11 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter InstanceCapabilities_ExcludedInstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance types to exclude from the fleet.</para>
+        /// <para>The instance types to exclude from the fleet.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -473,7 +501,11 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         /// <para>A list of accelerator capabilities requested for this fleet. Only Amazon Elastic Compute
         /// Cloud instances that provide these capabilities will be used. For example, if you
         /// specify both L4 and T4 chips, Deadline Cloud will use Amazon EC2 instances that have
-        /// either the L4 or the T4 chip installed.</para>
+        /// either the L4 or the T4 chip installed.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

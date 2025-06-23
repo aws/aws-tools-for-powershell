@@ -76,7 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter AccountAggregationSource
         /// <summary>
         /// <para>
-        /// <para>A list of AccountAggregationSource object. </para>
+        /// <para>A list of AccountAggregationSource object. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +102,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter OrganizationAggregationSource_AwsRegion
         /// <summary>
         /// <para>
-        /// <para>The source regions being aggregated.</para>
+        /// <para>The source regions being aggregated.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,7 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of tag object.</para>
+        /// <para>An array of tag object.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,7 +188,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ResourceType_Value
         /// <summary>
         /// <para>
-        /// <para>Comma-separate list of resource types to filter your aggregated configuration recorders.</para>
+        /// <para>Comma-separate list of resource types to filter your aggregated configuration recorders.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,7 +204,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>Comma-separated list of service principals for the linked Amazon Web Services services
-        /// to filter your aggregated service-linked configuration recorders.</para>
+        /// to filter your aggregated service-linked configuration recorders.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

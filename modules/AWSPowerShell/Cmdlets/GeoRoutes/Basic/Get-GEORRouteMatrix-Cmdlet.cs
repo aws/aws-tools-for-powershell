@@ -49,7 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_Area
         /// <summary>
         /// <para>
-        /// <para>Areas to be avoided.</para>
+        /// <para>Areas to be avoided.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <para>Geometry defined as a bounding box. The first pair represents the X and Y coordinates
         /// (longitude and latitude,) of the southwest corner of the bounding box; the second
         /// pair represents the X and Y coordinates (longitude and latitude) of the northeast
-        /// corner.</para>
+        /// corner.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +105,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <summary>
         /// <para>
         /// <para>Center of the Circle defined in longitude and latitude coordinates.</para><para>Example: <c>[-123.1174, 49.2847]</c> represents the position with longitude <c>-123.1174</c>
-        /// and latitude <c>49.2847</c>. </para>
+        /// and latitude <c>49.2847</c>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +131,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Exclude_Country
         /// <summary>
         /// <para>
-        /// <para>List of countries to be avoided defined by two-letter or three-letter country codes.</para>
+        /// <para>List of countries to be avoided defined by two-letter or three-letter country codes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,7 +168,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <para>
         /// <para>List of destinations for the route.</para><note><para>Route calculations are billed for each origin and destination pair. If you use a large
         /// matrix of origins and destinations, your costs will increase accordingly. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/routes-pricing.html`">
-        /// Amazon Location's pricing page</a> for more information.</para></note>
+        /// Amazon Location's pricing page</a> for more information.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -217,7 +237,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Truck_HazardousCargo
         /// <summary>
         /// <para>
-        /// <para>List of Hazardous cargo contained in the vehicle.</para>
+        /// <para>List of Hazardous cargo contained in the vehicle.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -423,7 +447,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <para>
         /// <para>The position in longitude and latitude for the origin.</para><note><para>Route calculations are billed for each origin and destination pair. Using a large
         /// amount of Origins in a request can lead you to incur unexpected charges. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/routes-pricing.html`">
-        /// Amazon Location's pricing page</a> for more information.</para></note>
+        /// Amazon Location's pricing page</a> for more information.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -452,7 +480,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Geometry_Polygon
         /// <summary>
         /// <para>
-        /// <para>Geometry defined as a polygon with only one linear ring.</para>
+        /// <para>Geometry defined as a polygon with only one linear ring.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -575,7 +607,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <summary>
         /// <para>
         /// <para>Truck road type identifiers. <c>BK1</c> through <c>BK4</c> apply only to Sweden. <c>A2,A4,B2,B4,C,D,ET2,ET4</c>
-        /// apply only to Mexico.</para><note><para>There are currently no other supported values as of 26th April 2024.</para></note>
+        /// apply only to Mexico.</para><note><para>There are currently no other supported values as of 26th April 2024.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -677,7 +713,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_ZoneCategory
         /// <summary>
         /// <para>
-        /// <para>Zone categories to be avoided.</para>
+        /// <para>Zone categories to be avoided.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -57,7 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AutoScalingSchedule_Friday
         /// <summary>
         /// <para>
-        /// <para>The schedule for Friday.</para>
+        /// <para>The schedule for Friday.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AutoScalingSchedule_Monday
         /// <summary>
         /// <para>
-        /// <para>The schedule for Monday.</para>
+        /// <para>The schedule for Monday.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +102,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AutoScalingSchedule_Saturday
         /// <summary>
         /// <para>
-        /// <para>The schedule for Saturday.</para>
+        /// <para>The schedule for Saturday.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +116,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AutoScalingSchedule_Sunday
         /// <summary>
         /// <para>
-        /// <para>The schedule for Sunday.</para>
+        /// <para>The schedule for Sunday.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AutoScalingSchedule_Thursday
         /// <summary>
         /// <para>
-        /// <para>The schedule for Thursday.</para>
+        /// <para>The schedule for Thursday.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +144,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AutoScalingSchedule_Tuesday
         /// <summary>
         /// <para>
-        /// <para>The schedule for Tuesday.</para>
+        /// <para>The schedule for Tuesday.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +158,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AutoScalingSchedule_Wednesday
         /// <summary>
         /// <para>
-        /// <para>The schedule for Wednesday.</para>
+        /// <para>The schedule for Wednesday.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

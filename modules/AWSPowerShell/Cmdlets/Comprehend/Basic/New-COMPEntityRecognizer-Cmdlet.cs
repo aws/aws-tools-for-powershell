@@ -52,7 +52,11 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>
         /// <para>A list of augmented manifest files that provide training data for your custom model.
         /// An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker
-        /// Ground Truth.</para><para>This parameter is required if you set <c>DataFormat</c> to <c>AUGMENTED_MANIFEST</c>.</para>
+        /// Ground Truth.</para><para>This parameter is required if you set <c>DataFormat</c> to <c>AUGMENTED_MANIFEST</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +121,11 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// the custom entity recognizer. Any entity types that you don't specify are ignored.</para><para>A maximum of 25 entity types can be used at one time to train an entity recognizer.
         /// Entity types must not contain the following invalid characters: \n (line break), \\n
         /// (escaped line break), \r (carriage return), \\r (escaped carriage return), \t (tab),
-        /// \\t (escaped tab), space, and , (comma). </para>
+        /// \\t (escaped tab), space, and , (comma). </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -259,7 +267,11 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// and provides security for the resources that you’ll be accessing on the VPC. This
         /// ID number is preceded by "sg-", for instance: "sg-03b388029b0a285ea". For more information,
         /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security
-        /// Groups for your VPC</a>. </para>
+        /// Groups for your VPC</a>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -274,7 +286,11 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// the a range of IPv4 addresses used by the VPC and is specific to a given availability
         /// zone in the VPC’s Region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055".
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">VPCs
-        /// and Subnets</a>. </para>
+        /// and Subnets</a>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -288,7 +304,11 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>Tags to associate with the entity recognizer. A tag is a key-value pair that adds
         /// as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales"
         /// as the key might be added to a resource to indicate its use by the sales department.
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

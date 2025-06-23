@@ -58,7 +58,11 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         #region Parameter ExternalUrlConfig_ApprovedOrigin
         /// <summary>
         /// <para>
-        /// <para>Additional URLs to allow list if different than the access URL.</para>
+        /// <para>Additional URLs to allow list if different than the access URL.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +117,11 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         #region Parameter Permission
         /// <summary>
         /// <para>
-        /// <para>The configuration of events or requests that the application has access to.</para>
+        /// <para>The configuration of events or requests that the application has access to.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +133,11 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         /// <summary>
         /// <para>
         /// <para>The tags used to organize, track, or control access for this resource. For example,
-        /// { "tags": {"key1":"value1", "key2":"value2"} }.</para>
+        /// { "tags": {"key1":"value1", "key2":"value2"} }.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,7 +161,11 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         #region Parameter Publication
         /// <summary>
         /// <para>
-        /// <para>The events that the application publishes.</para>
+        /// <para>The events that the application publishes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -162,7 +178,11 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         #region Parameter Subscription
         /// <summary>
         /// <para>
-        /// <para>The events that the application subscribes.</para>
+        /// <para>The events that the application subscribes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

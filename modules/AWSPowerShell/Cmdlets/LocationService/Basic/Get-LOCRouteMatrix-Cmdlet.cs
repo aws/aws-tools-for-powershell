@@ -159,7 +159,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// Position restrictions</a> in the <i>Amazon Location Service Developer Guide</i>.</para></important><note><para>For route calculators that use Esri as the data provider, if you specify a departure
         /// that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">
         /// moves the position to the nearest road</a>. The snapped value is available in the
-        /// result in <c>SnappedDeparturePositions</c>.</para></note><para>Valid Values: <c>[-180 to 180,-90 to 90]</c></para>
+        /// result in <c>SnappedDeparturePositions</c>.</para></note><para>Valid Values: <c>[-180 to 180,-90 to 90]</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -198,7 +202,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// Position restrictions</a> in the <i>Amazon Location Service Developer Guide</i>.</para></important><note><para>For route calculators that use Esri as the data provider, if you specify a destination
         /// that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">
         /// moves the position to the nearest road</a>. The snapped value is available in the
-        /// result in <c>SnappedDestinationPositions</c>.</para></note><para>Valid Values: <c>[-180 to 180,-90 to 90]</c></para>
+        /// result in <c>SnappedDestinationPositions</c>.</para></note><para>Valid Values: <c>[-180 to 180,-90 to 90]</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

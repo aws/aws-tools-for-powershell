@@ -105,7 +105,11 @@ namespace Amazon.PowerShell.Cmdlets.PAN
         #region Parameter NetworkingConfiguration_Ethernet0_StaticIpConnectionInfo_Dns
         /// <summary>
         /// <para>
-        /// <para>The connection's DNS address.</para>
+        /// <para>The connection's DNS address.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +119,11 @@ namespace Amazon.PowerShell.Cmdlets.PAN
         #region Parameter NetworkingConfiguration_Ethernet1_StaticIpConnectionInfo_Dns
         /// <summary>
         /// <para>
-        /// <para>The connection's DNS address.</para>
+        /// <para>The connection's DNS address.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,7 +190,11 @@ namespace Amazon.PowerShell.Cmdlets.PAN
         #region Parameter Ntp_NtpServer
         /// <summary>
         /// <para>
-        /// <para>NTP servers to use, in order of preference.</para>
+        /// <para>NTP servers to use, in order of preference.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,7 +205,11 @@ namespace Amazon.PowerShell.Cmdlets.PAN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags for the device.</para>
+        /// <para>Tags for the device.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

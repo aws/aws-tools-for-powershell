@@ -49,7 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para>The names or ARNs of the build projects. To get information about a project shared
         /// with your Amazon Web Services account, its ARN must be specified. You cannot specify
-        /// a shared project using its name.</para>
+        /// a shared project using its name.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

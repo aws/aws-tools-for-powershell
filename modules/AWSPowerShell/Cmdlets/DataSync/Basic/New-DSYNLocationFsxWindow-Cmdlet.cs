@@ -109,7 +109,11 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// security groups. For information about configuring security groups for file system
         /// access, see the <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/limit-access-security-groups.html"><i>Amazon FSx for Windows File Server User Guide</i></a>.</para><note><para>If you choose a security group that doesn't allow connections from within itself,
         /// do one of the following:</para><ul><li><para>Configure the security group to allow it to communicate within itself.</para></li><li><para>Choose a different security group that can communicate with the mount target's security
-        /// group.</para></li></ul></note>
+        /// group.</para></li></ul></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -139,7 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies labels that help you categorize, filter, and search for your Amazon Web
-        /// Services resources. We recommend creating at least a name tag for your location.</para>
+        /// Services resources. We recommend creating at least a name tag for your location.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

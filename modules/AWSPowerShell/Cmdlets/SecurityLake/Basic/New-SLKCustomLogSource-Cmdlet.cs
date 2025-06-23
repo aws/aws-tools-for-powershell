@@ -56,7 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         /// <para>The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type
         /// of data that the custom source will send to Security Lake. For the list of supported
         /// event classes, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/adding-custom-sources.html#ocsf-eventclass">Amazon
-        /// Security Lake User Guide</a>.</para>
+        /// Security Lake User Guide</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

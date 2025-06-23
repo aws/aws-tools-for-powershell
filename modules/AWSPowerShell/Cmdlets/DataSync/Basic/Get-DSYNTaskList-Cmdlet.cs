@@ -51,7 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>You can use API filters to narrow down the list of resources returned by <c>ListTasks</c>.
         /// For example, to retrieve all tasks on a specific source location, you can use <c>ListTasks</c>
         /// with filter name <c>LocationId</c> and <c>Operator Equals</c> with the ARN for the
-        /// location.</para>
+        /// location.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -158,7 +158,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter InstanceInboundPermissionAuthorization
         /// <summary>
         /// <para>
-        /// <para>A set of ports to add to the container fleet's inbound permissions.</para>
+        /// <para>A set of ports to add to the container fleet's inbound permissions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +173,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter InstanceInboundPermissionRevocation
         /// <summary>
         /// <para>
-        /// <para>A set of ports to remove from the container fleet's inbound permissions.</para>
+        /// <para>A set of ports to remove from the container fleet's inbound permissions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,7 +213,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter MetricGroup
         /// <summary>
         /// <para>
-        /// <para>The name of an Amazon Web Services CloudWatch metric group to add this fleet to. </para>
+        /// <para>The name of an Amazon Web Services CloudWatch metric group to add this fleet to. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -297,7 +309,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>If set, this update removes a fleet's per-instance container group definition. You
-        /// can't remove a fleet's game server container group definition.</para>
+        /// can't remove a fleet's game server container group definition.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

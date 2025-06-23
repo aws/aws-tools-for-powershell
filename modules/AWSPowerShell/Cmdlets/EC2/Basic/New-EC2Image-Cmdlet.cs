@@ -64,7 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// volume size, you must first change the volume size of the source instance.</para></li><li><para>You can't modify the encryption status of existing volumes or snapshots. To create
         /// an AMI with volumes or snapshots that have a different encryption status (for example,
         /// where the source volume and snapshots are unencrypted, and you want to create an AMI
-        /// with encrypted volumes or snapshots), use the <a>CopyImage</a> action.</para></li><li><para>The only option that can be changed for existing mappings or snapshots is <c>DeleteOnTermination</c>.</para></li></ul>
+        /// with encrypted volumes or snapshots), use the <a>CopyImage</a> action.</para></li><li><para>The only option that can be changed for existing mappings or snapshots is <c>DeleteOnTermination</c>.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
@@ -153,7 +157,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// or both.</para><ul><li><para>To tag the AMI, the value for <c>ResourceType</c> must be <c>image</c>.</para></li><li><para>To tag the snapshots that are created of the root volume and of other Amazon EBS volumes
         /// that are attached to the instance, the value for <c>ResourceType</c> must be <c>snapshot</c>.
         /// The same tag is applied to all of the snapshots that are created.</para></li></ul><para>If you specify other values for <c>ResourceType</c>, the request fails.</para><para>To tag an AMI or snapshot after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

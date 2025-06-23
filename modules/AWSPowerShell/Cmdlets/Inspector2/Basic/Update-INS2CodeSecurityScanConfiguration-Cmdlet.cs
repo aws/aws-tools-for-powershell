@@ -22,9 +22,11 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Inspector2;
 using Amazon.Inspector2.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.INS2
 {
     /// <summary>
@@ -41,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter PeriodicScanConfiguration_Frequency
         /// <summary>
@@ -70,7 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter Configuration_RuleSetCategory
         /// <summary>
         /// <para>
-        /// <para>The categories of security rules to be applied during the scan.</para>
+        /// <para>The categories of security rules to be applied during the scan.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -106,7 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <summary>
         /// <para>
         /// <para>The repository events that trigger continuous integration scans, such as pull requests
-        /// or commits.</para>
+        /// or commits.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,16 +136,6 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public string Select { get; set; } = "ScanConfigurationArn";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ScanConfigurationArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ScanConfigurationArn' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ScanConfigurationArn' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -145,9 +146,13 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ScanConfigurationArn), MyInvocation.BoundParameters);
@@ -161,21 +166,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.Inspector2.Model.UpdateCodeSecurityScanConfigurationResponse, UpdateINS2CodeSecurityScanConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.ScanConfigurationArn;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.ContinuousIntegrationScanConfiguration_SupportedEvent != null)
             {
                 context.ContinuousIntegrationScanConfiguration_SupportedEvent = new List<System.String>(this.ContinuousIntegrationScanConfiguration_SupportedEvent);
@@ -336,13 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Inspector2", "UpdateCodeSecurityScanConfiguration");
             try
             {
-                #if DESKTOP
-                return client.UpdateCodeSecurityScanConfiguration(request);
-                #elif CORECLR
-                return client.UpdateCodeSecurityScanConfigurationAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.UpdateCodeSecurityScanConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

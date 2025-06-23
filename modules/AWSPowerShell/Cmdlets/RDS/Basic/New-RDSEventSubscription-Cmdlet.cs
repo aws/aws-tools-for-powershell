@@ -89,7 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>A list of event categories for a particular source type (<c>SourceType</c>) that you
         /// want to subscribe to. You can see a list of the categories for a given source type
         /// in the "Amazon RDS event categories and event messages" section of the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html"><i>Amazon RDS User Guide</i></a> or the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.html"><i>Amazon Aurora User Guide</i></a>. You can also see this list by using the <c>DescribeEventCategories</c>
-        /// operation.</para>
+        /// operation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// with a hyphen or contain two consecutive hyphens.</para><para>Constraints:</para><ul><li><para>If <c>SourceIds</c> are supplied, <c>SourceType</c> must also be provided.</para></li><li><para>If the source type is a DB instance, a <c>DBInstanceIdentifier</c> value must be supplied.</para></li><li><para>If the source type is a DB cluster, a <c>DBClusterIdentifier</c> value must be supplied.</para></li><li><para>If the source type is a DB parameter group, a <c>DBParameterGroupName</c> value must
         /// be supplied.</para></li><li><para>If the source type is a DB security group, a <c>DBSecurityGroupName</c> value must
         /// be supplied.</para></li><li><para>If the source type is a DB snapshot, a <c>DBSnapshotIdentifier</c> value must be supplied.</para></li><li><para>If the source type is a DB cluster snapshot, a <c>DBClusterSnapshotIdentifier</c>
-        /// value must be supplied.</para></li><li><para>If the source type is an RDS Proxy, a <c>DBProxyName</c> value must be supplied.</para></li></ul>
+        /// value must be supplied.</para></li><li><para>If the source type is an RDS Proxy, a <c>DBProxyName</c> value must be supplied.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +177,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

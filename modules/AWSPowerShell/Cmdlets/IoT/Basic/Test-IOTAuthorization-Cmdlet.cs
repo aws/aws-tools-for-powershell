@@ -57,7 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>A list of authorization info objects. Simulating authorization will create a response
-        /// for each <c>authInfo</c> object in the list.</para>
+        /// for each <c>authInfo</c> object in the list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,7 +100,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>When testing custom authorization, the policies specified here are treated as if they
-        /// are attached to the principal being authorized.</para>
+        /// are attached to the principal being authorized.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +115,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>When testing custom authorization, the policies specified here are treated as if they
-        /// are not attached to the principal being authorized.</para>
+        /// are not attached to the principal being authorized.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

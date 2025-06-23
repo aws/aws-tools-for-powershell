@@ -71,7 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// to use CloudWatch Logs on your behalf.</para></li><li><para><c>SuccessFeedbackSampleRate</c> – Sample rate percentage (0-100) of successfully
         /// delivered messages.</para></li></ul><para>The following attributes only apply to <c>APNs</c> token-based authentication:</para><ul><li><para><c>ApplePlatformTeamID</c> – The identifier that's assigned to your Apple developer
         /// account team.</para></li><li><para><c>ApplePlatformBundleID</c> – The bundle identifier that's assigned to your iOS
-        /// app.</para></li></ul>
+        /// app.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

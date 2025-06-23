@@ -49,7 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>A list of alarms configured for the deployment or deployment group. A maximum of 10
-        /// alarms can be added.</para>
+        /// alarms can be added.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>The names of one or more Auto Scaling groups to identify a replacement environment
-        /// for a blue/green deployment.</para>
+        /// for a blue/green deployment.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,7 +197,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para>
         /// <para>A list that contains other lists of Amazon EC2 instance tag groups. For an instance
         /// to be included in the deployment group, it must be identified by all of the tag groups
-        /// in the list.</para>
+        /// in the list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -232,7 +244,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter AutoRollbackConfiguration_Event
         /// <summary>
         /// <para>
-        /// <para>The event type or types that trigger a rollback.</para>
+        /// <para>The event type or types that trigger a rollback.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -358,7 +374,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>The tag filter key, type, and value used to identify Amazon EC2 instances in a replacement
-        /// environment for a blue/green deployment. Cannot be used in the same call as <c>ec2TagSet</c>.</para>
+        /// environment for a blue/green deployment. Cannot be used in the same call as <c>ec2TagSet</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

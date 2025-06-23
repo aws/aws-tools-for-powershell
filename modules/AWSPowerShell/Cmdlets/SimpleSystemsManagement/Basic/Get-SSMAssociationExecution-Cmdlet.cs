@@ -65,7 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters for the request. You can specify the following filters and values.</para><para>ExecutionId (EQUAL)</para><para>Status (EQUAL)</para><para>CreatedTime (EQUAL, GREATER_THAN, LESS_THAN)</para>
+        /// <para>Filters for the request. You can specify the following filters and values.</para><para>ExecutionId (EQUAL)</para><para>Status (EQUAL)</para><para>CreatedTime (EQUAL, GREATER_THAN, LESS_THAN)</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

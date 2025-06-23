@@ -80,7 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         /// that you can specify depend on the query type, since each query type returns a different
         /// set of Internet Monitor data.</para><para>For more information about specifying filter parameters, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html">Using
         /// the Amazon CloudWatch Internet Monitor query interface</a> in the Amazon CloudWatch
-        /// Internet Monitor User Guide.</para>
+        /// Internet Monitor User Guide.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

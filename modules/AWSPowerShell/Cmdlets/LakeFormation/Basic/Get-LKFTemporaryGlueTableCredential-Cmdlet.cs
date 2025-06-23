@@ -68,7 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter QuerySessionContext_AdditionalContext
         /// <summary>
         /// <para>
-        /// <para>An opaque string-string map passed by the query engine.</para>
+        /// <para>An opaque string-string map passed by the query engine.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +105,11 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <summary>
         /// <para>
         /// <para>Filters the request based on the user having been granted a list of specified permissions
-        /// on the requested resource(s).</para>
+        /// on the requested resource(s).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,7 +161,11 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <summary>
         /// <para>
         /// <para>A list of supported permission types for the table. Valid values are <c>COLUMN_PERMISSION</c>
-        /// and <c>CELL_FILTER_PERMISSION</c>.</para>
+        /// and <c>CELL_FILTER_PERMISSION</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

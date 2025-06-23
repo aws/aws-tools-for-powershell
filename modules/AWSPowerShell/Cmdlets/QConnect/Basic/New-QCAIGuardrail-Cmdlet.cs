@@ -111,7 +111,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// <summary>
         /// <para>
         /// <para>Contains the type of the content filter and how strongly it should apply to prompts
-        /// and model responses.</para>
+        /// and model responses.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter ContextualGroundingPolicyConfig_FiltersConfig
         /// <summary>
         /// <para>
-        /// <para>The filter configuration details for the AI Guardrails contextual grounding policy.</para>
+        /// <para>The filter configuration details for the AI Guardrails contextual grounding policy.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,7 +139,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter WordPolicyConfig_ManagedWordListsConfig
         /// <summary>
         /// <para>
-        /// <para>A list of managed words to configure for the AI Guardrail.</para>
+        /// <para>A list of managed words to configure for the AI Guardrail.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,7 +170,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter SensitiveInformationPolicyConfig_PiiEntitiesConfig
         /// <summary>
         /// <para>
-        /// <para>A list of PII entities to configure to the AI Guardrail.</para>
+        /// <para>A list of PII entities to configure to the AI Guardrail.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,7 +184,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter SensitiveInformationPolicyConfig_RegexesConfig
         /// <summary>
         /// <para>
-        /// <para>A list of regular expressions to configure to the AI Guardrail.</para>
+        /// <para>A list of regular expressions to configure to the AI Guardrail.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,7 +198,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags used to organize, track, or control access for this resource.</para>
+        /// <para>The tags used to organize, track, or control access for this resource.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,7 +213,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter TopicPolicyConfig_TopicsConfig
         /// <summary>
         /// <para>
-        /// <para>A list of policies related to topics that the AI Guardrail should deny.</para>
+        /// <para>A list of policies related to topics that the AI Guardrail should deny.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -216,7 +244,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter WordPolicyConfig_WordsConfig
         /// <summary>
         /// <para>
-        /// <para>A list of words to configure for the AI Guardrail.</para>
+        /// <para>A list of words to configure for the AI Guardrail.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

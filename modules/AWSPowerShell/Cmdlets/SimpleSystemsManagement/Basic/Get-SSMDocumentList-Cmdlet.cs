@@ -50,7 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter DocumentFilterList
         /// <summary>
         /// <para>
-        /// <para>This data type is deprecated. Instead, use <c>Filters</c>.</para>
+        /// <para>This data type is deprecated. Instead, use <c>Filters</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +70,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <c>PlatformTypes</c>, <c>DocumentType</c>, and <c>TargetType</c>. For example, to
         /// return documents you own use <c>Key=Owner,Values=Self</c>. To specify a custom key-value
         /// pair, use the format <c>Key=tag:tagName,Values=valueName</c>.</para><note><para>This API operation only supports filtering documents by using a single tag key and
-        /// one or more tag values. For example: <c>Key=tag:tagName,Values=valueName1,valueName2</c></para></note>
+        /// one or more tag values. For example: <c>Key=tag:tagName,Values=valueName1,valueName2</c></para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

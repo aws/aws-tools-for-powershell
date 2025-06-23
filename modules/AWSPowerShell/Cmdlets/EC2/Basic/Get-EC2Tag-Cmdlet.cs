@@ -74,7 +74,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The filters.</para><ul><li><para><c>key</c> - The tag key.</para></li><li><para><c>resource-id</c> - The ID of the resource.</para></li><li><para><c>resource-type</c> - The resource type. For a list of possible values, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TagSpecification.html">TagSpecification</a>.</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of the tag. For example, specify
         /// "tag:Owner" for the filter name and "TeamA" for the filter value to find resources
-        /// with the tag "Owner=TeamA".</para></li><li><para><c>value</c> - The tag value.</para></li></ul>
+        /// with the tag "Owner=TeamA".</para></li><li><para><c>value</c> - The tag value.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

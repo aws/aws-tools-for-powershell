@@ -97,7 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// pair.</para><note><para>Valid characters for key and value are letters, spaces, and numbers representable
         /// in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
         /// length of a tag's key is 128 characters, and the maximum length for a tag's value
-        /// is 256.</para></note>
+        /// is 256.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

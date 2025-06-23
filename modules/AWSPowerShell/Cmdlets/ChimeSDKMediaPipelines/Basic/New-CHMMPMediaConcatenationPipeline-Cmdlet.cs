@@ -59,7 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter Sink
         /// <summary>
         /// <para>
-        /// <para>An object that specifies the data sinks for the media concatenation pipeline.</para>
+        /// <para>An object that specifies the data sinks for the media concatenation pipeline.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +81,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>An object that specifies the sources for the media concatenation pipeline.</para>
+        /// <para>An object that specifies the sources for the media concatenation pipeline.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,7 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags associated with the media concatenation pipeline.</para>
+        /// <para>The tags associated with the media concatenation pipeline.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

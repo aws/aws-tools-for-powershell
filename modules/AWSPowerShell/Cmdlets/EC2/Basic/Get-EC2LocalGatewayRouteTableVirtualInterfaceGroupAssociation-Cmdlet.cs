@@ -65,7 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// gateway route table for the virtual interface group.</para></li><li><para><c>local-gateway-route-table-id</c> - The ID of the local gateway route table.</para></li><li><para><c>local-gateway-route-table-virtual-interface-group-association-id</c> - The ID
         /// of the association.</para></li><li><para><c>local-gateway-route-table-virtual-interface-group-id</c> - The ID of the virtual
         /// interface group.</para></li><li><para><c>owner-id</c> - The ID of the Amazon Web Services account that owns the local gateway
-        /// virtual interface group association.</para></li><li><para><c>state</c> - The state of the association.</para></li></ul>
+        /// virtual interface group association.</para></li><li><para><c>state</c> - The state of the association.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LocalGatewayRouteTableVirtualInterfaceGroupAssociationId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the associations.</para>
+        /// <para>The IDs of the associations.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

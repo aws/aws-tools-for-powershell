@@ -219,7 +219,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>An array of strings that specify the compute types that are allowed for the batch
         /// build. See <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build
         /// environment compute types</a> in the <i>CodeBuild User Guide</i> for these values.
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -342,7 +346,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Environment_EnvironmentVariable
         /// <summary>
         /// <para>
-        /// <para>A set of environment variables to make available to builds for this build project.</para>
+        /// <para>A set of environment variables to make available to builds for this build project.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -367,7 +375,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para> An array of <c>ProjectFileSystemLocation</c> objects for a CodeBuild build project.
         /// A <c>ProjectFileSystemLocation</c> object specifies the <c>identifier</c>, <c>location</c>,
         /// <c>mountOptions</c>, <c>mountPoint</c>, and <c>type</c> of a file system created using
-        /// Amazon Elastic File System. </para>
+        /// Amazon Elastic File System. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -392,7 +404,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>An array of strings that specify the fleets that are allowed for the batch build.
         /// See <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/fleets.html">Run
         /// builds on reserved capacity fleets</a> in the <i>CodeBuild User Guide</i> for more
-        /// information. </para>
+        /// information. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -617,7 +633,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// you use a custom cache: </para><ul><li><para>Only directories can be specified for caching. You cannot specify individual files.
         /// </para></li><li><para>Symlinks are used to reference cached directories. </para></li><li><para>Cached directories are linked to your build before it downloads its project sources.
         /// Cached items are overridden if a source item has the same name. Directories are specified
-        /// using cache paths in the buildspec file. </para></li></ul></dd></dl>
+        /// using cache paths in the buildspec file. </para></li></ul></dd></dl><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -784,7 +804,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter SecondaryArtifact
         /// <summary>
         /// <para>
-        /// <para> An array of <c>ProjectArtifact</c> objects. </para>
+        /// <para> An array of <c>ProjectArtifact</c> objects. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -795,7 +819,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter SecondarySource
         /// <summary>
         /// <para>
-        /// <para> An array of <c>ProjectSource</c> objects. </para>
+        /// <para> An array of <c>ProjectSource</c> objects. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -808,7 +836,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para> An array of <c>ProjectSourceVersion</c> objects. If <c>secondarySourceVersions</c>
         /// is specified at the build level, then they take over these <c>secondarySourceVersions</c>
-        /// (at the project level). </para>
+        /// (at the project level). </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -820,7 +852,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>A list of one or more security groups IDs.</para><note><para>Security groups configured for Docker servers should allow ingress network traffic
-        /// from the VPC configured in the project. They should allow ingress on port 9876.</para></note>
+        /// from the VPC configured in the project. They should allow ingress on port 9876.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -831,7 +867,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of one or more security groups IDs in your Amazon VPC.</para>
+        /// <para>A list of one or more security groups IDs in your Amazon VPC.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -942,7 +982,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter VpcConfig_Subnet
         /// <summary>
         /// <para>
-        /// <para>A list of one or more subnet IDs in your Amazon VPC.</para>
+        /// <para>A list of one or more subnet IDs in your Amazon VPC.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -954,7 +998,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>An updated list of tag key and value pairs associated with this build project.</para><para>These tags are available for use by Amazon Web Services services that support CodeBuild
-        /// build project tags.</para>
+        /// build project tags.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

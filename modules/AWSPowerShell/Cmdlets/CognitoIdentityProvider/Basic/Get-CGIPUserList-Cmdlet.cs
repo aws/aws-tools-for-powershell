@@ -62,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// with <c>Filter</c>. Amazon Cognito returns an error if not all users in the results
         /// have set a value for the attribute you request. Attributes that you can't filter on,
         /// including custom attributes, must have a value set in every user profile before an
-        /// <c>AttributesToGet</c> parameter returns results.</para>
+        /// <c>AttributesToGet</c> parameter returns results.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

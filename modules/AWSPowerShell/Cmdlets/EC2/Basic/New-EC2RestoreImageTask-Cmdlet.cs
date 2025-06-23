@@ -119,7 +119,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The tags to apply to the AMI and snapshots on restoration. You can tag the AMI, the
         /// snapshots, or both.</para><ul><li><para>To tag the AMI, the value for <c>ResourceType</c> must be <c>image</c>.</para></li><li><para>To tag the snapshots, the value for <c>ResourceType</c> must be <c>snapshot</c>. The
-        /// same tag is applied to all of the snapshots that are created.</para></li></ul>
+        /// same tag is applied to all of the snapshots that are created.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

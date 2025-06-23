@@ -396,7 +396,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>A complex type that contains the CNAME aliases, if any, that you want to associate
-        /// with this distribution.</para>
+        /// with this distribution.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -408,7 +412,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>Optional: A complex type that contains cache behaviors for this distribution. If <c>Quantity</c>
-        /// is <c>0</c>, you can omit <c>Items</c>.</para>
+        /// is <c>0</c>, you can omit <c>Items</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -421,7 +429,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>A complex type that contains a <c>CustomErrorResponse</c> element for each HTTP status
         /// code for which you want to specify a custom error page and/or a caching duration.
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -435,7 +447,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>A complex type that contains the HTTP methods that you want CloudFront to cache responses
         /// to. Valid values for <c>CachedMethods</c> include <c>GET</c>, <c>HEAD</c>, and <c>OPTIONS</c>,
         /// depending on which caching option you choose. For more information, see the preceding
-        /// section.</para>
+        /// section.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -447,7 +463,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>A complex type that contains the HTTP methods that you want CloudFront to process
-        /// and forward to your origin.</para>
+        /// and forward to your origin.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -458,7 +478,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter WhitelistedNames_Item
         /// <summary>
         /// <para>
-        /// <para>A list of cookie names.</para>
+        /// <para>A list of cookie names.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -469,7 +493,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Headers_Item
         /// <summary>
         /// <para>
-        /// <para>A list of HTTP header names.</para>
+        /// <para>A list of HTTP header names.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -481,7 +509,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>A list that contains the query string parameters that you want CloudFront to use as
-        /// a basis for caching for a cache behavior. If <c>Quantity</c> is 0, you can omit <c>Items</c>.</para>
+        /// a basis for caching for a cache behavior. If <c>Quantity</c> is 0, you can omit <c>Items</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -494,7 +526,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>The CloudFront functions that are associated with a cache behavior in a CloudFront
         /// distribution. Your functions must be published to the <c>LIVE</c> stage to associate
-        /// them with a cache behavior.</para>
+        /// them with a cache behavior.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -506,7 +542,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para><b>Optional</b>: A complex type that contains <c>LambdaFunctionAssociation</c> items
-        /// for this cache behavior. If <c>Quantity</c> is <c>0</c>, you can omit <c>Items</c>.</para>
+        /// for this cache behavior. If <c>Quantity</c> is <c>0</c>, you can omit <c>Items</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -517,7 +557,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TrustedKeyGroups_Item
         /// <summary>
         /// <para>
-        /// <para>A list of key groups identifiers.</para>
+        /// <para>A list of key groups identifiers.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -528,7 +572,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TrustedSigners_Item
         /// <summary>
         /// <para>
-        /// <para>A list of Amazon Web Services account identifiers.</para>
+        /// <para>A list of Amazon Web Services account identifiers.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -539,7 +587,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter OriginGroups_Item
         /// <summary>
         /// <para>
-        /// <para>The items (origin groups) in a distribution.</para>
+        /// <para>The items (origin groups) in a distribution.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -550,7 +602,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Origins_Item
         /// <summary>
         /// <para>
-        /// <para>A list of origins.</para>
+        /// <para>A list of origins.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -576,7 +632,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// list of countries and the corresponding codes, see <c>ISO 3166-1-alpha-2</c> code
         /// on the <i>International Organization for Standardization</i> website. You can also
         /// refer to the country list on the CloudFront console, which includes both country names
-        /// and codes.</para>
+        /// and codes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -587,7 +647,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Tags_Item
         /// <summary>
         /// <para>
-        /// <para>A complex type that contains <c>Tag</c> elements.</para>
+        /// <para>A complex type that contains <c>Tag</c> elements.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -632,7 +696,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TenantConfig_ParameterDefinition
         /// <summary>
         /// <para>
-        /// <para>The parameters that you specify for a distribution tenant.</para>
+        /// <para>The parameters that you specify for a distribution tenant.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

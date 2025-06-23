@@ -130,7 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>A stage variable overrides used for the canary release deployment. They can override
         /// existing stage variables or add new stage variables for the canary release deployment.
         /// These stage variables are represented as a string-to-string map between stage variable
-        /// names and their values.</para>
+        /// names and their values.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,7 +168,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>
         /// <para>A map that defines the stage variables for the Stage resource that is associated with
         /// the new deployment. Variable names can have alphanumeric and underscore characters,
-        /// and the values must match <c>[A-Za-z0-9-._~:/?#&amp;=,]+</c>.</para>
+        /// and the values must match <c>[A-Za-z0-9-._~:/?#&amp;=,]+</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

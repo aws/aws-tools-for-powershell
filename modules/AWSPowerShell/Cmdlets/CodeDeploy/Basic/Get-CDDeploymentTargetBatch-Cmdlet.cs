@@ -86,7 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// of Lambda functions, and their target type is <c>instanceTarget</c>. </para></li><li><para> For deployments that use the Amazon ECS compute platform, the target IDs are pairs
         /// of Amazon ECS clusters and services specified using the format <c>&lt;clustername&gt;:&lt;servicename&gt;</c>.
         /// Their target type is <c>ecsTarget</c>. </para></li><li><para> For deployments that are deployed with CloudFormation, the target IDs are CloudFormation
-        /// stack IDs. Their target type is <c>cloudFormationTarget</c>. </para></li></ul>
+        /// stack IDs. Their target type is <c>cloudFormationTarget</c>. </para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

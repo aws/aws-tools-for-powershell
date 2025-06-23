@@ -69,7 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         /// <para>An array of name-value pairs for the parameters in the group. Each element in the
         /// array represents a single parameter.</para><note><para><c>record-ttl-millis</c> and <c>query-ttl-millis</c> are the only supported parameter
         /// names. For more details, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.cluster-management.html#DAX.cluster-management.custom-settings.ttl">Configuring
-        /// TTL Settings</a>.</para></note>
+        /// TTL Settings</a>.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

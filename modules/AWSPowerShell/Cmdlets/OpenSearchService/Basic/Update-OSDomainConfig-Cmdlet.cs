@@ -70,7 +70,11 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// than a boolean. Specifies the maximum number of clauses allowed in a Lucene boolean
         /// query. Default is 1,024. Queries with more than the permitted number of clauses result
         /// in a <c>TooManyClauses</c> error.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options">Advanced
-        /// cluster parameters</a>.</para>
+        /// cluster parameters</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -489,7 +493,11 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter LogPublishingOption
         /// <summary>
         /// <para>
-        /// <para>Options to publish OpenSearch logs to Amazon CloudWatch Logs.</para>
+        /// <para>Options to publish OpenSearch logs to Amazon CloudWatch Logs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -501,7 +509,11 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <summary>
         /// <para>
         /// <para>DEPRECATED. Use <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html">off-peak
-        /// window</a> instead.</para><para>A list of maintenance schedules during which Auto-Tune can deploy changes.</para>
+        /// window</a> instead.</para><para>A list of maintenance schedules during which Auto-Tune can deploy changes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -604,7 +616,11 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ClusterConfig_NodeOption
         /// <summary>
         /// <para>
-        /// <para>List of node options for the domain.</para>
+        /// <para>List of node options for the domain.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -687,7 +703,11 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <para>
         /// <para>The list of security group IDs associated with the VPC endpoints for the domain. If
         /// you do not provide a security group ID, OpenSearch Service uses the default security
-        /// group for the VPC.</para>
+        /// group for the VPC.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -746,7 +766,11 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <para>
         /// <para>A list of subnet IDs associated with the VPC endpoints for the domain. If your domain
         /// uses multiple Availability Zones, you need to provide two subnet IDs, one per zone.
-        /// Otherwise, provide only one.</para>
+        /// Otherwise, provide only one.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

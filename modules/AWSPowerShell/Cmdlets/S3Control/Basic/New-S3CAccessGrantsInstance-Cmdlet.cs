@@ -93,7 +93,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <para>
         /// <para>The Amazon Web Services resource tags that you are adding to the S3 Access Grants
         /// instance. Each tag is a label consisting of a user-defined key and value. Tags can
-        /// help you manage, identify, organize, search for, and filter resources. </para>
+        /// help you manage, identify, organize, search for, and filter resources. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

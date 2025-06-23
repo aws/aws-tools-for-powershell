@@ -158,7 +158,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>A list of the one or more VPC security groups to be associated with the serverless
         /// cache. The security group will authorize traffic access for the VPC end-point (private-link).
         /// If no other information is given this will be the VPC’s Default Security Group that
-        /// is associated with the cluster VPC end-point.</para>
+        /// is associated with the cluster VPC end-point.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,7 +192,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The ARN(s) of the snapshot that the new serverless cache will be created from. Available
-        /// for Valkey, Redis OSS and Serverless Memcached only.</para>
+        /// for Valkey, Redis OSS and Serverless Memcached only.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -212,7 +220,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A list of the identifiers of the subnets where the VPC endpoint for the serverless
-        /// cache will be deployed. All the subnetIds must belong to the same VPC.</para>
+        /// cache will be deployed. All the subnetIds must belong to the same VPC.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,7 +236,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The list of tags (key, value) pairs to be added to the serverless cache resource.
-        /// Default is NULL.</para>
+        /// Default is NULL.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

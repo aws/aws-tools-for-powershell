@@ -51,7 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <para>Only supports the <c>override_main_response_version</c> parameter and not other advanced
         /// options. You can only include this option when upgrading to an OpenSearch version.
         /// Specifies whether the domain reports its version as 7.10 so that it continues to work
-        /// with Elasticsearch OSS clients and plugins.</para>
+        /// with Elasticsearch OSS clients and plugins.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

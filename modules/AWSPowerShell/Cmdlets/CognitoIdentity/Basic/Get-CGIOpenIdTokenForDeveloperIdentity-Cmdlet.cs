@@ -97,7 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// is the "domain" by which Cognito will refer to your users; you provided this domain
         /// while creating/updating the identity pool. The developer user identifier is an identifier
         /// from your backend that uniquely identifies a user. When you create an identity pool,
-        /// you can specify the supported logins.</para>
+        /// you can specify the supported logins.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -115,7 +119,11 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         #region Parameter PrincipalTag
         /// <summary>
         /// <para>
-        /// <para>Use this operation to configure attribute mappings for custom providers. </para>
+        /// <para>Use this operation to configure attribute mappings for custom providers. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

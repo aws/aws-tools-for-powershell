@@ -161,7 +161,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter HttpEndpointDestinationUpdate_RequestConfiguration_CommonAttributes
         /// <summary>
         /// <para>
-        /// <para>Describes the metadata sent to the HTTP endpoint destination.</para>
+        /// <para>Describes the metadata sent to the HTTP endpoint destination.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -315,7 +319,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>
         /// <para> Provides a list of <c>DestinationTableConfigurations</c> which Firehose uses to deliver
         /// data to Apache Iceberg Tables. Firehose will write data with insert if table specific
-        /// configuration is not provided here.</para>
+        /// configuration is not provided here.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -924,7 +932,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter AmazonOpenSearchServerlessDestinationUpdate_ProcessingConfiguration_Processors
         /// <summary>
         /// <para>
-        /// <para>The data processors.</para>
+        /// <para>The data processors.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -934,7 +946,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter AmazonopensearchserviceDestinationUpdate_ProcessingConfiguration_Processors
         /// <summary>
         /// <para>
-        /// <para>The data processors.</para>
+        /// <para>The data processors.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -944,7 +960,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ProcessingConfiguration_Processor
         /// <summary>
         /// <para>
-        /// <para>The data processors.</para>
+        /// <para>The data processors.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -955,7 +975,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter HttpEndpointDestinationUpdate_ProcessingConfiguration_Processors
         /// <summary>
         /// <para>
-        /// <para>The data processors.</para>
+        /// <para>The data processors.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -965,7 +989,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter IcebergDestinationConfiguration_ProcessingConfiguration_Processors
         /// <summary>
         /// <para>
-        /// <para>The data processors.</para>
+        /// <para>The data processors.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -975,7 +1003,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter SnowflakeDestinationConfiguration_ProcessingConfiguration_Processors
         /// <summary>
         /// <para>
-        /// <para>The data processors.</para>
+        /// <para>The data processors.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

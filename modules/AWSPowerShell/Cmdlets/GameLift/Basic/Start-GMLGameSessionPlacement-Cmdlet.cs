@@ -111,7 +111,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter DesiredPlayerSession
         /// <summary>
         /// <para>
-        /// <para>Set of information on each player to create a player session for.</para>
+        /// <para>Set of information on each player to create a player session for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A set of key-value pairs that can store custom data in a game session. For example:
-        /// <c>{"Key": "difficulty", "Value": "novice"}</c>.</para>
+        /// <c>{"Key": "difficulty", "Value": "novice"}</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,7 +187,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A prioritized list of hosting locations. The list can include Amazon Web Services
         /// Regions (such as <c>us-west-2</c>), local zones, and custom locations (for Anywhere
         /// fleets). Each location must be listed only once. For details, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">Amazon
-        /// GameLift service locations.</a></para>
+        /// GameLift service locations.</a></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -241,7 +253,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A set of values, expressed in milliseconds, that indicates the amount of latency that
         /// a player experiences when connected to Amazon Web Services Regions. This information
         /// is used to try to place the new game session where it can offer the best possible
-        /// gameplay experience for the players. </para>
+        /// gameplay experience for the players. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

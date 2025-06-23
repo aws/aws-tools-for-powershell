@@ -54,7 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries.
-        /// If you do not specify a cluster, the default cluster is assumed.</para>
+        /// If you do not specify a cluster, the default cluster is assumed.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -68,7 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>Determines whether to include additional information about the clusters in the response.
         /// If this field is omitted, this information isn't included.</para><para>If <c>ATTACHMENTS</c> is specified, the attachments for the container instances or
         /// tasks within the cluster are included, for example the capacity providers.</para><para>If <c>SETTINGS</c> is specified, the settings for the cluster are included.</para><para>If <c>CONFIGURATIONS</c> is specified, the configuration for the cluster is included.</para><para>If <c>STATISTICS</c> is specified, the task and service count is included, separated
-        /// by launch type.</para><para>If <c>TAGS</c> is specified, the metadata tags associated with the cluster are included.</para>
+        /// by launch type.</para><para>If <c>TAGS</c> is specified, the metadata tags associated with the cluster are included.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

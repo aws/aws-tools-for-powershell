@@ -60,7 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <summary>
         /// <para>
         /// <para>The columns of the underlying table that can be used by collaborations or analysis
-        /// rules.</para>
+        /// rules.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -190,7 +194,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <summary>
         /// <para>
         /// <para> The analysis methods to enable for the configured table. When configured, you must
-        /// specify at least two analysis methods.</para>
+        /// specify at least two analysis methods.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -236,7 +244,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <para>
         /// <para>An optional label that you can assign to a resource when you create it. Each tag consists
         /// of a key and an optional value, both of which you define. When you use tagging, you
-        /// can also use tag-based access control in IAM policies to control access to this resource.</para>
+        /// can also use tag-based access control in IAM policies to control access to this resource.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -247,7 +259,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter TableSchema_V1
         /// <summary>
         /// <para>
-        /// <para> The schema of a Snowflake table.</para>
+        /// <para> The schema of a Snowflake table.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

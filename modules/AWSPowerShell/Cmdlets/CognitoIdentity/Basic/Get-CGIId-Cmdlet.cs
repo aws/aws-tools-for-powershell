@@ -83,7 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// <para>
         /// <para>A set of optional name-value pairs that map provider names to provider tokens. The
         /// available provider names for <c>Logins</c> are as follows:</para><ul><li><para>Facebook: <c>graph.facebook.com</c></para></li><li><para>Amazon Cognito user pool: <c>cognito-idp.&lt;region&gt;.amazonaws.com/&lt;YOUR_USER_POOL_ID&gt;</c>,
-        /// for example, <c>cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789</c>. </para></li><li><para>Google: <c>accounts.google.com</c></para></li><li><para>Amazon: <c>www.amazon.com</c></para></li><li><para>Twitter: <c>api.twitter.com</c></para></li><li><para>Digits: <c>www.digits.com</c></para></li></ul>
+        /// for example, <c>cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789</c>. </para></li><li><para>Google: <c>accounts.google.com</c></para></li><li><para>Amazon: <c>www.amazon.com</c></para></li><li><para>Twitter: <c>api.twitter.com</c></para></li><li><para>Digits: <c>www.digits.com</c></para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

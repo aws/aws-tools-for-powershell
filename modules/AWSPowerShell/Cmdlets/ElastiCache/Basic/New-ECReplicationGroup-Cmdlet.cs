@@ -187,7 +187,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheSecurityGroupName
         /// <summary>
         /// <para>
-        /// <para>A list of cache security group names to associate with this replication group.</para>
+        /// <para>A list of cache security group names to associate with this replication group.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -299,7 +303,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter LogDeliveryConfiguration
         /// <summary>
         /// <para>
-        /// <para>Specifies the destination, format and type of the logs.</para>
+        /// <para>Specifies the destination, format and type of the logs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -343,7 +351,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// configure each node group (shard), or you can omit this parameter. However, it is
         /// required when seeding a Valkey or Redis OSS (cluster mode enabled) cluster from a
         /// S3 rdb file. You must configure each node group (shard) using this parameter because
-        /// you must specify the slots for each node group.</para>
+        /// you must specify the slots for each node group.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -407,7 +419,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// allocated. The primary cluster is created in the first AZ in the list.</para><para>This parameter is not used if there is more than one node group (shard). You should
         /// use <c>NodeGroupConfiguration</c> instead.</para><note><para>If you are creating your replication group in an Amazon VPC (recommended), you can
         /// only locate clusters in Availability Zones associated with the subnets in the selected
-        /// subnet group.</para><para>The number of Availability Zones listed must equal the value of <c>NumCacheClusters</c>.</para></note><para>Default: system chosen Availability Zones.</para>
+        /// subnet group.</para><para>The number of Availability Zones listed must equal the value of <c>NumCacheClusters</c>.</para></note><para>Default: system chosen Availability Zones.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -487,7 +503,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>One or more Amazon VPC security groups associated with this replication group.</para><para>Use this parameter only when you are creating a replication group in an Amazon Virtual
-        /// Private Cloud (Amazon VPC).</para>
+        /// Private Cloud (Amazon VPC).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -514,7 +534,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// new replication group. The Amazon S3 object name in the ARN cannot contain any commas.
         /// The new replication group will have the number of node groups (console: shards) specified
         /// by the parameter <i>NumNodeGroups</i> or the number of node groups configured by <i>NodeGroupConfiguration</i>
-        /// regardless of the number of ARNs specified here.</para><para>Example of an Amazon S3 ARN: <c>arn:aws:s3:::my_bucket/snapshot1.rdb</c></para>
+        /// regardless of the number of ARNs specified here.</para><para>Example of an Amazon S3 ARN: <c>arn:aws:s3:::my_bucket/snapshot1.rdb</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -565,7 +589,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// (e.g. Key=<c>myKey</c>, Value=<c>myKeyValue</c>. You can include multiple tags as
         /// shown following: Key=<c>myKey</c>, Value=<c>myKeyValue</c> Key=<c>mySecondKey</c>,
         /// Value=<c>mySecondKeyValue</c>. Tags on replication groups will be replicated to all
-        /// nodes.</para>
+        /// nodes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -608,7 +636,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter UserGroupId
         /// <summary>
         /// <para>
-        /// <para>The user group to associate with the replication group.</para>
+        /// <para>The user group to associate with the replication group.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

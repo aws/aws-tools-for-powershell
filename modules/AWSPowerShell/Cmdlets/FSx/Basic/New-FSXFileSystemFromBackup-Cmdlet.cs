@@ -294,7 +294,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter RootVolumeConfiguration_NfsExport
         /// <summary>
         /// <para>
-        /// <para>The configuration object for mounting a file system.</para>
+        /// <para>The configuration object for mounting a file system.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -348,7 +352,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>(Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for
         /// routing traffic to the correct file server. You should specify all virtual private
         /// cloud (VPC) route tables associated with the subnets in which your clients are located.
-        /// By default, Amazon FSx selects your VPC's default route table.</para>
+        /// By default, Amazon FSx selects your VPC's default route table.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -361,7 +369,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>A list of IDs for the security groups that apply to the specified network interfaces
         /// created for file system access. These security groups apply to all network interfaces.
-        /// This value isn't returned in later <c>DescribeFileSystem</c> requests.</para>
+        /// This value isn't returned in later <c>DescribeFileSystem</c> requests.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -440,7 +452,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// one of these subnets as the preferred subnet using the <c>WindowsConfiguration &gt;
         /// PreferredSubnetID</c> property.</para><para>Windows <c>SINGLE_AZ_1</c> and <c>SINGLE_AZ_2</c> file system deployment types, Lustre
         /// file systems, and OpenZFS file systems provide exactly one subnet ID. The file server
-        /// is launched in that subnet's Availability Zone.</para>
+        /// is launched in that subnet's Availability Zone.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -459,7 +475,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>The tags to be applied to the file system at file system creation. The key value of
-        /// the <c>Name</c> tag appears in the console as the file system name.</para>
+        /// the <c>Name</c> tag appears in the console as the file system name.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -484,7 +504,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter RootVolumeConfiguration_UserAndGroupQuota
         /// <summary>
         /// <para>
-        /// <para>An object specifying how much storage users or groups can use on the volume.</para>
+        /// <para>An object specifying how much storage users or groups can use on the volume.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

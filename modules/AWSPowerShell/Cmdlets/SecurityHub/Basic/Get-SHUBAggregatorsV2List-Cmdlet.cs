@@ -22,9 +22,11 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.SecurityHub;
 using Amazon.SecurityHub.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
@@ -42,16 +44,22 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -91,9 +99,13 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();
@@ -107,6 +119,15 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.MaxResult = this.MaxResult;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
+            {
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
+                    " to the service to specify how many items should be returned by each service call.");
+            }
+            #endif
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -128,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
+                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
             
             // Initialize loop variant and commence piping
@@ -192,13 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "ListAggregatorsV2");
             try
             {
-                #if DESKTOP
-                return client.ListAggregatorsV2(request);
-                #elif CORECLR
-                return client.ListAggregatorsV2Async(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListAggregatorsV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -215,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
+            public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.SecurityHub.Model.ListAggregatorsV2Response, GetSHUBAggregatorsV2ListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AggregatorsV2;

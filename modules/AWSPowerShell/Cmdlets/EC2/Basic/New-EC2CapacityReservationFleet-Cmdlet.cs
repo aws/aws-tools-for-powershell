@@ -104,7 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceTypeSpecification
         /// <summary>
         /// <para>
-        /// <para>Information about the instance types for which to reserve the capacity.</para>
+        /// <para>Information about the instance types for which to reserve the capacity.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -123,7 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned
-        /// to the Capacity Reservations in the Fleet.</para>
+        /// to the Capacity Reservations in the Fleet.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

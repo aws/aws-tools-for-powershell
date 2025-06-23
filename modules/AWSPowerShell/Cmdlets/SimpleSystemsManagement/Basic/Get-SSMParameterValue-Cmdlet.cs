@@ -56,7 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// For parameters shared with you from another account, you must use the full ARNs.</para><para>To query by parameter label, use <c>"Name": "name:label"</c>. To query by parameter
         /// version, use <c>"Name": "name:version"</c>.</para><note><para>The results for <c>GetParameters</c> requests are listed in alphabetical order in
         /// query responses.</para></note><para>For information about shared parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-shared-parameters.html">Working
-        /// with shared parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
+        /// with shared parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

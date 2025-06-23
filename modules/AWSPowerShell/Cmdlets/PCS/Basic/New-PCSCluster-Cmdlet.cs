@@ -115,7 +115,11 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         /// <summary>
         /// <para>
         /// <para>A list of security group IDs associated with the Elastic Network Interface (ENI) created
-        /// in subnets.</para>
+        /// in subnets.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +148,11 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         #region Parameter SlurmConfiguration_SlurmCustomSetting
         /// <summary>
         /// <para>
-        /// <para>Additional Slurm-specific configuration that directly maps to Slurm settings.</para>
+        /// <para>Additional Slurm-specific configuration that directly maps to Slurm settings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,7 +165,11 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         /// <para>
         /// <para>The list of subnet IDs where Amazon Web Services PCS creates an Elastic Network Interface
         /// (ENI) to enable communication between managed controllers and Amazon Web Services
-        /// PCS resources. Subnet IDs have the form <c>subnet-0123456789abcdef0</c>.</para><para>Subnets can't be in Outposts, Wavelength or an Amazon Web Services Local Zone.</para><note><para>Amazon Web Services PCS currently supports only 1 subnet in this list.</para></note>
+        /// PCS resources. Subnet IDs have the form <c>subnet-0123456789abcdef0</c>.</para><para>Subnets can't be in Outposts, Wavelength or an Amazon Web Services Local Zone.</para><note><para>Amazon Web Services PCS currently supports only 1 subnet in this list.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +181,11 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         /// <summary>
         /// <para>
         /// <para>1 or more tags added to the resource. Each tag consists of a tag key and tag value.
-        /// The tag value is optional and can be an empty string.</para>
+        /// The tag value is optional and can be an empty string.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

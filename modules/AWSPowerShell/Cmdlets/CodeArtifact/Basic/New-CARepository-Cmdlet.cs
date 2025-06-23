@@ -103,7 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>One or more tag key-value pairs for the repository.</para>
+        /// <para>One or more tag key-value pairs for the repository.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +121,11 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <para> A list of upstream repositories to associate with the repository. The order of the
         /// upstream repositories in the list determines their priority order when CodeArtifact
         /// looks for a requested package version. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working
-        /// with upstream repositories</a>. </para>
+        /// with upstream repositories</a>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

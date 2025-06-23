@@ -86,7 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <c>192.0.2.0/24</c>.</para></li><li><para>For requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111,
         /// specify <c>1111:0000:0000:0000:0000:0000:0000:0111/128</c>.</para></li><li><para>For requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000
         /// to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <c>1111:0000:0000:0000:0000:0000:0000:0000/64</c>.</para></li></ul><para>For more information about CIDR notation, see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless
-        /// Inter-Domain Routing</a>.</para><para>Example JSON <c>Addresses</c> specifications: </para><ul><li><para>Empty array: <c>"Addresses": []</c></para></li><li><para>Array with one address: <c>"Addresses": ["192.0.2.44/32"]</c></para></li><li><para>Array with three addresses: <c>"Addresses": ["192.0.2.44/32", "192.0.2.0/24", "192.0.0.0/16"]</c></para></li><li><para>INVALID specification: <c>"Addresses": [""]</c> INVALID </para></li></ul>
+        /// Inter-Domain Routing</a>.</para><para>Example JSON <c>Addresses</c> specifications: </para><ul><li><para>Empty array: <c>"Addresses": []</c></para></li><li><para>Array with one address: <c>"Addresses": ["192.0.2.44/32"]</c></para></li><li><para>Array with three addresses: <c>"Addresses": ["192.0.2.44/32", "192.0.2.0/24", "192.0.0.0/16"]</c></para></li><li><para>INVALID specification: <c>"Addresses": [""]</c> INVALID </para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -137,6 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// This property can be used to determine if the related property
         /// was returned by a service response or if the related property
         /// should be sent to the service during a service call.
+        /// <para>If this property is set to false the property <seealso cref="P:Amazon.WAFV2.Model.UpdateIPSetRequest.Addresses" /> will be reset to null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

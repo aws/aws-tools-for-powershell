@@ -163,7 +163,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para>
         /// <para>A list of the types of analysis to perform. Specifying GENERAL_LABELS uses the label
         /// detection feature, while specifying IMAGE_PROPERTIES returns information regarding
-        /// image color and quality. If no option is specified GENERAL_LABELS is used by default.</para>
+        /// image color and quality. If no option is specified GENERAL_LABELS is used by default.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,7 +178,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter GeneralLabels_LabelCategoryExclusionFilter
         /// <summary>
         /// <para>
-        /// <para>The label categories that should be excluded from the return from DetectLabels.</para>
+        /// <para>The label categories that should be excluded from the return from DetectLabels.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,7 +193,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter GeneralLabels_LabelCategoryInclusionFilter
         /// <summary>
         /// <para>
-        /// <para>The label categories that should be included in the return from DetectLabels.</para>
+        /// <para>The label categories that should be included in the return from DetectLabels.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -196,7 +208,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter GeneralLabels_LabelExclusionFilter
         /// <summary>
         /// <para>
-        /// <para>The labels that should be excluded from the return from DetectLabels.</para>
+        /// <para>The labels that should be excluded from the return from DetectLabels.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,7 +223,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter GeneralLabels_LabelInclusionFilter
         /// <summary>
         /// <para>
-        /// <para>The labels that should be included in the return from DetectLabels.</para>
+        /// <para>The labels that should be included in the return from DetectLabels.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

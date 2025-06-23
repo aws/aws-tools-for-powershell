@@ -77,7 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Deployment_Container
         /// <summary>
         /// <para>
-        /// <para>An object that describes the configuration for the containers of the deployment.</para>
+        /// <para>An object that describes the configuration for the containers of the deployment.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,7 +168,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// container service.</para><important><para>You must create and validate an SSL/TLS certificate before you can use public domain
         /// names with your container service. Use the <c>CreateCertificate</c> action to create
         /// a certificate for the public domain names you want to use with your container service.</para></important><para>You can specify public domain names using a string to array map as shown in the example
-        /// later on this page.</para>
+        /// later on this page.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -229,7 +237,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The tag keys and optional values to add to the container service during create.</para><para>Use the <c>TagResource</c> action to tag a resource after it's created.</para><para>For more information about tags in Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon
-        /// Lightsail Developer Guide</a>.</para>
+        /// Lightsail Developer Guide</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

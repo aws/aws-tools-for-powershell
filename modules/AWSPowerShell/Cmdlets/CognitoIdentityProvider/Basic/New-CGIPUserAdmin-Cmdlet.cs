@@ -104,7 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// the following:</para><ul><li><para>Store the <c>ClientMetadata</c> value. This data is available only to Lambda triggers
         /// that are assigned to a user pool to support custom workflows. If your user pool configuration
         /// doesn't include triggers, the <c>ClientMetadata</c> parameter serves no purpose.</para></li><li><para>Validate the <c>ClientMetadata</c> value.</para></li><li><para>Encrypt the <c>ClientMetadata</c> value. Don't send sensitive information in this
-        /// parameter.</para></li></ul></note>
+        /// parameter.</para></li></ul></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +120,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>Specify <c>EMAIL</c> if email will be used to send the welcome message. Specify <c>SMS</c>
         /// if the phone number will be used. The default value is <c>SMS</c>. You can specify
-        /// more than one value.</para>
+        /// more than one value.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,7 +198,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// You must provide a value for <c>email</c> when you want to set <c>email_verified</c>
         /// to <c>true</c>, or if you set <c>EMAIL</c> in the <c>DesiredDeliveryMediums</c> parameter.</para></dd><dt>phone_number</dt><dd><para>The phone number where you want the user to receive their confirmation code and username.
         /// You must provide a value for <c>phone_number</c> when you want to set <c>phone_number_verified</c>
-        /// to <c>true</c>, or if you set <c>SMS</c> in the <c>DesiredDeliveryMediums</c> parameter.</para></dd></dl>
+        /// to <c>true</c>, or if you set <c>SMS</c> in the <c>DesiredDeliveryMediums</c> parameter.</para></dd></dl><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -245,7 +257,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// you collect from your users but don't need to retain.</para><para>Your Lambda function can analyze this additional data and act on it. Your function
         /// can automatically confirm and verify select users or perform external API operations
         /// like logging user attributes and validation data to Amazon CloudWatch Logs.</para><para>For more information about the pre sign-up Lambda trigger, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html">Pre
-        /// sign-up Lambda trigger</a>.</para>
+        /// sign-up Lambda trigger</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

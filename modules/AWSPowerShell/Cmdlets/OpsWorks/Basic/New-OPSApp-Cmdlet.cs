@@ -56,7 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>One or more user-defined key/value pairs to be added to the stack attributes.</para>
+        /// <para>One or more user-defined key/value pairs to be added to the stack attributes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter DataSource
         /// <summary>
         /// <para>
-        /// <para>The app's data source.</para>
+        /// <para>The app's data source.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +118,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>The app virtual host settings, with multiple domains separated by commas. For example:
-        /// <c>'www.example.com, example.com'</c></para>
+        /// <c>'www.example.com, example.com'</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +151,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// protected flag values - cannot exceed 20 KB. This limit should accommodate most if
         /// not all use cases. Exceeding it will cause an exception with the message, "Environment:
         /// is too large (maximum is 20KB)."</para><note><para>If you have specified one or more environment variables, you cannot modify the stack's
-        /// Chef version.</para></note>
+        /// Chef version.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

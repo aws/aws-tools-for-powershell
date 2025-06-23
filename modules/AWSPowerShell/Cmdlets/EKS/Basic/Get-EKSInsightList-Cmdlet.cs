@@ -63,7 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>The categories to use to filter insights. The following lists the available categories:</para><ul><li><para><c>UPGRADE_READINESS</c>: Amazon EKS identifies issues that could impact your ability
         /// to upgrade to new versions of Kubernetes. These are called upgrade insights.</para></li><li><para><c>MISCONFIGURATION</c>: Amazon EKS identifies misconfiguration in your EKS Hybrid
         /// Nodes setup that could impair functionality of your cluster or workloads. These are
-        /// called configuration insights.</para></li></ul>
+        /// called configuration insights.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +95,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Filter_KubernetesVersion
         /// <summary>
         /// <para>
-        /// <para>The Kubernetes versions to use to filter the insights.</para>
+        /// <para>The Kubernetes versions to use to filter the insights.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Filter_Status
         /// <summary>
         /// <para>
-        /// <para>The statuses to use to filter the insights. </para>
+        /// <para>The statuses to use to filter the insights. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

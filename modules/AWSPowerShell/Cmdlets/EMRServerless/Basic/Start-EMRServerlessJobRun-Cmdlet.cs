@@ -47,7 +47,11 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         #region Parameter ConfigurationOverrides_ApplicationConfiguration
         /// <summary>
         /// <para>
-        /// <para>The override configurations for the application.</para>
+        /// <para>The override configurations for the application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,7 +146,11 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         #region Parameter SparkSubmit_EntryPointArgument
         /// <summary>
         /// <para>
-        /// <para>The arguments for the Spark submit job run.</para>
+        /// <para>The arguments for the Spark submit job run.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -222,7 +230,11 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         /// <a href="https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/logging.html#jobs-log-storage-cw">Logging
         /// for EMR Serverless with CloudWatch</a>.</para><ul><li><para><b>Key Valid Values</b>: <c>SPARK_DRIVER</c>, <c>SPARK_EXECUTOR</c>, <c>HIVE_DRIVER</c>,
         /// <c>TEZ_TASK</c></para></li><li><para><b>Array Members Valid Values</b>: <c>STDOUT</c>, <c>STDERR</c>, <c>HIVE_LOG</c>,
-        /// <c>TEZ_AM</c>, <c>SYSTEM_LOGS</c></para></li></ul>
+        /// <c>TEZ_AM</c>, <c>SYSTEM_LOGS</c></para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -309,7 +321,11 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         #region Parameter ExecutionIamPolicy_PolicyArn
         /// <summary>
         /// <para>
-        /// <para>A list of Amazon Resource Names (ARNs) to use as an execution IAM policy.</para>
+        /// <para>A list of Amazon Resource Names (ARNs) to use as an execution IAM policy.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -354,7 +370,11 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags assigned to the job run.</para>
+        /// <para>The tags assigned to the job run.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

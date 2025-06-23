@@ -190,7 +190,11 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <para> A list of key-value pairs. The keys are package versions and the values are package
         /// version revisions. A <c>CopyPackageVersion</c> operation succeeds if the specified
         /// versions in the source repository match the specified package version revision. </para><note><para> You must specify <c>versions</c> or <c>versionRevisions</c>. You cannot specify both.
-        /// </para></note>
+        /// </para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,7 +206,11 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <summary>
         /// <para>
         /// <para> The versions of the package to be copied. </para><note><para> You must specify <c>versions</c> or <c>versionRevisions</c>. You cannot specify both.
-        /// </para></note>
+        /// </para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

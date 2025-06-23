@@ -59,7 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// to see the list of all checks, including those that are currently enabled.</para><para>Some data collection might start immediately when certain checks are enabled. When
         /// a check is disabled, any data collected so far in relation to the check is deleted.</para><para>You cannot disable a check if it's used by any scheduled audit. You must first delete
         /// the check from the scheduled audit or delete the scheduled audit itself.</para><para>On the first call to <c>UpdateAccountAuditConfiguration</c>, this parameter is required
-        /// and must specify at least one enabled check.</para>
+        /// and must specify at least one enabled check.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +74,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter AuditNotificationTargetConfiguration
         /// <summary>
         /// <para>
-        /// <para>Information about the targets to which audit notifications are sent.</para>
+        /// <para>Information about the targets to which audit notifications are sent.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

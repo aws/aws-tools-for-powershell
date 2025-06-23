@@ -88,7 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <para>
         /// <para>Specify the browser extensions allowed for your Amazon Q web experience.</para><ul><li><para><c>CHROME</c> — Enables the extension for Chromium-based browsers (Google Chrome,
         /// Microsoft Edge, Opera, etc.).</para></li><li><para><c>FIREFOX</c> — Enables the extension for Mozilla Firefox.</para></li><li><para><c>CHROME</c> and <c>FIREFOX</c> — Enable the extension for Chromium-based browsers
-        /// and Mozilla Firefox.</para></li></ul>
+        /// and Mozilla Firefox.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +148,11 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// web experience. The <i>domain origin</i> refers to the <i>base URL</i> for accessing
         /// a website including the protocol (<c>http/https</c>), the domain name, and the port
         /// number (if specified).</para><note><ul><li><para>Any values except <c>null</c> submitted as part of this update will replace all previous
-        /// values.</para></li><li><para>You must only submit a <i>base URL</i> and not a full path. For example, <c>https://docs.aws.amazon.com</c>.</para></li></ul></note>
+        /// values.</para></li><li><para>You must only submit a <i>base URL</i> and not a full path. For example, <c>https://docs.aws.amazon.com</c>.</para></li></ul></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -82,7 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         /// and <c>TERMINATED</c>.</para></li><li><para><c>BeforeEndTime</c> – A date used to filter agreements with a date before the <c>endTime</c>
         /// of an agreement.</para></li><li><para><c>AfterEndTime</c> – A date used to filter agreements with a date after the <c>endTime</c>
         /// of an agreement.</para></li><li><para><c>AgreementType</c> – The type of agreement. Values include <c>PurchaseAgreement</c>
-        /// or <c>VendorInsightsAgreement</c>.</para></li></ul>
+        /// or <c>VendorInsightsAgreement</c>.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

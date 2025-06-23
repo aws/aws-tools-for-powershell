@@ -60,7 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.MES
         /// <para>Filter is used to return entitlements for a specific customer or for a specific dimension.
         /// Filters are described as keys mapped to a lists of values. Filtered requests are <i>unioned</i>
         /// for each value in the value list, and then <i>intersected</i> for each filter key.</para><para><c>CustomerIdentifier</c> and <c>CustomerAWSAccountID</c> are mutually exclusive.
-        /// You can't specify both in the same request. </para>
+        /// You can't specify both in the same request. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -76,7 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>Groupings of columns that work together in certain Amazon QuickSight features. Currently,
-        /// only geospatial hierarchy is supported.</para>
+        /// only geospatial hierarchy is supported.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +91,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ColumnLevelPermissionRule
         /// <summary>
         /// <para>
-        /// <para>A set of one or more definitions of a <c><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a></c>.</para>
+        /// <para>A set of one or more definitions of a <c><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a></c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DatasetParameter
         /// <summary>
         /// <para>
-        /// <para>The parameter declarations of the dataset.</para>
+        /// <para>The parameter declarations of the dataset.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,7 +161,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter FieldFolder
         /// <summary>
         /// <para>
-        /// <para>The folder that contains fields and nested subfolders for your dataset.</para>
+        /// <para>The folder that contains fields and nested subfolders for your dataset.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,7 +176,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter FolderArn
         /// <summary>
         /// <para>
-        /// <para>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</para>
+        /// <para>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,7 +223,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter LogicalTableMap
         /// <summary>
         /// <para>
-        /// <para>Configures the combination and transformation of the data from the physical tables.</para>
+        /// <para>Configures the combination and transformation of the data from the physical tables.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -252,7 +276,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Permission
         /// <summary>
         /// <para>
-        /// <para>A list of resource permissions on the dataset.</para>
+        /// <para>A list of resource permissions on the dataset.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -263,7 +291,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter PhysicalTableMap
         /// <summary>
         /// <para>
-        /// <para>Declares the physical tables that are available in the underlying data sources.</para>
+        /// <para>Declares the physical tables that are available in the underlying data sources.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -307,7 +339,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>A list of tag configuration rules to apply to a dataset. All tag configurations have
         /// the OR condition. Tags within each tile will be joined (AND). At least one rule in
         /// this structure must have all tag values assigned to it to apply Row-level security
-        /// (RLS) to the dataset.</para>
+        /// (RLS) to the dataset.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -319,7 +355,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>A set of rules associated with row-level security, such as the tag names and columns
-        /// that they are assigned to.</para>
+        /// that they are assigned to.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -331,7 +371,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-        /// dataset.</para>
+        /// dataset.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -342,7 +386,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter PerformanceConfiguration_UniqueKey
         /// <summary>
         /// <para>
-        /// <para>A <c>UniqueKey</c> configuration.</para>
+        /// <para>A <c>UniqueKey</c> configuration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

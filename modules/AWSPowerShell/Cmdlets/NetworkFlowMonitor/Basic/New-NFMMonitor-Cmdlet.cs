@@ -56,7 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.NFM
         /// is the host where the agent is installed. For example, if a workload consists of an
         /// interaction between a web service and a backend database (for example, Amazon Relational
         /// Database Service (RDS)), the EC2 instance hosting the web service, which also runs
-        /// the agent, is the local resource.</para>
+        /// the agent, is the local resource.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,7 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.NFM
         /// <para>
         /// <para>The remote resources to monitor. A remote resource is the other endpoint in the bi-directional
         /// flow of a workload, with a local resource. For example, Amazon Relational Database
-        /// Service (RDS) can be a remote resource.</para>
+        /// Service (RDS) can be a remote resource.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.NFM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags for a monitor. You can add a maximum of 200 tags.</para>
+        /// <para>The tags for a monitor. You can add a maximum of 200 tags.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

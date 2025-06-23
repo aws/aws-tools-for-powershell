@@ -73,7 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         /// <summary>
         /// <para>
         /// <para>The header matches. Matches incoming requests with rule based on request header value
-        /// before applying rule action.</para>
+        /// before applying rule action.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,7 +191,11 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags for the rule.</para>
+        /// <para>The tags for the rule.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,7 +211,11 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         /// and selection of each target group. This means that requests are distributed to individual
         /// target groups based on their weights. For example, if two target groups have the same
         /// weight, each target group receives half of the traffic.</para><para>The default value is 1. This means that if only one target group is provided, there
-        /// is no need to set the weight; 100% of the traffic goes to that target group.</para>
+        /// is no need to set the weight; 100% of the traffic goes to that target group.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

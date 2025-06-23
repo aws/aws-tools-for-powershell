@@ -77,7 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// characters, for example, -, :, #, etc. into tokens. Then each token is exact-match
         /// compared with the <c>Value</c> member of <c>PropertyPredicate</c>. For example, if
         /// <c>Key=Name</c> and <c>Value=link</c>, tables named <c>customer-link</c> and <c>xx-link-yy</c>
-        /// are returned, but <c>xxlinkyy</c> is not returned.</para>
+        /// are returned, but <c>xxlinkyy</c> is not returned.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +128,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>A list of criteria for sorting the results by a field name, in an ascending or descending
-        /// order.</para>
+        /// order.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

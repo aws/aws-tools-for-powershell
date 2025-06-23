@@ -85,7 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>If you specify this parameter, the stream sends metrics from all metric namespaces
-        /// except for the namespaces that you specify here.</para><para>You cannot include <c>ExcludeFilters</c> and <c>IncludeFilters</c> in the same operation.</para>
+        /// except for the namespaces that you specify here.</para><para>You cannot include <c>ExcludeFilters</c> and <c>IncludeFilters</c> in the same operation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +120,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>If you specify this parameter, the stream sends only the metrics from the metric namespaces
-        /// that you specify here.</para><para>You cannot include <c>IncludeFilters</c> and <c>ExcludeFilters</c> in the same operation.</para>
+        /// that you specify here.</para><para>You cannot include <c>IncludeFilters</c> and <c>ExcludeFilters</c> in the same operation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,7 +215,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
         /// CloudWatch statistics definitions</a>. If the <c>OutputFormat</c> is <c>opentelemetry1.0</c>
         /// or <c>opentelemetry0.7</c>, you can stream percentile statistics such as p95, p99.9,
-        /// and so on.</para>
+        /// and so on.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -225,7 +237,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// are using this operation to update an existing metric stream, any tags you specify
         /// in this parameter are ignored. To change the tags of an existing metric stream, use
         /// <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html">TagResource</a>
-        /// or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html">UntagResource</a>.</para>
+        /// or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html">UntagResource</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -93,7 +93,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter IncludeOnlyStatus
         /// <summary>
         /// <para>
-        /// <para>A subset of deployments to list by status:</para><ul><li><para><c>Created</c>: Include created deployments in the resulting list.</para></li><li><para><c>Queued</c>: Include queued deployments in the resulting list.</para></li><li><para><c>In Progress</c>: Include in-progress deployments in the resulting list.</para></li><li><para><c>Succeeded</c>: Include successful deployments in the resulting list.</para></li><li><para><c>Failed</c>: Include failed deployments in the resulting list.</para></li><li><para><c>Stopped</c>: Include stopped deployments in the resulting list.</para></li></ul>
+        /// <para>A subset of deployments to list by status:</para><ul><li><para><c>Created</c>: Include created deployments in the resulting list.</para></li><li><para><c>Queued</c>: Include queued deployments in the resulting list.</para></li><li><para><c>In Progress</c>: Include in-progress deployments in the resulting list.</para></li><li><para><c>Succeeded</c>: Include successful deployments in the resulting list.</para></li><li><para><c>Failed</c>: Include failed deployments in the resulting list.</para></li><li><para><c>Stopped</c>: Include stopped deployments in the resulting list.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

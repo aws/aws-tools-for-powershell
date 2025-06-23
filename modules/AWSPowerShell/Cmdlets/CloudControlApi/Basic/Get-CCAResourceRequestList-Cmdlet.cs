@@ -55,7 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.CCA
         #region Parameter ResourceRequestStatusFilter_Operation
         /// <summary>
         /// <para>
-        /// <para>The operation types to include in the filter.</para>
+        /// <para>The operation types to include in the filter.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +70,11 @@ namespace Amazon.PowerShell.Cmdlets.CCA
         #region Parameter ResourceRequestStatusFilter_OperationStatus
         /// <summary>
         /// <para>
-        /// <para>The operation statuses to include in the filter.</para><ul><li><para><c>PENDING</c>: The operation has been requested, but not yet initiated.</para></li><li><para><c>IN_PROGRESS</c>: The operation is in progress.</para></li><li><para><c>SUCCESS</c>: The operation completed.</para></li><li><para><c>FAILED</c>: The operation failed.</para></li><li><para><c>CANCEL_IN_PROGRESS</c>: The operation is in the process of being canceled.</para></li><li><para><c>CANCEL_COMPLETE</c>: The operation has been canceled.</para></li></ul>
+        /// <para>The operation statuses to include in the filter.</para><ul><li><para><c>PENDING</c>: The operation has been requested, but not yet initiated.</para></li><li><para><c>IN_PROGRESS</c>: The operation is in progress.</para></li><li><para><c>SUCCESS</c>: The operation completed.</para></li><li><para><c>FAILED</c>: The operation failed.</para></li><li><para><c>CANCEL_IN_PROGRESS</c>: The operation is in the process of being canceled.</para></li><li><para><c>CANCEL_COMPLETE</c>: The operation has been canceled.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

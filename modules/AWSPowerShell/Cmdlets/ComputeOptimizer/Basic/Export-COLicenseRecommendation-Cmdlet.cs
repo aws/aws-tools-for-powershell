@@ -60,7 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <para>The IDs of the Amazon Web Services accounts for which to export license recommendations.</para><para>If your account is the management account of an organization, use this parameter to
         /// specify the member account for which you want to export recommendations.</para><para>This parameter can't be specified together with the include member accounts parameter.
         /// The parameters are mutually exclusive.</para><para>If this parameter is omitted, recommendations for member accounts aren't included
-        /// in the export.</para><para>You can specify multiple account IDs per request.</para>
+        /// in the export.</para><para>You can specify multiple account IDs per request.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <para>
         /// <para>The recommendations data to include in the export file. For more information about
         /// the fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported
-        /// files</a> in the <i>Compute Optimizer User Guide</i>.</para>
+        /// files</a> in the <i>Compute Optimizer User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <summary>
         /// <para>
         /// <para> An array of objects to specify a filter that exports a more specific set of license
-        /// recommendations. </para>
+        /// recommendations. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

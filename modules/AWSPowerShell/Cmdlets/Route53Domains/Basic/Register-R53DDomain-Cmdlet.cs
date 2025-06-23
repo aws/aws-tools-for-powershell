@@ -405,7 +405,11 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter AdminContact_ExtraParam
         /// <summary>
         /// <para>
-        /// <para>A list of name-value pairs for parameters required by certain top-level domains.</para>
+        /// <para>A list of name-value pairs for parameters required by certain top-level domains.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -416,7 +420,11 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter BillingContact_ExtraParam
         /// <summary>
         /// <para>
-        /// <para>A list of name-value pairs for parameters required by certain top-level domains.</para>
+        /// <para>A list of name-value pairs for parameters required by certain top-level domains.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -427,7 +435,11 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter RegistrantContact_ExtraParam
         /// <summary>
         /// <para>
-        /// <para>A list of name-value pairs for parameters required by certain top-level domains.</para>
+        /// <para>A list of name-value pairs for parameters required by certain top-level domains.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -438,7 +450,11 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter TechContact_ExtraParam
         /// <summary>
         /// <para>
-        /// <para>A list of name-value pairs for parameters required by certain top-level domains.</para>
+        /// <para>A list of name-value pairs for parameters required by certain top-level domains.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

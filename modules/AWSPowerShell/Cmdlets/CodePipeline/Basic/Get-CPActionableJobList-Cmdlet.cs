@@ -131,7 +131,11 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <para>A map of property names and values. For an action type with no queryable properties,
         /// this value must be null or an empty map. For an action type with a queryable property,
         /// you must supply that property as a key in the map. Only jobs whose action configuration
-        /// matches the mapped value are returned.</para>
+        /// matches the mapped value are returned.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

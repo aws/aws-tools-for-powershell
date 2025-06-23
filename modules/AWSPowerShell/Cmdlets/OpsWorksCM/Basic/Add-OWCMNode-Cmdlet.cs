@@ -72,7 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <para>Engine attributes used for associating the node. </para><para><b>Attributes accepted in a AssociateNode request for Chef</b></para><ul><li><para><c>CHEF_ORGANIZATION</c>: The Chef organization with which the node is associated.
         /// By default only one organization named <c>default</c> can exist. </para></li><li><para><c>CHEF_NODE_PUBLIC_KEY</c>: A PEM-formatted public key. This key is required for
         /// the <c>chef-client</c> agent to access the Chef API. </para></li></ul><para><b>Attributes accepted in a AssociateNode request for Puppet</b></para><ul><li><para><c>PUPPET_NODE_CSR</c>: A PEM-formatted certificate-signing request (CSR) that is
-        /// created by the node. </para></li></ul>
+        /// created by the node. </para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

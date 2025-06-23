@@ -73,7 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// only includes information about the DB instances identified by these DB instance resource
         /// identifiers.</para></li><li><para><c>domain</c> - Accepts Active Directory directory IDs. The results list only includes
         /// information about the DB instances associated with these domains.</para></li><li><para><c>engine</c> - Accepts engine names. The results list only includes information
-        /// about the DB instances for these engines.</para></li></ul>
+        /// about the DB instances for these engines.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

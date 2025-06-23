@@ -112,7 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// health check when you created the service.</para></dd><dt>Custom attributes</dt><dd><para>You can add up to 30 custom attributes. For each key-value pair, the maximum length
         /// of the attribute name is 255 characters, and the maximum length of the attribute value
         /// is 1,024 characters. The total size of all provided attributes (sum of all keys and
-        /// values) must not exceed 5,000 characters.</para></dd></dl>
+        /// values) must not exceed 5,000 characters.</para></dd></dl><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

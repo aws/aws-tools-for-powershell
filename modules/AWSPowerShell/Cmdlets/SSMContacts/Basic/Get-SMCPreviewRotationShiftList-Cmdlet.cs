@@ -53,7 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         #region Parameter Recurrence_DailySetting
         /// <summary>
         /// <para>
-        /// <para>Information about on-call rotations that recur daily.</para>
+        /// <para>Information about on-call rotations that recur daily.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +84,11 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         #region Parameter Member
         /// <summary>
         /// <para>
-        /// <para>The contacts that would be assigned to a rotation.</para>
+        /// <para>The contacts that would be assigned to a rotation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,7 +106,11 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         #region Parameter Recurrence_MonthlySetting
         /// <summary>
         /// <para>
-        /// <para>Information about on-call rotations that recur monthly.</para>
+        /// <para>Information about on-call rotations that recur monthly.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,7 +140,11 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         #region Parameter Override
         /// <summary>
         /// <para>
-        /// <para>Information about changes that would be made in a rotation override.</para>
+        /// <para>Information about changes that would be made in a rotation override.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,7 +182,11 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         #region Parameter Recurrence_ShiftCoverage
         /// <summary>
         /// <para>
-        /// <para>Information about the days of the week included in on-call rotation coverage.</para>
+        /// <para>Information about the days of the week included in on-call rotation coverage.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,7 +227,11 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         #region Parameter Recurrence_WeeklySetting
         /// <summary>
         /// <para>
-        /// <para>Information about on-call rotations that recur weekly.</para>
+        /// <para>Information about on-call rotations that recur weekly.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

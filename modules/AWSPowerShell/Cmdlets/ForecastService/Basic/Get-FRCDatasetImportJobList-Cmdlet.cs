@@ -60,7 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// To include the datasets that match the statement, specify <c>IS</c>. To exclude matching
         /// datasets, specify <c>IS_NOT</c>.</para></li><li><para><c>Key</c> - The name of the parameter to filter on. Valid values are <c>DatasetArn</c>
         /// and <c>Status</c>.</para></li><li><para><c>Value</c> - The value to match.</para></li></ul><para>For example, to list all dataset import jobs whose status is ACTIVE, you specify the
-        /// following filter:</para><para><c>"Filters": [ { "Condition": "IS", "Key": "Status", "Value": "ACTIVE" } ]</c></para>
+        /// following filter:</para><para><c>"Filters": [ { "Condition": "IS", "Key": "Status", "Value": "ACTIVE" } ]</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

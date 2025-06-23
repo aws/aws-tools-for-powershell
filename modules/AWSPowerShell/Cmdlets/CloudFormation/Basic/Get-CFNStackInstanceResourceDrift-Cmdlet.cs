@@ -124,7 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>The resource drift status of the stack instance. </para><ul><li><para><c>DELETED</c>: The resource differs from its expected template configuration in
         /// that the resource has been deleted.</para></li><li><para><c>MODIFIED</c>: One or more resource properties differ from their expected template
         /// values.</para></li><li><para><c>IN_SYNC</c>: The resource's actual configuration matches its expected template
-        /// configuration.</para></li><li><para><c>NOT_CHECKED</c>: CloudFormation doesn't currently return this value.</para></li></ul>
+        /// configuration.</para></li><li><para><c>NOT_CHECKED</c>: CloudFormation doesn't currently return this value.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

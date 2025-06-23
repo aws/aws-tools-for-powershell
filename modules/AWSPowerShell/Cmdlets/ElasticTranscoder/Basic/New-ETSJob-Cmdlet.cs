@@ -57,7 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para>The file to be used as album art. There can be multiple artworks associated with an
-        /// audio file, to a maximum of 20. Valid formats are <c>.jpg</c> and <c>.png</c></para>
+        /// audio file, to a maximum of 20. Valid formats are <c>.jpg</c> and <c>.png</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para>The array of file formats for the output captions. If you leave this value blank,
-        /// Elastic Transcoder returns an error.</para>
+        /// Elastic Transcoder returns an error.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +102,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para>Source files for the input sidecar captions used during the transcoding process. To
-        /// omit all sidecar captions, leave <c>CaptionSources</c> blank.</para>
+        /// omit all sidecar captions, leave <c>CaptionSources</c> blank.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -235,7 +247,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para>A section of the request body that provides information about the files that are being
-        /// transcoded.</para>
+        /// transcoded.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -482,7 +498,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <para>
         /// <para> A section of the request body that provides information about the transcoded (target)
         /// files. We recommend that you use the <c>Outputs</c> syntax instead of the <c>Output</c>
-        /// syntax. </para>
+        /// syntax. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -515,7 +535,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <para>
         /// <para>If you specify a preset in <c>PresetId</c> for which the value of <c>Container</c>
         /// is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information about the
-        /// master playlists that you want Elastic Transcoder to create.</para><para>The maximum number of master playlists in a job is 30.</para>
+        /// master playlists that you want Elastic Transcoder to create.</para><para>The maximum number of master playlists in a job is 30.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -623,7 +647,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <para>User-defined metadata that you want to associate with an Elastic Transcoder job. You
         /// specify metadata in <c>key/value</c> pairs, and you can add up to 10 <c>key/value</c>
         /// pairs per job. Elastic Transcoder does not guarantee that <c>key/value</c> pairs are
-        /// returned in the same order in which you specify them.</para>
+        /// returned in the same order in which you specify them.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -635,7 +663,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <para>
         /// <para>Information about the watermarks that you want Elastic Transcoder to add to the video
         /// during transcoding. You can specify up to four watermarks for each output. Settings
-        /// for each watermark must be defined in the preset for the current output.</para>
+        /// for each watermark must be defined in the preset for the current output.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -658,7 +690,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para>Source files for the input sidecar captions used during the transcoding process. To
-        /// omit all sidecar captions, leave <c>CaptionSources</c> blank.</para>
+        /// omit all sidecar captions, leave <c>CaptionSources</c> blank.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -675,7 +711,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// called a clip, can come from the beginning, middle, or end of the file. The Composition
         /// object contains settings for the clips that make up an output file. For the current
         /// release, you can only specify settings for a single clip per output file. The Composition
-        /// object cannot be null.</para>
+        /// object cannot be null.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

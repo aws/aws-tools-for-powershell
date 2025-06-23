@@ -113,7 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>An array of records that describe the anonymous users that the dashboard snapshot
-        /// is generated for.</para>
+        /// is generated for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,7 +163,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Parameters_DateTimeParameter
         /// <summary>
         /// <para>
-        /// <para>The parameters that have a data type of date-time.</para>
+        /// <para>The parameters that have a data type of date-time.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +178,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Parameters_DecimalParameter
         /// <summary>
         /// <para>
-        /// <para>The parameters that have a data type of decimal.</para>
+        /// <para>The parameters that have a data type of decimal.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,7 +195,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>A list of <c>SnapshotJobResultFileGroup</c> objects that contain information about
         /// the snapshot that is generated. This list can hold a maximum of 6 <c>FileGroup</c>
-        /// configurations.</para>
+        /// configurations.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -201,7 +217,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Parameters_IntegerParameter
         /// <summary>
         /// <para>
-        /// <para>The parameters that have a data type of integer.</para>
+        /// <para>The parameters that have a data type of integer.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,7 +234,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para> A list of <c>SnapshotS3DestinationConfiguration</c> objects that contain Amazon S3
         /// destination configurations. This structure can hold a maximum of 1 <c>S3DestinationConfiguration</c>.
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -245,7 +269,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Parameters_StringParameter
         /// <summary>
         /// <para>
-        /// <para>The parameters that have a data type of string.</para>
+        /// <para>The parameters that have a data type of string.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

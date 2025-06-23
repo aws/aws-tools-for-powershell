@@ -48,7 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Each element in the array is a structure containing a key-value pair.</para><para>Supported keys for <c>DescribePatchBaselines</c> include the following:</para><ul><li><para><b><c>NAME_PREFIX</c></b></para><para>Sample values: <c>AWS-</c> | <c>My-</c></para></li><li><para><b><c>OWNER</c></b></para><para>Sample values: <c>AWS</c> | <c>Self</c></para></li><li><para><b><c>OPERATING_SYSTEM</c></b></para><para>Sample values: <c>AMAZON_LINUX</c> | <c>SUSE</c> | <c>WINDOWS</c></para></li></ul>
+        /// <para>Each element in the array is a structure containing a key-value pair.</para><para>Supported keys for <c>DescribePatchBaselines</c> include the following:</para><ul><li><para><b><c>NAME_PREFIX</c></b></para><para>Sample values: <c>AWS-</c> | <c>My-</c></para></li><li><para><b><c>OWNER</c></b></para><para>Sample values: <c>AWS</c> | <c>Self</c></para></li><li><para><b><c>OPERATING_SYSTEM</c></b></para><para>Sample values: <c>AMAZON_LINUX</c> | <c>SUSE</c> | <c>WINDOWS</c></para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

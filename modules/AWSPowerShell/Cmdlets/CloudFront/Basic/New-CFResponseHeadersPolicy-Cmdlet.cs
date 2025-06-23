@@ -165,7 +165,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter AccessControlAllowHeaders_Item
         /// <summary>
         /// <para>
-        /// <para>The list of HTTP header names. You can specify <c>*</c> to allow all headers.</para>
+        /// <para>The list of HTTP header names. You can specify <c>*</c> to allow all headers.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,7 +180,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter AccessControlAllowMethods_Item
         /// <summary>
         /// <para>
-        /// <para>The list of HTTP methods. Valid values are:</para><ul><li><para><c>GET</c></para></li><li><para><c>DELETE</c></para></li><li><para><c>HEAD</c></para></li><li><para><c>OPTIONS</c></para></li><li><para><c>PATCH</c></para></li><li><para><c>POST</c></para></li><li><para><c>PUT</c></para></li><li><para><c>ALL</c></para></li></ul><para><c>ALL</c> is a special value that includes all of the listed HTTP methods.</para>
+        /// <para>The list of HTTP methods. Valid values are:</para><ul><li><para><c>GET</c></para></li><li><para><c>DELETE</c></para></li><li><para><c>HEAD</c></para></li><li><para><c>OPTIONS</c></para></li><li><para><c>PATCH</c></para></li><li><para><c>POST</c></para></li><li><para><c>PUT</c></para></li><li><para><c>ALL</c></para></li></ul><para><c>ALL</c> is a special value that includes all of the listed HTTP methods.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,7 +195,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter AccessControlAllowOrigins_Item
         /// <summary>
         /// <para>
-        /// <para>The list of origins (domain names). You can specify <c>*</c> to allow all origins.</para>
+        /// <para>The list of origins (domain names). You can specify <c>*</c> to allow all origins.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,7 +210,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter AccessControlExposeHeaders_Item
         /// <summary>
         /// <para>
-        /// <para>The list of HTTP headers. You can specify <c>*</c> to expose all headers.</para>
+        /// <para>The list of HTTP headers. You can specify <c>*</c> to expose all headers.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -209,7 +225,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter CustomHeadersConfig_Item
         /// <summary>
         /// <para>
-        /// <para>The list of HTTP response headers and their values.</para>
+        /// <para>The list of HTTP response headers and their values.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -220,7 +240,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter RemoveHeadersConfig_Item
         /// <summary>
         /// <para>
-        /// <para>The list of HTTP header names.</para>
+        /// <para>The list of HTTP header names.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -69,7 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// to view any of the canaries, the request fails with a 403 response.</para><para>You are required to use the <c>Names</c> parameter if you are logged on to a user
         /// or role that has an IAM policy that restricts which canaries that you are allowed
         /// to view. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html">
-        /// Limiting a user to viewing specific canaries</a>.</para>
+        /// Limiting a user to viewing specific canaries</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

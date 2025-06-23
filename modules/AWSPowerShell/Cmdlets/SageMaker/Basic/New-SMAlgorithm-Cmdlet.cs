@@ -99,7 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter InferenceSpecification_Container
         /// <summary>
         /// <para>
-        /// <para>The Amazon ECR registry path of the Docker image that contains the inference code.</para>
+        /// <para>The Amazon ECR registry path of the Docker image that contains the inference code.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A list of <c>MetricDefinition</c> objects, which are used for parsing metrics generated
-        /// by the algorithm.</para>
+        /// by the algorithm.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,7 +166,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter InferenceSpecification_SupportedContentType
         /// <summary>
         /// <para>
-        /// <para>The supported MIME types for the input data.</para>
+        /// <para>The supported MIME types for the input data.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +182,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A list of the <c>HyperParameterSpecification</c> objects, that define the supported
-        /// hyperparameters. This is required if the algorithm supports automatic model tuning.&gt;</para>
+        /// hyperparameters. This is required if the algorithm supports automatic model tuning.&gt;</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,7 +197,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter InferenceSpecification_SupportedRealtimeInferenceInstanceType
         /// <summary>
         /// <para>
-        /// <para>A list of the instance types that are used to generate inferences in real-time.</para><para>This parameter is required for unversioned models, and optional for versioned models.</para>
+        /// <para>A list of the instance types that are used to generate inferences in real-time.</para><para>This parameter is required for unversioned models, and optional for versioned models.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,7 +212,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter InferenceSpecification_SupportedResponseMIMEType
         /// <summary>
         /// <para>
-        /// <para>The supported MIME types for the output data.</para>
+        /// <para>The supported MIME types for the output data.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,7 +227,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TrainingSpecification_SupportedTrainingInstanceType
         /// <summary>
         /// <para>
-        /// <para>A list of the instance types that this algorithm can use for training.</para>
+        /// <para>A list of the instance types that this algorithm can use for training.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -222,7 +250,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A list of the instance types on which a transformation job can be run or on which
-        /// an endpoint can be deployed.</para><para>This parameter is required for unversioned models, and optional for versioned models.</para>
+        /// an endpoint can be deployed.</para><para>This parameter is required for unversioned models, and optional for versioned models.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -234,7 +266,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A list of the metrics that the algorithm emits that can be used as the objective metric
-        /// in a hyperparameter tuning job.</para>
+        /// in a hyperparameter tuning job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -259,7 +295,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
         /// resources in different ways, for example, by purpose, owner, or environment. For more
         /// information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// Amazon Web Services Resources</a>.</para>
+        /// Amazon Web Services Resources</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -271,7 +311,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A list of <c>ChannelSpecification</c> objects, which specify the input sources to
-        /// be used by the algorithm.</para>
+        /// be used by the algorithm.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -317,7 +361,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>An array of <c>AlgorithmValidationProfile</c> objects, each of which specifies a training
-        /// job and batch transform job that SageMaker runs to validate your algorithm.</para>
+        /// job and batch transform job that SageMaker runs to validate your algorithm.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

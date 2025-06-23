@@ -218,7 +218,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         /// operation, you must have both of the following permissions:</para><para><c>tag:TagResources</c></para><para><c>ChimeSDKMeetings:CreateTags</c></para><note><para>Some services might have specific requirements for tagging some resources. For example,
         /// to tag an Amazon S3 bucket, you must also have the <c>s3:GetBucketTagging</c> permission.
         /// If the expected minimum permissions don't work, check the documentation for that service's
-        /// tagging APIs for more information.</para></note>
+        /// tagging APIs for more information.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -230,7 +234,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         /// <summary>
         /// <para>
         /// <para>A consistent and opaque identifier, created and maintained by the builder to represent
-        /// a segment of their users.</para>
+        /// a segment of their users.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

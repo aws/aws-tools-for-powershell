@@ -68,7 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// end with a slash (/).</para></li><li><para>The name segment is required and must be 63 characters or less. It can include alphanumeric
         /// characters ([a-z0-9A-Z]), dashes (-), underscores (_), and dots (.), but must begin
         /// and end with an alphanumeric character.</para></li></ul><note><para>Annotation values must be 255 characters or less.</para></note><para>Annotations can be added or modified at any time. Each resource can have multiple
-        /// annotations. </para>
+        /// annotations. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The command to send to the container that overrides the default command from the Docker
-        /// image or the job definition.</para><note><para>This parameter can't contain an empty string.</para></note>
+        /// image or the job definition.</para><note><para>This parameter can't contain an empty string.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +111,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ConsumableResourcePropertiesOverride_ConsumableResourceList
         /// <summary>
         /// <para>
-        /// <para>The list of consumable resources required by a job.</para>
+        /// <para>The list of consumable resources required by a job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter PodProperties_Container
         /// <summary>
         /// <para>
-        /// <para>The overrides for the container that's used on the Amazon EKS pod.</para>
+        /// <para>The overrides for the container that's used on the Amazon EKS pod.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// jobs so that each child array job completes sequentially, starting at index 0. You
         /// can also specify an <c>N_TO_N</c> type dependency with a job ID for array jobs. In
         /// that case, each index child of this job must wait for the corresponding index child
-        /// of each dependency to complete before it can begin.</para>
+        /// of each dependency to complete before it can begin.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,7 +162,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>The environment variables to send to the container. You can add new environment variables,
         /// which are added to the container at launch, or you can override the existing environment
         /// variables from the Docker image or the job definition.</para><note><para>Environment variables cannot start with "<c>AWS_BATCH</c>". This naming convention
-        /// is reserved for variables that Batch sets.</para></note>
+        /// is reserved for variables that Batch sets.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,7 +178,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>Array of up to 5 objects that specify the conditions where jobs are retried or failed.
         /// If this parameter is specified, then the <c>attempts</c> parameter must also be specified.
-        /// If none of the listed conditions match, then the job is retried.</para>
+        /// If none of the listed conditions match, then the job is retried.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +197,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// before the next container starts. These containers are registered with the Amazon
         /// EKS Connector agent and persists the registration information in the Kubernetes backend
         /// data store. For more information, see <a href="https://kubernetes.io/docs/concepts/workloads/pods/init-containers/">Init
-        /// Containers</a> in the <i>Kubernetes documentation</i>.</para>
+        /// Containers</a> in the <i>Kubernetes documentation</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -250,7 +282,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>Key-value pairs used to identify, sort, and organize cube resources. Can contain up
         /// to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores
         /// (_). Labels can be added or modified at any time. Each resource can have multiple
-        /// labels, but each key must be unique for a given object.</para>
+        /// labels, but each key must be unique for a given object.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -281,7 +317,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter NodeOverrides_NodePropertyOverride
         /// <summary>
         /// <para>
-        /// <para>The node property overrides for the job.</para>
+        /// <para>The node property overrides for the job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -311,7 +351,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>Additional parameters passed to the job that replace parameter substitution placeholders
         /// that are set in the job definition. Parameters are specified as a key and value pair
         /// mapping. Parameters in a <c>SubmitJob</c> request override any corresponding parameter
-        /// defaults from the job definition.</para>
+        /// defaults from the job definition.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -340,7 +384,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The type and amount of resources to assign to a container. This overrides the settings
         /// in the job definition. The supported resources include <c>GPU</c>, <c>MEMORY</c>,
-        /// and <c>VCPU</c>.</para>
+        /// and <c>VCPU</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -390,7 +438,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>The tags that you apply to the job request to help you categorize and organize your
         /// resources. Each tag consists of a key and an optional value. For more information,
         /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// Amazon Web Services Resources</a> in <i>Amazon Web Services General Reference</i>.</para>
+        /// Amazon Web Services Resources</a> in <i>Amazon Web Services General Reference</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -401,7 +453,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter EcsPropertiesOverride_TaskProperty
         /// <summary>
         /// <para>
-        /// <para>The overrides for the Amazon ECS task definition of a job.</para><note><para>This object is currently limited to one element.</para></note>
+        /// <para>The overrides for the Amazon ECS task definition of a job.</para><note><para>This object is currently limited to one element.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

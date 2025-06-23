@@ -187,7 +187,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// attributes (in addition to the default list) - by using <c>["DEFAULT", "FACE_OCCLUDED"]</c>
         /// or just <c>["FACE_OCCLUDED"]</c>. You can request for all facial attributes by using
         /// <c>["ALL"]</c>. Requesting more attributes may increase response time.</para><para>If you provide both, <c>["ALL", "DEFAULT"]</c>, the service uses a logical AND operator
-        /// to determine which attributes to return (in this case, all attributes). </para>
+        /// to determine which attributes to return (in this case, all attributes). </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -68,7 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The IDs of the resources, separated by spaces.</para><para>Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller
-        /// batches.</para>
+        /// batches.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,7 +95,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// regardless of its value. If you specify a tag key with an empty string as the tag
         /// value, we delete the tag only if its value is an empty string.</para><para>If you omit this parameter, we delete all user-defined tags for the specified resources.
         /// We do not delete Amazon Web Services-generated tags (tags that have the <c>aws:</c>
-        /// prefix).</para><para>Constraints: Up to 1000 tags.</para>
+        /// prefix).</para><para>Constraints: Up to 1000 tags.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

@@ -91,7 +91,11 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Resources_Ec2AmiResource
         /// <summary>
         /// <para>
-        /// <para>The Amazon Machine Images (AMIs) associated with this job.</para>
+        /// <para>The Amazon Machine Images (AMIs) associated with this job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,7 +199,11 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Notification_JobStatesToNotify
         /// <summary>
         /// <para>
-        /// <para>The list of job states that will trigger a notification for this job.</para>
+        /// <para>The list of job states that will trigger a notification for this job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -216,7 +224,11 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Resources_LambdaResource
         /// <summary>
         /// <para>
-        /// <para>The Python-language Lambda functions for this job.</para>
+        /// <para>The Python-language Lambda functions for this job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -269,7 +281,11 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Resources_S3Resource
         /// <summary>
         /// <para>
-        /// <para>An array of <c>S3Resource</c> objects.</para>
+        /// <para>An array of <c>S3Resource</c> objects.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

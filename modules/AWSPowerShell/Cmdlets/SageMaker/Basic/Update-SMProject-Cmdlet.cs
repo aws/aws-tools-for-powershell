@@ -92,7 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ServiceCatalogProvisioningUpdateDetails_ProvisioningParameter
         /// <summary>
         /// <para>
-        /// <para>A list of key value pairs that you specify when you provision a product.</para>
+        /// <para>A list of key value pairs that you specify when you provision a product.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
         /// Amazon Web Services Resources</a>. In addition, the project must have tag update constraints
         /// set in order to include this parameter in the request. For more information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/constraints-resourceupdate.html">Amazon
-        /// Web Services Service Catalog Tag Update Constraints</a>.</para>
+        /// Web Services Service Catalog Tag Update Constraints</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TemplateProvidersToUpdate
         /// <summary>
         /// <para>
-        /// <para> The template providers to update in the project. </para>
+        /// <para> The template providers to update in the project. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -272,7 +272,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// include <c>yuv420p</c> and <c>yuv422p</c>.</para><para><c>yuv420p</c> samples the chroma information of every other horizontal and every
         /// other vertical line, <c>yuv422p</c> samples the color information of every horizontal
         /// line and every other vertical line.</para><para><b>LoopCount (Gif Only)</b></para><para>The number of times you want the output gif to loop. Valid values include <c>Infinite</c>
-        /// and integers between <c>0</c> and <c>100</c>, inclusive.</para>
+        /// and integers between <c>0</c> and <c>100</c>, inclusive.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -634,7 +638,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// is not rectangular, use the .png format, which supports transparency.</para><para>When you create a job that uses this preset, you specify the .png or .jpg graphics
         /// that you want Elastic Transcoder to include in the transcoded videos. You can specify
         /// fewer graphics in the job than you specify watermark settings in the preset, which
-        /// allows you to use the same preset for up to four watermarks that have different dimensions.</para>
+        /// allows you to use the same preset for up to four watermarks that have different dimensions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

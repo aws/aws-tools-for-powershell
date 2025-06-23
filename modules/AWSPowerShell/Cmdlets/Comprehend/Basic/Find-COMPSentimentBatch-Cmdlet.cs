@@ -67,7 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para>A list containing the UTF-8 encoded text of the input documents. The list can contain
-        /// a maximum of 25 documents. The maximum size of each document is 5 KB. </para>
+        /// a maximum of 25 documents. The maximum size of each document is 5 KB. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

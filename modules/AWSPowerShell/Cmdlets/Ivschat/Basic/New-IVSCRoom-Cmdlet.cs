@@ -63,7 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
         #region Parameter LoggingConfigurationIdentifier
         /// <summary>
         /// <para>
-        /// <para>Array of logging-configuration identifiers attached to the room.</para>
+        /// <para>Array of logging-configuration identifiers attached to the room.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +115,11 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
         /// See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best
         /// practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i>
         /// for details, including restrictions that apply to tags and "Tag naming limits and
-        /// requirements"; Amazon IVS Chat has no constraints beyond what is documented there.</para>
+        /// requirements"; Amazon IVS Chat has no constraints beyond what is documented there.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

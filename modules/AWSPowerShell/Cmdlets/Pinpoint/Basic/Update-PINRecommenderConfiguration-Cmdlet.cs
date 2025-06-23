@@ -60,7 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// names are case sensitive and must be unique.</para></li><li><para>An attribute display name must start with a letter or number and it can contain up
         /// to 25 characters. The characters can be letters, numbers, spaces, underscores (_),
         /// or hyphens (-).</para></li></ul><para>This object is required if the configuration invokes an AWS Lambda function (RecommendationTransformerUri)
-        /// to process recommendation data. Otherwise, don't include this object in your request.</para>
+        /// to process recommendation data. Otherwise, don't include this object in your request.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

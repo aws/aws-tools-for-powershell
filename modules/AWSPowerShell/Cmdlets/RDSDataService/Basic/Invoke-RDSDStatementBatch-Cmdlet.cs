@@ -80,7 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
         /// <para>
         /// <para>The parameter set for the batch operation.</para><para>The SQL statement is executed as many times as the number of parameter sets provided.
         /// To execute a SQL statement with no parameters, use one of the following options:</para><ul><li><para>Specify one or more empty parameter sets.</para></li><li><para>Use the <c>ExecuteStatement</c> operation instead of the <c>BatchExecuteStatement</c>
-        /// operation.</para></li></ul><note><para>Array parameters are not supported.</para></note>
+        /// operation.</para></li></ul><note><para>Array parameters are not supported.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -71,7 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The filters.</para><ul><li><para><c>connection-notification-arn</c> - The ARN of the SNS topic for the notification.</para></li><li><para><c>connection-notification-id</c> - The ID of the notification.</para></li><li><para><c>connection-notification-state</c> - The state of the notification (<c>Enabled</c>
-        /// | <c>Disabled</c>).</para></li><li><para><c>connection-notification-type</c> - The type of notification (<c>Topic</c>).</para></li><li><para><c>service-id</c> - The ID of the endpoint service.</para></li><li><para><c>vpc-endpoint-id</c> - The ID of the VPC endpoint.</para></li></ul>
+        /// | <c>Disabled</c>).</para></li><li><para><c>connection-notification-type</c> - The type of notification (<c>Topic</c>).</para></li><li><para><c>service-id</c> - The ID of the endpoint service.</para></li><li><para><c>vpc-endpoint-id</c> - The ID of the VPC endpoint.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

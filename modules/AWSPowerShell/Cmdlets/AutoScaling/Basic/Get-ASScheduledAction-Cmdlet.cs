@@ -79,7 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The names of one or more scheduled actions. If you omit this property, all scheduled
         /// actions are described. If you specify an unknown scheduled action, it is ignored with
-        /// no error.</para><para>Array Members: Maximum number of 50 actions.</para>
+        /// no error.</para><para>Array Members: Maximum number of 50 actions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

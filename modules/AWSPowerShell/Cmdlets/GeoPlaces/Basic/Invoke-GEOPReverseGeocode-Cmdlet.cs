@@ -53,7 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// <summary>
         /// <para>
         /// <para>A list of optional additional parameters, such as time zone that can be requested
-        /// for each result.</para>
+        /// for each result.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter Filter_IncludePlaceType
         /// <summary>
         /// <para>
-        /// <para>The included place types.</para>
+        /// <para>The included place types.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +134,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// <para>
         /// <para>The position, in <c>[lng, lat]</c> for which you are querying nearby results for.
         /// Results closer to the position will be ranked higher then results further away from
-        /// the position</para>
+        /// the position</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

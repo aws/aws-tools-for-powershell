@@ -128,7 +128,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <para>The key-value pairs that define parameters for the connection.</para><para>JDBC connections use the following connection properties:</para><ul><li><para>Required: All of (<c>HOST</c>, <c>PORT</c>, <c>JDBC_ENGINE</c>) or <c>JDBC_CONNECTION_URL</c>.</para></li><li><para>Required: All of (<c>USERNAME</c>, <c>PASSWORD</c>) or <c>SECRET_ID</c>.</para></li><li><para>Optional: <c>JDBC_ENFORCE_SSL</c>, <c>CUSTOM_JDBC_CERT</c>, <c>CUSTOM_JDBC_CERT_STRING</c>,
         /// <c>SKIP_CUSTOM_JDBC_CERT_VALIDATION</c>. These parameters are used to configure SSL
         /// with JDBC.</para></li></ul><para>SALESFORCE connections require the <c>AuthenticationConfiguration</c> member to be
-        /// configured.</para>
+        /// configured.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,7 +155,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter AuthenticationConfiguration_CustomAuthenticationCredential
         /// <summary>
         /// <para>
-        /// <para>The credentials used when the authentication type is custom authentication.</para>
+        /// <para>The credentials used when the authentication type is custom authentication.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -256,7 +264,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter OAuth2Properties_TokenUrlParametersMap
         /// <summary>
         /// <para>
-        /// <para>A map of parameters that are added to the token <c>GET</c> request.</para>
+        /// <para>A map of parameters that are added to the token <c>GET</c> request.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

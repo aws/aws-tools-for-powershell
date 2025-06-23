@@ -75,7 +75,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// to true.</para></li><li><para><c>allow_reboot</c> - Specifies whether to allow OpsWorks Stacks to reboot the instances
         /// if necessary, after installing the updates. This argument can be set to either <c>true</c>
         /// or <c>false</c>. The default value is <c>false</c>.</para></li></ul><para>For example, to upgrade an instance to Amazon Linux 2018.03, set <c>Args</c> to the
-        /// following.</para><para><c> { "upgrade_os_to":["Amazon Linux 2018.03"], "allow_reboot":["true"] } </c></para>
+        /// following.</para><para><c> { "upgrade_os_to":["Amazon Linux 2018.03"], "allow_reboot":["true"] } </c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +114,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The instance IDs for the deployment targets.</para>
+        /// <para>The instance IDs for the deployment targets.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -121,7 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter LayerId
         /// <summary>
         /// <para>
-        /// <para>The layer IDs for the deployment targets.</para>
+        /// <para>The layer IDs for the deployment targets.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

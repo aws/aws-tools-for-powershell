@@ -148,7 +148,11 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         /// <c>RuleId</c>, and <c>Type</c>. <c>ActivatedRule|OverrideAction</c> applies only when
         /// updating or adding a <c>RuleGroup</c> to a <c>WebACL</c>. In this case, you do not
         /// use <c>ActivatedRule|Action</c>. For all other update requests, <c>ActivatedRule|Action</c>
-        /// is used instead of <c>ActivatedRule|OverrideAction</c>. </para></li><li><para><a>WafAction</a>: Contains <c>Type</c></para></li></ul>
+        /// is used instead of <c>ActivatedRule|OverrideAction</c>. </para></li><li><para><a>WafAction</a>: Contains <c>Type</c></para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -95,7 +95,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// VPC)</c> | <c>Windows (Amazon VPC)</c>).</para></li><li><para><c>spot-price</c> - The Spot price. The value must match exactly (or use wildcards;
         /// greater than or less than comparison is not supported).</para></li><li><para><c>timestamp</c> - The time stamp of the Spot price history, in UTC format (for example,
         /// <i>ddd MMM dd HH</i>:<i>mm</i>:<i>ss</i> UTC <i>YYYY</i>). You can use wildcards (<c>*</c>
-        /// and <c>?</c>). Greater than or less than comparison is not supported.</para></li></ul>
+        /// and <c>?</c>). Greater than or less than comparison is not supported.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>Filters the results by the specified instance types.</para>
+        /// <para>Filters the results by the specified instance types.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ProductDescription
         /// <summary>
         /// <para>
-        /// <para>Filters the results by the specified basic product descriptions.</para>
+        /// <para>Filters the results by the specified basic product descriptions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

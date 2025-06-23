@@ -90,7 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// identity.</para><para>The Logins parameter is required when using identities associated with external identity
         /// providers such as Facebook. For examples of <c>Logins</c> maps, see the code examples
         /// in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/external-identity-providers.html">External
-        /// Identity Providers</a> section of the Amazon Cognito Developer Guide.</para>
+        /// Identity Providers</a> section of the Amazon Cognito Developer Guide.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

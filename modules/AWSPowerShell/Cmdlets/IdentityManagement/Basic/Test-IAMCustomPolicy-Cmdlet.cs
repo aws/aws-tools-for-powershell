@@ -79,7 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>A list of names of API operations to evaluate in the simulation. Each operation is
         /// evaluated against each resource. Each operation must include the service identifier,
         /// such as <c>iam:CreateUser</c>. This operation does not support using wildcards (*)
-        /// in an action name.</para>
+        /// in an action name.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -112,7 +116,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>A list of context keys and corresponding values for the simulation to use. Whenever
         /// a context key is evaluated in one of the simulated IAM permissions policies, the corresponding
-        /// value is supplied.</para>
+        /// value is supplied.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +144,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<c>\u0020</c>) through
         /// the end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
         /// <c>\u00FF</c>)</para></li><li><para>The special characters tab (<c>\u0009</c>), line feed (<c>\u000A</c>), and carriage
-        /// return (<c>\u000D</c>)</para></li></ul>
+        /// return (<c>\u000D</c>)</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,7 +172,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<c>\u0020</c>) through
         /// the end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
         /// <c>\u00FF</c>)</para></li><li><para>The special characters tab (<c>\u0009</c>), line feed (<c>\u000A</c>), and carriage
-        /// return (<c>\u000D</c>)</para></li></ul>
+        /// return (<c>\u000D</c>)</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -186,7 +202,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// If you want to include a resource policy in the simulation, then you must include
         /// the policy as a string in the <c>ResourcePolicy</c> parameter.</para><para>If you include a <c>ResourcePolicy</c>, then it must be applicable to all of the resources
         /// included in the simulation or you receive an invalid input error.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</para><note><para>Simulation of resource-based policies isn't supported for IAM roles.</para></note>
+        /// Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</para><note><para>Simulation of resource-based policies isn't supported for IAM roles.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -61,7 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more filters. The possible values are:</para><ul><li><para><c>resource-id</c> - The ID of the resource.</para></li><li><para><c>resource-type</c> - The type of resource. The valid value is: <c>vpc</c>.</para></li><li><para><c>state</c> - The state of the subnet association. Valid values are <c>associated</c>
-        /// | <c>associating</c> | <c>disassociated</c> | <c>disassociating</c>.</para></li><li><para><c>subnet-id</c> - The ID of the subnet.</para></li><li><para><c>transit-gateway-attachment-id</c> - The id of the transit gateway attachment.</para></li></ul>
+        /// | <c>associating</c> | <c>disassociated</c> | <c>disassociating</c>.</para></li><li><para><c>subnet-id</c> - The ID of the subnet.</para></li><li><para><c>transit-gateway-attachment-id</c> - The id of the transit gateway attachment.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

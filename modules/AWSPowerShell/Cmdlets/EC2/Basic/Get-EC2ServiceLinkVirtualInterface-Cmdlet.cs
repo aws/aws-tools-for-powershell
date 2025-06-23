@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? DryRun { get; set; }
         #endregion
         
@@ -61,7 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The filters to use for narrowing down the request. The following filters are supported:</para><ul><li><para><c>outpost-lag-id</c> - The ID of the Outpost LAG.</para></li><li><para><c>outpost-arn</c> - The Outpost ARN.</para></li><li><para><c>owner-id</c> - The ID of the Amazon Web Services account that owns the service
-        /// link virtual interface.</para></li><li><para><c>state</c> - The state of the Outpost LAG.</para></li><li><para><c>vlan</c> - The ID of the address pool.</para></li><li><para><c>service-link-virtual-interface-id</c> - The ID of the service link virtual interface.</para></li><li><para><c>local-gateway-virtual-interface-id</c> - The ID of the local gateway virtual interface.</para></li></ul>
+        /// link virtual interface.</para></li><li><para><c>state</c> - The state of the Outpost LAG.</para></li><li><para><c>vlan</c> - The ID of the address pool.</para></li><li><para><c>service-link-virtual-interface-id</c> - The ID of the service link virtual interface.</para></li><li><para><c>local-gateway-virtual-interface-id</c> - The ID of the local gateway virtual interface.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ServiceLinkVirtualInterfaceId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the service link virtual interfaces.</para>
+        /// <para>The IDs of the service link virtual interfaces.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

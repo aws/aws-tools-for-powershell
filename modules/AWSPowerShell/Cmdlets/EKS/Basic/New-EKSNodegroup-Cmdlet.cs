@@ -211,7 +211,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// is used, by default. If you specify <c>Spot</c> for <c>capacityType</c>, then we recommend
         /// specifying multiple values for <c>instanceTypes</c>. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types">Managed
         /// node group capacity types</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing
-        /// managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</para>
+        /// managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,7 +227,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The Kubernetes <c>labels</c> to apply to the nodes in the node group when they are
-        /// created.</para>
+        /// created.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -357,7 +365,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// the port is 3389. If you specify an Amazon EC2 SSH key but don't specify a source
         /// security group when you create a managed node group, then the port on the nodes is
         /// opened to the internet (<c>0.0.0.0/0</c>). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security
-        /// Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</para>
+        /// Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -371,7 +383,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>The subnets to use for the Auto Scaling group that is created for your node group.
         /// If you specify <c>launchTemplate</c>, then don't specify <c><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">SubnetId</a></c> in your launch template, or the node group deployment will fail. For more information
         /// about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing
-        /// managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</para>
+        /// managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -391,7 +407,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>
         /// <para>Metadata that assists with categorization and organization. Each tag consists of a
         /// key and an optional value. You define both. Tags don't propagate to any other cluster
-        /// or Amazon Web Services resources.</para>
+        /// or Amazon Web Services resources.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -404,7 +424,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>
         /// <para>The Kubernetes taints to be applied to the nodes in the node group. For more information,
         /// see <a href="https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html">Node
-        /// taints on managed node groups</a>.</para>
+        /// taints on managed node groups</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

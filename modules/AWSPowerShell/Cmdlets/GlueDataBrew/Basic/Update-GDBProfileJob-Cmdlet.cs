@@ -50,7 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// <para>
         /// <para>Configuration of statistics that are allowed to be run on columns that contain detected
         /// entities. When undefined, no statistics will be computed on columns that contain detected
-        /// entities.</para>
+        /// entities.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +95,11 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// <para>List of configurations for column evaluations. ColumnStatisticsConfigurations are
         /// used to select evaluations and override parameters of evaluations for particular columns.
         /// When ColumnStatisticsConfigurations is undefined, the profile job will profile all
-        /// supported columns and run all supported evaluations. </para>
+        /// supported columns and run all supported evaluations. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +132,11 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// <summary>
         /// <para>
         /// <para>Entity types to detect. Can be any of the following:</para><ul><li><para>USA_SSN</para></li><li><para>EMAIL</para></li><li><para>USA_ITIN</para></li><li><para>USA_PASSPORT_NUMBER</para></li><li><para>PHONE_NUMBER</para></li><li><para>USA_DRIVING_LICENSE</para></li><li><para>BANK_ACCOUNT</para></li><li><para>CREDIT_CARD</para></li><li><para>IP_ADDRESS</para></li><li><para>MAC_ADDRESS</para></li><li><para>USA_DEA_NUMBER</para></li><li><para>USA_HCPCS_CODE</para></li><li><para>USA_NATIONAL_PROVIDER_IDENTIFIER</para></li><li><para>USA_NATIONAL_DRUG_CODE</para></li><li><para>USA_HEALTH_INSURANCE_CLAIM_NUMBER</para></li><li><para>USA_MEDICARE_BENEFICIARY_IDENTIFIER</para></li><li><para>USA_CPT_CODE</para></li><li><para>PERSON_NAME</para></li><li><para>DATE</para></li></ul><para>The Entity type group USA_ALL is also supported, and includes all of the above entity
-        /// types except PERSON_NAME and DATE.</para>
+        /// types except PERSON_NAME and DATE.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +148,11 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// <summary>
         /// <para>
         /// <para>List of included evaluations. When the list is undefined, all supported evaluations
-        /// will be included.</para>
+        /// will be included.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -220,7 +236,11 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter DatasetStatisticsConfiguration_Override
         /// <summary>
         /// <para>
-        /// <para>List of overrides for evaluations.</para>
+        /// <para>List of overrides for evaluations.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -233,7 +253,11 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// <para>
         /// <para>List of column selectors. ProfileColumns can be used to select columns from the dataset.
         /// When ProfileColumns is undefined, the profile job will profile all supported columns.
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -284,7 +308,11 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter ValidationConfiguration
         /// <summary>
         /// <para>
-        /// <para>List of validation configurations that are applied to the profile job.</para>
+        /// <para>List of validation configurations that are applied to the profile job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

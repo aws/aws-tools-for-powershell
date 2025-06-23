@@ -49,7 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <para>
         /// <para>A list of domains to use in the update operation.</para><important><para>There is a limit of 1000 domains per request.</para></important><para>Each domain specification in your domain list must satisfy the following requirements:
         /// </para><ul><li><para>It can optionally start with <c>*</c> (asterisk).</para></li><li><para>With the exception of the optional starting asterisk, it must only contain the following
-        /// characters: <c>A-Z</c>, <c>a-z</c>, <c>0-9</c>, <c>-</c> (hyphen).</para></li><li><para>It must be from 1-255 characters in length. </para></li></ul>
+        /// characters: <c>A-Z</c>, <c>a-z</c>, <c>0-9</c>, <c>-</c> (hyphen).</para></li><li><para>It must be from 1-255 characters in length. </para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

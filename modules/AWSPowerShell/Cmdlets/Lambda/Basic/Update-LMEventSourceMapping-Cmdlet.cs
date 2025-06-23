@@ -22,9 +22,11 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Lambda;
 using Amazon.Lambda.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
@@ -80,12 +82,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_AccessConfigs
         /// <summary>
         /// <para>
         /// <para>An array of access configuration objects that tell Lambda how to authenticate with
-        /// your schema registry.</para>
+        /// your schema registry.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>An array of access configuration objects that tell Lambda how to authenticate with
-        /// your schema registry.</para>
+        /// your schema registry.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -250,7 +261,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FilterCriteria_Filter
         /// <summary>
         /// <para>
-        /// <para> A list of filters. </para>
+        /// <para> A list of filters. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -287,7 +302,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>(Kinesis, DynamoDB Streams, and Amazon SQS) A list of current response type enums
-        /// applied to the event source mapping.</para>
+        /// applied to the event source mapping.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -380,7 +399,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <para> The metrics you want your event source mapping to produce. Include <c>EventCount</c>
         /// to receive event source mapping metrics related to the number of events processed
         /// by your event source mapping. For more information about these metrics, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">
-        /// Event source mapping metrics</a>. </para>
+        /// Event source mapping metrics</a>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -437,7 +460,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>An array of schema validation configuration objects, which tell Lambda the message
-        /// attributes you want to validate and filter using your schema registry.</para>
+        /// attributes you want to validate and filter using your schema registry.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -448,7 +475,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>An array of schema validation configuration objects, which tell Lambda the message
-        /// attributes you want to validate and filter using your schema registry.</para>
+        /// attributes you want to validate and filter using your schema registry.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -460,7 +491,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>An array of authentication protocols or VPC components required to secure your event
-        /// source.</para>
+        /// source.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -509,16 +544,6 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public string Select { get; set; } = "*";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the FunctionName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^FunctionName' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FunctionName' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -529,9 +554,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FunctionName), MyInvocation.BoundParameters);
@@ -545,21 +574,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.Lambda.Model.UpdateEventSourceMappingResponse, UpdateLMEventSourceMappingCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.FunctionName;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AmazonManagedKafkaEventSourceConfig_ConsumerGroupId = this.AmazonManagedKafkaEventSourceConfig_ConsumerGroupId;
             if (this.AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_AccessConfigs != null)
             {
@@ -1061,13 +1080,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda", "UpdateEventSourceMapping");
             try
             {
-                #if DESKTOP
-                return client.UpdateEventSourceMapping(request);
-                #elif CORECLR
-                return client.UpdateEventSourceMappingAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.UpdateEventSourceMappingAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

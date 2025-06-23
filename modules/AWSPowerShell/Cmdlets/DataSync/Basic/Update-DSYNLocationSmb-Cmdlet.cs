@@ -56,7 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies the DataSync agent (or agents) that can connect to your SMB file server.
-        /// You specify an agent by using its Amazon Resource Name (ARN).</para>
+        /// You specify an agent by using its Amazon Resource Name (ARN).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>
         /// <para>Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs
         /// to. This parameter applies only if <c>AuthenticationType</c> is set to <c>KERBEROS</c>.</para><para>If you have multiple domains in your environment, configuring this parameter makes
-        /// sure that DataSync connects to the right SMB file server. </para>
+        /// sure that DataSync connects to the right SMB file server. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -96,7 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// about the DB engine versions for these engine modes. Valid DB engine modes are the
         /// following:</para><ul><li><para><c>global</c></para></li><li><para><c>multimaster</c></para></li><li><para><c>parallelquery</c></para></li><li><para><c>provisioned</c></para></li><li><para><c>serverless</c></para></li></ul></li><li><para><c>engine-version</c> - Accepts engine versions. The results list only includes information
         /// about the DB engine versions for these engine versions.</para></li><li><para><c>status</c> - Accepts engine version statuses. The results list only includes information
-        /// about the DB engine versions for these statuses. Valid statuses are the following:</para><ul><li><para><c>available</c></para></li><li><para><c>deprecated</c></para></li></ul></li></ul>
+        /// about the DB engine versions for these statuses. Valid statuses are the following:</para><ul><li><para><c>available</c></para></li><li><para><c>deprecated</c></para></li></ul></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

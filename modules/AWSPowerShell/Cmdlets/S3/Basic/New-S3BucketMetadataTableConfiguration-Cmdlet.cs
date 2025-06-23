@@ -64,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The general purpose bucket that you want to create the metadata table configuration in.
+        /// <para> The general purpose bucket that you want to create the metadata table configuration
+        /// in. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -74,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ChecksumAlgorithm
         /// <summary>
         /// <para>
-        /// The checksum algorithm to use with your metadata table configuration.
+        /// <para> The checksum algorithm to use with your metadata table configuration. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ContentMD5
         /// <summary>
         /// <para>
-        /// The <c>Content-MD5</c> header for the metadata table configuration.
+        /// <para> The <c>Content-MD5</c> header for the metadata table configuration. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The expected owner of the general purpose bucket that contains your metadata table configuration.
+        /// <para> The expected owner of the general purpose bucket that contains your metadata table
+        /// configuration. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,12 +107,19 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter S3TablesDestination_TableBucketArn
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) for the table bucket that's specified as the 
-        /// destination in the metadata table configuration. The destination table bucket
-        /// must be in the same Region and Amazon Web Services account as the general purpose bucket.
+        /// <para> The Amazon Resource Name (ARN) for the table bucket that's specified as the destination
+        /// in the metadata table configuration. The destination table bucket must be in the same
+        /// Region and Amazon Web Services account as the general purpose bucket. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("MetadataTableConfiguration_S3TablesDestination_TableBucketArn")]
         public System.String S3TablesDestination_TableBucketArn { get; set; }
         #endregion
@@ -118,12 +127,19 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter S3TablesDestination_TableName
         /// <summary>
         /// <para>
-        /// The name for the metadata table in your metadata table configuration.The specified metadata
-        /// table name must be unique within the <c>aws_s3_metadata</c> namespace in the destination 
-        /// table bucket.
+        /// <para> The name for the metadata table in your metadata table configuration. The specified
+        /// metadata table name must be unique within the <c>aws_s3_metadata</c> namespace in
+        /// the destination table bucket. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("MetadataTableConfiguration_S3TablesDestination_TableName")]
         public System.String S3TablesDestination_TableName { get; set; }
         #endregion
@@ -176,9 +192,21 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.BucketName = this.BucketName;
             context.ChecksumAlgorithm = this.ChecksumAlgorithm;
             context.ContentMD5 = this.ContentMD5;
-            context.S3TablesDestination_TableBucketArn = this.S3TablesDestination_TableBucketArn;
-            context.S3TablesDestination_TableName = this.S3TablesDestination_TableName;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
+            context.S3TablesDestination_TableBucketArn = this.S3TablesDestination_TableBucketArn;
+            #if MODULAR
+            if (this.S3TablesDestination_TableBucketArn == null && ParameterWasBound(nameof(this.S3TablesDestination_TableBucketArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter S3TablesDestination_TableBucketArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.S3TablesDestination_TableName = this.S3TablesDestination_TableName;
+            #if MODULAR
+            if (this.S3TablesDestination_TableName == null && ParameterWasBound(nameof(this.S3TablesDestination_TableName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter S3TablesDestination_TableName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -206,6 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ContentMD5 != null)
             {
                 request.ContentMD5 = cmdletContext.ContentMD5;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
              // populate MetadataTableConfiguration
@@ -250,10 +282,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestMetadataTableConfigurationIsNull)
             {
                 request.MetadataTableConfiguration = null;
-            }
-            if (cmdletContext.ExpectedBucketOwner != null)
-            {
-                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -313,9 +341,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String BucketName { get; set; }
             public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public System.String ContentMD5 { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.String S3TablesDestination_TableBucketArn { get; set; }
             public System.String S3TablesDestination_TableName { get; set; }
-            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.CreateBucketMetadataTableConfigurationResponse, NewS3BucketMetadataTableConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

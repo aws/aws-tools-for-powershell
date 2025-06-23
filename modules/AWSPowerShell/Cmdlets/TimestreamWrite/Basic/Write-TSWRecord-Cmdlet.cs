@@ -107,7 +107,11 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         #region Parameter CommonAttributes_Dimension
         /// <summary>
         /// <para>
-        /// <para>Contains the list of dimensions for time-series data points.</para>
+        /// <para>Contains the list of dimensions for time-series data points.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,7 +144,11 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         /// <summary>
         /// <para>
         /// <para> Contains the list of MeasureValue for time-series data points. </para><para> This is only allowed for type <c>MULTI</c>. For scalar values, use <c>MeasureValue</c>
-        /// attribute of the record directly. </para>
+        /// attribute of the record directly. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,7 +172,11 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         /// <summary>
         /// <para>
         /// <para>An array of records that contain the unique measure, dimension, time, and version
-        /// attributes for each time-series data point. </para>
+        /// attributes for each time-series data point. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

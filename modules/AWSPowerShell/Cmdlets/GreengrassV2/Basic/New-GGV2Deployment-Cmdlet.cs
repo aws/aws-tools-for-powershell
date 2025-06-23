@@ -95,7 +95,11 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <summary>
         /// <para>
         /// <para>The components to deploy. This is a dictionary, where each key is the name of a component,
-        /// and each key's value is the version and configuration to deploy for that component.</para>
+        /// and each key's value is the version and configuration to deploy for that component.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         #region Parameter AbortConfig_CriteriaList
         /// <summary>
         /// <para>
-        /// <para>The list of criteria that define when and how to cancel the configuration deployment.</para>
+        /// <para>The list of criteria that define when and how to cancel the configuration deployment.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -211,7 +219,11 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <para>
         /// <para>A list of key-value pairs that contain metadata for the resource. For more information,
         /// see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html">Tag
-        /// your resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</para>
+        /// your resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

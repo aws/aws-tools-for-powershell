@@ -60,7 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>The names of the conformance packs whose compliance scores you want to include in
         /// the conformance pack compliance score result set. You can include up to 25 conformance
         /// packs in the <c>ConformancePackNames</c> array of strings, each with a character limit
-        /// of 256 characters for the conformance pack name.</para>
+        /// of 256 characters for the conformance pack name.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -112,7 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.AF
         #region Parameter CustomConnector_CustomProperty
         /// <summary>
         /// <para>
-        /// <para>Custom properties that are required to use the custom connector as a source.</para>
+        /// <para>Custom properties that are required to use the custom connector as a source.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,7 +206,11 @@ namespace Amazon.PowerShell.Cmdlets.AF
         /// <summary>
         /// <para>
         /// <para> The configuration that controls how Amazon AppFlow places data in the destination
-        /// connector. </para>
+        /// connector. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -640,7 +648,11 @@ namespace Amazon.PowerShell.Cmdlets.AF
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> The tags used to organize, track, or control access for your flow. </para>
+        /// <para> The tags used to organize, track, or control access for your flow. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -652,7 +664,11 @@ namespace Amazon.PowerShell.Cmdlets.AF
         /// <summary>
         /// <para>
         /// <para> A list of tasks that Amazon AppFlow performs while transferring the data in the flow
-        /// run. </para>
+        /// run. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

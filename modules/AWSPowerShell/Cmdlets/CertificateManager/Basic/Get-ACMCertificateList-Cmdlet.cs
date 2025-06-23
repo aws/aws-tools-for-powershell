@@ -51,7 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter CertificateStatus
         /// <summary>
         /// <para>
-        /// <para>Filter the certificate list by status value.</para>
+        /// <para>Filter the certificate list by status value.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter Includes_ExtendedKeyUsage
         /// <summary>
         /// <para>
-        /// <para>Specify one or more <a>ExtendedKeyUsage</a> extension values.</para>
+        /// <para>Specify one or more <a>ExtendedKeyUsage</a> extension values.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <para>Specify one or more algorithms that can be used to generate key pairs.</para><para>Default filtering returns only <c>RSA_1024</c> and <c>RSA_2048</c> certificates that
         /// have at least one domain. To return other certificate types, provide the desired type
         /// signatures in a comma-separated list. For example, <c>"keyTypes": ["RSA_2048","RSA_4096"]</c>
-        /// returns both <c>RSA_2048</c> and <c>RSA_4096</c> certificates.</para>
+        /// returns both <c>RSA_2048</c> and <c>RSA_4096</c> certificates.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +109,11 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter Includes_KeyUsage
         /// <summary>
         /// <para>
-        /// <para>Specify one or more <a>KeyUsage</a> extension values.</para>
+        /// <para>Specify one or more <a>KeyUsage</a> extension values.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

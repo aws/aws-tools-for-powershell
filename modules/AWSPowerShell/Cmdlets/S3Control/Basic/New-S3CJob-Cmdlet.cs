@@ -61,7 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectCopy_AccessControlGrant
         /// <summary>
         /// <para>
-        /// <note><para>This functionality is not supported by directory buckets.</para></note>
+        /// <note><para>This functionality is not supported by directory buckets.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -422,7 +426,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>If the specified manifest object is in the <c>S3BatchOperations_CSV_20180820</c> format,
-        /// this element describes which columns contain the required data.</para>
+        /// this element describes which columns contain the required data.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -481,7 +489,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AccessControlList_Grant
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -572,7 +584,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <para>
         /// <para>If provided, the generated manifest includes objects where the specified string appears
         /// at the start of the object key string. Each KeyNameConstraint filter accepts an array
-        /// of strings with a length of 1 string.</para>
+        /// of strings with a length of 1 string.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -584,7 +600,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>If provided, the generated manifest includes only source bucket objects that are stored
-        /// with the specified storage class.</para>
+        /// with the specified storage class.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -597,7 +617,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <para>
         /// <para>If provided, the generated manifest includes objects where the specified string appears
         /// anywhere within the object key string. Each KeyNameConstraint filter accepts an array
-        /// of strings with a length of 1 string.</para>
+        /// of strings with a length of 1 string.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -610,7 +634,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <para>
         /// <para>If provided, the generated manifest includes objects where the specified string appears
         /// at the end of the object key string. Each KeyNameConstraint filter accepts an array
-        /// of strings with a length of 1 string.</para>
+        /// of strings with a length of 1 string.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -662,7 +690,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// to destination objects by default.</para><note><para><b>Directory buckets</b> - Tags aren't supported by directory buckets. If your source
         /// objects have tags and your destination bucket is a directory bucket, specify an empty
         /// tag set in the <c>NewObjectTagging</c> field to prevent copying the source object
-        /// tags to the directory bucket.</para></note>
+        /// tags to the directory bucket.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -724,7 +756,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>If provided, the generated manifest includes only source bucket objects that have
-        /// one of the specified Replication statuses.</para>
+        /// one of the specified Replication statuses.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -991,7 +1027,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>A set of tags to associate with the S3 Batch Operations job. This is an optional parameter.
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1002,7 +1042,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectTagging_TagSet
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1061,7 +1105,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <c>LambdaInvoke</c> operations that include <c>UserArguments</c>. For more information,
         /// see <a href="https://aws.amazon.com/blogs/storage/automate-object-processing-in-amazon-s3-directory-buckets-with-s3-batch-operations-and-aws-lambda/">Automate
         /// object processing in Amazon S3 directory buckets with S3 Batch Operations and Lambda</a>
-        /// in the <i>Amazon Web Services Storage Blog</i>.</para>
+        /// in the <i>Amazon Web Services Storage Blog</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1072,7 +1120,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter NewObjectMetadata_UserMetadata
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

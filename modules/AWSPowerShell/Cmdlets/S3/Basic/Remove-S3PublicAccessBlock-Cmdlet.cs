@@ -59,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 bucket whose Public Access Block configuration you want to delete.</para>
+        /// <para>The Amazon S3 bucket whose <c>PublicAccessBlock</c> configuration you want to delete.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -71,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
         /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <code>403 Forbidden</code> (access denied).</para>
+        /// <c>403 Forbidden</c> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

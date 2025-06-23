@@ -87,7 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><c>availability-zone</c> - The Availability Zone (for example, <c>us-west-2a</c>).</para></li><li><para><c>instance-type</c> - The instance type (for example, <c>c4.large</c>).</para></li><li><para><c>platform</c> - The platform (<c>Linux/UNIX</c> or <c>Windows</c>).</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>availability-zone</c> - The Availability Zone (for example, <c>us-west-2a</c>).</para></li><li><para><c>instance-type</c> - The instance type (for example, <c>c4.large</c>).</para></li><li><para><c>platform</c> - The platform (<c>Linux/UNIX</c> or <c>Windows</c>).</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,7 +168,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The days. For a monthly schedule, this is one or more days of the month (1-31). For
         /// a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday).
         /// You can't specify this value with a daily schedule. If the occurrence is relative
-        /// to the end of the month, you can specify only a single day.</para>
+        /// to the end of the month, you can specify only a single day.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

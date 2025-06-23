@@ -60,7 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter SelectedVideoStreams_AttendeeId
         /// <summary>
         /// <para>
-        /// <para>The attendee IDs of the streams selected for a media pipeline. </para>
+        /// <para>The attendee IDs of the streams selected for a media pipeline. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +173,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter SelectedVideoStreams_ExternalUserId
         /// <summary>
         /// <para>
-        /// <para>The external user IDs of the streams selected for a media pipeline.</para>
+        /// <para>The external user IDs of the streams selected for a media pipeline.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -375,7 +383,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tag key-value pairs.</para>
+        /// <para>The tag key-value pairs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

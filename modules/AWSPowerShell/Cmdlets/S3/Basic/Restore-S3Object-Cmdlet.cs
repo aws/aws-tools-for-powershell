@@ -285,7 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Owner_Id
         /// <summary>
         /// <para>
-        /// The unique identifier of the owner.
+        /// <para>Container for the ID of the owner.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

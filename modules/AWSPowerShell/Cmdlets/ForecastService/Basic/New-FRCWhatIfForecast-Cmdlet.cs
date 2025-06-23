@@ -50,7 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter Schema_Attribute
         /// <summary>
         /// <para>
-        /// <para>An array of attributes specifying the name and type of each field in a dataset.</para>
+        /// <para>An array of attributes specifying the name and type of each field in a dataset.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>A list of <a href="https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html">tags</a>
-        /// to apply to the what if forecast.</para>
+        /// to apply to the what if forecast.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <para>
         /// <para>The transformations that are applied to the baseline time series. Each transformation
         /// contains an action and a set of conditions. An action is applied only when all conditions
-        /// are met. If no conditions are provided, the action is applied to all items.</para>
+        /// are met. If no conditions are provided, the action is applied to all items.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

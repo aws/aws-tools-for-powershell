@@ -75,7 +75,11 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         /// <para>
         /// <para>[Region-level retention rules only] Specifies the exclusion tags to use to identify
         /// resources that are to be excluded, or ignored, by a Region-level retention rule. Resources
-        /// that have any of these tags are not retained by the retention rule upon deletion.</para><para>You can't specify exclusion tags for tag-level retention rules.</para>
+        /// that have any of these tags are not retained by the retention rule upon deletion.</para><para>You can't specify exclusion tags for tag-level retention rules.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         /// being retained by the retention rule.</para><para>You can add the same tag key and value pair to a maximum or five retention rules.</para><para>To create a Region-level retention rule, omit this parameter. A Region-level retention
         /// rule does not have any resource tags specified. It retains all deleted resources of
         /// the specified resource type in the Region in which the rule is created, even if the
-        /// resources are not tagged.</para>
+        /// resources are not tagged.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,7 +167,11 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Information about the tags to assign to the retention rule.</para>
+        /// <para>Information about the tags to assign to the retention rule.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

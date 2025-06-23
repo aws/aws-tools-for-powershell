@@ -146,7 +146,11 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// widgets. </para><para>To add new widgets, pass in an array that includes the existing widgets along with
         /// any new widgets. Run the <c>GetDashboard</c> operation to get the list of widgets
         /// for the dashboard.</para><para>To remove widgets, pass in an array that includes the existing widgets minus the widgets
-        /// you want removed.</para>
+        /// you want removed.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

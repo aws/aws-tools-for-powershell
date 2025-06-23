@@ -179,7 +179,11 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter IamActionDefinition_Group
         /// <summary>
         /// <para>
-        /// <para>A list of groups to be attached. There must be at least one group. </para>
+        /// <para>A list of groups to be attached. There must be at least one group. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,7 +194,11 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter SsmActionDefinition_InstanceId
         /// <summary>
         /// <para>
-        /// <para>The EC2 and RDS instance IDs. </para>
+        /// <para>The EC2 and RDS instance IDs. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -252,7 +260,11 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         /// <summary>
         /// <para>
         /// <para>An optional list of tags to associate with the specified budget action. Each tag consists
-        /// of a key and a value, and each key must be unique for the resource.</para>
+        /// of a key and a value, and each key must be unique for the resource.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -263,7 +275,11 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter IamActionDefinition_Role
         /// <summary>
         /// <para>
-        /// <para>A list of roles to be attached. There must be at least one role. </para>
+        /// <para>A list of roles to be attached. There must be at least one role. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -274,7 +290,11 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter Subscriber
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -292,7 +312,11 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter ScpActionDefinition_TargetId
         /// <summary>
         /// <para>
-        /// <para>A list of target IDs. </para>
+        /// <para>A list of target IDs. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -303,7 +327,11 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter IamActionDefinition_User
         /// <summary>
         /// <para>
-        /// <para>A list of users to be attached. There must be at least one user. </para>
+        /// <para>A list of users to be attached. There must be at least one user. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

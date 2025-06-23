@@ -51,7 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>The filters to apply to the consumable resource list query. If used, only those consumable
         /// resources that match the filter are listed. Filter names and values can be:</para><ul><li><para>name: <c>CONSUMABLE_RESOURCE_NAME </c></para><para>values: case-insensitive matches for the consumable resource name. If a filter value
         /// ends with an asterisk (*), it matches any consumable resource name that begins with
-        /// the string before the '*'.</para></li></ul>
+        /// the string before the '*'.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

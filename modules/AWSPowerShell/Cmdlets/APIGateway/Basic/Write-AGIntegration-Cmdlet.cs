@@ -48,7 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>A list of request parameters whose values API Gateway caches. To be valid values for
-        /// <c>cacheKeyParameters</c>, these parameters must also be specified for Method <c>requestParameters</c>.</para>
+        /// <c>cacheKeyParameters</c>, these parameters must also be specified for Method <c>requestParameters</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,7 +188,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// single quotes and pre-encoded as required by the back end. The method request parameter
         /// value must match the pattern of <c>method.request.{location}.{name}</c>, where <c>location</c>
         /// is <c>querystring</c>, <c>path</c>, or <c>header</c> and <c>name</c> must be a valid
-        /// and unique method request parameter name.</para>
+        /// and unique method request parameter name.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,7 +205,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>
         /// <para>Represents a map of Velocity templates that are applied on the request payload based
         /// on the value of the Content-Type header sent by the client. The content type value
-        /// is the key in this map, and the template (as a String) is the value.</para>
+        /// is the key in this map, and the template (as a String) is the value.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

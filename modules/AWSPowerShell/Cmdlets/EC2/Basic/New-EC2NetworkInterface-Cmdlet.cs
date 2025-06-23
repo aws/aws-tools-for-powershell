@@ -100,7 +100,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Group
         /// <summary>
         /// <para>
-        /// <para>The IDs of the security groups.</para>
+        /// <para>The IDs of the security groups.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
@@ -137,7 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The IPv4 prefixes assigned to the network interface.</para><para>You can't specify IPv4 prefixes if you've specified one of the following: a count
-        /// of IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4 addresses.</para>
+        /// of IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4 addresses.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,7 +171,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The IPv6 addresses from the IPv6 CIDR block range of your subnet.</para><para>You can't specify IPv6 addresses using this parameter if you've specified one of the
-        /// following: a count of IPv6 addresses, specific IPv6 prefixes, or a count of IPv6 prefixes.</para>
+        /// following: a count of IPv6 addresses, specific IPv6 prefixes, or a count of IPv6 prefixes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,7 +199,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The IPv6 prefixes assigned to the network interface.</para><para>You can't specify IPv6 prefixes if you've specified one of the following: a count
-        /// of IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.</para>
+        /// of IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -222,7 +238,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The private IPv4 addresses.</para><para>You can't specify private IPv4 addresses if you've specified one of the following:
-        /// a count of private IPv4 addresses, specific IPv4 prefixes, or a count of IPv4 prefixes.</para>
+        /// a count of private IPv4 addresses, specific IPv4 prefixes, or a count of IPv4 prefixes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -265,7 +285,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
-        /// <para>The tags to apply to the new network interface.</para>
+        /// <para>The tags to apply to the new network interface.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

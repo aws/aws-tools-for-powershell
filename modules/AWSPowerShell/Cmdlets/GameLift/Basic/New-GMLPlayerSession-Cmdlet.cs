@@ -83,7 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>Map of string pairs, each specifying a player ID and a set of developer-defined information
         /// related to the player. Amazon GameLift does not use this data, so it can be formatted
         /// as needed for use in the game. Any player data strings for player IDs that are not
-        /// included in the <c>PlayerIds</c> parameter are ignored. </para>
+        /// included in the <c>PlayerIds</c> parameter are ignored. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PlayerId
         /// <summary>
         /// <para>
-        /// <para>List of unique identifiers for the players to be added.</para>
+        /// <para>List of unique identifiers for the players to be added.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -22,9 +22,11 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.ControlCatalog;
 using Amazon.ControlCatalog.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.CLCAT
 {
     /// <summary>
@@ -43,12 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Filter_CommonControlArn
         /// <summary>
         /// <para>
         /// <para>A list of common control ARNs to filter the mappings. When specified, only mappings
-        /// associated with these common controls are returned.</para>
+        /// associated with these common controls are returned.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,7 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
         /// <summary>
         /// <para>
         /// <para>A list of control ARNs to filter the mappings. When specified, only mappings associated
-        /// with these controls are returned.</para>
+        /// with these controls are returned.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
         /// <summary>
         /// <para>
         /// <para>A list of mapping types to filter the mappings. When specified, only mappings of these
-        /// types are returned.</para>
+        /// types are returned.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,10 +100,15 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
         /// <para>
         /// <para>The maximum number of results on a page or for an API request call.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -126,9 +146,13 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();
@@ -154,6 +178,15 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
                 context.Filter_MappingType = new List<System.String>(this.Filter_MappingType);
             }
             context.MaxResult = this.MaxResult;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
+            {
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
+                    " to the service to specify how many items should be returned by each service call.");
+            }
+            #endif
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -214,7 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
+                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
             
             // Initialize loop variant and commence piping
@@ -278,13 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Control Catalog", "ListControlMappings");
             try
             {
-                #if DESKTOP
-                return client.ListControlMappings(request);
-                #elif CORECLR
-                return client.ListControlMappingsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListControlMappingsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -304,7 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
             public List<System.String> Filter_CommonControlArn { get; set; }
             public List<System.String> Filter_ControlArn { get; set; }
             public List<System.String> Filter_MappingType { get; set; }
-            public System.Int32? MaxResult { get; set; }
+            public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.ControlCatalog.Model.ListControlMappingsResponse, GetCLCATControlMappingListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ControlMappings;

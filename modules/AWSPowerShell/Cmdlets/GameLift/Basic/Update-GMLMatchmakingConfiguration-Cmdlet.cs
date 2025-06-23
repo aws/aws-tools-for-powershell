@@ -147,7 +147,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A set of key-value pairs that can store custom data in a game session. For example:
         /// <c>{"Key": "difficulty", "Value": "novice"}</c>. This information is added to the
         /// new <c>GameSession</c> object that is created for a successful match. This parameter
-        /// is not used if <c>FlexMatchMode</c> is set to <c>STANDALONE</c>.</para>
+        /// is not used if <c>FlexMatchMode</c> is set to <c>STANDALONE</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,7 +182,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// it. ARNs are unique across all Regions. Format is <c>arn:aws:gamelift:&lt;region&gt;::gamesessionqueue/&lt;queue
         /// name&gt;</c>. Queues can be located in any Region. Queues are used to start new Amazon
         /// GameLift-hosted game sessions for matches that are created with this matchmaking configuration.
-        /// If <c>FlexMatchMode</c> is set to <c>STANDALONE</c>, do not set this parameter.</para>
+        /// If <c>FlexMatchMode</c> is set to <c>STANDALONE</c>, do not set this parameter.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

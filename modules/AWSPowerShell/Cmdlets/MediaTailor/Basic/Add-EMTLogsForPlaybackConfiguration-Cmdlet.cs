@@ -53,7 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// your destination of choice, choose <c>VENDED_LOGS</c>. Supported destinations are
         /// CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream.</para><para>To use vended logs, you must configure the delivery destination in Amazon CloudWatch,
         /// as described in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions-V2">Enable
-        /// logging from AWS services, Logging that requires additional permissions [V2]</a>.</para>
+        /// logging from AWS services, Logging that requires additional permissions [V2]</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <summary>
         /// <para>
         /// <para>Indicates that MediaTailor won't emit the selected events in the logs for playback
-        /// sessions that are initialized with this configuration.</para>
+        /// sessions that are initialized with this configuration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <summary>
         /// <para>
         /// <para>Indicates that MediaTailor won't emit the selected events in the logs for playback
-        /// sessions that are initialized with this configuration.</para>
+        /// sessions that are initialized with this configuration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +139,11 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <summary>
         /// <para>
         /// <para>Indicates that MediaTailor emits <c>RAW_ADS_RESPONSE</c> logs for playback sessions
-        /// that are initialized with this configuration.</para>
+        /// that are initialized with this configuration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -65,7 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <para>
         /// <para>You can filter the list using a <i>key</i>-<i>value</i> format. You can separate these
         /// items by using logical operators. Allowed filters include <c>tagKey</c>, <c>tagValue</c>,
-        /// and <c>configurationId</c>. </para>
+        /// and <c>configurationId</c>. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

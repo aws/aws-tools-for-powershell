@@ -48,7 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ClientVpnEndpointId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Client VPN endpoint.</para>
+        /// <para>The ID of the Client VPN endpoint.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +75,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><c>endpoint-id</c> - The ID of the Client VPN endpoint.</para></li><li><para><c>transport-protocol</c> - The transport protocol (<c>tcp</c> | <c>udp</c>).</para></li></ul>
+        /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><c>endpoint-id</c> - The ID of the Client VPN endpoint.</para></li><li><para><c>transport-protocol</c> - The transport protocol (<c>tcp</c> | <c>udp</c>).</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

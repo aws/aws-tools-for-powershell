@@ -112,7 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The IDs of the data (non-root) volumes to exclude from the multi-volume snapshot set.
         /// If you specify the ID of the root volume, the request fails. To exclude the root volume,
-        /// use <b>ExcludeBootVolume</b>.</para><para>You can specify up to 40 volume IDs per request.</para>
+        /// use <b>ExcludeBootVolume</b>.</para><para>You can specify up to 40 volume IDs per request.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,7 +170,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
-        /// <para>Tags to apply to every snapshot specified by the instance.</para>
+        /// <para>Tags to apply to every snapshot specified by the instance.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

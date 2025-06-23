@@ -62,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The filters. If using multiple filters, the results include security groups which
-        /// match all filters.</para><ul><li><para><c>group-id</c>: The security group ID.</para></li><li><para><c>description</c>: The security group's description.</para></li><li><para><c>group-name</c>: The security group name.</para></li><li><para><c>owner-id</c>: The security group owner ID.</para></li><li><para><c>primary-vpc-id</c>: The VPC ID in which the security group was created.</para></li></ul>
+        /// match all filters.</para><ul><li><para><c>group-id</c>: The security group ID.</para></li><li><para><c>description</c>: The security group's description.</para></li><li><para><c>group-name</c>: The security group name.</para></li><li><para><c>owner-id</c>: The security group owner ID.</para></li><li><para><c>primary-vpc-id</c>: The VPC ID in which the security group was created.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

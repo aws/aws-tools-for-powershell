@@ -52,7 +52,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>Each entry in the array is a structure containing:</para><ul><li><para>Key. A string between 1 and 128 characters. Supported keys include <c>ExecutedBefore</c>
         /// and <c>ExecutedAfter</c>.</para></li><li><para>Values. An array of strings, each between 1 and 256 characters. Supported values are
-        /// date/time strings in a valid ISO 8601 date/time format, such as <c>2024-11-04T05:00:00Z</c>.</para></li></ul>
+        /// date/time strings in a valid ISO 8601 date/time format, such as <c>2024-11-04T05:00:00Z</c>.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

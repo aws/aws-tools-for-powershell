@@ -71,7 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         /// <para>Access control configuration for your resource that is used to generate the access
         /// preview. The access preview includes findings for external access allowed to the resource
         /// with the proposed access control configuration. The configuration must contain exactly
-        /// one element.</para>
+        /// one element.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

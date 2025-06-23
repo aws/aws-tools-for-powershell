@@ -62,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.AREX
         /// <summary>
         /// <para>
         /// <para>Specifies optional fields that you want included in search results from this view.
-        /// It is a list of objects that each describe a field to include.</para><para>The default is an empty list, with no optional fields included in the results.</para>
+        /// It is a list of objects that each describe a field to include.</para><para>The default is an empty list, with no optional fields included in the results.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -67,7 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         /// Specify clusters by their cluster identifier (ID).</para><para>Use the <c>states</c> filter to return only backups that match the specified state.</para><para>Use the <c>neverExpires</c> filter to return backups filtered by the value in the
         /// <c>neverExpires</c> parameter. <c>True</c> returns all backups exempt from the backup
         /// retention policy. <c>False</c> returns all backups with a backup retention policy
-        /// defined at the cluster.</para>
+        /// defined at the cluster.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

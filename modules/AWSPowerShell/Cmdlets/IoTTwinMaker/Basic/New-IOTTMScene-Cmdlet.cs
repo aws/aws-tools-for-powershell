@@ -47,7 +47,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter Capability
         /// <summary>
         /// <para>
-        /// <para>A list of capabilities that the scene uses to render itself.</para>
+        /// <para>A list of capabilities that the scene uses to render itself.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +106,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter SceneMetadata
         /// <summary>
         /// <para>
-        /// <para>The request metadata.</para>
+        /// <para>The request metadata.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +120,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Metadata that you can use to manage the scene.</para>
+        /// <para>Metadata that you can use to manage the scene.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

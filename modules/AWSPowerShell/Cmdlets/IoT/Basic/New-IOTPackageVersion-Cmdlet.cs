@@ -55,7 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>Metadata that can be used to define a package version’s configuration. For example,
-        /// the S3 file location, configuration options that are being sent to the device or fleet.</para><para>The combined size of all the attributes on a package version is limited to 3KB.</para>
+        /// the S3 file location, configuration options that are being sent to the device or fleet.</para><para>The combined size of all the attributes on a package version is limited to 3KB.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +131,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Metadata that can be used to manage the package version.</para>
+        /// <para>Metadata that can be used to manage the package version.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

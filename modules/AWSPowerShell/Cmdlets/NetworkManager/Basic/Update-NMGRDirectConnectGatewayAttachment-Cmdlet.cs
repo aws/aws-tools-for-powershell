@@ -68,7 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         /// <para>
         /// <para>One or more edge locations to update for the Direct Connect gateway attachment. The
         /// updated array of edge locations overwrites the previous array of locations. <c>EdgeLocations</c>
-        /// is only used for Direct Connect gateway attachments.</para>
+        /// is only used for Direct Connect gateway attachments.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

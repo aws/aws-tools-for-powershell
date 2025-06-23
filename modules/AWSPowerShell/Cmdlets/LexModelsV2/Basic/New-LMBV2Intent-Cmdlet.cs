@@ -700,7 +700,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>A list of conditional branches. A conditional branch is made up of a condition, a
         /// response and a next step. The response and next step are executed when the condition
-        /// is true.</para>
+        /// is true.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -712,7 +716,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>A list of conditional branches. A conditional branch is made up of a condition, a
         /// response and a next step. The response and next step are executed when the condition
-        /// is true.</para>
+        /// is true.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -724,7 +732,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>A list of conditional branches. A conditional branch is made up of a condition, a
         /// response and a next step. The response and next step are executed when the condition
-        /// is true.</para>
+        /// is true.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -736,7 +748,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>A list of conditional branches. A conditional branch is made up of a condition, a
         /// response and a next step. The response and next step are executed when the condition
-        /// is true.</para>
+        /// is true.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -748,7 +764,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>A list of conditional branches. A conditional branch is made up of a condition, a
         /// response and a next step. The response and next step are executed when the condition
-        /// is true.</para>
+        /// is true.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -760,7 +780,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>A list of conditional branches. A conditional branch is made up of a condition, a
         /// response and a next step. The response and next step are executed when the condition
-        /// is true.</para>
+        /// is true.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -772,7 +796,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>A list of conditional branches. A conditional branch is made up of a condition, a
         /// response and a next step. The response and next step are executed when the condition
-        /// is true.</para>
+        /// is true.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -784,7 +812,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>A list of conditional branches. A conditional branch is made up of a condition, a
         /// response and a next step. The response and next step are executed when the condition
-        /// is true.</para>
+        /// is true.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -796,7 +828,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>A list of conditional branches. A conditional branch is made up of a condition, a
         /// response and a next step. The response and next step are executed when the condition
-        /// is true.</para>
+        /// is true.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -808,7 +844,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>A list of conditional branches. A conditional branch is made up of a condition, a
         /// response and a next step. The response and next step are executed when the condition
-        /// is true.</para>
+        /// is true.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -820,7 +860,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>A list of conditional branches. A conditional branch is made up of a condition, a
         /// response and a next step. The response and next step are executed when the condition
-        /// is true.</para>
+        /// is true.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -832,7 +876,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>A list of conditional branches. A conditional branch is made up of a condition, a
         /// response and a next step. The response and next step are executed when the condition
-        /// is true.</para>
+        /// is true.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -845,7 +893,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>A list of conditional branches. A conditional branch is made up of a condition, a
         /// response and a next step. The response and next step are executed when the condition
-        /// is true.</para>
+        /// is true.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -858,7 +910,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>A list of conditional branches. A conditional branch is made up of a condition, a
         /// response and a next step. The response and next step are executed when the condition
-        /// is true.</para>
+        /// is true.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1029,7 +1085,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Contains a list of fields from the Amazon OpenSearch Service that the model can use
-        /// to generate the answer to the query.</para>
+        /// to generate the answer to the query.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1058,7 +1118,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// not use the intent.</para><para>A context can be automatically activated using the <c>outputContexts</c> property
         /// or it can be set at runtime.</para><para> For example, if there are two intents with different input contexts that respond
         /// to the same utterances, only the intent with the active context will respond.</para><para>An intent may have up to 5 input contexts. If an intent has multiple input contexts,
-        /// all of the contexts must be active to consider the intent.</para>
+        /// all of the contexts must be active to consider the intent.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1173,7 +1237,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>1 - 5 message groups that contain start messages. Amazon Lex chooses one of the messages
-        /// to play to the user.</para>
+        /// to play to the user.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1185,7 +1253,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>1 - 5 message groups that contain update messages. Amazon Lex chooses one of the messages
-        /// to play to the user.</para>
+        /// to play to the user.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1197,7 +1269,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1208,7 +1284,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1220,7 +1300,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1231,7 +1315,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1243,7 +1331,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1254,7 +1346,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1266,7 +1362,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1277,7 +1377,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1288,7 +1392,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1299,7 +1407,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1310,7 +1422,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1321,7 +1437,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1332,7 +1452,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1343,7 +1467,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1355,7 +1483,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1367,7 +1499,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1378,7 +1514,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1389,7 +1529,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1400,7 +1544,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1411,7 +1559,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1422,7 +1574,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1433,7 +1589,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1444,7 +1604,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1455,7 +1619,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1467,7 +1635,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1478,7 +1650,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1490,7 +1666,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1501,7 +1681,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual response to send at runtime.</para>
+        /// the actual response to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1512,7 +1696,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A collection of messages that Amazon Lex can send to the user. Amazon Lex chooses
-        /// the actual message to send at runtime.</para>
+        /// the actual message to send at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1830,7 +2018,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// for the next turn of the conversation with a customer. </para><para>When you use the <c>outputContextsList</c> property, all of the contexts specified
         /// in the list are activated when the intent is fulfilled. You can set up to 10 output
         /// contexts. You can also set the number of conversation turns that the context should
-        /// be active, or the length of time that the context should be active.</para>
+        /// be active, or the length of time that the context should be active.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1851,7 +2043,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter PromptSpecification_PromptAttemptsSpecification
         /// <summary>
         /// <para>
-        /// <para>Specifies the advanced settings on each attempt of the prompt.</para>
+        /// <para>Specifies the advanced settings on each attempt of the prompt.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1921,7 +2117,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>An array of strings that a user might say to signal the intent. For example, "I want
         /// a pizza", or "I want a {PizzaSize} pizza". </para><para>In an utterance, slot names are enclosed in curly braces ("{", "}") to indicate where
-        /// they should be displayed in the utterance shown to the user.. </para>
+        /// they should be displayed in the utterance shown to the user.. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1933,7 +2133,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1944,7 +2148,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1955,7 +2163,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1966,7 +2178,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1977,7 +2193,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1988,7 +2208,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1999,7 +2223,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2010,7 +2238,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2021,7 +2253,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2032,7 +2268,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2043,7 +2283,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2054,7 +2298,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2065,7 +2313,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2076,7 +2328,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2087,7 +2343,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2098,7 +2358,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2109,7 +2373,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2120,7 +2388,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2131,7 +2403,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2142,7 +2418,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2153,7 +2433,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2164,7 +2448,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2175,7 +2463,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2186,7 +2478,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2198,7 +2494,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2209,7 +2509,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2221,7 +2525,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2232,7 +2540,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Map of key/value pairs representing session-specific context information. It contains
-        /// application information passed between Amazon Lex and a client application.</para>
+        /// application information passed between Amazon Lex and a client application.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2243,7 +2555,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2254,7 +2570,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2265,7 +2585,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2276,7 +2600,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2287,7 +2615,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2298,7 +2630,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2309,7 +2645,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2320,7 +2660,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2331,7 +2675,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2342,7 +2690,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2353,7 +2705,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2364,7 +2720,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2375,7 +2735,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2386,7 +2750,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2397,7 +2765,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2408,7 +2780,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2419,7 +2795,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2430,7 +2810,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2441,7 +2825,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2452,7 +2840,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2463,7 +2855,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2474,7 +2870,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2485,7 +2885,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2496,7 +2900,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2507,7 +2915,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2518,7 +2930,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2529,7 +2945,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2540,7 +2960,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A map of all of the slot value overrides for the intent. The name of the slot maps
-        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para>
+        /// to the value of the slot. Slots that are not included in the map aren't overridden.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

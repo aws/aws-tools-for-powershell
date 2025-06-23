@@ -22,14 +22,16 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.SecurityHub;
 using Amazon.SecurityHub.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Returns a list of automation rules and metadata for the calling account. This API
-    /// is in private preview and subject to change.
+    /// is in private preview and subject to change.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SHUBAutomationRulesV2List")]
     [OutputType("Amazon.SecurityHub.Model.AutomationRulesMetadataV2")]
@@ -42,6 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter MaxResult
         /// <summary>
@@ -61,6 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// to <c>NULL</c>. For subsequent calls, to continue listing data, set the value of this
         /// parameter to the value returned in the previous response.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String NextToken { get; set; }
@@ -77,9 +84,23 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         public string Select { get; set; } = "Rules";
         #endregion
         
+        #region Parameter NoAutoIteration
+        /// <summary>
+        /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
+        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
+        /// as the start point.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter NoAutoIteration { get; set; }
+        #endregion
+        
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();
@@ -107,39 +128,61 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
+            var useParameterSelect = this.Select.StartsWith("^");
+            
+            // create request and set iteration invariants
             var request = new Amazon.SecurityHub.Model.ListAutomationRulesV2Request();
             
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
-            }
             
-            CmdletOutput output;
+            // Initialize loop variant and commence piping
+            var _nextToken = cmdletContext.NextToken;
+            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
             
-            // issue call
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            try
+            do
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                request.NextToken = _nextToken;
+                
+                CmdletOutput output;
+                
+                try
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
-            }
-            catch (Exception e)
+                    
+                    var response = CallAWSServiceOperation(client, request);
+                    
+                    object pipelineOutput = null;
+                    if (!useParameterSelect)
+                    {
+                        pipelineOutput = cmdletContext.Select(response, this);
+                    }
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                    
+                    _nextToken = response.NextToken;
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                ProcessOutput(output);
+                
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
+            
+            if (useParameterSelect)
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                WriteObject(cmdletContext.Select(null, this));
             }
             
-            return output;
+            
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -156,13 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "ListAutomationRulesV2");
             try
             {
-                #if DESKTOP
-                return client.ListAutomationRulesV2(request);
-                #elif CORECLR
-                return client.ListAutomationRulesV2Async(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListAutomationRulesV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

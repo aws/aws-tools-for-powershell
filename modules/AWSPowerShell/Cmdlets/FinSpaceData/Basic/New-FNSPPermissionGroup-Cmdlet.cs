@@ -55,7 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         /// environment's application. It should only be granted to trusted users.</para></important><ul><li><para><c>CreateDataset</c> – Group members can create new datasets.</para></li><li><para><c>ManageClusters</c> – Group members can manage Apache Spark clusters from FinSpace
         /// notebooks.</para></li><li><para><c>ManageUsersAndGroups</c> – Group members can manage users and permission groups.
         /// This is a privileged permission that allows users to grant themselves or others access
-        /// to any functionality in the application. It should only be granted to trusted users.</para></li><li><para><c>ManageAttributeSets</c> – Group members can manage attribute sets.</para></li><li><para><c>ViewAuditData</c> – Group members can view audit data.</para></li><li><para><c>AccessNotebooks</c> – Group members will have access to FinSpace notebooks.</para></li><li><para><c>GetTemporaryCredentials</c> – Group members can get temporary API credentials.</para></li></ul>
+        /// to any functionality in the application. It should only be granted to trusted users.</para></li><li><para><c>ManageAttributeSets</c> – Group members can manage attribute sets.</para></li><li><para><c>ViewAuditData</c> – Group members can view audit data.</para></li><li><para><c>AccessNotebooks</c> – Group members will have access to FinSpace notebooks.</para></li><li><para><c>GetTemporaryCredentials</c> – Group members can get temporary API credentials.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

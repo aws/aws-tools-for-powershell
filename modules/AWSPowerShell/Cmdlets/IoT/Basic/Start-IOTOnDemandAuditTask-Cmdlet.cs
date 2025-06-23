@@ -57,7 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>Which checks are performed during the audit. The checks you specify must be enabled
         /// for your account or an exception occurs. Use <c>DescribeAccountAuditConfiguration</c>
         /// to see the list of all checks, including those that are enabled or <c>UpdateAccountAuditConfiguration</c>
-        /// to select which checks are enabled.</para>
+        /// to select which checks are enabled.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

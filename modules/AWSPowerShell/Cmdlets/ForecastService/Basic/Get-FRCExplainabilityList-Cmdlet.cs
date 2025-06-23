@@ -60,7 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// condition is either <c>IS</c> or <c>IS_NOT</c>, which specifies whether to include
         /// or exclude the resources that match the statement from the list. The match statement
         /// consists of a key and a value.</para><para><b>Filter properties</b></para><ul><li><para><c>Condition</c> - The condition to apply. Valid values are <c>IS</c> and <c>IS_NOT</c>.</para></li><li><para><c>Key</c> - The name of the parameter to filter on. Valid values are <c>ResourceArn</c>
-        /// and <c>Status</c>.</para></li><li><para><c>Value</c> - The value to match.</para></li></ul>
+        /// and <c>Status</c>.</para></li><li><para><c>Value</c> - The value to match.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

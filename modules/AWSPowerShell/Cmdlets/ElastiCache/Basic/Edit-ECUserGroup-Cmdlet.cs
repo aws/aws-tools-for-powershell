@@ -74,7 +74,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter UserIdsToAdd
         /// <summary>
         /// <para>
-        /// <para>The list of user IDs to add to the user group.</para>
+        /// <para>The list of user IDs to add to the user group.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter UserIdsToRemove
         /// <summary>
         /// <para>
-        /// <para>The list of user IDs to remove from the user group.</para>
+        /// <para>The list of user IDs to remove from the user group.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

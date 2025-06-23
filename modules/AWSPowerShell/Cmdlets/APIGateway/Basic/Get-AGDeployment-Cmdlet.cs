@@ -70,7 +70,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// The SDK and other platform-dependent libraries might use a different format for the
         /// list. Currently, this request supports only retrieval of the embedded API summary
         /// this way. Hence, the parameter value must be a single-valued list containing only
-        /// the <c>"apisummary"</c> string. For example, <c>GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary</c>.</para>
+        /// the <c>"apisummary"</c> string. For example, <c>GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

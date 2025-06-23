@@ -194,7 +194,11 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         /// WorkSpaces directories.</para><para>You can add a combination of VPCs and CloudFront distributions, or you can add WorkSpaces
         /// directories, or you can add NLBs. You can't add NLBs or WorkSpaces directories together
         /// with any other resources.</para><note><para>If you add only Amazon Virtual Private Clouds resources, at least one VPC must have
-        /// an Internet Gateway attached to it, to make sure that it has internet connectivity.</para></note>
+        /// an Internet Gateway attached to it, to make sure that it has internet connectivity.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,7 +209,11 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         /// <summary>
         /// <para>
         /// <para>The resources to remove from a monitor, which you provide as a set of Amazon Resource
-        /// Names (ARNs).</para>
+        /// Names (ARNs).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

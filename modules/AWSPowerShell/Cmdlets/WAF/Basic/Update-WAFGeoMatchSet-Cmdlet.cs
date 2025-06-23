@@ -121,7 +121,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// <para>An array of <c>GeoMatchSetUpdate</c> objects that you want to insert into or delete
         /// from an <a>GeoMatchSet</a>. For more information, see the applicable data types:</para><ul><li><para><a>GeoMatchSetUpdate</a>: Contains <c>Action</c> and <c>GeoMatchConstraint</c></para></li><li><para><a>GeoMatchConstraint</a>: Contains <c>Type</c> and <c>Value</c></para><para>You can have only one <c>Type</c> and <c>Value</c> per <c>GeoMatchConstraint</c>.
         /// To add multiple countries, include multiple <c>GeoMatchSetUpdate</c> objects in your
-        /// request.</para></li></ul>
+        /// request.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

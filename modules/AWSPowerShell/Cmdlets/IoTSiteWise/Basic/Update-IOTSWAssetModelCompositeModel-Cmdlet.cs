@@ -124,7 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <para>The property definitions of the composite model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html#inline-composite-models">
         /// Inline custom composite models</a> in the <i>IoT SiteWise User Guide</i>.</para><para>You can specify up to 200 properties per composite model. For more information, see
         /// <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a>
-        /// in the <i>IoT SiteWise User Guide</i>.</para>
+        /// in the <i>IoT SiteWise User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

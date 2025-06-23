@@ -55,7 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
         /// <summary>
         /// <para>
         /// <para>The objective that's used as filter criteria.</para><para>You can use this parameter to specify one objective ARN at a time. Passing multiple
-        /// ARNs in the <c>CommonControlFilter</c> isn’t supported.</para>
+        /// ARNs in the <c>CommonControlFilter</c> isn’t supported.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

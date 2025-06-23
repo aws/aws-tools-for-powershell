@@ -104,7 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter PartitionColumn
         /// <summary>
         /// <para>
-        /// <para>Ordered set of column names used to partition data.</para>
+        /// <para>Ordered set of column names used to partition data.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter DestinationTypeParams_S3DestinationExportFileFormatOption
         /// <summary>
         /// <para>
-        /// <para>Format Options for S3 Destination type.</para><para>Here is an example of how you could specify the <c>s3DestinationExportFileFormatOptions</c></para><para><c> { "header": "true", "delimiter": ",", "compression": "gzip" }</c></para>
+        /// <para>Format Options for S3 Destination type.</para><para>Here is an example of how you could specify the <c>s3DestinationExportFileFormatOptions</c></para><para><c> { "header": "true", "delimiter": ",", "compression": "gzip" }</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,7 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter SortColumn
         /// <summary>
         /// <para>
-        /// <para>Columns to be used for sorting the data.</para>
+        /// <para>Columns to be used for sorting the data.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

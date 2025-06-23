@@ -22,9 +22,11 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Evs;
 using Amazon.Evs.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.EVS
 {
     /// <summary>
@@ -42,12 +44,17 @@ namespace Amazon.PowerShell.Cmdlets.EVS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter State
         /// <summary>
         /// <para>
         /// <para>The state of an environment. Used to filter response results to return only environments
-        /// with the specified <c>environmentState</c>.</para>
+        /// with the specified <c>environmentState</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,10 +67,15 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// <para>The maximum number of results to return. If you specify <c>MaxResults</c> in the request,
         /// the response includes information up to the limit specified.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -105,9 +117,13 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();
@@ -121,6 +137,15 @@ namespace Amazon.PowerShell.Cmdlets.EVS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.MaxResult = this.MaxResult;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
+            {
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
+                    " to the service to specify how many items should be returned by each service call.");
+            }
+            #endif
             context.NextToken = this.NextToken;
             if (this.State != null)
             {
@@ -146,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
+                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
             if (cmdletContext.State != null)
             {
@@ -214,13 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic VMware Service", "ListEnvironments");
             try
             {
-                #if DESKTOP
-                return client.ListEnvironments(request);
-                #elif CORECLR
-                return client.ListEnvironmentsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListEnvironmentsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -237,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
+            public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public List<System.String> State { get; set; }
             public System.Func<Amazon.Evs.Model.ListEnvironmentsResponse, GetEVSEnvironmentListCmdlet, object> Select { get; set; } =

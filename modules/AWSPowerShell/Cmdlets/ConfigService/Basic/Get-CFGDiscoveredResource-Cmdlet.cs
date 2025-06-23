@@ -76,7 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>
         /// <para>The IDs of only those resources that you want Config to list in the response. If you
         /// do not specify this parameter, Config lists all resources of the specified type that
-        /// it has discovered. You can list a minimum of 1 resourceID and a maximum of 20 resourceIds.</para>
+        /// it has discovered. You can list a minimum of 1 resourceID and a maximum of 20 resourceIds.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

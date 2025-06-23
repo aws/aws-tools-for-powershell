@@ -62,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>An array of custom attribute names and other properties. Sets the following characteristics:</para><dl><dt>AttributeDataType</dt><dd><para>The expected data type. Can be a string, a number, a date and time, or a boolean.</para></dd><dt>Mutable</dt><dd><para>If true, you can grant app clients write access to the attribute value. If false,
         /// the attribute value can only be set up on sign-up or administrator creation of users.</para></dd><dt>Name</dt><dd><para>The attribute name. For an attribute like <c>custom:myAttribute</c>, enter <c>myAttribute</c>
         /// for this field.</para></dd><dt>Required</dt><dd><para>When true, users who sign up or are created must set a value for the attribute.</para></dd><dt>NumberAttributeConstraints</dt><dd><para>The minimum and maximum length of accepted values for a <c>Number</c>-type attribute.</para></dd><dt>StringAttributeConstraints</dt><dd><para>The minimum and maximum length of accepted values for a <c>String</c>-type attribute.</para></dd><dt>DeveloperOnlyAttribute</dt><dd><para>This legacy option creates an attribute with a <c>dev:</c> prefix. You can only set
-        /// the value of a developer-only attribute with administrative IAM credentials.</para></dd></dl>
+        /// the value of a developer-only attribute with administrative IAM credentials.</para></dd></dl><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

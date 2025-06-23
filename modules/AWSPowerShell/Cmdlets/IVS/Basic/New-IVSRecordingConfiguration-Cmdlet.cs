@@ -110,7 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         /// recorded if they are available during the stream. If a selected rendition is unavailable,
         /// the best available rendition is recorded. For details on the resolution dimensions
         /// of each rendition, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/record-to-s3.html">Auto-Record
-        /// to Amazon S3</a>.</para>
+        /// to Amazon S3</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,7 +157,11 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         /// generated thumbnails in a serial manner, to the media/thumbnails directory. <c>LATEST</c>
         /// saves the latest thumbnail in media/latest_thumbnail/thumb.jpg and overwrites it at
         /// the interval specified by <c>targetIntervalSeconds</c>. You can enable both <c>SEQUENTIAL</c>
-        /// and <c>LATEST</c>. Default: <c>SEQUENTIAL</c>.</para>
+        /// and <c>LATEST</c>. Default: <c>SEQUENTIAL</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,7 +175,11 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         /// practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i>
         /// for details, including restrictions that apply to tags and "Tag naming limits and
         /// requirements"; Amazon IVS has no service-specific constraints beyond what is documented
-        /// there.</para>
+        /// there.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

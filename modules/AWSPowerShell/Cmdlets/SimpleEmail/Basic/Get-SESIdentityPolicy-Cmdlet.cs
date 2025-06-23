@@ -83,7 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <para>
         /// <para>A list of the names of policies to be retrieved. You can retrieve a maximum of 20
         /// policies at a time. If you do not know the names of the policies that are attached
-        /// to the identity, you can use <c>ListIdentityPolicies</c>.</para>
+        /// to the identity, you can use <c>ListIdentityPolicies</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

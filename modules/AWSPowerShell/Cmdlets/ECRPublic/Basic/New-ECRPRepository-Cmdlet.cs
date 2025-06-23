@@ -63,7 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         /// the Amazon ECR Public Gallery, the following supported architectures appear as badges
         /// on the repository and are used as search filters.</para><note><para>If an unsupported tag is added to your repository catalog data, it's associated with
         /// the repository and can be retrieved using the API but isn't discoverable in the Amazon
-        /// ECR Public Gallery.</para></note><ul><li><para><c>ARM</c></para></li><li><para><c>ARM 64</c></para></li><li><para><c>x86</c></para></li><li><para><c>x86-64</c></para></li></ul>
+        /// ECR Public Gallery.</para></note><ul><li><para><c>ARM</c></para></li><li><para><c>ARM 64</c></para></li><li><para><c>x86</c></para></li><li><para><c>x86-64</c></para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +106,11 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         /// Amazon ECR Public Gallery, the following supported operating systems appear as badges
         /// on the repository and are used as search filters.</para><note><para>If an unsupported tag is added to your repository catalog data, it's associated with
         /// the repository and can be retrieved using the API but isn't discoverable in the Amazon
-        /// ECR Public Gallery.</para></note><ul><li><para><c>Linux</c></para></li><li><para><c>Windows</c></para></li></ul>
+        /// ECR Public Gallery.</para></note><ul><li><para><c>Linux</c></para></li><li><para><c>Windows</c></para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +144,11 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         /// <para>The metadata that you apply to each repository to help categorize and organize your
         /// repositories. Each tag consists of a key and an optional value. You define both of
         /// them. Tag keys can have a maximum character length of 128 characters, and tag values
-        /// can have a maximum length of 256 characters.</para>
+        /// can have a maximum length of 256 characters.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

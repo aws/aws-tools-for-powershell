@@ -67,7 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>A list of container definitions in JSON format that describe the different containers
-        /// that make up your task.</para>
+        /// that make up your task.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -170,7 +174,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter InferenceAccelerator
         /// <summary>
         /// <para>
-        /// <para>The Elastic Inference accelerators to use for the containers in the task.</para>
+        /// <para>The Elastic Inference accelerators to use for the containers in the task.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -290,7 +298,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>An array of placement constraint objects to use for the task. You can specify a maximum
         /// of 10 constraints for each task. This limit includes constraints in the task definition
-        /// and those specified at runtime.</para>
+        /// and those specified at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -315,7 +327,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// ports is ignored and not redirected to the <c>ProxyEgressPort</c>. It can be an empty
         /// list.</para></li><li><para><c>EgressIgnoredIPs</c> - (Required) The egress traffic going to the specified IP
         /// addresses is ignored and not redirected to the <c>ProxyEgressPort</c>. It can be an
-        /// empty list.</para></li></ul>
+        /// empty list.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -328,7 +344,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The task launch type that Amazon ECS validates the task definition against. A client
         /// exception is returned if the task definition doesn't validate against the compatibilities
-        /// specified. If no value is specified, the parameter is omitted from the response.</para>
+        /// specified. If no value is specified, the parameter is omitted from the response.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -358,7 +378,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case-sensitive.</para></li><li><para>Do not use <c>aws:</c>, <c>AWS:</c>, or any upper or lowercase combination of such
         /// as a prefix for either keys or values as it is reserved for Amazon Web Services use.
         /// You cannot edit or delete tag keys or values with this prefix. Tags with this prefix
-        /// do not count against your tags per resource limit.</para></li></ul>
+        /// do not count against your tags per resource limit.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -393,7 +417,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Volume
         /// <summary>
         /// <para>
-        /// <para>A list of volume definitions in JSON format that containers in your task might use.</para>
+        /// <para>A list of volume definitions in JSON format that containers in your task might use.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

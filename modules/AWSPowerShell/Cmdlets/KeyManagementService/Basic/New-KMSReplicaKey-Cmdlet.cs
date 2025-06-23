@@ -233,7 +233,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// one.</para><para>When you add tags to an Amazon Web Services resource, Amazon Web Services generates
         /// a cost allocation report with usage and costs aggregated by tags. Tags can also be
         /// used to control access to a KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tags
-        /// in KMS</a>.</para>
+        /// in KMS</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -59,7 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// To exclude matching what-if analysis jobs, specify <c>IS_NOT</c>.</para></li><li><para><c>Key</c> - The name of the parameter to filter on. Valid values are <c>WhatIfAnalysisArn</c>
         /// and <c>Status</c>.</para></li><li><para><c>Value</c> - The value to match.</para></li></ul><para>For example, to list all jobs that export a forecast named <i>electricityWhatIf</i>,
         /// specify the following filter:</para><para><c>"Filters": [ { "Condition": "IS", "Key": "WhatIfAnalysisArn", "Value": "arn:aws:forecast:us-west-2:&lt;acct-id&gt;:forecast/electricityWhatIf"
-        /// } ]</c></para>
+        /// } ]</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

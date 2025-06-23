@@ -88,7 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>A list of dimensions upon which to categorize your emails when you publish email sending
-        /// events to Amazon CloudWatch.</para>
+        /// events to Amazon CloudWatch.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +133,11 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// it.</para></li><li><para><c>bounce</c> - The recipient's mail server permanently rejected the email. This
         /// corresponds to a hard bounce.</para></li><li><para><c>complaint</c> - The recipient marked the email as spam.</para></li><li><para><c>delivery</c> - Amazon SES successfully delivered the email to the recipient's
         /// mail server.</para></li><li><para><c>open</c> - The recipient received the email and opened it in their email client.</para></li><li><para><c>click</c> - The recipient clicked one or more links in the email.</para></li><li><para><c>renderingFailure</c> - Amazon SES did not send the email because of a template
-        /// rendering issue.</para></li></ul>
+        /// rendering issue.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

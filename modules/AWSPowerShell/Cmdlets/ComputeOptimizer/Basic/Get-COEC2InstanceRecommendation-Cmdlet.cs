@@ -56,7 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <summary>
         /// <para>
         /// <para>The ID of the Amazon Web Services account for which to return instance recommendations.</para><para>If your account is the management account of an organization, use this parameter to
-        /// specify the member account for which you want to return instance recommendations.</para><para>Only one account ID can be specified per request.</para>
+        /// specify the member account for which you want to return instance recommendations.</para><para>Only one account ID can be specified per request.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// types only.</para></li><li><para>A <a>GetEC2RecommendationProjectedMetrics</a> request, Compute Optimizer returns projected
         /// utilization metrics for Graviton instance type recommendations only.</para></li><li><para>A <a>ExportEC2InstanceRecommendations</a> or <a>ExportAutoScalingGroupRecommendations</a>
         /// request, Compute Optimizer exports recommendations that consist of Graviton instance
-        /// types only.</para></li></ul>
+        /// types only.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +93,11 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <summary>
         /// <para>
         /// <para>An array of objects to specify a filter that returns a more specific list of instance
-        /// recommendations.</para>
+        /// recommendations.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter InstanceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the instances for which to return recommendations.</para>
+        /// <para>The Amazon Resource Name (ARN) of the instances for which to return recommendations.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

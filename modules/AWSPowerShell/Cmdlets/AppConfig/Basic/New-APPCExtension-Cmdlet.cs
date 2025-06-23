@@ -71,7 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter Action
         /// <summary>
         /// <para>
-        /// <para>The actions defined in the extension.</para>
+        /// <para>The actions defined in the extension.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -132,7 +136,11 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         /// <para>The parameters accepted by the extension. You specify parameter values when you associate
         /// the extension to an AppConfig resource by using the <c>CreateExtensionAssociation</c>
         /// API action. For Lambda extension actions, these parameters are included in the Lambda
-        /// request object.</para>
+        /// request object.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,7 +153,11 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         /// <para>
         /// <para>Adds one or more tags for the specified extension. Tags are metadata that help you
         /// categorize resources in different ways, for example, by purpose, owner, or environment.
-        /// Each tag consists of a key and an optional value, both of which you define. </para>
+        /// Each tag consists of a key and an optional value, both of which you define. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -94,7 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// your application.</para><note><ul><li><para>These ARNs are required only when your resources are in other accounts and you have
         /// different role name in these accounts. Else, the invoker role name will be used in
         /// the other accounts.</para></li><li><para>These roles must have a trust policy with <c>iam:AssumeRole</c> permission to the
-        /// invoker role in the primary account.</para></li></ul></note>
+        /// invoker role in the primary account.</para></li></ul></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +121,11 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <para>
         /// <para>The list of events you would like to subscribe and get notification for. Currently,
         /// Resilience Hub supports only <b>Drift detected</b> and <b>Scheduled assessment failure</b>
-        /// events notification.</para>
+        /// events notification.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,7 +182,11 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <summary>
         /// <para>
         /// <para>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services
-        /// resource. Each tag consists of a key/value pair.</para>
+        /// resource. Each tag consists of a key/value pair.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

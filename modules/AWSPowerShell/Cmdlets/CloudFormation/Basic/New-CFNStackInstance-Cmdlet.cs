@@ -68,7 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>[Self-managed permissions] The account IDs of one or more Amazon Web Services accounts
-        /// that you want to create stack instances in the specified Region(s) for.</para><para>You can specify <c>Accounts</c> or <c>DeploymentTargets</c>, but not both.</para>
+        /// that you want to create stack instances in the specified Region(s) for.</para><para>You can specify <c>Accounts</c> or <c>DeploymentTargets</c>, but not both.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +84,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The account IDs of the Amazon Web Services accounts. If you have many account numbers,
-        /// you can provide those accounts using the <c>AccountsUrl</c> property instead.</para>
+        /// you can provide those accounts using the <c>AccountsUrl</c> property instead.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,7 +153,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter DeploymentTargets_OrganizationalUnitId
         /// <summary>
         /// <para>
-        /// <para>The organization root ID or organizational unit (OU) IDs.</para>
+        /// <para>The organization root ID or organizational unit (OU) IDs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,7 +179,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// all.</para></li></ul><para>During stack set updates, any parameter values overridden for a stack instance aren't
         /// updated, but retain their overridden value.</para><para>You can only override the parameter <i>values</i> that are specified in the stack
         /// set; to add or delete a parameter itself, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a>
-        /// to update the stack set template.</para>
+        /// to update the stack set template.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,7 +195,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The names of one or more Amazon Web Services Regions where you want to create stack
-        /// instances using the specified Amazon Web Services accounts.</para>
+        /// instances using the specified Amazon Web Services accounts.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

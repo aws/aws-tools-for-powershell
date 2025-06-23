@@ -22,9 +22,11 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Evs;
 using Amazon.Evs.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.EVS
 {
     /// <summary>
@@ -58,6 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EVS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter EdgeVTep_Cidr
         /// <summary>
@@ -286,7 +289,11 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// <para>The ESXi hosts to add to the environment. Amazon EVS requires that you provide details
         /// for a minimum of 4 hosts during environment creation.</para><para>For each host, you must provide the desired hostname, EC2 SSH key, and EC2 instance
         /// type. Optionally, you can also provide a partition or cluster placement group to use,
-        /// or use Amazon EC2 Dedicated Hosts.</para>
+        /// or use Amazon EC2 Dedicated Hosts.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -319,7 +326,11 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// EVS requires two license keys: a VCF solution key and a vSAN license key. VCF licenses
         /// must have sufficient core entitlements to cover vCPU core and vSAN storage capacity
         /// needs.</para><para>VCF licenses can be used for only one Amazon EVS environment. Amazon EVS does not
-        /// support reuse of VCF licenses for multiple environments.</para><para>VCF license information can be retrieved from the Broadcom portal.</para>
+        /// support reuse of VCF licenses for multiple environments.</para><para>VCF license information can be retrieved from the Broadcom portal.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -438,7 +449,11 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         #region Parameter ConnectivityInfo_PrivateRouteServerPeering
         /// <summary>
         /// <para>
-        /// <para>The unique IDs for private route server peers.</para>
+        /// <para>The unique IDs for private route server peers.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -473,7 +488,11 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         #region Parameter ServiceAccessSecurityGroups_SecurityGroup
         /// <summary>
         /// <para>
-        /// <para>The security groups that allow service access.</para>
+        /// <para>The security groups that allow service access.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -526,7 +545,11 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// <para>
         /// <para>Metadata that assists with categorization and organization. Each tag consists of a
         /// key and an optional value. You define both. Tags don't propagate to any other cluster
-        /// or Amazon Web Services resources.</para>
+        /// or Amazon Web Services resources.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -636,16 +659,6 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         public string Select { get; set; } = "Environment";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the EnvironmentName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^EnvironmentName' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EnvironmentName' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -656,9 +669,13 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EnvironmentName), MyInvocation.BoundParameters);
@@ -672,21 +689,11 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.Evs.Model.CreateEnvironmentResponse, NewEVSEnvironmentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.EnvironmentName;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
             if (this.ConnectivityInfo_PrivateRouteServerPeering != null)
             {
@@ -1394,13 +1401,7 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic VMware Service", "CreateEnvironment");
             try
             {
-                #if DESKTOP
-                return client.CreateEnvironment(request);
-                #elif CORECLR
-                return client.CreateEnvironmentAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.CreateEnvironmentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

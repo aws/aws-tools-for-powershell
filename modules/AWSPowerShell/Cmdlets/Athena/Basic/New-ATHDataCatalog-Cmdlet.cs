@@ -108,7 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// both. Use <c>connection-arn</c> for an existing Glue connection. Use <c>connection-type</c>
         /// and <c>connection-properties</c> to specify the configuration setting for a new connection.</para><ul><li><para><c>connection-arn:<i>&lt;glue_connection_arn_to_reuse&gt;</i></c></para></li><li><para><c>lambda-role-arn</c> (optional): The execution role to use for the Lambda function.
         /// If not provided, one is created.</para></li><li><para><c>connection-type:MYSQL|REDSHIFT|...., connection-properties:"<i>&lt;json_string&gt;</i>"</c></para><para>For <i><c>&lt;json_string&gt;</c></i>, use escaped JSON text, as in the following
-        /// example.</para><para><c>"{\"spill_bucket\":\"my_spill\",\"spill_prefix\":\"athena-spill\",\"host\":\"abc12345.snowflakecomputing.com\",\"port\":\"1234\",\"warehouse\":\"DEV_WH\",\"database\":\"TEST\",\"schema\":\"PUBLIC\",\"SecretArn\":\"arn:aws:secretsmanager:ap-south-1:111122223333:secret:snowflake-XHb67j\"}"</c></para></li></ul></li></ul>
+        /// example.</para><para><c>"{\"spill_bucket\":\"my_spill\",\"spill_prefix\":\"athena-spill\",\"host\":\"abc12345.snowflakecomputing.com\",\"port\":\"1234\",\"warehouse\":\"DEV_WH\",\"database\":\"TEST\",\"schema\":\"PUBLIC\",\"SecretArn\":\"arn:aws:secretsmanager:ap-south-1:111122223333:secret:snowflake-XHb67j\"}"</c></para></li></ul></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// resources that are created by the <c>CreateDataCatalog</c> API operation with <c>FEDERATED</c>
         /// type will have the tag <c>federated_athena_datacatalog="true"</c>. This includes the
         /// CFN Stack, Glue Connection, Athena DataCatalog, and all the resources created as part
-        /// of the CFN Stack (Lambda Function, IAM policies/roles).</para>
+        /// of the CFN Stack (Lambda Function, IAM policies/roles).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -100,7 +100,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>A list of up to 8 configurations for data repository associations (DRAs) to be created
         /// during the cache creation. The DRAs link the cache to either an Amazon S3 data repository
         /// or a Network File System (NFS) data repository that supports the NFSv3 protocol.</para><para>The DRA configurations must meet the following requirements:</para><ul><li><para>All configurations on the list must be of the same data repository type, either all
-        /// S3 or all NFS. A cache can't link to different data repository types at the same time.</para></li><li><para>An NFS DRA must link to an NFS file system that supports the NFSv3 protocol.</para></li></ul><para>DRA automatic import and automatic export is not supported.</para>
+        /// S3 or all NFS. A cache can't link to different data repository types at the same time.</para></li><li><para>An NFS DRA must link to an NFS file system that supports the NFSv3 protocol.</para></li></ul><para>DRA automatic import and automatic export is not supported.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,7 +186,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>A list of IDs specifying the security groups to apply to all network interfaces created
         /// for Amazon File Cache access. This list isn't returned in later requests to describe
-        /// the cache.</para>
+        /// the cache.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -222,7 +230,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -240,7 +252,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -186,7 +186,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter DBSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>A list of DB security groups to associate with this DB instance.</para><para>Default: The default DB security group for the database engine.</para>
+        /// <para>A list of DB security groups to associate with this DB instance.</para><para>Default: The default DB security group for the database engine.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -242,7 +246,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter EnableCloudwatchLogsExport
         /// <summary>
         /// <para>
-        /// <para>The list of log types that need to be enabled for exporting to CloudWatch Logs.</para>
+        /// <para>The list of log types that need to be enabled for exporting to CloudWatch Logs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -481,7 +489,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to assign to the new instance.</para>
+        /// <para>The tags to assign to the new instance.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -523,7 +535,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>A list of EC2 VPC security groups to associate with this DB instance.</para><para>Not applicable. The associated list of EC2 VPC security groups is managed by the DB
-        /// cluster. For more information, see <a>CreateDBCluster</a>.</para><para>Default: The default EC2 VPC security group for the DB subnet group's VPC.</para>
+        /// cluster. For more information, see <a>CreateDBCluster</a>.</para><para>Default: The default EC2 VPC security group for the DB subnet group's VPC.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

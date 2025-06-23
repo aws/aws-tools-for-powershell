@@ -121,7 +121,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// Match Data</a>. </para><para>The backfill request must specify the team membership for every player. Do not specify
         /// team if you are not using backfill.</para></li><li><para>LatencyInMs -- If the matchmaker uses player latency, include a latency value, in
         /// milliseconds, for the Region that the game session is currently in. Do not include
-        /// latency values for any other Region.</para></li></ul>
+        /// latency values for any other Region.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

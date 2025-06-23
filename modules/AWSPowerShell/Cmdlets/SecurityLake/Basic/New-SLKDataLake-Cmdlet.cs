@@ -66,7 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter Configuration
         /// <summary>
         /// <para>
-        /// <para>Specify the Region or Regions that will contribute data to the rollup region.</para>
+        /// <para>Specify the Region or Regions that will contribute data to the rollup region.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -105,7 +109,11 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         /// <para>
         /// <para>An array of objects, one for each tag to associate with the data lake configuration.
         /// For each tag, you must specify both a tag key and a tag value. A tag value cannot
-        /// be null, but it can be an empty string.</para>
+        /// be null, but it can be an empty string.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

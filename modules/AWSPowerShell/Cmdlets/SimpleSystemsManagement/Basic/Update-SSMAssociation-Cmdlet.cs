@@ -69,7 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter AlarmConfiguration_Alarm
         /// <summary>
         /// <para>
-        /// <para>The name of the CloudWatch alarm specified in the configuration.</para>
+        /// <para>The name of the CloudWatch alarm specified in the configuration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,7 +165,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// want to gate your associations under. The associations only run when that change calendar
         /// is open. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar">Amazon
         /// Web Services Systems Manager Change Calendar</a> in the <i>Amazon Web Services Systems
-        /// Manager User Guide</i>.</para>
+        /// Manager User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -314,7 +322,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The parameters you want to update for the association. If you create a parameter using
         /// Parameter Store, a tool in Amazon Web Services Systems Manager, you can reference
-        /// the parameter using <c>{{ssm:parameter-name}}</c>.</para>
+        /// the parameter using <c>{{ssm:parameter-name}}</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -372,7 +384,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>A location is a combination of Amazon Web Services Regions and Amazon Web Services
         /// accounts where you want to run the association. Use this action to update an association
-        /// in multiple Regions and multiple accounts.</para>
+        /// in multiple Regions and multiple accounts.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -384,7 +400,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
-        /// can't be specified together.</para>
+        /// can't be specified together.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -395,7 +415,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The targets of the association.</para>
+        /// <para>The targets of the association.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

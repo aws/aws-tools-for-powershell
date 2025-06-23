@@ -74,7 +74,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>Operating Regions for the IPAM resource discovery. Operating Regions are Amazon Web
         /// Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers
         /// and monitors resources in the Amazon Web Services Regions you select as operating
-        /// Regions.</para>
+        /// Regions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
-        /// <para>Tag specifications for the IPAM resource discovery.</para>
+        /// <para>Tag specifications for the IPAM resource discovery.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

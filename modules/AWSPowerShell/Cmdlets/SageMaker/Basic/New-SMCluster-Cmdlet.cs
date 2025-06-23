@@ -81,7 +81,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter InstanceGroup
         /// <summary>
         /// <para>
-        /// <para>The instance groups to be created in the SageMaker HyperPod cluster.</para>
+        /// <para>The instance groups to be created in the SageMaker HyperPod cluster.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -114,7 +118,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The VPC security group IDs, in the form <c>sg-xxxxxxxx</c>. Specify the security groups
-        /// for the VPC that is specified in the <c>Subnets</c> field.</para>
+        /// for the VPC that is specified in the <c>Subnets</c> field.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +135,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The ID of the subnets in the VPC to which you want to connect your training job or
         /// model. For information about the availability of specific instance types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html">Supported
-        /// Instance Types and Availability Zones</a>.</para>
+        /// Instance Types and Availability Zones</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,7 +154,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// resource. You can add tags to your cluster in the same way you add them in other Amazon
         /// Web Services services that support tagging. To learn more about tagging Amazon Web
         /// Services resources in general, see <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html">Tagging
-        /// Amazon Web Services Resources User Guide</a>.</para>
+        /// Amazon Web Services Resources User Guide</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

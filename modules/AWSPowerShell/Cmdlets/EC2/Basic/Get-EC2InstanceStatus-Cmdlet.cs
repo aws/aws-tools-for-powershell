@@ -103,7 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// (<c>passed</c> | <c>failed</c> | <c>initializing</c> | <c>insufficient-data</c>).</para></li><li><para><c>system-status.status</c> - The system status of the instance (<c>ok</c> | <c>impaired</c>
         /// | <c>initializing</c> | <c>insufficient-data</c> | <c>not-applicable</c>).</para></li><li><para><c>attached-ebs-status.status</c> - The status of the attached EBS volume for the
         /// instance (<c>ok</c> | <c>impaired</c> | <c>initializing</c> | <c>insufficient-data</c>
-        /// | <c>not-applicable</c>).</para></li></ul>
+        /// | <c>not-applicable</c>).</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -126,7 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The instance IDs.</para><para>Default: Describes all your instances.</para><para>Constraints: Maximum 100 explicitly specified instance IDs.</para>
+        /// <para>The instance IDs.</para><para>Default: Describes all your instances.</para><para>Constraints: Maximum 100 explicitly specified instance IDs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

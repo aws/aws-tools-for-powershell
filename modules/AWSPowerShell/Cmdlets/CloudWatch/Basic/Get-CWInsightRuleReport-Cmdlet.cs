@@ -108,7 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// represented by that data point.</para></li><li><para><c>Minimum</c> -- the minimum value from a single observation during the time period
         /// represented by that data point.</para></li><li><para><c>Maximum</c> -- the maximum value from a single observation during the time period
         /// represented by that data point.</para></li><li><para><c>Average</c> -- the average value from all contributors during the time period
-        /// represented by that data point.</para></li></ul>
+        /// represented by that data point.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -98,7 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>The conditions that you define to assign resources to your backup plans using tags.
         /// For example, <c>"StringEquals": { "ConditionKey": "backup", "ConditionValue": "daily"}</c>.</para><para><c>ListOfTags</c> supports only <c>StringEquals</c>. Condition operators are case
         /// sensitive.</para><para>If you specify multiple conditions, the resources much match any of the conditions
-        /// (OR logic).</para>
+        /// (OR logic).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +116,11 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>The Amazon Resource Names (ARNs) of the resources to exclude from a backup plan. The
         /// maximum number of ARNs is 500 without wildcards, or 30 ARNs with wildcards.</para><para>If you need to exclude many resources from a backup plan, consider a different resource
         /// selection strategy, such as assigning only one or a few resource types or refining
-        /// your resource selection using tags.</para>
+        /// your resource selection using tags.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +134,11 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>The Amazon Resource Names (ARNs) of the resources to assign to a backup plan. The
         /// maximum number of ARNs is 500 without wildcards, or 30 ARNs with wildcards.</para><para>If you need to assign many resources to a backup plan, consider a different resource
         /// selection strategy, such as assigning all resources of a resource type or refining
-        /// your resource selection using tags.</para><para>If you specify multiple ARNs, the resources much match any of the ARNs (OR logic).</para>
+        /// your resource selection using tags.</para><para>If you specify multiple ARNs, the resources much match any of the ARNs (OR logic).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,7 +168,11 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>Filters the values of your tagged resources for only those resources that you tagged
-        /// with the same value. Also called "exact matching."</para>
+        /// with the same value. Also called "exact matching."</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +185,11 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>
         /// <para>Filters the values of your tagged resources for matching tag values with the use of
         /// a wildcard character (*) anywhere in the string. For example, "prod*" or "*rod*" matches
-        /// the tag value "production".</para>
+        /// the tag value "production".</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,7 +201,11 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>Filters the values of your tagged resources for only those resources that you tagged
-        /// that do not have the same value. Also called "negated matching."</para>
+        /// that do not have the same value. Also called "negated matching."</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,7 +217,11 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>Filters the values of your tagged resources for non-matching tag values with the use
-        /// of a wildcard character (*) anywhere in the string.</para>
+        /// of a wildcard character (*) anywhere in the string.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

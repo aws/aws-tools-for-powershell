@@ -124,7 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         /// <summary>
         /// <para>
         /// <para>The runtime metadata for the media insights pipeline. Consists of a key-value map
-        /// of strings.</para>
+        /// of strings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,7 +172,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter KinesisVideoStreamRecordingSourceRuntimeConfiguration_Stream
         /// <summary>
         /// <para>
-        /// <para>The stream or streams to be recorded.</para>
+        /// <para>The stream or streams to be recorded.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,7 +187,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter KinesisVideoStreamSourceRuntimeConfiguration_Stream
         /// <summary>
         /// <para>
-        /// <para>The streams in the source runtime configuration of a Kinesis video stream.</para>
+        /// <para>The streams in the source runtime configuration of a Kinesis video stream.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,7 +202,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags assigned to the media insights pipeline.</para>
+        /// <para>The tags assigned to the media insights pipeline.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

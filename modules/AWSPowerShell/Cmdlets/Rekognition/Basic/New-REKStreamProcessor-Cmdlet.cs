@@ -170,7 +170,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para>
         /// <para> Specifies what you want to detect in the video, such as people, packages, or pets.
         /// The current valid labels you can include in this list are: "PERSON", "PET", "PACKAGE",
-        /// and "ALL". </para>
+        /// and "ALL". </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -226,7 +230,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para> Specifies locations in the frames where Amazon Rekognition checks for objects or
         /// people. You can specify up to 10 regions of interest, and each region has either a
         /// polygon or a bounding box. This is an optional parameter for label detection stream
-        /// processors and should not be used to create a face search stream processor. </para>
+        /// processors and should not be used to create a face search stream processor. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -269,7 +277,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para> A set of tags (key-value pairs) that you want to attach to the stream processor.
-        /// </para>
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

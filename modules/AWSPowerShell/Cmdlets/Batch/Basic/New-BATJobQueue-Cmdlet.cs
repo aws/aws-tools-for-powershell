@@ -65,7 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <c>SPOT</c>) or Fargate (<c>FARGATE</c> or <c>FARGATE_SPOT</c>); EC2 and Fargate compute
         /// environments can't be mixed.</para><note><para>All compute environments that are associated with a job queue must share the same
         /// architecture. Batch doesn't support mixing compute environment architecture types
-        /// in a single job queue.</para></note>
+        /// in a single job queue.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -103,7 +107,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>The set of actions that Batch performs on jobs that remain at the head of the job
         /// queue in the specified state longer than specified times. Batch will perform each
         /// action after <c>maxTimeSeconds</c> has passed. (<b>Note</b>: The minimum value for
-        /// maxTimeSeconds is 600 (10 minutes) and its maximum value is 86,400 (24 hours).)</para>
+        /// maxTimeSeconds is 600 (10 minutes) and its maximum value is 86,400 (24 hours).)</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,7 +176,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>The tags that you apply to the job queue to help you categorize and organize your
         /// resources. Each tag consists of a key and an optional value. For more information,
         /// see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging
-        /// your Batch resources</a> in <i>Batch User Guide</i>.</para>
+        /// your Batch resources</a> in <i>Batch User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

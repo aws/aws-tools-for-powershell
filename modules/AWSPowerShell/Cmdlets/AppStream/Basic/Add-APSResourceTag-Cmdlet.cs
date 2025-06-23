@@ -80,7 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <para>
         /// <para>The tags to associate. A tag is a key-value pair, and the value is optional. For example,
         /// Environment=Test. If you do not specify a value, Environment=. </para><para>If you do not specify a value, the value is set to an empty string.</para><para>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8,
-        /// and the following special characters: </para><para>_ . : / = + \ - @</para>
+        /// and the following special characters: </para><para>_ . : / = + \ - @</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

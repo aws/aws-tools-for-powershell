@@ -118,7 +118,11 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// or the short dimension name <c>raw_plan</c> (Amazon RDS and Aurora only)</para></li><li><para><c>db.lock_snapshot</c> - Specify the dimension name <c>db.lock_snapshot.lock_trees</c>
         /// or the short dimension name <c>lock_trees</c>. (Aurora only)</para></li><li><para><c>db.sql</c> - Specify either the full dimension name <c>db.sql.statement</c> or
         /// the short dimension name <c>statement</c> (Aurora and RDS only).</para></li><li><para><c>db.query</c> - Specify either the full dimension name <c>db.query.statement</c>
-        /// or the short dimension name <c>statement</c> (DocumentDB only).</para></li></ul>
+        /// or the short dimension name <c>statement</c> (DocumentDB only).</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

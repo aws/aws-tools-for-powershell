@@ -52,7 +52,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>Indicates whether external clusters are included in the returned list. Use '<c>all</c>'
         /// to return <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-connector.html">https://docs.aws.amazon.com/eks/latest/userguide/eks-connector.html</a>connected
         /// clusters, or blank to return only Amazon EKS clusters. '<c>all</c>' must be in lowercase
-        /// otherwise an error occurs.</para>
+        /// otherwise an error occurs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

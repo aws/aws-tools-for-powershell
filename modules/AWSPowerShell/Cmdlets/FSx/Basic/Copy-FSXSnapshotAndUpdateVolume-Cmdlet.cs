@@ -78,7 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// and there are intermediate snapshots on the destination, you can’t copy the snapshot.</para><ul><li><para><c>DELETE_INTERMEDIATE_SNAPSHOTS</c> - Deletes snapshots on the destination volume
         /// that aren’t on the source volume.</para></li><li><para><c>DELETE_CLONED_VOLUMES</c> - Deletes snapshot clones on the destination volume
         /// that aren't on the source volume.</para></li><li><para><c>DELETE_INTERMEDIATE_DATA</c> - Overwrites snapshots on the destination volume
-        /// that don’t match the source snapshot that you’re copying.</para></li></ul>
+        /// that don’t match the source snapshot that you’re copying.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

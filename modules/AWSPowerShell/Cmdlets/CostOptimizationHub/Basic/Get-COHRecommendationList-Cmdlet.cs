@@ -48,7 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.COH
         #region Parameter Filter_AccountId
         /// <summary>
         /// <para>
-        /// <para>The account to which the recommendation applies.</para>
+        /// <para>The account to which the recommendation applies.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.COH
         #region Parameter Filter_ActionType
         /// <summary>
         /// <para>
-        /// <para>The type of action you can take by adopting the recommendation.</para>
+        /// <para>The type of action you can take by adopting the recommendation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.COH
         #region Parameter Filter_ImplementationEffort
         /// <summary>
         /// <para>
-        /// <para>The effort required to implement the recommendation.</para>
+        /// <para>The effort required to implement the recommendation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.COH
         #region Parameter Filter_RecommendationId
         /// <summary>
         /// <para>
-        /// <para>The IDs for the recommendations.</para>
+        /// <para>The IDs for the recommendations.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.COH
         #region Parameter Filter_Region
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services Region of the resource.</para>
+        /// <para>The Amazon Web Services Region of the resource.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +156,11 @@ namespace Amazon.PowerShell.Cmdlets.COH
         #region Parameter Filter_ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the recommendation.</para>
+        /// <para>The Amazon Resource Name (ARN) of the recommendation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,7 +171,11 @@ namespace Amazon.PowerShell.Cmdlets.COH
         #region Parameter Filter_ResourceId
         /// <summary>
         /// <para>
-        /// <para>The resource ID of the recommendation.</para>
+        /// <para>The resource ID of the recommendation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,7 +186,11 @@ namespace Amazon.PowerShell.Cmdlets.COH
         #region Parameter Filter_ResourceType
         /// <summary>
         /// <para>
-        /// <para>The resource type of the recommendation.</para>
+        /// <para>The resource type of the recommendation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,7 +221,11 @@ namespace Amazon.PowerShell.Cmdlets.COH
         #region Parameter Filter_Tag
         /// <summary>
         /// <para>
-        /// <para>A list of tags assigned to the recommendation.</para>
+        /// <para>A list of tags assigned to the recommendation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

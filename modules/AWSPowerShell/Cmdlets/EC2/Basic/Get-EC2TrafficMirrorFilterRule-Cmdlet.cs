@@ -64,7 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// with.</para></li><li><para><c>rule-number</c>: The number of the Traffic Mirror rule.</para></li><li><para><c>rule-action</c>: The action taken on the filtered traffic. Possible actions are
         /// <c>accept</c> and <c>reject</c>.</para></li><li><para><c>traffic-direction</c>: The traffic direction. Possible directions are <c>ingress</c>
         /// and <c>egress</c>.</para></li><li><para><c>protocol</c>: The protocol, for example UDP, assigned to the Traffic Mirror rule.</para></li><li><para><c>source-cidr-block</c>: The source CIDR block assigned to the Traffic Mirror rule.</para></li><li><para><c>destination-cidr-block</c>: The destination CIDR block assigned to the Traffic
-        /// Mirror rule.</para></li><li><para><c>description</c>: The description of the Traffic Mirror rule.</para></li></ul>
+        /// Mirror rule.</para></li><li><para><c>description</c>: The description of the Traffic Mirror rule.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TrafficMirrorFilterRuleId
         /// <summary>
         /// <para>
-        /// <para>Traffic filter rule IDs.</para>
+        /// <para>Traffic filter rule IDs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

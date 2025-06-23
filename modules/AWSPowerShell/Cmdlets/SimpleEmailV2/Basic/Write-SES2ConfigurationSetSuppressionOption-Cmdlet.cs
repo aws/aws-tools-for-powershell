@@ -68,7 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <para>A list that contains the reasons that email addresses are automatically added to the
         /// suppression list for your account. This list can contain any or all of the following:</para><ul><li><para><c>COMPLAINT</c> – Amazon SES adds an email address to the suppression list for your
         /// account when a message sent to that address results in a complaint.</para></li><li><para><c>BOUNCE</c> – Amazon SES adds an email address to the suppression list for your
-        /// account when a message sent to that address results in a hard bounce.</para></li></ul>
+        /// account when a message sent to that address results in a hard bounce.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

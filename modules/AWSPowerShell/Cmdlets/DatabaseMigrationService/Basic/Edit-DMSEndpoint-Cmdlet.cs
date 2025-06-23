@@ -1422,7 +1422,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// never use <c>RESETLOGS</c> unless it's necessary. For more information about <c>RESETLOGS</c>,
         /// see <a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/rman-data-repair-concepts.html#GUID-1805CCF7-4AF2-482D-B65A-998192F89C2B">
         /// RMAN Data Repair Concepts</a> in the <i>Oracle Database Backup and Recovery User's
-        /// Guide</i>.</para>
+        /// Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

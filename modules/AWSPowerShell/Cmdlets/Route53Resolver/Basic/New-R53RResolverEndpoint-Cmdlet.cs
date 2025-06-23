@@ -97,7 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <para>
         /// <para>The subnets and IP addresses in your VPC that DNS queries originate from (for outbound
         /// endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet
-        /// ID uniquely identifies a VPC. </para><note><para>Even though the minimum is 1, Route 53 requires that you create at least two.</para></note>
+        /// ID uniquely identifies a VPC. </para><note><para>Even though the minimum is 1, Route 53 requires that you create at least two.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -148,7 +152,11 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para> The protocols you want to use for the endpoint. DoH-FIPS is applicable for inbound
-        /// endpoints only. </para><para>For an inbound endpoint you can apply the protocols as follows:</para><ul><li><para> Do53 and DoH in combination.</para></li><li><para>Do53 and DoH-FIPS in combination.</para></li><li><para>Do53 alone.</para></li><li><para>DoH alone.</para></li><li><para>DoH-FIPS alone.</para></li><li><para>None, which is treated as Do53.</para></li></ul><para>For an outbound endpoint you can apply the protocols as follows:</para><ul><li><para> Do53 and DoH in combination.</para></li><li><para>Do53 alone.</para></li><li><para>DoH alone.</para></li><li><para>None, which is treated as Do53.</para></li></ul>
+        /// endpoints only. </para><para>For an inbound endpoint you can apply the protocols as follows:</para><ul><li><para> Do53 and DoH in combination.</para></li><li><para>Do53 and DoH-FIPS in combination.</para></li><li><para>Do53 alone.</para></li><li><para>DoH alone.</para></li><li><para>DoH-FIPS alone.</para></li><li><para>None, which is treated as Do53.</para></li></ul><para>For an outbound endpoint you can apply the protocols as follows:</para><ul><li><para> Do53 and DoH in combination.</para></li><li><para>Do53 alone.</para></li><li><para>DoH alone.</para></li><li><para>None, which is treated as Do53.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,7 +189,11 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// to your target name server. For inbound resolver endpoint, it can bring down the overall
         /// maximum queries per second per IP address to as low as 1500. To avoid connection tracking
         /// caused by security group, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#untracked-connectionsl">Untracked
-        /// connections</a>.</para>
+        /// connections</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -199,7 +211,11 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of the tag keys and values that you want to associate with the endpoint.</para>
+        /// <para>A list of the tag keys and values that you want to associate with the endpoint.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

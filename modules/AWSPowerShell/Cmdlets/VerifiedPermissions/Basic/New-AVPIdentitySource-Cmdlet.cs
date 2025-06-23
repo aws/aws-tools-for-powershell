@@ -78,7 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// <summary>
         /// <para>
         /// <para>The access token <c>aud</c> claim values that you want to accept in your policy store.
-        /// For example, <c>https://myapp.example.com, https://myapp2.example.com</c>.</para>
+        /// For example, <c>https://myapp.example.com, https://myapp2.example.com</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// <summary>
         /// <para>
         /// <para>The unique application client IDs that are associated with the specified Amazon Cognito
-        /// user pool.</para><para>Example: <c>"ClientIds": ["&amp;ExampleCogClientId;"]</c></para>
+        /// user pool.</para><para>Example: <c>"ClientIds": ["&amp;ExampleCogClientId;"]</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// <summary>
         /// <para>
         /// <para>The ID token audience, or client ID, claim values that you want to accept in your
-        /// policy store from an OIDC identity provider. For example, <c>1example23456789, 2example10111213</c>.</para>
+        /// policy store from an OIDC identity provider. For example, <c>1example23456789, 2example10111213</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

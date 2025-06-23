@@ -52,7 +52,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// of asset models are returned.</para><ul><li><para><b>ASSET_MODEL</b> – An asset model that you can use to create assets. Can't be included
         /// as a component in another asset model.</para></li><li><para><b>COMPONENT_MODEL</b> – A reusable component that you can include in the composite
         /// models of other asset models. You can't create assets directly from this type of asset
-        /// model. </para></li></ul>
+        /// model. </para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

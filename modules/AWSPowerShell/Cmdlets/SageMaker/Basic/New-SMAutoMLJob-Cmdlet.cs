@@ -88,7 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// mode.</para></li><li><para>When <c>AlgorithmsConfig</c> is not provided, <c>CandidateGenerationConfig</c> uses
         /// the full set of algorithms for the given training mode.</para></li></ul><para>For the list of all algorithms per problem type and training mode, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
         /// AutoMLAlgorithmConfig</a>.</para><para>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Algorithm
-        /// support</a> section in Autopilot developer guide.</para>
+        /// support</a> section in Autopilot developer guide.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,7 +190,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>An array of channel objects that describes the input data and its location. Each channel
         /// is a named input source. Similar to <c>InputDataConfig</c> supported by <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a>.
         /// Format(s) supported: CSV, Parquet. A minimum of 500 rows is required for the training
-        /// dataset. There is not a minimum number of rows required for the validation dataset.</para>
+        /// dataset. There is not a minimum number of rows required for the validation dataset.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -358,7 +366,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The VPC security group IDs, in the form <c>sg-xxxxxxxx</c>. Specify the security groups
-        /// for the VPC that is specified in the <c>Subnets</c> field.</para>
+        /// for the VPC that is specified in the <c>Subnets</c> field.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -371,7 +383,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The ID of the subnets in the VPC to which you want to connect your training job or
         /// model. For information about the availability of specific instance types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html">Supported
-        /// Instance Types and Availability Zones</a>.</para>
+        /// Instance Types and Availability Zones</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -385,7 +401,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
         /// resources in different ways, for example, by purpose, owner, or environment. For more
         /// information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// Amazon Web ServicesResources</a>. Tag keys must be unique per resource.</para>
+        /// Amazon Web ServicesResources</a>. Tag keys must be unique per resource.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

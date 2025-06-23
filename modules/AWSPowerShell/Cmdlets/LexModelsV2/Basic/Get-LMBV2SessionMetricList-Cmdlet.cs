@@ -71,7 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A list of objects, each of which contains specifications for organizing the results
-        /// by time.</para>
+        /// by time.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +120,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A list of objects, each of which describes a condition by which you want to filter
-        /// the results.</para>
+        /// the results.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,7 +138,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>A list of objects, each of which specifies how to group the results. You can group
         /// by the following criteria:</para><ul><li><para><c>ConversationEndState</c> – The final state of the conversation. The possible end
         /// states are detailed in <a href="https://docs.aws.amazon.com/analytics-key-definitions-conversations">Key
-        /// definitions</a> in the user guide.</para></li><li><para><c>LocaleId</c> – The unique identifier of the bot locale.</para></li></ul>
+        /// definitions</a> in the user guide.</para></li><li><para><c>LocaleId</c> – The unique identifier of the bot locale.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,7 +153,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A list of objects, each of which contains a metric you want to list, the statistic
-        /// for the metric you want to return, and the method by which to organize the results.</para>
+        /// for the metric you want to return, and the method by which to organize the results.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR

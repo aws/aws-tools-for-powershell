@@ -108,7 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// will join for the current session, in addition to any group memberships for an existing
         /// user. If not specified, a new user is added only to PUBLIC.</para><para>Database group name constraints</para><ul><li><para>Must be 1 to 64 alphanumeric characters or hyphens</para></li><li><para>Must contain only lowercase letters, numbers, underscore, plus sign, period (dot),
         /// at symbol (@), or hyphen.</para></li><li><para>First character must be a letter.</para></li><li><para>Must not contain a colon ( : ) or slash ( / ). </para></li><li><para>Cannot be a reserved word. A list of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
-        /// Words</a> in the Amazon Redshift Database Developer Guide.</para></li></ul>
+        /// Words</a> in the Amazon Redshift Database Developer Guide.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

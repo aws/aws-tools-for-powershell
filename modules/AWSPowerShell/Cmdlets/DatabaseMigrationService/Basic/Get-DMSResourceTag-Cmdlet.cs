@@ -64,7 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>List of ARNs that identify multiple DMS resources that you want to list tags for.
         /// This returns a list of keys (tag names) and their associated tag values. It also returns
         /// each tag's associated <c>ResourceArn</c> value, which is the ARN of the resource for
-        /// which each listed tag is created. </para>
+        /// which each listed tag is created. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -131,7 +131,11 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>Specifies the type of Amazon Textract features to apply. If you chose <c>TEXTRACT_ANALYZE_DOCUMENT</c>
         /// as the read action, you must specify one or both of the following values:</para><ul><li><para><c>TABLES</c> - Returns additional information about any tables that are detected
         /// in the input document. </para></li><li><para><c>FORMS</c> - Returns additional information about any forms that are detected in
-        /// the input document. </para></li></ul>
+        /// the input document. </para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

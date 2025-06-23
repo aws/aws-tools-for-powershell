@@ -156,7 +156,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A list of security group names to associate with this cluster.</para><para>Use this parameter only when you are creating a cluster outside of an Amazon Virtual
-        /// Private Cloud (Amazon VPC).</para>
+        /// Private Cloud (Amazon VPC).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -218,7 +222,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter LogDeliveryConfiguration
         /// <summary>
         /// <para>
-        /// <para>Specifies the destination, format and type of the logs. </para>
+        /// <para>Specifies the destination, format and type of the logs. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -304,7 +312,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// zones in the list is not important.</para><para>This option is only supported on Memcached.</para><note><para>If you are creating your cluster in an Amazon VPC (recommended) you can only locate
         /// nodes in Availability Zones that are associated with the subnets in the selected subnet
         /// group.</para><para>The number of Availability Zones listed must equal the value of <c>NumCacheNodes</c>.</para></note><para>If you want all the nodes in the same Availability Zone, use <c>PreferredAvailabilityZone</c>
-        /// instead, or repeat the Availability Zone multiple times in the list.</para><para>Default: System chosen Availability Zones.</para>
+        /// instead, or repeat the Availability Zone multiple times in the list.</para><para>Default: System chosen Availability Zones.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -337,7 +349,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter PreferredOutpostArnSet
         /// <summary>
         /// <para>
-        /// <para>The outpost ARNs in which the cache cluster is created.</para>
+        /// <para>The outpost ARNs in which the cache cluster is created.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -364,7 +380,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>One or more VPC security groups associated with the cluster.</para><para>Use this parameter only when you are creating a cluster in an Amazon Virtual Private
-        /// Cloud (Amazon VPC).</para>
+        /// Cloud (Amazon VPC).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -378,7 +398,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>A single-element string list containing an Amazon Resource Name (ARN) that uniquely
         /// identifies a Valkey or Redis OSS RDB snapshot file stored in Amazon S3. The snapshot
         /// file is used to populate the node group (shard). The Amazon S3 object name in the
-        /// ARN cannot contain any commas.</para><note><para>This parameter is only valid if the <c>Engine</c> parameter is <c>redis</c>.</para></note><para>Example of an Amazon S3 ARN: <c>arn:aws:s3:::my_bucket/snapshot1.rdb</c></para>
+        /// ARN cannot contain any commas.</para><note><para>This parameter is only valid if the <c>Engine</c> parameter is <c>redis</c>.</para></note><para>Example of an Amazon S3 ARN: <c>arn:aws:s3:::my_bucket/snapshot1.rdb</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -425,7 +449,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of tags to be added to this resource.</para>
+        /// <para>A list of tags to be added to this resource.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
