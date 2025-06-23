@@ -454,6 +454,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.WorkMail.dll',
         'AWSSDK.WorkMailMessageFlow.dll',
         'AWSSDK.WorkSpaces.dll',
+        'AWSSDK.WorkspacesInstances.dll',
         'AWSSDK.WorkSpacesThinClient.dll',
         'AWSSDK.WorkSpacesWeb.dll',
         'AWSSDK.XRay.dll',
@@ -514,7 +515,7 @@ This product provides support for all AWS services in a single module. As an alt
             LicenseUri = 'https://aws.amazon.com/apache-2-0/'
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'
-            ReleaseNotes = 'https://github.com/aws/aws-tools-for-powershell/blob/master/CHANGELOG.md'
+            ReleaseNotes = 'https://github.com/aws/aws-tools-for-powershell/blob/v4.1/CHANGELOG.md'
         }
     }
 }

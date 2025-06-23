@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>workspaces-instances</C2jFilename>
+    <AssemblyName>WorkspacesInstances</AssemblyName>
+    <ServiceNounPrefix>WKSI</ServiceNounPrefix>
+    <ServiceName>Amazon Workspaces Instances</ServiceName>
+    <ServiceClientInterface>IAmazonWorkspacesInstances</ServiceClientInterface>
+    <ServiceClient>AmazonWorkspacesInstancesClient</ServiceClient>
+    <ServiceModuleGuid>b8295445-9e63-4f0f-b339-7d1d8a17dae2</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings>
+        <Map From="Associate" To="Mount" />
+        <Map From="Disassociate" To="Dismount" />
+    </VerbMappings>
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateVolume" Verb="Mount" Noun="Volume" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVolume" OutputProperty="VolumeId" Verb="New" Noun="Volume" AnonymousShouldProcessTarget="true" PipelineParameter="AvailabilityZone" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorkspaceInstance" OutputProperty="WorkspaceInstanceId" Verb="New" Noun="WorkspaceInstance" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVolume" Verb="Remove" Noun="Volume" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorkspaceInstance" Verb="Remove" Noun="WorkspaceInstance" ShouldProcessTarget="WorkspaceInstanceId" PipelineParameter="WorkspaceInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateVolume" Verb="Dismount" Noun="Volume" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkspaceInstance" OutputProperty="*" Verb="Get" Noun="WorkspaceInstance" PipelineParameter="WorkspaceInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInstanceTypes" OutputProperty="InstanceTypes" Verb="Get" Noun="InstanceTypeList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRegions" OutputProperty="Regions" Verb="Get" Noun="RegionList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="WorkspaceInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkspaceInstances" OutputProperty="WorkspaceInstances" Verb="Get" Noun="WorkspaceInstanceList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="WorkspaceInstanceId" PipelineParameter="WorkspaceInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="WorkspaceInstanceId" PipelineParameter="WorkspaceInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

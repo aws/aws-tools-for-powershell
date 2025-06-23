@@ -116,6 +116,19 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         public Amazon.S3Tables.MaintenanceStatus Value_Status { get; set; }
         #endregion
         
+        #region Parameter IcebergCompaction_Strategy
+        /// <summary>
+        /// <para>
+        /// <para>The compaction strategy to use for the table. This determines how files are selected
+        /// and combined during compaction operations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Value_Settings_IcebergCompaction_Strategy")]
+        [AWSConstantClassSource("Amazon.S3Tables.IcebergCompactionStrategy")]
+        public Amazon.S3Tables.IcebergCompactionStrategy IcebergCompaction_Strategy { get; set; }
+        #endregion
+        
         #region Parameter TableBucketARN
         /// <summary>
         /// <para>
@@ -230,6 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
                 WriteWarning("You are passing $null as a value for parameter Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IcebergCompaction_Strategy = this.IcebergCompaction_Strategy;
             context.IcebergCompaction_TargetFileSizeMB = this.IcebergCompaction_TargetFileSizeMB;
             context.IcebergSnapshotManagement_MaxSnapshotAgeHour = this.IcebergSnapshotManagement_MaxSnapshotAgeHour;
             context.IcebergSnapshotManagement_MinSnapshotsToKeep = this.IcebergSnapshotManagement_MinSnapshotsToKeep;
@@ -290,6 +304,16 @@ namespace Amazon.PowerShell.Cmdlets.S3T
              // populate IcebergCompaction
             var requestValue_value_Settings_value_Settings_IcebergCompactionIsNull = true;
             requestValue_value_Settings_value_Settings_IcebergCompaction = new Amazon.S3Tables.Model.IcebergCompactionSettings();
+            Amazon.S3Tables.IcebergCompactionStrategy requestValue_value_Settings_value_Settings_IcebergCompaction_icebergCompaction_Strategy = null;
+            if (cmdletContext.IcebergCompaction_Strategy != null)
+            {
+                requestValue_value_Settings_value_Settings_IcebergCompaction_icebergCompaction_Strategy = cmdletContext.IcebergCompaction_Strategy;
+            }
+            if (requestValue_value_Settings_value_Settings_IcebergCompaction_icebergCompaction_Strategy != null)
+            {
+                requestValue_value_Settings_value_Settings_IcebergCompaction.Strategy = requestValue_value_Settings_value_Settings_IcebergCompaction_icebergCompaction_Strategy;
+                requestValue_value_Settings_value_Settings_IcebergCompactionIsNull = false;
+            }
             System.Int32? requestValue_value_Settings_value_Settings_IcebergCompaction_icebergCompaction_TargetFileSizeMB = null;
             if (cmdletContext.IcebergCompaction_TargetFileSizeMB != null)
             {
@@ -425,6 +449,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             public System.String Namespace { get; set; }
             public System.String TableBucketARN { get; set; }
             public Amazon.S3Tables.TableMaintenanceType Type { get; set; }
+            public Amazon.S3Tables.IcebergCompactionStrategy IcebergCompaction_Strategy { get; set; }
             public System.Int32? IcebergCompaction_TargetFileSizeMB { get; set; }
             public System.Int32? IcebergSnapshotManagement_MaxSnapshotAgeHour { get; set; }
             public System.Int32? IcebergSnapshotManagement_MinSnapshotsToKeep { get; set; }

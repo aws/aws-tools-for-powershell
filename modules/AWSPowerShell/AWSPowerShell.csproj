@@ -1252,6 +1252,9 @@
     <Reference Include="AWSSDK.WorkSpaces">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WorkSpaces.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.WorkspacesInstances">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WorkspacesInstances.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.WorkSpacesThinClient">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WorkSpacesThinClient.dll</HintPath>
     </Reference>
@@ -2459,6 +2462,9 @@
     </Reference>
     <Reference Include="AWSSDK.WorkSpaces">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.WorkSpaces.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.WorkspacesInstances">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.WorkspacesInstances.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WorkSpacesThinClient">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.WorkSpacesThinClient.dll</HintPath>

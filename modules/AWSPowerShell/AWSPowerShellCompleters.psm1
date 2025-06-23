@@ -34758,6 +34758,16 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.CompactionStrategy
+        {
+            ($_ -eq "New-GLUETableOptimizer/IcebergConfiguration_Strategy") -Or
+            ($_ -eq "Update-GLUETableOptimizer/IcebergConfiguration_Strategy")
+        }
+        {
+            $v = "binpack","sort","z-order"
+            break
+        }
+
         # Amazon.Glue.Compatibility
         {
             ($_ -eq "New-GLUESchema/Compatibility") -Or
@@ -35109,6 +35119,7 @@ $GLUE_map = @{
     "Filter_Status"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Filter_TaskRunType"=@("Get-GLUEMLTaskRunList")
     "Filter_TransformType"=@("Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
+    "IcebergConfiguration_Strategy"=@("New-GLUETableOptimizer","Update-GLUETableOptimizer")
     "IcebergInput_MetadataOperation"=@("New-GLUETable")
     "InclusionAnnotation"=@("Write-GLUEDataQualityProfileAnnotation")
     "JobBookmarksEncryption_JobBookmarksEncryptionMode"=@("New-GLUESecurityConfiguration")
@@ -66573,6 +66584,13 @@ $S3T_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.S3Tables.IcebergCompactionStrategy
+        "Write-S3TTableMaintenanceConfiguration/IcebergCompaction_Strategy"
+        {
+            $v = "auto","binpack","sort","z-order"
+            break
+        }
+
         # Amazon.S3Tables.MaintenanceStatus
         {
             ($_ -eq "Write-S3TTableBucketMaintenanceConfiguration/Value_Status") -Or
@@ -66626,6 +66644,7 @@ $S3T_Completers = {
 $S3T_map = @{
     "EncryptionConfiguration_SseAlgorithm"=@("New-S3TTable","New-S3TTableBucket","Write-S3TTableBucketEncryption")
     "Format"=@("New-S3TTable")
+    "IcebergCompaction_Strategy"=@("Write-S3TTableMaintenanceConfiguration")
     "Type"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
     "Value_Status"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
 }
@@ -79561,6 +79580,219 @@ $WKS_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $WKS_SelectCompleters $WKS_SelectMap
+# Argument completions for service Amazon Workspaces Instances
+
+
+$WKSI_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.WorkspacesInstances.AmdSevSnpEnum
+        "New-WKSIWorkspaceInstance/CpuOptions_AmdSevSnp"
+        {
+            $v = "disabled","enabled"
+            break
+        }
+
+        # Amazon.WorkspacesInstances.AutoRecoveryEnum
+        "New-WKSIWorkspaceInstance/MaintenanceOptions_AutoRecovery"
+        {
+            $v = "default","disabled"
+            break
+        }
+
+        # Amazon.WorkspacesInstances.BandwidthWeightingEnum
+        "New-WKSIWorkspaceInstance/NetworkPerformanceOptions_BandwidthWeighting"
+        {
+            $v = "default","ebs-1","vpc-1"
+            break
+        }
+
+        # Amazon.WorkspacesInstances.CapacityReservationPreferenceEnum
+        "New-WKSIWorkspaceInstance/CapacityReservationSpecification_CapacityReservationPreference"
+        {
+            $v = "capacity-reservations-only","none","open"
+            break
+        }
+
+        # Amazon.WorkspacesInstances.CpuCreditsEnum
+        "New-WKSIWorkspaceInstance/CreditSpecification_CpuCredit"
+        {
+            $v = "standard","unlimited"
+            break
+        }
+
+        # Amazon.WorkspacesInstances.DisassociateModeEnum
+        "Dismount-WKSIVolume/DisassociateMode"
+        {
+            $v = "FORCE","NO_FORCE"
+            break
+        }
+
+        # Amazon.WorkspacesInstances.HostnameTypeEnum
+        "New-WKSIWorkspaceInstance/PrivateDnsNameOptions_HostnameType"
+        {
+            $v = "ip-name","resource-name"
+            break
+        }
+
+        # Amazon.WorkspacesInstances.HttpEndpointEnum
+        "New-WKSIWorkspaceInstance/MetadataOptions_HttpEndpoint"
+        {
+            $v = "disabled","enabled"
+            break
+        }
+
+        # Amazon.WorkspacesInstances.HttpProtocolIpv6Enum
+        "New-WKSIWorkspaceInstance/MetadataOptions_HttpProtocolIpv6"
+        {
+            $v = "disabled","enabled"
+            break
+        }
+
+        # Amazon.WorkspacesInstances.HttpTokensEnum
+        "New-WKSIWorkspaceInstance/MetadataOptions_HttpToken"
+        {
+            $v = "optional","required"
+            break
+        }
+
+        # Amazon.WorkspacesInstances.InstanceInterruptionBehaviorEnum
+        "New-WKSIWorkspaceInstance/SpotOptions_InstanceInterruptionBehavior"
+        {
+            $v = "hibernate","stop"
+            break
+        }
+
+        # Amazon.WorkspacesInstances.InstanceMetadataTagsEnum
+        "New-WKSIWorkspaceInstance/MetadataOptions_InstanceMetadataTag"
+        {
+            $v = "disabled","enabled"
+            break
+        }
+
+        # Amazon.WorkspacesInstances.MarketTypeEnum
+        "New-WKSIWorkspaceInstance/InstanceMarketOptions_MarketType"
+        {
+            $v = "capacity-block","spot"
+            break
+        }
+
+        # Amazon.WorkspacesInstances.SpotInstanceTypeEnum
+        "New-WKSIWorkspaceInstance/SpotOptions_SpotInstanceType"
+        {
+            $v = "one-time","persistent"
+            break
+        }
+
+        # Amazon.WorkspacesInstances.TenancyEnum
+        "New-WKSIWorkspaceInstance/Placement_Tenancy"
+        {
+            $v = "dedicated","default","host"
+            break
+        }
+
+        # Amazon.WorkspacesInstances.VolumeTypeEnum
+        "New-WKSIVolume/VolumeType"
+        {
+            $v = "gp2","gp3","io1","io2","sc1","st1","standard"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$WKSI_map = @{
+    "CapacityReservationSpecification_CapacityReservationPreference"=@("New-WKSIWorkspaceInstance")
+    "CpuOptions_AmdSevSnp"=@("New-WKSIWorkspaceInstance")
+    "CreditSpecification_CpuCredit"=@("New-WKSIWorkspaceInstance")
+    "DisassociateMode"=@("Dismount-WKSIVolume")
+    "InstanceMarketOptions_MarketType"=@("New-WKSIWorkspaceInstance")
+    "MaintenanceOptions_AutoRecovery"=@("New-WKSIWorkspaceInstance")
+    "MetadataOptions_HttpEndpoint"=@("New-WKSIWorkspaceInstance")
+    "MetadataOptions_HttpProtocolIpv6"=@("New-WKSIWorkspaceInstance")
+    "MetadataOptions_HttpToken"=@("New-WKSIWorkspaceInstance")
+    "MetadataOptions_InstanceMetadataTag"=@("New-WKSIWorkspaceInstance")
+    "NetworkPerformanceOptions_BandwidthWeighting"=@("New-WKSIWorkspaceInstance")
+    "Placement_Tenancy"=@("New-WKSIWorkspaceInstance")
+    "PrivateDnsNameOptions_HostnameType"=@("New-WKSIWorkspaceInstance")
+    "SpotOptions_InstanceInterruptionBehavior"=@("New-WKSIWorkspaceInstance")
+    "SpotOptions_SpotInstanceType"=@("New-WKSIWorkspaceInstance")
+    "VolumeType"=@("New-WKSIVolume")
+}
+
+_awsArgumentCompleterRegistration $WKSI_Completers $WKSI_map
+
+$WKSI_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.WKSI.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$WKSI_SelectMap = @{
+    "Select"=@("Mount-WKSIVolume",
+               "New-WKSIVolume",
+               "New-WKSIWorkspaceInstance",
+               "Remove-WKSIVolume",
+               "Remove-WKSIWorkspaceInstance",
+               "Dismount-WKSIVolume",
+               "Get-WKSIWorkspaceInstance",
+               "Get-WKSIInstanceTypeList",
+               "Get-WKSIRegionList",
+               "Get-WKSIResourceTag",
+               "Get-WKSIWorkspaceInstanceList",
+               "Add-WKSIResourceTag",
+               "Remove-WKSIResourceTag")
+}
+
+_awsArgumentCompleterRegistration $WKSI_SelectCompleters $WKSI_SelectMap
 # Argument completions for service Amazon WorkSpaces Thin Client
 
 

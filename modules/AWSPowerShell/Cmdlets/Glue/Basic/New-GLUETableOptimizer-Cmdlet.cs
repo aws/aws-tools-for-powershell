@@ -170,6 +170,29 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.Int32? IcebergConfiguration_SnapshotRetentionPeriodInDay { get; set; }
         #endregion
         
+        #region Parameter IcebergConfiguration_Strategy
+        /// <summary>
+        /// <para>
+        /// <para>The strategy to use for compaction. Valid values are:</para><ul><li><para><c>binpack</c>: Combines small files into larger files, typically targeting sizes
+        /// over 100MB, while applying any pending deletes. This is the recommended compaction
+        /// strategy for most use cases. </para></li><li><para><c>sort</c>: Organizes data based on specified columns which are sorted hierarchically
+        /// during compaction, improving query performance for filtered operations. This strategy
+        /// is recommended when your queries frequently filter on specific columns. To use this
+        /// strategy, you must first define a sort order in your Iceberg table properties using
+        /// the <c>sort_order</c> table property.</para></li><li><para><c>z-order</c>: Optimizes data organization by blending multiple attributes into
+        /// a single scalar value that can be used for sorting, allowing efficient querying across
+        /// multiple dimensions. This strategy is recommended when you need to query data across
+        /// multiple dimensions simultaneously. To use this strategy, you must first define a
+        /// sort order in your Iceberg table properties using the <c>sort_order</c> table property.
+        /// </para></li></ul><para>If an input is not provided, the default value 'binpack' will be used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration_Strategy")]
+        [AWSConstantClassSource("Amazon.Glue.CompactionStrategy")]
+        public Amazon.Glue.CompactionStrategy IcebergConfiguration_Strategy { get; set; }
+        #endregion
+        
         #region Parameter TableName
         /// <summary>
         /// <para>
@@ -266,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 WriteWarning("You are passing $null as a value for parameter TableName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IcebergConfiguration_Strategy = this.IcebergConfiguration_Strategy;
             context.TableOptimizerConfiguration_Enabled = this.TableOptimizerConfiguration_Enabled;
             context.IcebergConfiguration_Location = this.IcebergConfiguration_Location;
             context.IcebergConfiguration_OrphanFileRetentionPeriodInDay = this.IcebergConfiguration_OrphanFileRetentionPeriodInDay;
@@ -331,6 +355,46 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_RoleArn != null)
             {
                 request.TableOptimizerConfiguration.RoleArn = requestTableOptimizerConfiguration_tableOptimizerConfiguration_RoleArn;
+                requestTableOptimizerConfigurationIsNull = false;
+            }
+            Amazon.Glue.Model.CompactionConfiguration requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration = null;
+            
+             // populate CompactionConfiguration
+            var requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfigurationIsNull = true;
+            requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration = new Amazon.Glue.Model.CompactionConfiguration();
+            Amazon.Glue.Model.IcebergCompactionConfiguration requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration = null;
+            
+             // populate IcebergConfiguration
+            var requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfigurationIsNull = true;
+            requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration = new Amazon.Glue.Model.IcebergCompactionConfiguration();
+            Amazon.Glue.CompactionStrategy requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration_icebergConfiguration_Strategy = null;
+            if (cmdletContext.IcebergConfiguration_Strategy != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration_icebergConfiguration_Strategy = cmdletContext.IcebergConfiguration_Strategy;
+            }
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration_icebergConfiguration_Strategy != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration.Strategy = requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration_icebergConfiguration_Strategy;
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfigurationIsNull = false;
+            }
+             // determine if requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration should be set to null
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfigurationIsNull)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration = null;
+            }
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration.IcebergConfiguration = requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration;
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfigurationIsNull = false;
+            }
+             // determine if requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration should be set to null
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfigurationIsNull)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration = null;
+            }
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration != null)
+            {
+                request.TableOptimizerConfiguration.CompactionConfiguration = requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration;
                 requestTableOptimizerConfigurationIsNull = false;
             }
             Amazon.Glue.Model.OrphanFileDeletionConfiguration requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration = null;
@@ -541,6 +605,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String CatalogId { get; set; }
             public System.String DatabaseName { get; set; }
             public System.String TableName { get; set; }
+            public Amazon.Glue.CompactionStrategy IcebergConfiguration_Strategy { get; set; }
             public System.Boolean? TableOptimizerConfiguration_Enabled { get; set; }
             public System.String IcebergConfiguration_Location { get; set; }
             public System.Int32? IcebergConfiguration_OrphanFileRetentionPeriodInDay { get; set; }

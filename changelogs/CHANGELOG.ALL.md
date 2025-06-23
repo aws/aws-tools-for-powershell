@@ -1,4 +1,13 @@
-﻿### 4.1.845 (2025-06-20 20:47Z)
+﻿### 4.1.846 (2025-06-23 20:20Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1069.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Glue
+    * Modified cmdlet New-GLUETableOptimizer: added parameter IcebergConfiguration_Strategy.
+    * Modified cmdlet Update-GLUETableOptimizer: added parameter IcebergConfiguration_Strategy.
+  * Amazon S3 Tables
+    * Modified cmdlet Write-S3TTableMaintenanceConfiguration: added parameter IcebergCompaction_Strategy.
+  * Amazon Workspaces Instances. Added cmdlets to support the service. Cmdlets for the service have the noun prefix WKSI and can be listed using the command 'Get-AWSCmdletName -Service WKSI'.
+
+### 4.1.845 (2025-06-20 20:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1068.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock
     * Modified cmdlet New-BDRGuardrail: added parameters ContentPolicyConfig_TierConfig_TierName and TopicPolicyConfig_TierConfig_TierName.
