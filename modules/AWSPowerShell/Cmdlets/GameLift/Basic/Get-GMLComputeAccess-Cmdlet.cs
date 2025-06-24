@@ -31,7 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Requests authorization to remotely connect to a hosting resource in a Amazon GameLift
-    /// managed fleet. This operation is not used with Amazon GameLift Anywhere fleets.
+    /// Servers managed fleet. This operation is not used with Amazon GameLift Servers Anywhere
+    /// fleets.
     /// 
     ///  
     /// <para><b>Request options</b></para><para>

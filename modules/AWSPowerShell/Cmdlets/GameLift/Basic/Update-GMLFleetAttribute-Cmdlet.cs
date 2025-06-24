@@ -36,10 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     ///  
     /// <para>
     /// To update fleet attributes, specify the fleet ID and the property values that you
-    /// want to change. If successful, Amazon GameLift returns the identifiers for the updated
-    /// fleet.
+    /// want to change. If successful, Amazon GameLift Servers returns the identifiers for
+    /// the updated fleet.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up Amazon GameLift fleets</a></para>
+    /// up Amazon GameLift Servers fleets</a></para>
     /// </summary>
     [Cmdlet("Update", "GMLFleetAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -57,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter AnywhereConfiguration_Cost
         /// <summary>
         /// <para>
-        /// <para>The cost to run your fleet per hour. Amazon GameLift uses the provided cost of your
-        /// fleet to balance usage in queues. For more information about queues, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html">Setting
-        /// up queues</a> in the <i>Amazon GameLift Developer Guide</i>.</para>
+        /// <para>The cost to run your fleet per hour. Amazon GameLift Servers uses the provided cost
+        /// of your fleet to balance usage in queues. For more information about queues, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html">Setting
+        /// up queues</a> in the <i>Amazon GameLift Servers Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,9 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A policy that puts limits on the number of game sessions that a player can create
         /// within a specified span of time. With this policy, you can control players' ability
         /// to consume available resources.</para><para>The policy is evaluated when a player tries to create a new game session. On receiving
-        /// a <c>CreateGameSession</c> request, Amazon GameLift checks that the player (identified
-        /// by <c>CreatorId</c>) has created fewer than game session limit in the specified time
-        /// period.</para>
+        /// a <c>CreateGameSession</c> request, Amazon GameLift Servers checks that the player
+        /// (identified by <c>CreatorId</c>) has created fewer than game session limit in the
+        /// specified time period.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

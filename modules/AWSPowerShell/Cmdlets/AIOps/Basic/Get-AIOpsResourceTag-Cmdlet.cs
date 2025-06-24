@@ -30,8 +30,8 @@ using Amazon.AIOps.Model;
 namespace Amazon.PowerShell.Cmdlets.AIOps
 {
     /// <summary>
-    /// Displays the tags associated with a Amazon Q Developer operational investigations
-    /// resource. Currently, investigation groups support tagging.
+    /// Displays the tags associated with a CloudWatch investigations resource. Currently,
+    /// investigation groups support tagging.
     /// </summary>
     [Cmdlet("Get", "AIOpsResourceTag")]
     [OutputType("System.String")]
@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon Q Developer operational investigations resource that you want
-        /// to view tags for. You can use the <a href="https://docs.aws.amazon.com/operationalinvestigations/latest/AmazonQDeveloperOperationalInvestigationsAPIReference/API_ListInvestigationGroups.html">ListInvestigationGroups</a>
+        /// <para>The ARN of the CloudWatch investigations resource that you want to view tags for.
+        /// You can use the <a href="https://docs.aws.amazon.com/operationalinvestigations/latest/AmazonQDeveloperOperationalInvestigationsAPIReference/API_ListInvestigationGroups.html">ListInvestigationGroups</a>
         /// operation to find the ARNs of investigation groups.</para><para>The ARN format for an investigation group is <c>arn:aws:aiops:<i>Region</i>:<i>account-id</i>:investigation-group:<i>investigation-group-id</i></c>.</para>
         /// </para>
         /// </summary>

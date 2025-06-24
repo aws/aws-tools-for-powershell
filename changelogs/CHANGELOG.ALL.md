@@ -1,4 +1,29 @@
-﻿### 5.0.0 (2025-06-23 20:21Z)
+﻿### 5.0.1 (2025-06-24 20:24Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.38.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AI Ops
+    * Modified cmdlet New-AIOpsInvestigationGroup: added parameter CrossAccountConfiguration.
+    * Modified cmdlet Update-AIOpsInvestigationGroup: added parameter CrossAccountConfiguration.
+  * Amazon Batch
+    * Modified cmdlet New-BATComputeEnvironment: added parameter LaunchTemplate_UserdataType.
+    * Modified cmdlet Update-BATComputeEnvironment: added parameter LaunchTemplate_UserdataType.
+  * Amazon Bedrock
+    * Added cmdlet Get-BDRFoundationModelAgreementOfferList leveraging the ListFoundationModelAgreementOffers service API.
+    * Added cmdlet Get-BDRFoundationModelAvailability leveraging the GetFoundationModelAvailability service API.
+    * Added cmdlet Get-BDRUseCaseForModelAccess leveraging the GetUseCaseForModelAccess service API.
+    * Added cmdlet New-BDRFoundationModelAgreement leveraging the CreateFoundationModelAgreement service API.
+    * Added cmdlet Remove-BDRFoundationModelAgreement leveraging the DeleteFoundationModelAgreement service API.
+    * Added cmdlet Write-BDRUseCaseForModelAccess leveraging the PutUseCaseForModelAccess service API.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet New-EC2Image: added parameter SnapshotLocation.
+  * Amazon License Manager
+    * Modified cmdlet New-LICMLicenseConversionTaskForResource: added parameters DestinationLicenseContext_ProductCode and SourceLicenseContext_ProductCode.
+  * Amazon Relational Database Service
+    * Modified cmdlet Copy-RDSDBSnapshot: added parameters SnapshotAvailabilityZone and SnapshotTarget.
+    * Modified cmdlet New-RDSDBInstanceReadReplica: added parameter BackupTarget.
+  * Amazon Route 53 Resolver
+    * Modified cmdlet New-R53RResolverRule: added parameter DelegationRecord.
+
+### 5.0.0 (2025-06-23 20:21Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.37.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Please refer to the migration guide for a list of breaking changes and workarounds at https://docs.aws.amazon.com/powershell/v5/userguide/migrating-v5.html
 

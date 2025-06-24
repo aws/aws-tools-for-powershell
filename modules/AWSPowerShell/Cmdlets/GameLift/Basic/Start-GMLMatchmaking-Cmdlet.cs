@@ -31,12 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Uses FlexMatch to create a game match for a group of players based on custom matchmaking
-    /// rules. With games that use Amazon GameLift managed hosting, this operation also triggers
-    /// Amazon GameLift to find hosting resources and start a new game session for the new
-    /// match. Each matchmaking request includes information on one or more players and specifies
-    /// the FlexMatch matchmaker to use. When a request is for multiple players, FlexMatch
-    /// attempts to build a match that includes all players in the request, placing them in
-    /// the same team and finding additional players as needed to fill the match. 
+    /// rules. With games that use Amazon GameLift Servers managed hosting, this operation
+    /// also triggers Amazon GameLift Servers to find hosting resources and start a new game
+    /// session for the new match. Each matchmaking request includes information on one or
+    /// more players and specifies the FlexMatch matchmaker to use. When a request is for
+    /// multiple players, FlexMatch attempts to build a match that includes all players in
+    /// the request, placing them in the same team and finding additional players as needed
+    /// to fill the match. 
     /// 
     ///  
     /// <para>
@@ -52,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html">
     /// Add FlexMatch to a game client</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html">
     /// Set Up FlexMatch event notification</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html">
-    /// How Amazon GameLift FlexMatch works</a></para>
+    /// How Amazon GameLift Servers FlexMatch works</a></para>
     /// </summary>
     [Cmdlet("Start", "GMLMatchmaking", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.MatchmakingTicket")]
@@ -115,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon
-        /// GameLift will generate one in the form of a UUID. Use this identifier to track the
-        /// matchmaking ticket status and retrieve match results.</para>
+        /// GameLift Servers will generate one in the form of a UUID. Use this identifier to track
+        /// the matchmaking ticket status and retrieve match results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

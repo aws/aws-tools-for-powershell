@@ -36,11 +36,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// 
     ///  
     /// <para>
-    /// A game session queue is configured with a set of destinations (Amazon GameLift fleets
-    /// or aliases) that determine where the queue can place new game sessions. These destinations
-    /// can span multiple Amazon Web Services Regions, can use different instance types, and
-    /// can include both Spot and On-Demand fleets. If the queue includes multi-location fleets,
-    /// the queue can place game sessions in any of a fleet's remote locations.
+    /// A game session queue is configured with a set of destinations (Amazon GameLift Servers
+    /// fleets or aliases) that determine where the queue can place new game sessions. These
+    /// destinations can span multiple Amazon Web Services Regions, can use different instance
+    /// types, and can include both Spot and On-Demand fleets. If the queue includes multi-location
+    /// fleets, the queue can place game sessions in any of a fleet's remote locations.
     /// </para><para>
     /// You can configure a queue to determine how it selects the best available placement
     /// for a new game session. Queues can prioritize placement decisions based on a combination
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// property includes <c>LOCATION</c>. Locations can include Amazon Web Services Region
         /// codes (such as <c>us-west-2</c>), local zones, and custom locations (for Anywhere
         /// fleets). Each location must be listed only once. For details, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">Amazon
-        /// GameLift service locations.</a></para><para />
+        /// GameLift Servers service locations.</a></para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -188,8 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>A set of policies that enforce a sliding cap on player latency when processing game
         /// sessions placement requests. Use multiple policies to gradually relax the cap over
-        /// time if Amazon GameLift can't make a placement. Policies are evaluated in order starting
-        /// with the lowest maximum latency value.</para><para />
+        /// time if Amazon GameLift Servers can't make a placement. Policies are evaluated in
+        /// order starting with the lowest maximum latency value.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -205,13 +205,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A custom sequence to use when prioritizing where to place new game sessions. Each
-        /// priority type is listed once.</para><ul><li><para><c>LATENCY</c> -- Amazon GameLift prioritizes locations where the average player
-        /// latency is lowest. Player latency data is provided in each game session placement
-        /// request.</para></li><li><para><c>COST</c> -- Amazon GameLift prioritizes queue destinations with the lowest current
-        /// hosting costs. Cost is evaluated based on the destination's location, instance type,
-        /// and fleet type (Spot or On-Demand).</para></li><li><para><c>DESTINATION</c> -- Amazon GameLift prioritizes based on the list order of destinations
-        /// in the queue configuration.</para></li><li><para><c>LOCATION</c> -- Amazon GameLift prioritizes based on the provided order of locations,
-        /// as defined in <c>LocationOrder</c>. </para></li></ul><para />
+        /// priority type is listed once.</para><ul><li><para><c>LATENCY</c> -- Amazon GameLift Servers prioritizes locations where the average
+        /// player latency is lowest. Player latency data is provided in each game session placement
+        /// request.</para></li><li><para><c>COST</c> -- Amazon GameLift Servers prioritizes queue destinations with the lowest
+        /// current hosting costs. Cost is evaluated based on the destination's location, instance
+        /// type, and fleet type (Spot or On-Demand).</para></li><li><para><c>DESTINATION</c> -- Amazon GameLift Servers prioritizes based on the list order
+        /// of destinations in the queue configuration.</para></li><li><para><c>LOCATION</c> -- Amazon GameLift Servers prioritizes based on the provided order
+        /// of locations, as defined in <c>LocationOrder</c>. </para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

@@ -41,9 +41,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// group.
     /// </para><para>
     /// For more information, see the following:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#deregistration-delay">
-    /// Deregistration delay</a> in the <i>Application Load Balancers User Guide</i></para></li><li><para><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay">
-    /// Deregistration delay</a> in the <i>Network Load Balancers User Guide</i></para></li><li><para><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-groups.html#deregistration-delay">
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/edit-target-group-attributes.html#deregistration-delay">
+    /// Deregistration delay</a> in the <i>Application Load Balancers User Guide</i></para></li><li><para><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/edit-target-group-attributes.html#deregistration-delay">
+    /// Deregistration delay</a> in the <i>Network Load Balancers User Guide</i></para></li><li><para><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/edit-target-group-attributes.html#deregistration-delay">
     /// Deregistration delay</a> in the <i>Gateway Load Balancers User Guide</i></para></li></ul><para>
     /// Note: If the specified target does not exist, the action returns successfully.
     /// </para>

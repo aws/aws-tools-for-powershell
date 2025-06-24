@@ -43,13 +43,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// or more locations. 
     /// </para><para>
     /// If successful, this operation returns the list of added locations with their status
-    /// set to <c>NEW</c>. Amazon GameLift initiates the process of starting an instance in
-    /// each added location. You can track the status of each new location by monitoring location
-    /// creation events using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetEvents.html">DescribeFleetEvents</a>.
+    /// set to <c>NEW</c>. Amazon GameLift Servers initiates the process of starting an instance
+    /// in each added location. You can track the status of each new location by monitoring
+    /// location creation events using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetEvents.html">DescribeFleetEvents</a>.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
     /// up fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-editing.html#fleets-update-locations">Update
     /// fleet locations</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">
-    /// Amazon GameLift service locations</a> for managed hosting.
+    /// Amazon GameLift Servers service locations</a> for managed hosting.
     /// </para>
     /// </summary>
     [Cmdlet("New", "GMLFleetLocation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -86,8 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A list of locations to deploy additional instances to and manage as part of the fleet.
-        /// You can add any Amazon GameLift-supported Amazon Web Services Region as a remote location,
-        /// in the form of an Amazon Web Services Region code such as <c>us-west-2</c>. </para><para />
+        /// You can add any Amazon GameLift Servers-supported Amazon Web Services Region as a
+        /// remote location, in the form of an Amazon Web Services Region code such as <c>us-west-2</c>.
+        /// </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <note><para>Only supported for instances in Local Zones. If the source instance is not in a Local
-        /// Zone, omit this parameter.</para></note><ul><li><para>To create local snapshots in the same Local Zone as the source instance, specify <c>local</c>.</para></li><li><para>To create a regional snapshots in the parent Region of the Local Zone, specify <c>regional</c>
+        /// Zone, omit this parameter.</para></note><ul><li><para>To create local snapshots in the same Local Zone as the source instance, specify <c>local</c>.</para></li><li><para>To create regional snapshots in the parent Region of the Local Zone, specify <c>regional</c>
         /// or omit this parameter.</para></li></ul><para>Default value: <c>regional</c></para>
         /// </para>
         /// </summary>

@@ -30,10 +30,10 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Removes a tag assigned to a Amazon GameLift resource. You can use resource tags to
-    /// organize Amazon Web Services resources for a range of purposes. This operation handles
-    /// the permissions necessary to manage tags for Amazon GameLift resources that support
-    /// tagging.
+    /// Removes a tag assigned to a Amazon GameLift Servers resource. You can use resource
+    /// tags to organize Amazon Web Services resources for a range of purposes. This operation
+    /// handles the permissions necessary to manage tags for Amazon GameLift Servers resources
+    /// that support tagging.
     /// 
     ///  
     /// <para>
@@ -62,10 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
-        /// that uniquely identifies the Amazon GameLift resource that you want to remove tags
-        /// from. Amazon GameLift includes resource ARNs in the data object for the resource.
-        /// You can retrieve the ARN by calling a <c>List</c> or <c>Describe</c> operation for
-        /// the resource type. </para>
+        /// that uniquely identifies the Amazon GameLift Servers resource that you want to remove
+        /// tags from. Amazon GameLift Servers includes resource ARNs in the data object for the
+        /// resource. You can retrieve the ARN by calling a <c>List</c> or <c>Describe</c> operation
+        /// for the resource type. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>A list of one or more tag keys to remove from the specified Amazon GameLift resource.
-        /// </para><para />
+        /// <para>A list of one or more tag keys to remove from the specified Amazon GameLift Servers
+        /// resource. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

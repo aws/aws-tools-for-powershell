@@ -91,7 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PortConfiguration_ContainerPortRange
         /// <summary>
         /// <para>
-        /// <para>A set of one or more container port number ranges. The ranges can't overlap. </para><para />
+        /// <para>A set of one or more container port number ranges. The ranges can't overlap if the
+        /// ranges' network protocols are the same. Overlapping ranges with different protocols
+        /// is allowed but not recommended. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -146,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// in an Amazon Elastic Container Registry public or private repository. The repository
         /// must be in the same Amazon Web Services account and Amazon Web Services Region where
         /// you're creating the container group definition. For limits on image size, see <a href="https://docs.aws.amazon.com/general/latest/gr/gamelift.html">Amazon
-        /// GameLift endpoints and quotas</a>. You can use any of the following image URI formats:
-        /// </para><ul><li><para>Image ID only: <c>[AWS account].dkr.ecr.[AWS region].amazonaws.com/[repository ID]</c></para></li><li><para>Image ID and digest: <c>[AWS account].dkr.ecr.[AWS region].amazonaws.com/[repository
+        /// GameLift Servers endpoints and quotas</a>. You can use any of the following image
+        /// URI formats: </para><ul><li><para>Image ID only: <c>[AWS account].dkr.ecr.[AWS region].amazonaws.com/[repository ID]</c></para></li><li><para>Image ID and digest: <c>[AWS account].dkr.ecr.[AWS region].amazonaws.com/[repository
         /// ID]@[digest]</c></para></li><li><para>Image ID and tag: <c>[AWS account].dkr.ecr.[AWS region].amazonaws.com/[repository
         /// ID]:[tag]</c></para></li></ul>
         /// </para>
@@ -195,10 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>The platform that all containers in the group use. Containers in a group must run
         /// on the same operating system.</para><note><para>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in the
-        /// <a href="https://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For
-        /// game servers that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift,
-        /// first update the game server build to server SDK 5.x, and then deploy to AL2023 instances.
-        /// See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html">
+        /// <a href="http://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For
+        /// game servers that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift
+        /// Servers, first update the game server build to server SDK 5.x, and then deploy to
+        /// AL2023 instances. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html">
         /// Migrate to server SDK version 5.</a></para></note>
         /// </para>
         /// </summary>
@@ -210,8 +212,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameServerContainerDefinition_ServerSdkVersion
         /// <summary>
         /// <para>
-        /// <para>The Amazon GameLift server SDK version that the game server is integrated with. Only
-        /// game servers using 5.2.0 or higher are compatible with container fleets.</para>
+        /// <para>The Amazon GameLift Servers server SDK version that the game server is integrated
+        /// with. Only game servers using 5.2.0 or higher are compatible with container fleets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

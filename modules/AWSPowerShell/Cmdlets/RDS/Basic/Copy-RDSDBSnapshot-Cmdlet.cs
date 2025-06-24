@@ -156,6 +156,27 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String PreSignedUrl { get; set; }
         #endregion
         
+        #region Parameter SnapshotAvailabilityZone
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the name of the Availability Zone where RDS stores the DB snapshot. This
+        /// value is valid only for snapshots that RDS stores on a Dedicated Local Zone.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SnapshotAvailabilityZone { get; set; }
+        #endregion
+        
+        #region Parameter SnapshotTarget
+        /// <summary>
+        /// <para>
+        /// <para>Configures the location where RDS will store copied snapshots.</para><para>Valid Values:</para><ul><li><para><c>local</c> (Dedicated Local Zone)</para></li><li><para><c>outposts</c> (Amazon Web Services Outposts)</para></li><li><para><c>region</c> (Amazon Web Services Region)</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SnapshotTarget { get; set; }
+        #endregion
+        
         #region Parameter SourceDBSnapshotIdentifier
         /// <summary>
         /// <para>
@@ -284,6 +305,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.KmsKeyId = this.KmsKeyId;
             context.OptionGroupName = this.OptionGroupName;
             context.PreSignedUrl = this.PreSignedUrl;
+            context.SnapshotAvailabilityZone = this.SnapshotAvailabilityZone;
+            context.SnapshotTarget = this.SnapshotTarget;
             context.SourceDBSnapshotIdentifier = this.SourceDBSnapshotIdentifier;
             #if MODULAR
             if (this.SourceDBSnapshotIdentifier == null && ParameterWasBound(nameof(this.SourceDBSnapshotIdentifier)))
@@ -342,6 +365,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.PreSignedUrl != null)
             {
                 request.PreSignedUrl = cmdletContext.PreSignedUrl;
+            }
+            if (cmdletContext.SnapshotAvailabilityZone != null)
+            {
+                request.SnapshotAvailabilityZone = cmdletContext.SnapshotAvailabilityZone;
+            }
+            if (cmdletContext.SnapshotTarget != null)
+            {
+                request.SnapshotTarget = cmdletContext.SnapshotTarget;
             }
             if (cmdletContext.SourceDBSnapshotIdentifier != null)
             {
@@ -420,6 +451,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String KmsKeyId { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.String PreSignedUrl { get; set; }
+            public System.String SnapshotAvailabilityZone { get; set; }
+            public System.String SnapshotTarget { get; set; }
             public System.String SourceDBSnapshotIdentifier { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
             public System.String TargetCustomAvailabilityZone { get; set; }

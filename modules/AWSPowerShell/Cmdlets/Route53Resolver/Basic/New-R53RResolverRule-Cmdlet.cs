@@ -66,6 +66,17 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         public System.String CreatorRequestId { get; set; }
         #endregion
         
+        #region Parameter DelegationRecord
+        /// <summary>
+        /// <para>
+        /// <para> DNS queries with the delegation records that match this domain name are forwarded
+        /// to the resolvers on your network. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DelegationRecord { get; set; }
+        #endregion
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>
@@ -105,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>When you want to forward DNS queries for specified domain name to resolvers on your
-        /// network, specify <c>FORWARD</c>.</para><para>When you have a forwarding rule to forward DNS queries for a domain to your network
+        /// network, specify <c>FORWARD</c> or <c>DELEGATE</c>.</para><para>When you have a forwarding rule to forward DNS queries for a domain to your network
         /// and you want Resolver to process queries for a subdomain of that domain, specify <c>SYSTEM</c>.</para><para>For example, to forward DNS queries for example.com to resolvers on your network,
         /// you create a rule and specify <c>FORWARD</c> for <c>RuleType</c>. To then have Resolver
         /// process queries for apex.example.com, you create a rule and specify <c>SYSTEM</c>
@@ -208,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
                 WriteWarning("You are passing $null as a value for parameter CreatorRequestId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DelegationRecord = this.DelegationRecord;
             context.DomainName = this.DomainName;
             context.Name = this.Name;
             context.ResolverEndpointId = this.ResolverEndpointId;
@@ -245,6 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             if (cmdletContext.CreatorRequestId != null)
             {
                 request.CreatorRequestId = cmdletContext.CreatorRequestId;
+            }
+            if (cmdletContext.DelegationRecord != null)
+            {
+                request.DelegationRecord = cmdletContext.DelegationRecord;
             }
             if (cmdletContext.DomainName != null)
             {
@@ -326,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CreatorRequestId { get; set; }
+            public System.String DelegationRecord { get; set; }
             public System.String DomainName { get; set; }
             public System.String Name { get; set; }
             public System.String ResolverEndpointId { get; set; }

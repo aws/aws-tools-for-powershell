@@ -30,8 +30,8 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves information on the compute resources in an Amazon GameLift fleet. Use the
-    /// pagination parameters to retrieve results in a set of sequential pages.
+    /// Retrieves information on the compute resources in an Amazon GameLift Servers fleet.
+    /// Use the pagination parameters to retrieve results in a set of sequential pages.
     /// 
     ///  
     /// <para><b>Request options</b></para><ul><li><para>
@@ -109,9 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Location
         /// <summary>
         /// <para>
-        /// <para>The name of a location to retrieve compute resources for. For an Amazon GameLift Anywhere
-        /// fleet, use a custom location. For a managed fleet, provide a Amazon Web Services Region
-        /// or Local Zone code (for example: <c>us-west-2</c> or <c>us-west-2-lax-1</c>).</para>
+        /// <para>The name of a location to retrieve compute resources for. For an Amazon GameLift Servers
+        /// Anywhere fleet, use a custom location. For a managed fleet, provide a Amazon Web Services
+        /// Region or Local Zone code (for example: <c>us-west-2</c> or <c>us-west-2-lax-1</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

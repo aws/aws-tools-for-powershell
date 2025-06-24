@@ -23,63 +23,54 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.GameLift;
-using Amazon.GameLift.Model;
+using Amazon.Bedrock;
+using Amazon.Bedrock.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.GML
+namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Attempts to retrieve a fleet ID that is associated with an alias. Specify a unique
-    /// alias identifier.
-    /// 
-    ///  
-    /// <para>
-    /// If the alias has a <c>SIMPLE</c> routing strategy, Amazon GameLift Servers returns
-    /// a fleet ID. If the alias has a <c>TERMINAL</c> routing strategy, the result is a <c>TerminalRoutingStrategyException</c>.
-    /// </para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a></para>
+    /// Put usecase for model access.
     /// </summary>
-    [Cmdlet("Resolve", "GMLAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon GameLift Service ResolveAlias API operation.", Operation = new[] {"ResolveAlias"}, SelectReturnType = typeof(Amazon.GameLift.Model.ResolveAliasResponse))]
-    [AWSCmdletOutput("System.String or Amazon.GameLift.Model.ResolveAliasResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GameLift.Model.ResolveAliasResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Write", "BDRUseCaseForModelAccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Bedrock PutUseCaseForModelAccess API operation.", Operation = new[] {"PutUseCaseForModelAccess"}, SelectReturnType = typeof(Amazon.Bedrock.Model.PutUseCaseForModelAccessResponse))]
+    [AWSCmdletOutput("None or Amazon.Bedrock.Model.PutUseCaseForModelAccessResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Bedrock.Model.PutUseCaseForModelAccessResponse) be returned by specifying '-Select *'."
     )]
-    public partial class ResolveGMLAliasCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class WriteBDRUseCaseForModelAccessCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AliasId
+        #region Parameter FormData
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the alias that you want to retrieve a fleet ID for. You can
-        /// use either the alias ID or ARN value.</para>
+        /// <para>Put customer profile Request.</para>
         /// </para>
+        /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AliasId { get; set; }
+        [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
+        public byte[] FormData { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'FleetId'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.ResolveAliasResponse).
-        /// Specifying the name of a property of type Amazon.GameLift.Model.ResolveAliasResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.PutUseCaseForModelAccessResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "FleetId";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -101,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AliasId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Resolve-GMLAlias (ResolveAlias)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FormData), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-BDRUseCaseForModelAccess (PutUseCaseForModelAccess)"))
             {
                 return;
             }
@@ -114,14 +105,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.ResolveAliasResponse, ResolveGMLAliasCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.PutUseCaseForModelAccessResponse, WriteBDRUseCaseForModelAccessCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AliasId = this.AliasId;
+            context.FormData = this.FormData;
             #if MODULAR
-            if (this.AliasId == null && ParameterWasBound(nameof(this.AliasId)))
+            if (this.FormData == null && ParameterWasBound(nameof(this.FormData)))
             {
-                WriteWarning("You are passing $null as a value for parameter AliasId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter FormData which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -136,36 +127,49 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         public object Execute(ExecutorContext context)
         {
-            var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.GameLift.Model.ResolveAliasRequest();
+            System.IO.MemoryStream _FormDataStream = null;
             
-            if (cmdletContext.AliasId != null)
-            {
-                request.AliasId = cmdletContext.AliasId;
-            }
-            
-            CmdletOutput output;
-            
-            // issue call
-            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                var cmdletContext = context as CmdletContext;
+                // create request
+                var request = new Amazon.Bedrock.Model.PutUseCaseForModelAccessRequest();
+                
+                if (cmdletContext.FormData != null)
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
+                    _FormDataStream = new System.IO.MemoryStream(cmdletContext.FormData);
+                    request.FormData = _FormDataStream;
+                }
+                
+                CmdletOutput output;
+                
+                // issue call
+                var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+                try
+                {
+                    var response = CallAWSServiceOperation(client, request);
+                    object pipelineOutput = null;
+                    pipelineOutput = cmdletContext.Select(response, this);
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                return output;
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if( _FormDataStream != null)
+                {
+                    _FormDataStream.Dispose();
+                }
             }
-            
-            return output;
         }
         
         public ExecutorContext CreateContext()
@@ -177,12 +181,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.ResolveAliasResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.ResolveAliasRequest request)
+        private Amazon.Bedrock.Model.PutUseCaseForModelAccessResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.PutUseCaseForModelAccessRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "ResolveAlias");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "PutUseCaseForModelAccess");
             try
             {
-                return client.ResolveAliasAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.PutUseCaseForModelAccessAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -199,9 +203,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AliasId { get; set; }
-            public System.Func<Amazon.GameLift.Model.ResolveAliasResponse, ResolveGMLAliasCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.FleetId;
+            public byte[] FormData { get; set; }
+            public System.Func<Amazon.Bedrock.Model.PutUseCaseForModelAccessResponse, WriteBDRUseCaseForModelAccessCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

@@ -72,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>Resource ID of the Amazon VPC that you want to update the Resolver configuration for.</para>
+        /// <para>The ID of the Amazon Virtual Private Cloud VPC or a Route 53 Profile that you're configuring
+        /// Resolver for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

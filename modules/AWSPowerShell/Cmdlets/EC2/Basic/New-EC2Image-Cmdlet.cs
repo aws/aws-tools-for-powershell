@@ -40,6 +40,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// for those volumes. When you launch an instance from this new AMI, the instance automatically
     /// launches with those additional volumes.
     /// </para><para>
+    /// The location of the source instance determines where you can create the snapshots
+    /// of the AMI:
+    /// </para><ul><li><para>
+    /// If the source instance is in a Region, you must create the snapshots in the same Region
+    /// as the instance.
+    /// </para></li><li><para>
+    /// If the source instance is in a Local Zone, you can create the snapshots in the same
+    /// Local Zone or in its parent Region.
+    /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Create
     /// an Amazon EBS-backed AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
@@ -150,6 +159,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? NoReboot { get; set; }
         #endregion
         
+        #region Parameter SnapshotLocation
+        /// <summary>
+        /// <para>
+        /// <note><para>Only supported for instances in Local Zones. If the source instance is not in a Local
+        /// Zone, omit this parameter.</para></note><para>The Amazon S3 location where the snapshots will be stored.</para><ul><li><para>To create local snapshots in the same Local Zone as the source instance, specify <c>local</c>.</para></li><li><para>To create regional snapshots in the parent Region of the Local Zone, specify <c>regional</c>
+        /// or omit this parameter.</para></li></ul><para>Default: <c>regional</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.SnapshotLocationEnum")]
+        public Amazon.EC2.SnapshotLocationEnum SnapshotLocation { get; set; }
+        #endregion
+        
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
@@ -236,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.NoReboot = this.NoReboot;
+            context.SnapshotLocation = this.SnapshotLocation;
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
@@ -279,6 +302,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.NoReboot != null)
             {
                 request.NoReboot = cmdletContext.NoReboot.Value;
+            }
+            if (cmdletContext.SnapshotLocation != null)
+            {
+                request.SnapshotLocation = cmdletContext.SnapshotLocation;
             }
             if (cmdletContext.TagSpecification != null)
             {
@@ -345,6 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String InstanceId { get; set; }
             public System.String Name { get; set; }
             public System.Boolean? NoReboot { get; set; }
+            public Amazon.EC2.SnapshotLocationEnum SnapshotLocation { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CreateImageResponse, NewEC2ImageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ImageId;

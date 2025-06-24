@@ -113,8 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies where automated backups and manual snapshots are stored for the restored
-        /// DB instance.</para><para>Possible values are <c>outposts</c> (Amazon Web Services Outposts) and <c>region</c>
-        /// (Amazon Web Services Region). The default is <c>region</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
+        /// DB instance.</para><para>Possible values are <c>local</c> (Dedicated Local Zone), <c>outposts</c> (Amazon Web
+        /// Services Outposts), and <c>region</c> (Amazon Web Services Region). The default is
+        /// <c>region</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
         /// with Amazon RDS on Amazon Web Services Outposts</a> in the <i>Amazon RDS User Guide</i>.</para>
         /// </para>
         /// </summary>

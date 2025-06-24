@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// If successful, a <c>RuntimeConfiguration</c> object is returned for the requested
     /// fleet. If the requested fleet has been deleted, the result set is empty.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up Amazon GameLift fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-multiprocess.html">Running
+    /// up Amazon GameLift Servers fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-multiprocess.html">Running
     /// multiple processes on a fleet</a></para>
     /// </summary>
     [Cmdlet("Get", "GMLRuntimeConfiguration")]

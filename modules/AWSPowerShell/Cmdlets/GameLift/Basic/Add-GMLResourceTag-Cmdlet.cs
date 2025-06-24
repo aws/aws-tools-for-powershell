@@ -30,10 +30,11 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Assigns a tag to an Amazon GameLift resource. You can use tags to organize resources,
-    /// create IAM permissions policies to manage access to groups of resources, customize
-    /// Amazon Web Services cost breakdowns, and more. This operation handles the permissions
-    /// necessary to manage tags for Amazon GameLift resources that support tagging.
+    /// Assigns a tag to an Amazon GameLift Servers resource. You can use tags to organize
+    /// resources, create IAM permissions policies to manage access to groups of resources,
+    /// customize Amazon Web Services cost breakdowns, and more. This operation handles the
+    /// permissions necessary to manage tags for Amazon GameLift Servers resources that support
+    /// tagging.
     /// 
     ///  
     /// <para>
@@ -62,10 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
-        /// that uniquely identifies the Amazon GameLift resource that you want to assign tags
-        /// to. Amazon GameLift includes resource ARNs in the data object for the resource. You
-        /// can retrieve the ARN by calling a <c>List</c> or <c>Describe</c> operation for the
-        /// resource type. </para>
+        /// that uniquely identifies the Amazon GameLift Servers resource that you want to assign
+        /// tags to. Amazon GameLift Servers includes resource ARNs in the data object for the
+        /// resource. You can retrieve the ARN by calling a <c>List</c> or <c>Describe</c> operation
+        /// for the resource type. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,9 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of one or more tags to assign to the specified Amazon GameLift resource. Tags
-        /// are developer-defined and structured as key-value pairs. The maximum tag limit may
-        /// be lower than stated. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
+        /// <para>A list of one or more tags to assign to the specified Amazon GameLift Servers resource.
+        /// Tags are developer-defined and structured as key-value pairs. The maximum tag limit
+        /// may be lower than stated. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
         /// Tagging Amazon Web Services Resources</a> for tagging limits.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller

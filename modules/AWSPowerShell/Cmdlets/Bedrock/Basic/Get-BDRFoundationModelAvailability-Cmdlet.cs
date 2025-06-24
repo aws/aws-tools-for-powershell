@@ -23,41 +23,31 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.GameLift;
-using Amazon.GameLift.Model;
+using Amazon.Bedrock;
+using Amazon.Bedrock.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.GML
+namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Attempts to retrieve a fleet ID that is associated with an alias. Specify a unique
-    /// alias identifier.
-    /// 
-    ///  
-    /// <para>
-    /// If the alias has a <c>SIMPLE</c> routing strategy, Amazon GameLift Servers returns
-    /// a fleet ID. If the alias has a <c>TERMINAL</c> routing strategy, the result is a <c>TerminalRoutingStrategyException</c>.
-    /// </para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a></para>
+    /// Get information about the Foundation model availability.
     /// </summary>
-    [Cmdlet("Resolve", "GMLAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon GameLift Service ResolveAlias API operation.", Operation = new[] {"ResolveAlias"}, SelectReturnType = typeof(Amazon.GameLift.Model.ResolveAliasResponse))]
-    [AWSCmdletOutput("System.String or Amazon.GameLift.Model.ResolveAliasResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GameLift.Model.ResolveAliasResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "BDRFoundationModelAvailability")]
+    [OutputType("Amazon.Bedrock.Model.GetFoundationModelAvailabilityResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock GetFoundationModelAvailability API operation.", Operation = new[] {"GetFoundationModelAvailability"}, SelectReturnType = typeof(Amazon.Bedrock.Model.GetFoundationModelAvailabilityResponse))]
+    [AWSCmdletOutput("Amazon.Bedrock.Model.GetFoundationModelAvailabilityResponse",
+        "This cmdlet returns an Amazon.Bedrock.Model.GetFoundationModelAvailabilityResponse object containing multiple properties."
     )]
-    public partial class ResolveGMLAliasCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetBDRFoundationModelAvailabilityCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AliasId
+        #region Parameter ModelId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the alias that you want to retrieve a fleet ID for. You can
-        /// use either the alias ID or ARN value.</para>
+        /// <para>The model Id of the foundation model.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,28 +58,18 @@ namespace Amazon.PowerShell.Cmdlets.GML
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AliasId { get; set; }
+        public System.String ModelId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'FleetId'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.ResolveAliasResponse).
-        /// Specifying the name of a property of type Amazon.GameLift.Model.ResolveAliasResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.GetFoundationModelAvailabilityResponse).
+        /// Specifying the name of a property of type Amazon.Bedrock.Model.GetFoundationModelAvailabilityResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "FleetId";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
+        public string Select { get; set; } = "*";
         #endregion
         
         protected override void StopProcessing()
@@ -101,12 +81,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AliasId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Resolve-GMLAlias (ResolveAlias)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -114,14 +88,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.ResolveAliasResponse, ResolveGMLAliasCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.GetFoundationModelAvailabilityResponse, GetBDRFoundationModelAvailabilityCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AliasId = this.AliasId;
+            context.ModelId = this.ModelId;
             #if MODULAR
-            if (this.AliasId == null && ParameterWasBound(nameof(this.AliasId)))
+            if (this.ModelId == null && ParameterWasBound(nameof(this.ModelId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AliasId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -138,11 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.ResolveAliasRequest();
+            var request = new Amazon.Bedrock.Model.GetFoundationModelAvailabilityRequest();
             
-            if (cmdletContext.AliasId != null)
+            if (cmdletContext.ModelId != null)
             {
-                request.AliasId = cmdletContext.AliasId;
+                request.ModelId = cmdletContext.ModelId;
             }
             
             CmdletOutput output;
@@ -177,12 +151,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.ResolveAliasResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.ResolveAliasRequest request)
+        private Amazon.Bedrock.Model.GetFoundationModelAvailabilityResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.GetFoundationModelAvailabilityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "ResolveAlias");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "GetFoundationModelAvailability");
             try
             {
-                return client.ResolveAliasAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetFoundationModelAvailabilityAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -199,9 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AliasId { get; set; }
-            public System.Func<Amazon.GameLift.Model.ResolveAliasResponse, ResolveGMLAliasCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.FleetId;
+            public System.String ModelId { get; set; }
+            public System.Func<Amazon.Bedrock.Model.GetFoundationModelAvailabilityResponse, GetBDRFoundationModelAvailabilityCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

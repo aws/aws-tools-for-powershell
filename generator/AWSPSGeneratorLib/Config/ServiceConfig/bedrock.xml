@@ -33,6 +33,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateFoundationModelAgreement" OutputProperty="ModelId" Verb="New" Noun="FoundationModelAgreement" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateGuardrail" OutputProperty="*" Verb="New" Noun="Guardrail" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="ContentPolicyConfig_TierConfig_TierName" NewName="ContentPolicyConfig_TierConfig_TierName" />
@@ -80,6 +84,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFoundationModelAgreement" Verb="Remove" Noun="FoundationModelAgreement" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteGuardrail" Verb="Remove" Noun="Guardrail" ShouldProcessTarget="GuardrailIdentifier" PipelineParameter="GuardrailIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -121,6 +129,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetFoundationModel" OutputProperty="ModelDetails" Verb="Get" Noun="FoundationModel" PipelineParameter="ModelIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFoundationModelAvailability" OutputProperty="*" Verb="Get" Noun="FoundationModelAvailability" PipelineParameter="ModelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -168,11 +180,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetUseCaseForModelAccess" OutputProperty="FormData" Verb="Get" Noun="UseCaseForModelAccess" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCustomModels" OutputProperty="ModelSummaries" Verb="Get" Noun="CustomModelList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListEvaluationJobs" OutputProperty="JobSummaries" Verb="Get" Noun="EvaluationJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFoundationModelAgreementOffers" OutputProperty="*" Verb="Get" Noun="FoundationModelAgreementOfferList" PipelineParameter="ModelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -225,6 +245,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutModelInvocationLoggingConfiguration" Verb="Write" Noun="ModelInvocationLoggingConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutUseCaseForModelAccess" Verb="Write" Noun="UseCaseForModelAccess" ShouldProcessTarget="FormData" PipelineParameter="FormData" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>[TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
-        /// You can specify one policy name. The following are the possible values:</para><ul><li><para><c>HTTP1Only</c></para></li><li><para><c>HTTP2Only</c></para></li><li><para><c>HTTP2Optional</c></para></li><li><para><c>HTTP2Preferred</c></para></li><li><para><c>None</c></para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies">ALPN
+        /// You can specify one policy name. The following are the possible values:</para><ul><li><para><c>HTTP1Only</c></para></li><li><para><c>HTTP2Only</c></para></li><li><para><c>HTTP2Optional</c></para></li><li><para><c>HTTP2Preferred</c></para></li><li><para><c>None</c></para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html#alpn-policies">ALPN
         /// policies</a> in the <i>Network Load Balancers Guide</i>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
@@ -185,8 +185,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers
-        /// are supported.</para><para>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security
-        /// policies</a> in the <i>Application Load Balancers Guide</i> or <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security
+        /// are supported.</para><para>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html">Security
+        /// policies</a> in the <i>Application Load Balancers Guide</i> or <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html">Security
         /// policies</a> in the <i>Network Load Balancers Guide</i>.</para>
         /// </para>
         /// </summary>

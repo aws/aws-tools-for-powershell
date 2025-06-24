@@ -44,11 +44,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// To restart actions on instances in one of the fleet's remote locations, provide a
     /// fleet ID, a location name, and the type of actions to resume. 
     /// </para></li></ul><para>
-    /// If successful, Amazon GameLift once again initiates scaling events as triggered by
-    /// the fleet's scaling policies. If actions on the fleet location were never stopped,
+    /// If successful, Amazon GameLift Servers once again initiates scaling events as triggered
+    /// by the fleet's scaling policies. If actions on the fleet location were never stopped,
     /// this operation will have no effect.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up Amazon GameLift fleets</a></para>
+    /// up Amazon GameLift Servers fleets</a></para>
     /// </summary>
     [Cmdlet("Start", "GMLFleetAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.StartFleetActionsResponse")]

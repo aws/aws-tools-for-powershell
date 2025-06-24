@@ -30,7 +30,20 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Lists all custom and Amazon Web Services locations.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all custom and Amazon Web Services locations where Amazon GameLift Servers can
+    /// host game servers. 
+    /// 
+    ///  
+    /// <para>
+    /// Note that if you call this API using a location that doesn't have a service endpoint,
+    /// such as one that can only be a remote location in a multi-location fleet, the API
+    /// returns an error.
+    /// </para><para>
+    /// Consult the table of supported locations in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">Amazon
+    /// GameLift Servers service locations</a> to identify home Regions that support single
+    /// and multi-location fleets.
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">Service
+    /// locations</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLLocationList")]
     [OutputType("Amazon.GameLift.Model.LocationModel")]
@@ -48,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters the list for <c>AWS</c> or <c>CUSTOM</c> locations.</para><para />
+        /// <para>Filters the list for <c>AWS</c> or <c>CUSTOM</c> locations. Use this parameter to
+        /// narrow down results to only Amazon Web Services-managed locations (Amazon EC2 or container)
+        /// or only your custom locations (such as an Amazon GameLift Servers Anywhere fleet).</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

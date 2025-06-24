@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The type of container group to retrieve. Container group type determines how Amazon
-        /// GameLift deploys the container group on each fleet instance.</para>
+        /// GameLift Servers deploys the container group on each fleet instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

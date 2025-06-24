@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter BackupTarget
         /// <summary>
         /// <para>
-        /// <para>The location for storing automated backups and manual snapshots.</para><para>Valid Values:</para><ul><li><para><c>outposts</c> (Amazon Web Services Outposts)</para></li><li><para><c>region</c> (Amazon Web Services Region)</para></li></ul><para>Default: <c>region</c></para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
+        /// <para>The location for storing automated backups and manual snapshots.</para><para>Valid Values:</para><ul><li><para><c>local</c> (Dedicated Local Zone)</para></li><li><para><c>outposts</c> (Amazon Web Services Outposts)</para></li><li><para><c>region</c> (Amazon Web Services Region)</para></li></ul><para>Default: <c>region</c></para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
         /// with Amazon RDS on Amazon Web Services Outposts</a> in the <i>Amazon RDS User Guide</i>.</para>
         /// </para>
         /// </summary>

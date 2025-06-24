@@ -30,10 +30,10 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Requests authorization to remotely connect to an instance in an Amazon GameLift managed
-    /// fleet. Use this operation to connect to instances with game servers that use Amazon
-    /// GameLift server SDK 4.x or earlier. To connect to instances with game servers that
-    /// use server SDK 5.x or later, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAccess">https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAccess</a>.
+    /// Requests authorization to remotely connect to an instance in an Amazon GameLift Servers
+    /// managed fleet. Use this operation to connect to instances with game servers that use
+    /// Amazon GameLift Servers server SDK 4.x or earlier. To connect to instances with game
+    /// servers that use server SDK 5.x or later, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAccess">https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAccess</a>.
     /// 
     ///  
     /// <para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A unique identifier for the fleet that contains the instance you want to access. You
         /// can request access to instances in EC2 fleets with the following statuses: <c>ACTIVATING</c>,
         /// <c>ACTIVE</c>, or <c>ERROR</c>. Use either a fleet ID or an ARN value. </para><note><para>You can access fleets in <c>ERROR</c> status for a short period of time before Amazon
-        /// GameLift deletes them.</para></note>
+        /// GameLift Servers deletes them.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

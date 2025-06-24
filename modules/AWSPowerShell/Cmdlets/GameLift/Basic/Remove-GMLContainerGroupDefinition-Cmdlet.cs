@@ -44,9 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// definition name and the number of versions to retain. For example, set <c>VersionCountToRetain</c>
     /// to 5 to delete all but the five most recent versions.
     /// </para></li></ul><para><b>Result</b></para><para>
-    /// If successful, Amazon GameLift removes the container group definition versions that
-    /// you request deletion for. This request will fail for any requested versions if the
-    /// following is true: 
+    /// If successful, Amazon GameLift Servers removes the container group definition versions
+    /// that you request deletion for. This request will fail for any requested versions if
+    /// the following is true: 
     /// </para><ul><li><para>
     /// If the version is being used in an active fleet
     /// </para></li><li><para>

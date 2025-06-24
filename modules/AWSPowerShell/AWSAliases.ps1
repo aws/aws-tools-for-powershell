@@ -2766,6 +2766,8 @@ Set-Alias -Name Create-BDRCustomModel -Value New-BDRCustomModel
 Set-Alias -Name BDR-CreateCustomModel -Value New-BDRCustomModel
 Set-Alias -Name Create-BDREvaluationJob -Value New-BDREvaluationJob
 Set-Alias -Name BDR-CreateEvaluationJob -Value New-BDREvaluationJob
+Set-Alias -Name Create-BDRFoundationModelAgreement -Value New-BDRFoundationModelAgreement
+Set-Alias -Name BDR-CreateFoundationModelAgreement -Value New-BDRFoundationModelAgreement
 Set-Alias -Name Create-BDRGuardrail -Value New-BDRGuardrail
 Set-Alias -Name BDR-CreateGuardrail -Value New-BDRGuardrail
 Set-Alias -Name Create-BDRGuardrailVersion -Value New-BDRGuardrailVersion
@@ -2788,6 +2790,8 @@ Set-Alias -Name Create-BDRProvisionedModelThroughput -Value New-BDRProvisionedMo
 Set-Alias -Name BDR-CreateProvisionedModelThroughput -Value New-BDRProvisionedModelThroughput
 Set-Alias -Name Delete-BDRCustomModel -Value Remove-BDRCustomModel
 Set-Alias -Name BDR-DeleteCustomModel -Value Remove-BDRCustomModel
+Set-Alias -Name Delete-BDRFoundationModelAgreement -Value Remove-BDRFoundationModelAgreement
+Set-Alias -Name BDR-DeleteFoundationModelAgreement -Value Remove-BDRFoundationModelAgreement
 Set-Alias -Name Delete-BDRGuardrail -Value Remove-BDRGuardrail
 Set-Alias -Name BDR-DeleteGuardrail -Value Remove-BDRGuardrail
 Set-Alias -Name Delete-BDRImportedModel -Value Remove-BDRImportedModel
@@ -2807,6 +2811,7 @@ Set-Alias -Name BDR-DeregisterMarketplaceModelEndpoint -Value Unregister-BDRMark
 Set-Alias -Name BDR-GetCustomModel -Value Get-BDRCustomModel
 Set-Alias -Name BDR-GetEvaluationJob -Value Get-BDREvaluationJob
 Set-Alias -Name BDR-GetFoundationModel -Value Get-BDRFoundationModel
+Set-Alias -Name BDR-GetFoundationModelAvailability -Value Get-BDRFoundationModelAvailability
 Set-Alias -Name BDR-GetGuardrail -Value Get-BDRGuardrail
 Set-Alias -Name BDR-GetImportedModel -Value Get-BDRImportedModel
 Set-Alias -Name BDR-GetInferenceProfile -Value Get-BDRInferenceProfile
@@ -2818,12 +2823,16 @@ Set-Alias -Name BDR-GetModelInvocationJob -Value Get-BDRModelInvocationJob
 Set-Alias -Name BDR-GetModelInvocationLoggingConfiguration -Value Get-BDRModelInvocationLoggingConfiguration
 Set-Alias -Name BDR-GetPromptRouter -Value Get-BDRPromptRouter
 Set-Alias -Name BDR-GetProvisionedModelThroughput -Value Get-BDRProvisionedModelThroughput
+Set-Alias -Name BDR-GetUseCaseForModelAccess -Value Get-BDRUseCaseForModelAccess
 Set-Alias -Name List-BDRCustomModels -Value Get-BDRCustomModelList
 Set-Alias -Name List-BDRCustomModelList -Value Get-BDRCustomModelList
 Set-Alias -Name BDR-ListCustomModels -Value Get-BDRCustomModelList
 Set-Alias -Name List-BDREvaluationJobs -Value Get-BDREvaluationJobList
 Set-Alias -Name List-BDREvaluationJobList -Value Get-BDREvaluationJobList
 Set-Alias -Name BDR-ListEvaluationJobs -Value Get-BDREvaluationJobList
+Set-Alias -Name List-BDRFoundationModelAgreementOffers -Value Get-BDRFoundationModelAgreementOfferList
+Set-Alias -Name List-BDRFoundationModelAgreementOfferList -Value Get-BDRFoundationModelAgreementOfferList
+Set-Alias -Name BDR-ListFoundationModelAgreementOffers -Value Get-BDRFoundationModelAgreementOfferList
 Set-Alias -Name List-BDRFoundationModels -Value Get-BDRFoundationModelList
 Set-Alias -Name List-BDRFoundationModelList -Value Get-BDRFoundationModelList
 Set-Alias -Name BDR-ListFoundationModels -Value Get-BDRFoundationModelList
@@ -2860,6 +2869,8 @@ Set-Alias -Name BDR-ListProvisionedModelThroughputs -Value Get-BDRProvisionedMod
 Set-Alias -Name BDR-ListTagsForResource -Value Get-BDRResourceTag
 Set-Alias -Name Put-BDRModelInvocationLoggingConfiguration -Value Write-BDRModelInvocationLoggingConfiguration
 Set-Alias -Name BDR-PutModelInvocationLoggingConfiguration -Value Write-BDRModelInvocationLoggingConfiguration
+Set-Alias -Name Put-BDRUseCaseForModelAccess -Value Write-BDRUseCaseForModelAccess
+Set-Alias -Name BDR-PutUseCaseForModelAccess -Value Write-BDRUseCaseForModelAccess
 Set-Alias -Name BDR-RegisterMarketplaceModelEndpoint -Value Register-BDRMarketplaceModelEndpoint
 Set-Alias -Name BDR-StopEvaluationJob -Value Stop-BDREvaluationJob
 Set-Alias -Name BDR-StopModelCustomizationJob -Value Stop-BDRModelCustomizationJob

@@ -44,9 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li></ul><para>
     /// To request player sessions, specify either a player session ID, game session ID, or
     /// player ID. You can filter this request by player session status. If you provide a
-    /// specific <c>PlayerSessionId</c> or <c>PlayerId</c>, Amazon GameLift ignores the filter
-    /// criteria. Use the pagination parameters to retrieve results as a set of sequential
-    /// pages. 
+    /// specific <c>PlayerSessionId</c> or <c>PlayerId</c>, Amazon GameLift Servers ignores
+    /// the filter criteria. Use the pagination parameters to retrieve results as a set of
+    /// sequential pages. 
     /// </para><para>
     /// If successful, a <c>PlayerSession</c> object is returned for each session that matches
     /// the request.

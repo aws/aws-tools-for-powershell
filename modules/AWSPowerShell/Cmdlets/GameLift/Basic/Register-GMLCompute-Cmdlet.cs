@@ -30,13 +30,13 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Registers a compute resource in an Amazon GameLift Anywhere fleet. 
+    /// Registers a compute resource in an Amazon GameLift Servers Anywhere fleet. 
     /// 
     ///  
     /// <para>
-    /// For an Anywhere fleet that's running the Amazon GameLift Agent, the Agent handles
-    /// all compute registry tasks for you. For an Anywhere fleet that doesn't use the Agent,
-    /// call this operation to register fleet computes.
+    /// For an Anywhere fleet that's running the Amazon GameLift Servers Agent, the Agent
+    /// handles all compute registry tasks for you. For an Anywhere fleet that doesn't use
+    /// the Agent, call this operation to register fleet computes.
     /// </para><para>
     /// To register a compute, give the compute a name (must be unique within the fleet) and
     /// specify the compute resource's DNS name or IP address. Provide a fleet ID and a fleet
@@ -44,10 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// the path to a TLS certificate on the compute resource.
     /// </para><para>
     /// If successful, this operation returns compute details, including an Amazon GameLift
-    /// SDK endpoint or Agent endpoint. Game server processes running on the compute can use
-    /// this endpoint to communicate with the Amazon GameLift service. Each server process
-    /// includes the SDK endpoint in its call to the Amazon GameLift server SDK action <c>InitSDK()</c>.
-    /// 
+    /// Servers SDK endpoint or Agent endpoint. Game server processes running on the compute
+    /// can use this endpoint to communicate with the Amazon GameLift Servers service. Each
+    /// server process includes the SDK endpoint in its call to the Amazon GameLift Servers
+    /// server SDK action <c>InitSDK()</c>. 
     /// </para><para>
     /// To view compute details, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeCompute.html">DescribeCompute</a>
     /// with the compute name. 
@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter CertificatePath
         /// <summary>
         /// <para>
-        /// <para>The path to a TLS certificate on your compute resource. Amazon GameLift doesn't validate
-        /// the path and certificate.</para>
+        /// <para>The path to a TLS certificate on your compute resource. Amazon GameLift Servers doesn't
+        /// validate the path and certificate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter DnsName
         /// <summary>
         /// <para>
-        /// <para>The DNS name of the compute resource. Amazon GameLift requires either a DNS name or
-        /// IP address.</para>
+        /// <para>The DNS name of the compute resource. Amazon GameLift Servers requires either a DNS
+        /// name or IP address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter IpAddress
         /// <summary>
         /// <para>
-        /// <para>The IP address of the compute resource. Amazon GameLift requires either a DNS name
-        /// or IP address. When registering an Anywhere fleet, an IP address is required.</para>
+        /// <para>The IP address of the compute resource. Amazon GameLift Servers requires either a
+        /// DNS name or IP address. When registering an Anywhere fleet, an IP address is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
