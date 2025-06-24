@@ -42,6 +42,28 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter DestinationLicenseContext_ProductCode
+        /// <summary>
+        /// <para>
+        /// <para>Product codes referred to in the license conversion process.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DestinationLicenseContext_ProductCodes")]
+        public Amazon.LicenseManager.Model.ProductCodeListItem[] DestinationLicenseContext_ProductCode { get; set; }
+        #endregion
+        
+        #region Parameter SourceLicenseContext_ProductCode
+        /// <summary>
+        /// <para>
+        /// <para>Product codes referred to in the license conversion process.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceLicenseContext_ProductCodes")]
+        public Amazon.LicenseManager.Model.ProductCodeListItem[] SourceLicenseContext_ProductCode { get; set; }
+        #endregion
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
@@ -147,6 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
                 context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.DestinationLicenseContext_ProductCode != null)
+            {
+                context.DestinationLicenseContext_ProductCode = new List<Amazon.LicenseManager.Model.ProductCodeListItem>(this.DestinationLicenseContext_ProductCode);
+            }
             context.DestinationLicenseContext_UsageOperation = this.DestinationLicenseContext_UsageOperation;
             context.ResourceArn = this.ResourceArn;
             #if MODULAR
@@ -155,6 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
                 WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.SourceLicenseContext_ProductCode != null)
+            {
+                context.SourceLicenseContext_ProductCode = new List<Amazon.LicenseManager.Model.ProductCodeListItem>(this.SourceLicenseContext_ProductCode);
+            }
             context.SourceLicenseContext_UsageOperation = this.SourceLicenseContext_UsageOperation;
             
             // allow further manipulation of loaded context prior to processing
@@ -176,6 +206,16 @@ namespace Amazon.PowerShell.Cmdlets.LICM
              // populate DestinationLicenseContext
             var requestDestinationLicenseContextIsNull = true;
             request.DestinationLicenseContext = new Amazon.LicenseManager.Model.LicenseConversionContext();
+            List<Amazon.LicenseManager.Model.ProductCodeListItem> requestDestinationLicenseContext_destinationLicenseContext_ProductCode = null;
+            if (cmdletContext.DestinationLicenseContext_ProductCode != null)
+            {
+                requestDestinationLicenseContext_destinationLicenseContext_ProductCode = cmdletContext.DestinationLicenseContext_ProductCode;
+            }
+            if (requestDestinationLicenseContext_destinationLicenseContext_ProductCode != null)
+            {
+                request.DestinationLicenseContext.ProductCodes = requestDestinationLicenseContext_destinationLicenseContext_ProductCode;
+                requestDestinationLicenseContextIsNull = false;
+            }
             System.String requestDestinationLicenseContext_destinationLicenseContext_UsageOperation = null;
             if (cmdletContext.DestinationLicenseContext_UsageOperation != null)
             {
@@ -199,6 +239,16 @@ namespace Amazon.PowerShell.Cmdlets.LICM
              // populate SourceLicenseContext
             var requestSourceLicenseContextIsNull = true;
             request.SourceLicenseContext = new Amazon.LicenseManager.Model.LicenseConversionContext();
+            List<Amazon.LicenseManager.Model.ProductCodeListItem> requestSourceLicenseContext_sourceLicenseContext_ProductCode = null;
+            if (cmdletContext.SourceLicenseContext_ProductCode != null)
+            {
+                requestSourceLicenseContext_sourceLicenseContext_ProductCode = cmdletContext.SourceLicenseContext_ProductCode;
+            }
+            if (requestSourceLicenseContext_sourceLicenseContext_ProductCode != null)
+            {
+                request.SourceLicenseContext.ProductCodes = requestSourceLicenseContext_sourceLicenseContext_ProductCode;
+                requestSourceLicenseContextIsNull = false;
+            }
             System.String requestSourceLicenseContext_sourceLicenseContext_UsageOperation = null;
             if (cmdletContext.SourceLicenseContext_UsageOperation != null)
             {
@@ -275,8 +325,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.LicenseManager.Model.ProductCodeListItem> DestinationLicenseContext_ProductCode { get; set; }
             public System.String DestinationLicenseContext_UsageOperation { get; set; }
             public System.String ResourceArn { get; set; }
+            public List<Amazon.LicenseManager.Model.ProductCodeListItem> SourceLicenseContext_ProductCode { get; set; }
             public System.String SourceLicenseContext_UsageOperation { get; set; }
             public System.Func<Amazon.LicenseManager.Model.CreateLicenseConversionTaskForResourceResponse, NewLICMLicenseConversionTaskForResourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.LicenseConversionTaskId;

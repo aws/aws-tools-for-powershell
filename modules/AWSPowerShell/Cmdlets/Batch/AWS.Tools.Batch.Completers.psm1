@@ -159,6 +159,16 @@ $BAT_Completers = {
             break
         }
 
+        # Amazon.Batch.UserdataType
+        {
+            ($_ -eq "New-BATComputeEnvironment/LaunchTemplate_UserdataType") -Or
+            ($_ -eq "Update-BATComputeEnvironment/LaunchTemplate_UserdataType")
+        }
+        {
+            $v = "EKS_BOOTSTRAP_SH","EKS_NODEADM"
+            break
+        }
+
 
     }
 
@@ -171,6 +181,7 @@ $BAT_map = @{
     "ComputeResources_AllocationStrategy"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "ComputeResources_Type"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "JobStatus"=@("Get-BATJobList")
+    "LaunchTemplate_UserdataType"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "LogConfiguration_LogDriver"=@("Register-BATJobDefinition")
     "NetworkConfiguration_AssignPublicIp"=@("Register-BATJobDefinition")
     "State"=@("New-BATComputeEnvironment","New-BATJobQueue","Update-BATComputeEnvironment","Update-BATJobQueue")

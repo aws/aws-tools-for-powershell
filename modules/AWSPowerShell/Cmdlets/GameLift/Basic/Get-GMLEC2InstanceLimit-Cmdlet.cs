@@ -33,8 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// location, that your Amazon Web Services account can use. Learn more at <a href="http://aws.amazon.com/ec2/instance-types/">Amazon
     /// EC2 Instance Types</a>. The information returned includes the maximum number of instances
     /// allowed and your account's current usage across all fleets. This information can affect
-    /// your ability to scale your Amazon GameLift fleets. You can request a limit increase
-    /// for your account by using the <b>Service limits</b> page in the Amazon GameLift console.
+    /// your ability to scale your Amazon GameLift Servers fleets. You can request a limit
+    /// increase for your account by using the <b>Service limits</b> page in the Amazon GameLift
+    /// Servers console.
     /// 
     ///  
     /// <para>
@@ -72,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// If successful, an <c>EC2InstanceLimits</c> object is returned with limits and usage
     /// data for each requested instance type.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up Amazon GameLift fleets</a></para>
+    /// up Amazon GameLift Servers fleets</a></para>
     /// </summary>
     [Cmdlet("Get", "GMLEC2InstanceLimit")]
     [OutputType("Amazon.GameLift.Model.EC2InstanceLimit")]
@@ -89,10 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter EC2InstanceType
         /// <summary>
         /// <para>
-        /// <para>Name of an Amazon EC2 instance type that is supported in Amazon GameLift. A fleet
-        /// instance type determines the computing resources of each instance in the fleet, including
-        /// CPU, memory, storage, and networking capacity. Do not specify a value for this parameter
-        /// to retrieve limits for all instance types.</para>
+        /// <para>Name of an Amazon EC2 instance type that is supported in Amazon GameLift Servers.
+        /// A fleet instance type determines the computing resources of each instance in the fleet,
+        /// including CPU, memory, storage, and networking capacity. Do not specify a value for
+        /// this parameter to retrieve limits for all instance types.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -28,11 +28,11 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation is used with the Amazon GameLift FleetIQ solution and game server
-    /// groups.</b><para>
+    /// <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game
+    /// server groups.</b><para>
     /// Retrieves status information about the Amazon EC2 instances associated with a Amazon
-    /// GameLift FleetIQ game server group. Use this operation to detect when instances are
-    /// active or not available to host new game servers.
+    /// GameLift Servers FleetIQ game server group. Use this operation to detect when instances
+    /// are active or not available to host new game servers.
     /// </para><para>
     /// To request status for all instances in the game server group, provide a game server
     /// group ID only. To request status for specific instances, provide the game server group
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// as a best practice, cache the results and refresh your cache no more than once every
     /// 10 seconds.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon
-    /// GameLift FleetIQ Guide</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// GameLift Servers FleetIQ Guide</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLGameServerInstance")]
     [OutputType("Amazon.GameLift.Model.DescribeGameServerInstancesResponse")]

@@ -1,4 +1,29 @@
-﻿### 4.1.846 (2025-06-23 20:20Z)
+﻿### 4.1.847 (2025-06-24 20:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1070.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AI Ops
+    * Modified cmdlet New-AIOpsInvestigationGroup: added parameter CrossAccountConfiguration.
+    * Modified cmdlet Update-AIOpsInvestigationGroup: added parameter CrossAccountConfiguration.
+  * Amazon Batch
+    * Modified cmdlet New-BATComputeEnvironment: added parameter LaunchTemplate_UserdataType.
+    * Modified cmdlet Update-BATComputeEnvironment: added parameter LaunchTemplate_UserdataType.
+  * Amazon Bedrock
+    * Added cmdlet Get-BDRFoundationModelAgreementOfferList leveraging the ListFoundationModelAgreementOffers service API.
+    * Added cmdlet Get-BDRFoundationModelAvailability leveraging the GetFoundationModelAvailability service API.
+    * Added cmdlet Get-BDRUseCaseForModelAccess leveraging the GetUseCaseForModelAccess service API.
+    * Added cmdlet New-BDRFoundationModelAgreement leveraging the CreateFoundationModelAgreement service API.
+    * Added cmdlet Remove-BDRFoundationModelAgreement leveraging the DeleteFoundationModelAgreement service API.
+    * Added cmdlet Write-BDRUseCaseForModelAccess leveraging the PutUseCaseForModelAccess service API.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2Image: added parameter SnapshotLocation.
+  * Amazon License Manager
+    * Modified cmdlet New-LICMLicenseConversionTaskForResource: added parameters DestinationLicenseContext_ProductCode and SourceLicenseContext_ProductCode.
+  * Amazon Relational Database Service
+    * Modified cmdlet Copy-RDSDBSnapshot: added parameters SnapshotAvailabilityZone and SnapshotTarget.
+    * Modified cmdlet New-RDSDBInstanceReadReplica: added parameter BackupTarget.
+  * Amazon Route 53 Resolver
+    * Modified cmdlet New-R53RResolverRule: added parameter DelegationRecord.
+
+### 4.1.846 (2025-06-23 20:20Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1069.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Glue
     * Modified cmdlet New-GLUETableOptimizer: added parameter IcebergConfiguration_Strategy.

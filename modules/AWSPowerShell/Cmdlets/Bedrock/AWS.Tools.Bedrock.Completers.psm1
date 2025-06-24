@@ -194,6 +194,13 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.OfferType
+        "Get-BDRFoundationModelAgreementOfferList/OfferType"
+        {
+            $v = "ALL","PUBLIC"
+            break
+        }
+
         # Amazon.Bedrock.PromptRouterType
         "Get-BDRPromptRouterList/Type"
         {
@@ -279,6 +286,7 @@ $BDR_map = @{
     "ContentPolicyConfig_TierConfig_TierName"=@("New-BDRGuardrail","Update-BDRGuardrail")
     "CustomizationType"=@("New-BDRModelCustomizationJob")
     "ModelStatus"=@("Get-BDRCustomModelList")
+    "OfferType"=@("Get-BDRFoundationModelAgreementOfferList")
     "S3InputDataConfig_S3InputFormat"=@("New-BDRModelInvocationJob")
     "SortBy"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
     "SortOrder"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
@@ -341,6 +349,7 @@ $BDR_SelectMap = @{
     "Select"=@("Set-BDRBatchDeleteEvaluationJob",
                "New-BDRCustomModel",
                "New-BDREvaluationJob",
+               "New-BDRFoundationModelAgreement",
                "New-BDRGuardrail",
                "New-BDRGuardrailVersion",
                "New-BDRInferenceProfile",
@@ -352,6 +361,7 @@ $BDR_SelectMap = @{
                "New-BDRPromptRouter",
                "New-BDRProvisionedModelThroughput",
                "Remove-BDRCustomModel",
+               "Remove-BDRFoundationModelAgreement",
                "Remove-BDRGuardrail",
                "Remove-BDRImportedModel",
                "Remove-BDRInferenceProfile",
@@ -363,6 +373,7 @@ $BDR_SelectMap = @{
                "Get-BDRCustomModel",
                "Get-BDREvaluationJob",
                "Get-BDRFoundationModel",
+               "Get-BDRFoundationModelAvailability",
                "Get-BDRGuardrail",
                "Get-BDRImportedModel",
                "Get-BDRInferenceProfile",
@@ -374,8 +385,10 @@ $BDR_SelectMap = @{
                "Get-BDRModelInvocationLoggingConfiguration",
                "Get-BDRPromptRouter",
                "Get-BDRProvisionedModelThroughput",
+               "Get-BDRUseCaseForModelAccess",
                "Get-BDRCustomModelList",
                "Get-BDREvaluationJobList",
+               "Get-BDRFoundationModelAgreementOfferList",
                "Get-BDRFoundationModelList",
                "Get-BDRGuardrailList",
                "Get-BDRImportedModelList",
@@ -389,6 +402,7 @@ $BDR_SelectMap = @{
                "Get-BDRProvisionedModelThroughputList",
                "Get-BDRResourceTag",
                "Write-BDRModelInvocationLoggingConfiguration",
+               "Write-BDRUseCaseForModelAccess",
                "Register-BDRMarketplaceModelEndpoint",
                "Stop-BDREvaluationJob",
                "Stop-BDRModelCustomizationJob",

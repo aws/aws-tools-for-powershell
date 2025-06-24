@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// property includes <c>LOCATION</c>. Locations can include Amazon Web Services Region
         /// codes (such as <c>us-west-2</c>), local zones, and custom locations (for Anywhere
         /// fleets). Each location must be listed only once. For details, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">Amazon
-        /// GameLift service locations.</a></para>
+        /// GameLift Servers service locations.</a></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,9 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>A set of policies that enforce a sliding cap on player latency when processing game
         /// sessions placement requests. Use multiple policies to gradually relax the cap over
-        /// time if Amazon GameLift can't make a placement. Policies are evaluated in order starting
-        /// with the lowest maximum latency value. When updating policies, provide a complete
-        /// collection of policies.</para>
+        /// time if Amazon GameLift Servers can't make a placement. Policies are evaluated in
+        /// order starting with the lowest maximum latency value. When updating policies, provide
+        /// a complete collection of policies.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,13 +176,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A custom sequence to use when prioritizing where to place new game sessions. Each
-        /// priority type is listed once.</para><ul><li><para><c>LATENCY</c> -- Amazon GameLift prioritizes locations where the average player
-        /// latency is lowest. Player latency data is provided in each game session placement
-        /// request.</para></li><li><para><c>COST</c> -- Amazon GameLift prioritizes queue destinations with the lowest current
-        /// hosting costs. Cost is evaluated based on the destination's location, instance type,
-        /// and fleet type (Spot or On-Demand).</para></li><li><para><c>DESTINATION</c> -- Amazon GameLift prioritizes based on the list order of destinations
-        /// in the queue configuration.</para></li><li><para><c>LOCATION</c> -- Amazon GameLift prioritizes based on the provided order of locations,
-        /// as defined in <c>LocationOrder</c>. </para></li></ul>
+        /// priority type is listed once.</para><ul><li><para><c>LATENCY</c> -- Amazon GameLift Servers prioritizes locations where the average
+        /// player latency is lowest. Player latency data is provided in each game session placement
+        /// request.</para></li><li><para><c>COST</c> -- Amazon GameLift Servers prioritizes queue destinations with the lowest
+        /// current hosting costs. Cost is evaluated based on the destination's location, instance
+        /// type, and fleet type (Spot or On-Demand).</para></li><li><para><c>DESTINATION</c> -- Amazon GameLift Servers prioritizes based on the list order
+        /// of destinations in the queue configuration.</para></li><li><para><c>LOCATION</c> -- Amazon GameLift Servers prioritizes based on the provided order
+        /// of locations, as defined in <c>LocationOrder</c>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

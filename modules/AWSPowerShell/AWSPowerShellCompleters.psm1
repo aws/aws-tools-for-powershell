@@ -6539,6 +6539,16 @@ $BAT_Completers = {
             break
         }
 
+        # Amazon.Batch.UserdataType
+        {
+            ($_ -eq "New-BATComputeEnvironment/LaunchTemplate_UserdataType") -Or
+            ($_ -eq "Update-BATComputeEnvironment/LaunchTemplate_UserdataType")
+        }
+        {
+            $v = "EKS_BOOTSTRAP_SH","EKS_NODEADM"
+            break
+        }
+
 
     }
 
@@ -6551,6 +6561,7 @@ $BAT_map = @{
     "ComputeResources_AllocationStrategy"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "ComputeResources_Type"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "JobStatus"=@("Get-BATJobList")
+    "LaunchTemplate_UserdataType"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "LogConfiguration_LogDriver"=@("Register-BATJobDefinition")
     "NetworkConfiguration_AssignPublicIp"=@("Register-BATJobDefinition")
     "State"=@("New-BATComputeEnvironment","New-BATJobQueue","Update-BATComputeEnvironment","Update-BATJobQueue")
@@ -7018,6 +7029,13 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.OfferType
+        "Get-BDRFoundationModelAgreementOfferList/OfferType"
+        {
+            $v = "ALL","PUBLIC"
+            break
+        }
+
         # Amazon.Bedrock.PromptRouterType
         "Get-BDRPromptRouterList/Type"
         {
@@ -7103,6 +7121,7 @@ $BDR_map = @{
     "ContentPolicyConfig_TierConfig_TierName"=@("New-BDRGuardrail","Update-BDRGuardrail")
     "CustomizationType"=@("New-BDRModelCustomizationJob")
     "ModelStatus"=@("Get-BDRCustomModelList")
+    "OfferType"=@("Get-BDRFoundationModelAgreementOfferList")
     "S3InputDataConfig_S3InputFormat"=@("New-BDRModelInvocationJob")
     "SortBy"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
     "SortOrder"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
@@ -7165,6 +7184,7 @@ $BDR_SelectMap = @{
     "Select"=@("Set-BDRBatchDeleteEvaluationJob",
                "New-BDRCustomModel",
                "New-BDREvaluationJob",
+               "New-BDRFoundationModelAgreement",
                "New-BDRGuardrail",
                "New-BDRGuardrailVersion",
                "New-BDRInferenceProfile",
@@ -7176,6 +7196,7 @@ $BDR_SelectMap = @{
                "New-BDRPromptRouter",
                "New-BDRProvisionedModelThroughput",
                "Remove-BDRCustomModel",
+               "Remove-BDRFoundationModelAgreement",
                "Remove-BDRGuardrail",
                "Remove-BDRImportedModel",
                "Remove-BDRInferenceProfile",
@@ -7187,6 +7208,7 @@ $BDR_SelectMap = @{
                "Get-BDRCustomModel",
                "Get-BDREvaluationJob",
                "Get-BDRFoundationModel",
+               "Get-BDRFoundationModelAvailability",
                "Get-BDRGuardrail",
                "Get-BDRImportedModel",
                "Get-BDRInferenceProfile",
@@ -7198,8 +7220,10 @@ $BDR_SelectMap = @{
                "Get-BDRModelInvocationLoggingConfiguration",
                "Get-BDRPromptRouter",
                "Get-BDRProvisionedModelThroughput",
+               "Get-BDRUseCaseForModelAccess",
                "Get-BDRCustomModelList",
                "Get-BDREvaluationJobList",
+               "Get-BDRFoundationModelAgreementOfferList",
                "Get-BDRFoundationModelList",
                "Get-BDRGuardrailList",
                "Get-BDRImportedModelList",
@@ -7213,6 +7237,7 @@ $BDR_SelectMap = @{
                "Get-BDRProvisionedModelThroughputList",
                "Get-BDRResourceTag",
                "Write-BDRModelInvocationLoggingConfiguration",
+               "Write-BDRUseCaseForModelAccess",
                "Register-BDRMarketplaceModelEndpoint",
                "Stop-BDREvaluationJob",
                "Stop-BDRModelCustomizationJob",
@@ -26377,7 +26402,8 @@ $EC2_Completers = {
         # Amazon.EC2.SnapshotLocationEnum
         {
             ($_ -eq "New-EC2Snapshot/Location") -Or
-            ($_ -eq "New-EC2SnapshotBatch/Location")
+            ($_ -eq "New-EC2SnapshotBatch/Location") -Or
+            ($_ -eq "New-EC2Image/SnapshotLocation")
         }
         {
             $v = "local","regional"
@@ -26749,6 +26775,7 @@ $EC2_map = @{
     "Role"=@("Get-EC2CapacityReservationBillingRequest")
     "RuleAction"=@("Edit-EC2TrafficMirrorFilterRule","New-EC2NetworkAclEntry","New-EC2TrafficMirrorFilterRule","Set-EC2NetworkAclEntry")
     "SelfServicePortal"=@("Edit-EC2ClientVpnEndpoint","New-EC2ClientVpnEndpoint")
+    "SnapshotLocation"=@("New-EC2Image")
     "SourceResource_ResourceType"=@("New-EC2IpamPool")
     "SpotFleetRequestConfig_AllocationStrategy"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_ExcessCapacityTerminationPolicy"=@("Request-EC2SpotFleet")
@@ -65040,7 +65067,7 @@ $R53R_Completers = {
         # Amazon.Route53Resolver.ResolverEndpointDirection
         "New-R53RResolverEndpoint/Direction"
         {
-            $v = "INBOUND","OUTBOUND"
+            $v = "INBOUND","INBOUND_DELEGATION","OUTBOUND"
             break
         }
 
@@ -65057,7 +65084,7 @@ $R53R_Completers = {
         # Amazon.Route53Resolver.RuleTypeOption
         "New-R53RResolverRule/RuleType"
         {
-            $v = "FORWARD","RECURSIVE","SYSTEM"
+            $v = "DELEGATE","FORWARD","RECURSIVE","SYSTEM"
             break
         }
 
@@ -76039,7 +76066,7 @@ $TRS_Completers = {
             ($_ -eq "Update-TRSVocabulary/LanguageCode")
         }
         {
-            $v = "ab-GE","af-ZA","ar-AE","ar-SA","ast-ES","az-AZ","ba-RU","be-BY","bg-BG","bn-IN","bs-BA","ca-ES","ckb-IQ","ckb-IR","cs-CZ","cy-WL","da-DK","de-CH","de-DE","el-GR","en-AB","en-AU","en-GB","en-IE","en-IN","en-NZ","en-US","en-WL","en-ZA","es-ES","es-US","et-ET","eu-ES","fa-IR","fi-FI","fr-CA","fr-FR","gl-ES","gu-IN","ha-NG","he-IL","hi-IN","hr-HR","hu-HU","hy-AM","id-ID","is-IS","it-IT","ja-JP","ka-GE","kab-DZ","kk-KZ","kn-IN","ko-KR","ky-KG","lg-IN","lt-LT","lv-LV","mhr-RU","mi-NZ","mk-MK","ml-IN","mn-MN","mr-IN","ms-MY","mt-MT","nl-NL","no-NO","or-IN","pa-IN","pl-PL","ps-AF","pt-BR","pt-PT","ro-RO","ru-RU","rw-RW","si-LK","sk-SK","sl-SI","so-SO","sr-RS","su-ID","sv-SE","sw-BI","sw-KE","sw-RW","sw-TZ","sw-UG","ta-IN","te-IN","th-TH","tl-PH","tr-TR","tt-RU","ug-CN","uk-UA","uz-UZ","vi-VN","wo-SN","zh-CN","zh-HK","zh-TW","zu-ZA"
+            $v = "ab-GE","af-ZA","ar-AE","ar-SA","ast-ES","az-AZ","ba-RU","be-BY","bg-BG","bn-IN","bs-BA","ca-ES","ckb-IQ","ckb-IR","cs-CZ","cy-WL","da-DK","de-CH","de-DE","el-GR","en-AB","en-AU","en-GB","en-IE","en-IN","en-NZ","en-US","en-WL","en-ZA","es-ES","es-US","et-EE","et-ET","eu-ES","fa-IR","fi-FI","fr-CA","fr-FR","gl-ES","gu-IN","ha-NG","he-IL","hi-IN","hr-HR","hu-HU","hy-AM","id-ID","is-IS","it-IT","ja-JP","ka-GE","kab-DZ","kk-KZ","kn-IN","ko-KR","ky-KG","lg-IN","lt-LT","lv-LV","mhr-RU","mi-NZ","mk-MK","ml-IN","mn-MN","mr-IN","ms-MY","mt-MT","nl-NL","no-NO","or-IN","pa-IN","pl-PL","ps-AF","pt-BR","pt-PT","ro-RO","ru-RU","rw-RW","si-LK","sk-SK","sl-SI","so-SO","sr-RS","su-ID","sv-SE","sw-BI","sw-KE","sw-RW","sw-TZ","sw-UG","ta-IN","te-IN","th-TH","tl-PH","tr-TR","tt-RU","ug-CN","uk-UA","uz-UZ","vi-VN","wo-SN","zh-CN","zh-HK","zh-TW","zu-ZA"
             break
         }
 

@@ -28,9 +28,9 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves information about the EC2 instances in an Amazon GameLift managed fleet,
-    /// including instance ID, connection data, and status. You can use this operation with
-    /// a multi-location fleet to get location-specific instance information. As an alternative,
+    /// Retrieves information about the EC2 instances in an Amazon GameLift Servers managed
+    /// fleet, including instance ID, connection data, and status. You can use this operation
+    /// with a multi-location fleet to get location-specific instance information. As an alternative,
     /// use the operations <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute">https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute</a>
     /// and <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeCompute">https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeCompute</a>
     /// to retrieve information for compute resources, including EC2 and Anywhere fleets.

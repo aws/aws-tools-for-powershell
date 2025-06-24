@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// can check the status of updates in each location by calling <c>DescribeFleetPortSettings</c>
     /// with a location name.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up Amazon GameLift fleets</a></para>
+    /// up Amazon GameLift Servers fleets</a></para>
     /// </summary>
     [Cmdlet("Update", "GMLFleetPortSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

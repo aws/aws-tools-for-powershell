@@ -45,17 +45,29 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
         #region Parameter ChatbotNotificationChannel
         /// <summary>
         /// <para>
-        /// <para>Use this structure to integrate Amazon Q Developer operational investigations with
-        /// Amazon Q in chat applications. This structure is a string array. For the first string,
-        /// specify the ARN of an Amazon SNS topic. For the array of strings, specify the ARNs
-        /// of one or more Amazon Q in chat applications configurations that you want to associate
-        /// with that topic. For more information about these configuration ARNs, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html">Getting
+        /// <para>Use this structure to integrate CloudWatch investigations with Amazon Q in chat applications.
+        /// This structure is a string array. For the first string, specify the ARN of an Amazon
+        /// SNS topic. For the array of strings, specify the ARNs of one or more Amazon Q in chat
+        /// applications configurations that you want to associate with that topic. For more information
+        /// about these configuration ARNs, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html">Getting
         /// started with Amazon Q in chat applications</a> and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies">Resource
         /// type defined by Amazon Web Services Chatbot</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Collections.Hashtable ChatbotNotificationChannel { get; set; }
+        #endregion
+        
+        #region Parameter CrossAccountConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Used to configure cross-account access for an investigation group. It allows the investigation
+        /// group to access resources in other accounts. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CrossAccountConfigurations")]
+        public Amazon.AIOps.Model.CrossAccountConfiguration[] CrossAccountConfiguration { get; set; }
         #endregion
         
         #region Parameter Identifier
@@ -78,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
         #region Parameter IsCloudTrailEventHistoryEnabled
         /// <summary>
         /// <para>
-        /// <para>Specify <c>true</c> to enable Amazon Q Developer operational investigations to have
-        /// access to change events that are recorded by CloudTrail. The default is <c>true</c>.</para>
+        /// <para>Specify <c>true</c> to enable CloudWatch investigations to have access to change events
+        /// that are recorded by CloudTrail. The default is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,10 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>Specify this field if you want to change the IAM role that Amazon Q Developer operational
-        /// investigations will use when it gathers investigation data. To do so, specify the
-        /// ARN of the new role.</para><para>The permissions in this role determine which of your resources that Amazon Q Developer
-        /// operational investigations will have access to during investigations.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-Security-Data">EHow
+        /// <para>Specify this field if you want to change the IAM role that CloudWatch investigations
+        /// will use when it gathers investigation data. To do so, specify the ARN of the new
+        /// role.</para><para>The permissions in this role determine which of your resources that CloudWatch investigations
+        /// will have access to during investigations.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-Security-Data">EHow
         /// to control what data Amazon Q has access to during investigations</a>.</para>
         /// </para>
         /// </summary>
@@ -223,6 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
                     context.ChatbotNotificationChannel.Add((String)hashKey, valueSet);
                 }
             }
+            if (this.CrossAccountConfiguration != null)
+            {
+                context.CrossAccountConfiguration = new List<Amazon.AIOps.Model.CrossAccountConfiguration>(this.CrossAccountConfiguration);
+            }
             context.EncryptionConfiguration_KmsKeyId = this.EncryptionConfiguration_KmsKeyId;
             context.EncryptionConfiguration_Type = this.EncryptionConfiguration_Type;
             context.Identifier = this.Identifier;
@@ -257,6 +273,10 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
             if (cmdletContext.ChatbotNotificationChannel != null)
             {
                 request.ChatbotNotificationChannel = cmdletContext.ChatbotNotificationChannel;
+            }
+            if (cmdletContext.CrossAccountConfiguration != null)
+            {
+                request.CrossAccountConfigurations = cmdletContext.CrossAccountConfiguration;
             }
             
              // populate EncryptionConfiguration
@@ -365,6 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
         internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, List<System.String>> ChatbotNotificationChannel { get; set; }
+            public List<Amazon.AIOps.Model.CrossAccountConfiguration> CrossAccountConfiguration { get; set; }
             public System.String EncryptionConfiguration_KmsKeyId { get; set; }
             public Amazon.AIOps.EncryptionConfigurationType EncryptionConfiguration_Type { get; set; }
             public System.String Identifier { get; set; }

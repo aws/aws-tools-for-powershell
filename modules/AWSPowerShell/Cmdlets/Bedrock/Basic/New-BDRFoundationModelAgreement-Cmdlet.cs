@@ -22,40 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GameLift;
-using Amazon.GameLift.Model;
+using Amazon.Bedrock;
+using Amazon.Bedrock.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GML
+namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Removes a compute resource from an Anywhere fleet. Deregistered computes can no longer
-    /// host game sessions through Amazon GameLift Servers. Use this operation with an Anywhere
-    /// fleet that doesn't use the Amazon GameLift Servers Agent For Anywhere fleets with
-    /// the Agent, the Agent handles all compute registry tasks for you. 
-    /// 
-    ///  
-    /// <para>
-    /// To deregister a compute, call this operation from the compute that's being deregistered
-    /// and specify the compute name and the fleet ID. 
-    /// </para>
+    /// Request a model access agreement for the specified model.
     /// </summary>
-    [Cmdlet("Unregister", "GMLCompute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon GameLift Service DeregisterCompute API operation.", Operation = new[] {"DeregisterCompute"}, SelectReturnType = typeof(Amazon.GameLift.Model.DeregisterComputeResponse))]
-    [AWSCmdletOutput("None or Amazon.GameLift.Model.DeregisterComputeResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GameLift.Model.DeregisterComputeResponse) be returned by specifying '-Select *'."
+    [Cmdlet("New", "BDRFoundationModelAgreement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon Bedrock CreateFoundationModelAgreement API operation.", Operation = new[] {"CreateFoundationModelAgreement"}, SelectReturnType = typeof(Amazon.Bedrock.Model.CreateFoundationModelAgreementResponse))]
+    [AWSCmdletOutput("System.String or Amazon.Bedrock.Model.CreateFoundationModelAgreementResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.Bedrock.Model.CreateFoundationModelAgreementResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class UnregisterGMLComputeCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class NewBDRFoundationModelAgreementCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ComputeName
+        #region Parameter ModelId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the compute resource to deregister. For an Anywhere fleet
-        /// compute, use the registered compute name.</para>
+        /// <para>Model Id of the model for the access request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,13 +56,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ComputeName { get; set; }
+        public System.String ModelId { get; set; }
         #endregion
         
-        #region Parameter FleetId
+        #region Parameter OfferToken
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the fleet the compute resource is currently registered to.</para>
+        /// <para>An offer token encapsulates the information for an offer.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,25 +73,26 @@ namespace Amazon.PowerShell.Cmdlets.GML
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FleetId { get; set; }
+        public System.String OfferToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.DeregisterComputeResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ModelId'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.CreateFoundationModelAgreementResponse).
+        /// Specifying the name of a property of type Amazon.Bedrock.Model.CreateFoundationModelAgreementResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "ModelId";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ComputeName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ComputeName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ModelId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ModelId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ComputeName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ModelId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -121,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ComputeName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unregister-GMLCompute (DeregisterCompute)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ModelId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-BDRFoundationModelAgreement (CreateFoundationModelAgreement)"))
             {
                 return;
             }
@@ -135,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.DeregisterComputeResponse, UnregisterGMLComputeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.CreateFoundationModelAgreementResponse, NewBDRFoundationModelAgreementCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -144,21 +135,21 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ComputeName;
+                context.Select = (response, cmdlet) => this.ModelId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ComputeName = this.ComputeName;
+            context.ModelId = this.ModelId;
             #if MODULAR
-            if (this.ComputeName == null && ParameterWasBound(nameof(this.ComputeName)))
+            if (this.ModelId == null && ParameterWasBound(nameof(this.ModelId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ComputeName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.FleetId = this.FleetId;
+            context.OfferToken = this.OfferToken;
             #if MODULAR
-            if (this.FleetId == null && ParameterWasBound(nameof(this.FleetId)))
+            if (this.OfferToken == null && ParameterWasBound(nameof(this.OfferToken)))
             {
-                WriteWarning("You are passing $null as a value for parameter FleetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter OfferToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -175,15 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.DeregisterComputeRequest();
+            var request = new Amazon.Bedrock.Model.CreateFoundationModelAgreementRequest();
             
-            if (cmdletContext.ComputeName != null)
+            if (cmdletContext.ModelId != null)
             {
-                request.ComputeName = cmdletContext.ComputeName;
+                request.ModelId = cmdletContext.ModelId;
             }
-            if (cmdletContext.FleetId != null)
+            if (cmdletContext.OfferToken != null)
             {
-                request.FleetId = cmdletContext.FleetId;
+                request.OfferToken = cmdletContext.OfferToken;
             }
             
             CmdletOutput output;
@@ -218,15 +209,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.DeregisterComputeResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DeregisterComputeRequest request)
+        private Amazon.Bedrock.Model.CreateFoundationModelAgreementResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.CreateFoundationModelAgreementRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DeregisterCompute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "CreateFoundationModelAgreement");
             try
             {
                 #if DESKTOP
-                return client.DeregisterCompute(request);
+                return client.CreateFoundationModelAgreement(request);
                 #elif CORECLR
-                return client.DeregisterComputeAsync(request).GetAwaiter().GetResult();
+                return client.CreateFoundationModelAgreementAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -246,10 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ComputeName { get; set; }
-            public System.String FleetId { get; set; }
-            public System.Func<Amazon.GameLift.Model.DeregisterComputeResponse, UnregisterGMLComputeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ModelId { get; set; }
+            public System.String OfferToken { get; set; }
+            public System.Func<Amazon.Bedrock.Model.CreateFoundationModelAgreementResponse, NewBDRFoundationModelAgreementCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ModelId;
         }
         
     }

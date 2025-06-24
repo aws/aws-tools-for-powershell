@@ -94,6 +94,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-BDREvaluationJob', 
         'Get-BDREvaluationJobList', 
         'Get-BDRFoundationModel', 
+        'Get-BDRFoundationModelAgreementOfferList', 
+        'Get-BDRFoundationModelAvailability', 
         'Get-BDRFoundationModelList', 
         'Get-BDRGuardrail', 
         'Get-BDRGuardrailList', 
@@ -117,8 +119,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-BDRProvisionedModelThroughput', 
         'Get-BDRProvisionedModelThroughputList', 
         'Get-BDRResourceTag', 
+        'Get-BDRUseCaseForModelAccess', 
         'New-BDRCustomModel', 
         'New-BDREvaluationJob', 
+        'New-BDRFoundationModelAgreement', 
         'New-BDRGuardrail', 
         'New-BDRGuardrailVersion', 
         'New-BDRInferenceProfile', 
@@ -131,6 +135,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-BDRProvisionedModelThroughput', 
         'Register-BDRMarketplaceModelEndpoint', 
         'Remove-BDRCustomModel', 
+        'Remove-BDRFoundationModelAgreement', 
         'Remove-BDRGuardrail', 
         'Remove-BDRImportedModel', 
         'Remove-BDRInferenceProfile', 
@@ -147,7 +152,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-BDRGuardrail', 
         'Update-BDRMarketplaceModelEndpoint', 
         'Update-BDRProvisionedModelThroughput', 
-        'Write-BDRModelInvocationLoggingConfiguration')
+        'Write-BDRModelInvocationLoggingConfiguration', 
+        'Write-BDRUseCaseForModelAccess')
 
     # Variables to export from this module
     VariablesToExport = '*'

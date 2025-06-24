@@ -28,11 +28,11 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation is used with the Amazon GameLift FleetIQ solution and game server
-    /// groups.</b><para>
-    /// Updates information about a registered game server to help Amazon GameLift FleetIQ
-    /// track game server availability. This operation is called by a game server process
-    /// that is running on an instance in a game server group. 
+    /// <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game
+    /// server groups.</b><para>
+    /// Updates information about a registered game server to help Amazon GameLift Servers
+    /// FleetIQ track game server availability. This operation is called by a game server
+    /// process that is running on an instance in a game server group. 
     /// </para><para>
     /// Use this operation to update the following types of game server information. You can
     /// make all three types of updates in the same request:
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Once a game server is successfully updated, the relevant statuses and timestamps are
     /// updated.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon
-    /// GameLift FleetIQ Guide</a></para>
+    /// GameLift Servers FleetIQ Guide</a></para>
     /// </summary>
     [Cmdlet("Update", "GMLGameServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameServer")]

@@ -28,29 +28,30 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Creates a new Amazon GameLift build resource for your game server binary files. Combine
-    /// game server binaries into a zip file for use with Amazon GameLift. 
+    /// Creates a new Amazon GameLift Servers build resource for your game server binary files.
+    /// Combine game server binaries into a zip file for use with Amazon GameLift Servers.
+    /// 
     /// 
     ///  <important><para>
-    /// When setting up a new game build for Amazon GameLift, we recommend using the CLI command
-    /// <b><a href="https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html">upload-build</a></b>. This helper command combines two tasks: (1) it uploads your build files from
-    /// a file directory to an Amazon GameLift Amazon S3 location, and (2) it creates a new
-    /// build resource.
+    /// When setting up a new game build for Amazon GameLift Servers, we recommend using the
+    /// CLI command <b><a href="https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html">upload-build</a></b>. This helper command combines two tasks: (1) it uploads your build files from
+    /// a file directory to an Amazon GameLift Servers Amazon S3 location, and (2) it creates
+    /// a new build resource.
     /// </para></important><para>
     /// You can use the <c>CreateBuild</c> operation in the following scenarios:
     /// </para><ul><li><para>
     /// Create a new game build with build files that are in an Amazon S3 location under an
     /// Amazon Web Services account that you control. To use this option, you give Amazon
-    /// GameLift access to the Amazon S3 bucket. With permissions in place, specify a build
-    /// name, operating system, and the Amazon S3 storage location of your game build.
+    /// GameLift Servers access to the Amazon S3 bucket. With permissions in place, specify
+    /// a build name, operating system, and the Amazon S3 storage location of your game build.
     /// </para></li><li><para>
-    /// Upload your build files to a Amazon GameLift Amazon S3 location. To use this option,
-    /// specify a build name and operating system. This operation creates a new build resource
-    /// and also returns an Amazon S3 location with temporary access credentials. Use the
-    /// credentials to manually upload your build files to the specified Amazon S3 location.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html">Uploading
+    /// Upload your build files to a Amazon GameLift Servers Amazon S3 location. To use this
+    /// option, specify a build name and operating system. This operation creates a new build
+    /// resource and also returns an Amazon S3 location with temporary access credentials.
+    /// Use the credentials to manually upload your build files to the specified Amazon S3
+    /// location. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html">Uploading
     /// Objects</a> in the <i>Amazon S3 Developer Guide</i>. After you upload build files
-    /// to the Amazon GameLift Amazon S3 location, you can't update them. 
+    /// to the Amazon GameLift Servers Amazon S3 location, you can't update them. 
     /// </para></li></ul><para>
     /// If successful, this operation creates a new build resource with a unique build ID
     /// and places it in <c>INITIALIZED</c> status. A build must be in <c>READY</c> status
@@ -76,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_Bucket
         /// <summary>
         /// <para>
-        /// <para>An Amazon S3 bucket identifier. Thename of the S3 bucket.</para><note><para>Amazon GameLift doesn't support uploading from Amazon S3 buckets with names that contain
-        /// a dot (.).</para></note>
+        /// <para>An Amazon S3 bucket identifier. Thename of the S3 bucket.</para><note><para>Amazon GameLift Servers doesn't support uploading from Amazon S3 buckets with names
+        /// that contain a dot (.).</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,9 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The version of the file, if object versioning is turned on for the bucket. Amazon
-        /// GameLift uses this information when retrieving files from an S3 bucket that you own.
-        /// Use this parameter to specify a specific version of the file. If not set, the latest
-        /// version of the file is retrieved. </para>
+        /// GameLift Servers uses this information when retrieving files from an S3 bucket that
+        /// you own. Use this parameter to specify a specific version of the file. If not set,
+        /// the latest version of the file is retrieved. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,10 +127,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// multiple executables, they all must run on the same operating system. You must specify
         /// a valid operating system in this request. There is no default value. You can't change
         /// a build's operating system later.</para><note><para>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in the
-        /// <a href="https://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For
-        /// game servers that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift,
-        /// first update the game server build to server SDK 5.x, and then deploy to AL2023 instances.
-        /// See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html">
+        /// <a href="http://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For
+        /// game servers that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift
+        /// Servers, first update the game server build to server SDK 5.x, and then deploy to
+        /// AL2023 instances. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html">
         /// Migrate to server SDK version 5.</a></para></note>
         /// </para>
         /// </summary>
@@ -142,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
-        /// for an IAM role that allows Amazon GameLift to access the S3 bucket.</para>
+        /// for an IAM role that allows Amazon GameLift Servers to access the S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,9 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A server SDK version you used when integrating your game server build with Amazon
-        /// GameLift. For more information see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-custom-intro.html">Integrate
-        /// games with custom game servers</a>. By default Amazon GameLift sets this value to
-        /// <c>4.0.2</c>.</para>
+        /// GameLift Servers. For more information see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-custom-intro.html">Integrate
+        /// games with custom game servers</a>. By default Amazon GameLift Servers sets this value
+        /// to <c>4.0.2</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

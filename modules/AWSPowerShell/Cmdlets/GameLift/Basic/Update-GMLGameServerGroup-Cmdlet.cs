@@ -28,18 +28,19 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation is used with the Amazon GameLift FleetIQ solution and game server
-    /// groups.</b><para>
-    /// Updates Amazon GameLift FleetIQ-specific properties for a game server group. Many
-    /// Auto Scaling group properties are updated on the Auto Scaling group directly, including
-    /// the launch template, Auto Scaling policies, and maximum/minimum/desired instance counts.
+    /// <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game
+    /// server groups.</b><para>
+    /// Updates Amazon GameLift Servers FleetIQ-specific properties for a game server group.
+    /// Many Auto Scaling group properties are updated on the Auto Scaling group directly,
+    /// including the launch template, Auto Scaling policies, and maximum/minimum/desired
+    /// instance counts.
     /// </para><para>
     /// To update the game server group, specify the game server group ID and provide the
     /// updated values. Before applying the updates, the new values are validated to ensure
-    /// that Amazon GameLift FleetIQ can continue to perform instance balancing activity.
+    /// that Amazon GameLift Servers FleetIQ can continue to perform instance balancing activity.
     /// If successful, a <c>GameServerGroup</c> object is returned.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon
-    /// GameLift FleetIQ Guide</a></para>
+    /// GameLift Servers FleetIQ Guide</a></para>
     /// </summary>
     [Cmdlet("Update", "GMLGameServerGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameServerGroup")]
@@ -56,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter BalancingStrategy
         /// <summary>
         /// <para>
-        /// <para>Indicates how Amazon GameLift FleetIQ balances the use of Spot Instances and On-Demand
-        /// Instances in the game server group. Method options include the following:</para><ul><li><para><c>SPOT_ONLY</c> - Only Spot Instances are used in the game server group. If Spot
+        /// <para>Indicates how Amazon GameLift Servers FleetIQ balances the use of Spot Instances and
+        /// On-Demand Instances in the game server group. Method options include the following:</para><ul><li><para><c>SPOT_ONLY</c> - Only Spot Instances are used in the game server group. If Spot
         /// Instances are unavailable or not viable for game hosting, the game server group provides
         /// no hosting capacity until Spot Instances can again be used. Until then, no new instances
         /// are started, and the existing nonviable Spot Instances are terminated (after current
@@ -114,9 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>An updated list of Amazon EC2 instance types to use in the Auto Scaling group. The
         /// instance definitions must specify at least two different instance types that are supported
-        /// by Amazon GameLift FleetIQ. This updated list replaces the entire current list of
-        /// instance definitions for the game server group. For more information on instance types,
-        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">EC2
+        /// by Amazon GameLift Servers FleetIQ. This updated list replaces the entire current
+        /// list of instance definitions for the game server group. For more information on instance
+        /// types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">EC2
         /// Instance Types</a> in the <i>Amazon EC2 User Guide</i>. You can optionally specify
         /// capacity weighting for each instance type. If no weight value is specified for an
         /// instance type, it is set to the default value "1". For more information about capacity
@@ -134,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
-        /// for an IAM role that allows Amazon GameLift to access your Amazon EC2 Auto Scaling
-        /// groups.</para>
+        /// for an IAM role that allows Amazon GameLift Servers to access your Amazon EC2 Auto
+        /// Scaling groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

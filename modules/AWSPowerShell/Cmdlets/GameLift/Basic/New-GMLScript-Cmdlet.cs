@@ -28,11 +28,11 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Creates a new script record for your Amazon GameLift Realtime script. Realtime scripts
-    /// are JavaScript that provide configuration settings and optional custom game logic
-    /// for your game. The script is deployed when you create a Amazon GameLift Realtime fleet
-    /// to host your game sessions. Script logic is executed during an active game session.
-    /// 
+    /// Creates a new script record for your Amazon GameLift Servers Realtime script. Realtime
+    /// scripts are JavaScript that provide configuration settings and optional custom game
+    /// logic for your game. The script is deployed when you create a Amazon GameLift Servers
+    /// Realtime fleet to host your game sessions. Script logic is executed during an active
+    /// game session. 
     /// 
     ///  
     /// <para>
@@ -44,17 +44,17 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li><li><para>
     /// An Amazon Simple Storage Service (Amazon S3) bucket under your Amazon Web Services
     /// account. Use the <i>StorageLocation</i> parameter for this option. You'll need to
-    /// have an Identity Access Management (IAM) role that allows the Amazon GameLift service
-    /// to access your S3 bucket. 
+    /// have an Identity Access Management (IAM) role that allows the Amazon GameLift Servers
+    /// service to access your S3 bucket. 
     /// </para></li></ul><para>
     /// If the call is successful, a new script record is created with a unique script ID.
     /// If the script file is provided as a local file, the file is uploaded to an Amazon
-    /// GameLift-owned S3 bucket and the script record's storage location reflects this location.
-    /// If the script file is provided as an S3 bucket, Amazon GameLift accesses the file
-    /// at this storage location as needed for deployment.
+    /// GameLift Servers-owned S3 bucket and the script record's storage location reflects
+    /// this location. If the script file is provided as an S3 bucket, Amazon GameLift Servers
+    /// accesses the file at this storage location as needed for deployment.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon
-    /// GameLift Amazon GameLift Realtime</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html">Set
-    /// Up a Role for Amazon GameLift Access</a></para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// GameLift Servers Amazon GameLift Servers Realtime</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html">Set
+    /// Up a Role for Amazon GameLift Servers Access</a></para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("New", "GMLScript", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_Bucket
         /// <summary>
         /// <para>
-        /// <para>An Amazon S3 bucket identifier. Thename of the S3 bucket.</para><note><para>Amazon GameLift doesn't support uploading from Amazon S3 buckets with names that contain
-        /// a dot (.).</para></note>
+        /// <para>An Amazon S3 bucket identifier. Thename of the S3 bucket.</para><note><para>Amazon GameLift Servers doesn't support uploading from Amazon S3 buckets with names
+        /// that contain a dot (.).</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,9 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The version of the file, if object versioning is turned on for the bucket. Amazon
-        /// GameLift uses this information when retrieving files from an S3 bucket that you own.
-        /// Use this parameter to specify a specific version of the file. If not set, the latest
-        /// version of the file is retrieved. </para>
+        /// GameLift Servers uses this information when retrieving files from an S3 bucket that
+        /// you own. Use this parameter to specify a specific version of the file. If not set,
+        /// the latest version of the file is retrieved. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
-        /// for an IAM role that allows Amazon GameLift to access the S3 bucket.</para>
+        /// for an IAM role that allows Amazon GameLift Servers to access the S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

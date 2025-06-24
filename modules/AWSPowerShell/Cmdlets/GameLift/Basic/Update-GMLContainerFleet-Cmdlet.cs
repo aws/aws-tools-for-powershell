@@ -131,10 +131,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The number of times to replicate the game server container group on each fleet instance.
-        /// By default, Amazon GameLift calculates the maximum number of game server container
+        /// By default, Amazon GameLift Servers calculates the maximum number of game server container
         /// groups that can fit on each instance. You can remove this property value to use the
         /// calculated value, or set it manually. If you set this number manually, Amazon GameLift
-        /// uses your value as long as it's less than the calculated maximum.</para>
+        /// Servers uses your value as long as it's less than the calculated maximum.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -242,9 +242,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A policy that puts limits on the number of game sessions that a player can create
         /// within a specified span of time. With this policy, you can control players' ability
         /// to consume available resources.</para><para>The policy evaluates when a player tries to create a new game session. On receiving
-        /// a <c>CreateGameSession</c> request, Amazon GameLift checks that the player (identified
-        /// by <c>CreatorId</c>) has created fewer than game session limit in the specified time
-        /// period.</para>
+        /// a <c>CreateGameSession</c> request, Amazon GameLift Servers checks that the player
+        /// (identified by <c>CreatorId</c>) has created fewer than game session limit in the
+        /// specified time period.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

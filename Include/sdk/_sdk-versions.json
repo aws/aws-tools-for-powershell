@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.1069.0",
+    "ProductVersion"    : "3.7.1070.0",
     "CoreVersion"       : "3.7.402.74",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.451.5",
+            "Version" : "3.7.452.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.74"
@@ -284,7 +284,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.413.6",
+            "Version" : "3.7.414.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.74"
@@ -516,7 +516,7 @@
             "InPreview"               : false
         },
         "GameLift"                        : {
-            "Version" : "3.7.405.46",
+            "Version" : "3.7.406.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.74"
@@ -572,7 +572,7 @@
             "InPreview"               : false
         },
         "ElasticLoadBalancingV2"          : {
-            "Version" : "3.7.409.59",
+            "Version" : "3.7.410.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.74"
@@ -708,7 +708,7 @@
             "InPreview"               : false
         },
         "Batch"                           : {
-            "Version" : "3.7.406.46",
+            "Version" : "3.7.407.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.74"
@@ -1028,7 +1028,7 @@
             "InPreview"               : false
         },
         "TranscribeService"               : {
-            "Version" : "3.7.404.8",
+            "Version" : "3.7.405.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.74"
@@ -1164,7 +1164,7 @@
             "InPreview"               : false
         },
         "Route53Resolver"                 : {
-            "Version" : "3.7.402.115",
+            "Version" : "3.7.403.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.74"
@@ -1268,7 +1268,7 @@
             "InPreview"               : false
         },
         "LicenseManager"                  : {
-            "Version" : "3.7.401.17",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.74"
@@ -2748,7 +2748,7 @@
             "InPreview"               : false
         },
         "Bedrock"                             : {
-            "Version" : "3.7.424.1",
+            "Version" : "3.7.425.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.74"
@@ -3260,7 +3260,7 @@
             "InPreview"               : false
         },
         "AIOps"                               : {
-            "Version" : "3.7.400.2",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.74"

@@ -22,44 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GameLift;
-using Amazon.GameLift.Model;
+using Amazon.Bedrock;
+using Amazon.Bedrock.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GML
+namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Retrieves a fleet's runtime configuration settings. The runtime configuration determines
-    /// which server processes run, and how, on computes in the fleet. For managed EC2 fleets,
-    /// the runtime configuration describes server processes that run on each fleet instance.
-    /// can update a fleet's runtime configuration at any time using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateRuntimeConfiguration.html">UpdateRuntimeConfiguration</a>.
-    /// 
-    ///  
-    /// <para>
-    /// To get the current runtime configuration for a fleet, provide the fleet ID. 
-    /// </para><para>
-    /// If successful, a <c>RuntimeConfiguration</c> object is returned for the requested
-    /// fleet. If the requested fleet has been deleted, the result set is empty.
-    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up Amazon GameLift Servers fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-multiprocess.html">Running
-    /// multiple processes on a fleet</a></para>
+    /// Get information about the Foundation model availability.
     /// </summary>
-    [Cmdlet("Get", "GMLRuntimeConfiguration")]
-    [OutputType("Amazon.GameLift.Model.RuntimeConfiguration")]
-    [AWSCmdlet("Calls the Amazon GameLift Service DescribeRuntimeConfiguration API operation.", Operation = new[] {"DescribeRuntimeConfiguration"}, SelectReturnType = typeof(Amazon.GameLift.Model.DescribeRuntimeConfigurationResponse))]
-    [AWSCmdletOutput("Amazon.GameLift.Model.RuntimeConfiguration or Amazon.GameLift.Model.DescribeRuntimeConfigurationResponse",
-        "This cmdlet returns an Amazon.GameLift.Model.RuntimeConfiguration object.",
-        "The service call response (type Amazon.GameLift.Model.DescribeRuntimeConfigurationResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "BDRFoundationModelAvailability")]
+    [OutputType("Amazon.Bedrock.Model.GetFoundationModelAvailabilityResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock GetFoundationModelAvailability API operation.", Operation = new[] {"GetFoundationModelAvailability"}, SelectReturnType = typeof(Amazon.Bedrock.Model.GetFoundationModelAvailabilityResponse))]
+    [AWSCmdletOutput("Amazon.Bedrock.Model.GetFoundationModelAvailabilityResponse",
+        "This cmdlet returns an Amazon.Bedrock.Model.GetFoundationModelAvailabilityResponse object containing multiple properties."
     )]
-    public partial class GetGMLRuntimeConfigurationCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetBDRFoundationModelAvailabilityCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter FleetId
+        #region Parameter ModelId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the fleet to get the runtime configuration for. You can use
-        /// either the fleet ID or ARN value.</para>
+        /// <para>The model Id of the foundation model.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,26 +55,26 @@ namespace Amazon.PowerShell.Cmdlets.GML
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FleetId { get; set; }
+        public System.String ModelId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'RuntimeConfiguration'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.DescribeRuntimeConfigurationResponse).
-        /// Specifying the name of a property of type Amazon.GameLift.Model.DescribeRuntimeConfigurationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.GetFoundationModelAvailabilityResponse).
+        /// Specifying the name of a property of type Amazon.Bedrock.Model.GetFoundationModelAvailabilityResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "RuntimeConfiguration";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the FleetId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^FleetId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ModelId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ModelId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FleetId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ModelId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -107,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.DescribeRuntimeConfigurationResponse, GetGMLRuntimeConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.GetFoundationModelAvailabilityResponse, GetBDRFoundationModelAvailabilityCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -116,14 +101,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.FleetId;
+                context.Select = (response, cmdlet) => this.ModelId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.FleetId = this.FleetId;
+            context.ModelId = this.ModelId;
             #if MODULAR
-            if (this.FleetId == null && ParameterWasBound(nameof(this.FleetId)))
+            if (this.ModelId == null && ParameterWasBound(nameof(this.ModelId)))
             {
-                WriteWarning("You are passing $null as a value for parameter FleetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -140,11 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.DescribeRuntimeConfigurationRequest();
+            var request = new Amazon.Bedrock.Model.GetFoundationModelAvailabilityRequest();
             
-            if (cmdletContext.FleetId != null)
+            if (cmdletContext.ModelId != null)
             {
-                request.FleetId = cmdletContext.FleetId;
+                request.ModelId = cmdletContext.ModelId;
             }
             
             CmdletOutput output;
@@ -179,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.DescribeRuntimeConfigurationResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeRuntimeConfigurationRequest request)
+        private Amazon.Bedrock.Model.GetFoundationModelAvailabilityResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.GetFoundationModelAvailabilityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DescribeRuntimeConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "GetFoundationModelAvailability");
             try
             {
                 #if DESKTOP
-                return client.DescribeRuntimeConfiguration(request);
+                return client.GetFoundationModelAvailability(request);
                 #elif CORECLR
-                return client.DescribeRuntimeConfigurationAsync(request).GetAwaiter().GetResult();
+                return client.GetFoundationModelAvailabilityAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -207,9 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String FleetId { get; set; }
-            public System.Func<Amazon.GameLift.Model.DescribeRuntimeConfigurationResponse, GetGMLRuntimeConfigurationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.RuntimeConfiguration;
+            public System.String ModelId { get; set; }
+            public System.Func<Amazon.Bedrock.Model.GetFoundationModelAvailabilityResponse, GetBDRFoundationModelAvailabilityCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

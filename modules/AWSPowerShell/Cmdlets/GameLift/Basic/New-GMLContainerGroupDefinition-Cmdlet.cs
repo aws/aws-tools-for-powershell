@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Creates a <c>ContainerGroupDefinition</c> that describes a set of containers for hosting
-    /// your game server with Amazon GameLift managed containers hosting. An Amazon GameLift
-    /// container group is similar to a container task or pod. Use container group definitions
-    /// when you create a container fleet with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerFleet.html">CreateContainerFleet</a>.
+    /// your game server with Amazon GameLift Servers managed containers hosting. An Amazon
+    /// GameLift Servers container group is similar to a container task or pod. Use container
+    /// group definitions when you create a container fleet with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerFleet.html">CreateContainerFleet</a>.
     /// 
     /// 
     ///  
     /// <para>
-    /// A container group definition determines how Amazon GameLift deploys your containers
+    /// A container group definition determines how Amazon GameLift Servers deploys your containers
     /// to each instance in a container fleet. You can maintain multiple versions of a container
     /// group definition.
     /// </para><para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li></ul><note><para>
     /// This operation requires Identity and Access Management (IAM) permissions to access
     /// container images in Amazon ECR repositories. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-iam-policy-examples.html">
-    /// IAM permissions for Amazon GameLift</a> for help setting the appropriate permissions.
+    /// IAM permissions for Amazon GameLift Servers</a> for help setting the appropriate permissions.
     /// </para></note><para><b>Request options</b></para><para>
     /// Use this operation to make the following types of requests. You can specify values
     /// for the minimum required parameters and customize optional values later.
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The type of container group being defined. Container group type determines how Amazon
-        /// GameLift deploys the container group on each fleet instance.</para><para>Default value: <c>GAME_SERVER</c></para>
+        /// GameLift Servers deploys the container group on each fleet instance.</para><para>Default value: <c>GAME_SERVER</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,7 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PortConfiguration_ContainerPortRange
         /// <summary>
         /// <para>
-        /// <para>A set of one or more container port number ranges. The ranges can't overlap. </para>
+        /// <para>A set of one or more container port number ranges. The ranges can't overlap if the
+        /// ranges' network protocols are the same. Overlapping ranges with different protocols
+        /// is allowed but not recommended. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,8 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// in an Amazon Elastic Container Registry public or private repository. The repository
         /// must be in the same Amazon Web Services account and Amazon Web Services Region where
         /// you're creating the container group definition. For limits on image size, see <a href="https://docs.aws.amazon.com/general/latest/gr/gamelift.html">Amazon
-        /// GameLift endpoints and quotas</a>. You can use any of the following image URI formats:
-        /// </para><ul><li><para>Image ID only: <c>[AWS account].dkr.ecr.[AWS region].amazonaws.com/[repository ID]</c></para></li><li><para>Image ID and digest: <c>[AWS account].dkr.ecr.[AWS region].amazonaws.com/[repository
+        /// GameLift Servers endpoints and quotas</a>. You can use any of the following image
+        /// URI formats: </para><ul><li><para>Image ID only: <c>[AWS account].dkr.ecr.[AWS region].amazonaws.com/[repository ID]</c></para></li><li><para>Image ID and digest: <c>[AWS account].dkr.ecr.[AWS region].amazonaws.com/[repository
         /// ID]@[digest]</c></para></li><li><para>Image ID and tag: <c>[AWS account].dkr.ecr.[AWS region].amazonaws.com/[repository
         /// ID]:[tag]</c></para></li></ul>
         /// </para>
@@ -226,10 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>The platform that all containers in the group use. Containers in a group must run
         /// on the same operating system.</para><para>Default value: <c>AMAZON_LINUX_2023</c></para><note><para>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in the
-        /// <a href="https://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For
-        /// game servers that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift,
-        /// first update the game server build to server SDK 5.x, and then deploy to AL2023 instances.
-        /// See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html">
+        /// <a href="http://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For
+        /// game servers that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift
+        /// Servers, first update the game server build to server SDK 5.x, and then deploy to
+        /// AL2023 instances. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html">
         /// Migrate to server SDK version 5.</a></para></note>
         /// </para>
         /// </summary>
@@ -247,8 +249,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameServerContainerDefinition_ServerSdkVersion
         /// <summary>
         /// <para>
-        /// <para>The Amazon GameLift server SDK version that the game server is integrated with. Only
-        /// game servers using 5.2.0 or higher are compatible with container fleets.</para>
+        /// <para>The Amazon GameLift Servers server SDK version that the game server is integrated
+        /// with. Only game servers using 5.2.0 or higher are compatible with container fleets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

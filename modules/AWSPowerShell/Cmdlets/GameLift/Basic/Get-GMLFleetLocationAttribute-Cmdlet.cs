@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// operation does not return the home Region. To get information on a fleet's home Region,
     /// call <c>DescribeFleetAttributes</c>.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up Amazon GameLift fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">
-    /// Amazon GameLift service locations</a> for managed hosting
+    /// up Amazon GameLift Servers fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">
+    /// Amazon GameLift Servers service locations</a> for managed hosting
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLFleetLocationAttribute")]

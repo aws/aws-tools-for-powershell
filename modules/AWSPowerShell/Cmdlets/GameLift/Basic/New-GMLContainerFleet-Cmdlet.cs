@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// host your containerized game servers. Use this operation to define how to deploy a
     /// container architecture onto each fleet instance and configure fleet settings. You
     /// can create a container fleet in any Amazon Web Services Regions that Amazon GameLift
-    /// supports for multi-location fleets. A container fleet can be deployed to a single
-    /// location or multiple locations. Container fleets are deployed with Amazon Linux 2023
-    /// as the instance operating system.
+    /// Servers supports for multi-location fleets. A container fleet can be deployed to a
+    /// single location or multiple locations. Container fleets are deployed with Amazon Linux
+    /// 2023 as the instance operating system.
     /// 
     ///  
     /// <para>
@@ -42,9 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// fleet can have one of the following container group types:
     /// </para><ul><li><para>
     /// The game server container group runs your game server build and dependent software.
-    /// Amazon GameLift deploys one or more replicas of this container group to each fleet
-    /// instance. The number of replicas depends on the computing capabilities of the fleet
-    /// instance in use. 
+    /// Amazon GameLift Servers deploys one or more replicas of this container group to each
+    /// fleet instance. The number of replicas depends on the computing capabilities of the
+    /// fleet instance in use. 
     /// </para></li><li><para>
     /// An optional per-instance container group might be used to run other software that
     /// only needs to run once per instance, such as background services, logging, or test
@@ -124,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The unique identifier for an Identity and Access Management (IAM) role with permissions
-        /// to run your containers on resources that are managed by Amazon GameLift. Use an IAM
-        /// service role with the <c>GameLiftContainerFleetPolicy</c> managed policy attached.
+        /// to run your containers on resources that are managed by Amazon GameLift Servers. Use
+        /// an IAM service role with the <c>GameLiftContainerFleetPolicy</c> managed policy attached.
         /// For more information, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html">Set
         /// up an IAM service role</a>. You can't change this fleet property after the fleet is
         /// created.</para><para>IAM role ARN values use the following pattern: <c>arn:aws:iam::[Amazon Web Services
@@ -172,11 +172,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The number of times to replicate the game server container group on each fleet instance.
-        /// </para><para>By default, Amazon GameLift calculates the maximum number of game server container
+        /// </para><para>By default, Amazon GameLift Servers calculates the maximum number of game server container
         /// groups that can fit on each instance. This calculation is based on the CPU and memory
         /// resources of the fleet's instance type). To use the calculated maximum, don't set
-        /// this parameter. If you set this number manually, Amazon GameLift uses your value as
-        /// long as it's less than the calculated maximum.</para>
+        /// this parameter. If you set this number manually, Amazon GameLift Servers uses your
+        /// value as long as it's less than the calculated maximum.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,13 +189,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>The IP address ranges and port settings that allow inbound traffic to access game
         /// server processes and other processes on this fleet. As a best practice, when remotely
         /// accessing a fleet instance, we recommend opening ports only when you need them and
-        /// closing them when you're finished.</para><para>By default, Amazon GameLift calculates an optimal port range based on your fleet configuration.
-        /// To use the calculated range, don't set this parameter. The values are:</para><ul><li><para>Protocol: UDP</para></li><li><para>Port range: 4192 to a number calculated based on your fleet configuration. Amazon
-        /// GameLift uses the following formula: <c>4192 + [# of game server container groups
-        /// per fleet instance] * [# of container ports in the game server container group definition]
-        /// + [# of container ports in the game server container group definition]</c></para></li></ul><para>You can also choose to manually set this parameter. When manually setting this parameter,
-        /// you must use port numbers that match the fleet's connection port range.</para><note><para>If you set values manually, Amazon GameLift no longer calculates a port range for
-        /// you, even if you later remove the manual settings. </para></note>
+        /// closing them when you're finished.</para><para>By default, Amazon GameLift Servers calculates an optimal port range based on your
+        /// fleet configuration. To use the calculated range, don't set this parameter. The values
+        /// are:</para><ul><li><para>Protocol: UDP</para></li><li><para>Port range: 4192 to a number calculated based on your fleet configuration. Amazon
+        /// GameLift Servers uses the following formula: <c>4192 + [# of game server container
+        /// groups per fleet instance] * [# of container ports in the game server container group
+        /// definition] + [# of container ports in the game server container group definition]</c></para></li></ul><para>You can also choose to manually set this parameter. When manually setting this parameter,
+        /// you must use port numbers that match the fleet's connection port range.</para><note><para>If you set values manually, Amazon GameLift Servers no longer calculates a port range
+        /// for you, even if you later remove the manual settings. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,9 +211,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// fleets, the instance type must be available in the home region and all remote locations.
         /// Instance type determines the computing resources and processing power that's available
         /// to host your game servers. This includes including CPU, memory, storage, and networking
-        /// capacity. </para><para>By default, Amazon GameLift selects an instance type that fits the needs of your container
-        /// groups and is available in all selected fleet locations. You can also choose to manually
-        /// set this parameter. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon
+        /// capacity. </para><para>By default, Amazon GameLift Servers selects an instance type that fits the needs of
+        /// your container groups and is available in all selected fleet locations. You can also
+        /// choose to manually set this parameter. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon
         /// Elastic Compute Cloud Instance Types</a> for detailed descriptions of Amazon EC2 instance
         /// types.</para><para>You can't update this fleet property later.</para>
         /// </para>
@@ -225,12 +226,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A set of locations to deploy container fleet instances to. You can add any Amazon
-        /// Web Services Region or Local Zone that's supported by Amazon GameLift. Provide a list
-        /// of one or more Amazon Web Services Region codes, such as <c>us-west-2</c>, or Local
-        /// Zone names. Also include the fleet's home Region, which is the Amazon Web Services
-        /// Region where the fleet is created. For a list of supported Regions and Local Zones,
-        /// see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">
-        /// Amazon GameLift service locations</a> for managed hosting.</para>
+        /// Web Services Region or Local Zone that's supported by Amazon GameLift Servers. Provide
+        /// a list of one or more Amazon Web Services Region codes, such as <c>us-west-2</c>,
+        /// or Local Zone names. Also include the fleet's home Region, which is the Amazon Web
+        /// Services Region where the fleet is created. For a list of supported Regions and Local
+        /// Zones, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">
+        /// Amazon GameLift Servers service locations</a> for managed hosting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -280,10 +281,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NewGameSessionProtectionPolicy
         /// <summary>
         /// <para>
-        /// <para>Determines whether Amazon GameLift can shut down game sessions on the fleet that are
-        /// actively running and hosting players. Amazon GameLift might prompt an instance shutdown
-        /// when scaling down fleet capacity or when retiring unhealthy instances. You can also
-        /// set game session protection for individual game sessions using <a href="gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a>.</para><ul><li><para><b>NoProtection</b> -- Game sessions can be shut down during active gameplay. </para></li><li><para><b>FullProtection</b> -- Game sessions in <c>ACTIVE</c> status can't be shut down.</para></li></ul><para>By default, this property is set to <c>NoProtection</c>. </para>
+        /// <para>Determines whether Amazon GameLift Servers can shut down game sessions on the fleet
+        /// that are actively running and hosting players. Amazon GameLift Servers might prompt
+        /// an instance shutdown when scaling down fleet capacity or when retiring unhealthy instances.
+        /// You can also set game session protection for individual game sessions using <a href="gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a>.</para><ul><li><para><b>NoProtection</b> -- Game sessions can be shut down during active gameplay. </para></li><li><para><b>FullProtection</b> -- Game sessions in <c>ACTIVE</c> status can't be shut down.</para></li></ul><para>By default, this property is set to <c>NoProtection</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -297,9 +298,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A policy that puts limits on the number of game sessions that a player can create
         /// within a specified span of time. With this policy, you can control players' ability
         /// to consume available resources.</para><para>The policy evaluates when a player tries to create a new game session. On receiving
-        /// a <c>CreateGameSession</c> request, Amazon GameLift checks that the player (identified
-        /// by <c>CreatorId</c>) has created fewer than game session limit in the specified time
-        /// period.</para>
+        /// a <c>CreateGameSession</c> request, Amazon GameLift Servers checks that the player
+        /// (identified by <c>CreatorId</c>) has created fewer than game session limit in the
+        /// specified time period.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

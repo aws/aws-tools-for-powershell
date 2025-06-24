@@ -28,11 +28,12 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Requests an authentication token from Amazon GameLift for a compute resource in an
-    /// Amazon GameLift fleet. Game servers that are running on the compute use this token
-    /// to communicate with the Amazon GameLift service, such as when calling the Amazon GameLift
-    /// server SDK action <c>InitSDK()</c>. Authentication tokens are valid for a limited
-    /// time span, so you need to request a fresh token before the current token expires.
+    /// Requests an authentication token from Amazon GameLift Servers for a compute resource
+    /// in an Amazon GameLift Servers fleet. Game servers that are running on the compute
+    /// use this token to communicate with the Amazon GameLift Servers service, such as when
+    /// calling the Amazon GameLift Servers server SDK action <c>InitSDK()</c>. Authentication
+    /// tokens are valid for a limited time span, so you need to request a fresh token before
+    /// the current token expires.
     /// 
     ///  
     /// <para><b>Request options</b></para><ul><li><para>
@@ -41,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// have access to a valid auth token.
     /// </para></li><li><para>
     /// For Anywhere fleets (compute type <c>ANYWHERE</c>), if you're using the Amazon GameLift
-    /// Agent, auth token retrieval and refresh is handled automatically for any compute where
-    /// the Agent is running. If you're not using the Agent, create a mechanism to retrieve
+    /// Servers Agent, auth token retrieval and refresh is handled automatically for any compute
+    /// where the Agent is running. If you're not using the Agent, create a mechanism to retrieve
     /// and refresh auth tokens for computes that are running game server processes.
     /// </para></li></ul><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-anywhere.html">Create
     /// an Anywhere fleet</a></para></li><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-testing.html">Test

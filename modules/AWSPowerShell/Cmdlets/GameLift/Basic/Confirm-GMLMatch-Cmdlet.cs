@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// in an error.
     /// </para><para>
     /// To register acceptance, specify the ticket ID, one or more players, and an acceptance
-    /// response. When all players have accepted, Amazon GameLift advances the matchmaking
+    /// response. When all players have accepted, Amazon GameLift Servers advances the matchmaking
     /// tickets to status <c>PLACING</c>, and attempts to create a new game session for the
     /// match. 
     /// </para><para>

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// To get a list of all fleets where a specific game build is deployed, provide the build
     /// ID.
     /// </para></li><li><para>
-    /// To get a list of all Amazon GameLift Realtime fleets with a specific configuration
+    /// To get a list of all Amazon GameLift Servers Realtime fleets with a specific configuration
     /// script, provide the script ID. 
     /// </para></li></ul><para>
     /// Use the pagination parameters to retrieve results as a set of sequential pages. 

@@ -189,7 +189,7 @@ $R53R_Completers = {
         # Amazon.Route53Resolver.ResolverEndpointDirection
         "New-R53RResolverEndpoint/Direction"
         {
-            $v = "INBOUND","OUTBOUND"
+            $v = "INBOUND","INBOUND_DELEGATION","OUTBOUND"
             break
         }
 
@@ -206,7 +206,7 @@ $R53R_Completers = {
         # Amazon.Route53Resolver.RuleTypeOption
         "New-R53RResolverRule/RuleType"
         {
-            $v = "FORWARD","RECURSIVE","SYSTEM"
+            $v = "DELEGATE","FORWARD","RECURSIVE","SYSTEM"
             break
         }
 

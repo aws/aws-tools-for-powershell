@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Updates the runtime configuration for the specified fleet. The runtime configuration
-    /// tells Amazon GameLift how to launch server processes on computes in managed EC2 and
-    /// Anywhere fleets. You can update a fleet's runtime configuration at any time after
-    /// the fleet is created; it does not need to be in <c>ACTIVE</c> status.
+    /// tells Amazon GameLift Servers how to launch server processes on computes in managed
+    /// EC2 and Anywhere fleets. You can update a fleet's runtime configuration at any time
+    /// after the fleet is created; it does not need to be in <c>ACTIVE</c> status.
     /// 
     ///  
     /// <para>
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// new server processes or by not replacing existing processes when they shut down. Updating
     /// a fleet's runtime configuration never affects existing server processes.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up Amazon GameLift fleets</a></para>
+    /// up Amazon GameLift Servers fleets</a></para>
     /// </summary>
     [Cmdlet("Update", "GMLRuntimeConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.RuntimeConfiguration")]

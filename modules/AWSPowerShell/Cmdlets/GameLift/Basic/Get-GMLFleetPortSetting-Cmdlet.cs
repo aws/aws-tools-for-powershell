@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// fleet ID. When specifying a location, this operation returns a pending status. If
     /// the requested fleet has been deleted, the result set is empty.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up Amazon GameLift fleets</a></para>
+    /// up Amazon GameLift Servers fleets</a></para>
     /// </summary>
     [Cmdlet("Get", "GMLFleetPortSetting")]
     [OutputType("Amazon.GameLift.Model.IpPermission")]

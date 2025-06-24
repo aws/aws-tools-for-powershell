@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// you must configure an Amazon Simple Notification Service (SNS) topic to receive notifications
     /// from FlexMatch or queues. Continuously polling with <c>DescribeGameSessions</c> should
     /// only be used for games in development with low game session usage. 
-    /// </para><para><i>Available in Amazon GameLift Local.</i></para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-find">Find
+    /// </para><para><i>Available in Amazon GameLift Servers Local.</i></para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-find">Find
     /// a game session</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

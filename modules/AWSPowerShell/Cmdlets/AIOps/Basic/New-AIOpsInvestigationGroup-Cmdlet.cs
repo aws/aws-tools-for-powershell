@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
     /// Currently, you can have one investigation group in each Region in your account. Each
     /// investigation in a Region is a part of the investigation group in that Region
     /// </para><para>
-    /// To create an investigation group and set up Amazon Q Developer operational investigations,
-    /// you must be signed in to an IAM principal that has the either the <c>AIOpsConsoleAdminPolicy</c>
+    /// To create an investigation group and set up CloudWatch investigations, you must be
+    /// signed in to an IAM principal that has the either the <c>AIOpsConsoleAdminPolicy</c>
     /// or the <c>AdministratorAccess</c> IAM policy attached, or to an account that has similar
     /// permissions.
     /// </para><important><para>
@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
     /// want to enable alarms to do this, you must use <a href="https://docs.aws.amazon.com/operationalinvestigations/latest/AmazonQDeveloperOperationalInvestigationsAPIReference/API_PutInvestigationGroupPolicy.html">PutInvestigationGroupPolicy</a>
     /// to create a resource policy that grants this permission to CloudWatch alarms. 
     /// </para><para>
-    /// For more information about configuring CloudWatch alarms to work with Amazon Q Developer
-    /// operational investigations, see 
+    /// For more information about configuring CloudWatch alarms to work with CloudWatch investigations,
+    /// see 
     /// </para></important>
     /// </summary>
     [Cmdlet("New", "AIOpsInvestigationGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -76,11 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
         #region Parameter ChatbotNotificationChannel
         /// <summary>
         /// <para>
-        /// <para>Use this structure to integrate Amazon Q Developer operational investigations with
-        /// Amazon Q in chat applications. This structure is a string array. For the first string,
-        /// specify the ARN of an Amazon SNS topic. For the array of strings, specify the ARNs
-        /// of one or more Amazon Q in chat applications configurations that you want to associate
-        /// with that topic. For more information about these configuration ARNs, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html">Getting
+        /// <para>Use this structure to integrate CloudWatch investigations with Amazon Q in chat applications.
+        /// This structure is a string array. For the first string, specify the ARN of an Amazon
+        /// SNS topic. For the array of strings, specify the ARNs of one or more Amazon Q in chat
+        /// applications configurations that you want to associate with that topic. For more information
+        /// about these configuration ARNs, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html">Getting
         /// started with Amazon Q in chat applications</a> and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies">Resource
         /// type defined by Amazon Web Services Chatbot</a>.</para>
         /// </para>
@@ -89,11 +89,23 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
         public System.Collections.Hashtable ChatbotNotificationChannel { get; set; }
         #endregion
         
+        #region Parameter CrossAccountConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Number of <c>sourceAccountId</c> values that have been configured for cross-account
+        /// access.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CrossAccountConfigurations")]
+        public Amazon.AIOps.Model.CrossAccountConfiguration[] CrossAccountConfiguration { get; set; }
+        #endregion
+        
         #region Parameter IsCloudTrailEventHistoryEnabled
         /// <summary>
         /// <para>
-        /// <para>Specify <c>true</c> to enable Amazon Q Developer operational investigations to have
-        /// access to change events that are recorded by CloudTrail. The default is <c>true</c>.</para>
+        /// <para>Specify <c>true</c> to enable CloudWatch investigations to have access to change events
+        /// that are recorded by CloudTrail. The default is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A name for the investigation group.</para>
+        /// <para>Provides a name for the investigation group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -143,10 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>Specify the ARN of the IAM role that Amazon Q Developer operational investigations
-        /// will use when it gathers investigation data. The permissions in this role determine
-        /// which of your resources that Amazon Q Developer operational investigations will have
-        /// access to during investigations.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-Security-Data">How
+        /// <para>Specify the ARN of the IAM role that CloudWatch investigations will use when it gathers
+        /// investigation data. The permissions in this role determine which of your resources
+        /// that CloudWatch investigations will have access to during investigations.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-Security-Data">How
         /// to control what data Amazon Q has access to during investigations</a>.</para>
         /// </para>
         /// </summary>
@@ -270,6 +281,10 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
                     context.ChatbotNotificationChannel.Add((String)hashKey, valueSet);
                 }
             }
+            if (this.CrossAccountConfiguration != null)
+            {
+                context.CrossAccountConfiguration = new List<Amazon.AIOps.Model.CrossAccountConfiguration>(this.CrossAccountConfiguration);
+            }
             context.EncryptionConfiguration_KmsKeyId = this.EncryptionConfiguration_KmsKeyId;
             context.EncryptionConfiguration_Type = this.EncryptionConfiguration_Type;
             context.IsCloudTrailEventHistoryEnabled = this.IsCloudTrailEventHistoryEnabled;
@@ -319,6 +334,10 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
             if (cmdletContext.ChatbotNotificationChannel != null)
             {
                 request.ChatbotNotificationChannel = cmdletContext.ChatbotNotificationChannel;
+            }
+            if (cmdletContext.CrossAccountConfiguration != null)
+            {
+                request.CrossAccountConfigurations = cmdletContext.CrossAccountConfiguration;
             }
             
              // populate EncryptionConfiguration
@@ -435,6 +454,7 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
         internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, List<System.String>> ChatbotNotificationChannel { get; set; }
+            public List<Amazon.AIOps.Model.CrossAccountConfiguration> CrossAccountConfiguration { get; set; }
             public System.String EncryptionConfiguration_KmsKeyId { get; set; }
             public Amazon.AIOps.EncryptionConfigurationType EncryptionConfiguration_Type { get; set; }
             public System.Boolean? IsCloudTrailEventHistoryEnabled { get; set; }

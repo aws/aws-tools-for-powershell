@@ -74,8 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>Specify the applicable value:</para><ul><li><para><c>INBOUND</c>: Resolver forwards DNS queries to the DNS service for a VPC from your
-        /// network</para></li><li><para><c>OUTBOUND</c>: Resolver forwards DNS queries from the DNS service for a VPC to
-        /// your network</para></li></ul>
+        /// network.</para></li><li><para><c>OUTBOUND</c>: Resolver forwards DNS queries from the DNS service for a VPC to
+        /// your network.</para></li><li><para><c>INBOUND_DELEGATION</c>: Resolver delegates queries to Route 53 private hosted
+        /// zones from your network.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -144,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter Protocol
         /// <summary>
         /// <para>
-        /// <para> The protocols you want to use for the endpoint. DoH-FIPS is applicable for inbound
-        /// endpoints only. </para><para>For an inbound endpoint you can apply the protocols as follows:</para><ul><li><para> Do53 and DoH in combination.</para></li><li><para>Do53 and DoH-FIPS in combination.</para></li><li><para>Do53 alone.</para></li><li><para>DoH alone.</para></li><li><para>DoH-FIPS alone.</para></li><li><para>None, which is treated as Do53.</para></li></ul><para>For an outbound endpoint you can apply the protocols as follows:</para><ul><li><para> Do53 and DoH in combination.</para></li><li><para>Do53 alone.</para></li><li><para>DoH alone.</para></li><li><para>None, which is treated as Do53.</para></li></ul>
+        /// <para> The protocols you want to use for the endpoint. DoH-FIPS is applicable for default
+        /// inbound endpoints only. </para><para>For a default inbound endpoint you can apply the protocols as follows:</para><ul><li><para> Do53 and DoH in combination.</para></li><li><para>Do53 and DoH-FIPS in combination.</para></li><li><para>Do53 alone.</para></li><li><para>DoH alone.</para></li><li><para>DoH-FIPS alone.</para></li><li><para>None, which is treated as Do53.</para></li></ul><para>For a delegation inbound endpoint you can use Do53 only.</para><para>For an outbound endpoint you can apply the protocols as follows:</para><ul><li><para> Do53 and DoH in combination.</para></li><li><para>Do53 alone.</para></li><li><para>DoH alone.</para></li><li><para>None, which is treated as Do53.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

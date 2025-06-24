@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// To delete a fleet, specify the fleet ID to be terminated. During the deletion process,
     /// the fleet status is changed to <c>DELETING</c>. 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up Amazon GameLift Fleets</a></para>
+    /// up Amazon GameLift Servers Fleets</a></para>
     /// </summary>
     [Cmdlet("Remove", "GMLContainerFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

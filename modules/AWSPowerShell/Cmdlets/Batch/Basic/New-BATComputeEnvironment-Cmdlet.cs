@@ -565,6 +565,20 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.Int32? UnmanagedvCpu { get; set; }
         #endregion
         
+        #region Parameter LaunchTemplate_UserdataType
+        /// <summary>
+        /// <para>
+        /// <para>The EKS node initialization process to use. You only need to specify this value if
+        /// you are using a custom AMI. The default value is <c>EKS_BOOTSTRAP_SH</c>. If <i>imageType</i>
+        /// is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose <c>EKS_NODEADM</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ComputeResources_LaunchTemplate_UserdataType")]
+        [AWSConstantClassSource("Amazon.Batch.UserdataType")]
+        public Amazon.Batch.UserdataType LaunchTemplate_UserdataType { get; set; }
+        #endregion
+        
         #region Parameter LaunchTemplate_Version
         /// <summary>
         /// <para>
@@ -679,6 +693,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 context.LaunchTemplate_Override = new List<Amazon.Batch.Model.LaunchTemplateSpecificationOverride>(this.LaunchTemplate_Override);
             }
+            context.LaunchTemplate_UserdataType = this.LaunchTemplate_UserdataType;
             context.LaunchTemplate_Version = this.LaunchTemplate_Version;
             context.ComputeResources_MaxvCpu = this.ComputeResources_MaxvCpu;
             context.ComputeResources_MinvCpu = this.ComputeResources_MinvCpu;
@@ -943,6 +958,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 requestComputeResources_computeResources_LaunchTemplate.Overrides = requestComputeResources_computeResources_LaunchTemplate_launchTemplate_Override;
                 requestComputeResources_computeResources_LaunchTemplateIsNull = false;
             }
+            Amazon.Batch.UserdataType requestComputeResources_computeResources_LaunchTemplate_launchTemplate_UserdataType = null;
+            if (cmdletContext.LaunchTemplate_UserdataType != null)
+            {
+                requestComputeResources_computeResources_LaunchTemplate_launchTemplate_UserdataType = cmdletContext.LaunchTemplate_UserdataType;
+            }
+            if (requestComputeResources_computeResources_LaunchTemplate_launchTemplate_UserdataType != null)
+            {
+                requestComputeResources_computeResources_LaunchTemplate.UserdataType = requestComputeResources_computeResources_LaunchTemplate_launchTemplate_UserdataType;
+                requestComputeResources_computeResources_LaunchTemplateIsNull = false;
+            }
             System.String requestComputeResources_computeResources_LaunchTemplate_launchTemplate_Version = null;
             if (cmdletContext.LaunchTemplate_Version != null)
             {
@@ -1095,6 +1120,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.String LaunchTemplate_LaunchTemplateId { get; set; }
             public System.String LaunchTemplate_LaunchTemplateName { get; set; }
             public List<Amazon.Batch.Model.LaunchTemplateSpecificationOverride> LaunchTemplate_Override { get; set; }
+            public Amazon.Batch.UserdataType LaunchTemplate_UserdataType { get; set; }
             public System.String LaunchTemplate_Version { get; set; }
             public System.Int32? ComputeResources_MaxvCpu { get; set; }
             public System.Int32? ComputeResources_MinvCpu { get; set; }

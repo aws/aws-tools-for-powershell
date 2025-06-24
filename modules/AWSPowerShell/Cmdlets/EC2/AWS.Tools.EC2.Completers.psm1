@@ -1070,7 +1070,8 @@ $EC2_Completers = {
         # Amazon.EC2.SnapshotLocationEnum
         {
             ($_ -eq "New-EC2Snapshot/Location") -Or
-            ($_ -eq "New-EC2SnapshotBatch/Location")
+            ($_ -eq "New-EC2SnapshotBatch/Location") -Or
+            ($_ -eq "New-EC2Image/SnapshotLocation")
         }
         {
             $v = "local","regional"
@@ -1442,6 +1443,7 @@ $EC2_map = @{
     "Role"=@("Get-EC2CapacityReservationBillingRequest")
     "RuleAction"=@("Edit-EC2TrafficMirrorFilterRule","New-EC2NetworkAclEntry","New-EC2TrafficMirrorFilterRule","Set-EC2NetworkAclEntry")
     "SelfServicePortal"=@("Edit-EC2ClientVpnEndpoint","New-EC2ClientVpnEndpoint")
+    "SnapshotLocation"=@("New-EC2Image")
     "SourceResource_ResourceType"=@("New-EC2IpamPool")
     "SpotFleetRequestConfig_AllocationStrategy"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_ExcessCapacityTerminationPolicy"=@("Request-EC2SpotFleet")

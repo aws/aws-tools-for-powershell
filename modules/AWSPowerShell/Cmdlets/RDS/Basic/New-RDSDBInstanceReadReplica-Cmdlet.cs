@@ -98,6 +98,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String AvailabilityZone { get; set; }
         #endregion
         
+        #region Parameter BackupTarget
+        /// <summary>
+        /// <para>
+        /// <para>The location where RDS stores automated backups and manual snapshots.</para><para>Valid Values:</para><ul><li><para><c>local</c> for Dedicated Local Zones</para></li><li><para><c>region</c> for Amazon Web Services Region</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BackupTarget { get; set; }
+        #endregion
+        
         #region Parameter CACertificateIdentifier
         /// <summary>
         /// <para>
@@ -780,6 +790,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.AllocatedStorage = this.AllocatedStorage;
             context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             context.AvailabilityZone = this.AvailabilityZone;
+            context.BackupTarget = this.BackupTarget;
             context.CACertificateIdentifier = this.CACertificateIdentifier;
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.CustomIamInstanceProfile = this.CustomIamInstanceProfile;
@@ -875,6 +886,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.BackupTarget != null)
+            {
+                request.BackupTarget = cmdletContext.BackupTarget;
             }
             if (cmdletContext.CACertificateIdentifier != null)
             {
@@ -1113,6 +1128,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? AllocatedStorage { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.String AvailabilityZone { get; set; }
+            public System.String BackupTarget { get; set; }
             public System.String CACertificateIdentifier { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String CustomIamInstanceProfile { get; set; }
