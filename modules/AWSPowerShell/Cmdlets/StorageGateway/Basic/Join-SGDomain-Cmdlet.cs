@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter DomainController
         /// <summary>
         /// <para>
-        /// <para>List of IPv4 addresses, NetBIOS names, or host names of your domain server. If you
-        /// need to specify the port number include it after the colon (“:”). For example, <c>mydc.mydomain.com:389</c>.</para><para />
+        /// <para>List of IP addresses, NetBIOS names, or host names of your domain server. If you need
+        /// to specify the port number include it after the colon (“:”). For example, <c>mydc.mydomain.com:389</c>.</para><note><para>S3 File Gateway supports IPv6 addresses in addition to IPv4 and other existing formats.</para><para>FSx File Gateway does not support IPv6.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

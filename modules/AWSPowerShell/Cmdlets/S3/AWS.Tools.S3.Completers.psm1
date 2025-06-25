@@ -299,7 +299,7 @@ $S3_Completers = {
             ($_ -eq "Write-S3GetObjectResponse/StorageClass")
         }
         {
-            $v = "DEEP_ARCHIVE","EXPRESS_ONEZONE","GLACIER","GLACIER_IR","INTELLIGENT_TIERING","ONEZONE_IA","OUTPOSTS","REDUCED_REDUNDANCY","SNOW","STANDARD","STANDARD_IA"
+            $v = "DEEP_ARCHIVE","EXPRESS_ONEZONE","FSX_OPENZFS","GLACIER","GLACIER_IR","INTELLIGENT_TIERING","ONEZONE_IA","OUTPOSTS","REDUCED_REDUNDANCY","SNOW","STANDARD","STANDARD_IA"
             break
         }
 
@@ -329,7 +329,7 @@ $S3_Completers = {
             ($_ -eq "Write-S3GetObjectResponse/ServerSideEncryptionMethod")
         }
         {
-            $v = "","AES256","aws:kms","aws:kms:dsse"
+            $v = "","AES256","aws:fsx","aws:kms","aws:kms:dsse"
             break
         }
 

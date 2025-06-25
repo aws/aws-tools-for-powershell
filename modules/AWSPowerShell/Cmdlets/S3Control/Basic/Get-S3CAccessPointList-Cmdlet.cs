@@ -33,11 +33,13 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// <note><para>
     /// This operation is not supported by directory buckets.
     /// </para></note><para>
-    /// Returns a list of the access points that are owned by the current account that's associated
-    /// with the specified bucket. You can retrieve up to 1000 access points per call. If
-    /// the specified bucket has more than 1,000 access points (or the number specified in
+    /// Returns a list of the access points. You can retrieve up to 1,000 access points per
+    /// call. If the call returns more than 1,000 access points (or the number specified in
     /// <c>maxResults</c>, whichever is less), the response will include a continuation token
     /// that you can use to list the additional access points.
+    /// </para><para>
+    /// Returns only access points attached to S3 buckets by default. To return all access
+    /// points specify <c>DataSourceType</c> as <c>ALL</c>.
     /// </para><para>
     /// All Amazon S3 on Outposts REST API requests for this action require an additional
     /// parameter of <c>x-amz-outpost-id</c> to be passed with the request. In addition, you
@@ -95,6 +97,28 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Bucket { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the data source of the access point.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceId { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceType
+        /// <summary>
+        /// <para>
+        /// <para>The type of the data source that the access point is attached to. Returns only access
+        /// points attached to S3 buckets by default. To return all access points specify <c>DataSourceType</c>
+        /// as <c>ALL</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceType { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -181,6 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             }
             #endif
             context.Bucket = this.Bucket;
+            context.DataSourceId = this.DataSourceId;
+            context.DataSourceType = this.DataSourceType;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -217,6 +243,14 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (cmdletContext.Bucket != null)
             {
                 request.Bucket = cmdletContext.Bucket;
+            }
+            if (cmdletContext.DataSourceId != null)
+            {
+                request.DataSourceId = cmdletContext.DataSourceId;
+            }
+            if (cmdletContext.DataSourceType != null)
+            {
+                request.DataSourceType = cmdletContext.DataSourceType;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -304,6 +338,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         {
             public System.String AccountId { get; set; }
             public System.String Bucket { get; set; }
+            public System.String DataSourceId { get; set; }
+            public System.String DataSourceType { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.S3Control.Model.ListAccessPointsResponse, GetS3CAccessPointListCmdlet, object> Select { get; set; } =

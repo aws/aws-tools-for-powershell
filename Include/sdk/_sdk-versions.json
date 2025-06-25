@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.38.0",
+    "ProductVersion"    : "4.0.39.0",
     "CoreVersion"       : "4.0.0.13",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -162,7 +162,7 @@
             "InPreview"               : false
         },
         "ECS"               : {
-            "Version" : "4.0.2.1",
+            "Version" : "4.0.2.2",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -316,7 +316,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "4.0.2.1",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -380,7 +380,7 @@
             "InPreview"               : false
         },
         "StorageGateway"            : {
-            "Version" : "4.0.0.11",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -1156,7 +1156,7 @@
             "InPreview"               : false
         },
         "S3Control"                       : {
-            "Version" : "4.0.1.9",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -1260,7 +1260,7 @@
             "InPreview"               : false
         },
         "FSx"                             : {
-            "Version" : "4.0.1.7",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -1332,7 +1332,7 @@
             "InPreview"               : false
         },
         "Textract"                        : {
-            "Version" : "4.0.0.11",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -2844,7 +2844,7 @@
             "InPreview"               : false
         },
         "WorkSpacesThinClient"                : {
-            "Version" : "4.0.1.6",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"

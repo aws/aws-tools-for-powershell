@@ -1,4 +1,18 @@
-﻿### 5.0.1 (2025-06-24 20:24Z)
+﻿### 5.0.2 (2025-06-25 20:14Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.39.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon FSx
+    * Added cmdlet Dismount-FSXAndDeleteS3AccessPoint leveraging the DetachAndDeleteS3AccessPoint service API.
+    * Added cmdlet Get-FSXS3AccessPointAttachment leveraging the DescribeS3AccessPointAttachments service API.
+    * Added cmdlet New-FSXAndAttachS3AccessPoint leveraging the CreateAndAttachS3AccessPoint service API.
+  * Amazon S3 Control
+    * Modified cmdlet Get-S3CAccessPointList: added parameters DataSourceId and DataSourceType.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Get-S3BucketIntelligentTieringConfiguration: added parameter ExpectedBucketOwner.
+    * Modified cmdlet Get-S3BucketIntelligentTieringConfigurationList: added parameter ExpectedBucketOwner.
+    * Modified cmdlet Remove-S3BucketIntelligentTieringConfiguration: added parameter ExpectedBucketOwner.
+    * Modified cmdlet Write-S3BucketIntelligentTieringConfiguration: added parameter ExpectedBucketOwner.
+
+### 5.0.1 (2025-06-24 20:24Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.38.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AI Ops
     * Modified cmdlet New-AIOpsInvestigationGroup: added parameter CrossAccountConfiguration.

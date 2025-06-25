@@ -91,6 +91,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String BucketName { get; set; }
         #endregion
         
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
+        /// not match the actual owner of the bucket, the request fails with the HTTP status code
+        /// <c>403 Forbidden</c> (access denied).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
+        #endregion
+        
         #region Parameter IntelligentTieringFilter_IntelligentTieringFilterPredicate
         /// <summary>
         /// <para>
@@ -190,6 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BucketName = this.BucketName;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             context.IntelligentTieringId = this.IntelligentTieringId;
             context.IntelligentTieringConfiguration_IntelligentTieringId = this.IntelligentTieringConfiguration_IntelligentTieringId;
             context.IntelligentTieringFilter_IntelligentTieringFilterPredicate = this.IntelligentTieringFilter_IntelligentTieringFilterPredicate;
@@ -217,6 +230,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.BucketName != null)
             {
                 request.BucketName = cmdletContext.BucketName;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             if (cmdletContext.IntelligentTieringId != null)
             {
@@ -342,6 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BucketName { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.String IntelligentTieringId { get; set; }
             public System.String IntelligentTieringConfiguration_IntelligentTieringId { get; set; }
             public Amazon.S3.Model.IntelligentTieringFilterPredicate IntelligentTieringFilter_IntelligentTieringFilterPredicate { get; set; }

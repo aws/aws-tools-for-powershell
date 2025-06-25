@@ -595,7 +595,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// Lustre file system deployment types.</para></li><li><para>Set to <c>INTELLIGENT_TIERING</c> to use fully elastic, intelligently-tiered storage.
         /// Intelligent-Tiering is only available for OpenZFS file systems with the Multi-AZ deployment
         /// type and for Lustre file systems with the Persistent_2 deployment type.</para></li></ul><para>Default value is <c>SSD</c>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/optimize-fsx-costs.html#storage-type-options">
-        /// Storage type options</a> in the <i>FSx for Windows File Server User Guide</i>, <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/lustre-storage-classes">FSx
+        /// Storage type options</a> in the <i>FSx for Windows File Server User Guide</i>, <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-fsx-lustre.html#lustre-storage-classes">FSx
         /// for Lustre storage classes</a> in the <i>FSx for Lustre User Guide</i>, and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance-intelligent-tiering">Working
         /// with Intelligent-Tiering</a> in the <i>Amazon FSx for OpenZFS User Guide</i>.</para>
         /// </para>

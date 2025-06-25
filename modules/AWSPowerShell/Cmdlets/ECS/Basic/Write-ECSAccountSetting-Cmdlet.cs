@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// specify a delivery mode in your container definition's <c>logConfiguration</c>, the
         /// mode you specify using this account setting will be used as the default. For more
         /// information about log delivery modes, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LogConfiguration.html">LogConfiguration</a>.
-        /// </para><note><para>On June 25, 2025, Amazon ECS is changing the default log driver mode from <c>blocking</c>
+        /// </para><note><para>On June 25, 2025, Amazon ECS changed the default log driver mode from <c>blocking</c>
         /// to <c>non-blocking</c> to prioritize task availability over logging. To continue using
         /// the <c>blocking</c> mode after this change, do one of the following:</para><ul><li><para>Set the <c>mode</c> option in your container definition's <c>logConfiguration</c>
         /// as <c>blocking</c>.</para></li><li><para>Set the <c>defaultLogDriverMode</c> account setting to <c>blocking</c>.</para></li></ul></note></li><li><para><c>guardDutyActivate</c> - The <c>guardDutyActivate</c> parameter is read-only in
