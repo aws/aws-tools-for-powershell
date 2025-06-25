@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </para></note><para>
     /// The following requirements must be met to successfully generate a cache report:
     /// </para><ul><li><para>
-    /// You must have permissions to list the entire Amazon S3 bucket associated with the
-    /// specified file share.
+    /// You must have <c>s3:PutObject</c> and <c>s3:AbortMultipartUpload</c> permissions for
+    /// the Amazon S3 bucket where you want to store the cache report.
     /// </para></li><li><para>
     /// No other cache reports can currently be in-progress for the specified file share.
     /// </para></li><li><para>

@@ -30,11 +30,16 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// <summary>
     /// Creates an access point and associates it to a specified bucket. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing
-    /// access to shared datasets in general purpose buckets with access points</a> or <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html">Managing
+    /// access to shared datasets with access points</a> or <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html">Managing
     /// access to shared datasets in directory buckets with access points</a> in the <i>Amazon
     /// S3 User Guide</i>.
     /// 
-    ///   <note><para>
+    ///  
+    /// <para>
+    /// To create an access point and attach it to a volume on an Amazon FSx file system,
+    /// see <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateAndAttachS3AccessPoint.html">CreateAndAttachS3AccessPoint</a>
+    /// in the <i>Amazon FSx API Reference</i>.
+    /// </para><note><para>
     /// S3 on Outposts only supports VPC-style access points. 
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">
@@ -164,8 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// provide and suffix that includes the <c>ZoneID</c> (Amazon Web Services Availability
         /// Zone or Local Zone) of your bucket location, followed by <c>--xa-s3</c>. For more
         /// information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html">Managing
-        /// access to shared datasets in directory buckets with access points</a> in the Amazon
-        /// S3 User Guide.</para>
+        /// access to shared datasets in directory buckets with access points</a> in the <i>Amazon
+        /// S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

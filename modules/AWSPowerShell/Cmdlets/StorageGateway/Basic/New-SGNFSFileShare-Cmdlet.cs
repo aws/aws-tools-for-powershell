@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The list of clients that are allowed to access the S3 File Gateway. The list must
-        /// contain either valid IP addresses or valid CIDR blocks.</para>
+        /// contain either valid IPv4/IPv6 addresses or valid CIDR blocks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

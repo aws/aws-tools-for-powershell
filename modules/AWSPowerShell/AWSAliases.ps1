@@ -13367,6 +13367,8 @@ Set-Alias -Name Cancel-FSXDataRepositoryTask -Value Stop-FSXDataRepositoryTask
 Set-Alias -Name FSX-CancelDataRepositoryTask -Value Stop-FSXDataRepositoryTask
 Set-Alias -Name FSX-CopyBackup -Value Copy-FSXBackup
 Set-Alias -Name FSX-CopySnapshotAndUpdateVolume -Value Copy-FSXSnapshotAndUpdateVolume
+Set-Alias -Name Create-FSXAndAttachS3AccessPoint -Value New-FSXAndAttachS3AccessPoint
+Set-Alias -Name FSX-CreateAndAttachS3AccessPoint -Value New-FSXAndAttachS3AccessPoint
 Set-Alias -Name Create-FSXBackup -Value New-FSXBackup
 Set-Alias -Name FSX-CreateBackup -Value New-FSXBackup
 Set-Alias -Name Create-FSXDataRepositoryAssociation -Value New-FSXDataRepositoryAssociation
@@ -13419,6 +13421,9 @@ Set-Alias -Name FSX-DescribeFileSystemAliases -Value Get-FSXFileSystemAlias
 Set-Alias -Name Describe-FSXFileSystems -Value Get-FSXFileSystem
 Set-Alias -Name Describe-FSXFileSystem -Value Get-FSXFileSystem
 Set-Alias -Name FSX-DescribeFileSystems -Value Get-FSXFileSystem
+Set-Alias -Name Describe-FSXS3AccessPointAttachments -Value Get-FSXS3AccessPointAttachment
+Set-Alias -Name Describe-FSXS3AccessPointAttachment -Value Get-FSXS3AccessPointAttachment
+Set-Alias -Name FSX-DescribeS3AccessPointAttachments -Value Get-FSXS3AccessPointAttachment
 Set-Alias -Name Describe-FSXSharedVpcConfiguration -Value Get-FSXSharedVpcConfiguration
 Set-Alias -Name FSX-DescribeSharedVpcConfiguration -Value Get-FSXSharedVpcConfiguration
 Set-Alias -Name Describe-FSXSnapshots -Value Get-FSXSnapshot
@@ -13430,6 +13435,8 @@ Set-Alias -Name FSX-DescribeStorageVirtualMachines -Value Get-FSXStorageVirtualM
 Set-Alias -Name Describe-FSXVolumes -Value Get-FSXVolume
 Set-Alias -Name Describe-FSXVolume -Value Get-FSXVolume
 Set-Alias -Name FSX-DescribeVolumes -Value Get-FSXVolume
+Set-Alias -Name Detach-FSXAndDeleteS3AccessPoint -Value Dismount-FSXAndDeleteS3AccessPoint
+Set-Alias -Name FSX-DetachAndDeleteS3AccessPoint -Value Dismount-FSXAndDeleteS3AccessPoint
 Set-Alias -Name Disassociate-FSXFileSystemAliases -Value Unregister-FSXFileSystemAlias
 Set-Alias -Name Disassociate-FSXFileSystemAlias -Value Unregister-FSXFileSystemAlias
 Set-Alias -Name FSX-DisassociateFileSystemAliases -Value Unregister-FSXFileSystemAlias

@@ -22,30 +22,44 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.WorkSpacesThinClient;
-using Amazon.WorkSpacesThinClient.Model;
+using Amazon.FSx;
+using Amazon.FSx.Model;
 
-namespace Amazon.PowerShell.Cmdlets.WSTC
+namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Returns information for a software set.
+    /// Detaches an S3 access point from an Amazon FSx volume and deletes the S3 access point.
+    /// 
+    ///  
+    /// <para>
+    /// The requester requires the following permission to perform this action:
+    /// </para><ul><li><para><c>fsx:DetachAndDeleteS3AccessPoint</c></para></li><li><para><c>s3:DeleteAccessPoint</c></para></li></ul>
     /// </summary>
-    [Cmdlet("Get", "WSTCSoftwareSet")]
-    [OutputType("Amazon.WorkSpacesThinClient.Model.SoftwareSet")]
-    [AWSCmdlet("Calls the Amazon WorkSpaces Thin Client GetSoftwareSet API operation.", Operation = new[] {"GetSoftwareSet"}, SelectReturnType = typeof(Amazon.WorkSpacesThinClient.Model.GetSoftwareSetResponse))]
-    [AWSCmdletOutput("Amazon.WorkSpacesThinClient.Model.SoftwareSet or Amazon.WorkSpacesThinClient.Model.GetSoftwareSetResponse",
-        "This cmdlet returns an Amazon.WorkSpacesThinClient.Model.SoftwareSet object.",
-        "The service call response (type Amazon.WorkSpacesThinClient.Model.GetSoftwareSetResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Dismount", "FSXAndDeleteS3AccessPoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.FSx.Model.DetachAndDeleteS3AccessPointResponse")]
+    [AWSCmdlet("Calls the Amazon FSx DetachAndDeleteS3AccessPoint API operation.", Operation = new[] {"DetachAndDeleteS3AccessPoint"}, SelectReturnType = typeof(Amazon.FSx.Model.DetachAndDeleteS3AccessPointResponse))]
+    [AWSCmdletOutput("Amazon.FSx.Model.DetachAndDeleteS3AccessPointResponse",
+        "This cmdlet returns an Amazon.FSx.Model.DetachAndDeleteS3AccessPointResponse object containing multiple properties."
     )]
-    public partial class GetWSTCSoftwareSetCmdlet : AmazonWorkSpacesThinClientClientCmdlet, IExecutor
+    public partial class DismountFSXAndDeleteS3AccessPointCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Id
+        #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>The ID of the software set for which to return information.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientRequestToken { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the S3 access point attachment that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,34 +70,50 @@ namespace Amazon.PowerShell.Cmdlets.WSTC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
+        public System.String Name { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'SoftwareSet'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WorkSpacesThinClient.Model.GetSoftwareSetResponse).
-        /// Specifying the name of a property of type Amazon.WorkSpacesThinClient.Model.GetSoftwareSetResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FSx.Model.DetachAndDeleteS3AccessPointResponse).
+        /// Specifying the name of a property of type Amazon.FSx.Model.DetachAndDeleteS3AccessPointResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "SoftwareSet";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Dismount-FSXAndDeleteS3AccessPoint (DetachAndDeleteS3AccessPoint)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -93,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.WSTC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.WorkSpacesThinClient.Model.GetSoftwareSetResponse, GetWSTCSoftwareSetCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.FSx.Model.DetachAndDeleteS3AccessPointResponse, DismountFSXAndDeleteS3AccessPointCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -102,14 +132,15 @@ namespace Amazon.PowerShell.Cmdlets.WSTC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Id;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Id = this.Id;
+            context.ClientRequestToken = this.ClientRequestToken;
+            context.Name = this.Name;
             #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -126,11 +157,15 @@ namespace Amazon.PowerShell.Cmdlets.WSTC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WorkSpacesThinClient.Model.GetSoftwareSetRequest();
+            var request = new Amazon.FSx.Model.DetachAndDeleteS3AccessPointRequest();
             
-            if (cmdletContext.Id != null)
+            if (cmdletContext.ClientRequestToken != null)
             {
-                request.Id = cmdletContext.Id;
+                request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
             }
             
             CmdletOutput output;
@@ -165,15 +200,15 @@ namespace Amazon.PowerShell.Cmdlets.WSTC
         
         #region AWS Service Operation Call
         
-        private Amazon.WorkSpacesThinClient.Model.GetSoftwareSetResponse CallAWSServiceOperation(IAmazonWorkSpacesThinClient client, Amazon.WorkSpacesThinClient.Model.GetSoftwareSetRequest request)
+        private Amazon.FSx.Model.DetachAndDeleteS3AccessPointResponse CallAWSServiceOperation(IAmazonFSx client, Amazon.FSx.Model.DetachAndDeleteS3AccessPointRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces Thin Client", "GetSoftwareSet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon FSx", "DetachAndDeleteS3AccessPoint");
             try
             {
                 #if DESKTOP
-                return client.GetSoftwareSet(request);
+                return client.DetachAndDeleteS3AccessPoint(request);
                 #elif CORECLR
-                return client.GetSoftwareSetAsync(request).GetAwaiter().GetResult();
+                return client.DetachAndDeleteS3AccessPointAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -193,9 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.WSTC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Id { get; set; }
-            public System.Func<Amazon.WorkSpacesThinClient.Model.GetSoftwareSetResponse, GetWSTCSoftwareSetCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.SoftwareSet;
+            public System.String ClientRequestToken { get; set; }
+            public System.String Name { get; set; }
+            public System.Func<Amazon.FSx.Model.DetachAndDeleteS3AccessPointResponse, DismountFSXAndDeleteS3AccessPointCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

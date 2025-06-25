@@ -117,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter NetworkInterfaceId
         /// <summary>
         /// <para>
-        /// <para>The network interface of the gateway on which to expose the iSCSI target. Only IPv4
-        /// addresses are accepted. Use <a>DescribeGatewayInformation</a> to get a list of the
+        /// <para>The network interface of the gateway on which to expose the iSCSI target. Accepts
+        /// IPv4 and IPv6 addresses. Use <a>DescribeGatewayInformation</a> to get a list of the
         /// network interfaces available on a gateway.</para><para>Valid Values: A valid IP address.</para>
         /// </para>
         /// </summary>

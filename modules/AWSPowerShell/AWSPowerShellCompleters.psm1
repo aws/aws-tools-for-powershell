@@ -33013,6 +33013,13 @@ $FSX_Completers = {
             break
         }
 
+        # Amazon.FSx.OpenZFSFileSystemUserType
+        "New-FSXAndAttachS3AccessPoint/FileSystemIdentity_Type"
+        {
+            $v = "POSIX"
+            break
+        }
+
         # Amazon.FSx.OpenZFSReadCacheSizingMode
         {
             ($_ -eq "New-FSXFileSystem/ReadCacheConfiguration_SizingMode") -Or
@@ -33063,6 +33070,13 @@ $FSX_Completers = {
         }
         {
             $v = "DAYS","HOURS","INFINITE","MINUTES","MONTHS","SECONDS","UNSPECIFIED","YEARS"
+            break
+        }
+
+        # Amazon.FSx.S3AccessPointAttachmentType
+        "New-FSXAndAttachS3AccessPoint/Type"
+        {
+            $v = "OPENZFS"
             break
         }
 
@@ -33155,6 +33169,7 @@ $FSX_map = @{
     "DiskIopsConfiguration_Mode"=@("New-FSXFileSystemFromBackup")
     "DurationSinceLastAccess_Unit"=@("New-FSXDataRepositoryTask")
     "FileCacheType"=@("New-FSXFileCache")
+    "FileSystemIdentity_Type"=@("New-FSXAndAttachS3AccessPoint")
     "FileSystemType"=@("New-FSXFileSystem")
     "LustreConfiguration_DeploymentType"=@("New-FSXFileCache")
     "MaximumRetention_Type"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
@@ -33177,7 +33192,7 @@ $FSX_map = @{
     "SnaplockConfiguration_SnaplockType"=@("New-FSXVolume","New-FSXVolumeFromBackup")
     "StorageType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup","Update-FSXFileSystem")
     "TieringPolicy_Name"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
-    "Type"=@("New-FSXDataRepositoryTask")
+    "Type"=@("New-FSXAndAttachS3AccessPoint","New-FSXDataRepositoryTask")
     "VolumeType"=@("New-FSXVolume")
 }
 
@@ -33235,6 +33250,7 @@ $FSX_SelectMap = @{
                "Stop-FSXDataRepositoryTask",
                "Copy-FSXBackup",
                "Copy-FSXSnapshotAndUpdateVolume",
+               "New-FSXAndAttachS3AccessPoint",
                "New-FSXBackup",
                "New-FSXDataRepositoryAssociation",
                "New-FSXDataRepositoryTask",
@@ -33258,10 +33274,12 @@ $FSX_SelectMap = @{
                "Get-FSXFileCach",
                "Get-FSXFileSystemAlias",
                "Get-FSXFileSystem",
+               "Get-FSXS3AccessPointAttachment",
                "Get-FSXSharedVpcConfiguration",
                "Get-FSXSnapshot",
                "Get-FSXStorageVirtualMachine",
                "Get-FSXVolume",
+               "Dismount-FSXAndDeleteS3AccessPoint",
                "Unregister-FSXFileSystemAlias",
                "Get-FSXResourceTagList",
                "Clear-FSXFileSystemNfsV3Lock",
@@ -65882,7 +65900,7 @@ $S3_Completers = {
             ($_ -eq "Write-S3GetObjectResponse/StorageClass")
         }
         {
-            $v = "DEEP_ARCHIVE","EXPRESS_ONEZONE","GLACIER","GLACIER_IR","INTELLIGENT_TIERING","ONEZONE_IA","OUTPOSTS","REDUCED_REDUNDANCY","SNOW","STANDARD","STANDARD_IA"
+            $v = "DEEP_ARCHIVE","EXPRESS_ONEZONE","FSX_OPENZFS","GLACIER","GLACIER_IR","INTELLIGENT_TIERING","ONEZONE_IA","OUTPOSTS","REDUCED_REDUNDANCY","SNOW","STANDARD","STANDARD_IA"
             break
         }
 
@@ -65912,7 +65930,7 @@ $S3_Completers = {
             ($_ -eq "Write-S3GetObjectResponse/ServerSideEncryptionMethod")
         }
         {
-            $v = "","AES256","aws:kms","aws:kms:dsse"
+            $v = "","AES256","aws:fsx","aws:kms","aws:kms:dsse"
             break
         }
 

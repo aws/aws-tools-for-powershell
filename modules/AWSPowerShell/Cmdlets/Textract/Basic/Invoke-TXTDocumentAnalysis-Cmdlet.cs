@@ -179,9 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         #region Parameter S3Object_Name
         /// <summary>
         /// <para>
-        /// <para>The file name of the input document. Synchronous operations can use image files that
-        /// are in JPEG or PNG format. Asynchronous operations also support PDF and TIFF format
-        /// files.</para>
+        /// <para>The file name of the input document. Image files may be in PDF, TIFF, JPEG, or PNG
+        /// format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

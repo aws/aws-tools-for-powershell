@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter DomainController
         /// <summary>
         /// <para>
-        /// <para>List of IPv4 addresses, NetBIOS names, or host names of your domain server. If you
-        /// need to specify the port number include it after the colon (“:”). For example, <c>mydc.mydomain.com:389</c>.</para>
+        /// <para>List of IP addresses, NetBIOS names, or host names of your domain server. If you need
+        /// to specify the port number include it after the colon (“:”). For example, <c>mydc.mydomain.com:389</c>.</para><note><para>S3 File Gateway supports IPv6 addresses in addition to IPv4 and other existing formats.</para><para>FSx File Gateway does not support IPv6.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
