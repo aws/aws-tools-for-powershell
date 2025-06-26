@@ -81,6 +81,18 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public System.String ApplicationId { get; set; }
         #endregion
         
+        #region Parameter Condition
+        /// <summary>
+        /// <para>
+        /// <para>The conditions that restrict when the permission is effective. These conditions can
+        /// be used to limit the permission based on specific attributes of the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Conditions")]
+        public Amazon.QBusiness.Model.PermissionCondition[] Condition { get; set; }
+        #endregion
+        
         #region Parameter Principal
         /// <summary>
         /// <para>
@@ -194,6 +206,10 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
                 WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Condition != null)
+            {
+                context.Condition = new List<Amazon.QBusiness.Model.PermissionCondition>(this.Condition);
+            }
             context.Principal = this.Principal;
             #if MODULAR
             if (this.Principal == null && ParameterWasBound(nameof(this.Principal)))
@@ -231,6 +247,10 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
+            }
+            if (cmdletContext.Condition != null)
+            {
+                request.Conditions = cmdletContext.Condition;
             }
             if (cmdletContext.Principal != null)
             {
@@ -303,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         {
             public List<System.String> Action { get; set; }
             public System.String ApplicationId { get; set; }
+            public List<Amazon.QBusiness.Model.PermissionCondition> Condition { get; set; }
             public System.String Principal { get; set; }
             public System.String StatementId { get; set; }
             public System.Func<Amazon.QBusiness.Model.AssociatePermissionResponse, AddQBUSPermissionCmdlet, object> Select { get; set; } =

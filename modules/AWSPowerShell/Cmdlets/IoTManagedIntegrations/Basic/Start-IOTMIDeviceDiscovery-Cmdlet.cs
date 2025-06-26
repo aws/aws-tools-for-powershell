@@ -28,9 +28,9 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// During user-guided setup, this is used to start device discovery. The authentication
-    /// material (install code) is passed as a message to the controller telling it to start
-    /// the discovery.
+    /// This API is used to start device discovery for hub-connected and third-party-connected
+    /// devices. The authentication material (install code) is passed as a message to the
+    /// controller telling it to start the discovery.
     /// </summary>
     [Cmdlet("Start", "IOTMIDeviceDiscovery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTManagedIntegrations.Model.StartDeviceDiscoveryResponse")]
@@ -44,6 +44,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter AccountAssociationId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the cloud-to-cloud account association to use for discovery of third-party
+        /// devices.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountAssociationId { get; set; }
+        #endregion
         
         #region Parameter AuthenticationMaterial
         /// <summary>
@@ -66,16 +77,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         public Amazon.IoTManagedIntegrations.DiscoveryAuthMaterialType AuthenticationMaterialType { get; set; }
         #endregion
         
-        #region Parameter ConnectorAssociationIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The id of the connector association.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ConnectorAssociationIdentifier { get; set; }
-        #endregion
-        
         #region Parameter ControllerIdentifier
         /// <summary>
         /// <para>
@@ -86,11 +87,23 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         public System.String ControllerIdentifier { get; set; }
         #endregion
         
+        #region Parameter CustomProtocolDetail
+        /// <summary>
+        /// <para>
+        /// <para>Additional protocol-specific details required for device discovery, which vary based
+        /// on the discovery type.</para><note><para>For a <c>DiscoveryType</c> of <c>CUSTOM</c>, the string-to-string map must have a
+        /// key value of <c>Name</c> set to a non-empty-string.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable CustomProtocolDetail { get; set; }
+        #endregion
+        
         #region Parameter DiscoveryType
         /// <summary>
         /// <para>
         /// <para>The discovery type supporting the type of device to be discovered in the device discovery
-        /// job request.</para>
+        /// task request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -104,17 +117,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         public Amazon.IoTManagedIntegrations.DiscoveryType DiscoveryType { get; set; }
         #endregion
         
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>A set of key/value pairs that are used to manage the device discovery request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
-        #endregion
-        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -125,6 +127,31 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientToken { get; set; }
+        #endregion
+        
+        #region Parameter ConnectorAssociationIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The id of the connector association.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("ConnectorAssociationIdentifier is deprecated")]
+        public System.String ConnectorAssociationIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A set of key/value pairs that are used to manage the device discovery request.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Tags have been deprecated from this api")]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -189,11 +216,22 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
                 context.Select = (response, cmdlet) => this.DiscoveryType;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountAssociationId = this.AccountAssociationId;
             context.AuthenticationMaterial = this.AuthenticationMaterial;
             context.AuthenticationMaterialType = this.AuthenticationMaterialType;
             context.ClientToken = this.ClientToken;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ConnectorAssociationIdentifier = this.ConnectorAssociationIdentifier;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ControllerIdentifier = this.ControllerIdentifier;
+            if (this.CustomProtocolDetail != null)
+            {
+                context.CustomProtocolDetail = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.CustomProtocolDetail.Keys)
+                {
+                    context.CustomProtocolDetail.Add((String)hashKey, (System.String)(this.CustomProtocolDetail[hashKey]));
+                }
+            }
             context.DiscoveryType = this.DiscoveryType;
             #if MODULAR
             if (this.DiscoveryType == null && ParameterWasBound(nameof(this.DiscoveryType)))
@@ -201,6 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
                 WriteWarning("You are passing $null as a value for parameter DiscoveryType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -209,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -225,6 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             // create request
             var request = new Amazon.IoTManagedIntegrations.Model.StartDeviceDiscoveryRequest();
             
+            if (cmdletContext.AccountAssociationId != null)
+            {
+                request.AccountAssociationId = cmdletContext.AccountAssociationId;
+            }
             if (cmdletContext.AuthenticationMaterial != null)
             {
                 request.AuthenticationMaterial = cmdletContext.AuthenticationMaterial;
@@ -237,22 +281,30 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ConnectorAssociationIdentifier != null)
             {
                 request.ConnectorAssociationIdentifier = cmdletContext.ConnectorAssociationIdentifier;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ControllerIdentifier != null)
             {
                 request.ControllerIdentifier = cmdletContext.ControllerIdentifier;
+            }
+            if (cmdletContext.CustomProtocolDetail != null)
+            {
+                request.CustomProtocolDetail = cmdletContext.CustomProtocolDetail;
             }
             if (cmdletContext.DiscoveryType != null)
             {
                 request.DiscoveryType = cmdletContext.DiscoveryType;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -314,12 +366,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountAssociationId { get; set; }
             public System.String AuthenticationMaterial { get; set; }
             public Amazon.IoTManagedIntegrations.DiscoveryAuthMaterialType AuthenticationMaterialType { get; set; }
             public System.String ClientToken { get; set; }
+            [System.ObsoleteAttribute]
             public System.String ConnectorAssociationIdentifier { get; set; }
             public System.String ControllerIdentifier { get; set; }
+            public Dictionary<System.String, System.String> CustomProtocolDetail { get; set; }
             public Amazon.IoTManagedIntegrations.DiscoveryType DiscoveryType { get; set; }
+            [System.ObsoleteAttribute]
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.IoTManagedIntegrations.Model.StartDeviceDiscoveryResponse, StartIOTMIDeviceDiscoveryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

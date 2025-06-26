@@ -265,6 +265,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.KendraRanking.dll',
         'AWSSDK.KeyManagementService.dll',
         'AWSSDK.Keyspaces.dll',
+        'AWSSDK.KeyspacesStreams.dll',
         'AWSSDK.Kinesis.dll',
         'AWSSDK.KinesisAnalytics.dll',
         'AWSSDK.KinesisAnalyticsV2.dll',

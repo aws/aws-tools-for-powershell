@@ -65,6 +65,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         public System.String Capability { get; set; }
         #endregion
         
+        #region Parameter CapabilitySchema
+        /// <summary>
+        /// <para>
+        /// <para>The updated capability schemas that define the functionality and features supported
+        /// by the managed thing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CapabilitySchemas")]
+        public Amazon.IoTManagedIntegrations.Model.CapabilitySchemaItem[] CapabilitySchema { get; set; }
+        #endregion
+        
         #region Parameter Classification
         /// <summary>
         /// <para>
@@ -264,6 +276,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             }
             context.CapabilityReport_NodeId = this.CapabilityReport_NodeId;
             context.CapabilityReport_Version = this.CapabilityReport_Version;
+            if (this.CapabilitySchema != null)
+            {
+                context.CapabilitySchema = new List<Amazon.IoTManagedIntegrations.Model.CapabilitySchemaItem>(this.CapabilitySchema);
+            }
             context.Classification = this.Classification;
             context.CredentialLockerId = this.CredentialLockerId;
             context.HubNetworkMode = this.HubNetworkMode;
@@ -348,6 +364,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             if (requestCapabilityReportIsNull)
             {
                 request.CapabilityReport = null;
+            }
+            if (cmdletContext.CapabilitySchema != null)
+            {
+                request.CapabilitySchemas = cmdletContext.CapabilitySchema;
             }
             if (cmdletContext.Classification != null)
             {
@@ -451,6 +471,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             public List<Amazon.IoTManagedIntegrations.Model.CapabilityReportEndpoint> CapabilityReport_Endpoint { get; set; }
             public System.String CapabilityReport_NodeId { get; set; }
             public System.String CapabilityReport_Version { get; set; }
+            public List<Amazon.IoTManagedIntegrations.Model.CapabilitySchemaItem> CapabilitySchema { get; set; }
             public System.String Classification { get; set; }
             public System.String CredentialLockerId { get; set; }
             public Amazon.IoTManagedIntegrations.HubNetworkMode HubNetworkMode { get; set; }

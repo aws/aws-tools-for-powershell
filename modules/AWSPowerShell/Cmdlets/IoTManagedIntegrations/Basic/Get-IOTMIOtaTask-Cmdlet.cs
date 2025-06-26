@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
     public partial class GetIOTMIOtaTaskCmdlet : AmazonIoTManagedIntegrationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Identifier

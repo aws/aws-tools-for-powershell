@@ -28,7 +28,7 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// List all of the associations and statuses for a managed thing by its owner.
+    /// Listing all managed things with provision for filters.
     /// </summary>
     [Cmdlet("Get", "IOTMIManagedThingList")]
     [OutputType("Amazon.IoTManagedIntegrations.Model.ManagedThingSummary")]
@@ -46,14 +46,25 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ConnectorPolicyIdFilter
+        #region Parameter ConnectorDestinationIdFilter
         /// <summary>
         /// <para>
-        /// <para>Filter on a connector policy id for a managed thing.</para>
+        /// <para>Filter managed things by the connector destination ID they are associated with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ConnectorPolicyIdFilter { get; set; }
+        public System.String ConnectorDestinationIdFilter { get; set; }
+        #endregion
+        
+        #region Parameter ConnectorDeviceIdFilter
+        /// <summary>
+        /// <para>
+        /// <para>Filter managed things by the connector device ID they are associated with. When specified,
+        /// only managed things with this connector device ID will be returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorDeviceIdFilter { get; set; }
         #endregion
         
         #region Parameter CredentialLockerFilter
@@ -119,6 +130,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         public System.String SerialNumberFilter { get; set; }
         #endregion
         
+        #region Parameter ConnectorPolicyIdFilter
+        /// <summary>
+        /// <para>
+        /// <para>Filter on a connector policy id for a managed thing.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("ConnectorPolicyIdFilter is deprecated")]
+        public System.String ConnectorPolicyIdFilter { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -166,7 +189,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
                 context.Select = CreateSelectDelegate<Amazon.IoTManagedIntegrations.Model.ListManagedThingsResponse, GetIOTMIManagedThingListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ConnectorDestinationIdFilter = this.ConnectorDestinationIdFilter;
+            context.ConnectorDeviceIdFilter = this.ConnectorDeviceIdFilter;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ConnectorPolicyIdFilter = this.ConnectorPolicyIdFilter;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CredentialLockerFilter = this.CredentialLockerFilter;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -191,10 +218,20 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             // create request
             var request = new Amazon.IoTManagedIntegrations.Model.ListManagedThingsRequest();
             
+            if (cmdletContext.ConnectorDestinationIdFilter != null)
+            {
+                request.ConnectorDestinationIdFilter = cmdletContext.ConnectorDestinationIdFilter;
+            }
+            if (cmdletContext.ConnectorDeviceIdFilter != null)
+            {
+                request.ConnectorDeviceIdFilter = cmdletContext.ConnectorDeviceIdFilter;
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ConnectorPolicyIdFilter != null)
             {
                 request.ConnectorPolicyIdFilter = cmdletContext.ConnectorPolicyIdFilter;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.CredentialLockerFilter != null)
             {
                 request.CredentialLockerFilter = cmdletContext.CredentialLockerFilter;
@@ -288,6 +325,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ConnectorDestinationIdFilter { get; set; }
+            public System.String ConnectorDeviceIdFilter { get; set; }
+            [System.ObsoleteAttribute]
             public System.String ConnectorPolicyIdFilter { get; set; }
             public System.String CredentialLockerFilter { get; set; }
             public System.Int32? MaxResult { get; set; }

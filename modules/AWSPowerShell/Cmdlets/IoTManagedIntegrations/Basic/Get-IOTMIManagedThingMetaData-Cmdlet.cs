@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
     /// Get the metadata information for a managed thing.
+    /// 
+    ///  <note><para>
+    /// The <c>managedThing</c><c>metadata</c> parameter is used for associating attributes
+    /// with a <c>managedThing</c> that can be used for grouping over-the-air (OTA) tasks.
+    /// Name value pairs in <c>metadata</c> can be used in the <c>OtaTargetQueryString</c>
+    /// parameter for the <c>CreateOtaTask</c> API operation.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "IOTMIManagedThingMetaData")]
     [OutputType("Amazon.IoTManagedIntegrations.Model.GetManagedThingMetaDataResponse")]

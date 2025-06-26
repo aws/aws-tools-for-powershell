@@ -100,6 +100,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         public System.String Capability { get; set; }
         #endregion
         
+        #region Parameter CapabilitySchema
+        /// <summary>
+        /// <para>
+        /// <para>The capability schemas that define the functionality and features supported by the
+        /// managed thing, including device capabilities and their associated properties.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CapabilitySchemas")]
+        public Amazon.IoTManagedIntegrations.Model.CapabilitySchemaItem[] CapabilitySchema { get; set; }
+        #endregion
+        
         #region Parameter Classification
         /// <summary>
         /// <para>
@@ -134,7 +146,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         #region Parameter MetaData
         /// <summary>
         /// <para>
-        /// <para>The metadata for the managed thing.</para>
+        /// <para>The metadata for the managed thing.</para><note><para>The <c>managedThing</c><c>metadata</c> parameter is used for associating attributes
+        /// with a <c>managedThing</c> that can be used for grouping over-the-air (OTA) tasks.
+        /// Name value pairs in <c>metadata</c> can be used in the <c>OtaTargetQueryString</c>
+        /// parameter for the <c>CreateOtaTask</c> API operation.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -307,6 +322,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             }
             context.CapabilityReport_NodeId = this.CapabilityReport_NodeId;
             context.CapabilityReport_Version = this.CapabilityReport_Version;
+            if (this.CapabilitySchema != null)
+            {
+                context.CapabilitySchema = new List<Amazon.IoTManagedIntegrations.Model.CapabilitySchemaItem>(this.CapabilitySchema);
+            }
             context.Classification = this.Classification;
             context.ClientToken = this.ClientToken;
             context.CredentialLockerId = this.CredentialLockerId;
@@ -407,6 +426,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             if (requestCapabilityReportIsNull)
             {
                 request.CapabilityReport = null;
+            }
+            if (cmdletContext.CapabilitySchema != null)
+            {
+                request.CapabilitySchemas = cmdletContext.CapabilitySchema;
             }
             if (cmdletContext.Classification != null)
             {
@@ -516,6 +539,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             public List<Amazon.IoTManagedIntegrations.Model.CapabilityReportEndpoint> CapabilityReport_Endpoint { get; set; }
             public System.String CapabilityReport_NodeId { get; set; }
             public System.String CapabilityReport_Version { get; set; }
+            public List<Amazon.IoTManagedIntegrations.Model.CapabilitySchemaItem> CapabilitySchema { get; set; }
             public System.String Classification { get; set; }
             public System.String ClientToken { get; set; }
             public System.String CredentialLockerId { get; set; }

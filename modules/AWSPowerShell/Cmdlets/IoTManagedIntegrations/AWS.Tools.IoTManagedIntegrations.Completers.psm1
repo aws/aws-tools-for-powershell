@@ -83,7 +83,31 @@ $IOTMI_Completers = {
         # Amazon.IoTManagedIntegrations.AuthMaterialType
         "New-IOTMIManagedThing/AuthenticationMaterialType"
         {
-            $v = "WIFI_SETUP_QR_BAR_CODE","ZIGBEE_QR_BAR_CODE","ZWAVE_QR_BAR_CODE"
+            $v = "CUSTOM_PROTOCOL_QR_BAR_CODE","DISCOVERED_DEVICE","WIFI_SETUP_QR_BAR_CODE","ZIGBEE_QR_BAR_CODE","ZWAVE_QR_BAR_CODE"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.AuthType
+        {
+            ($_ -eq "New-IOTMIConnectorDestination/AuthType") -Or
+            ($_ -eq "Update-IOTMIConnectorDestination/AuthType")
+        }
+        {
+            $v = "OAUTH"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.CloudConnectorType
+        "Get-IOTMICloudConnectorList/Type"
+        {
+            $v = "LISTED","UNLISTED"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.ConnectorEventOperation
+        "Send-IOTMIConnectorEvent/Operation"
+        {
+            $v = "DEVICE_COMMAND_REQUEST","DEVICE_COMMAND_RESPONSE","DEVICE_DISCOVERY","DEVICE_EVENT"
             break
         }
 
@@ -97,6 +121,13 @@ $IOTMI_Completers = {
             break
         }
 
+        # Amazon.IoTManagedIntegrations.DeviceDiscoveryStatus
+        "Get-IOTMIDeviceDiscoveryList/StatusFilter"
+        {
+            $v = "FAILED","RUNNING","SUCCEEDED","TIMED_OUT"
+            break
+        }
+
         # Amazon.IoTManagedIntegrations.DiscoveryAuthMaterialType
         "Start-IOTMIDeviceDiscovery/AuthenticationMaterialType"
         {
@@ -105,9 +136,12 @@ $IOTMI_Completers = {
         }
 
         # Amazon.IoTManagedIntegrations.DiscoveryType
-        "Start-IOTMIDeviceDiscovery/DiscoveryType"
         {
-            $v = "CLOUD","ZIGBEE","ZWAVE"
+            ($_ -eq "Start-IOTMIDeviceDiscovery/DiscoveryType") -Or
+            ($_ -eq "Get-IOTMIDeviceDiscoveryList/TypeFilter")
+        }
+        {
+            $v = "CLOUD","CUSTOM","ZIGBEE","ZWAVE"
             break
         }
 
@@ -115,6 +149,13 @@ $IOTMI_Completers = {
         "Write-IOTMIDefaultEncryptionConfiguration/EncryptionType"
         {
             $v = "CUSTOMER_KEY_ENCRYPTION","MANAGED_INTEGRATIONS_DEFAULT_ENCRYPTION"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.EndpointType
+        "New-IOTMICloudConnector/EndpointType"
+        {
+            $v = "LAMBDA"
             break
         }
 
@@ -126,7 +167,7 @@ $IOTMI_Completers = {
             ($_ -eq "Update-IOTMINotificationConfiguration/EventType")
         }
         {
-            $v = "CONNECTOR_ASSOCIATION","CONNECTOR_ERROR_REPORT","DEVICE_COMMAND","DEVICE_COMMAND_REQUEST","DEVICE_EVENT","DEVICE_LIFE_CYCLE","DEVICE_OTA","DEVICE_STATE"
+            $v = "ACCOUNT_ASSOCIATION","CONNECTOR_ASSOCIATION","CONNECTOR_ERROR_REPORT","DEVICE_COMMAND","DEVICE_COMMAND_REQUEST","DEVICE_DISCOVERY_STATUS","DEVICE_EVENT","DEVICE_LIFE_CYCLE","DEVICE_OTA","DEVICE_STATE"
             break
         }
 
@@ -225,6 +266,13 @@ $IOTMI_Completers = {
             break
         }
 
+        # Amazon.IoTManagedIntegrations.TokenEndpointAuthenticationScheme
+        "New-IOTMIConnectorDestination/OAuth_TokenEndpointAuthenticationScheme"
+        {
+            $v = "HTTP_BASIC","REQUEST_BODY_CREDENTIALS"
+            break
+        }
+
 
     }
 
@@ -235,13 +283,17 @@ $IOTMI_Completers = {
 
 $IOTMI_map = @{
     "AuthenticationMaterialType"=@("New-IOTMIManagedThing","Start-IOTMIDeviceDiscovery")
+    "AuthType"=@("New-IOTMIConnectorDestination","Update-IOTMIConnectorDestination")
     "DeliveryDestinationType"=@("New-IOTMIDestination","Update-IOTMIDestination")
     "DiscoveryType"=@("Start-IOTMIDeviceDiscovery")
     "EncryptionType"=@("Write-IOTMIDefaultEncryptionConfiguration")
+    "EndpointType"=@("New-IOTMICloudConnector")
     "EventLogLevel"=@("New-IOTMIEventLogConfiguration","Update-IOTMIEventLogConfiguration")
     "EventType"=@("Get-IOTMINotificationConfiguration","New-IOTMINotificationConfiguration","Remove-IOTMINotificationConfiguration","Update-IOTMINotificationConfiguration")
     "Format"=@("Get-IOTMISchemaVersion")
     "HubNetworkMode"=@("Update-IOTMIManagedThing")
+    "OAuth_TokenEndpointAuthenticationScheme"=@("New-IOTMIConnectorDestination")
+    "Operation"=@("Send-IOTMIConnectorEvent")
     "OtaMechanism"=@("New-IOTMIOtaTask")
     "OtaSchedulingConfig_EndBehavior"=@("New-IOTMIOtaTask")
     "OtaType"=@("New-IOTMIOtaTask")
@@ -252,7 +304,9 @@ $IOTMI_map = @{
     "RoleFilter"=@("Get-IOTMIManagedThingList")
     "RuntimeLogConfigurations_LogFlushLevel"=@("Write-IOTMIRuntimeLogConfiguration")
     "RuntimeLogConfigurations_LogLevel"=@("Write-IOTMIRuntimeLogConfiguration")
-    "Type"=@("Get-IOTMISchemaVersion","Get-IOTMISchemaVersionList")
+    "StatusFilter"=@("Get-IOTMIDeviceDiscoveryList")
+    "Type"=@("Get-IOTMICloudConnectorList","Get-IOTMISchemaVersion","Get-IOTMISchemaVersionList")
+    "TypeFilter"=@("Get-IOTMIDeviceDiscoveryList")
     "Visibility"=@("Get-IOTMISchemaVersionList")
 }
 
@@ -306,7 +360,10 @@ $IOTMI_SelectCompleters = {
 }
 
 $IOTMI_SelectMap = @{
-    "Select"=@("New-IOTMICredentialLocker",
+    "Select"=@("New-IOTMIAccountAssociation",
+               "New-IOTMICloudConnector",
+               "New-IOTMIConnectorDestination",
+               "New-IOTMICredentialLocker",
                "New-IOTMIDestination",
                "New-IOTMIEventLogConfiguration",
                "New-IOTMIManagedThing",
@@ -314,6 +371,9 @@ $IOTMI_SelectMap = @{
                "New-IOTMIOtaTask",
                "New-IOTMIOtaTaskConfiguration",
                "New-IOTMIProvisioningProfile",
+               "Remove-IOTMIAccountAssociation",
+               "Remove-IOTMICloudConnector",
+               "Remove-IOTMIConnectorDestination",
                "Remove-IOTMICredentialLocker",
                "Remove-IOTMIDestination",
                "Remove-IOTMIEventLogConfiguration",
@@ -322,6 +382,10 @@ $IOTMI_SelectMap = @{
                "Remove-IOTMIOtaTask",
                "Remove-IOTMIOtaTaskConfiguration",
                "Remove-IOTMIProvisioningProfile",
+               "Unregister-IOTMIAccountAssociation",
+               "Get-IOTMIAccountAssociation",
+               "Get-IOTMICloudConnector",
+               "Get-IOTMIConnectorDestination",
                "Get-IOTMICredentialLocker",
                "Get-IOTMICustomEndpoint",
                "Get-IOTMIDefaultEncryptionConfiguration",
@@ -340,9 +404,15 @@ $IOTMI_SelectMap = @{
                "Get-IOTMIProvisioningProfile",
                "Get-IOTMIRuntimeLogConfiguration",
                "Get-IOTMISchemaVersion",
+               "Get-IOTMIAccountAssociationList",
+               "Get-IOTMICloudConnectorList",
+               "Get-IOTMIConnectorDestinationList",
                "Get-IOTMICredentialLockerList",
                "Get-IOTMIDestinationList",
+               "Get-IOTMIDeviceDiscoveryList",
+               "Get-IOTMIDiscoveredDeviceList",
                "Get-IOTMIEventLogConfigurationList",
+               "Get-IOTMIManagedThingAccountAssociationList",
                "Get-IOTMIManagedThingList",
                "Get-IOTMIManagedThingSchemaList",
                "Get-IOTMINotificationConfigurationList",
@@ -351,13 +421,22 @@ $IOTMI_SelectMap = @{
                "Get-IOTMIOtaTaskList",
                "Get-IOTMIProvisioningProfileList",
                "Get-IOTMISchemaVersionList",
+               "Get-IOTMIResourceTag",
                "Write-IOTMIDefaultEncryptionConfiguration",
                "Write-IOTMIHubConfiguration",
                "Write-IOTMIRuntimeLogConfiguration",
+               "Register-IOTMIAccountAssociation",
                "Register-IOTMICustomEndpoint",
                "Reset-IOTMIRuntimeLogConfiguration",
+               "Send-IOTMIConnectorEvent",
                "Send-IOTMIManagedThingCommand",
+               "Start-IOTMIAccountAssociationRefresh",
                "Start-IOTMIDeviceDiscovery",
+               "Add-IOTMIResourceTag",
+               "Remove-IOTMIResourceTag",
+               "Update-IOTMIAccountAssociation",
+               "Update-IOTMICloudConnector",
+               "Update-IOTMIConnectorDestination",
                "Update-IOTMIDestination",
                "Update-IOTMIEventLogConfiguration",
                "Update-IOTMIManagedThing",

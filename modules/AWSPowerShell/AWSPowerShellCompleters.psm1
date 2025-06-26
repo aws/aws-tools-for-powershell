@@ -40016,7 +40016,31 @@ $IOTMI_Completers = {
         # Amazon.IoTManagedIntegrations.AuthMaterialType
         "New-IOTMIManagedThing/AuthenticationMaterialType"
         {
-            $v = "WIFI_SETUP_QR_BAR_CODE","ZIGBEE_QR_BAR_CODE","ZWAVE_QR_BAR_CODE"
+            $v = "CUSTOM_PROTOCOL_QR_BAR_CODE","DISCOVERED_DEVICE","WIFI_SETUP_QR_BAR_CODE","ZIGBEE_QR_BAR_CODE","ZWAVE_QR_BAR_CODE"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.AuthType
+        {
+            ($_ -eq "New-IOTMIConnectorDestination/AuthType") -Or
+            ($_ -eq "Update-IOTMIConnectorDestination/AuthType")
+        }
+        {
+            $v = "OAUTH"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.CloudConnectorType
+        "Get-IOTMICloudConnectorList/Type"
+        {
+            $v = "LISTED","UNLISTED"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.ConnectorEventOperation
+        "Send-IOTMIConnectorEvent/Operation"
+        {
+            $v = "DEVICE_COMMAND_REQUEST","DEVICE_COMMAND_RESPONSE","DEVICE_DISCOVERY","DEVICE_EVENT"
             break
         }
 
@@ -40030,6 +40054,13 @@ $IOTMI_Completers = {
             break
         }
 
+        # Amazon.IoTManagedIntegrations.DeviceDiscoveryStatus
+        "Get-IOTMIDeviceDiscoveryList/StatusFilter"
+        {
+            $v = "FAILED","RUNNING","SUCCEEDED","TIMED_OUT"
+            break
+        }
+
         # Amazon.IoTManagedIntegrations.DiscoveryAuthMaterialType
         "Start-IOTMIDeviceDiscovery/AuthenticationMaterialType"
         {
@@ -40038,9 +40069,12 @@ $IOTMI_Completers = {
         }
 
         # Amazon.IoTManagedIntegrations.DiscoveryType
-        "Start-IOTMIDeviceDiscovery/DiscoveryType"
         {
-            $v = "CLOUD","ZIGBEE","ZWAVE"
+            ($_ -eq "Start-IOTMIDeviceDiscovery/DiscoveryType") -Or
+            ($_ -eq "Get-IOTMIDeviceDiscoveryList/TypeFilter")
+        }
+        {
+            $v = "CLOUD","CUSTOM","ZIGBEE","ZWAVE"
             break
         }
 
@@ -40048,6 +40082,13 @@ $IOTMI_Completers = {
         "Write-IOTMIDefaultEncryptionConfiguration/EncryptionType"
         {
             $v = "CUSTOMER_KEY_ENCRYPTION","MANAGED_INTEGRATIONS_DEFAULT_ENCRYPTION"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.EndpointType
+        "New-IOTMICloudConnector/EndpointType"
+        {
+            $v = "LAMBDA"
             break
         }
 
@@ -40059,7 +40100,7 @@ $IOTMI_Completers = {
             ($_ -eq "Update-IOTMINotificationConfiguration/EventType")
         }
         {
-            $v = "CONNECTOR_ASSOCIATION","CONNECTOR_ERROR_REPORT","DEVICE_COMMAND","DEVICE_COMMAND_REQUEST","DEVICE_EVENT","DEVICE_LIFE_CYCLE","DEVICE_OTA","DEVICE_STATE"
+            $v = "ACCOUNT_ASSOCIATION","CONNECTOR_ASSOCIATION","CONNECTOR_ERROR_REPORT","DEVICE_COMMAND","DEVICE_COMMAND_REQUEST","DEVICE_DISCOVERY_STATUS","DEVICE_EVENT","DEVICE_LIFE_CYCLE","DEVICE_OTA","DEVICE_STATE"
             break
         }
 
@@ -40158,6 +40199,13 @@ $IOTMI_Completers = {
             break
         }
 
+        # Amazon.IoTManagedIntegrations.TokenEndpointAuthenticationScheme
+        "New-IOTMIConnectorDestination/OAuth_TokenEndpointAuthenticationScheme"
+        {
+            $v = "HTTP_BASIC","REQUEST_BODY_CREDENTIALS"
+            break
+        }
+
 
     }
 
@@ -40168,13 +40216,17 @@ $IOTMI_Completers = {
 
 $IOTMI_map = @{
     "AuthenticationMaterialType"=@("New-IOTMIManagedThing","Start-IOTMIDeviceDiscovery")
+    "AuthType"=@("New-IOTMIConnectorDestination","Update-IOTMIConnectorDestination")
     "DeliveryDestinationType"=@("New-IOTMIDestination","Update-IOTMIDestination")
     "DiscoveryType"=@("Start-IOTMIDeviceDiscovery")
     "EncryptionType"=@("Write-IOTMIDefaultEncryptionConfiguration")
+    "EndpointType"=@("New-IOTMICloudConnector")
     "EventLogLevel"=@("New-IOTMIEventLogConfiguration","Update-IOTMIEventLogConfiguration")
     "EventType"=@("Get-IOTMINotificationConfiguration","New-IOTMINotificationConfiguration","Remove-IOTMINotificationConfiguration","Update-IOTMINotificationConfiguration")
     "Format"=@("Get-IOTMISchemaVersion")
     "HubNetworkMode"=@("Update-IOTMIManagedThing")
+    "OAuth_TokenEndpointAuthenticationScheme"=@("New-IOTMIConnectorDestination")
+    "Operation"=@("Send-IOTMIConnectorEvent")
     "OtaMechanism"=@("New-IOTMIOtaTask")
     "OtaSchedulingConfig_EndBehavior"=@("New-IOTMIOtaTask")
     "OtaType"=@("New-IOTMIOtaTask")
@@ -40185,7 +40237,9 @@ $IOTMI_map = @{
     "RoleFilter"=@("Get-IOTMIManagedThingList")
     "RuntimeLogConfigurations_LogFlushLevel"=@("Write-IOTMIRuntimeLogConfiguration")
     "RuntimeLogConfigurations_LogLevel"=@("Write-IOTMIRuntimeLogConfiguration")
-    "Type"=@("Get-IOTMISchemaVersion","Get-IOTMISchemaVersionList")
+    "StatusFilter"=@("Get-IOTMIDeviceDiscoveryList")
+    "Type"=@("Get-IOTMICloudConnectorList","Get-IOTMISchemaVersion","Get-IOTMISchemaVersionList")
+    "TypeFilter"=@("Get-IOTMIDeviceDiscoveryList")
     "Visibility"=@("Get-IOTMISchemaVersionList")
 }
 
@@ -40239,7 +40293,10 @@ $IOTMI_SelectCompleters = {
 }
 
 $IOTMI_SelectMap = @{
-    "Select"=@("New-IOTMICredentialLocker",
+    "Select"=@("New-IOTMIAccountAssociation",
+               "New-IOTMICloudConnector",
+               "New-IOTMIConnectorDestination",
+               "New-IOTMICredentialLocker",
                "New-IOTMIDestination",
                "New-IOTMIEventLogConfiguration",
                "New-IOTMIManagedThing",
@@ -40247,6 +40304,9 @@ $IOTMI_SelectMap = @{
                "New-IOTMIOtaTask",
                "New-IOTMIOtaTaskConfiguration",
                "New-IOTMIProvisioningProfile",
+               "Remove-IOTMIAccountAssociation",
+               "Remove-IOTMICloudConnector",
+               "Remove-IOTMIConnectorDestination",
                "Remove-IOTMICredentialLocker",
                "Remove-IOTMIDestination",
                "Remove-IOTMIEventLogConfiguration",
@@ -40255,6 +40315,10 @@ $IOTMI_SelectMap = @{
                "Remove-IOTMIOtaTask",
                "Remove-IOTMIOtaTaskConfiguration",
                "Remove-IOTMIProvisioningProfile",
+               "Unregister-IOTMIAccountAssociation",
+               "Get-IOTMIAccountAssociation",
+               "Get-IOTMICloudConnector",
+               "Get-IOTMIConnectorDestination",
                "Get-IOTMICredentialLocker",
                "Get-IOTMICustomEndpoint",
                "Get-IOTMIDefaultEncryptionConfiguration",
@@ -40273,9 +40337,15 @@ $IOTMI_SelectMap = @{
                "Get-IOTMIProvisioningProfile",
                "Get-IOTMIRuntimeLogConfiguration",
                "Get-IOTMISchemaVersion",
+               "Get-IOTMIAccountAssociationList",
+               "Get-IOTMICloudConnectorList",
+               "Get-IOTMIConnectorDestinationList",
                "Get-IOTMICredentialLockerList",
                "Get-IOTMIDestinationList",
+               "Get-IOTMIDeviceDiscoveryList",
+               "Get-IOTMIDiscoveredDeviceList",
                "Get-IOTMIEventLogConfigurationList",
+               "Get-IOTMIManagedThingAccountAssociationList",
                "Get-IOTMIManagedThingList",
                "Get-IOTMIManagedThingSchemaList",
                "Get-IOTMINotificationConfigurationList",
@@ -40284,13 +40354,22 @@ $IOTMI_SelectMap = @{
                "Get-IOTMIOtaTaskList",
                "Get-IOTMIProvisioningProfileList",
                "Get-IOTMISchemaVersionList",
+               "Get-IOTMIResourceTag",
                "Write-IOTMIDefaultEncryptionConfiguration",
                "Write-IOTMIHubConfiguration",
                "Write-IOTMIRuntimeLogConfiguration",
+               "Register-IOTMIAccountAssociation",
                "Register-IOTMICustomEndpoint",
                "Reset-IOTMIRuntimeLogConfiguration",
+               "Send-IOTMIConnectorEvent",
                "Send-IOTMIManagedThingCommand",
+               "Start-IOTMIAccountAssociationRefresh",
                "Start-IOTMIDeviceDiscovery",
+               "Add-IOTMIResourceTag",
+               "Remove-IOTMIResourceTag",
+               "Update-IOTMIAccountAssociation",
+               "Update-IOTMICloudConnector",
+               "Update-IOTMIConnectorDestination",
                "Update-IOTMIDestination",
                "Update-IOTMIEventLogConfiguration",
                "Update-IOTMIManagedThing",
@@ -42670,6 +42749,26 @@ $KS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Keyspaces.CdcPropagateTags
+        {
+            ($_ -eq "New-KSTable/CdcSpecification_PropagateTag") -Or
+            ($_ -eq "Update-KSTable/CdcSpecification_PropagateTag")
+        }
+        {
+            $v = "NONE","TABLE"
+            break
+        }
+
+        # Amazon.Keyspaces.CdcStatus
+        {
+            ($_ -eq "New-KSTable/CdcSpecification_Status") -Or
+            ($_ -eq "Update-KSTable/CdcSpecification_Status")
+        }
+        {
+            $v = "DISABLED","DISABLING","ENABLED","ENABLING"
+            break
+        }
+
         # Amazon.Keyspaces.ClientSideTimestampsStatus
         {
             ($_ -eq "New-KSTable/ClientSideTimestamps_Status") -Or
@@ -42734,6 +42833,16 @@ $KS_Completers = {
             break
         }
 
+        # Amazon.Keyspaces.ViewType
+        {
+            ($_ -eq "New-KSTable/CdcSpecification_ViewType") -Or
+            ($_ -eq "Update-KSTable/CdcSpecification_ViewType")
+        }
+        {
+            $v = "KEYS_ONLY","NEW_AND_OLD_IMAGES","NEW_IMAGE","OLD_IMAGE"
+            break
+        }
+
 
     }
 
@@ -42745,6 +42854,9 @@ $KS_Completers = {
 $KS_map = @{
     "CapacitySpecification_ThroughputMode"=@("New-KSTable","Update-KSTable")
     "CapacitySpecificationOverride_ThroughputMode"=@("Restore-KSTable")
+    "CdcSpecification_PropagateTag"=@("New-KSTable","Update-KSTable")
+    "CdcSpecification_Status"=@("New-KSTable","Update-KSTable")
+    "CdcSpecification_ViewType"=@("New-KSTable","Update-KSTable")
     "ClientSideTimestamps_Status"=@("New-KSTable","Update-KSKeyspace","Update-KSTable")
     "EncryptionSpecification_Type"=@("New-KSTable","Update-KSTable")
     "EncryptionSpecificationOverride_Type"=@("Restore-KSTable")
@@ -42826,6 +42938,98 @@ $KS_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $KS_SelectCompleters $KS_SelectMap
+# Argument completions for service Amazon Keyspaces Streams
+
+
+$KST_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.KeyspacesStreams.ShardFilterType
+        "Get-KSTStream/ShardFilter_Type"
+        {
+            $v = "CHILD_SHARDS"
+            break
+        }
+
+        # Amazon.KeyspacesStreams.ShardIteratorType
+        "Get-KSTShardIterator/ShardIteratorType"
+        {
+            $v = "AFTER_SEQUENCE_NUMBER","AT_SEQUENCE_NUMBER","LATEST","TRIM_HORIZON"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$KST_map = @{
+    "ShardFilter_Type"=@("Get-KSTStream")
+    "ShardIteratorType"=@("Get-KSTShardIterator")
+}
+
+_awsArgumentCompleterRegistration $KST_Completers $KST_map
+
+$KST_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.KST.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$KST_SelectMap = @{
+    "Select"=@("Get-KSTRecord",
+               "Get-KSTShardIterator",
+               "Get-KSTStream",
+               "Get-KSTStreamList")
+}
+
+_awsArgumentCompleterRegistration $KST_SelectCompleters $KST_SelectMap
 # Argument completions for service Amazon Kinesis
 
 
@@ -60060,6 +60264,16 @@ $QBUS_Completers = {
             break
         }
 
+        # Amazon.QBusiness.DataAccessorAuthenticationType
+        {
+            ($_ -eq "New-QBUSDataAccessor/AuthenticationDetail_AuthenticationType") -Or
+            ($_ -eq "Update-QBUSDataAccessor/AuthenticationDetail_AuthenticationType")
+        }
+        {
+            $v = "AWS_IAM_IDC_AUTH_CODE","AWS_IAM_IDC_TTI"
+            break
+        }
+
         # Amazon.QBusiness.DataSourceSyncJobStatus
         "Get-QBUSDataSourceSyncJobList/StatusFilter"
         {
@@ -60231,6 +60445,7 @@ $QBUS_Completers = {
 $QBUS_map = @{
     "AttachmentsConfiguration_AttachmentsControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
     "AudioExtractionConfiguration_AudioExtractionStatus"=@("New-QBUSDataSource","Update-QBUSDataSource")
+    "AuthenticationDetail_AuthenticationType"=@("New-QBUSDataAccessor","Update-QBUSDataAccessor")
     "AutoSubscriptionConfiguration_AutoSubscribe"=@("Update-QBUSApplication")
     "AutoSubscriptionConfiguration_DefaultSubscriptionType"=@("Update-QBUSApplication")
     "ChatMode"=@("Set-QBUSChatSync")

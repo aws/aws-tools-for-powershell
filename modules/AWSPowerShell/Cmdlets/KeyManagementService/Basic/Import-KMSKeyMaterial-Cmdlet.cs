@@ -199,9 +199,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>Indicates whether the key material being imported is previously associated with this
         /// KMS key or not. This parameter is optional and only usable with symmetric encryption
-        /// keys. The default is <c>EXISTING_KEY_MATERIAL</c>. If no key material has ever been
-        /// imported into the KMS key, and this parameter is omitted, the parameter defaults to
-        /// <c>NEW_KEY_MATERIAL</c>.</para>
+        /// keys. If no key material has ever been imported into the KMS key, and this parameter
+        /// is omitted, the parameter defaults to <c>NEW_KEY_MATERIAL</c>. After the first key
+        /// material is imported, if this parameter is omitted then the parameter defaults to
+        /// <c>EXISTING_KEY_MATERIAL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

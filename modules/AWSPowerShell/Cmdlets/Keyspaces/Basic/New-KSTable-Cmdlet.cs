@@ -248,6 +248,18 @@ namespace Amazon.PowerShell.Cmdlets.KS
         public Amazon.Keyspaces.Model.PartitionKey[] SchemaDefinition_PartitionKey { get; set; }
         #endregion
         
+        #region Parameter CdcSpecification_PropagateTag
+        /// <summary>
+        /// <para>
+        /// <para>Specifies that the stream inherits the tags from the table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CdcSpecification_PropagateTags")]
+        [AWSConstantClassSource("Amazon.Keyspaces.CdcPropagateTags")]
+        public Amazon.Keyspaces.CdcPropagateTags CdcSpecification_PropagateTag { get; set; }
+        #endregion
+        
         #region Parameter CapacitySpecification_ReadCapacityUnit
         /// <summary>
         /// <para>
@@ -338,6 +350,17 @@ namespace Amazon.PowerShell.Cmdlets.KS
         public Amazon.Keyspaces.Model.StaticColumn[] SchemaDefinition_StaticColumn { get; set; }
         #endregion
         
+        #region Parameter CdcSpecification_Status
+        /// <summary>
+        /// <para>
+        /// <para>The status of the CDC stream. You can enable or disable a stream for a table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Keyspaces.CdcStatus")]
+        public Amazon.Keyspaces.CdcStatus CdcSpecification_Status { get; set; }
+        #endregion
+        
         #region Parameter ClientSideTimestamps_Status
         /// <summary>
         /// <para>
@@ -386,6 +409,17 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TableName { get; set; }
+        #endregion
+        
+        #region Parameter CdcSpecification_Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags (key-value pairs) that you want to apply to the stream.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CdcSpecification_Tags")]
+        public Amazon.Keyspaces.Model.Tag[] CdcSpecification_Tag { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -459,6 +493,20 @@ namespace Amazon.PowerShell.Cmdlets.KS
         public Amazon.Keyspaces.EncryptionType EncryptionSpecification_Type { get; set; }
         #endregion
         
+        #region Parameter CdcSpecification_ViewType
+        /// <summary>
+        /// <para>
+        /// <para>The view type specifies the changes Amazon Keyspaces records for each changed row
+        /// in the stream. After you create the stream, you can't make changes to this selection.
+        /// </para><para>The options are:</para><ul><li><para><c>NEW_AND_OLD_IMAGES</c> - both versions of the row, before and after the change.
+        /// This is the default.</para></li><li><para><c>NEW_IMAGE</c> - the version of the row after the change.</para></li><li><para><c>OLD_IMAGE</c> - the version of the row before the change.</para></li><li><para><c>KEYS_ONLY</c> - the partition and clustering keys of the row that was changed.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Keyspaces.ViewType")]
+        public Amazon.Keyspaces.ViewType CdcSpecification_ViewType { get; set; }
+        #endregion
+        
         #region Parameter CapacitySpecification_WriteCapacityUnit
         /// <summary>
         /// <para>
@@ -530,6 +578,13 @@ namespace Amazon.PowerShell.Cmdlets.KS
             context.CapacitySpecification_ReadCapacityUnit = this.CapacitySpecification_ReadCapacityUnit;
             context.CapacitySpecification_ThroughputMode = this.CapacitySpecification_ThroughputMode;
             context.CapacitySpecification_WriteCapacityUnit = this.CapacitySpecification_WriteCapacityUnit;
+            context.CdcSpecification_PropagateTag = this.CdcSpecification_PropagateTag;
+            context.CdcSpecification_Status = this.CdcSpecification_Status;
+            if (this.CdcSpecification_Tag != null)
+            {
+                context.CdcSpecification_Tag = new List<Amazon.Keyspaces.Model.Tag>(this.CdcSpecification_Tag);
+            }
+            context.CdcSpecification_ViewType = this.CdcSpecification_ViewType;
             context.ClientSideTimestamps_Status = this.ClientSideTimestamps_Status;
             context.Comment_Message = this.Comment_Message;
             context.DefaultTimeToLive = this.DefaultTimeToLive;
@@ -882,6 +937,55 @@ namespace Amazon.PowerShell.Cmdlets.KS
                 request.CapacitySpecification = null;
             }
             
+             // populate CdcSpecification
+            var requestCdcSpecificationIsNull = true;
+            request.CdcSpecification = new Amazon.Keyspaces.Model.CdcSpecification();
+            Amazon.Keyspaces.CdcPropagateTags requestCdcSpecification_cdcSpecification_PropagateTag = null;
+            if (cmdletContext.CdcSpecification_PropagateTag != null)
+            {
+                requestCdcSpecification_cdcSpecification_PropagateTag = cmdletContext.CdcSpecification_PropagateTag;
+            }
+            if (requestCdcSpecification_cdcSpecification_PropagateTag != null)
+            {
+                request.CdcSpecification.PropagateTags = requestCdcSpecification_cdcSpecification_PropagateTag;
+                requestCdcSpecificationIsNull = false;
+            }
+            Amazon.Keyspaces.CdcStatus requestCdcSpecification_cdcSpecification_Status = null;
+            if (cmdletContext.CdcSpecification_Status != null)
+            {
+                requestCdcSpecification_cdcSpecification_Status = cmdletContext.CdcSpecification_Status;
+            }
+            if (requestCdcSpecification_cdcSpecification_Status != null)
+            {
+                request.CdcSpecification.Status = requestCdcSpecification_cdcSpecification_Status;
+                requestCdcSpecificationIsNull = false;
+            }
+            List<Amazon.Keyspaces.Model.Tag> requestCdcSpecification_cdcSpecification_Tag = null;
+            if (cmdletContext.CdcSpecification_Tag != null)
+            {
+                requestCdcSpecification_cdcSpecification_Tag = cmdletContext.CdcSpecification_Tag;
+            }
+            if (requestCdcSpecification_cdcSpecification_Tag != null)
+            {
+                request.CdcSpecification.Tags = requestCdcSpecification_cdcSpecification_Tag;
+                requestCdcSpecificationIsNull = false;
+            }
+            Amazon.Keyspaces.ViewType requestCdcSpecification_cdcSpecification_ViewType = null;
+            if (cmdletContext.CdcSpecification_ViewType != null)
+            {
+                requestCdcSpecification_cdcSpecification_ViewType = cmdletContext.CdcSpecification_ViewType;
+            }
+            if (requestCdcSpecification_cdcSpecification_ViewType != null)
+            {
+                request.CdcSpecification.ViewType = requestCdcSpecification_cdcSpecification_ViewType;
+                requestCdcSpecificationIsNull = false;
+            }
+             // determine if request.CdcSpecification should be set to null
+            if (requestCdcSpecificationIsNull)
+            {
+                request.CdcSpecification = null;
+            }
+            
              // populate ClientSideTimestamps
             var requestClientSideTimestampsIsNull = true;
             request.ClientSideTimestamps = new Amazon.Keyspaces.Model.ClientSideTimestamps();
@@ -1133,6 +1237,10 @@ namespace Amazon.PowerShell.Cmdlets.KS
             public System.Int64? CapacitySpecification_ReadCapacityUnit { get; set; }
             public Amazon.Keyspaces.ThroughputMode CapacitySpecification_ThroughputMode { get; set; }
             public System.Int64? CapacitySpecification_WriteCapacityUnit { get; set; }
+            public Amazon.Keyspaces.CdcPropagateTags CdcSpecification_PropagateTag { get; set; }
+            public Amazon.Keyspaces.CdcStatus CdcSpecification_Status { get; set; }
+            public List<Amazon.Keyspaces.Model.Tag> CdcSpecification_Tag { get; set; }
+            public Amazon.Keyspaces.ViewType CdcSpecification_ViewType { get; set; }
             public Amazon.Keyspaces.ClientSideTimestampsStatus ClientSideTimestamps_Status { get; set; }
             public System.String Comment_Message { get; set; }
             public System.Int32? DefaultTimeToLive { get; set; }

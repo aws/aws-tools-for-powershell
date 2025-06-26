@@ -1,4 +1,51 @@
-﻿### 4.1.848 (2025-06-25 20:19Z)
+﻿### 4.1.849 (2025-06-26 20:49Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1072.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2Route: added parameter OdbNetworkArn.
+    * Modified cmdlet Set-EC2Route: added parameter OdbNetworkArn.
+  * Amazon Keyspaces
+    * Modified cmdlet New-KSTable: added parameters CdcSpecification_PropagateTag, CdcSpecification_Status, CdcSpecification_Tag and CdcSpecification_ViewType.
+    * Modified cmdlet Update-KSTable: added parameters CdcSpecification_PropagateTag, CdcSpecification_Status, CdcSpecification_Tag and CdcSpecification_ViewType.
+  * Amazon Keyspaces Streams. Added cmdlets to support the service. Cmdlets for the service have the noun prefix KST and can be listed using the command 'Get-AWSCmdletName -Service KST'.
+  * Amazon Managed integrations for AWS IoT Device Management
+    * Added cmdlet Add-IOTMIResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-IOTMIAccountAssociation leveraging the GetAccountAssociation service API.
+    * Added cmdlet Get-IOTMIAccountAssociationList leveraging the ListAccountAssociations service API.
+    * Added cmdlet Get-IOTMICloudConnector leveraging the GetCloudConnector service API.
+    * Added cmdlet Get-IOTMICloudConnectorList leveraging the ListCloudConnectors service API.
+    * Added cmdlet Get-IOTMIConnectorDestination leveraging the GetConnectorDestination service API.
+    * Added cmdlet Get-IOTMIConnectorDestinationList leveraging the ListConnectorDestinations service API.
+    * Added cmdlet Get-IOTMIDeviceDiscoveryList leveraging the ListDeviceDiscoveries service API.
+    * Added cmdlet Get-IOTMIDiscoveredDeviceList leveraging the ListDiscoveredDevices service API.
+    * Added cmdlet Get-IOTMIManagedThingAccountAssociationList leveraging the ListManagedThingAccountAssociations service API.
+    * Added cmdlet Get-IOTMIResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet New-IOTMIAccountAssociation leveraging the CreateAccountAssociation service API.
+    * Added cmdlet New-IOTMICloudConnector leveraging the CreateCloudConnector service API.
+    * Added cmdlet New-IOTMIConnectorDestination leveraging the CreateConnectorDestination service API.
+    * Added cmdlet Register-IOTMIAccountAssociation leveraging the RegisterAccountAssociation service API.
+    * Added cmdlet Remove-IOTMIAccountAssociation leveraging the DeleteAccountAssociation service API.
+    * Added cmdlet Remove-IOTMICloudConnector leveraging the DeleteCloudConnector service API.
+    * Added cmdlet Remove-IOTMIConnectorDestination leveraging the DeleteConnectorDestination service API.
+    * Added cmdlet Remove-IOTMIResourceTag leveraging the UntagResource service API.
+    * Added cmdlet Send-IOTMIConnectorEvent leveraging the SendConnectorEvent service API.
+    * Added cmdlet Start-IOTMIAccountAssociationRefresh leveraging the StartAccountAssociationRefresh service API.
+    * Added cmdlet Unregister-IOTMIAccountAssociation leveraging the DeregisterAccountAssociation service API.
+    * Added cmdlet Update-IOTMIAccountAssociation leveraging the UpdateAccountAssociation service API.
+    * Added cmdlet Update-IOTMICloudConnector leveraging the UpdateCloudConnector service API.
+    * Added cmdlet Update-IOTMIConnectorDestination leveraging the UpdateConnectorDestination service API.
+    * Modified cmdlet Get-IOTMIManagedThingList: added parameters ConnectorDestinationIdFilter and ConnectorDeviceIdFilter.
+    * Modified cmdlet New-IOTMIManagedThing: added parameter CapabilitySchema.
+    * Modified cmdlet Send-IOTMIManagedThingCommand: added parameter AccountAssociationId.
+    * Modified cmdlet Start-IOTMIDeviceDiscovery: added parameters AccountAssociationId and CustomProtocolDetail.
+    * Modified cmdlet Update-IOTMIManagedThing: added parameter CapabilitySchema.
+  * Amazon QBusiness
+    * Modified cmdlet Add-QBUSPermission: added parameter Condition.
+    * Modified cmdlet New-QBUSDataAccessor: added parameters AuthenticationDetail_AuthenticationType, AuthenticationDetail_ExternalId and IdcTrustedTokenIssuerConfiguration_IdcTrustedTokenIssuerArn.
+    * Modified cmdlet Update-QBUSDataAccessor: added parameters AuthenticationDetail_AuthenticationType, AuthenticationDetail_ExternalId and IdcTrustedTokenIssuerConfiguration_IdcTrustedTokenIssuerArn.
+  * Amazon WorkSpaces
+    * Modified cmdlet Edit-WKSWorkspaceAccessProperty: added parameters AccessEndpointConfig_AccessEndpoint and AccessEndpointConfig_InternetFallbackProtocol.
+
+### 4.1.848 (2025-06-25 20:19Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1071.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon FSx
     * Added cmdlet Dismount-FSXAndDeleteS3AccessPoint leveraging the DetachAndDeleteS3AccessPoint service API.
