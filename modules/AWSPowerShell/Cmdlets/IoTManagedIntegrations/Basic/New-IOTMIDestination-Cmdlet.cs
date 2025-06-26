@@ -124,21 +124,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         public System.String RoleArn { get; set; }
         #endregion
         
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>A set of key/value pairs that are used to manage the destination.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
-        #endregion
-        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -149,6 +134,23 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientToken { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A set of key/value pairs that are used to manage the destination.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Tags have been deprecated from this api")]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -227,6 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
                 WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -235,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -275,10 +279,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             {
                 request.RoleArn = cmdletContext.RoleArn;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -340,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public System.String RoleArn { get; set; }
+            [System.ObsoleteAttribute]
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.IoTManagedIntegrations.Model.CreateDestinationResponse, NewIOTMIDestinationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Name;

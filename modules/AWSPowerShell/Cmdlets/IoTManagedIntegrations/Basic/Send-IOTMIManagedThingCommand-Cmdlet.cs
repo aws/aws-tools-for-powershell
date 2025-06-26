@@ -45,14 +45,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ConnectorAssociationId
+        #region Parameter AccountAssociationId
         /// <summary>
         /// <para>
-        /// <para>The ID tracking the current discovery process for one connector association.</para>
+        /// <para>The identifier of the account association to use when sending a command to a managed
+        /// thing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ConnectorAssociationId { get; set; }
+        public System.String AccountAssociationId { get; set; }
         #endregion
         
         #region Parameter Endpoint
@@ -92,6 +93,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ManagedThingId { get; set; }
+        #endregion
+        
+        #region Parameter ConnectorAssociationId
+        /// <summary>
+        /// <para>
+        /// <para>The ID tracking the current discovery process for one connector association.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("ConnectorAssociationId has been deprecated")]
+        public System.String ConnectorAssociationId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -140,7 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
                 context.Select = CreateSelectDelegate<Amazon.IoTManagedIntegrations.Model.SendManagedThingCommandResponse, SendIOTMIManagedThingCommandCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AccountAssociationId = this.AccountAssociationId;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ConnectorAssociationId = this.ConnectorAssociationId;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Endpoint != null)
             {
                 context.Endpoint = new List<Amazon.IoTManagedIntegrations.Model.CommandEndpoint>(this.Endpoint);
@@ -174,10 +190,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             // create request
             var request = new Amazon.IoTManagedIntegrations.Model.SendManagedThingCommandRequest();
             
+            if (cmdletContext.AccountAssociationId != null)
+            {
+                request.AccountAssociationId = cmdletContext.AccountAssociationId;
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ConnectorAssociationId != null)
             {
                 request.ConnectorAssociationId = cmdletContext.ConnectorAssociationId;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Endpoint != null)
             {
                 request.Endpoints = cmdletContext.Endpoint;
@@ -241,6 +263,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountAssociationId { get; set; }
+            [System.ObsoleteAttribute]
             public System.String ConnectorAssociationId { get; set; }
             public List<Amazon.IoTManagedIntegrations.Model.CommandEndpoint> Endpoint { get; set; }
             public System.String ManagedThingId { get; set; }

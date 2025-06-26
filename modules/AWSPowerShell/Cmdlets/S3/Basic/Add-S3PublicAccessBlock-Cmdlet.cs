@@ -68,9 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter PublicAccessBlockConfiguration_BlockPublicAcl
         /// <summary>
         /// <para>
-        /// <para>Specifies whether Amazon S3 should block public ACLs for this bucket. Setting this
-        /// element to <code>TRUE</code> causes the following behavior:</para><ul><li><para>PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public
-        /// access.</para></li><li><para>PUT Object calls will fail if the request includes an object ACL.</para></li></ul><para>Note that enabling this setting doesn't affect existing policies or ACLs.</para>
+        /// <para>Specifies whether Amazon S3 should block public access control lists (ACLs) for this
+        /// bucket and objects in this bucket. Setting this element to <c>TRUE</c> causes the
+        /// following behavior:</para><ul><li><para>PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.</para></li><li><para>PUT Object calls fail if the request includes a public ACL.</para></li><li><para>PUT Bucket calls fail if the request includes a public ACL.</para></li></ul><para>Enabling this setting doesn't affect existing policies or ACLs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// <para>Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting
-        /// this element to <code>TRUE</code> causes Amazon S3 to reject calls to PUT Bucket policy
-        /// if the specified bucket policy allows public access. </para><para>Note that enabling this setting doesn't affect existing bucket policies.</para>
+        /// this element to <c>TRUE</c> causes Amazon S3 to reject calls to PUT Bucket policy
+        /// if the specified bucket policy allows public access. </para><para>Enabling this setting doesn't affect existing bucket policies.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,10 +145,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter PublicAccessBlockConfiguration_IgnorePublicAcl
         /// <summary>
         /// <para>
-        /// <para>Specifies whether Amazon S3 should ignore public ACLs for this bucket. Setting this
-        /// element to <code>TRUE</code> causes Amazon S3 to ignore all public ACLs on this bucket
-        /// and any objects that it contains. </para><para>Note that enabling this setting doesn't affect the persistence of any existing ACLs
-        /// and doesn't prevent new public ACLs from being set.</para>
+        /// <para>Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects
+        /// in this bucket. Setting this element to <c>TRUE</c> causes Amazon S3 to ignore all
+        /// public ACLs on this bucket and objects in this bucket.</para><para>Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't
+        /// prevent new public ACLs from being set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// <para>Specifies whether Amazon S3 should restrict public bucket policies for this bucket.
-        /// Setting this element to <code>TRUE</code> restricts access to this bucket to only
-        /// Amazon Web Service principals and authorized users within this account if the bucket
+        /// Setting this element to <c>TRUE</c> restricts access to this bucket to only Amazon
+        /// Web Services service principals and authorized users within this account if the bucket
         /// has a public policy.</para><para>Enabling this setting doesn't affect previously stored bucket policies, except that
         /// public and cross-account access within any public bucket policy, including non-public
         /// delegation to specific accounts, is blocked.</para>
@@ -221,8 +221,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.ChecksumAlgorithm = this.ChecksumAlgorithm;
             context.ContentMD5 = this.ContentMD5;
             context.PublicAccessBlockConfiguration_BlockPublicAcl = this.PublicAccessBlockConfiguration_BlockPublicAcl;
-            context.PublicAccessBlockConfiguration_IgnorePublicAcl = this.PublicAccessBlockConfiguration_IgnorePublicAcl;
             context.PublicAccessBlockConfiguration_BlockPublicPolicy = this.PublicAccessBlockConfiguration_BlockPublicPolicy;
+            context.PublicAccessBlockConfiguration_IgnorePublicAcl = this.PublicAccessBlockConfiguration_IgnorePublicAcl;
             context.PublicAccessBlockConfiguration_RestrictPublicBucket = this.PublicAccessBlockConfiguration_RestrictPublicBucket;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
@@ -267,16 +267,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.PublicAccessBlockConfiguration.BlockPublicAcls = requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_BlockPublicAcl.Value;
                 requestPublicAccessBlockConfigurationIsNull = false;
             }
-            System.Boolean? requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_IgnorePublicAcl = null;
-            if (cmdletContext.PublicAccessBlockConfiguration_IgnorePublicAcl != null)
-            {
-                requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_IgnorePublicAcl = cmdletContext.PublicAccessBlockConfiguration_IgnorePublicAcl.Value;
-            }
-            if (requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_IgnorePublicAcl != null)
-            {
-                request.PublicAccessBlockConfiguration.IgnorePublicAcls = requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_IgnorePublicAcl.Value;
-                requestPublicAccessBlockConfigurationIsNull = false;
-            }
             System.Boolean? requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_BlockPublicPolicy = null;
             if (cmdletContext.PublicAccessBlockConfiguration_BlockPublicPolicy != null)
             {
@@ -285,6 +275,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_BlockPublicPolicy != null)
             {
                 request.PublicAccessBlockConfiguration.BlockPublicPolicy = requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_BlockPublicPolicy.Value;
+                requestPublicAccessBlockConfigurationIsNull = false;
+            }
+            System.Boolean? requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_IgnorePublicAcl = null;
+            if (cmdletContext.PublicAccessBlockConfiguration_IgnorePublicAcl != null)
+            {
+                requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_IgnorePublicAcl = cmdletContext.PublicAccessBlockConfiguration_IgnorePublicAcl.Value;
+            }
+            if (requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_IgnorePublicAcl != null)
+            {
+                request.PublicAccessBlockConfiguration.IgnorePublicAcls = requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_IgnorePublicAcl.Value;
                 requestPublicAccessBlockConfigurationIsNull = false;
             }
             System.Boolean? requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_RestrictPublicBucket = null;
@@ -365,8 +365,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public System.String ContentMD5 { get; set; }
             public System.Boolean? PublicAccessBlockConfiguration_BlockPublicAcl { get; set; }
-            public System.Boolean? PublicAccessBlockConfiguration_IgnorePublicAcl { get; set; }
             public System.Boolean? PublicAccessBlockConfiguration_BlockPublicPolicy { get; set; }
+            public System.Boolean? PublicAccessBlockConfiguration_IgnorePublicAcl { get; set; }
             public System.Boolean? PublicAccessBlockConfiguration_RestrictPublicBucket { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutPublicAccessBlockResponse, AddS3PublicAccessBlockCmdlet, object> Select { get; set; } =

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>keyspacesstreams</C2jFilename>
+    <AssemblyName>KeyspacesStreams</AssemblyName>
+    <ServiceNounPrefix>KST</ServiceNounPrefix>
+    <ServiceName>Amazon Keyspaces Streams</ServiceName>
+    <ServiceClientInterface>IAmazonKeyspacesStreams</ServiceClientInterface>
+    <ServiceClient>AmazonKeyspacesStreamsClient</ServiceClient>
+    <ServiceModuleGuid>9b8ad303-51c9-49d0-8d5a-ae6088431141</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetRecords" OutputProperty="*" Verb="Get" Noun="Record" PipelineParameter="ShardIterator" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetShardIterator" OutputProperty="ShardIterator" Verb="Get" Noun="ShardIterator" PipelineParameter="ShardId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetStream" OutputProperty="*" Verb="Get" Noun="Stream" PipelineParameter="StreamArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStreams" OutputProperty="Streams" Verb="Get" Noun="StreamList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

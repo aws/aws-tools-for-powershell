@@ -57,15 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <para>The bucket name containing the object whose legal hold status you want to retrieve. </para><para><b>Access points</b> - When you use this action with an access point for general purpose buckets, you must provide 
-        /// the alias of the access point in place of the bucket name or specify the access point ARN. When you use this action 
-        /// with an access point for directory buckets, you must provide the access point name in place of the bucket name. When 
-        /// using the access point ARN, you must direct requests to the access point hostname. The access point hostname takes 
-        /// the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action 
-        /// with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket 
-        /// name. For more information about access point ARNs, see 
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in 
-        /// the <i>Amazon S3 User Guide</i>.</para>
+        /// <para>The bucket name containing the object whose legal hold status you want to retrieve.
+        /// </para><para><b>Access points</b> - When you use this action with an access point for general
+        /// purpose buckets, you must provide the alias of the access point in place of the bucket
+        /// name or specify the access point ARN. When you use this action with an access point
+        /// for directory buckets, you must provide the access point name in place of the bucket
+        /// name. When using the access point ARN, you must direct requests to the access point
+        /// hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+        /// When using this action with an access point through the Amazon Web Services SDKs,
+        /// you provide the access point ARN in place of the bucket name. For more information
+        /// about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using
+        /// access points</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -77,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
         /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <code>403 Forbidden</code> (access denied).</para>
+        /// <c>403 Forbidden</c> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,10 +89,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Key
         /// <summary>
         /// <para>
-        /// <para>The key name for the object whose Legal Hold status you want to retrieve.</para>
+        /// <para>The key name for the object whose legal hold status you want to retrieve.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Key { get; set; }
         #endregion
         
@@ -108,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// <para>The version ID of the object whose Legal Hold status you want to retrieve.</para>
+        /// <para>The version ID of the object whose legal hold status you want to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,6 +157,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.BucketName = this.BucketName;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             context.Key = this.Key;
+            #if MODULAR
+            if (this.Key == null && ParameterWasBound(nameof(this.Key)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Key which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.RequestPayer = this.RequestPayer;
             context.VersionId = this.VersionId;
             

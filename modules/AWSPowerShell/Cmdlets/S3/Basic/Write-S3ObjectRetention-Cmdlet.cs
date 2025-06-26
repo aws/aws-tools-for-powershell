@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Retention_RetainUntilDate
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The date on which this Object Lock Retention will expire.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

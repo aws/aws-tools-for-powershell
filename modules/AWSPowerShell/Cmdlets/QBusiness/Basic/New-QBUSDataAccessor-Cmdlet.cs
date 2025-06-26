@@ -90,6 +90,22 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public System.String ApplicationId { get; set; }
         #endregion
         
+        #region Parameter AuthenticationDetail_AuthenticationType
+        /// <summary>
+        /// <para>
+        /// <para>The type of authentication to use for the data accessor. This determines how the ISV
+        /// authenticates when accessing data. You can use one of two authentication types:</para><ul><li><para><c>AWS_IAM_IDC_TTI</c> - Authentication using IAM Identity Center Trusted Token Issuer
+        /// (TTI). This authentication type allows the ISV to use a trusted token issuer to generate
+        /// tokens for accessing the data.</para></li><li><para><c>AWS_IAM_IDC_AUTH_CODE</c> - Authentication using IAM Identity Center authorization
+        /// code flow. This authentication type uses the standard OAuth 2.0 authorization code
+        /// flow for authentication.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QBusiness.DataAccessorAuthenticationType")]
+        public Amazon.QBusiness.DataAccessorAuthenticationType AuthenticationDetail_AuthenticationType { get; set; }
+        #endregion
+        
         #region Parameter DisplayName
         /// <summary>
         /// <para>
@@ -105,6 +121,34 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DisplayName { get; set; }
+        #endregion
+        
+        #region Parameter AuthenticationDetail_ExternalId
+        /// <summary>
+        /// <para>
+        /// <para>A list of external identifiers associated with this authentication configuration.
+        /// These are used to correlate the data accessor with external systems.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AuthenticationDetail_ExternalIds")]
+        public System.String[] AuthenticationDetail_ExternalId { get; set; }
+        #endregion
+        
+        #region Parameter IdcTrustedTokenIssuerConfiguration_IdcTrustedTokenIssuerArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM Identity Center Trusted Token Issuer that
+        /// will be used for authentication.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AuthenticationDetail_AuthenticationConfiguration_IdcTrustedTokenIssuerConfiguration_IdcTrustedTokenIssuerArn")]
+        public System.String IdcTrustedTokenIssuerConfiguration_IdcTrustedTokenIssuerArn { get; set; }
         #endregion
         
         #region Parameter Principal
@@ -213,6 +257,12 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
                 WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IdcTrustedTokenIssuerConfiguration_IdcTrustedTokenIssuerArn = this.IdcTrustedTokenIssuerConfiguration_IdcTrustedTokenIssuerArn;
+            context.AuthenticationDetail_AuthenticationType = this.AuthenticationDetail_AuthenticationType;
+            if (this.AuthenticationDetail_ExternalId != null)
+            {
+                context.AuthenticationDetail_ExternalId = new List<System.String>(this.AuthenticationDetail_ExternalId);
+            }
             context.ClientToken = this.ClientToken;
             context.DisplayName = this.DisplayName;
             #if MODULAR
@@ -255,6 +305,75 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
+            }
+            
+             // populate AuthenticationDetail
+            var requestAuthenticationDetailIsNull = true;
+            request.AuthenticationDetail = new Amazon.QBusiness.Model.DataAccessorAuthenticationDetail();
+            Amazon.QBusiness.DataAccessorAuthenticationType requestAuthenticationDetail_authenticationDetail_AuthenticationType = null;
+            if (cmdletContext.AuthenticationDetail_AuthenticationType != null)
+            {
+                requestAuthenticationDetail_authenticationDetail_AuthenticationType = cmdletContext.AuthenticationDetail_AuthenticationType;
+            }
+            if (requestAuthenticationDetail_authenticationDetail_AuthenticationType != null)
+            {
+                request.AuthenticationDetail.AuthenticationType = requestAuthenticationDetail_authenticationDetail_AuthenticationType;
+                requestAuthenticationDetailIsNull = false;
+            }
+            List<System.String> requestAuthenticationDetail_authenticationDetail_ExternalId = null;
+            if (cmdletContext.AuthenticationDetail_ExternalId != null)
+            {
+                requestAuthenticationDetail_authenticationDetail_ExternalId = cmdletContext.AuthenticationDetail_ExternalId;
+            }
+            if (requestAuthenticationDetail_authenticationDetail_ExternalId != null)
+            {
+                request.AuthenticationDetail.ExternalIds = requestAuthenticationDetail_authenticationDetail_ExternalId;
+                requestAuthenticationDetailIsNull = false;
+            }
+            Amazon.QBusiness.Model.DataAccessorAuthenticationConfiguration requestAuthenticationDetail_authenticationDetail_AuthenticationConfiguration = null;
+            
+             // populate AuthenticationConfiguration
+            var requestAuthenticationDetail_authenticationDetail_AuthenticationConfigurationIsNull = true;
+            requestAuthenticationDetail_authenticationDetail_AuthenticationConfiguration = new Amazon.QBusiness.Model.DataAccessorAuthenticationConfiguration();
+            Amazon.QBusiness.Model.DataAccessorIdcTrustedTokenIssuerConfiguration requestAuthenticationDetail_authenticationDetail_AuthenticationConfiguration_authenticationDetail_AuthenticationConfiguration_IdcTrustedTokenIssuerConfiguration = null;
+            
+             // populate IdcTrustedTokenIssuerConfiguration
+            var requestAuthenticationDetail_authenticationDetail_AuthenticationConfiguration_authenticationDetail_AuthenticationConfiguration_IdcTrustedTokenIssuerConfigurationIsNull = true;
+            requestAuthenticationDetail_authenticationDetail_AuthenticationConfiguration_authenticationDetail_AuthenticationConfiguration_IdcTrustedTokenIssuerConfiguration = new Amazon.QBusiness.Model.DataAccessorIdcTrustedTokenIssuerConfiguration();
+            System.String requestAuthenticationDetail_authenticationDetail_AuthenticationConfiguration_authenticationDetail_AuthenticationConfiguration_IdcTrustedTokenIssuerConfiguration_idcTrustedTokenIssuerConfiguration_IdcTrustedTokenIssuerArn = null;
+            if (cmdletContext.IdcTrustedTokenIssuerConfiguration_IdcTrustedTokenIssuerArn != null)
+            {
+                requestAuthenticationDetail_authenticationDetail_AuthenticationConfiguration_authenticationDetail_AuthenticationConfiguration_IdcTrustedTokenIssuerConfiguration_idcTrustedTokenIssuerConfiguration_IdcTrustedTokenIssuerArn = cmdletContext.IdcTrustedTokenIssuerConfiguration_IdcTrustedTokenIssuerArn;
+            }
+            if (requestAuthenticationDetail_authenticationDetail_AuthenticationConfiguration_authenticationDetail_AuthenticationConfiguration_IdcTrustedTokenIssuerConfiguration_idcTrustedTokenIssuerConfiguration_IdcTrustedTokenIssuerArn != null)
+            {
+                requestAuthenticationDetail_authenticationDetail_AuthenticationConfiguration_authenticationDetail_AuthenticationConfiguration_IdcTrustedTokenIssuerConfiguration.IdcTrustedTokenIssuerArn = requestAuthenticationDetail_authenticationDetail_AuthenticationConfiguration_authenticationDetail_AuthenticationConfiguration_IdcTrustedTokenIssuerConfiguration_idcTrustedTokenIssuerConfiguration_IdcTrustedTokenIssuerArn;
+                requestAuthenticationDetail_authenticationDetail_AuthenticationConfiguration_authenticationDetail_AuthenticationConfiguration_IdcTrustedTokenIssuerConfigurationIsNull = false;
+            }
+             // determine if requestAuthenticationDetail_authenticationDetail_AuthenticationConfiguration_authenticationDetail_AuthenticationConfiguration_IdcTrustedTokenIssuerConfiguration should be set to null
+            if (requestAuthenticationDetail_authenticationDetail_AuthenticationConfiguration_authenticationDetail_AuthenticationConfiguration_IdcTrustedTokenIssuerConfigurationIsNull)
+            {
+                requestAuthenticationDetail_authenticationDetail_AuthenticationConfiguration_authenticationDetail_AuthenticationConfiguration_IdcTrustedTokenIssuerConfiguration = null;
+            }
+            if (requestAuthenticationDetail_authenticationDetail_AuthenticationConfiguration_authenticationDetail_AuthenticationConfiguration_IdcTrustedTokenIssuerConfiguration != null)
+            {
+                requestAuthenticationDetail_authenticationDetail_AuthenticationConfiguration.IdcTrustedTokenIssuerConfiguration = requestAuthenticationDetail_authenticationDetail_AuthenticationConfiguration_authenticationDetail_AuthenticationConfiguration_IdcTrustedTokenIssuerConfiguration;
+                requestAuthenticationDetail_authenticationDetail_AuthenticationConfigurationIsNull = false;
+            }
+             // determine if requestAuthenticationDetail_authenticationDetail_AuthenticationConfiguration should be set to null
+            if (requestAuthenticationDetail_authenticationDetail_AuthenticationConfigurationIsNull)
+            {
+                requestAuthenticationDetail_authenticationDetail_AuthenticationConfiguration = null;
+            }
+            if (requestAuthenticationDetail_authenticationDetail_AuthenticationConfiguration != null)
+            {
+                request.AuthenticationDetail.AuthenticationConfiguration = requestAuthenticationDetail_authenticationDetail_AuthenticationConfiguration;
+                requestAuthenticationDetailIsNull = false;
+            }
+             // determine if request.AuthenticationDetail should be set to null
+            if (requestAuthenticationDetailIsNull)
+            {
+                request.AuthenticationDetail = null;
             }
             if (cmdletContext.ClientToken != null)
             {
@@ -329,6 +448,9 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         {
             public List<Amazon.QBusiness.Model.ActionConfiguration> ActionConfiguration { get; set; }
             public System.String ApplicationId { get; set; }
+            public System.String IdcTrustedTokenIssuerConfiguration_IdcTrustedTokenIssuerArn { get; set; }
+            public Amazon.QBusiness.DataAccessorAuthenticationType AuthenticationDetail_AuthenticationType { get; set; }
+            public List<System.String> AuthenticationDetail_ExternalId { get; set; }
             public System.String ClientToken { get; set; }
             public System.String DisplayName { get; set; }
             public System.String Principal { get; set; }

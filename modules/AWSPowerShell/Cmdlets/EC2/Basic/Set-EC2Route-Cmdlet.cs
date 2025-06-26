@@ -189,6 +189,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String NetworkInterfaceId { get; set; }
         #endregion
         
+        #region Parameter OdbNetworkArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the ODB network.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OdbNetworkArn { get; set; }
+        #endregion
+        
         #region Parameter RouteTableId
         /// <summary>
         /// <para>
@@ -294,6 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.LocalTarget = this.LocalTarget;
             context.NatGatewayId = this.NatGatewayId;
             context.NetworkInterfaceId = this.NetworkInterfaceId;
+            context.OdbNetworkArn = this.OdbNetworkArn;
             context.RouteTableId = this.RouteTableId;
             #if MODULAR
             if (this.RouteTableId == null && ParameterWasBound(nameof(this.RouteTableId)))
@@ -371,6 +382,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.NetworkInterfaceId != null)
             {
                 request.NetworkInterfaceId = cmdletContext.NetworkInterfaceId;
+            }
+            if (cmdletContext.OdbNetworkArn != null)
+            {
+                request.OdbNetworkArn = cmdletContext.OdbNetworkArn;
             }
             if (cmdletContext.RouteTableId != null)
             {
@@ -456,6 +471,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? LocalTarget { get; set; }
             public System.String NatGatewayId { get; set; }
             public System.String NetworkInterfaceId { get; set; }
+            public System.String OdbNetworkArn { get; set; }
             public System.String RouteTableId { get; set; }
             public System.String TransitGatewayId { get; set; }
             public System.String VpcEndpointId { get; set; }

@@ -80,6 +80,26 @@ $KS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Keyspaces.CdcPropagateTags
+        {
+            ($_ -eq "New-KSTable/CdcSpecification_PropagateTag") -Or
+            ($_ -eq "Update-KSTable/CdcSpecification_PropagateTag")
+        }
+        {
+            $v = "NONE","TABLE"
+            break
+        }
+
+        # Amazon.Keyspaces.CdcStatus
+        {
+            ($_ -eq "New-KSTable/CdcSpecification_Status") -Or
+            ($_ -eq "Update-KSTable/CdcSpecification_Status")
+        }
+        {
+            $v = "DISABLED","DISABLING","ENABLED","ENABLING"
+            break
+        }
+
         # Amazon.Keyspaces.ClientSideTimestampsStatus
         {
             ($_ -eq "New-KSTable/ClientSideTimestamps_Status") -Or
@@ -144,6 +164,16 @@ $KS_Completers = {
             break
         }
 
+        # Amazon.Keyspaces.ViewType
+        {
+            ($_ -eq "New-KSTable/CdcSpecification_ViewType") -Or
+            ($_ -eq "Update-KSTable/CdcSpecification_ViewType")
+        }
+        {
+            $v = "KEYS_ONLY","NEW_AND_OLD_IMAGES","NEW_IMAGE","OLD_IMAGE"
+            break
+        }
+
 
     }
 
@@ -155,6 +185,9 @@ $KS_Completers = {
 $KS_map = @{
     "CapacitySpecification_ThroughputMode"=@("New-KSTable","Update-KSTable")
     "CapacitySpecificationOverride_ThroughputMode"=@("Restore-KSTable")
+    "CdcSpecification_PropagateTag"=@("New-KSTable","Update-KSTable")
+    "CdcSpecification_Status"=@("New-KSTable","Update-KSTable")
+    "CdcSpecification_ViewType"=@("New-KSTable","Update-KSTable")
     "ClientSideTimestamps_Status"=@("New-KSTable","Update-KSKeyspace","Update-KSTable")
     "EncryptionSpecification_Type"=@("New-KSTable","Update-KSTable")
     "EncryptionSpecificationOverride_Type"=@("Restore-KSTable")

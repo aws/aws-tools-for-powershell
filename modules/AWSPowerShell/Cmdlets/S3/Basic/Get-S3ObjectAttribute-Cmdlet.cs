@@ -156,25 +156,28 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <para>The name of the bucket that contains the object.</para><para><b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style 
-        /// requests in the format <c><i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</c>. Path-style 
-        /// requests are not supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket 
-        /// names must follow the format <c><i>bucket-base-name</i>--<i>zone-id</i>--x-s3</c> (for example, <c><i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</c>). For 
-        /// information about bucket naming restrictions, see 
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in 
-        /// the <i>Amazon S3 User Guide</i>.</para><para><b>Access points</b> - When you use this action with an access point for general purpose buckets, you must provide the 
-        /// alias of the access point in place of the bucket name or specify the access point ARN. When you use this action with an 
-        /// access point for directory buckets, you must provide the access point name in place of the bucket name. When using the 
-        /// access point ARN, you must direct requests to the access point hostname. The access point hostname takes the 
-        /// form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an 
-        /// access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more 
-        /// information about access point ARNs, see 
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in 
-        /// the <i>Amazon S3 User Guide</i>.</para><note><para>Object Lambda access points are not supported by directory buckets.</para></note><para><b>S3 on Outposts</b> - When you use this action with S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 
-        /// on Outposts hostname takes the form <c><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</c>. When 
-        /// you use this action with S3 on Outposts, the destination bucket must be the Outposts access point ARN or the access point alias. For more 
-        /// information about S3 on Outposts, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in 
-        /// the <i>Amazon S3 User Guide</i>.</para>
+        /// <para>The name of the bucket that contains the object.</para><para><b>Directory buckets</b> - When you use this operation with a directory bucket, you
+        /// must use virtual-hosted-style requests in the format <c><i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</c>.
+        /// Path-style requests are not supported. Directory bucket names must be unique in the
+        /// chosen Zone (Availability Zone or Local Zone). Bucket names must follow the format
+        /// <c><i>bucket-base-name</i>--<i>zone-id</i>--x-s3</c> (for example, <c><i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</c>).
+        /// For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory
+        /// bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</para><para><b>Access points</b> - When you use this action with an access point for general
+        /// purpose buckets, you must provide the alias of the access point in place of the bucket
+        /// name or specify the access point ARN. When you use this action with an access point
+        /// for directory buckets, you must provide the access point name in place of the bucket
+        /// name. When using the access point ARN, you must direct requests to the access point
+        /// hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+        /// When using this action with an access point through the Amazon Web Services SDKs,
+        /// you provide the access point ARN in place of the bucket name. For more information
+        /// about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using
+        /// access points</a> in the <i>Amazon S3 User Guide</i>.</para><note><para>Object Lambda access points are not supported by directory buckets.</para></note><para><b>S3 on Outposts</b> - When you use this action with S3 on Outposts, you must direct
+        /// requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
+        /// <c><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</c>.
+        /// When you use this action with S3 on Outposts, the destination bucket must be the Outposts
+        /// access point ARN or the access point alias. For more information about S3 on Outposts,
+        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
+        /// is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -213,9 +216,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter MaxPart
         /// <summary>
         /// <para>
-        /// <para>Sets the maximum number of parts to return. For more information, see 
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html">
-        /// Uploading and copying objects using multipart upload in Amazon S3 </a> in the <i>Amazon Simple Storage Service user guide</i>.</para>
+        /// <para>Sets the maximum number of parts to return. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html">Uploading
+        /// and copying objects using multipart upload in Amazon S3 </a> in the <i>Amazon Simple
+        /// Storage Service user guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,10 +230,21 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// <para>Specifies the fields at the root level that you want returned in the response. Fields
-        /// that you do not specify are not returned.</para>
+        /// that you do not specify are not returned.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ObjectAttributes")]
         public Amazon.S3.ObjectAttributes[] ObjectAttribute { get; set; }
         #endregion
@@ -238,9 +252,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter PartNumberMarker
         /// <summary>
         /// <para>
-        /// <para>Specifies the part after which listing should begin. Only parts with higher part numbers will be listed. For more information, 
-        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html">
-        /// Uploading and copying objects using multipart upload in Amazon S3 </a> in the <i>Amazon Simple Storage Service user guide</i>.</para>
+        /// <para>Specifies the part after which listing should begin. Only parts with higher part numbers
+        /// will be listed. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html">Uploading
+        /// and copying objects using multipart upload in Amazon S3 </a> in the <i>Amazon Simple
+        /// Storage Service user guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -261,7 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter SSECustomerAlgorithm
         /// <summary>
         /// <para>
-        /// <para>Specifies the algorithm to use to when encrypting the object (for example, AES256).</para><note><para>This functionality is not supported for directory buckets.</para></note>
+        /// <para>Specifies the algorithm to use when encrypting the object (for example, AES256).</para><note><para>This functionality is not supported for directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -297,9 +312,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// <para>The version ID used to reference a specific version of the object.</para><note><para>S3 Versioning isn't enabled and supported for directory buckets. For this API operation,
-        /// only the <c>null</c> value of the version ID is supported by directory buckets.
-        /// You can only specify <c>null</c> to the <c>versionId</c> query parameter
-        /// in the request.</para></note>
+        /// only the <c>null</c> value of the version ID is supported by directory buckets. You
+        /// can only specify <c>null</c> to the <c>versionId</c> query parameter in the request.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -350,6 +364,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 context.ObjectAttribute = new List<Amazon.S3.ObjectAttributes>(this.ObjectAttribute);
             }
+            #if MODULAR
+            if (this.ObjectAttribute == null && ParameterWasBound(nameof(this.ObjectAttribute)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ObjectAttribute which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.PartNumberMarker = this.PartNumberMarker;
             context.RequestPayer = this.RequestPayer;
             context.SSECustomerAlgorithm = this.SSECustomerAlgorithm;

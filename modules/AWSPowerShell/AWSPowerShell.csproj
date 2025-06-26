@@ -694,6 +694,9 @@
     <Reference Include="AWSSDK.Keyspaces">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Keyspaces.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.KeyspacesStreams">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.KeyspacesStreams.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Kinesis">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Kinesis.dll</HintPath>
     </Reference>
@@ -1914,6 +1917,9 @@
     </Reference>
     <Reference Include="AWSSDK.Keyspaces">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Keyspaces.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.KeyspacesStreams">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.KeyspacesStreams.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Kinesis">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Kinesis.dll</HintPath>

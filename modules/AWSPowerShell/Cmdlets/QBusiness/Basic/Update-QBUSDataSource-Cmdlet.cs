@@ -222,8 +222,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter PostExtractionHookConfiguration_LambdaArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more
-        /// information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html">Using
+        /// <para>The Amazon Resource Name (ARN) of the Lambda function during ingestion. For more information,
+        /// see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html">Using
         /// Lambda functions for Amazon Q Business document enrichment</a>.</para>
         /// </para>
         /// </summary>
@@ -235,8 +235,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter PreExtractionHookConfiguration_LambdaArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more
-        /// information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html">Using
+        /// <para>The Amazon Resource Name (ARN) of the Lambda function during ingestion. For more information,
+        /// see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html">Using
         /// Lambda functions for Amazon Q Business document enrichment</a>.</para>
         /// </para>
         /// </summary>

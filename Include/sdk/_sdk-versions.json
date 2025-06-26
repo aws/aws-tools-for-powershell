@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.39.0",
+    "ProductVersion"    : "4.0.40.0",
     "CoreVersion"       : "4.0.0.13",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "4.0.14.0",
+            "Version" : "4.0.15.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -252,7 +252,7 @@
             "InPreview"               : false
         },
         "KeyManagementService" : {
-            "Version" : "4.0.3.3",
+            "Version" : "4.0.3.4",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -316,7 +316,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "4.0.3.0",
+            "Version" : "4.0.3.1",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -388,7 +388,7 @@
             "InPreview"               : false
         },
         "WorkSpaces"                : {
-            "Version" : "4.0.2.8",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -2332,7 +2332,7 @@
             "InPreview"               : false
         },
         "Keyspaces"                           : {
-            "Version" : "4.0.0.11",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -2868,7 +2868,7 @@
             "InPreview"               : false
         },
         "QBusiness"                           : {
-            "Version" : "4.0.1.11",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -2972,7 +2972,7 @@
             "InPreview"               : false
         },
         "Deadline"                            : {
-            "Version" : "4.0.3.7",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -3236,7 +3236,7 @@
             "InPreview"               : false
         },
         "IoTManagedIntegrations"              : {
-            "Version" : "4.0.0.11",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -3284,6 +3284,14 @@
             "InPreview"               : false
         },
         "WorkspacesInstances"                 : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.13"
+            },
+            "InPreview"               : false
+        },
+        "KeyspacesStreams"                    : {
             "Version" : "4.0.0.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {

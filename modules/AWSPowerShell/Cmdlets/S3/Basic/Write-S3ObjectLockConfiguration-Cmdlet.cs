@@ -103,7 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter DefaultRetention_Day
         /// <summary>
         /// <para>
-        /// <para>The number of days that you want to specify for the default retention period.</para>
+        /// <para>The number of days that you want to specify for the default retention period. Must
+        /// be used with <c>Mode</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// <para>The default Object Lock retention mode you want to apply to new objects placed in
-        /// the specified bucket.</para>
+        /// the specified bucket. Must be used with either <c>Days</c> or <c>Years</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ObjectLockConfiguration_ObjectLockEnabled
         /// <summary>
         /// <para>
-        /// <para>Indicates whether this object has an Object Lock configuration enabled.</para>
+        /// <para>Indicates whether this bucket has an Object Lock configuration enabled. Enable <c>ObjectLockEnabled</c>
+        /// when you apply <c>ObjectLockConfiguration</c> to a bucket. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,7 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter DefaultRetention_Year
         /// <summary>
         /// <para>
-        /// <para>The number of years that you want to specify for the default retention period.</para>
+        /// <para>The number of years that you want to specify for the default retention period. Must
+        /// be used with <c>Mode</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

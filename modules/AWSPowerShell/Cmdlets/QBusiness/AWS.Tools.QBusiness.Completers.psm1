@@ -131,6 +131,16 @@ $QBUS_Completers = {
             break
         }
 
+        # Amazon.QBusiness.DataAccessorAuthenticationType
+        {
+            ($_ -eq "New-QBUSDataAccessor/AuthenticationDetail_AuthenticationType") -Or
+            ($_ -eq "Update-QBUSDataAccessor/AuthenticationDetail_AuthenticationType")
+        }
+        {
+            $v = "AWS_IAM_IDC_AUTH_CODE","AWS_IAM_IDC_TTI"
+            break
+        }
+
         # Amazon.QBusiness.DataSourceSyncJobStatus
         "Get-QBUSDataSourceSyncJobList/StatusFilter"
         {
@@ -302,6 +312,7 @@ $QBUS_Completers = {
 $QBUS_map = @{
     "AttachmentsConfiguration_AttachmentsControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
     "AudioExtractionConfiguration_AudioExtractionStatus"=@("New-QBUSDataSource","Update-QBUSDataSource")
+    "AuthenticationDetail_AuthenticationType"=@("New-QBUSDataAccessor","Update-QBUSDataAccessor")
     "AutoSubscriptionConfiguration_AutoSubscribe"=@("Update-QBUSApplication")
     "AutoSubscriptionConfiguration_DefaultSubscriptionType"=@("Update-QBUSApplication")
     "ChatMode"=@("Set-QBUSChatSync")

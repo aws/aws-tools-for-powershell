@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter LegalHold_Status
         /// <summary>
         /// <para>
-        /// <para>Indicates whether the specified object has a Legal Hold in place.</para>
+        /// <para>Indicates whether the specified object has a legal hold in place.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

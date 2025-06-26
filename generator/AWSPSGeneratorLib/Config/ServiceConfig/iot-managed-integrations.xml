@@ -18,6 +18,18 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateAccountAssociation" OutputProperty="*" Verb="New" Noun="AccountAssociation" ShouldProcessTarget="ConnectorDestinationId" PipelineParameter="ConnectorDestinationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCloudConnector" OutputProperty="Id" Verb="New" Noun="CloudConnector" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConnectorDestination" OutputProperty="Id" Verb="New" Noun="ConnectorDestination" ShouldProcessTarget="CloudConnectorId" PipelineParameter="CloudConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCredentialLocker" OutputProperty="*" Verb="New" Noun="CredentialLocker" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -47,6 +59,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProvisioningProfile" OutputProperty="*" Verb="New" Noun="ProvisioningProfile" ShouldProcessTarget="Name" PipelineParameter="ProvisioningType" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccountAssociation" Verb="Remove" Noun="AccountAssociation" ShouldProcessTarget="AccountAssociationId" PipelineParameter="AccountAssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCloudConnector" Verb="Remove" Noun="CloudConnector" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConnectorDestination" Verb="Remove" Noun="ConnectorDestination" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -81,6 +105,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteProvisioningProfile" Verb="Remove" Noun="ProvisioningProfile" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterAccountAssociation" Verb="Unregister" Noun="AccountAssociation" ShouldProcessTarget="AccountAssociationId" PipelineParameter="AccountAssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccountAssociation" OutputProperty="*" Verb="Get" Noun="AccountAssociation" PipelineParameter="AccountAssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCloudConnector" OutputProperty="*" Verb="Get" Noun="CloudConnector" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnectorDestination" OutputProperty="*" Verb="Get" Noun="ConnectorDestination" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -156,6 +196,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAccountAssociations" OutputProperty="Items" Verb="Get" Noun="AccountAssociationList" PipelineParameter="ConnectorDestinationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCloudConnectors" OutputProperty="Items" Verb="Get" Noun="CloudConnectorList" PipelineParameter="LambdaArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConnectorDestinations" OutputProperty="ConnectorDestinationList" Verb="Get" Noun="ConnectorDestinationList" PipelineParameter="CloudConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCredentialLockers" OutputProperty="Items" Verb="Get" Noun="CredentialLockerList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -164,7 +216,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDeviceDiscoveries" OutputProperty="Items" Verb="Get" Noun="DeviceDiscoveryList" PipelineParameter="StatusFilter" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDiscoveredDevices" OutputProperty="Items" Verb="Get" Noun="DiscoveredDeviceList" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListEventLogConfigurations" OutputProperty="EventLogConfigurationList" Verb="Get" Noun="EventLogConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListManagedThingAccountAssociations" OutputProperty="Items" Verb="Get" Noun="ManagedThingAccountAssociationList" PipelineParameter="AccountAssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -200,6 +264,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutDefaultEncryptionConfiguration" OutputProperty="*" Verb="Write" Noun="DefaultEncryptionConfiguration" ShouldProcessTarget="KmsKeyArn" PipelineParameter="EncryptionType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -212,6 +280,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RegisterAccountAssociation" OutputProperty="*" Verb="Register" Noun="AccountAssociation" ShouldProcessTarget="AccountAssociationId" PipelineParameter="AccountAssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RegisterCustomEndpoint" OutputProperty="EndpointAddress" Verb="Register" Noun="CustomEndpoint" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -220,11 +292,39 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SendConnectorEvent" OutputProperty="ConnectorId" Verb="Send" Noun="ConnectorEvent" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SendManagedThingCommand" OutputProperty="TraceId" Verb="Send" Noun="ManagedThingCommand" ShouldProcessTarget="ManagedThingId" PipelineParameter="ManagedThingId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartAccountAssociationRefresh" OutputProperty="OAuthAuthorizationUrl" Verb="Start" Noun="AccountAssociationRefresh" ShouldProcessTarget="AccountAssociationId" PipelineParameter="AccountAssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartDeviceDiscovery" OutputProperty="*" Verb="Start" Noun="DeviceDiscovery" ShouldProcessTarget="" PipelineParameter="DiscoveryType" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccountAssociation" Verb="Update" Noun="AccountAssociation" ShouldProcessTarget="AccountAssociationId" PipelineParameter="AccountAssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCloudConnector" Verb="Update" Noun="CloudConnector" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConnectorDestination" Verb="Update" Noun="ConnectorDestination" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
