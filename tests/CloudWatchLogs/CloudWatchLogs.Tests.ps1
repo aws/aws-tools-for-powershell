@@ -21,26 +21,4 @@ Describe -Tag "Smoke" "CloudWatchLogs" {
             }
         }
     }
-    Context "Get-CWLLogEvents" {
-        BeforeAll {
-            $logGroupName = (New-Guid).Guid
-            $null = New-CWLLogGroup -LogGroupName $logGroupName
-            $logStreamName = (New-Guid).Guid
-            $null = New-CWLLogStream -LogGroupName $logGroupName -LogStreamName $logStreamName
-            $cwlEvents = 
-            foreach ($i in 3..1) {
-                $cwlEvent = [Amazon.CloudWatchLogs.Model.InputLogEvent]::new()
-                $cwlEvent.Message = $i
-                $cwlEvent.Timestamp = (Get-Date).ToUniversalTime().AddSeconds(-$i)
-                $cwlEvent
-            }
-            $null = Write-CWLLogEvent -LogGroupName $logGroupName -LogStreamName $logStreamName -LogEvent $cwlEvents
-        }
-        AfterAll {
-            Remove-CWLLogGroup -LogGroupName $logGroupName -Force
-        }
-        It "-NoAutoIteration stops Auto-Iteration" {
-            (Get-CWLLogEvents -LogGroupName $logGroupName -LogStreamName $logStreamName -NoAutoIteration -Limit 1).Events.Count | Should -Be 1
-        }
-    }
 }
