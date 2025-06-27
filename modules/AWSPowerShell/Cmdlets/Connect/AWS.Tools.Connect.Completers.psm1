@@ -294,7 +294,7 @@ $CONN_Completers = {
         # Amazon.Connect.InitiateAs
         "New-CONNContact/InitiateAs"
         {
-            $v = "CONNECTED_TO_USER"
+            $v = "COMPLETED","CONNECTED_TO_USER"
             break
         }
 

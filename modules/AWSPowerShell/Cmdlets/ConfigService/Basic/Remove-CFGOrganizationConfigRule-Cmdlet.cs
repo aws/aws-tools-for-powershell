@@ -41,7 +41,21 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </para><para>
     /// Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion is complete.
     /// You cannot update a rule while it is in this state.
-    /// </para>
+    /// </para><note><para><b>Recommendation: Consider excluding the <c>AWS::Config::ResourceCompliance</c>
+    /// resource type from recording before deleting rules</b></para><para>
+    /// Deleting rules creates configuration items (CIs) for <c>AWS::Config::ResourceCompliance</c>
+    /// that can affect your costs for the configuration recorder. If you are deleting rules
+    /// which evaluate a large number of resource types, this can lead to a spike in the number
+    /// of CIs recorded.
+    /// </para><para>
+    /// To avoid the associated costs, you can opt to disable recording for the <c>AWS::Config::ResourceCompliance</c>
+    /// resource type before deleting rules, and re-enable recording after the rules have
+    /// been deleted.
+    /// </para><para>
+    /// However, since deleting rules is an asynchronous process, it might take an hour or
+    /// more to complete. During the time when recording is disabled for <c>AWS::Config::ResourceCompliance</c>,
+    /// rule evaluations will not be recorded in the associated resource’s history.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "CFGOrganizationConfigRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -1,4 +1,12 @@
-﻿### 5.0.3 (2025-06-26 20:25Z)
+﻿### 5.0.4 (2025-06-27 22:06Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.41.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Glue
+    * Modified cmdlet New-GLUECatalog: added parameter FederatedCatalog_ConnectionType.
+    * Modified cmdlet New-GLUETable: added parameters CreateIcebergTableInput_Location, CreateIcebergTableInput_Property, Name, PartitionSpec_Field, PartitionSpec_SpecId, Schema_Field, Schema_IdentifierFieldId, Schema_SchemaId, Schema_Type, WriteOrder_Field and WriteOrder_OrderId.
+    * Modified cmdlet Update-GLUECatalog: added parameter FederatedCatalog_ConnectionType.
+    * Modified cmdlet Update-GLUETable: added parameters Name and UpdateIcebergTableInput_Update.
+
+### 5.0.3 (2025-06-26 20:25Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.40.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud
     * Modified cmdlet New-EC2Route: added parameter OdbNetworkArn.

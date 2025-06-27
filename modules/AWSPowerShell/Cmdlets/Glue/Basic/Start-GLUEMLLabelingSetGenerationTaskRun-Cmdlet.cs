@@ -46,6 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// <c>StartImportLabelsTaskRun</c>. After <c>StartImportLabelsTaskRun</c> finishes, all
     /// future runs of the machine learning transform will use the new and improved labels
     /// and perform a higher-quality transformation.
+    /// </para><para>
+    /// Note: The role used to write the generated labeling set to the <c>OutputS3Path</c>
+    /// is the role associated with the Machine Learning Transform, specified in the <c>CreateMLTransform</c>
+    /// API.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "GLUEMLLabelingSetGenerationTaskRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

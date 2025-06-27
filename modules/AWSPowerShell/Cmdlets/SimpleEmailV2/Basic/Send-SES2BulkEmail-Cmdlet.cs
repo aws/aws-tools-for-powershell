@@ -254,7 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>The name of the template. You will refer to this name when you send email using the
-        /// <c>SendTemplatedEmail</c> or <c>SendBulkTemplatedEmail</c> operations. </para>
+        /// <c>SendEmail</c> or <c>SendBulkEmail</c> operations. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

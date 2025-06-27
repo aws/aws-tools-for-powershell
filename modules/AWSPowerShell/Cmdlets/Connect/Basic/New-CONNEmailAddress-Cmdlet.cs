@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter EmailAddress
         /// <summary>
         /// <para>
-        /// <para>The email address with the instance, in [^\s@]+@[^\s@]+\.[^\s@]+ format.</para>
+        /// <para>The email address, including the domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

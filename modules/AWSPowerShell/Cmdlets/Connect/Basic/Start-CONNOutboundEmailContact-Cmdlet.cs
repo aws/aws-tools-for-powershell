@@ -60,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter AdditionalRecipients_CcEmailAddress
         /// <summary>
         /// <para>
-        /// <para>The additional CC email address recipients information.</para><para />
+        /// <para>Information about the <b>additional</b> CC email address recipients. Email recipients
+        /// are limited to 50 total addresses: 1 required recipient in the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SendOutboundEmail.html#API_SendOutboundEmail_RequestBody">DestinationEmailAddress</a>
+        /// field and up to 49 recipients in the 'CcEmailAddresses' field.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -153,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter DestinationEmailAddress_EmailAddress
         /// <summary>
         /// <para>
-        /// <para>The email address with the instance, in [^\s@]+@[^\s@]+\.[^\s@]+ format.</para>
+        /// <para>The email address, including the domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -170,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter FromEmailAddress_EmailAddress
         /// <summary>
         /// <para>
-        /// <para>The email address with the instance, in [^\s@]+@[^\s@]+\.[^\s@]+ format.</para>
+        /// <para>The email address, including the domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
