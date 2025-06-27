@@ -145,7 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>The name of the configuration recorder.</para><para>For customer managed configuration recorders, Config automatically assigns the name
         /// of "default" when creating a configuration recorder if you do not specify a name at
         /// creation time.</para><para>For service-linked configuration recorders, Config automatically assigns a name that
-        /// has the prefix "<c>AWS</c>" to a new service-linked configuration recorder.</para><note><para><b>Changing the name of a configuration recorder</b></para><para>To change the name of the customer managed configuration recorder, you must delete
+        /// has the prefix "<c>AWSConfigurationRecorderFor</c>" to a new service-linked configuration
+        /// recorder.</para><note><para><b>Changing the name of a configuration recorder</b></para><para>To change the name of the customer managed configuration recorder, you must delete
         /// it and create a new customer managed configuration recorder with a new name.</para><para>You cannot change the name of a service-linked configuration recorder.</para></note>
         /// </para>
         /// </summary>

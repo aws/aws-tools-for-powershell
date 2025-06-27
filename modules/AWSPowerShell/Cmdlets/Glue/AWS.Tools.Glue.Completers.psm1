@@ -223,6 +223,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.IcebergStructTypeEnum
+        "New-GLUETable/Schema_Type"
+        {
+            $v = "struct"
+            break
+        }
+
         # Amazon.Glue.InclusionAnnotationValue
         "Write-GLUEDataQualityProfileAnnotation/InclusionAnnotation"
         {
@@ -486,6 +493,7 @@ $GLUE_map = @{
     "Provider"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
     "RecrawlPolicy_RecrawlBehavior"=@("New-GLUECrawler","Update-GLUECrawler")
     "ResourceShareType"=@("Find-GLUETable","Get-GLUEDatabaseList")
+    "Schema_Type"=@("New-GLUETable")
     "SchemaDiffType"=@("Get-GLUESchemaVersionsDiff")
     "Sort_Column"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Sort_SortDirection"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")

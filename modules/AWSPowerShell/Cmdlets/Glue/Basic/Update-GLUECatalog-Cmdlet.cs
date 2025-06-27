@@ -106,6 +106,18 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String FederatedCatalog_ConnectionName { get; set; }
         #endregion
         
+        #region Parameter FederatedCatalog_ConnectionType
+        /// <summary>
+        /// <para>
+        /// <para>The type of connection used to access the federated catalog, specifying the protocol
+        /// or method for connection to the external data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CatalogInput_FederatedCatalog_ConnectionType")]
+        public System.String FederatedCatalog_ConnectionType { get; set; }
+        #endregion
+        
         #region Parameter CatalogInput_CreateDatabaseDefaultPermission
         /// <summary>
         /// <para>
@@ -304,6 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             context.CatalogInput_Description = this.CatalogInput_Description;
             context.FederatedCatalog_ConnectionName = this.FederatedCatalog_ConnectionName;
+            context.FederatedCatalog_ConnectionType = this.FederatedCatalog_ConnectionType;
             context.FederatedCatalog_Identifier = this.FederatedCatalog_Identifier;
             if (this.CatalogInput_Parameter != null)
             {
@@ -508,6 +521,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 requestCatalogInput_catalogInput_FederatedCatalog.ConnectionName = requestCatalogInput_catalogInput_FederatedCatalog_federatedCatalog_ConnectionName;
                 requestCatalogInput_catalogInput_FederatedCatalogIsNull = false;
             }
+            System.String requestCatalogInput_catalogInput_FederatedCatalog_federatedCatalog_ConnectionType = null;
+            if (cmdletContext.FederatedCatalog_ConnectionType != null)
+            {
+                requestCatalogInput_catalogInput_FederatedCatalog_federatedCatalog_ConnectionType = cmdletContext.FederatedCatalog_ConnectionType;
+            }
+            if (requestCatalogInput_catalogInput_FederatedCatalog_federatedCatalog_ConnectionType != null)
+            {
+                requestCatalogInput_catalogInput_FederatedCatalog.ConnectionType = requestCatalogInput_catalogInput_FederatedCatalog_federatedCatalog_ConnectionType;
+                requestCatalogInput_catalogInput_FederatedCatalogIsNull = false;
+            }
             System.String requestCatalogInput_catalogInput_FederatedCatalog_federatedCatalog_Identifier = null;
             if (cmdletContext.FederatedCatalog_Identifier != null)
             {
@@ -605,6 +628,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public List<Amazon.Glue.Model.PrincipalPermissions> CatalogInput_CreateTableDefaultPermission { get; set; }
             public System.String CatalogInput_Description { get; set; }
             public System.String FederatedCatalog_ConnectionName { get; set; }
+            public System.String FederatedCatalog_ConnectionType { get; set; }
             public System.String FederatedCatalog_Identifier { get; set; }
             public Dictionary<System.String, System.String> CatalogInput_Parameter { get; set; }
             public System.String TargetRedshiftCatalog_CatalogArn { get; set; }

@@ -28,7 +28,13 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Searches routing profiles in an Amazon Connect instance, with optional filtering.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Searches routing profiles in an Amazon Connect instance, with optional filtering.
+    /// 
+    ///  <note><para><c>SearchRoutingProfiles</c> does not populate LastModifiedRegion, LastModifiedTime,
+    /// MediaConcurrencies.CrossChannelBehavior, and AgentAvailabilityTimer in its response,
+    /// but <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeRoutingProfile.html">DescribeRoutingProfile</a>
+    /// does.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "CONNRoutingProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.SearchRoutingProfilesResponse")]

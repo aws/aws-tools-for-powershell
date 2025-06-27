@@ -83,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter AdditionalRecipients_CcAddress
         /// <summary>
         /// <para>
-        /// <para>The additional recipients information present in cc list.</para>
+        /// <para>The <b>additional</b> recipients information present in cc list. You must have 1 required
+        /// recipient (<c>DestinationEmailAddress</c>). You can then specify up to 49 additional
+        /// recipients (across <c>ToAddresses</c> and <c>CcAddresses</c>), for a total of 50 recipients.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter DestinationEmailAddress
         /// <summary>
         /// <para>
-        /// <para>The email address associated with the instance.</para>
+        /// <para>The email address associated with the Amazon Connect instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -156,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter FromEmailAddress_EmailAddress
         /// <summary>
         /// <para>
-        /// <para>The email address with the instance, in [^\s@]+@[^\s@]+\.[^\s@]+ format.</para>
+        /// <para>The email address, including the domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -283,7 +285,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter AdditionalRecipients_ToAddress
         /// <summary>
         /// <para>
-        /// <para>The additional recipients information present in to list.</para>
+        /// <para>The <b>additional</b> recipients information present in to list. You must have 1 required
+        /// recipient (<c>DestinationEmailAddress</c>). You can then specify up to 49 additional
+        /// recipients (across <c>ToAddresses</c> and <c>CcAddresses</c>), for a total of 50 recipients.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

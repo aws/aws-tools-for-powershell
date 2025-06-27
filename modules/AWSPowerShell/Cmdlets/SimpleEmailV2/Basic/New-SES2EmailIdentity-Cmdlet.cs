@@ -99,6 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// parent identity in Europe (Stockholm) region using Deterministic Easy-DKIM (DEED).
         /// </para></li><li><para><c>AWS_SES_AP_SOUTH_1</c> – Configure DKIM for the identity by replicating from a
         /// parent identity in Asia Pacific (Mumbai) region using Deterministic Easy-DKIM (DEED).
+        /// </para></li><li><para><c>AWS_SES_AP_SOUTH_2</c> – Configure DKIM for the identity by replicating from a
+        /// parent identity in Asia Pacific (Hyderabad) region using Deterministic Easy-DKIM (DEED).
         /// </para></li><li><para><c>AWS_SES_EU_WEST_3</c> – Configure DKIM for the identity by replicating from a
         /// parent identity in Europe (Paris) region using Deterministic Easy-DKIM (DEED). </para></li><li><para><c>AWS_SES_EU_WEST_2</c> – Configure DKIM for the identity by replicating from a
         /// parent identity in Europe (London) region using Deterministic Easy-DKIM (DEED). </para></li><li><para><c>AWS_SES_EU_SOUTH_1</c> – Configure DKIM for the identity by replicating from a
@@ -107,6 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// a parent identity in Asia Pacific (Osaka) region using Deterministic Easy-DKIM (DEED).
         /// </para></li><li><para><c>AWS_SES_AP_NORTHEAST_2</c> – Configure DKIM for the identity by replicating from
         /// a parent identity in Asia Pacific (Seoul) region using Deterministic Easy-DKIM (DEED).
+        /// </para></li><li><para><c>AWS_SES_ME_CENTRAL_1</c> – Configure DKIM for the identity by replicating from
+        /// a parent identity in Middle East (UAE) region using Deterministic Easy-DKIM (DEED).
         /// </para></li><li><para><c>AWS_SES_ME_SOUTH_1</c> – Configure DKIM for the identity by replicating from a
         /// parent identity in Middle East (Bahrain) region using Deterministic Easy-DKIM (DEED).
         /// </para></li><li><para><c>AWS_SES_AP_NORTHEAST_1</c> – Configure DKIM for the identity by replicating from
@@ -125,6 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// a parent identity in Asia Pacific (Jakarta) region using Deterministic Easy-DKIM (DEED).
         /// </para></li><li><para><c>AWS_SES_EU_CENTRAL_1</c> – Configure DKIM for the identity by replicating from
         /// a parent identity in Europe (Frankfurt) region using Deterministic Easy-DKIM (DEED).
+        /// </para></li><li><para><c>AWS_SES_EU_CENTRAL_2</c> – Configure DKIM for the identity by replicating from
+        /// a parent identity in Europe (Zurich) region using Deterministic Easy-DKIM (DEED).
         /// </para></li><li><para><c>AWS_SES_US_EAST_1</c> – Configure DKIM for the identity by replicating from a
         /// parent identity in US East (N. Virginia) region using Deterministic Easy-DKIM (DEED).
         /// </para></li><li><para><c>AWS_SES_US_EAST_2</c> – Configure DKIM for the identity by replicating from a

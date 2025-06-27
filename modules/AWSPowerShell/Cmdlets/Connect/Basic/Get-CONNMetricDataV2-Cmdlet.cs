@@ -83,15 +83,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// | <c>AGENT_HIERARCHY_LEVEL_THREE</c> | <c>AGENT_HIERARCHY_LEVEL_FOUR</c> | <c>AGENT_HIERARCHY_LEVEL_FIVE</c>
         /// | <c>ANSWERING_MACHINE_DETECTION_STATUS</c> | <c> BOT_ID</c> | <c>BOT_ALIAS</c> |
         /// <c>BOT_VERSION</c> | <c>BOT_LOCALE</c> | <c>BOT_INTENT_NAME</c> | <c>CAMPAIGN</c>
-        /// | <c>CAMPAIGN_DELIVERY_EVENT_TYPE</c> |<c>CASE_TEMPLATE_ARN</c> | <c>CASE_STATUS</c>
-        /// | <c>CHANNEL</c> | <c>contact/segmentAttributes/connect:Subtype</c> | <c>DISCONNECT_REASON</c>
-        /// | <c>EVALUATION_FORM</c> | <c>EVALUATION_SECTION</c> | <c>EVALUATION_QUESTION</c>
-        /// | <c>EVALUATION_SOURCE</c> | <c>FEATURE</c> | <c>FLOW_ACTION_ID</c> | <c>FLOW_TYPE</c>
-        /// | <c>FLOWS_MODULE_RESOURCE_ID</c> | <c>FLOWS_NEXT_RESOURCE_ID</c> | <c>FLOWS_NEXT_RESOURCE_QUEUE_ID</c>
-        /// | <c>FLOWS_OUTCOME_TYPE</c> | <c>FLOWS_RESOURCE_ID</c> | <c>FORM_VERSION</c> | <c>INITIATION_METHOD</c>
-        /// | <c>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</c> | <c>INVOKING_RESOURCE_TYPE</c> | <c>PARENT_FLOWS_RESOURCE_ID</c>
-        /// | <c>RESOURCE_PUBLISHED_TIMESTAMP</c> | <c>ROUTING_PROFILE</c> | <c>ROUTING_STEP_EXPRESSION</c>
-        /// | <c>QUEUE</c> | <c>Q_CONNECT_ENABLED</c> | </para></li><li><para><b>Filter values</b>: A maximum of 100 filter values are supported in a single request.
+        /// | <c>CAMPAIGN_DELIVERY_EVENT_TYPE</c> | <c>CAMPAIGN_EXCLUDED_EVENT_TYPE </c> | <c>CASE_TEMPLATE_ARN</c>
+        /// | <c>CASE_STATUS</c> | <c>CHANNEL</c> | <c>contact/segmentAttributes/connect:Subtype</c>
+        /// | <c>DISCONNECT_REASON</c> | <c>EVALUATION_FORM</c> | <c>EVALUATION_SECTION</c> |
+        /// <c>EVALUATION_QUESTION</c> | <c>EVALUATION_SOURCE</c> | <c>FEATURE</c> | <c>FLOW_ACTION_ID</c>
+        /// | <c>FLOW_TYPE</c> | <c>FLOWS_MODULE_RESOURCE_ID</c> | <c>FLOWS_NEXT_RESOURCE_ID</c>
+        /// | <c>FLOWS_NEXT_RESOURCE_QUEUE_ID</c> | <c>FLOWS_OUTCOME_TYPE</c> | <c>FLOWS_RESOURCE_ID</c>
+        /// | <c>FORM_VERSION</c> | <c>INITIATION_METHOD</c> | <c>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</c>
+        /// | <c>INVOKING_RESOURCE_TYPE</c> | <c>PARENT_FLOWS_RESOURCE_ID</c> | <c>RESOURCE_PUBLISHED_TIMESTAMP</c>
+        /// | <c>ROUTING_PROFILE</c> | <c>ROUTING_STEP_EXPRESSION</c> | <c>QUEUE</c> | <c>Q_CONNECT_ENABLED</c>
+        /// | </para></li><li><para><b>Filter values</b>: A maximum of 100 filter values are supported in a single request.
         /// VOICE, CHAT, and TASK are valid <c>filterValue</c> for the CHANNEL filter key. They
         /// do not count towards limitation of 100 filter values. For example, a GetMetricDataV2
         /// request can filter by 50 queues, 35 agents, and 15 routing profiles for a total of
@@ -128,7 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// | <c>AGENT_HIERARCHY_LEVEL_THREE</c> | <c>AGENT_HIERARCHY_LEVEL_FOUR</c> | <c>AGENT_HIERARCHY_LEVEL_FIVE</c>
         /// | <c>ANSWERING_MACHINE_DETECTION_STATUS</c> | <c>BOT_ID</c> | <c>BOT_ALIAS</c> | <c>BOT_VERSION</c>
         /// | <c>BOT_LOCALE</c> | <c>BOT_INTENT_NAME</c> | <c>CAMPAIGN</c> | <c>CAMPAIGN_DELIVERY_EVENT_TYPE</c>
-        /// | <c>CASE_TEMPLATE_ARN</c> | <c>CASE_STATUS</c> | <c>CHANNEL</c> | <c>contact/segmentAttributes/connect:Subtype</c>
+        /// | <c>CAMPAIGN_EXCLUDED_EVENT_TYPE</c> | <c>CAMPAIGN_EXECUTION_TIMESTAMP</c> | <c>CASE_TEMPLATE_ARN</c>
+        /// | <c>CASE_STATUS</c> | <c>CHANNEL</c> | <c>contact/segmentAttributes/connect:Subtype</c>
         /// | <c>DISCONNECT_REASON</c> | <c>EVALUATION_FORM</c> | <c>EVALUATION_SECTION</c> |
         /// <c>EVALUATION_QUESTION</c> | <c>EVALUATION_SOURCE</c> | <c>FLOWS_RESOURCE_ID</c> |
         /// <c>FLOWS_MODULE_RESOURCE_ID</c> | <c>FLOW_ACTION_ID</c> | <c>FLOW_TYPE</c> | <c>FLOWS_OUTCOME_TYPE</c>
@@ -275,9 +277,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// in seconds. For <c>Comparison</c>, you must enter <c>GT</c> (for <i>Greater than</i>).</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#campaign-contacts-abandoned-after-x-rate">Campaign
         /// contacts abandoned after X rate</a></para></dd><dt>CAMPAIGN_INTERACTIONS</dt><dd><para>This metric is available only for outbound campaigns using the email delivery mode.
         /// </para><para>Unit: Count</para><para>Valid metric filter key: CAMPAIGN_INTERACTION_EVENT_TYPE</para><para>Valid groupings and filters: Campaign</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#campaign-interactions">Campaign
-        /// interactions</a></para></dd><dt>CAMPAIGN_SEND_ATTEMPTS</dt><dd><para>This metric is available only for outbound campaigns.</para><para>Unit: Count</para><para>Valid groupings and filters: Campaign, Channel, contact/segmentAttributes/connect:Subtype
+        /// interactions</a></para></dd><dt>CAMPAIGN_PROGRESS_RATE</dt><dd><para>This metric is only available for outbound campaigns initiated using a customer segment.
+        /// It is not available for event triggered campaigns.</para><para>Unit: Percent</para><para>Valid groupings and filters: Campaign, Campaign Execution Timestamp</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#campaign-progress-rate">Campaign
+        /// progress rate</a></para></dd><dt>CAMPAIGN_SEND_ATTEMPTS</dt><dd><para>This metric is available only for outbound campaigns.</para><para>Unit: Count</para><para>Valid groupings and filters: Campaign, Channel, contact/segmentAttributes/connect:Subtype
         /// </para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#campaign-send-attempts">Campaign
-        /// send attempts</a></para></dd><dt>CASES_CREATED</dt><dd><para>Unit: Count</para><para>Required filter key: CASE_TEMPLATE_ARN</para><para>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#cases-created">Cases
+        /// send attempts</a></para></dd><dt>CAMPAIGN_SEND_EXCLUSIONS</dt><dd><para>This metric is available only for outbound campaigns.</para><para>Valid metric filter key: CAMPAIGN_EXCLUDED_EVENT_TYPE</para><para>Unit: Count</para><para>Valid groupings and filters: Campaign, Campaign Excluded Event Type, Campaign Execution
+        /// Timestamp</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#campaign-send-exclusions">Campaign
+        /// send exclusions</a></para></dd><dt>CASES_CREATED</dt><dd><para>Unit: Count</para><para>Required filter key: CASE_TEMPLATE_ARN</para><para>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#cases-created">Cases
         /// created</a></para></dd><dt>CONTACTS_CREATED</dt><dd><para>Unit: Count</para><para>Valid metric filter key: <c>INITIATION_METHOD</c></para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype,
         /// Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-created">Contacts
         /// created</a></para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>CONTACTS_HANDLED</dt><dd><para>Unit: Count</para><para>Valid metric filter key: <c>INITIATION_METHOD</c>, <c>DISCONNECT_REASON</c></para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
@@ -376,7 +382,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// talk time percent</a></para></dd><dt>PERCENT_TALK_TIME_CUSTOMER</dt><dd><para>This metric is available only for contacts analyzed by Contact Lens conversational
         /// analytics.</para><para>Unit: Percentage</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
         /// contact/segmentAttributes/connect:Subtype, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#customer-talk-time-percent">Customer
-        /// talk time percent</a></para></dd><dt>REOPENED_CASE_ACTIONS</dt><dd><para>Unit: Count</para><para>Required filter key: CASE_TEMPLATE_ARN</para><para>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#cases-reopened">Cases
+        /// talk time percent</a></para></dd><dt>RECIPIENTS_ATTEMPTED</dt><dd><para>This metric is only available for outbound campaigns initiated using a customer segment.
+        /// It is not available for event triggered campaigns.</para><para>Unit: Count</para><para>Valid groupings and filters: Campaign, Campaign Execution Timestamp</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#recipients-attempted">Recipients
+        /// attempted</a></para></dd><dt>RECIPIENTS_INTERACTED</dt><dd><para>This metric is only available for outbound campaigns initiated using a customer segment.
+        /// It is not available for event triggered campaigns.</para><para>Valid metric filter key: CAMPAIGN_INTERACTION_EVENT_TYPE</para><para>Unit: Count</para><para>Valid groupings and filters: Campaign, Channel, contact/segmentAttributes/connect:Subtype,
+        /// Campaign Execution Timestamp</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#recipients-interacted">Recipients
+        /// interacted</a></para></dd><dt>RECIPIENTS_TARGETED</dt><dd><para>This metric is only available for outbound campaigns initiated using a customer segment.
+        /// It is not available for event triggered campaigns.</para><para>Unit: Count</para><para>Valid groupings and filters: Campaign, Campaign Execution Timestamp</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#recipients-targeted">Recipients
+        /// targeted</a></para></dd><dt>REOPENED_CASE_ACTIONS</dt><dd><para>Unit: Count</para><para>Required filter key: CASE_TEMPLATE_ARN</para><para>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#cases-reopened">Cases
         /// reopened</a></para></dd><dt>RESOLVED_CASE_ACTIONS</dt><dd><para>Unit: Count</para><para>Required filter key: CASE_TEMPLATE_ARN</para><para>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#cases-resolved">Cases
         /// resolved</a></para></dd><dt>SERVICE_LEVEL</dt><dd><para>You can include up to 20 SERVICE_LEVEL metrics in a request.</para><para>Unit: Percent</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Q in Connect</para><para>Threshold: For <c>ThresholdValue</c>, enter any whole number from 1 to 604800 (inclusive),
         /// in seconds. For <c>Comparison</c>, you can use <c>LT</c> (for "Less than") or <c>LTE</c>
