@@ -406,6 +406,11 @@
                             <xsd:documentation>This should not be set for new operations. Defaults to false. When set to true, auto-iteration defined in the config will be used. otherwise .NET SDK's Paginator attributes will be used.</xsd:documentation>
                           </xsd:annotation>
                         </xsd:attribute>
+                        <xsd:attribute name="CustomAutoIteration" type="xsd:boolean" use="optional">
+                          <xsd:annotation>
+                            <xsd:documentation>This is for PowerShell team internal use only. When set to true, auto-iteration code will not be generated, instead a method ProcessCustomAutoIteration will be created in the generated cmdlet file. The extensions file will need to define the ProcessCustomAutoIteration method.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
                         <xsd:attribute name="PositionalParameters" type="xsd:string" use="optional">
                           <xsd:annotation>
                             <xsd:documentation>ADVANCED CONFIGURATION. Semicolumn-separated list of parameter names that can be used positionally. Using positional parameters has backward compatibility concerns, don't use this configuration except to maintain backward compatibility when converting handwritten ("advanced") cmdlets to generated.</xsd:documentation>

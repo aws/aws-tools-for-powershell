@@ -223,7 +223,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLogEvents" OutputProperty="*" Verb="Get" Noun="LogEvent" PositionalParameters="LogGroupName" PipelineParameter="LogStreamName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-CWLLogEvents">
+        <ServiceOperation MethodName="GetLogEvents" OutputProperty="*" Verb="Get" Noun="LogEvent" PositionalParameters="LogGroupName" PipelineParameter="LogStreamName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-CWLLogEvents" CustomAutoIteration="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

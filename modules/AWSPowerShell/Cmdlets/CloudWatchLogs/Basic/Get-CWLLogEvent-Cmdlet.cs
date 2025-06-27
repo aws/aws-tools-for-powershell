@@ -317,44 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 request.Unmask = cmdletContext.Unmask.Value;
             }
             
-            // Initialize loop variant and commence piping
-            var _nextToken = cmdletContext.NextToken;
-            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
-            var _shouldAutoIterate = !(SessionState.PSVariable.GetValue("AWSPowerShell_AutoIteration_Mode")?.ToString() == "v4");
-            
-            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            do
-            {
-                request.NextToken = _nextToken;
-                
-                CmdletOutput output;
-                
-                try
-                {
-                    
-                    var response = CallAWSServiceOperation(client, request);
-                    
-                    object pipelineOutput = null;
-                    if (!useParameterSelect)
-                    {
-                        pipelineOutput = cmdletContext.Select(response, this);
-                    }
-                    output = new CmdletOutput
-                    {
-                        PipelineOutput = pipelineOutput,
-                        ServiceResponse = response
-                    };
-                    
-                    _nextToken = response.NextForwardToken;
-                }
-                catch (Exception e)
-                {
-                    output = new CmdletOutput { ErrorResponse = e };
-                }
-                
-                ProcessOutput(output);
-                
-            } while (!_userControllingPaging && _shouldAutoIterate && AutoIterationHelpers.HasValue(_nextToken));
+            ProcessCustomAutoIteration(cmdletContext, request, useParameterSelect);
             
             if (useParameterSelect)
             {

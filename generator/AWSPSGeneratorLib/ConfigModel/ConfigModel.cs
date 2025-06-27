@@ -931,6 +931,15 @@ namespace AWSPowerShellGenerator.ServiceConfig
         [DefaultValue(false)]
         public bool LegacyV4Pagination = false;
 
+        /// <summary>
+        /// When set to true, auto-iteration code will not be generated, instead a method ProcessCustomAutoIteration 
+        /// will be created in the generated cmdlet file. The extensions file will need to define the ProcessCustomAutoIteration method.
+        /// </summary>
+        [XmlAttribute]
+        [DefaultValue(false)]
+        public bool CustomAutoIteration = false;
+
+
         public enum LegacyPaginationType
         {
             Default,

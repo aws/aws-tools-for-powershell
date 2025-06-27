@@ -203,20 +203,20 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                         {
                             case ServiceOperation.LegacyPaginationType.DisablePagination:
                                 writer.WriteLine("#if MODULAR");
-                                WriteIExecutorIterPattern1(writer);
+                                WriteIExecutorIterPattern1(writer, false);
                                 writer.WriteLine("#else");
                                 WriteIExecutor(writer);
                                 writer.WriteLine("#endif");
                                 break;
                             case ServiceOperation.LegacyPaginationType.UseEmitLimit:
                                 writer.WriteLine("#if MODULAR");
-                                WriteIExecutorIterPattern1(writer);
+                                WriteIExecutorIterPattern1(writer, false);
                                 writer.WriteLine("#else");
                                 WriteIExecutorIterPattern2(writer);
                                 writer.WriteLine("#endif");
                                 break;
                             case ServiceOperation.LegacyPaginationType.Default:
-                                WriteIExecutorIterPattern1(writer);
+                                WriteIExecutorIterPattern1(writer, Operation.CustomAutoIteration);
                                 break;
                         }
                     }
@@ -1339,7 +1339,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         /// 'AutoIterate Start="NextToken" Next="NextToken"').
         /// </summary>
         /// <param name="writer"></param>
-        private void WriteIExecutorIterPattern1(IndentedTextWriter writer)
+        private void WriteIExecutorIterPattern1(IndentedTextWriter writer, bool CustomAutoIteration)
         {
             var requestType = MethodAnalysis.RequestType;
             var autoIteration = MethodAnalysis.AutoIterateSettings;
@@ -1372,70 +1372,79 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
                 writer.WriteLine();
 
-                writer.WriteLine("// Initialize loop variant and commence piping");
-                writer.WriteLine($"var _nextToken = cmdletContext.{starPaginationProperty.CmdletParameterName};");
-                writer.WriteLine($"var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.{starPaginationProperty.CmdletParameterName}));");
-                
-                // disable auto-iteration for cmdlets that didn't have auto-iteration in v4 in legacy mode.
-                if (autoIteration.SupportLegacyAutoIterationMode)
+                if (!CustomAutoIteration)
                 {
-                    writer.WriteLine(@$"var _shouldAutoIterate = !(SessionState.PSVariable.GetValue(""AWSPowerShell_AutoIteration_Mode"")?.ToString() == ""v4"");");
-                }
+                    writer.WriteLine("// Initialize loop variant and commence piping");
+                    writer.WriteLine($"var _nextToken = cmdletContext.{starPaginationProperty.CmdletParameterName};");
+                    writer.WriteLine(
+                        $"var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.{starPaginationProperty.CmdletParameterName}));");
 
-                writer.WriteLine();
+                    // disable auto-iteration for cmdlets that didn't have auto-iteration in v4 in legacy mode.
+                    if (autoIteration.SupportLegacyAutoIterationMode)
+                    {
+                        writer.WriteLine(
+                            @$"var _shouldAutoIterate = !(SessionState.PSVariable.GetValue(""AWSPowerShell_AutoIteration_Mode"")?.ToString() == ""v4"");");
+                    }
 
-                if (Operation.RequiresAnonymousAuthentication)
-                {
-                    writer.WriteLine("var client = Client ?? CreateClient(_RegionEndpoint);");
+                    writer.WriteLine();
+
+                    if (Operation.RequiresAnonymousAuthentication)
+                    {
+                        writer.WriteLine("var client = Client ?? CreateClient(_RegionEndpoint);");
+                    }
+                    else
+                    {
+                        writer.WriteLine("var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);");
+                    }
+
+                    writer.WriteLine("do");
+                    writer.OpenRegion();
+                    {
+                        writer.WriteLine($"request.{autoIteration.Start} = _nextToken;");
+                        writer.WriteLine();
+
+                        writer.WriteLine("CmdletOutput output;");
+
+                        writer.WriteLine();
+                        writer.WriteLine("try");
+                        writer.OpenRegion();
+                        {
+                            writer.WriteLine();
+
+                            writer.WriteLine("var response = CallAWSServiceOperation(client, request);");
+                            writer.WriteLine();
+
+                            WriteResultOutput(writer, true);
+
+                            writer.WriteLine();
+                            writer.WriteLine($"_nextToken = {responseMemberReferencePath}.{autoIteration.Next};");
+                        }
+                        writer.CloseRegion();
+                        writer.WriteLine("catch (Exception e)");
+                        writer.OpenRegion();
+                        {
+                            writer.WriteLine("output = new CmdletOutput { ErrorResponse = e };");
+                        }
+                        writer.CloseRegion();
+
+                        writer.WriteLine();
+                        writer.WriteLine("ProcessOutput(output);");
+                        writer.WriteLine();
+                    }
+                    if (autoIteration.SupportLegacyAutoIterationMode)
+                    {
+                        writer.CloseRegion(
+                            "} while (!_userControllingPaging && _shouldAutoIterate && AutoIterationHelpers.HasValue(_nextToken));");
+                    }
+                    else
+                    {
+                        writer.CloseRegion(
+                            "} while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));");
+                    }
                 }
                 else
                 {
-                    writer.WriteLine("var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);");
-                }
-
-                writer.WriteLine("do");
-                writer.OpenRegion();
-                {
-                    writer.WriteLine($"request.{autoIteration.Start} = _nextToken;");
-                    writer.WriteLine();
-
-                    writer.WriteLine("CmdletOutput output;");
-
-                    writer.WriteLine();
-                    writer.WriteLine("try");
-                    writer.OpenRegion();
-                    {
-                        //writer.WriteLine("ServiceCalls.PushServiceRequest(request, this.MyInvocation);");
-                        writer.WriteLine();
-
-                        writer.WriteLine("var response = CallAWSServiceOperation(client, request);");
-                        writer.WriteLine();
-
-                        WriteResultOutput(writer, true);
-
-                        writer.WriteLine();
-                        writer.WriteLine($"_nextToken = {responseMemberReferencePath}.{autoIteration.Next};");
-                    }
-                    writer.CloseRegion();
-                    writer.WriteLine("catch (Exception e)");
-                    writer.OpenRegion();
-                    {
-                        writer.WriteLine("output = new CmdletOutput { ErrorResponse = e };");
-                    }
-                    writer.CloseRegion();
-
-                    writer.WriteLine();
-                    writer.WriteLine("ProcessOutput(output);");
-                    writer.WriteLine();
-                }
-                if (autoIteration.SupportLegacyAutoIterationMode)
-                {
-                    writer.CloseRegion("} while (!_userControllingPaging && _shouldAutoIterate && AutoIterationHelpers.HasValue(_nextToken));");
-                }
-                else
-                {
-                    writer.CloseRegion("} while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));");
-
+                    writer.WriteLine("ProcessCustomAutoIteration(cmdletContext, request, useParameterSelect);");
                 }
 
                 WritePipeParamToOutput(writer);
