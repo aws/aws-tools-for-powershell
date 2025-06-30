@@ -180,6 +180,16 @@ $TFR_Completers = {
             break
         }
 
+        # Amazon.Transfer.IpAddressType
+        {
+            ($_ -eq "New-TFRServer/IpAddressType") -Or
+            ($_ -eq "Update-TFRServer/IpAddressType")
+        }
+        {
+            $v = "DUALSTACK","IPV4"
+            break
+        }
+
         # Amazon.Transfer.MdnResponse
         {
             ($_ -eq "New-TFRConnector/As2Config_MdnResponse") -Or
@@ -305,6 +315,7 @@ $TFR_map = @{
     "HomeDirectoryType"=@("New-TFRAccess","New-TFRUser","Update-TFRAccess","Update-TFRUser")
     "IdentityProviderDetails_SftpAuthenticationMethod"=@("New-TFRServer","Update-TFRServer")
     "IdentityProviderType"=@("New-TFRServer")
+    "IpAddressType"=@("New-TFRServer","Update-TFRServer")
     "PreserveFilename"=@("New-TFRAgreement","Update-TFRAgreement")
     "ProfileType"=@("Get-TFRProfileList","New-TFRProfile")
     "ProtocolDetails_SetStatOption"=@("New-TFRServer","Update-TFRServer")

@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM OpenID Connect provider resource object
         /// to delete. You can get a list of OpenID Connect provider resource ARNs by using the
-        /// <a>ListOpenIDConnectProviders</a> operation.</para>
+        /// <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html">ListOpenIDConnectProviders</a>
+        /// operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

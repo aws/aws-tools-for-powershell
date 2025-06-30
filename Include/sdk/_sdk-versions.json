@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.41.0",
+    "ProductVersion"    : "4.0.42.0",
     "CoreVersion"       : "4.0.0.13",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -32,7 +32,7 @@
             "InPreview"               : false
         },
         "CloudFormation" : {
-            "Version" : "4.0.1.6",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -72,7 +72,7 @@
             "InPreview"               : false
         },
         "ConfigService"     : {
-            "Version" : "4.0.0.12",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -88,7 +88,7 @@
             "InPreview"               : false
         },
         "CloudWatchLogs"    : {
-            "Version" : "4.0.4.1",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -146,7 +146,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "4.0.1.9",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -220,7 +220,7 @@
             "InPreview"               : false
         },
         "IdentityManagement"   : {
-            "Version" : "4.0.1.9",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -372,7 +372,7 @@
             "InPreview"               : false
         },
         "SimpleSystemsManagement"   : {
-            "Version" : "4.0.1.11",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -820,7 +820,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "4.0.7.0",
+            "Version" : "4.0.8.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -1044,7 +1044,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "4.0.3.0",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -1188,7 +1188,7 @@
             "InPreview"               : false
         },
         "QuickSight"                      : {
-            "Version" : "4.0.0.11",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -1220,7 +1220,7 @@
             "InPreview"               : false
         },
         "Transfer"                        : {
-            "Version" : "4.0.0.11",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -1436,7 +1436,7 @@
             "InPreview"               : false
         },
         "EventBridge"                     : {
-            "Version" : "4.0.1.7",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -1540,7 +1540,7 @@
             "InPreview"               : false
         },
         "DataExchange"                    : {
-            "Version" : "4.0.1.7",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -1660,7 +1660,7 @@
             "InPreview"               : false
         },
         "Outposts"                        : {
-            "Version" : "4.0.0.11",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -2500,7 +2500,7 @@
             "InPreview"               : false
         },
         "ARCZonalShift"                       : {
-            "Version" : "4.0.0.11",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -2708,7 +2708,7 @@
             "InPreview"               : false
         },
         "MedicalImaging"                      : {
-            "Version" : "4.0.0.11",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -2748,7 +2748,7 @@
             "InPreview"               : false
         },
         "BedrockRuntime"                      : {
-            "Version" : "4.0.0.11",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -2756,7 +2756,7 @@
             "InPreview"               : false
         },
         "Bedrock"                             : {
-            "Version" : "4.0.6.0",
+            "Version" : "4.0.7.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -2852,7 +2852,7 @@
             "InPreview"               : false
         },
         "B2bi"                                : {
-            "Version" : "4.0.0.11",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -3052,7 +3052,7 @@
             "InPreview"               : false
         },
         "PCS"                                 : {
-            "Version" : "4.0.3.3",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"
@@ -3188,7 +3188,7 @@
             "InPreview"               : false
         },
         "NetworkFlowMonitor"                  : {
-            "Version" : "4.0.0.11",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.13"

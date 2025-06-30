@@ -157,7 +157,7 @@ $IAM_Completers = {
             ($_ -eq "Update-IAMSSHPublicKey/Status")
         }
         {
-            $v = "Active","Inactive"
+            $v = "Active","Expired","Inactive"
             break
         }
 

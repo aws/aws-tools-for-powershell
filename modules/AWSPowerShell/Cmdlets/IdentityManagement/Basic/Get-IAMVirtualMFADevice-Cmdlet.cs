@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// IAM resource-listing operations return a subset of the available attributes for the
     /// resource. For example, this operation does not return tags, even though they are an
     /// attribute of the returned object. To view tag information for a virtual MFA device,
-    /// see <a>ListMFADeviceTags</a>.
+    /// see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListMFADeviceTags.html">ListMFADeviceTags</a>.
     /// </para></note><para>
     /// You can paginate the results using the <c>MaxItems</c> and <c>Marker</c> parameters.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.

@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TemplateBody
         /// <summary>
         /// <para>
-        /// <para>Structure containing the template body with a minimum length of 1 byte and a maximum
+        /// <para>Structure that contains the template body with a minimum length of 1 byte and a maximum
         /// length of 51,200 bytes.</para><para>Conditional: You must pass <c>TemplateBody</c> or <c>TemplateURL</c>. If both are
         /// passed, only <c>TemplateBody</c> is used.</para>
         /// </para>
@@ -77,9 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TemplateURL
         /// <summary>
         /// <para>
-        /// <para>The URL of a file containing the template body. The URL must point to a template that's
-        /// located in an Amazon S3 bucket or a Systems Manager document. The location for an
-        /// Amazon S3 bucket must start with <c>https://</c>.</para><para>Conditional: You must pass <c>TemplateURL</c> or <c>TemplateBody</c>. If both are
+        /// <para>The URL of a file that contains the template body. The URL must point to a template
+        /// that's located in an Amazon S3 bucket or a Systems Manager document. The location
+        /// for an Amazon S3 bucket must start with <c>https://</c>. URLs from S3 static websites
+        /// are not supported.</para><para>Conditional: You must pass <c>TemplateURL</c> or <c>TemplateBody</c>. If both are
         /// passed, only <c>TemplateBody</c> is used.</para>
         /// </para>
         /// </summary>

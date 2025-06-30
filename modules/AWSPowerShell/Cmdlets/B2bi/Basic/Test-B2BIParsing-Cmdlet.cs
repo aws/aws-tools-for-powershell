@@ -84,6 +84,19 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         public System.String InputFile_Key { get; set; }
         #endregion
         
+        #region Parameter SplitOptions_SplitBy
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the method used to split X12 EDI files. Valid values include <c>TRANSACTION</c>
+        /// (split by individual transaction sets), or <c>NONE</c> (no splitting).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdvancedOptions_X12_SplitOptions_SplitBy")]
+        [AWSConstantClassSource("Amazon.B2bi.X12SplitBy")]
+        public Amazon.B2bi.X12SplitBy SplitOptions_SplitBy { get; set; }
+        #endregion
+        
         #region Parameter X12Details_TransactionSet
         /// <summary>
         /// <para>
@@ -139,6 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
                 context.Select = CreateSelectDelegate<Amazon.B2bi.Model.TestParsingResponse, TestB2BIParsingCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.SplitOptions_SplitBy = this.SplitOptions_SplitBy;
             context.X12Details_TransactionSet = this.X12Details_TransactionSet;
             context.X12Details_Version = this.X12Details_Version;
             context.FileFormat = this.FileFormat;
@@ -166,6 +180,55 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             // create request
             var request = new Amazon.B2bi.Model.TestParsingRequest();
             
+            
+             // populate AdvancedOptions
+            var requestAdvancedOptionsIsNull = true;
+            request.AdvancedOptions = new Amazon.B2bi.Model.AdvancedOptions();
+            Amazon.B2bi.Model.X12AdvancedOptions requestAdvancedOptions_advancedOptions_X12 = null;
+            
+             // populate X12
+            var requestAdvancedOptions_advancedOptions_X12IsNull = true;
+            requestAdvancedOptions_advancedOptions_X12 = new Amazon.B2bi.Model.X12AdvancedOptions();
+            Amazon.B2bi.Model.X12SplitOptions requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_SplitOptions = null;
+            
+             // populate SplitOptions
+            var requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_SplitOptionsIsNull = true;
+            requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_SplitOptions = new Amazon.B2bi.Model.X12SplitOptions();
+            Amazon.B2bi.X12SplitBy requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_SplitOptions_splitOptions_SplitBy = null;
+            if (cmdletContext.SplitOptions_SplitBy != null)
+            {
+                requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_SplitOptions_splitOptions_SplitBy = cmdletContext.SplitOptions_SplitBy;
+            }
+            if (requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_SplitOptions_splitOptions_SplitBy != null)
+            {
+                requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_SplitOptions.SplitBy = requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_SplitOptions_splitOptions_SplitBy;
+                requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_SplitOptionsIsNull = false;
+            }
+             // determine if requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_SplitOptions should be set to null
+            if (requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_SplitOptionsIsNull)
+            {
+                requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_SplitOptions = null;
+            }
+            if (requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_SplitOptions != null)
+            {
+                requestAdvancedOptions_advancedOptions_X12.SplitOptions = requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_SplitOptions;
+                requestAdvancedOptions_advancedOptions_X12IsNull = false;
+            }
+             // determine if requestAdvancedOptions_advancedOptions_X12 should be set to null
+            if (requestAdvancedOptions_advancedOptions_X12IsNull)
+            {
+                requestAdvancedOptions_advancedOptions_X12 = null;
+            }
+            if (requestAdvancedOptions_advancedOptions_X12 != null)
+            {
+                request.AdvancedOptions.X12 = requestAdvancedOptions_advancedOptions_X12;
+                requestAdvancedOptionsIsNull = false;
+            }
+             // determine if request.AdvancedOptions should be set to null
+            if (requestAdvancedOptionsIsNull)
+            {
+                request.AdvancedOptions = null;
+            }
             
              // populate EdiType
             var requestEdiTypeIsNull = true;
@@ -298,6 +361,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.B2bi.X12SplitBy SplitOptions_SplitBy { get; set; }
             public Amazon.B2bi.X12TransactionSet X12Details_TransactionSet { get; set; }
             public Amazon.B2bi.X12Version X12Details_Version { get; set; }
             public Amazon.B2bi.FileFormat FileFormat { get; set; }

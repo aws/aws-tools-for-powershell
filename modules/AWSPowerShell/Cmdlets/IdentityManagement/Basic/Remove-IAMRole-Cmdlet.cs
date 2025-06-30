@@ -37,14 +37,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// items: 
     /// 
     ///  <ul><li><para>
-    /// Inline policies (<a>DeleteRolePolicy</a>)
+    /// Inline policies (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteRolePolicy.html">DeleteRolePolicy</a>)
     /// </para></li><li><para>
-    /// Attached managed policies (<a>DetachRolePolicy</a>)
+    /// Attached managed policies (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachRolePolicy.html">DetachRolePolicy</a>)
     /// </para></li><li><para>
-    /// Instance profile (<a>RemoveRoleFromInstanceProfile</a>)
+    /// Instance profile (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveRoleFromInstanceProfile.html">RemoveRoleFromInstanceProfile</a>)
     /// </para></li><li><para>
     /// Optional – Delete instance profile after detaching from role for resource clean up
-    /// (<a>DeleteInstanceProfile</a>)
+    /// (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteInstanceProfile.html">DeleteInstanceProfile</a>)
     /// </para></li></ul><important><para>
     /// Make sure that you do not have any Amazon EC2 instances running with the role you
     /// are about to delete. Deleting a role or instance profile that is associated with a

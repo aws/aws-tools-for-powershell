@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Lists the SAML provider resource objects defined in IAM in the account. IAM resource-listing
     /// operations return a subset of the available attributes for the resource. For example,
     /// this operation does not return tags, even though they are an attribute of the returned
-    /// object. To view all of the information for a SAML provider, see <a>GetSAMLProvider</a>.
+    /// object. To view all of the information for a SAML provider, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetSAMLProvider.html">GetSAMLProvider</a>.
     /// 
     ///  <important><para>
     ///  This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature

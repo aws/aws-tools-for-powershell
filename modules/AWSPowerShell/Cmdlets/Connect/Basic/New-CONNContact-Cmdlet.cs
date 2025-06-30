@@ -31,11 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
     /// <important><para>
-    /// Only the EMAIL and VOICE channels are supported. The supported initiation methods
-    /// for EMAIL are: OUTBOUND, AGENT_REPLY, and FLOW. For VOICE the supported initiation
-    /// methods are TRANSFER and the subtype connect:ExternalAudio. 
-    /// </para></important><para>
-    /// Creates a new EMAIL or VOICE contact. 
+    /// Only the VOICE, EMAIL, and TASK channels are supported. 
+    /// </para><ul><li><para>
+    /// For VOICE: The supported initiation method is <c>TRANSFER</c>. The contacts created
+    /// with this initiation method have a subtype <c>connect:ExternalAudio</c>. 
+    /// </para></li><li><para>
+    /// For EMAIL: The supported initiation methods are <c>OUTBOUND</c>, <c>AGENT_REPLY</c>,
+    /// and <c>FLOW</c>. 
+    /// </para></li><li><para>
+    /// For TASK: The supported initiation method is <c>API</c>. Contacts created with this
+    /// API have a sub-type of <c>connect:ExternalTask</c>.
+    /// </para></li></ul></important><para>
+    /// Creates a new VOICE, EMAIL, or TASK contact. 
+    /// </para><para>
+    /// After a contact is created, you can move it to the desired state by using the <c>InitiateAs</c>
+    /// parameter. While you can use API to create task contacts that are in the <c>COMPLETED</c>
+    /// state, you must contact Amazon Web Services Support before using it for bulk import
+    /// use cases. Bulk import causes your requests to be throttled or fail if your CreateContact
+    /// limits aren't high enough. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "CONNContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -70,9 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Channel
         /// <summary>
         /// <para>
-        /// <para>The channel for the contact</para><important><para>CreateContact only supports the EMAIL and VOICE channels. The following information
-        /// that states other channels are supported is incorrect. We are working to update this
-        /// topic.</para></important>
+        /// <para>The channel for the contact.</para><important><para>The CHAT channel is not supported. The following information is incorrect. We're working
+        /// to correct it.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -110,7 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InitiateAs
         /// <summary>
         /// <para>
-        /// <para>Initial state of the contact when it's created</para>
+        /// <para>Initial state of the contact when it's created. Only TASK channel contacts can be
+        /// initiated with <c>COMPLETED</c> state.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InitiationMethod
         /// <summary>
         /// <para>
-        /// <para>Indicates how the contact was initiated. </para><important><para>CreateContact only supports the following initiation methods: </para><ul><li><para>For EMAIL: OUTBOUND, AGENT_REPLY, and FLOW. </para></li><li><para>For VOICE: TRANSFER and the subtype connect:ExternalAudio. </para></li></ul><para>The following information that states other initiation methods are supported is incorrect.
-        /// We are working to update this topic.</para></important>
+        /// <para>Indicates how the contact was initiated. </para><important><para>CreateContact only supports the following initiation methods. Valid values by channel
+        /// are: </para><ul><li><para>For VOICE: <c>TRANSFER</c> and the subtype <c>connect:ExternalAudio</c></para></li><li><para>For EMAIL: <c>OUTBOUND</c> | <c>AGENT_REPLY</c> | <c>FLOW</c></para></li><li><para>For TASK: <c>API</c></para></li></ul><para>The other channels listed below are incorrect. We're working to correct this information.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -181,8 +194,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Tasks
-        /// can have the following reference types at the time of creation: URL | NUMBER | STRING
-        /// | DATE | EMAIL | ATTACHMENT.</para><para />
+        /// can have the following reference types at the time of creation: <c>URL</c> | <c>NUMBER</c>
+        /// | <c>STRING</c> | <c>DATE</c> | <c>EMAIL</c> | <c>ATTACHMENT</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

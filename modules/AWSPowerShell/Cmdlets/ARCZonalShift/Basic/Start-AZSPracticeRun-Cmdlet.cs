@@ -30,39 +30,25 @@ using Amazon.ARCZonalShift.Model;
 namespace Amazon.PowerShell.Cmdlets.AZS
 {
     /// <summary>
-    /// You start a zonal shift to temporarily move load balancer traffic away from an Availability
-    /// Zone in an Amazon Web Services Region, to help your application recover immediately,
-    /// for example, from a developer's bad code deployment or from an Amazon Web Services
-    /// infrastructure failure in a single Availability Zone. You can start a zonal shift
-    /// in ARC only for managed resources in your Amazon Web Services account in an Amazon
-    /// Web Services Region. Resources are automatically registered with ARC by Amazon Web
-    /// Services services.
+    /// Start an on-demand practice run zonal shift in Amazon Application Recovery Controller.
+    /// With zonal autoshift enabled, you can start an on-demand practice run to verify preparedness
+    /// at any time. Amazon Web Services also runs automated practice runs about weekly when
+    /// you have enabled zonal autoshift.
     /// 
     ///  
     /// <para>
-    /// Amazon Application Recovery Controller currently supports enabling the following resources
-    /// for zonal shift and zonal autoshift:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.ec2-auto-scaling-groups.html">Amazon
-    /// EC2 Auto Scaling groups</a></para></li><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.eks.html">Amazon
-    /// Elastic Kubernetes Service</a></para></li><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.app-load-balancers.html">Application
-    /// Load Balancer</a></para></li><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.network-load-balancers.html">Network
-    /// Load Balancer</a></para></li></ul><para>
-    /// When you start a zonal shift, traffic for the resource is no longer routed to the
-    /// Availability Zone. The zonal shift is created immediately in ARC. However, it can
-    /// take a short time, typically up to a few minutes, for existing, in-progress connections
-    /// in the Availability Zone to complete.
-    /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.html">Zonal
-    /// shift</a> in the Amazon Application Recovery Controller Developer Guide.
+    /// For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html">
+    /// Considerations when you configure zonal autoshift</a> in the Amazon Application Recovery
+    /// Controller Developer Guide.
     /// </para>
     /// </summary>
-    [Cmdlet("Start", "AZSZonalShift", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ARCZonalShift.Model.StartZonalShiftResponse")]
-    [AWSCmdlet("Calls the AWS ARC - Zonal Shift StartZonalShift API operation.", Operation = new[] {"StartZonalShift"}, SelectReturnType = typeof(Amazon.ARCZonalShift.Model.StartZonalShiftResponse))]
-    [AWSCmdletOutput("Amazon.ARCZonalShift.Model.StartZonalShiftResponse",
-        "This cmdlet returns an Amazon.ARCZonalShift.Model.StartZonalShiftResponse object containing multiple properties."
+    [Cmdlet("Start", "AZSPracticeRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ARCZonalShift.Model.StartPracticeRunResponse")]
+    [AWSCmdlet("Calls the AWS ARC - Zonal Shift StartPracticeRun API operation.", Operation = new[] {"StartPracticeRun"}, SelectReturnType = typeof(Amazon.ARCZonalShift.Model.StartPracticeRunResponse))]
+    [AWSCmdletOutput("Amazon.ARCZonalShift.Model.StartPracticeRunResponse",
+        "This cmdlet returns an Amazon.ARCZonalShift.Model.StartPracticeRunResponse object containing multiple properties."
     )]
-    public partial class StartAZSZonalShiftCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
+    public partial class StartAZSPracticeRunCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -71,10 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         #region Parameter AwayFrom
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone (for example, <c>use1-az1</c>) that traffic is moved away from
-        /// for a resource when you start a zonal shift. Until the zonal shift expires or you
-        /// cancel it, traffic for the resource is instead moved to other Availability Zones in
-        /// the Amazon Web Services Region.</para>
+        /// <para>The Availability Zone (for example, <c>use1-az1</c>) that traffic is shifted away
+        /// from for the resource that you specify for the practice run.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,8 +75,11 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         #region Parameter Comment
         /// <summary>
         /// <para>
-        /// <para>A comment that you enter about the zonal shift. Only the latest comment is retained;
-        /// no comment history is maintained. A new comment overwrites any existing comment string.</para>
+        /// <para>The initial comment that you enter about the practice run. Be aware that this comment
+        /// can be overwritten by Amazon Web Services if the automatic check for balanced capacity
+        /// fails. For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.how-it-works.capacity-check.html">
+        /// Capacity checks for practice runs</a> in the Amazon Application Recovery Controller
+        /// Developer Guide. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -106,39 +93,11 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         public System.String Comment { get; set; }
         #endregion
         
-        #region Parameter ExpiresIn
-        /// <summary>
-        /// <para>
-        /// <para>The length of time that you want a zonal shift to be active, which ARC converts to
-        /// an expiry time (expiration time). Zonal shifts are temporary. You can set a zonal
-        /// shift to be active initially for up to three days (72 hours).</para><para>If you want to still keep traffic away from an Availability Zone, you can update the
-        /// zonal shift and set a new expiration. You can also cancel a zonal shift, before it
-        /// expires, for example, if you're ready to restore traffic to the Availability Zone.</para><para>To set a length of time for a zonal shift to be active, specify a whole number, and
-        /// then one of the following, with no space:</para><ul><li><para><b>A lowercase letter m:</b> To specify that the value is in minutes.</para></li><li><para><b>A lowercase letter h:</b> To specify that the value is in hours.</para></li></ul><para>For example: <c>20h</c> means the zonal shift expires in 20 hours. <c>120m</c> means
-        /// the zonal shift expires in 120 minutes (2 hours).</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ExpiresIn { get; set; }
-        #endregion
-        
         #region Parameter ResourceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier for the resource that Amazon Web Services shifts traffic for. The identifier
-        /// is the Amazon Resource Name (ARN) for the resource.</para><para>Amazon Application Recovery Controller currently supports enabling the following resources
-        /// for zonal shift and zonal autoshift:</para><ul><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.ec2-auto-scaling-groups.html">Amazon
-        /// EC2 Auto Scaling groups</a></para></li><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.eks.html">Amazon
-        /// Elastic Kubernetes Service</a></para></li><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.app-load-balancers.html">Application
-        /// Load Balancer</a></para></li><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.network-load-balancers.html">Network
-        /// Load Balancer</a></para></li></ul>
+        /// <para>The identifier for the resource that you want to start a practice run zonal shift
+        /// for. The identifier is the Amazon Resource Name (ARN) for the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -155,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ARCZonalShift.Model.StartZonalShiftResponse).
-        /// Specifying the name of a property of type Amazon.ARCZonalShift.Model.StartZonalShiftResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ARCZonalShift.Model.StartPracticeRunResponse).
+        /// Specifying the name of a property of type Amazon.ARCZonalShift.Model.StartPracticeRunResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-AZSZonalShift (StartZonalShift)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-AZSPracticeRun (StartPracticeRun)"))
             {
                 return;
             }
@@ -195,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ARCZonalShift.Model.StartZonalShiftResponse, StartAZSZonalShiftCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ARCZonalShift.Model.StartPracticeRunResponse, StartAZSPracticeRunCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AwayFrom = this.AwayFrom;
@@ -210,13 +169,6 @@ namespace Amazon.PowerShell.Cmdlets.AZS
             if (this.Comment == null && ParameterWasBound(nameof(this.Comment)))
             {
                 WriteWarning("You are passing $null as a value for parameter Comment which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.ExpiresIn = this.ExpiresIn;
-            #if MODULAR
-            if (this.ExpiresIn == null && ParameterWasBound(nameof(this.ExpiresIn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ExpiresIn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.ResourceIdentifier = this.ResourceIdentifier;
@@ -240,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ARCZonalShift.Model.StartZonalShiftRequest();
+            var request = new Amazon.ARCZonalShift.Model.StartPracticeRunRequest();
             
             if (cmdletContext.AwayFrom != null)
             {
@@ -249,10 +201,6 @@ namespace Amazon.PowerShell.Cmdlets.AZS
             if (cmdletContext.Comment != null)
             {
                 request.Comment = cmdletContext.Comment;
-            }
-            if (cmdletContext.ExpiresIn != null)
-            {
-                request.ExpiresIn = cmdletContext.ExpiresIn;
             }
             if (cmdletContext.ResourceIdentifier != null)
             {
@@ -291,12 +239,12 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         
         #region AWS Service Operation Call
         
-        private Amazon.ARCZonalShift.Model.StartZonalShiftResponse CallAWSServiceOperation(IAmazonARCZonalShift client, Amazon.ARCZonalShift.Model.StartZonalShiftRequest request)
+        private Amazon.ARCZonalShift.Model.StartPracticeRunResponse CallAWSServiceOperation(IAmazonARCZonalShift client, Amazon.ARCZonalShift.Model.StartPracticeRunRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS ARC - Zonal Shift", "StartZonalShift");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS ARC - Zonal Shift", "StartPracticeRun");
             try
             {
-                return client.StartZonalShiftAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.StartPracticeRunAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -315,9 +263,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         {
             public System.String AwayFrom { get; set; }
             public System.String Comment { get; set; }
-            public System.String ExpiresIn { get; set; }
             public System.String ResourceIdentifier { get; set; }
-            public System.Func<Amazon.ARCZonalShift.Model.StartZonalShiftResponse, StartAZSZonalShiftCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.ARCZonalShift.Model.StartPracticeRunResponse, StartAZSPracticeRunCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

@@ -39,7 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Policies returned by this operation are URL-encoded compliant with <a href="https://tools.ietf.org/html/rfc3986">RFC
     /// 3986</a>. You can use a URL decoding method to convert the policy back to plain JSON
     /// text. For example, if you use Java, you can use the <c>decode</c> method of the <c>java.net.URLDecoder</c>
-    /// utility class in the Java SDK. Other languages and SDKs provide similar functionality.
+    /// utility class in the Java SDK. Other languages and SDKs provide similar functionality,
+    /// and some SDKs do this decoding automatically.
     /// </para></note><para>
     /// You can optionally filter the results using the <c>Filter</c> parameter. You can paginate
     /// the results using the <c>MaxItems</c> and <c>Marker</c> parameters.

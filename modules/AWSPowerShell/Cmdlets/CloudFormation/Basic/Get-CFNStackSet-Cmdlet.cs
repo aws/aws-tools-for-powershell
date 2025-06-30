@@ -31,6 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
     /// Returns the description of the specified StackSet.
+    /// 
+    ///  <note><para>
+    /// This API provides <i>strongly consistent</i> reads meaning it will always return the
+    /// most up-to-date data.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CFNStackSet")]
     [OutputType("Amazon.CloudFormation.Model.StackSet")]

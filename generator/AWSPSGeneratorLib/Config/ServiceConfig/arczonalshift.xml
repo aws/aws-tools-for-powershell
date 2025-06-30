@@ -18,6 +18,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CancelPracticeRun" OutputProperty="*" Verb="Stop" Noun="PracticeRun" ShouldProcessTarget="ZonalShiftId" PipelineParameter="ZonalShiftId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelZonalShift" OutputProperty="*" Verb="Stop" Noun="ZonalShift" ShouldProcessTarget="ZonalShiftId" PipelineParameter="ZonalShiftId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -47,6 +51,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListZonalShifts" OutputProperty="Items" Verb="Get" Noun="ZonalShiftList" PipelineParameter="Status" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartPracticeRun" OutputProperty="*" Verb="Start" Noun="PracticeRun" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

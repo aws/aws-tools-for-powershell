@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
 {
     /// <summary>
     /// Lists all the resources in your Amazon Web Services account in this Amazon Web Services
-    /// Region that are managed for zonal shifts in Amazon Route 53 Application Recovery Controller,
+    /// Region that are managed for zonal shifts in Amazon Application Recovery Controller,
     /// and information about them. The information includes the zonal autoshift status for
     /// the resource, as well as the Amazon Resource Name (ARN), the Availability Zones that
     /// each resource is deployed in, and the resource name.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.

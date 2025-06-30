@@ -1,4 +1,33 @@
-﻿### 5.0.4 (2025-06-27 22:06Z)
+﻿### 5.0.5 (2025-06-30 20:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.42.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon ARC - Zonal Shift
+    * Added cmdlet Start-AZSPracticeRun leveraging the StartPracticeRun service API.
+    * Added cmdlet Stop-AZSPracticeRun leveraging the CancelPracticeRun service API.
+  * Amazon B2B Data Interchange
+    * Modified cmdlet New-B2BIPartnership: added parameters AcknowledgmentOptions_FunctionalAcknowledgment, AcknowledgmentOptions_TechnicalAcknowledgment, Common_Gs05TimeFormat, ControlNumbers_StartingFunctionalGroupControlNumber, ControlNumbers_StartingInterchangeControlNumber, ControlNumbers_StartingTransactionSetControlNumber, WrapOptions_LineLength, WrapOptions_LineTerminator and WrapOptions_WrapBy.
+    * Modified cmdlet New-B2BITransformer: added parameter SplitOptions_SplitBy.
+    * Modified cmdlet Test-B2BIParsing: added parameter SplitOptions_SplitBy.
+    * Modified cmdlet Update-B2BIPartnership: added parameters AcknowledgmentOptions_FunctionalAcknowledgment, AcknowledgmentOptions_TechnicalAcknowledgment, Common_Gs05TimeFormat, ControlNumbers_StartingFunctionalGroupControlNumber, ControlNumbers_StartingInterchangeControlNumber, ControlNumbers_StartingTransactionSetControlNumber, WrapOptions_LineLength, WrapOptions_LineTerminator and WrapOptions_WrapBy.
+    * Modified cmdlet Update-B2BITransformer: added parameter SplitOptions_SplitBy.
+  * Amazon DynamoDB
+    * Modified cmdlet Update-DDBTable: added parameter GlobalTableWitnessUpdate.
+  * Amazon Glue
+    * Modified cmdlet New-GLUEIntegration: added parameter IntegrationConfig_SourceProperty.
+  * Amazon Identity and Access Management
+    * Modified cmdlet Get-IAMServiceSpecificCredentialList: added parameters AllUser, Marker, MaxItem and NoAutoIteration.
+    * Modified cmdlet New-IAMServiceSpecificCredential: added parameter CredentialAgeDay.
+  * Amazon Medical Imaging Service
+    * Modified cmdlet Copy-MISImageSet: added parameter PromoteToPrimary.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSCustomPermission: added parameters Capabilities_ExportToCsvInScheduledReport, Capabilities_ExportToExcelInScheduledReport, Capabilities_ExportToPdf, Capabilities_ExportToPdfInScheduledReport, Capabilities_IncludeContentInScheduledReportsEmail and Capabilities_PrintReport.
+    * Modified cmdlet New-QSDataSource: added parameter DataSourceParameters_AthenaParameters_IdentityCenterConfiguration_EnableIdentityPropagation.
+    * Modified cmdlet Update-QSCustomPermission: added parameters Capabilities_ExportToCsvInScheduledReport, Capabilities_ExportToExcelInScheduledReport, Capabilities_ExportToPdf, Capabilities_ExportToPdfInScheduledReport, Capabilities_IncludeContentInScheduledReportsEmail and Capabilities_PrintReport.
+    * Modified cmdlet Update-QSDataSource: added parameter DataSourceParameters_AthenaParameters_IdentityCenterConfiguration_EnableIdentityPropagation.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRServer: added parameter IpAddressType.
+    * Modified cmdlet Update-TFRServer: added parameter IpAddressType.
+
+### 5.0.4 (2025-06-27 22:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.41.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Glue
     * Modified cmdlet New-GLUECatalog: added parameter FederatedCatalog_ConnectionType.

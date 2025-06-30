@@ -32,8 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Changes the password for the specified IAM user. You can use the CLI, the Amazon Web
     /// Services API, or the <b>Users</b> page in the IAM console to change the password for
-    /// any IAM user. Use <a>ChangePassword</a> to change your own password in the <b>My Security
-    /// Credentials</b> page in the Amazon Web Services Management Console.
+    /// any IAM user. Use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html">ChangePassword</a>
+    /// to change your own password in the <b>My Security Credentials</b> page in the Amazon
+    /// Web Services Management Console.
     /// 
     ///  
     /// <para>
@@ -62,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// the end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
         /// <c>\u00FF</c>)</para></li><li><para>The special characters tab (<c>\u0009</c>), line feed (<c>\u000A</c>), and carriage
         /// return (<c>\u000D</c>)</para></li></ul><para>However, the format can be further restricted by the account administrator by setting
-        /// a password policy on the Amazon Web Services account. For more information, see <a>UpdateAccountPasswordPolicy</a>.</para>
+        /// a password policy on the Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html">UpdateAccountPasswordPolicy</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

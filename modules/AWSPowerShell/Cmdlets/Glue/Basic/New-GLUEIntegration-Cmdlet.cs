@@ -138,6 +138,23 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String SourceArn { get; set; }
         #endregion
         
+        #region Parameter IntegrationConfig_SourceProperty
+        /// <summary>
+        /// <para>
+        /// <para> A collection of key-value pairs that specify additional properties for the integration
+        /// source. These properties provide configuration options that can be used to customize
+        /// the behavior of the ODB source during data integration operations. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IntegrationConfig_SourceProperties")]
+        public System.Collections.Hashtable IntegrationConfig_SourceProperty { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -227,6 +244,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             context.DataFilter = this.DataFilter;
             context.Description = this.Description;
             context.IntegrationConfig_RefreshInterval = this.IntegrationConfig_RefreshInterval;
+            if (this.IntegrationConfig_SourceProperty != null)
+            {
+                context.IntegrationConfig_SourceProperty = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.IntegrationConfig_SourceProperty.Keys)
+                {
+                    context.IntegrationConfig_SourceProperty.Add((String)hashKey, (System.String)(this.IntegrationConfig_SourceProperty[hashKey]));
+                }
+            }
             context.IntegrationName = this.IntegrationName;
             #if MODULAR
             if (this.IntegrationName == null && ParameterWasBound(nameof(this.IntegrationName)))
@@ -293,6 +318,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestIntegrationConfig_integrationConfig_RefreshInterval != null)
             {
                 request.IntegrationConfig.RefreshInterval = requestIntegrationConfig_integrationConfig_RefreshInterval;
+                requestIntegrationConfigIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestIntegrationConfig_integrationConfig_SourceProperty = null;
+            if (cmdletContext.IntegrationConfig_SourceProperty != null)
+            {
+                requestIntegrationConfig_integrationConfig_SourceProperty = cmdletContext.IntegrationConfig_SourceProperty;
+            }
+            if (requestIntegrationConfig_integrationConfig_SourceProperty != null)
+            {
+                request.IntegrationConfig.SourceProperties = requestIntegrationConfig_integrationConfig_SourceProperty;
                 requestIntegrationConfigIsNull = false;
             }
              // determine if request.IntegrationConfig should be set to null
@@ -379,6 +414,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String DataFilter { get; set; }
             public System.String Description { get; set; }
             public System.String IntegrationConfig_RefreshInterval { get; set; }
+            public Dictionary<System.String, System.String> IntegrationConfig_SourceProperty { get; set; }
             public System.String IntegrationName { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String SourceArn { get; set; }

@@ -76,8 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         #region Parameter ForceCopy
         /// <summary>
         /// <para>
-        /// <para>Setting this flag will force the <c>CopyImageSet</c> operation, even if Patient, Study,
-        /// or Series level metadata are mismatched across the <c>sourceImageSet</c> and <c>destinationImageSet</c>.</para>
+        /// <para>Providing this parameter will force completion of the <c>CopyImageSet</c> operation,
+        /// even if there are inconsistent Patient, Study, and/or Series level metadata elements
+        /// between the <c>sourceImageSet</c> and <c>destinationImageSet</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,6 +123,18 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("CopyImageSetInformation_SourceImageSet_LatestVersionId")]
         public System.String SourceImageSet_LatestVersionId { get; set; }
+        #endregion
+        
+        #region Parameter PromoteToPrimary
+        /// <summary>
+        /// <para>
+        /// <para>Providing this parameter will configure the <c>CopyImageSet</c> operation to promote
+        /// the given image set to the primary DICOM hierarchy. If successful, a new primary image
+        /// set ID will be returned as the destination image set.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PromoteToPrimary { get; set; }
         #endregion
         
         #region Parameter SourceImageSetId
@@ -205,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             }
             #endif
             context.ForceCopy = this.ForceCopy;
+            context.PromoteToPrimary = this.PromoteToPrimary;
             context.SourceImageSetId = this.SourceImageSetId;
             #if MODULAR
             if (this.SourceImageSetId == null && ParameterWasBound(nameof(this.SourceImageSetId)))
@@ -330,6 +344,10 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             {
                 request.Force = cmdletContext.ForceCopy.Value;
             }
+            if (cmdletContext.PromoteToPrimary != null)
+            {
+                request.PromoteToPrimary = cmdletContext.PromoteToPrimary.Value;
+            }
             if (cmdletContext.SourceImageSetId != null)
             {
                 request.SourceImageSetId = cmdletContext.SourceImageSetId;
@@ -395,6 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             public System.String SourceImageSet_LatestVersionId { get; set; }
             public System.String DatastoreId { get; set; }
             public System.Boolean? ForceCopy { get; set; }
+            public System.Boolean? PromoteToPrimary { get; set; }
             public System.String SourceImageSetId { get; set; }
             public System.Func<Amazon.MedicalImaging.Model.CopyImageSetResponse, CopyMISImageSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

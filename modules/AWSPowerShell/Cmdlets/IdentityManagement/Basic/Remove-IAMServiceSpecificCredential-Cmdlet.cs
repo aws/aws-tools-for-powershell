@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The unique identifier of the service-specific credential. You can get this value by
-        /// calling <a>ListServiceSpecificCredentials</a>.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// calling <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListServiceSpecificCredentials.html">ListServiceSpecificCredentials</a>.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
         /// pattern</a>) a string of characters that can consist of any upper or lowercased letter
         /// or digit.</para>
         /// </para>

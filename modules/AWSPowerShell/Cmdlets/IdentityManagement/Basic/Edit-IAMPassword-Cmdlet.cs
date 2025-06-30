@@ -37,9 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  
     /// <para>
-    /// Use <a>UpdateLoginProfile</a> to use the CLI, the Amazon Web Services API, or the
-    /// <b>Users</b> page in the IAM console to change the password for any IAM user. For
-    /// more information about modifying passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
+    /// Use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateLoginProfile.html">UpdateLoginProfile</a>
+    /// to use the CLI, the Amazon Web Services API, or the <b>Users</b> page in the IAM console
+    /// to change the password for any IAM user. For more information about modifying passwords,
+    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
     /// passwords</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>

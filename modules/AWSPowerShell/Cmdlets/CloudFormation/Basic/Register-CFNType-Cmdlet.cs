@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter SchemaHandlerPackage
         /// <summary>
         /// <para>
-        /// <para>A URL to the S3 bucket containing the extension project package that contains the
+        /// <para>A URL to the S3 bucket that contains the extension project package that contains the
         /// necessary files for the extension you want to register.</para><para>For information about generating a schema handler package for the extension you want
         /// to register, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html">submit</a>
         /// in the <i>CloudFormation Command Line Interface (CLI) User Guide</i>.</para><note><para>The user registering the extension must be able to access the package in the S3 bucket.

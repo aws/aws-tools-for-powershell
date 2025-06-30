@@ -130,7 +130,14 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         /// <para>The name of the contact.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Address_ContactName { get; set; }
         #endregion
         
@@ -140,7 +147,14 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         /// <para>The phone number of the contact.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Address_ContactPhoneNumber { get; set; }
         #endregion
         
@@ -295,7 +309,19 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             }
             #endif
             context.Address_ContactName = this.Address_ContactName;
+            #if MODULAR
+            if (this.Address_ContactName == null && ParameterWasBound(nameof(this.Address_ContactName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Address_ContactName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Address_ContactPhoneNumber = this.Address_ContactPhoneNumber;
+            #if MODULAR
+            if (this.Address_ContactPhoneNumber == null && ParameterWasBound(nameof(this.Address_ContactPhoneNumber)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Address_ContactPhoneNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Address_CountryCode = this.Address_CountryCode;
             #if MODULAR
             if (this.Address_CountryCode == null && ParameterWasBound(nameof(this.Address_CountryCode)))

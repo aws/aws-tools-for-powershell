@@ -30,8 +30,8 @@ using Amazon.ARCZonalShift.Model;
 namespace Amazon.PowerShell.Cmdlets.AZS
 {
     /// <summary>
-    /// Cancel a zonal shift in Amazon Route 53 Application Recovery Controller. To cancel
-    /// the zonal shift, specify the zonal shift ID.
+    /// Cancel a zonal shift in Amazon Application Recovery Controller. To cancel the zonal
+    /// shift, specify the zonal shift ID.
     /// 
     ///  
     /// <para>

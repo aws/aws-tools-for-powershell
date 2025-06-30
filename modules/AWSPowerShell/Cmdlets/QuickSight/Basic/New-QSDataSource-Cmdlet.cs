@@ -440,15 +440,25 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String AmazonOpenSearchParameters_Domain { get; set; }
         #endregion
         
-        #region Parameter IdentityCenterConfiguration_EnableIdentityPropagation
+        #region Parameter DataSourceParameters_AthenaParameters_IdentityCenterConfiguration_EnableIdentityPropagation
         /// <summary>
         /// <para>
         /// <para>A Boolean option that controls whether Trusted Identity Propagation should be used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation")]
-        public System.Boolean? IdentityCenterConfiguration_EnableIdentityPropagation { get; set; }
+        public System.Boolean? DataSourceParameters_AthenaParameters_IdentityCenterConfiguration_EnableIdentityPropagation { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean option that controls whether Trusted Identity Propagation should be used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IdentityCenterConfiguration_EnableIdentityPropagation")]
+        public System.Boolean? DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation { get; set; }
         #endregion
         
         #region Parameter FolderArn
@@ -1245,6 +1255,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             #endif
             context.AmazonElasticsearchParameters_Domain = this.AmazonElasticsearchParameters_Domain;
             context.AmazonOpenSearchParameters_Domain = this.AmazonOpenSearchParameters_Domain;
+            context.DataSourceParameters_AthenaParameters_IdentityCenterConfiguration_EnableIdentityPropagation = this.DataSourceParameters_AthenaParameters_IdentityCenterConfiguration_EnableIdentityPropagation;
             context.AthenaParameters_RoleArn = this.AthenaParameters_RoleArn;
             context.AthenaParameters_WorkGroup = this.AthenaParameters_WorkGroup;
             context.AuroraParameters_Database = this.AuroraParameters_Database;
@@ -1290,7 +1301,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             context.IAMParameters_DatabaseUser = this.IAMParameters_DatabaseUser;
             context.IAMParameters_RoleArn = this.IAMParameters_RoleArn;
-            context.IdentityCenterConfiguration_EnableIdentityPropagation = this.IdentityCenterConfiguration_EnableIdentityPropagation;
+            context.DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation = this.DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation;
             context.RedshiftParameters_Port = this.RedshiftParameters_Port;
             context.ManifestFileLocation_Bucket = this.ManifestFileLocation_Bucket;
             context.ManifestFileLocation_Key = this.ManifestFileLocation_Key;
@@ -1583,41 +1594,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.DataSourceParameters.ServiceNowParameters = requestDataSourceParameters_dataSourceParameters_ServiceNowParameters;
                 requestDataSourceParametersIsNull = false;
             }
-            Amazon.QuickSight.Model.AthenaParameters requestDataSourceParameters_dataSourceParameters_AthenaParameters = null;
-            
-             // populate AthenaParameters
-            var requestDataSourceParameters_dataSourceParameters_AthenaParametersIsNull = true;
-            requestDataSourceParameters_dataSourceParameters_AthenaParameters = new Amazon.QuickSight.Model.AthenaParameters();
-            System.String requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_RoleArn = null;
-            if (cmdletContext.AthenaParameters_RoleArn != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_RoleArn = cmdletContext.AthenaParameters_RoleArn;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_RoleArn != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_AthenaParameters.RoleArn = requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_RoleArn;
-                requestDataSourceParameters_dataSourceParameters_AthenaParametersIsNull = false;
-            }
-            System.String requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_WorkGroup = null;
-            if (cmdletContext.AthenaParameters_WorkGroup != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_WorkGroup = cmdletContext.AthenaParameters_WorkGroup;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_WorkGroup != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_AthenaParameters.WorkGroup = requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_WorkGroup;
-                requestDataSourceParameters_dataSourceParameters_AthenaParametersIsNull = false;
-            }
-             // determine if requestDataSourceParameters_dataSourceParameters_AthenaParameters should be set to null
-            if (requestDataSourceParameters_dataSourceParameters_AthenaParametersIsNull)
-            {
-                requestDataSourceParameters_dataSourceParameters_AthenaParameters = null;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_AthenaParameters != null)
-            {
-                request.DataSourceParameters.AthenaParameters = requestDataSourceParameters_dataSourceParameters_AthenaParameters;
-                requestDataSourceParametersIsNull = false;
-            }
             Amazon.QuickSight.Model.BigQueryParameters requestDataSourceParameters_dataSourceParameters_BigQueryParameters = null;
             
              // populate BigQueryParameters
@@ -1851,6 +1827,66 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDataSourceParameters_dataSourceParameters_TwitterParameters != null)
             {
                 request.DataSourceParameters.TwitterParameters = requestDataSourceParameters_dataSourceParameters_TwitterParameters;
+                requestDataSourceParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.AthenaParameters requestDataSourceParameters_dataSourceParameters_AthenaParameters = null;
+            
+             // populate AthenaParameters
+            var requestDataSourceParameters_dataSourceParameters_AthenaParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_AthenaParameters = new Amazon.QuickSight.Model.AthenaParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_RoleArn = null;
+            if (cmdletContext.AthenaParameters_RoleArn != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_RoleArn = cmdletContext.AthenaParameters_RoleArn;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_RoleArn != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_AthenaParameters.RoleArn = requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_RoleArn;
+                requestDataSourceParameters_dataSourceParameters_AthenaParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_WorkGroup = null;
+            if (cmdletContext.AthenaParameters_WorkGroup != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_WorkGroup = cmdletContext.AthenaParameters_WorkGroup;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_WorkGroup != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_AthenaParameters.WorkGroup = requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_WorkGroup;
+                requestDataSourceParameters_dataSourceParameters_AthenaParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.IdentityCenterConfiguration requestDataSourceParameters_dataSourceParameters_AthenaParameters_dataSourceParameters_AthenaParameters_IdentityCenterConfiguration = null;
+            
+             // populate IdentityCenterConfiguration
+            var requestDataSourceParameters_dataSourceParameters_AthenaParameters_dataSourceParameters_AthenaParameters_IdentityCenterConfigurationIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_AthenaParameters_dataSourceParameters_AthenaParameters_IdentityCenterConfiguration = new Amazon.QuickSight.Model.IdentityCenterConfiguration();
+            System.Boolean? requestDataSourceParameters_dataSourceParameters_AthenaParameters_dataSourceParameters_AthenaParameters_IdentityCenterConfiguration_dataSourceParameters_AthenaParameters_IdentityCenterConfiguration_EnableIdentityPropagation = null;
+            if (cmdletContext.DataSourceParameters_AthenaParameters_IdentityCenterConfiguration_EnableIdentityPropagation != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_AthenaParameters_dataSourceParameters_AthenaParameters_IdentityCenterConfiguration_dataSourceParameters_AthenaParameters_IdentityCenterConfiguration_EnableIdentityPropagation = cmdletContext.DataSourceParameters_AthenaParameters_IdentityCenterConfiguration_EnableIdentityPropagation.Value;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_AthenaParameters_dataSourceParameters_AthenaParameters_IdentityCenterConfiguration_dataSourceParameters_AthenaParameters_IdentityCenterConfiguration_EnableIdentityPropagation != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_AthenaParameters_dataSourceParameters_AthenaParameters_IdentityCenterConfiguration.EnableIdentityPropagation = requestDataSourceParameters_dataSourceParameters_AthenaParameters_dataSourceParameters_AthenaParameters_IdentityCenterConfiguration_dataSourceParameters_AthenaParameters_IdentityCenterConfiguration_EnableIdentityPropagation.Value;
+                requestDataSourceParameters_dataSourceParameters_AthenaParameters_dataSourceParameters_AthenaParameters_IdentityCenterConfigurationIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_AthenaParameters_dataSourceParameters_AthenaParameters_IdentityCenterConfiguration should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_AthenaParameters_dataSourceParameters_AthenaParameters_IdentityCenterConfigurationIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_AthenaParameters_dataSourceParameters_AthenaParameters_IdentityCenterConfiguration = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_AthenaParameters_dataSourceParameters_AthenaParameters_IdentityCenterConfiguration != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_AthenaParameters.IdentityCenterConfiguration = requestDataSourceParameters_dataSourceParameters_AthenaParameters_dataSourceParameters_AthenaParameters_IdentityCenterConfiguration;
+                requestDataSourceParameters_dataSourceParameters_AthenaParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_AthenaParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_AthenaParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_AthenaParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_AthenaParameters != null)
+            {
+                request.DataSourceParameters.AthenaParameters = requestDataSourceParameters_dataSourceParameters_AthenaParameters;
                 requestDataSourceParametersIsNull = false;
             }
             Amazon.QuickSight.Model.AuroraParameters requestDataSourceParameters_dataSourceParameters_AuroraParameters = null;
@@ -2408,14 +2444,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
              // populate IdentityCenterConfiguration
             var requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfigurationIsNull = true;
             requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration = new Amazon.QuickSight.Model.IdentityCenterConfiguration();
-            System.Boolean? requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_identityCenterConfiguration_EnableIdentityPropagation = null;
-            if (cmdletContext.IdentityCenterConfiguration_EnableIdentityPropagation != null)
+            System.Boolean? requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation = null;
+            if (cmdletContext.DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation != null)
             {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_identityCenterConfiguration_EnableIdentityPropagation = cmdletContext.IdentityCenterConfiguration_EnableIdentityPropagation.Value;
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation = cmdletContext.DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation.Value;
             }
-            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_identityCenterConfiguration_EnableIdentityPropagation != null)
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation != null)
             {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration.EnableIdentityPropagation = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_identityCenterConfiguration_EnableIdentityPropagation.Value;
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration.EnableIdentityPropagation = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation.Value;
                 requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfigurationIsNull = false;
             }
              // determine if requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration should be set to null
@@ -2900,6 +2936,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String DataSourceId { get; set; }
             public System.String AmazonElasticsearchParameters_Domain { get; set; }
             public System.String AmazonOpenSearchParameters_Domain { get; set; }
+            public System.Boolean? DataSourceParameters_AthenaParameters_IdentityCenterConfiguration_EnableIdentityPropagation { get; set; }
             public System.String AthenaParameters_RoleArn { get; set; }
             public System.String AthenaParameters_WorkGroup { get; set; }
             public System.String AuroraParameters_Database { get; set; }
@@ -2942,7 +2979,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<System.String> IAMParameters_DatabaseGroup { get; set; }
             public System.String IAMParameters_DatabaseUser { get; set; }
             public System.String IAMParameters_RoleArn { get; set; }
-            public System.Boolean? IdentityCenterConfiguration_EnableIdentityPropagation { get; set; }
+            public System.Boolean? DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation { get; set; }
             public System.Int32? RedshiftParameters_Port { get; set; }
             public System.String ManifestFileLocation_Bucket { get; set; }
             public System.String ManifestFileLocation_Key { get; set; }

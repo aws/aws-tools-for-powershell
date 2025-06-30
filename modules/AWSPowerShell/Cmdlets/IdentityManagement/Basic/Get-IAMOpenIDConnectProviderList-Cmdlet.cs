@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// IAM resource-listing operations return a subset of the available attributes for the
     /// resource. For example, this operation does not return tags, even though they are an
     /// attribute of the returned object. To view all of the information for an OIDC provider,
-    /// see <a>GetOpenIDConnectProvider</a>.
+    /// see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOpenIDConnectProvider.html">GetOpenIDConnectProvider</a>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "IAMOpenIDConnectProviderList")]

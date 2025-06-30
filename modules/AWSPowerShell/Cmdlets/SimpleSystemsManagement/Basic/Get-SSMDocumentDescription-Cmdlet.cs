@@ -59,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the SSM document.</para>
+        /// <para>The name of the SSM document.</para><note><para>If you're calling a shared SSM document from a different Amazon Web Services account,
+        /// <c>Name</c> is the full Amazon Resource Name (ARN) of the document.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -39,7 +39,16 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
     /// you must enable models in Amazon Bedrock. For details, see <a href="https://docs.aws.amazon.com/b2bi/latest/userguide/ai-assisted-mapping.html#ai-assist-prereq">AI-assisted
     /// template mapping prerequisites</a> in the <i>Amazon Web Services B2B Data Interchange
     /// User guide</i>.
-    /// </para></note>
+    /// </para></note><para>
+    /// To generate a mapping, perform the following steps:
+    /// </para><ol><li><para>
+    /// Start with an X12 EDI document to use as the input.
+    /// </para></li><li><para>
+    /// Call <c>TestMapping</c> using your EDI document.
+    /// </para></li><li><para>
+    /// Use the output from the <c>TestMapping</c> operation as either input or output for
+    /// your GenerateMapping call, along with your sample file.
+    /// </para></li></ol>
     /// </summary>
     [Cmdlet("Get", "B2BIGeneratedMapping")]
     [OutputType("Amazon.B2bi.Model.GenerateMappingResponse")]
@@ -56,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         #region Parameter InputFileContent
         /// <summary>
         /// <para>
-        /// <para>Provide the contents of a sample X12 EDI file (for inbound EDI) or JSON/XML file (for
-        /// outbound EDI) to use as a starting point for the mapping.</para>
+        /// <para>Provide the contents of a sample X12 EDI file, either in JSON or XML format, to use
+        /// as a starting point for the mapping.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         #region Parameter OutputFileContent
         /// <summary>
         /// <para>
-        /// <para>Provide the contents of a sample X12 EDI file (for outbound EDI) or JSON/XML file
-        /// (for inbound EDI) to use as a target for the mapping.</para>
+        /// <para>Provide the contents of a sample X12 EDI file, either in JSON or XML format, to use
+        /// as a target for the mapping.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

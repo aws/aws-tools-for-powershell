@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// the thumbprints set in the IdP's configuration.
     /// </para></note><note><para>
     /// The trust for the OIDC provider is derived from the IAM provider that this operation
-    /// creates. Therefore, it is best to limit access to the <a>CreateOpenIDConnectProvider</a>
+    /// creates. Therefore, it is best to limit access to the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>
     /// operation to highly privileged users.
     /// </para></note>
     /// </summary>

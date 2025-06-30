@@ -23,59 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.IdentityManagement;
-using Amazon.IdentityManagement.Model;
+using Amazon.ARCZonalShift;
+using Amazon.ARCZonalShift.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.IAM
+namespace Amazon.PowerShell.Cmdlets.AZS
 {
     /// <summary>
-    /// Deletes the specified managed policy.
-    /// 
-    ///  
-    /// <para>
-    /// Before you can delete a managed policy, you must first detach the policy from all
-    /// users, groups, and roles that it is attached to. In addition, you must delete all
-    /// the policy's versions. The following steps describe the process for deleting a managed
-    /// policy:
-    /// </para><ul><li><para>
-    /// Detach the policy from all users, groups, and roles that the policy is attached to,
-    /// using <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachUserPolicy.html">DetachUserPolicy</a>,
-    /// <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachGroupPolicy.html">DetachGroupPolicy</a>,
-    /// or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachRolePolicy.html">DetachRolePolicy</a>.
-    /// To list all the users, groups, and roles that a policy is attached to, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListEntitiesForPolicy.html">ListEntitiesForPolicy</a>.
-    /// </para></li><li><para>
-    /// Delete all versions of the policy using <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeletePolicyVersion.html">DeletePolicyVersion</a>.
-    /// To list the policy's versions, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicyVersions.html">ListPolicyVersions</a>.
-    /// You cannot use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeletePolicyVersion.html">DeletePolicyVersion</a>
-    /// to delete the version that is marked as the default version. You delete the policy's
-    /// default version in the next step of the process.
-    /// </para></li><li><para>
-    /// Delete the policy (this automatically deletes the policy's default version) using
-    /// this operation.
-    /// </para></li></ul><para>
-    /// For information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// policies and inline policies</a> in the <i>IAM User Guide</i>.
-    /// </para>
+    /// Cancel an in-progress practice run zonal shift in Amazon Application Recovery Controller.
     /// </summary>
-    [Cmdlet("Remove", "IAMPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Identity and Access Management DeletePolicy API operation.", Operation = new[] {"DeletePolicy"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.DeletePolicyResponse))]
-    [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.DeletePolicyResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.DeletePolicyResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Stop", "AZSPracticeRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ARCZonalShift.Model.CancelPracticeRunResponse")]
+    [AWSCmdlet("Calls the AWS ARC - Zonal Shift CancelPracticeRun API operation.", Operation = new[] {"CancelPracticeRun"}, SelectReturnType = typeof(Amazon.ARCZonalShift.Model.CancelPracticeRunResponse))]
+    [AWSCmdletOutput("Amazon.ARCZonalShift.Model.CancelPracticeRunResponse",
+        "This cmdlet returns an Amazon.ARCZonalShift.Model.CancelPracticeRunResponse object containing multiple properties."
     )]
-    public partial class RemoveIAMPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    public partial class StopAZSPracticeRunCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter PolicyArn
+        #region Parameter ZonalShiftId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM policy you want to delete.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</para>
+        /// <para>The identifier of a practice run zonal shift in Amazon Application Recovery Controller
+        /// that you want to cancel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,13 +59,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PolicyArn { get; set; }
+        public System.String ZonalShiftId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IdentityManagement.Model.DeletePolicyResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ARCZonalShift.Model.CancelPracticeRunResponse).
+        /// Specifying the name of a property of type Amazon.ARCZonalShift.Model.CancelPracticeRunResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PolicyArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IAMPolicy (DeletePolicy)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ZonalShiftId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-AZSPracticeRun (CancelPracticeRun)"))
             {
                 return;
             }
@@ -131,14 +105,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IdentityManagement.Model.DeletePolicyResponse, RemoveIAMPolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ARCZonalShift.Model.CancelPracticeRunResponse, StopAZSPracticeRunCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.PolicyArn = this.PolicyArn;
+            context.ZonalShiftId = this.ZonalShiftId;
             #if MODULAR
-            if (this.PolicyArn == null && ParameterWasBound(nameof(this.PolicyArn)))
+            if (this.ZonalShiftId == null && ParameterWasBound(nameof(this.ZonalShiftId)))
             {
-                WriteWarning("You are passing $null as a value for parameter PolicyArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ZonalShiftId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -155,11 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IdentityManagement.Model.DeletePolicyRequest();
+            var request = new Amazon.ARCZonalShift.Model.CancelPracticeRunRequest();
             
-            if (cmdletContext.PolicyArn != null)
+            if (cmdletContext.ZonalShiftId != null)
             {
-                request.PolicyArn = cmdletContext.PolicyArn;
+                request.ZonalShiftId = cmdletContext.ZonalShiftId;
             }
             
             CmdletOutput output;
@@ -194,12 +168,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private Amazon.IdentityManagement.Model.DeletePolicyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeletePolicyRequest request)
+        private Amazon.ARCZonalShift.Model.CancelPracticeRunResponse CallAWSServiceOperation(IAmazonARCZonalShift client, Amazon.ARCZonalShift.Model.CancelPracticeRunRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "DeletePolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS ARC - Zonal Shift", "CancelPracticeRun");
             try
             {
-                return client.DeletePolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.CancelPracticeRunAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -216,9 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String PolicyArn { get; set; }
-            public System.Func<Amazon.IdentityManagement.Model.DeletePolicyResponse, RemoveIAMPolicyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ZonalShiftId { get; set; }
+            public System.Func<Amazon.ARCZonalShift.Model.CancelPracticeRunResponse, StopAZSPracticeRunCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

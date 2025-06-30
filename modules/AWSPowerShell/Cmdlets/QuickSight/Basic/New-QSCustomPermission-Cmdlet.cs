@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Capabilities_ExportToCsv
         /// <summary>
         /// <para>
-        /// <para>The ability to export to CSV files.</para>
+        /// <para>The ability to export to CSV files from the UI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,15 +185,85 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_ExportToCsv { get; set; }
         #endregion
         
+        #region Parameter Capabilities_ExportToCsvInScheduledReport
+        /// <summary>
+        /// <para>
+        /// <para>The ability to export to CSV files in scheduled email reports.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Capabilities_ExportToCsvInScheduledReports")]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ExportToCsvInScheduledReport { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_ExportToExcel
         /// <summary>
         /// <para>
-        /// <para>The ability to export to Excel files.</para>
+        /// <para>The ability to export to Excel files from the UI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_ExportToExcel { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ExportToExcelInScheduledReport
+        /// <summary>
+        /// <para>
+        /// <para>The ability to export to Excel files in scheduled email reports.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Capabilities_ExportToExcelInScheduledReports")]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ExportToExcelInScheduledReport { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ExportToPdf
+        /// <summary>
+        /// <para>
+        /// <para>The ability to export to PDF files from the UI.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ExportToPdf { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ExportToPdfInScheduledReport
+        /// <summary>
+        /// <para>
+        /// <para>The ability to export to PDF files in scheduled email reports.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Capabilities_ExportToPdfInScheduledReports")]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ExportToPdfInScheduledReport { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_IncludeContentInScheduledReportsEmail
+        /// <summary>
+        /// <para>
+        /// <para>The ability to include content in scheduled email reports.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_IncludeContentInScheduledReportsEmail { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_PrintReport
+        /// <summary>
+        /// <para>
+        /// <para>The ability to print reports.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Capabilities_PrintReports")]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_PrintReport { get; set; }
         #endregion
         
         #region Parameter Capabilities_RenameSharedFolder
@@ -355,7 +425,13 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_CreateSharedFolder = this.Capabilities_CreateSharedFolder;
             context.Capabilities_CreateSPICEDataset = this.Capabilities_CreateSPICEDataset;
             context.Capabilities_ExportToCsv = this.Capabilities_ExportToCsv;
+            context.Capabilities_ExportToCsvInScheduledReport = this.Capabilities_ExportToCsvInScheduledReport;
             context.Capabilities_ExportToExcel = this.Capabilities_ExportToExcel;
+            context.Capabilities_ExportToExcelInScheduledReport = this.Capabilities_ExportToExcelInScheduledReport;
+            context.Capabilities_ExportToPdf = this.Capabilities_ExportToPdf;
+            context.Capabilities_ExportToPdfInScheduledReport = this.Capabilities_ExportToPdfInScheduledReport;
+            context.Capabilities_IncludeContentInScheduledReportsEmail = this.Capabilities_IncludeContentInScheduledReportsEmail;
+            context.Capabilities_PrintReport = this.Capabilities_PrintReport;
             context.Capabilities_RenameSharedFolder = this.Capabilities_RenameSharedFolder;
             context.Capabilities_ShareAnalyses = this.Capabilities_ShareAnalyses;
             context.Capabilities_ShareDashboard = this.Capabilities_ShareDashboard;
@@ -488,6 +564,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.ExportToCsv = requestCapabilities_capabilities_ExportToCsv;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ExportToCsvInScheduledReport = null;
+            if (cmdletContext.Capabilities_ExportToCsvInScheduledReport != null)
+            {
+                requestCapabilities_capabilities_ExportToCsvInScheduledReport = cmdletContext.Capabilities_ExportToCsvInScheduledReport;
+            }
+            if (requestCapabilities_capabilities_ExportToCsvInScheduledReport != null)
+            {
+                request.Capabilities.ExportToCsvInScheduledReports = requestCapabilities_capabilities_ExportToCsvInScheduledReport;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ExportToExcel = null;
             if (cmdletContext.Capabilities_ExportToExcel != null)
             {
@@ -496,6 +582,56 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_ExportToExcel != null)
             {
                 request.Capabilities.ExportToExcel = requestCapabilities_capabilities_ExportToExcel;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ExportToExcelInScheduledReport = null;
+            if (cmdletContext.Capabilities_ExportToExcelInScheduledReport != null)
+            {
+                requestCapabilities_capabilities_ExportToExcelInScheduledReport = cmdletContext.Capabilities_ExportToExcelInScheduledReport;
+            }
+            if (requestCapabilities_capabilities_ExportToExcelInScheduledReport != null)
+            {
+                request.Capabilities.ExportToExcelInScheduledReports = requestCapabilities_capabilities_ExportToExcelInScheduledReport;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ExportToPdf = null;
+            if (cmdletContext.Capabilities_ExportToPdf != null)
+            {
+                requestCapabilities_capabilities_ExportToPdf = cmdletContext.Capabilities_ExportToPdf;
+            }
+            if (requestCapabilities_capabilities_ExportToPdf != null)
+            {
+                request.Capabilities.ExportToPdf = requestCapabilities_capabilities_ExportToPdf;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ExportToPdfInScheduledReport = null;
+            if (cmdletContext.Capabilities_ExportToPdfInScheduledReport != null)
+            {
+                requestCapabilities_capabilities_ExportToPdfInScheduledReport = cmdletContext.Capabilities_ExportToPdfInScheduledReport;
+            }
+            if (requestCapabilities_capabilities_ExportToPdfInScheduledReport != null)
+            {
+                request.Capabilities.ExportToPdfInScheduledReports = requestCapabilities_capabilities_ExportToPdfInScheduledReport;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_IncludeContentInScheduledReportsEmail = null;
+            if (cmdletContext.Capabilities_IncludeContentInScheduledReportsEmail != null)
+            {
+                requestCapabilities_capabilities_IncludeContentInScheduledReportsEmail = cmdletContext.Capabilities_IncludeContentInScheduledReportsEmail;
+            }
+            if (requestCapabilities_capabilities_IncludeContentInScheduledReportsEmail != null)
+            {
+                request.Capabilities.IncludeContentInScheduledReportsEmail = requestCapabilities_capabilities_IncludeContentInScheduledReportsEmail;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_PrintReport = null;
+            if (cmdletContext.Capabilities_PrintReport != null)
+            {
+                requestCapabilities_capabilities_PrintReport = cmdletContext.Capabilities_PrintReport;
+            }
+            if (requestCapabilities_capabilities_PrintReport != null)
+            {
+                request.Capabilities.PrintReports = requestCapabilities_capabilities_PrintReport;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_RenameSharedFolder = null;
@@ -646,7 +782,13 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_CreateSharedFolder { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateSPICEDataset { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ExportToCsv { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ExportToCsvInScheduledReport { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ExportToExcel { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ExportToExcelInScheduledReport { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ExportToPdf { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ExportToPdfInScheduledReport { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_IncludeContentInScheduledReportsEmail { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_PrintReport { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_RenameSharedFolder { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareAnalyses { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareDashboard { get; set; }

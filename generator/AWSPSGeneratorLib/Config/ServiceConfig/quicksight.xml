@@ -86,6 +86,8 @@
                 <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope" />
                 <Param Name="DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl" NewName="DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl" />
                 <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl" />
+                <Param Name="DataSourceParameters_AthenaParameters_IdentityCenterConfiguration_EnableIdentityPropagation" NewName="DataSourceParameters_AthenaParameters_IdentityCenterConfiguration_EnableIdentityPropagation" />
+                <Param Name="DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation" NewName="DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation" Alias="IdentityCenterConfiguration_EnableIdentityPropagation" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -552,19 +554,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDashboards" OutputProperty="DashboardSummaryList" Verb="Get" Noun="DashboardList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDashboards" OutputProperty="DashboardSummaryList" Verb="Get" Noun="DashboardList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDashboardVersions" OutputProperty="DashboardVersionSummaryList" Verb="Get" Noun="DashboardVersionList" PipelineParameter="DashboardId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDashboardVersions" OutputProperty="DashboardVersionSummaryList" Verb="Get" Noun="DashboardVersionList" PipelineParameter="DashboardId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataSets" OutputProperty="DataSetSummaries" Verb="Get" Noun="DataSetList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDataSets" OutputProperty="DataSetSummaries" Verb="Get" Noun="DataSetList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataSources" OutputProperty="DataSources" Verb="Get" Noun="DataSourceList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDataSources" OutputProperty="DataSources" Verb="Get" Noun="DataSourceList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -580,19 +582,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroupMemberships" OutputProperty="GroupMemberList" Verb="Get" Noun="GroupMembershipList" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListGroupMemberships" OutputProperty="GroupMemberList" Verb="Get" Noun="GroupMembershipList" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroups" OutputProperty="GroupList" Verb="Get" Noun="GroupList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListGroups" OutputProperty="GroupList" Verb="Get" Noun="GroupList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIAMPolicyAssignments" OutputProperty="IAMPolicyAssignments" Verb="Get" Noun="IAMPolicyAssignmentList" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListIAMPolicyAssignments" OutputProperty="IAMPolicyAssignments" Verb="Get" Noun="IAMPolicyAssignmentList" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIAMPolicyAssignmentsForUser" OutputProperty="ActiveAssignments" Verb="Get" Noun="IAMPolicyAssignmentsForUserList" PipelineParameter="UserName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListIAMPolicyAssignmentsForUser" OutputProperty="ActiveAssignments" Verb="Get" Noun="IAMPolicyAssignmentsForUserList" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -600,7 +602,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIngestions" OutputProperty="Ingestions" Verb="Get" Noun="IngestionList" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListIngestions" OutputProperty="Ingestions" Verb="Get" Noun="IngestionList" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -620,15 +622,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTemplateAliases" OutputProperty="TemplateAliasList" Verb="Get" Noun="TemplateAliasList" PipelineParameter="TemplateId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTemplateAliases" OutputProperty="TemplateAliasList" Verb="Get" Noun="TemplateAliasList" PipelineParameter="TemplateId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTemplates" OutputProperty="TemplateSummaryList" Verb="Get" Noun="TemplateList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTemplates" OutputProperty="TemplateSummaryList" Verb="Get" Noun="TemplateList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTemplateVersions" OutputProperty="TemplateVersionSummaryList" Verb="Get" Noun="TemplateVersionList" PipelineParameter="TemplateId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTemplateVersions" OutputProperty="TemplateVersionSummaryList" Verb="Get" Noun="TemplateVersionList" PipelineParameter="TemplateId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -656,11 +658,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUserGroups" OutputProperty="GroupList" Verb="Get" Noun="UserGroupList" PipelineParameter="UserName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListUserGroups" OutputProperty="GroupList" Verb="Get" Noun="UserGroupList" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsers" OutputProperty="UserList" Verb="Get" Noun="UserList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListUsers" OutputProperty="UserList" Verb="Get" Noun="UserList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -821,6 +823,8 @@
                 <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope" />
                 <Param Name="DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl" NewName="DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl" />
                 <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl" />
+                <Param Name="DataSourceParameters_AthenaParameters_IdentityCenterConfiguration_EnableIdentityPropagation" NewName="DataSourceParameters_AthenaParameters_IdentityCenterConfiguration_EnableIdentityPropagation" />
+                <Param Name="DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation" NewName="DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation" Alias="IdentityCenterConfiguration_EnableIdentityPropagation" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
