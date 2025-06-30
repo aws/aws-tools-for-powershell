@@ -28,14 +28,15 @@ using Amazon.NetworkFlowMonitor.Model;
 namespace Amazon.PowerShell.Cmdlets.NFM
 {
     /// <summary>
-    /// Stop a query with the Network Flow Monitor query interface. Specify the query that
-    /// you want to stop by providing a query ID and a monitor name. This query returns the
-    /// top contributors for a specific monitor.
+    /// Stop a top contributors query for a monitor. Specify the query that you want to stop
+    /// by providing a query ID and a monitor name. 
     /// 
     ///  
     /// <para>
     /// Top contributors in Network Flow Monitor are network flows with the highest values
-    /// for a specific metric type, related to a scope (for workload insights) or a monitor.
+    /// for a specific metric type. Top contributors can be across all workload insights,
+    /// for a given scope, or for a specific monitor. Use the applicable call for the top
+    /// contributors that you want to be returned.
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "NFMQueryMonitorTopContributor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -71,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.NFM
         /// <summary>
         /// <para>
         /// <para>The identifier for the query. A query ID is an internally-generated identifier for
-        /// a specific query returned from an API call to start a query.</para>
+        /// a specific query returned from an API call to create a query.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

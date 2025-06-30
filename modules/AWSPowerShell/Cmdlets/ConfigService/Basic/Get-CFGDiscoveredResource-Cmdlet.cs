@@ -28,27 +28,21 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Returns a list of resource resource identifiers for the specified resource types for
-    /// the resources of that type. A <i>resource identifier</i> includes the resource type,
-    /// ID, and (if available) the custom resource name.
+    /// Accepts a resource type and returns a list of resource identifiers for the resources
+    /// of that type. A resource identifier includes the resource type, ID, and (if available)
+    /// the custom resource name. The results consist of resources that Config has discovered,
+    /// including those that Config is not currently recording. You can narrow the results
+    /// to include only resources that have specific resource IDs or a resource name.
     /// 
-    ///  
-    /// <para>
-    /// The results consist of resources that Config has <i>discovered</i>, including those
-    /// that Config is not currently recording. You can narrow the results to include only
-    /// resources that have specific resource IDs or a resource name.
-    /// </para><note><para>
+    ///  <note><para>
     /// You can specify either resource IDs or a resource name, but not both, in the same
     /// request.
-    /// </para></note><important><para><i>CloudFormation stack recording behavior in Config</i></para><para>
-    /// When a CloudFormation stack fails to create (for example, it enters the <c>ROLLBACK_FAILED</c>
-    /// state), Config does not record a configuration item (CI) for that stack. Configuration
-    /// items are only recorded for stacks that reach the following states:
-    /// </para><ul><li><para><c>CREATE_COMPLETE</c></para></li><li><para><c>UPDATE_COMPLETE</c></para></li><li><para><c>UPDATE_ROLLBACK_COMPLETE</c></para></li><li><para><c>UPDATE_ROLLBACK_FAILED</c></para></li><li><para><c>DELETE_FAILED</c></para></li><li><para><c>DELETE_COMPLETE</c></para></li></ul><para>
-    /// Because no CI is created for a failed stack creation, you won't see configuration
-    /// history for that stack in Config, even after the stack is deleted. This helps make
-    /// sure that Config only tracks resources that were successfully provisioned.
-    /// </para></important><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para></note><para>
+    /// The response is paginated. By default, Config lists 100 resource identifiers on each
+    /// page. You can customize this number with the <c>limit</c> parameter. The response
+    /// includes a <c>nextToken</c> string. To get the next page of results, run the request
+    /// again and specify the string for the <c>nextToken</c> parameter.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGDiscoveredResource")]
     [OutputType("Amazon.ConfigService.Model.ResourceIdentifier")]

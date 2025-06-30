@@ -47,7 +47,16 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// to update all stack instances with the updated template and parameter value specified
     /// in the stack set. Once a stack instance has been updated with the new parameter, you
     /// can then override the parameter value using <c>UpdateStackInstances</c>.
-    /// </para>
+    /// </para><note><para>
+    /// The maximum number of organizational unit (OUs) supported by a <c>UpdateStackInstances</c>
+    /// operation is 50.
+    /// </para><para>
+    /// If you need more than 50, consider the following options:
+    /// </para><ul><li><para><i>Batch processing:</i> If you don't want to expose your OU hierarchy, split up
+    /// the operations into multiple calls with less than 50 OUs each.
+    /// </para></li><li><para><i>Parent OU strategy:</i> If you don't mind exposing the OU hierarchy, target a
+    /// parent OU that contains all desired child OUs.
+    /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Update", "CFNStackInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

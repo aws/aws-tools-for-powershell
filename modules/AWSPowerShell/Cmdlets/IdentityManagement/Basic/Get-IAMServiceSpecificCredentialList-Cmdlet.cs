@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// credentials returned by this operation are used only for authenticating the IAM user
     /// to a specific service. For more information about using service-specific credentials
     /// to authenticate to an Amazon Web Services service, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html">Set
-    /// up service-specific credentials</a> in the CodeCommit User Guide.
+    /// up service-specific credentials</a> in the CodeCommit User Guide.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IAMServiceSpecificCredentialList")]
     [OutputType("Amazon.IdentityManagement.Model.ServiceSpecificCredentialMetadata")]
@@ -46,6 +46,19 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter AllUser
+        /// <summary>
+        /// <para>
+        /// <para>A flag indicating whether to list service specific credentials for all users. This
+        /// parameter cannot be specified together with UserName. When true, returns all credentials
+        /// associated with the specified service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AllUsers")]
+        public System.Boolean? AllUser { get; set; }
+        #endregion
         
         #region Parameter ServiceName
         /// <summary>
@@ -73,6 +86,36 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         public System.String UserName { get; set; }
         #endregion
         
+        #region Parameter Marker
+        /// <summary>
+        /// <para>
+        /// <para>Use this parameter only when paginating results and only after you receive a response
+        /// indicating that the results are truncated. Set it to the value of the Marker from
+        /// the response that you received to indicate where the next call should start.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>'Marker' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-Marker' to null for the first call then set the 'Marker' using the same property output from the previous call for subsequent calls.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NextToken")]
+        public System.String Marker { get; set; }
+        #endregion
+        
+        #region Parameter MaxItem
+        /// <summary>
+        /// <para>
+        /// <para>Use this only when paginating results to indicate the maximum number of items you
+        /// want in the response. If additional items exist beyond the maximum you specify, the
+        /// IsTruncated response element is true.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxItems")]
+        public System.Int32? MaxItem { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ServiceSpecificCredentials'.
@@ -92,6 +135,16 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^UserName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter NoAutoIteration
+        /// <summary>
+        /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
+        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of Marker
+        /// as the start point.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -119,6 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 context.Select = (response, cmdlet) => this.UserName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AllUser = this.AllUser;
+            context.Marker = this.Marker;
+            context.MaxItem = this.MaxItem;
             context.ServiceName = this.ServiceName;
             context.UserName = this.UserName;
             
@@ -134,9 +190,21 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            
+            // create request and set iteration invariants
             var request = new Amazon.IdentityManagement.Model.ListServiceSpecificCredentialsRequest();
             
+            if (cmdletContext.AllUser != null)
+            {
+                request.AllUsers = cmdletContext.AllUser.Value;
+            }
+            if (cmdletContext.MaxItem != null)
+            {
+                request.MaxItems = cmdletContext.MaxItem.Value;
+            }
             if (cmdletContext.ServiceName != null)
             {
                 request.ServiceName = cmdletContext.ServiceName;
@@ -146,27 +214,51 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 request.UserName = cmdletContext.UserName;
             }
             
-            CmdletOutput output;
+            // Initialize loop variant and commence piping
+            var _nextToken = cmdletContext.Marker;
+            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.Marker));
             
-            // issue call
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            try
+            do
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                request.Marker = _nextToken;
+                
+                CmdletOutput output;
+                
+                try
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
-            }
-            catch (Exception e)
+                    
+                    var response = CallAWSServiceOperation(client, request);
+                    
+                    object pipelineOutput = null;
+                    if (!useParameterSelect)
+                    {
+                        pipelineOutput = cmdletContext.Select(response, this);
+                    }
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                    
+                    _nextToken = response.Marker;
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                ProcessOutput(output);
+                
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
+            
+            if (useParameterSelect)
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                WriteObject(cmdletContext.Select(null, this));
             }
             
-            return output;
+            
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -206,6 +298,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AllUser { get; set; }
+            public System.String Marker { get; set; }
+            public System.Int32? MaxItem { get; set; }
             public System.String ServiceName { get; set; }
             public System.String UserName { get; set; }
             public System.Func<Amazon.IdentityManagement.Model.ListServiceSpecificCredentialsResponse, GetIAMServiceSpecificCredentialListCmdlet, object> Select { get; set; } =

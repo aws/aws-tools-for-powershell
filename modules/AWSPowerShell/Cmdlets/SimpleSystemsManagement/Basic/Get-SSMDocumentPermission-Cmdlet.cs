@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the document for which you are the owner.</para>
+        /// <para>The name of the document for which you are the owner. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

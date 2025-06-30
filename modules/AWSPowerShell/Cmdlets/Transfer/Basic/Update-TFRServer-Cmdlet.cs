@@ -63,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// an internet-facing endpoint for your server</a>.</para><note><para>This property can only be set as follows:</para><ul><li><para><c>EndpointType</c> must be set to <c>VPC</c></para></li><li><para>The Transfer Family server must be offline.</para></li><li><para>You cannot set this parameter for Transfer Family servers that use the FTP protocol.</para></li><li><para>The server must already have <c>SubnetIds</c> populated (<c>SubnetIds</c> and <c>AddressAllocationIds</c>
         /// cannot be updated simultaneously).</para></li><li><para><c>AddressAllocationIds</c> can't contain duplicates, and must be equal in length
         /// to <c>SubnetIds</c>. For example, if you have three subnet IDs, you must also specify
-        /// three address allocation IDs.</para></li><li><para>Call the <c>UpdateServer</c> API to set or change this parameter.</para></li></ul></note>
+        /// three address allocation IDs.</para></li><li><para>Call the <c>UpdateServer</c> API to set or change this parameter.</para></li><li><para>You can't set address allocation IDs for servers that have an <c>IpAddressType</c>
+        /// set to <c>DUALSTACK</c> You can only set this property if <c>IpAddressType</c> is
+        /// set to <c>IPV4</c>.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,6 +182,22 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String IdentityProviderDetails_InvocationRole { get; set; }
+        #endregion
+        
+        #region Parameter IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to use IPv4 only, or to use dual-stack (IPv4 and IPv6) for your
+        /// Transfer Family endpoint. The default value is <c>IPV4</c>.</para><important><para>The <c>IpAddressType</c> parameter has the following limitations:</para><ul><li><para>It cannot be changed while the server is online. You must stop the server before modifying
+        /// this parameter.</para></li><li><para>It cannot be updated to <c>DUALSTACK</c> if the server has <c>AddressAllocationIds</c>
+        /// specified.</para></li></ul></important><note><para>When using <c>DUALSTACK</c> as the <c>IpAddressType</c>, you cannot set the <c>AddressAllocationIds</c>
+        /// parameter for the <a href="https://docs.aws.amazon.com/transfer/latest/APIReference/API_EndpointDetails.html">EndpointDetails</a>
+        /// for the server.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Transfer.IpAddressType")]
+        public Amazon.Transfer.IpAddressType IpAddressType { get; set; }
         #endregion
         
         #region Parameter LoggingRole
@@ -537,6 +555,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             context.IdentityProviderDetails_InvocationRole = this.IdentityProviderDetails_InvocationRole;
             context.IdentityProviderDetails_SftpAuthenticationMethod = this.IdentityProviderDetails_SftpAuthenticationMethod;
             context.IdentityProviderDetails_Url = this.IdentityProviderDetails_Url;
+            context.IpAddressType = this.IpAddressType;
             context.LoggingRole = this.LoggingRole;
             context.PostAuthenticationLoginBanner = this.PostAuthenticationLoginBanner;
             context.PreAuthenticationLoginBanner = this.PreAuthenticationLoginBanner;
@@ -717,6 +736,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             if (requestIdentityProviderDetailsIsNull)
             {
                 request.IdentityProviderDetails = null;
+            }
+            if (cmdletContext.IpAddressType != null)
+            {
+                request.IpAddressType = cmdletContext.IpAddressType;
             }
             if (cmdletContext.LoggingRole != null)
             {
@@ -917,6 +940,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public System.String IdentityProviderDetails_InvocationRole { get; set; }
             public Amazon.Transfer.SftpAuthenticationMethods IdentityProviderDetails_SftpAuthenticationMethod { get; set; }
             public System.String IdentityProviderDetails_Url { get; set; }
+            public Amazon.Transfer.IpAddressType IpAddressType { get; set; }
             public System.String LoggingRole { get; set; }
             public System.String PostAuthenticationLoginBanner { get; set; }
             public System.String PreAuthenticationLoginBanner { get; set; }

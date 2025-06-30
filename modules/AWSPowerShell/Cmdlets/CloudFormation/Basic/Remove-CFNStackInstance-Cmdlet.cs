@@ -30,6 +30,17 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// <summary>
     /// Deletes stack instances for the specified accounts, in the specified Amazon Web Services
     /// Regions.
+    /// 
+    ///  <note><para>
+    /// The maximum number of organizational unit (OUs) supported by a <c>DeleteStackInstances</c>
+    /// operation is 50.
+    /// </para><para>
+    /// If you need more than 50, consider the following options:
+    /// </para><ul><li><para><i>Batch processing:</i> If you don't want to expose your OU hierarchy, split up
+    /// the operations into multiple calls with less than 50 OUs each.
+    /// </para></li><li><para><i>Parent OU strategy:</i> If you don't mind exposing the OU hierarchy, target a
+    /// parent OU that contains all desired child OUs.
+    /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Remove", "CFNStackInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

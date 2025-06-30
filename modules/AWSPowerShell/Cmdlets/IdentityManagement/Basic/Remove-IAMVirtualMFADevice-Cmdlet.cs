@@ -32,7 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  <note><para>
     ///  You must deactivate a user's virtual MFA device before you can delete it. For information
-    /// about deactivating MFA devices, see <a>DeactivateMFADevice</a>. 
+    /// about deactivating MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeactivateMFADevice.html">DeactivateMFADevice</a>.
+    /// 
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "IAMVirtualMFADevice", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

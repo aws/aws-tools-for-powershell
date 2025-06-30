@@ -50,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// and deactivating STS in an Amazon Web Services Region</a> in the <i>IAM User Guide</i>.
     /// </para><para>
     /// To view the current session token version, see the <c>GlobalEndpointTokenVersion</c>
-    /// entry in the response of the <a>GetAccountSummary</a> operation.
+    /// entry in the response of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountSummary.html">GetAccountSummary</a>
+    /// operation.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "IAMSecurityTokenServicePreference", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>The landing directory (folder) for a user when they log in to the server using the
-        /// client.</para><para>A <c>HomeDirectory</c> example is <c>/bucket_name/home/mydirectory</c>.</para><note><para>The <c>HomeDirectory</c> parameter is only used if <c>HomeDirectoryType</c> is set
-        /// to <c>PATH</c>.</para></note>
+        /// client.</para><para>A <c>HomeDirectory</c> example is <c>/bucket_name/home/mydirectory</c>.</para><note><para>You can use the <c>HomeDirectory</c> parameter for <c>HomeDirectoryType</c> when it
+        /// is set to either <c>PATH</c> or <c>LOGICAL</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

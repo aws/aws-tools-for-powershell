@@ -34,23 +34,24 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// an IAM user</a>. Before attempting to delete a user, remove the following items:
     /// 
     ///  <ul><li><para>
-    /// Password (<a>DeleteLoginProfile</a>)
+    /// Password (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteLoginProfile.html">DeleteLoginProfile</a>)
     /// </para></li><li><para>
-    /// Access keys (<a>DeleteAccessKey</a>)
+    /// Access keys (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccessKey.html">DeleteAccessKey</a>)
     /// </para></li><li><para>
-    /// Signing certificate (<a>DeleteSigningCertificate</a>)
+    /// Signing certificate (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSigningCertificate.html">DeleteSigningCertificate</a>)
     /// </para></li><li><para>
-    /// SSH public key (<a>DeleteSSHPublicKey</a>)
+    /// SSH public key (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSSHPublicKey.html">DeleteSSHPublicKey</a>)
     /// </para></li><li><para>
-    /// Git credentials (<a>DeleteServiceSpecificCredential</a>)
+    /// Git credentials (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceSpecificCredential.html">DeleteServiceSpecificCredential</a>)
     /// </para></li><li><para>
-    /// Multi-factor authentication (MFA) device (<a>DeactivateMFADevice</a>, <a>DeleteVirtualMFADevice</a>)
+    /// Multi-factor authentication (MFA) device (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeactivateMFADevice.html">DeactivateMFADevice</a>,
+    /// <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteVirtualMFADevice.html">DeleteVirtualMFADevice</a>)
     /// </para></li><li><para>
-    /// Inline policies (<a>DeleteUserPolicy</a>)
+    /// Inline policies (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUserPolicy.html">DeleteUserPolicy</a>)
     /// </para></li><li><para>
-    /// Attached managed policies (<a>DetachUserPolicy</a>)
+    /// Attached managed policies (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachUserPolicy.html">DetachUserPolicy</a>)
     /// </para></li><li><para>
-    /// Group memberships (<a>RemoveUserFromGroup</a>)
+    /// Group memberships (<a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveUserFromGroup.html">RemoveUserFromGroup</a>)
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "IAMUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

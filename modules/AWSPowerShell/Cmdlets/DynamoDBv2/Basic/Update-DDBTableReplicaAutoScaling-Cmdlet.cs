@@ -29,11 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
     /// Updates auto scaling settings on your global tables at once.
-    /// 
-    ///  <important><para>
-    /// For global tables, this operation only applies to global tables using Version 2019.11.21
-    /// (Current version). 
-    /// </para></important>
     /// </summary>
     [Cmdlet("Update", "DDBTableReplicaAutoScaling", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DynamoDBv2.Model.TableAutoScalingDescription")]

@@ -35,11 +35,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Policies returned by this operation are URL-encoded compliant with <a href="https://tools.ietf.org/html/rfc3986">RFC
     /// 3986</a>. You can use a URL decoding method to convert the policy back to plain JSON
     /// text. For example, if you use Java, you can use the <c>decode</c> method of the <c>java.net.URLDecoder</c>
-    /// utility class in the Java SDK. Other languages and SDKs provide similar functionality.
+    /// utility class in the Java SDK. Other languages and SDKs provide similar functionality,
+    /// and some SDKs do this decoding automatically.
     /// </para></note><para>
     /// An IAM user can also have managed policies attached to it. To retrieve a managed policy
-    /// document that is attached to a user, use <a>GetPolicy</a> to determine the policy's
-    /// default version. Then use <a>GetPolicyVersion</a> to retrieve the policy document.
+    /// document that is attached to a user, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicy.html">GetPolicy</a>
+    /// to determine the policy's default version. Then use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicyVersion.html">GetPolicyVersion</a>
+    /// to retrieve the policy document.
     /// </para><para>
     /// For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
     /// policies and inline policies</a> in the <i>IAM User Guide</i>.

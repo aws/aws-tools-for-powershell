@@ -38,7 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <para>
     /// You can optionally include a list of one or more additional policies specified as
     /// strings to include in the simulation. If you want to simulate only policies specified
-    /// as strings, use <a>SimulateCustomPolicy</a> instead.
+    /// as strings, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulateCustomPolicy.html">SimulateCustomPolicy</a>
+    /// instead.
     /// </para><para>
     /// You can also optionally include one resource-based policy to be evaluated with each
     /// of the resources included in the simulation for IAM users only.
@@ -47,12 +48,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// to determine if the simulated policies allow or deny the operations.
     /// </para><para><b>Note:</b> This operation discloses information about the permissions granted to
     /// other users. If you do not want users to see other user's permissions, then consider
-    /// allowing them to use <a>SimulateCustomPolicy</a> instead.
+    /// allowing them to use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulateCustomPolicy.html">SimulateCustomPolicy</a>
+    /// instead.
     /// </para><para>
     /// Context keys are variables maintained by Amazon Web Services and its services that
     /// provide details about the context of an API query request. You can use the <c>Condition</c>
     /// element of an IAM policy to evaluate context keys. To get the list of context keys
-    /// that the policies require for correct simulation, use <a>GetContextKeysForPrincipalPolicy</a>.
+    /// that the policies require for correct simulation, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a>.
     /// </para><para>
     /// If the output is long, you can use the <c>MaxItems</c> and <c>Marker</c> parameters
     /// to paginate the results.

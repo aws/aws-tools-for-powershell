@@ -43,9 +43,11 @@ namespace Amazon.PowerShell.Cmdlets.NFM
     /// was returned for your account by <c>CreateScope</c>.
     /// </para><para>
     /// Top contributors in Network Flow Monitor are network flows with the highest values
-    /// for a specific metric type, related to a scope (for workload insights) or a monitor.
+    /// for a specific metric type. Top contributors can be across all workload insights,
+    /// for a given scope, or for a specific monitor. Use the applicable call for the top
+    /// contributors that you want to be returned.
     /// </para><para>
-    /// The top contributor network flows overall for a specific metric type, for example,
+    /// The top contributor network flows overall are for a specific metric type, for example,
     /// the number of retransmissions.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -64,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.NFM
         /// <summary>
         /// <para>
         /// <para>The identifier for the query. A query ID is an internally-generated identifier for
-        /// a specific query returned from an API call to start a query.</para>
+        /// a specific query returned from an API call to create a query.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

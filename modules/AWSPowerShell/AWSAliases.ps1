@@ -1564,6 +1564,8 @@ Set-Alias -Name PROM-UpdateQueryLoggingConfiguration -Value Update-PROMQueryLogg
 Set-Alias -Name PROM-UpdateScraper -Value Update-PROMScraper
 Set-Alias -Name PROM-UpdateWorkspaceAlias -Value Update-PROMWorkspaceAlias
 Set-Alias -Name PROM-UpdateWorkspaceConfiguration -Value Update-PROMWorkspaceConfiguration
+Set-Alias -Name Cancel-AZSPracticeRun -Value Stop-AZSPracticeRun
+Set-Alias -Name AZS-CancelPracticeRun -Value Stop-AZSPracticeRun
 Set-Alias -Name Cancel-AZSZonalShift -Value Stop-AZSZonalShift
 Set-Alias -Name AZS-CancelZonalShift -Value Stop-AZSZonalShift
 Set-Alias -Name Create-AZSPracticeRunConfiguration -Value New-AZSPracticeRunConfiguration
@@ -1581,6 +1583,7 @@ Set-Alias -Name AZS-ListManagedResources -Value Get-AZSManagedResourceList
 Set-Alias -Name List-AZSZonalShifts -Value Get-AZSZonalShiftList
 Set-Alias -Name List-AZSZonalShiftList -Value Get-AZSZonalShiftList
 Set-Alias -Name AZS-ListZonalShifts -Value Get-AZSZonalShiftList
+Set-Alias -Name AZS-StartPracticeRun -Value Start-AZSPracticeRun
 Set-Alias -Name AZS-StartZonalShift -Value Start-AZSZonalShift
 Set-Alias -Name AZS-UpdateAutoshiftObserverNotificationStatus -Value Update-AZSAutoshiftObserverNotificationStatus
 Set-Alias -Name AZS-UpdatePracticeRunConfiguration -Value Update-AZSPracticeRunConfiguration

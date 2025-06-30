@@ -28,7 +28,12 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Returns summary information about the results of a stack set operation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns summary information about the results of a stack set operation.
+    /// 
+    ///  <note><para>
+    /// This API provides <i>eventually consistent</i> reads meaning it may take some time
+    /// but will eventually return the most up-to-date data.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFNStackSetOperationResultList")]
     [OutputType("Amazon.CloudFormation.Model.StackSetOperationResultSummary")]

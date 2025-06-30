@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     ///  
     /// <para>
     /// If you submit a deletion request for a service-linked role whose linked service is
-    /// still accessing a resource, then the deletion task fails. If it fails, the <a>GetServiceLinkedRoleDeletionStatus</a>
+    /// still accessing a resource, then the deletion task fails. If it fails, the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLinkedRoleDeletionStatus.html">GetServiceLinkedRoleDeletionStatus</a>
     /// operation returns the reason for the failure, usually including the resources that
     /// must be deleted. To delete the service-linked role, you must first remove those resources
     /// from the linked service and then submit the deletion request again. Resources are

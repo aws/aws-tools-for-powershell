@@ -28,7 +28,8 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Use <a>UpdateRole</a> instead.
+    /// Use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateRole.html">UpdateRole</a>
+    /// instead.
     /// 
     ///  
     /// <para>

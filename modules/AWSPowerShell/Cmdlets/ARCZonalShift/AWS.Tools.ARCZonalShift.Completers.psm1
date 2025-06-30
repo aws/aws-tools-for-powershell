@@ -171,7 +171,8 @@ $AZS_SelectCompleters = {
 }
 
 $AZS_SelectMap = @{
-    "Select"=@("Stop-AZSZonalShift",
+    "Select"=@("Stop-AZSPracticeRun",
+               "Stop-AZSZonalShift",
                "New-AZSPracticeRunConfiguration",
                "Remove-AZSPracticeRunConfiguration",
                "Get-AZSAutoshiftObserverNotificationStatus",
@@ -179,6 +180,7 @@ $AZS_SelectMap = @{
                "Get-AZSAutoshiftList",
                "Get-AZSManagedResourceList",
                "Get-AZSZonalShiftList",
+               "Start-AZSPracticeRun",
                "Start-AZSZonalShift",
                "Update-AZSAutoshiftObserverNotificationStatus",
                "Update-AZSPracticeRunConfiguration",

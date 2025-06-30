@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// calls and whether they were successful or denied access. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html">Logging
     /// IAM events with CloudTrail</a> in the <i>IAM User Guide</i>.
     /// </para></important><para>
-    /// This operation returns a <c>JobId</c>. Use this parameter in the <c><a>GetOrganizationsAccessReport</a></c> operation to check the status of the report generation. To check the status of
-    /// this request, use the <c>JobId</c> parameter in the <c><a>GetOrganizationsAccessReport</a></c> operation and test the <c>JobStatus</c> response parameter. When the job is complete,
+    /// This operation returns a <c>JobId</c>. Use this parameter in the <c><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a></c> operation to check the status of the report generation. To check the status of
+    /// this request, use the <c>JobId</c> parameter in the <c><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a></c> operation and test the <c>JobStatus</c> response parameter. When the job is complete,
     /// you can retrieve the report.
     /// </para><para>
     /// To generate a service last accessed data report for entities, specify an entity path

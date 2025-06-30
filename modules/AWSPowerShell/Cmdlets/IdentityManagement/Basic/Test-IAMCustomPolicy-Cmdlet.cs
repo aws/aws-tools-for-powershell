@@ -39,12 +39,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// resources that don't exist in your account.
     /// </para><para>
     /// If you want to simulate existing policies that are attached to an IAM user, group,
-    /// or role, use <a>SimulatePrincipalPolicy</a> instead.
+    /// or role, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a>
+    /// instead.
     /// </para><para>
     /// Context keys are variables that are maintained by Amazon Web Services and its services
     /// and which provide details about the context of an API query request. You can use the
     /// <c>Condition</c> element of an IAM policy to evaluate context keys. To get the list
-    /// of context keys that the policies require for correct simulation, use <a>GetContextKeysForCustomPolicy</a>.
+    /// of context keys that the policies require for correct simulation, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a>.
     /// </para><para>
     /// If the output is long, you can use <c>MaxItems</c> and <c>Marker</c> parameters to
     /// paginate the results.

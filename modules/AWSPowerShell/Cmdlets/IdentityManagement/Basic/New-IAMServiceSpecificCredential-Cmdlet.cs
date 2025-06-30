@@ -37,14 +37,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// You can have a maximum of two sets of service-specific credentials for each supported
     /// service per user.
     /// </para><para>
-    /// You can create service-specific credentials for CodeCommit and Amazon Keyspaces (for
-    /// Apache Cassandra).
+    /// You can create service-specific credentials for Amazon Bedrock, CodeCommit and Amazon
+    /// Keyspaces (for Apache Cassandra).
     /// </para><para>
-    /// You can reset the password to a new service-generated value by calling <a>ResetServiceSpecificCredential</a>.
+    /// You can reset the password to a new service-generated value by calling <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html">ResetServiceSpecificCredential</a>.
     /// </para><para>
-    /// For more information about service-specific credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html">Using
-    /// IAM with CodeCommit: Git credentials, SSH keys, and Amazon Web Services access keys</a>
-    /// in the <i>IAM User Guide</i>.
+    /// For more information about service-specific credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_bedrock.html">Service-specific
+    /// credentials for IAM users</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "IAMServiceSpecificCredential", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -60,6 +59,19 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter CredentialAgeDay
+        /// <summary>
+        /// <para>
+        /// <para>The number of days until the service specific credential expires. This field is only
+        /// valid for Bedrock API keys and must be a positive integer. When not specified, the
+        /// credential will not expire.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CredentialAgeDays")]
+        public System.Int32? CredentialAgeDay { get; set; }
+        #endregion
         
         #region Parameter ServiceName
         /// <summary>
@@ -163,6 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 context.Select = (response, cmdlet) => this.UserName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CredentialAgeDay = this.CredentialAgeDay;
             context.ServiceName = this.ServiceName;
             #if MODULAR
             if (this.ServiceName == null && ParameterWasBound(nameof(this.ServiceName)))
@@ -193,6 +206,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             // create request
             var request = new Amazon.IdentityManagement.Model.CreateServiceSpecificCredentialRequest();
             
+            if (cmdletContext.CredentialAgeDay != null)
+            {
+                request.CredentialAgeDays = cmdletContext.CredentialAgeDay.Value;
+            }
             if (cmdletContext.ServiceName != null)
             {
                 request.ServiceName = cmdletContext.ServiceName;
@@ -262,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? CredentialAgeDay { get; set; }
             public System.String ServiceName { get; set; }
             public System.String UserName { get; set; }
             public System.Func<Amazon.IdentityManagement.Model.CreateServiceSpecificCredentialResponse, NewIAMServiceSpecificCredentialCmdlet, object> Select { get; set; } =

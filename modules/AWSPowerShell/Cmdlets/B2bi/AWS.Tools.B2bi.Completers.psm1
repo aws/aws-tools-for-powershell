@@ -133,6 +133,16 @@ $B2BI_Completers = {
             break
         }
 
+        # Amazon.B2bi.LineTerminator
+        {
+            ($_ -eq "New-B2BIPartnership/WrapOptions_LineTerminator") -Or
+            ($_ -eq "Update-B2BIPartnership/WrapOptions_LineTerminator")
+        }
+        {
+            $v = "CR","CRLF","LF"
+            break
+        }
+
         # Amazon.B2bi.Logging
         "New-B2BIProfile/Logging"
         {
@@ -174,6 +184,57 @@ $B2BI_Completers = {
         "Update-B2BITransformer/Status"
         {
             $v = "active","inactive"
+            break
+        }
+
+        # Amazon.B2bi.WrapFormat
+        {
+            ($_ -eq "New-B2BIPartnership/WrapOptions_WrapBy") -Or
+            ($_ -eq "Update-B2BIPartnership/WrapOptions_WrapBy")
+        }
+        {
+            $v = "LINE_LENGTH","ONE_LINE","SEGMENT"
+            break
+        }
+
+        # Amazon.B2bi.X12FunctionalAcknowledgment
+        {
+            ($_ -eq "New-B2BIPartnership/AcknowledgmentOptions_FunctionalAcknowledgment") -Or
+            ($_ -eq "Update-B2BIPartnership/AcknowledgmentOptions_FunctionalAcknowledgment")
+        }
+        {
+            $v = "DO_NOT_GENERATE","GENERATE_ALL_SEGMENTS","GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP"
+            break
+        }
+
+        # Amazon.B2bi.X12GS05TimeFormat
+        {
+            ($_ -eq "New-B2BIPartnership/Common_Gs05TimeFormat") -Or
+            ($_ -eq "Update-B2BIPartnership/Common_Gs05TimeFormat")
+        }
+        {
+            $v = "HHMM","HHMMSS","HHMMSSDD"
+            break
+        }
+
+        # Amazon.B2bi.X12SplitBy
+        {
+            ($_ -eq "New-B2BITransformer/SplitOptions_SplitBy") -Or
+            ($_ -eq "Test-B2BIParsing/SplitOptions_SplitBy") -Or
+            ($_ -eq "Update-B2BITransformer/SplitOptions_SplitBy")
+        }
+        {
+            $v = "NONE","TRANSACTION"
+            break
+        }
+
+        # Amazon.B2bi.X12TechnicalAcknowledgment
+        {
+            ($_ -eq "New-B2BIPartnership/AcknowledgmentOptions_TechnicalAcknowledgment") -Or
+            ($_ -eq "Update-B2BIPartnership/AcknowledgmentOptions_TechnicalAcknowledgment")
+        }
+        {
+            $v = "DO_NOT_GENERATE","GENERATE_ALL_SEGMENTS"
             break
         }
 
@@ -224,6 +285,9 @@ $B2BI_Completers = {
 }
 
 $B2BI_map = @{
+    "AcknowledgmentOptions_FunctionalAcknowledgment"=@("New-B2BIPartnership","Update-B2BIPartnership")
+    "AcknowledgmentOptions_TechnicalAcknowledgment"=@("New-B2BIPartnership","Update-B2BIPartnership")
+    "Common_Gs05TimeFormat"=@("New-B2BIPartnership","Update-B2BIPartnership")
     "Edi_CapabilityDirection"=@("New-B2BICapability","Update-B2BICapability")
     "FileFormat"=@("New-B2BITransformer","Test-B2BIMapping","Test-B2BIParsing","Update-B2BITransformer")
     "InputConversion_FormatOptions_X12_TransactionSet"=@("New-B2BITransformer","Update-B2BITransformer")
@@ -236,9 +300,12 @@ $B2BI_map = @{
     "OutputConversion_FormatOptions_X12_Version"=@("New-B2BITransformer","Update-B2BITransformer")
     "OutputConversion_ToFormat"=@("New-B2BITransformer","Update-B2BITransformer")
     "Source_FileFormat"=@("Test-B2BIConversion")
+    "SplitOptions_SplitBy"=@("New-B2BITransformer","Test-B2BIParsing","Update-B2BITransformer")
     "Status"=@("Update-B2BITransformer")
     "Target_FileFormat"=@("Test-B2BIConversion")
     "Type"=@("New-B2BICapability")
+    "WrapOptions_LineTerminator"=@("New-B2BIPartnership","Update-B2BIPartnership")
+    "WrapOptions_WrapBy"=@("New-B2BIPartnership","Update-B2BIPartnership")
     "X12_TransactionSet"=@("New-B2BIStarterMappingTemplate","Test-B2BIConversion")
     "X12_Version"=@("New-B2BIStarterMappingTemplate","Test-B2BIConversion")
     "X12Details_TransactionSet"=@("New-B2BICapability","New-B2BITransformer","Test-B2BIParsing","Update-B2BICapability","Update-B2BITransformer")

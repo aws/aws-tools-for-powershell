@@ -31,10 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB
     /// Streams settings for a given table.
     /// 
-    ///  <important><para>
-    /// For global tables, this operation only applies to global tables using Version 2019.11.21
-    /// (Current version). 
-    /// </para></important><para>
+    ///  
+    /// <para>
     /// You can only perform one of the following operations at once:
     /// </para><ul><li><para>
     /// Modify the provisioned throughput settings of the table.
@@ -133,6 +131,21 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public Amazon.DynamoDBv2.Model.GlobalSecondaryIndexUpdate[] GlobalSecondaryIndexUpdate { get; set; }
         #endregion
         
+        #region Parameter GlobalTableWitnessUpdate
+        /// <summary>
+        /// <para>
+        /// <para>A list of witness updates for a MRSC global table. A witness provides a cost-effective
+        /// alternative to a full replica in a MRSC global table by maintaining replicated change
+        /// data written to global table replicas. You cannot perform read or write operations
+        /// on a witness. For each witness, you can request one action:</para><ul><li><para><c>Create</c> - add a new witness to the global table.</para></li><li><para><c>Delete</c> - remove a witness from the global table.</para></li></ul><para>You can create or delete only one witness per <c>UpdateTable</c> operation.</para><para>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes">Multi-Region
+        /// strong consistency (MRSC)</a> in the Amazon DynamoDB Developer Guide</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GlobalTableWitnessUpdates")]
+        public Amazon.DynamoDBv2.Model.GlobalTableWitnessGroupUpdate[] GlobalTableWitnessUpdate { get; set; }
+        #endregion
+        
         #region Parameter SSESpecification_KMSMasterKeyId
         /// <summary>
         /// <para>
@@ -178,12 +191,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>Specifies the consistency mode for a new global table. This parameter is only valid
         /// when you create a global table by specifying one or more <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ReplicationGroupUpdate.html#DDB-Type-ReplicationGroupUpdate-Create">Create</a>
         /// actions in the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html#DDB-UpdateTable-request-ReplicaUpdates">ReplicaUpdates</a>
-        /// action list.</para><para>You can specify one of the following consistency modes:</para><ul><li><para><c>EVENTUAL</c>: Configures a new global table for multi-Region eventual consistency.
-        /// This is the default consistency mode for global tables.</para></li><li><para><c>STRONG</c>: Configures a new global table for multi-Region strong consistency
-        /// (preview).</para><note><para>Multi-Region strong consistency (MRSC) is a new DynamoDB global tables capability
-        /// currently available in preview mode. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PreviewFeatures.html#multi-region-strong-consistency-gt">Global
-        /// tables multi-Region strong consistency</a>.</para></note></li></ul><para>If you don't specify this parameter, the global table consistency mode defaults to
-        /// <c>EVENTUAL</c>.</para>
+        /// action list.</para><para>You can specify one of the following consistency modes:</para><ul><li><para><c>EVENTUAL</c>: Configures a new global table for multi-Region eventual consistency
+        /// (MREC). This is the default consistency mode for global tables.</para></li><li><para><c>STRONG</c>: Configures a new global table for multi-Region strong consistency
+        /// (MRSC).</para></li></ul><para>If you don't specify this field, the global table consistency mode defaults to <c>EVENTUAL</c>.
+        /// For more information about global tables consistency modes, see <a href="https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes">
+        /// Consistency modes</a> in DynamoDB developer guide. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -217,8 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter ReplicaUpdate
         /// <summary>
         /// <para>
-        /// <para>A list of replica update actions (create, delete, or update) for the table.</para><note><para>For global tables, this property only applies to global tables using Version 2019.11.21
-        /// (Current version). </para></note>
+        /// <para>A list of replica update actions (create, delete, or update) for the table.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -388,6 +399,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             {
                 context.GlobalSecondaryIndexUpdate = new List<Amazon.DynamoDBv2.Model.GlobalSecondaryIndexUpdate>(this.GlobalSecondaryIndexUpdate);
             }
+            if (this.GlobalTableWitnessUpdate != null)
+            {
+                context.GlobalTableWitnessUpdate = new List<Amazon.DynamoDBv2.Model.GlobalTableWitnessGroupUpdate>(this.GlobalTableWitnessUpdate);
+            }
             context.MultiRegionConsistency = this.MultiRegionConsistency;
             context.OnDemandThroughput_MaxReadRequestUnit = this.OnDemandThroughput_MaxReadRequestUnit;
             context.OnDemandThroughput_MaxWriteRequestUnit = this.OnDemandThroughput_MaxWriteRequestUnit;
@@ -443,6 +458,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (cmdletContext.GlobalSecondaryIndexUpdate != null)
             {
                 request.GlobalSecondaryIndexUpdates = cmdletContext.GlobalSecondaryIndexUpdate;
+            }
+            if (cmdletContext.GlobalTableWitnessUpdate != null)
+            {
+                request.GlobalTableWitnessUpdates = cmdletContext.GlobalTableWitnessUpdate;
             }
             if (cmdletContext.MultiRegionConsistency != null)
             {
@@ -680,6 +699,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             public Amazon.DynamoDBv2.BillingMode BillingMode { get; set; }
             public System.Boolean? DeletionProtectionEnabled { get; set; }
             public List<Amazon.DynamoDBv2.Model.GlobalSecondaryIndexUpdate> GlobalSecondaryIndexUpdate { get; set; }
+            public List<Amazon.DynamoDBv2.Model.GlobalTableWitnessGroupUpdate> GlobalTableWitnessUpdate { get; set; }
             public Amazon.DynamoDBv2.MultiRegionConsistency MultiRegionConsistency { get; set; }
             public System.Int64? OnDemandThroughput_MaxReadRequestUnit { get; set; }
             public System.Int64? OnDemandThroughput_MaxWriteRequestUnit { get; set; }

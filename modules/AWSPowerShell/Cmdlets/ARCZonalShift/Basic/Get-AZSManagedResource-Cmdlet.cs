@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
 {
     /// <summary>
     /// Get information about a resource that's been registered for zonal shifts with Amazon
-    /// Route 53 Application Recovery Controller in this Amazon Web Services Region. Resources
-    /// that are registered for zonal shifts are managed resources in ARC. You can start zonal
+    /// Application Recovery Controller in this Amazon Web Services Region. Resources that
+    /// are registered for zonal shifts are managed resources in ARC. You can start zonal
     /// shifts and configure zonal autoshift for managed resources.
     /// </summary>
     [Cmdlet("Get", "AZSManagedResource")]
@@ -48,8 +48,12 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         /// <summary>
         /// <para>
         /// <para>The identifier for the resource that Amazon Web Services shifts traffic for. The identifier
-        /// is the Amazon Resource Name (ARN) for the resource.</para><para>At this time, supported resources are Network Load Balancers and Application Load
-        /// Balancers with cross-zone load balancing turned off.</para>
+        /// is the Amazon Resource Name (ARN) for the resource.</para><para>Amazon Application Recovery Controller currently supports enabling the following resources
+        /// for zonal shift and zonal autoshift:</para><ul><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.ec2-auto-scaling-groups.html">Amazon
+        /// EC2 Auto Scaling groups</a></para></li><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.eks.html">Amazon
+        /// Elastic Kubernetes Service</a></para></li><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.app-load-balancers.html">Application
+        /// Load Balancer</a></para></li><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.network-load-balancers.html">Network
+        /// Load Balancer</a></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -22,43 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IdentityManagement;
-using Amazon.IdentityManagement.Model;
+using Amazon.ARCZonalShift;
+using Amazon.ARCZonalShift.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IAM
+namespace Amazon.PowerShell.Cmdlets.AZS
 {
     /// <summary>
-    /// Retrieves information about the specified role, including the role's path, GUID, ARN,
-    /// and the role's trust policy that grants permission to assume the role. For more information
-    /// about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
-    /// roles</a> in the <i>IAM User Guide</i>.
-    /// 
-    ///  <note><para>
-    /// Policies returned by this operation are URL-encoded compliant with <a href="https://tools.ietf.org/html/rfc3986">RFC
-    /// 3986</a>. You can use a URL decoding method to convert the policy back to plain JSON
-    /// text. For example, if you use Java, you can use the <c>decode</c> method of the <c>java.net.URLDecoder</c>
-    /// utility class in the Java SDK. Other languages and SDKs provide similar functionality,
-    /// and some SDKs do this decoding automatically.
-    /// </para></note>
+    /// Cancel an in-progress practice run zonal shift in Amazon Application Recovery Controller.
     /// </summary>
-    [Cmdlet("Get", "IAMRole")]
-    [OutputType("Amazon.IdentityManagement.Model.Role")]
-    [AWSCmdlet("Calls the AWS Identity and Access Management GetRole API operation.", Operation = new[] {"GetRole"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.GetRoleResponse))]
-    [AWSCmdletOutput("Amazon.IdentityManagement.Model.Role or Amazon.IdentityManagement.Model.GetRoleResponse",
-        "This cmdlet returns an Amazon.IdentityManagement.Model.Role object.",
-        "The service call response (type Amazon.IdentityManagement.Model.GetRoleResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Stop", "AZSPracticeRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ARCZonalShift.Model.CancelPracticeRunResponse")]
+    [AWSCmdlet("Calls the AWS ARC - Zonal Shift CancelPracticeRun API operation.", Operation = new[] {"CancelPracticeRun"}, SelectReturnType = typeof(Amazon.ARCZonalShift.Model.CancelPracticeRunResponse))]
+    [AWSCmdletOutput("Amazon.ARCZonalShift.Model.CancelPracticeRunResponse",
+        "This cmdlet returns an Amazon.ARCZonalShift.Model.CancelPracticeRunResponse object containing multiple properties."
     )]
-    public partial class GetIAMRoleCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    public partial class StopAZSPracticeRunCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter RoleName
+        #region Parameter ZonalShiftId
         /// <summary>
         /// <para>
-        /// <para>The name of the IAM role to get information about.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
-        /// pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-        /// characters with no spaces. You can also include any of the following characters: _+=,.@-</para>
+        /// <para>The identifier of a practice run zonal shift in Amazon Application Recovery Controller
+        /// that you want to cancel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,34 +56,50 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RoleName { get; set; }
+        public System.String ZonalShiftId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Role'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IdentityManagement.Model.GetRoleResponse).
-        /// Specifying the name of a property of type Amazon.IdentityManagement.Model.GetRoleResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ARCZonalShift.Model.CancelPracticeRunResponse).
+        /// Specifying the name of a property of type Amazon.ARCZonalShift.Model.CancelPracticeRunResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Role";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the RoleName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^RoleName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ZonalShiftId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ZonalShiftId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^RoleName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ZonalShiftId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ZonalShiftId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-AZSPracticeRun (CancelPracticeRun)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -106,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IdentityManagement.Model.GetRoleResponse, GetIAMRoleCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ARCZonalShift.Model.CancelPracticeRunResponse, StopAZSPracticeRunCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -115,14 +118,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.RoleName;
+                context.Select = (response, cmdlet) => this.ZonalShiftId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.RoleName = this.RoleName;
+            context.ZonalShiftId = this.ZonalShiftId;
             #if MODULAR
-            if (this.RoleName == null && ParameterWasBound(nameof(this.RoleName)))
+            if (this.ZonalShiftId == null && ParameterWasBound(nameof(this.ZonalShiftId)))
             {
-                WriteWarning("You are passing $null as a value for parameter RoleName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ZonalShiftId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -139,11 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IdentityManagement.Model.GetRoleRequest();
+            var request = new Amazon.ARCZonalShift.Model.CancelPracticeRunRequest();
             
-            if (cmdletContext.RoleName != null)
+            if (cmdletContext.ZonalShiftId != null)
             {
-                request.RoleName = cmdletContext.RoleName;
+                request.ZonalShiftId = cmdletContext.ZonalShiftId;
             }
             
             CmdletOutput output;
@@ -178,15 +181,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private Amazon.IdentityManagement.Model.GetRoleResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetRoleRequest request)
+        private Amazon.ARCZonalShift.Model.CancelPracticeRunResponse CallAWSServiceOperation(IAmazonARCZonalShift client, Amazon.ARCZonalShift.Model.CancelPracticeRunRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "GetRole");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS ARC - Zonal Shift", "CancelPracticeRun");
             try
             {
                 #if DESKTOP
-                return client.GetRole(request);
+                return client.CancelPracticeRun(request);
                 #elif CORECLR
-                return client.GetRoleAsync(request).GetAwaiter().GetResult();
+                return client.CancelPracticeRunAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -206,9 +209,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String RoleName { get; set; }
-            public System.Func<Amazon.IdentityManagement.Model.GetRoleResponse, GetIAMRoleCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Role;
+            public System.String ZonalShiftId { get; set; }
+            public System.Func<Amazon.ARCZonalShift.Model.CancelPracticeRunResponse, StopAZSPracticeRunCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

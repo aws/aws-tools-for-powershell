@@ -38,16 +38,20 @@ namespace Amazon.PowerShell.Cmdlets.AZS
     /// 
     ///  
     /// <para>
-    /// At this time, you can only start a zonal shift for Network Load Balancers and Application
-    /// Load Balancers with cross-zone load balancing turned off.
-    /// </para><para>
+    /// Amazon Application Recovery Controller currently supports enabling the following resources
+    /// for zonal shift and zonal autoshift:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.ec2-auto-scaling-groups.html">Amazon
+    /// EC2 Auto Scaling groups</a></para></li><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.eks.html">Amazon
+    /// Elastic Kubernetes Service</a></para></li><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.app-load-balancers.html">Application
+    /// Load Balancer</a></para></li><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.network-load-balancers.html">Network
+    /// Load Balancer</a></para></li></ul><para>
     /// When you start a zonal shift, traffic for the resource is no longer routed to the
     /// Availability Zone. The zonal shift is created immediately in ARC. However, it can
     /// take a short time, typically up to a few minutes, for existing, in-progress connections
     /// in the Availability Zone to complete.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.html">Zonal
-    /// shift</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.
+    /// shift</a> in the Amazon Application Recovery Controller Developer Guide.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "AZSZonalShift", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -126,8 +130,12 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         /// <summary>
         /// <para>
         /// <para>The identifier for the resource that Amazon Web Services shifts traffic for. The identifier
-        /// is the Amazon Resource Name (ARN) for the resource.</para><para>At this time, supported resources are Network Load Balancers and Application Load
-        /// Balancers with cross-zone load balancing turned off.</para>
+        /// is the Amazon Resource Name (ARN) for the resource.</para><para>Amazon Application Recovery Controller currently supports enabling the following resources
+        /// for zonal shift and zonal autoshift:</para><ul><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.ec2-auto-scaling-groups.html">Amazon
+        /// EC2 Auto Scaling groups</a></para></li><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.eks.html">Amazon
+        /// Elastic Kubernetes Service</a></para></li><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.app-load-balancers.html">Application
+        /// Load Balancer</a></para></li><li><para><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.network-load-balancers.html">Network
+        /// Load Balancer</a></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

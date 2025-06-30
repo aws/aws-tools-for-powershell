@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
 {
     /// <summary>
     /// Returns the details of the transformer run, based on the Transformer job ID.
+    /// 
+    ///  <note><para>
+    /// If 30 days have elapsed since your transformer job was started, the system deletes
+    /// it. So, if you run <c>GetTransformerJob</c> and supply a <c>transformerId</c> and
+    /// <c>transformerJobId</c> for a job that was started more than 30 days previously, you
+    /// receive a 404 response.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "B2BITransformerJob")]
     [OutputType("Amazon.B2bi.Model.GetTransformerJobResponse")]

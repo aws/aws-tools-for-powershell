@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// returned.</para><ul><li><para><c>DELETED</c>: The resource differs from its expected template configuration in
         /// that the resource has been deleted.</para></li><li><para><c>MODIFIED</c>: One or more resource properties differ from their expected template
         /// values.</para></li><li><para><c>IN_SYNC</c>: The resource's actual configuration matches its expected template
-        /// configuration.</para></li><li><para><c>NOT_CHECKED</c>: CloudFormation doesn't currently return this value.</para></li></ul>
+        /// configuration.</para></li><li><para><c>NOT_CHECKED</c>: CloudFormation doesn't currently return this value.</para></li><li><para><c>UNKNOWN</c>: CloudFormation could not run drift detection for the resource.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

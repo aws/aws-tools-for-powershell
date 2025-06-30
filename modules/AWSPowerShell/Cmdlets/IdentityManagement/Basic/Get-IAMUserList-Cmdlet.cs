@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </para></li><li><para>
     /// Tags
     /// </para></li></ul><para>
-    /// To view all of the information for a user, see <a>GetUser</a>.
+    /// To view all of the information for a user, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html">GetUser</a>.
     /// </para></note><para>
     /// You can paginate the results using the <c>MaxItems</c> and <c>Marker</c> parameters.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.

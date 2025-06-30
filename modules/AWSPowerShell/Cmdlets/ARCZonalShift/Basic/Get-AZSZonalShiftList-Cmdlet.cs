@@ -28,8 +28,15 @@ using Amazon.ARCZonalShift.Model;
 namespace Amazon.PowerShell.Cmdlets.AZS
 {
     /// <summary>
-    /// Lists all active and completed zonal shifts in Amazon Route 53 Application Recovery
-    /// Controller in your Amazon Web Services account in this Amazon Web Services Region.
+    /// Lists all active and completed zonal shifts in Amazon Application Recovery Controller
+    /// in your Amazon Web Services account in this Amazon Web Services Region. <c>ListZonalShifts</c>
+    /// returns customer-initiated zonal shifts, as well as practice run zonal shifts that
+    /// ARC started on your behalf for zonal autoshift.
+    /// 
+    ///  
+    /// <para>
+    /// For more information about listing autoshifts, see <a href="https://docs.aws.amazon.com/arc-zonal-shift/latest/api/API_ListAutoshifts.html">"&gt;ListAutoshifts</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "AZSZonalShiftList")]
     [OutputType("Amazon.ARCZonalShift.Model.ZonalShiftSummary")]
@@ -57,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>A status for a zonal shift.</para><para>The <c>Status</c> for a zonal shift can have one of the following values:</para><ul><li><para><b>ACTIVE</b>: The zonal shift has been started and active.</para></li><li><para><b>EXPIRED</b>: The zonal shift has expired (the expiry time was exceeded).</para></li><li><para><b>CANCELED</b>: The zonal shift was canceled.</para></li></ul>
+        /// <para>A status for a zonal shift.</para><para>The <c>Status</c> for a zonal shift can have one of the following values:</para><ul><li><para><b>ACTIVE</b>: The zonal shift has been started and is active.</para></li><li><para><b>EXPIRED</b>: The zonal shift has expired (the expiry time was exceeded).</para></li><li><para><b>CANCELED</b>: The zonal shift was canceled.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

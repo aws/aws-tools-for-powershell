@@ -58,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </para><para>
     /// Policies that are attached to users and roles as permissions boundaries are not returned.
     /// To view which managed policy is currently used to set the permissions boundary for
-    /// a user or role, use the <a>GetUser</a> or <a>GetRole</a> operations.
+    /// a user or role, use the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html">GetUser</a>
+    /// or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRole.html">GetRole</a>
+    /// operations.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IAMPolicyGrantingServiceAccessList")]

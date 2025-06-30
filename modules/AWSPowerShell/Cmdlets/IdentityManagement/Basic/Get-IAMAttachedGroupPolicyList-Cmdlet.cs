@@ -33,7 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     ///  
     /// <para>
     /// An IAM group can also have inline policies embedded with it. To list the inline policies
-    /// for a group, use <a>ListGroupPolicies</a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+    /// for a group, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupPolicies.html">ListGroupPolicies</a>.
+    /// For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
     /// policies and inline policies</a> in the <i>IAM User Guide</i>.
     /// </para><para>
     /// You can paginate the results using the <c>MaxItems</c> and <c>Marker</c> parameters.
