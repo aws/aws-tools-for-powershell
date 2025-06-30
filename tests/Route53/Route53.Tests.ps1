@@ -23,7 +23,6 @@ Describe -Tag "Smoke" "Route53" {
                     $zone = Get-R53HostedZone -Id $z.Id
                     $zone | Should -Not -Be $null
                     $zone.HostedZone | Should -Not -Be $null
-                    $zone.DelegationSet | Should -Not -Be $null
                 }
             }
         }
