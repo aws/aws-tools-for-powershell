@@ -28,7 +28,7 @@ using Amazon.CleanRoomsML.Model;
 namespace Amazon.PowerShell.Cmdlets.CRML
 {
     /// <summary>
-    /// Deletes the output of a trained model.
+    /// Deletes the model artifacts stored by the service.
     /// </summary>
     [Cmdlet("Remove", "CRMLTrainedModelOutput", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -74,6 +74,18 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TrainedModelArn { get; set; }
+        #endregion
+        
+        #region Parameter VersionIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The version identifier of the trained model to delete. If not specified, the operation
+        /// will delete the base version of the trained model. When specified, only the particular
+        /// version will be deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VersionIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
@@ -131,6 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
                 WriteWarning("You are passing $null as a value for parameter TrainedModelArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.VersionIdentifier = this.VersionIdentifier;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -154,6 +167,10 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             if (cmdletContext.TrainedModelArn != null)
             {
                 request.TrainedModelArn = cmdletContext.TrainedModelArn;
+            }
+            if (cmdletContext.VersionIdentifier != null)
+            {
+                request.VersionIdentifier = cmdletContext.VersionIdentifier;
             }
             
             CmdletOutput output;
@@ -218,6 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         {
             public System.String MembershipIdentifier { get; set; }
             public System.String TrainedModelArn { get; set; }
+            public System.String VersionIdentifier { get; set; }
             public System.Func<Amazon.CleanRoomsML.Model.DeleteTrainedModelOutputResponse, RemoveCRMLTrainedModelOutputCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

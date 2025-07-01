@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>odb</C2jFilename>
+    <AssemblyName>Odb</AssemblyName>
+    <ServiceNounPrefix>ODB</ServiceNounPrefix>
+    <ServiceName>Oracle Database@Amazon Web Services</ServiceName>
+    <ServiceClientInterface>IAmazonOdb</ServiceClientInterface>
+    <ServiceClient>AmazonOdbClient</ServiceClient>
+    <ServiceModuleGuid>018DBEC0-F918-46E9-AA33-AAE48D84CBDD</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AcceptMarketplaceRegistration" Verb="Approve" Noun="MarketplaceRegistration" ShouldProcessTarget="MarketplaceRegistrationToken" PipelineParameter="MarketplaceRegistrationToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCloudAutonomousVmCluster" OutputProperty="*" Verb="New" Noun="CloudAutonomousVmCluster" ShouldProcessTarget="CloudExadataInfrastructureId" PipelineParameter="CloudExadataInfrastructureId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCloudExadataInfrastructure" OutputProperty="*" Verb="New" Noun="CloudExadataInfrastructure" ShouldProcessTarget="DisplayName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCloudVmCluster" OutputProperty="*" Verb="New" Noun="CloudVmCluster" ShouldProcessTarget="CloudExadataInfrastructureId" PipelineParameter="CloudExadataInfrastructureId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateOdbNetwork" OutputProperty="*" Verb="New" Noun="OdbNetwork" ShouldProcessTarget="DisplayName" PipelineParameter="DisplayName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateOdbPeeringConnection" OutputProperty="*" Verb="New" Noun="OdbPeeringConnection" ShouldProcessTarget="OdbNetworkId" PipelineParameter="OdbNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCloudAutonomousVmCluster" Verb="Remove" Noun="CloudAutonomousVmCluster" ShouldProcessTarget="CloudAutonomousVmClusterId" PipelineParameter="CloudAutonomousVmClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCloudExadataInfrastructure" Verb="Remove" Noun="CloudExadataInfrastructure" ShouldProcessTarget="CloudExadataInfrastructureId" PipelineParameter="CloudExadataInfrastructureId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCloudVmCluster" Verb="Remove" Noun="CloudVmCluster" ShouldProcessTarget="CloudVmClusterId" PipelineParameter="CloudVmClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOdbNetwork" Verb="Remove" Noun="OdbNetwork" ShouldProcessTarget="OdbNetworkId" PipelineParameter="OdbNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOdbPeeringConnection" Verb="Remove" Noun="OdbPeeringConnection" ShouldProcessTarget="OdbPeeringConnectionId" PipelineParameter="OdbPeeringConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCloudAutonomousVmCluster" OutputProperty="CloudAutonomousVmCluster" Verb="Get" Noun="CloudAutonomousVmCluster" PipelineParameter="CloudAutonomousVmClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCloudExadataInfrastructure" OutputProperty="CloudExadataInfrastructure" Verb="Get" Noun="CloudExadataInfrastructure" PipelineParameter="CloudExadataInfrastructureId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCloudExadataInfrastructureUnallocatedResources" OutputProperty="CloudExadataInfrastructureUnallocatedResources" Verb="Get" Noun="CloudExadataInfrastructureUnallocatedResource" PipelineParameter="CloudExadataInfrastructureId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCloudVmCluster" OutputProperty="CloudVmCluster" Verb="Get" Noun="CloudVmCluster" PipelineParameter="CloudVmClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDbNode" OutputProperty="DbNode" Verb="Get" Noun="DbNode" PipelineParameter="DbNodeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDbServer" OutputProperty="DbServer" Verb="Get" Noun="DbServer" PipelineParameter="DbServerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOciOnboardingStatus" OutputProperty="*" Verb="Get" Noun="OciOnboardingStatus" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOdbNetwork" OutputProperty="OdbNetwork" Verb="Get" Noun="OdbNetwork" PipelineParameter="OdbNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOdbPeeringConnection" OutputProperty="OdbPeeringConnection" Verb="Get" Noun="OdbPeeringConnection" PipelineParameter="OdbPeeringConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="InitializeService" Verb="Initialize" Noun="Service" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAutonomousVirtualMachines" OutputProperty="AutonomousVirtualMachines" Verb="Get" Noun="AutonomousVirtualMachineList" PipelineParameter="CloudAutonomousVmClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCloudAutonomousVmClusters" OutputProperty="CloudAutonomousVmClusters" Verb="Get" Noun="CloudAutonomousVmClusterList" PipelineParameter="CloudExadataInfrastructureId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCloudExadataInfrastructures" OutputProperty="CloudExadataInfrastructures" Verb="Get" Noun="CloudExadataInfrastructureList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCloudVmClusters" OutputProperty="CloudVmClusters" Verb="Get" Noun="CloudVmClusterList" PipelineParameter="CloudExadataInfrastructureId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDbNodes" OutputProperty="DbNodes" Verb="Get" Noun="DbNodeList" PipelineParameter="CloudVmClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDbServers" OutputProperty="DbServers" Verb="Get" Noun="DbServerList" PipelineParameter="CloudExadataInfrastructureId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDbSystemShapes" OutputProperty="DbSystemShapes" Verb="Get" Noun="DbSystemShapeList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGiVersions" OutputProperty="GiVersions" Verb="Get" Noun="GiVersionList" PipelineParameter="Shape" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOdbNetworks" OutputProperty="OdbNetworks" Verb="Get" Noun="OdbNetworkList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOdbPeeringConnections" OutputProperty="OdbPeeringConnections" Verb="Get" Noun="OdbPeeringConnectionList" PipelineParameter="OdbNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSystemVersions" OutputProperty="SystemVersions" Verb="Get" Noun="SystemVersionList" PipelineParameter="GiVersion" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RebootDbNode" OutputProperty="*" Verb="Restart" Noun="DbNode" ShouldProcessTarget="DbNodeId" PipelineParameter="DbNodeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDbNode" OutputProperty="*" Verb="Start" Noun="DbNode" ShouldProcessTarget="DbNodeId" PipelineParameter="DbNodeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopDbNode" OutputProperty="*" Verb="Stop" Noun="DbNode" ShouldProcessTarget="DbNodeId" PipelineParameter="DbNodeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCloudExadataInfrastructure" OutputProperty="*" Verb="Update" Noun="CloudExadataInfrastructure" ShouldProcessTarget="CloudExadataInfrastructureId" PipelineParameter="CloudExadataInfrastructureId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateOdbNetwork" OutputProperty="*" Verb="Update" Noun="OdbNetwork" ShouldProcessTarget="OdbNetworkId" PipelineParameter="OdbNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

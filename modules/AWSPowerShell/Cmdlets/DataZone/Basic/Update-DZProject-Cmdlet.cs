@@ -73,6 +73,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String DomainIdentifier { get; set; }
         #endregion
         
+        #region Parameter DomainUnitId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the domain unit.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DomainUnitId { get; set; }
+        #endregion
+        
         #region Parameter EnvironmentDeploymentDetails_EnvironmentFailureReason
         /// <summary>
         /// <para>
@@ -225,6 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DomainUnitId = this.DomainUnitId;
             if (this.EnvironmentDeploymentDetails_EnvironmentFailureReason != null)
             {
                 context.EnvironmentDeploymentDetails_EnvironmentFailureReason = new Dictionary<System.String, List<Amazon.DataZone.Model.EnvironmentError>>(StringComparer.Ordinal);
@@ -286,6 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.DomainIdentifier != null)
             {
                 request.DomainIdentifier = cmdletContext.DomainIdentifier;
+            }
+            if (cmdletContext.DomainUnitId != null)
+            {
+                request.DomainUnitId = cmdletContext.DomainUnitId;
             }
             
              // populate EnvironmentDeploymentDetails
@@ -399,6 +414,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             public System.String Description { get; set; }
             public System.String DomainIdentifier { get; set; }
+            public System.String DomainUnitId { get; set; }
             public Dictionary<System.String, List<Amazon.DataZone.Model.EnvironmentError>> EnvironmentDeploymentDetails_EnvironmentFailureReason { get; set; }
             public Amazon.DataZone.OverallDeploymentStatus EnvironmentDeploymentDetails_OverallDeploymentStatus { get; set; }
             public List<System.String> GlossaryTerm { get; set; }

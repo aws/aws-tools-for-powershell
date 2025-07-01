@@ -76,6 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         public System.String TrainedModelArn { get; set; }
         #endregion
         
+        #region Parameter VersionIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The version identifier of the trained model to retrieve. If not specified, the operation
+        /// returns information about the latest version of the trained model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VersionIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -116,6 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
                 WriteWarning("You are passing $null as a value for parameter TrainedModelArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.VersionIdentifier = this.VersionIdentifier;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -139,6 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             if (cmdletContext.TrainedModelArn != null)
             {
                 request.TrainedModelArn = cmdletContext.TrainedModelArn;
+            }
+            if (cmdletContext.VersionIdentifier != null)
+            {
+                request.VersionIdentifier = cmdletContext.VersionIdentifier;
             }
             
             CmdletOutput output;
@@ -203,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         {
             public System.String MembershipIdentifier { get; set; }
             public System.String TrainedModelArn { get; set; }
+            public System.String VersionIdentifier { get; set; }
             public System.Func<Amazon.CleanRoomsML.Model.GetTrainedModelResponse, GetCRMLTrainedModelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

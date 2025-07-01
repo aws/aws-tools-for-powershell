@@ -149,6 +149,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.BurstablePerformance InstanceRequirements_BurstablePerformance { get; set; }
         #endregion
         
+        #region Parameter Context
+        /// <summary>
+        /// <para>
+        /// <para>Reserved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Context { get; set; }
+        #endregion
+        
         #region Parameter InstanceRequirements_CpuManufacturer
         /// <summary>
         /// <para>
@@ -617,6 +627,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter ArchitectureType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Context = this.Context;
             context.AcceleratorCount_Max = this.AcceleratorCount_Max;
             context.AcceleratorCount_Min = this.AcceleratorCount_Min;
             if (this.InstanceRequirements_AcceleratorManufacturer != null)
@@ -723,6 +734,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ArchitectureType != null)
             {
                 request.ArchitectureTypes = cmdletContext.ArchitectureType;
+            }
+            if (cmdletContext.Context != null)
+            {
+                request.Context = cmdletContext.Context;
             }
             
              // populate InstanceRequirements
@@ -1332,6 +1347,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> ArchitectureType { get; set; }
+            public System.String Context { get; set; }
             public System.Int32? AcceleratorCount_Max { get; set; }
             public System.Int32? AcceleratorCount_Min { get; set; }
             public List<System.String> InstanceRequirements_AcceleratorManufacturer { get; set; }

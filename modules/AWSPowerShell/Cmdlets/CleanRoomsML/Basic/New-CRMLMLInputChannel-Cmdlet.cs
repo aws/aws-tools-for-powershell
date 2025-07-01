@@ -182,8 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         #region Parameter InputChannel_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role that Clean Rooms ML can assume to read the data referred to
-        /// in the <c>dataSource</c> field the input channel.</para><para>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in
+        /// <para>The Amazon Resource Name (ARN) of the role used to run the query specified in the
+        /// <c>dataSource</c> field of the input channel.</para><para>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in
         /// your account, you get an <c>AccessDeniedException</c> error.</para>
         /// </para>
         /// </summary>

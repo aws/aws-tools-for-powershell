@@ -333,6 +333,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.NotificationsContacts.dll',
         'AWSSDK.OAM.dll',
         'AWSSDK.ObservabilityAdmin.dll',
+        'AWSSDK.Odb.dll',
         'AWSSDK.Omics.dll',
         'AWSSDK.OpenSearchServerless.dll',
         'AWSSDK.OpenSearchService.dll',

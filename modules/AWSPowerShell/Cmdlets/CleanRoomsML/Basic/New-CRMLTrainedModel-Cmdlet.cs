@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         #region Parameter DataChannel
         /// <summary>
         /// <para>
-        /// <para>Defines the data channels that are used as input for the trained model request.</para>
+        /// <para>Defines the data channels that are used as input for the trained model request.</para><para>Limit: Maximum of 20 channels total (including both <c>dataChannels</c> and <c>incrementalTrainingDataChannels</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,6 +108,20 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Hyperparameters")]
         public System.Collections.Hashtable Hyperparameter { get; set; }
+        #endregion
+        
+        #region Parameter IncrementalTrainingDataChannel
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the incremental training data channels for the trained model. </para><para>Incremental training allows you to create a new trained model with updates without
+        /// retraining from scratch. You can specify up to one incremental training data channel
+        /// that references a previously trained model and its version.</para><para>Limit: Maximum of 20 channels total (including both <c>incrementalTrainingDataChannels</c>
+        /// and <c>dataChannels</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncrementalTrainingDataChannels")]
+        public Amazon.CleanRoomsML.Model.IncrementalTrainingDataChannel[] IncrementalTrainingDataChannel { get; set; }
         #endregion
         
         #region Parameter ResourceConfig_InstanceCount
@@ -214,6 +228,21 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter TrainingInputMode
+        /// <summary>
+        /// <para>
+        /// <para>The input mode for accessing the training data. This parameter determines how the
+        /// training data is made available to the training algorithm. Valid values are:</para><ul><li><para><c>File</c> - The training data is downloaded to the training instance and made available
+        /// as files.</para></li><li><para><c>FastFile</c> - The training data is streamed directly from Amazon S3 to the training
+        /// algorithm, providing faster access for large datasets.</para></li><li><para><c>Pipe</c> - The training data is streamed to the training algorithm using named
+        /// pipes, which can improve performance for certain algorithms.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CleanRoomsML.TrainingInputMode")]
+        public Amazon.CleanRoomsML.TrainingInputMode TrainingInputMode { get; set; }
+        #endregion
+        
         #region Parameter ResourceConfig_VolumeSizeInGB
         /// <summary>
         /// <para>
@@ -306,6 +335,10 @@ namespace Amazon.PowerShell.Cmdlets.CRML
                     context.Hyperparameter.Add((String)hashKey, (System.String)(this.Hyperparameter[hashKey]));
                 }
             }
+            if (this.IncrementalTrainingDataChannel != null)
+            {
+                context.IncrementalTrainingDataChannel = new List<Amazon.CleanRoomsML.Model.IncrementalTrainingDataChannel>(this.IncrementalTrainingDataChannel);
+            }
             context.KmsKeyArn = this.KmsKeyArn;
             context.MembershipIdentifier = this.MembershipIdentifier;
             #if MODULAR
@@ -345,6 +378,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            context.TrainingInputMode = this.TrainingInputMode;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -380,6 +414,10 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             if (cmdletContext.Hyperparameter != null)
             {
                 request.Hyperparameters = cmdletContext.Hyperparameter;
+            }
+            if (cmdletContext.IncrementalTrainingDataChannel != null)
+            {
+                request.IncrementalTrainingDataChannels = cmdletContext.IncrementalTrainingDataChannel;
             }
             if (cmdletContext.KmsKeyArn != null)
             {
@@ -455,6 +493,10 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.TrainingInputMode != null)
+            {
+                request.TrainingInputMode = cmdletContext.TrainingInputMode;
+            }
             
             CmdletOutput output;
             
@@ -521,6 +563,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             public System.String Description { get; set; }
             public Dictionary<System.String, System.String> Environment { get; set; }
             public Dictionary<System.String, System.String> Hyperparameter { get; set; }
+            public List<Amazon.CleanRoomsML.Model.IncrementalTrainingDataChannel> IncrementalTrainingDataChannel { get; set; }
             public System.String KmsKeyArn { get; set; }
             public System.String MembershipIdentifier { get; set; }
             public System.String Name { get; set; }
@@ -529,6 +572,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             public System.Int32? ResourceConfig_VolumeSizeInGB { get; set; }
             public System.Int32? StoppingCondition_MaxRuntimeInSecond { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public Amazon.CleanRoomsML.TrainingInputMode TrainingInputMode { get; set; }
             public System.Func<Amazon.CleanRoomsML.Model.CreateTrainedModelResponse, NewCRMLTrainedModelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TrainedModelArn;
         }

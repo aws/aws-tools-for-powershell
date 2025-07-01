@@ -195,6 +195,19 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         public Amazon.CleanRoomsML.TrainedModelInferenceMaxOutputSizeUnitType MaxOutputSize_Unit { get; set; }
         #endregion
         
+        #region Parameter MaxArtifactSize_Unit
+        /// <summary>
+        /// <para>
+        /// <para>The unit of measurement for the maximum artifact size. Valid values include common
+        /// storage units such as bytes, kilobytes, megabytes, gigabytes, and terabytes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PrivacyConfiguration_Policies_TrainedModels_MaxArtifactSize_Unit")]
+        [AWSConstantClassSource("Amazon.CleanRoomsML.TrainedModelArtifactMaxSizeUnitType")]
+        public Amazon.CleanRoomsML.TrainedModelArtifactMaxSizeUnitType MaxArtifactSize_Unit { get; set; }
+        #endregion
+        
         #region Parameter MaxSize_Value
         /// <summary>
         /// <para>
@@ -215,6 +228,18 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("PrivacyConfiguration_Policies_TrainedModelInferenceJobs_MaxOutputSize_Value")]
         public System.Double? MaxOutputSize_Value { get; set; }
+        #endregion
+        
+        #region Parameter MaxArtifactSize_Value
+        /// <summary>
+        /// <para>
+        /// <para>The numerical value for the maximum artifact size limit. This value is interpreted
+        /// according to the specified unit.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PrivacyConfiguration_Policies_TrainedModels_MaxArtifactSize_Value")]
+        public System.Double? MaxArtifactSize_Value { get; set; }
         #endregion
         
         #region Parameter Select
@@ -298,6 +323,8 @@ namespace Amazon.PowerShell.Cmdlets.CRML
                 context.TrainedModels_ContainerLog = new List<Amazon.CleanRoomsML.Model.LogsConfigurationPolicy>(this.TrainedModels_ContainerLog);
             }
             context.ContainerMetrics_NoiseLevel = this.ContainerMetrics_NoiseLevel;
+            context.MaxArtifactSize_Unit = this.MaxArtifactSize_Unit;
+            context.MaxArtifactSize_Value = this.MaxArtifactSize_Value;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -507,6 +534,41 @@ namespace Amazon.PowerShell.Cmdlets.CRML
                 requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels.ContainerMetrics = requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels_privacyConfiguration_Policies_TrainedModels_ContainerMetrics;
                 requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModelsIsNull = false;
             }
+            Amazon.CleanRoomsML.Model.TrainedModelArtifactMaxSize requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels_privacyConfiguration_Policies_TrainedModels_MaxArtifactSize = null;
+            
+             // populate MaxArtifactSize
+            var requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels_privacyConfiguration_Policies_TrainedModels_MaxArtifactSizeIsNull = true;
+            requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels_privacyConfiguration_Policies_TrainedModels_MaxArtifactSize = new Amazon.CleanRoomsML.Model.TrainedModelArtifactMaxSize();
+            Amazon.CleanRoomsML.TrainedModelArtifactMaxSizeUnitType requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels_privacyConfiguration_Policies_TrainedModels_MaxArtifactSize_maxArtifactSize_Unit = null;
+            if (cmdletContext.MaxArtifactSize_Unit != null)
+            {
+                requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels_privacyConfiguration_Policies_TrainedModels_MaxArtifactSize_maxArtifactSize_Unit = cmdletContext.MaxArtifactSize_Unit;
+            }
+            if (requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels_privacyConfiguration_Policies_TrainedModels_MaxArtifactSize_maxArtifactSize_Unit != null)
+            {
+                requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels_privacyConfiguration_Policies_TrainedModels_MaxArtifactSize.Unit = requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels_privacyConfiguration_Policies_TrainedModels_MaxArtifactSize_maxArtifactSize_Unit;
+                requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels_privacyConfiguration_Policies_TrainedModels_MaxArtifactSizeIsNull = false;
+            }
+            System.Double? requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels_privacyConfiguration_Policies_TrainedModels_MaxArtifactSize_maxArtifactSize_Value = null;
+            if (cmdletContext.MaxArtifactSize_Value != null)
+            {
+                requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels_privacyConfiguration_Policies_TrainedModels_MaxArtifactSize_maxArtifactSize_Value = cmdletContext.MaxArtifactSize_Value.Value;
+            }
+            if (requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels_privacyConfiguration_Policies_TrainedModels_MaxArtifactSize_maxArtifactSize_Value != null)
+            {
+                requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels_privacyConfiguration_Policies_TrainedModels_MaxArtifactSize.Value = requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels_privacyConfiguration_Policies_TrainedModels_MaxArtifactSize_maxArtifactSize_Value.Value;
+                requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels_privacyConfiguration_Policies_TrainedModels_MaxArtifactSizeIsNull = false;
+            }
+             // determine if requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels_privacyConfiguration_Policies_TrainedModels_MaxArtifactSize should be set to null
+            if (requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels_privacyConfiguration_Policies_TrainedModels_MaxArtifactSizeIsNull)
+            {
+                requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels_privacyConfiguration_Policies_TrainedModels_MaxArtifactSize = null;
+            }
+            if (requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels_privacyConfiguration_Policies_TrainedModels_MaxArtifactSize != null)
+            {
+                requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels.MaxArtifactSize = requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels_privacyConfiguration_Policies_TrainedModels_MaxArtifactSize;
+                requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModelsIsNull = false;
+            }
              // determine if requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels should be set to null
             if (requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModelsIsNull)
             {
@@ -609,6 +671,8 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             public System.Double? MaxOutputSize_Value { get; set; }
             public List<Amazon.CleanRoomsML.Model.LogsConfigurationPolicy> TrainedModels_ContainerLog { get; set; }
             public Amazon.CleanRoomsML.NoiseLevelType ContainerMetrics_NoiseLevel { get; set; }
+            public Amazon.CleanRoomsML.TrainedModelArtifactMaxSizeUnitType MaxArtifactSize_Unit { get; set; }
+            public System.Double? MaxArtifactSize_Value { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.CleanRoomsML.Model.CreateConfiguredModelAlgorithmAssociationResponse, NewCRMLConfiguredModelAlgorithmAssociationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ConfiguredModelAlgorithmAssociationArn;

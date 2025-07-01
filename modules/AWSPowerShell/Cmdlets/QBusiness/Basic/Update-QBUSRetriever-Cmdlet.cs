@@ -131,6 +131,22 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter NativeIndexConfiguration_Version
+        /// <summary>
+        /// <para>
+        /// <para>A read-only field that specifies the version of the <c>NativeIndexConfiguration</c>.</para><para>Amazon Q Business introduces enhanced document retrieval capabilities in version 2
+        /// of <c>NativeIndexConfiguration</c>, focusing on streamlined metadata boosting that
+        /// prioritizes recency and source relevance to deliver more accurate responses to your
+        /// queries. Version 2 has the following differences from version 1:</para><ul><li><para>Version 2 supports a single Date field (created_at OR last_updated_at) for recency
+        /// boosting</para></li><li><para>Version 2 supports a single String field with an ordered list of up to 5 values</para></li><li><para>Version 2 introduces number-based boost levels (ONE, TWO) alongside the text-based
+        /// levels</para></li><li><para>Version 2 allows specifying prioritization between Date and String fields</para></li><li><para>Version 2 maintains backward compatibility with existing configurations</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_NativeIndexConfiguration_Version")]
+        public System.Int64? NativeIndexConfiguration_Version { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -209,6 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
                 }
             }
             context.NativeIndexConfiguration_IndexId = this.NativeIndexConfiguration_IndexId;
+            context.NativeIndexConfiguration_Version = this.NativeIndexConfiguration_Version;
             context.DisplayName = this.DisplayName;
             context.RetrieverId = this.RetrieverId;
             #if MODULAR
@@ -290,6 +307,16 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (requestConfiguration_configuration_NativeIndexConfiguration_nativeIndexConfiguration_IndexId != null)
             {
                 requestConfiguration_configuration_NativeIndexConfiguration.IndexId = requestConfiguration_configuration_NativeIndexConfiguration_nativeIndexConfiguration_IndexId;
+                requestConfiguration_configuration_NativeIndexConfigurationIsNull = false;
+            }
+            System.Int64? requestConfiguration_configuration_NativeIndexConfiguration_nativeIndexConfiguration_Version = null;
+            if (cmdletContext.NativeIndexConfiguration_Version != null)
+            {
+                requestConfiguration_configuration_NativeIndexConfiguration_nativeIndexConfiguration_Version = cmdletContext.NativeIndexConfiguration_Version.Value;
+            }
+            if (requestConfiguration_configuration_NativeIndexConfiguration_nativeIndexConfiguration_Version != null)
+            {
+                requestConfiguration_configuration_NativeIndexConfiguration.Version = requestConfiguration_configuration_NativeIndexConfiguration_nativeIndexConfiguration_Version.Value;
                 requestConfiguration_configuration_NativeIndexConfigurationIsNull = false;
             }
              // determine if requestConfiguration_configuration_NativeIndexConfiguration should be set to null
@@ -384,6 +411,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public System.String KendraIndexConfiguration_IndexId { get; set; }
             public Dictionary<System.String, Amazon.QBusiness.Model.DocumentAttributeBoostingConfiguration> NativeIndexConfiguration_BoostingOverride { get; set; }
             public System.String NativeIndexConfiguration_IndexId { get; set; }
+            public System.Int64? NativeIndexConfiguration_Version { get; set; }
             public System.String DisplayName { get; set; }
             public System.String RetrieverId { get; set; }
             public System.String RoleArn { get; set; }
