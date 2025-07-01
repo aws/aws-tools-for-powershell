@@ -210,6 +210,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTrainedModelVersions" OutputProperty="TrainedModels" Verb="Get" Noun="TrainedModelVersionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTrainingDatasets" OutputProperty="TrainingDatasets" Verb="Get" Noun="TrainingDatasetList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

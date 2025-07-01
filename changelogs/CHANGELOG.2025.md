@@ -1,4 +1,33 @@
-﻿### 5.0.5 (2025-06-30 20:33Z)
+﻿### 5.0.6 (2025-07-01 22:28Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.43.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CleanRoomsML
+    * Added cmdlet Get-CRMLTrainedModelVersionList leveraging the ListTrainedModelVersions service API.
+    * Modified cmdlet Get-CRMLCollaborationTrainedModel: added parameter VersionIdentifier.
+    * Modified cmdlet Get-CRMLCollaborationTrainedModelExportJobList: added parameter TrainedModelVersionIdentifier.
+    * Modified cmdlet Get-CRMLCollaborationTrainedModelInferenceJobList: added parameter TrainedModelVersionIdentifier.
+    * Modified cmdlet Get-CRMLTrainedModel: added parameter VersionIdentifier.
+    * Modified cmdlet Get-CRMLTrainedModelInferenceJobList: added parameter TrainedModelVersionIdentifier.
+    * Modified cmdlet New-CRMLConfiguredModelAlgorithmAssociation: added parameters MaxArtifactSize_Unit and MaxArtifactSize_Value.
+    * Modified cmdlet New-CRMLTrainedModel: added parameters IncrementalTrainingDataChannel and TrainingInputMode.
+    * Modified cmdlet Remove-CRMLTrainedModelOutput: added parameter VersionIdentifier.
+    * Modified cmdlet Start-CRMLTrainedModelExportJob: added parameter TrainedModelVersionIdentifier.
+    * Modified cmdlet Start-CRMLTrainedModelInferenceJob: added parameter TrainedModelVersionIdentifier.
+    * Modified cmdlet Stop-CRMLTrainedModel: added parameter VersionIdentifier.
+  * Amazon DataZone
+    * Modified cmdlet Update-DZProject: added parameter DomainUnitId.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet Get-EC2InstanceTypesFromInstanceRequirement: added parameter Context.
+  * Amazon Oracle Database@Amazon Web Services. Added cmdlets to support the service. Cmdlets for the service have the noun prefix ODB and can be listed using the command 'Get-AWSCmdletName -Service ODB'.
+  * Amazon QBusiness
+    * Added cmdlet Get-QBUSChatResponseConfiguration leveraging the GetChatResponseConfiguration service API.
+    * Added cmdlet Get-QBUSChatResponseConfigurationList leveraging the ListChatResponseConfigurations service API.
+    * Added cmdlet New-QBUSChatResponseConfiguration leveraging the CreateChatResponseConfiguration service API.
+    * Added cmdlet Remove-QBUSChatResponseConfiguration leveraging the DeleteChatResponseConfiguration service API.
+    * Added cmdlet Update-QBUSChatResponseConfiguration leveraging the UpdateChatResponseConfiguration service API.
+    * Modified cmdlet New-QBUSRetriever: added parameter NativeIndexConfiguration_Version.
+    * Modified cmdlet Update-QBUSRetriever: added parameter NativeIndexConfiguration_Version.
+
+### 5.0.5 (2025-06-30 20:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.42.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon ARC - Zonal Shift
     * Added cmdlet Start-AZSPracticeRun leveraging the StartPracticeRun service API.

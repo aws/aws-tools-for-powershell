@@ -93,9 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         /// <summary>
         /// <para>
         /// <para>The registry path of the docker image that contains the inference algorithm. Clean
-        /// Rooms ML supports both <c>registry/repository[:tag]</c> and <c>registry/repositry[@digest]</c>
-        /// image path formats. For more information about using images in Clean Rooms ML, see
-        /// the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AlgorithmSpecification.html#sagemaker-Type-AlgorithmSpecification-TrainingImage">Sagemaker
+        /// Rooms ML currently only supports the <c>registry/repository[:tag]</c> image path format.
+        /// For more information about using images in Clean Rooms ML, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AlgorithmSpecification.html#sagemaker-Type-AlgorithmSpecification-TrainingImage">Sagemaker
         /// API reference</a>.</para>
         /// </para>
         /// </summary>
@@ -107,9 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         /// <summary>
         /// <para>
         /// <para>The registry path of the docker image that contains the algorithm. Clean Rooms ML
-        /// supports both <c>registry/repository[:tag]</c> and <c>registry/repositry[@digest]</c>
-        /// image path formats. For more information about using images in Clean Rooms ML, see
-        /// the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AlgorithmSpecification.html#sagemaker-Type-AlgorithmSpecification-TrainingImage">Sagemaker
+        /// currently only supports the <c>registry/repository[:tag]</c> image path format. For
+        /// more information about using images in Clean Rooms ML, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AlgorithmSpecification.html#sagemaker-Type-AlgorithmSpecification-TrainingImage">Sagemaker
         /// API reference</a>.</para>
         /// </para>
         /// </summary>

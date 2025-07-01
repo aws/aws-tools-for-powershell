@@ -11404,6 +11404,13 @@ $CRML_Completers = {
             break
         }
 
+        # Amazon.CleanRoomsML.TrainedModelArtifactMaxSizeUnitType
+        "New-CRMLConfiguredModelAlgorithmAssociation/MaxArtifactSize_Unit"
+        {
+            $v = "GB"
+            break
+        }
+
         # Amazon.CleanRoomsML.TrainedModelExportsMaxSizeUnitType
         "New-CRMLConfiguredModelAlgorithmAssociation/MaxSize_Unit"
         {
@@ -11415,6 +11422,20 @@ $CRML_Completers = {
         "New-CRMLConfiguredModelAlgorithmAssociation/MaxOutputSize_Unit"
         {
             $v = "GB"
+            break
+        }
+
+        # Amazon.CleanRoomsML.TrainedModelStatus
+        "Get-CRMLTrainedModelVersionList/Status"
+        {
+            $v = "ACTIVE","CANCEL_FAILED","CANCEL_IN_PROGRESS","CANCEL_PENDING","CREATE_FAILED","CREATE_IN_PROGRESS","CREATE_PENDING","DELETE_FAILED","DELETE_IN_PROGRESS","DELETE_PENDING","INACTIVE"
+            break
+        }
+
+        # Amazon.CleanRoomsML.TrainingInputMode
+        "New-CRMLTrainedModel/TrainingInputMode"
+        {
+            $v = "FastFile","File","Pipe"
             break
         }
 
@@ -11441,10 +11462,13 @@ $CRML_map = @{
     "AudienceSizeConfig_AudienceSizeType"=@("New-CRMLConfiguredAudienceModel","Update-CRMLConfiguredAudienceModel")
     "ChildResourceTagOnCreatePolicy"=@("New-CRMLConfiguredAudienceModel")
     "ContainerMetrics_NoiseLevel"=@("New-CRMLConfiguredModelAlgorithmAssociation")
+    "MaxArtifactSize_Unit"=@("New-CRMLConfiguredModelAlgorithmAssociation")
     "MaxOutputSize_Unit"=@("New-CRMLConfiguredModelAlgorithmAssociation")
     "MaxSize_Unit"=@("New-CRMLConfiguredModelAlgorithmAssociation")
     "PolicyExistenceCondition"=@("Write-CRMLConfiguredAudienceModelPolicy")
     "ResourceConfig_InstanceType"=@("New-CRMLTrainedModel","Start-CRMLTrainedModelInferenceJob")
+    "Status"=@("Get-CRMLTrainedModelVersionList")
+    "TrainingInputMode"=@("New-CRMLTrainedModel")
     "Worker_Type"=@("New-CRMLMLInputChannel","Start-CRMLAudienceGenerationJob")
 }
 
@@ -11546,6 +11570,7 @@ $CRML_SelectMap = @{
                "Get-CRMLResourceTag",
                "Get-CRMLTrainedModelInferenceJobList",
                "Get-CRMLTrainedModelList",
+               "Get-CRMLTrainedModelVersionList",
                "Get-CRMLTrainingDatasetList",
                "Write-CRMLConfiguredAudienceModelPolicy",
                "Write-CRMLMLConfiguration",
@@ -54542,6 +54567,167 @@ $CWOADMN_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $CWOADMN_SelectCompleters $CWOADMN_SelectMap
+# Argument completions for service Oracle Database@Amazon Web Services
+
+
+$ODB_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Odb.Access
+        {
+            ($_ -eq "New-ODBOdbNetwork/S3Access") -Or
+            ($_ -eq "Update-ODBOdbNetwork/S3Access") -Or
+            ($_ -eq "New-ODBOdbNetwork/ZeroEtlAccess") -Or
+            ($_ -eq "Update-ODBOdbNetwork/ZeroEtlAccess")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Odb.LicenseModel
+        {
+            ($_ -eq "New-ODBCloudAutonomousVmCluster/LicenseModel") -Or
+            ($_ -eq "New-ODBCloudVmCluster/LicenseModel")
+        }
+        {
+            $v = "BRING_YOUR_OWN_LICENSE","LICENSE_INCLUDED"
+            break
+        }
+
+        # Amazon.Odb.PatchingModeType
+        {
+            ($_ -eq "New-ODBCloudAutonomousVmCluster/MaintenanceWindow_PatchingMode") -Or
+            ($_ -eq "New-ODBCloudExadataInfrastructure/MaintenanceWindow_PatchingMode") -Or
+            ($_ -eq "Update-ODBCloudExadataInfrastructure/MaintenanceWindow_PatchingMode")
+        }
+        {
+            $v = "NONROLLING","ROLLING"
+            break
+        }
+
+        # Amazon.Odb.PreferenceType
+        {
+            ($_ -eq "New-ODBCloudAutonomousVmCluster/MaintenanceWindow_Preference") -Or
+            ($_ -eq "New-ODBCloudExadataInfrastructure/MaintenanceWindow_Preference") -Or
+            ($_ -eq "Update-ODBCloudExadataInfrastructure/MaintenanceWindow_Preference")
+        }
+        {
+            $v = "CUSTOM_PREFERENCE","NO_PREFERENCE"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ODB_map = @{
+    "LicenseModel"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudVmCluster")
+    "MaintenanceWindow_PatchingMode"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudExadataInfrastructure","Update-ODBCloudExadataInfrastructure")
+    "MaintenanceWindow_Preference"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudExadataInfrastructure","Update-ODBCloudExadataInfrastructure")
+    "S3Access"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
+    "ZeroEtlAccess"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
+}
+
+_awsArgumentCompleterRegistration $ODB_Completers $ODB_map
+
+$ODB_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.ODB.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ODB_SelectMap = @{
+    "Select"=@("Approve-ODBMarketplaceRegistration",
+               "New-ODBCloudAutonomousVmCluster",
+               "New-ODBCloudExadataInfrastructure",
+               "New-ODBCloudVmCluster",
+               "New-ODBOdbNetwork",
+               "New-ODBOdbPeeringConnection",
+               "Remove-ODBCloudAutonomousVmCluster",
+               "Remove-ODBCloudExadataInfrastructure",
+               "Remove-ODBCloudVmCluster",
+               "Remove-ODBOdbNetwork",
+               "Remove-ODBOdbPeeringConnection",
+               "Get-ODBCloudAutonomousVmCluster",
+               "Get-ODBCloudExadataInfrastructure",
+               "Get-ODBCloudExadataInfrastructureUnallocatedResource",
+               "Get-ODBCloudVmCluster",
+               "Get-ODBDbNode",
+               "Get-ODBDbServer",
+               "Get-ODBOciOnboardingStatus",
+               "Get-ODBOdbNetwork",
+               "Get-ODBOdbPeeringConnection",
+               "Initialize-ODBService",
+               "Get-ODBAutonomousVirtualMachineList",
+               "Get-ODBCloudAutonomousVmClusterList",
+               "Get-ODBCloudExadataInfrastructureList",
+               "Get-ODBCloudVmClusterList",
+               "Get-ODBDbNodeList",
+               "Get-ODBDbServerList",
+               "Get-ODBDbSystemShapeList",
+               "Get-ODBGiVersionList",
+               "Get-ODBOdbNetworkList",
+               "Get-ODBOdbPeeringConnectionList",
+               "Get-ODBSystemVersionList",
+               "Get-ODBResourceTag",
+               "Restart-ODBDbNode",
+               "Start-ODBDbNode",
+               "Stop-ODBDbNode",
+               "Add-ODBResourceTag",
+               "Remove-ODBResourceTag",
+               "Update-ODBCloudExadataInfrastructure",
+               "Update-ODBOdbNetwork")
+}
+
+_awsArgumentCompleterRegistration $ODB_SelectCompleters $ODB_SelectMap
 # Argument completions for service Amazon Omics
 
 
@@ -60541,6 +60727,7 @@ $QBUS_SelectMap = @{
                "Get-QBUSDocumentAccess",
                "New-QBUSAnonymousWebExperienceUrl",
                "New-QBUSApplication",
+               "New-QBUSChatResponseConfiguration",
                "New-QBUSDataAccessor",
                "New-QBUSDataSource",
                "New-QBUSIndex",
@@ -60552,6 +60739,7 @@ $QBUS_SelectMap = @{
                "Remove-QBUSApplication",
                "Remove-QBUSAttachment",
                "Remove-QBUSChatControlsConfiguration",
+               "Remove-QBUSChatResponseConfiguration",
                "Remove-QBUSConversation",
                "Remove-QBUSDataAccessor",
                "Remove-QBUSDataSource",
@@ -60564,6 +60752,7 @@ $QBUS_SelectMap = @{
                "Remove-QBUSPermission",
                "Get-QBUSApplication",
                "Get-QBUSChatControlsConfiguration",
+               "Get-QBUSChatResponseConfiguration",
                "Get-QBUSDataAccessor",
                "Get-QBUSDataSource",
                "Get-QBUSGroup",
@@ -60576,6 +60765,7 @@ $QBUS_SelectMap = @{
                "Get-QBUSWebExperience",
                "Get-QBUSApplicationList",
                "Get-QBUSAttachmentList",
+               "Get-QBUSChatResponseConfigurationList",
                "Get-QBUSConversationList",
                "Get-QBUSDataAccessorList",
                "Get-QBUSDataSourceList",
@@ -60601,6 +60791,7 @@ $QBUS_SelectMap = @{
                "Remove-QBUSResourceTag",
                "Update-QBUSApplication",
                "Update-QBUSChatControlsConfiguration",
+               "Update-QBUSChatResponseConfiguration",
                "Update-QBUSDataAccessor",
                "Update-QBUSDataSource",
                "Update-QBUSIndex",

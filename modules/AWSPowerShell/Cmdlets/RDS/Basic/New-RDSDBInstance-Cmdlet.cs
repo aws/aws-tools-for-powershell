@@ -686,7 +686,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies whether the DB instance is a Multi-AZ deployment. You can't set the <c>AvailabilityZone</c>
-        /// parameter if the DB instance is a Multi-AZ deployment.</para><para>This setting doesn't apply to the following DB instances:</para><ul><li><para>Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)</para></li><li><para>RDS Custom</para></li></ul>
+        /// parameter if the DB instance is a Multi-AZ deployment.</para><para>This setting doesn't apply to Amazon Aurora because the DB instance Availability Zones
+        /// (AZs) are managed by the DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

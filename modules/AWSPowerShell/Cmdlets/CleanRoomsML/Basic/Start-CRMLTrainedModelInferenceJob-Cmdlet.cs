@@ -255,6 +255,17 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         public System.String TrainedModelArn { get; set; }
         #endregion
         
+        #region Parameter TrainedModelVersionIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The version identifier of the trained model to use for inference. This specifies which
+        /// version of the trained model should be used to generate predictions on the input data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TrainedModelVersionIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'TrainedModelInferenceJobArn'.
@@ -368,6 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
                 WriteWarning("You are passing $null as a value for parameter TrainedModelArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TrainedModelVersionIdentifier = this.TrainedModelVersionIdentifier;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -512,6 +524,10 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             {
                 request.TrainedModelArn = cmdletContext.TrainedModelArn;
             }
+            if (cmdletContext.TrainedModelVersionIdentifier != null)
+            {
+                request.TrainedModelVersionIdentifier = cmdletContext.TrainedModelVersionIdentifier;
+            }
             
             CmdletOutput output;
             
@@ -581,6 +597,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             public Amazon.CleanRoomsML.InferenceInstanceType ResourceConfig_InstanceType { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String TrainedModelArn { get; set; }
+            public System.String TrainedModelVersionIdentifier { get; set; }
             public System.Func<Amazon.CleanRoomsML.Model.StartTrainedModelInferenceJobResponse, StartCRMLTrainedModelInferenceJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TrainedModelInferenceJobArn;
         }

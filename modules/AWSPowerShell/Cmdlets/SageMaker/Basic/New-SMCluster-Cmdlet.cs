@@ -88,14 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("InstanceGroups")]
         public Amazon.SageMaker.Model.ClusterInstanceGroupSpecification[] InstanceGroup { get; set; }
         #endregion
@@ -223,12 +216,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.InstanceGroup = new List<Amazon.SageMaker.Model.ClusterInstanceGroupSpecification>(this.InstanceGroup);
             }
-            #if MODULAR
-            if (this.InstanceGroup == null && ParameterWasBound(nameof(this.InstanceGroup)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InstanceGroup which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.NodeRecovery = this.NodeRecovery;
             context.Eks_ClusterArn = this.Eks_ClusterArn;
             if (this.Tag != null)

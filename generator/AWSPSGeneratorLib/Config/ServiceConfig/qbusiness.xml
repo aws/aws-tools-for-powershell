@@ -53,6 +53,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateChatResponseConfiguration" OutputProperty="*" Verb="New" Noun="ChatResponseConfiguration" ShouldProcessTarget="DisplayName" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDataAccessor" OutputProperty="*" Verb="New" Noun="DataAccessor" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -110,6 +114,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteChatResponseConfiguration" Verb="Remove" Noun="ChatResponseConfiguration" ShouldProcessTarget="ApplicationId" PipelineParameter="ChatResponseConfigurationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteConversation" Verb="Remove" Noun="Conversation" ShouldProcessTarget="ConversationId" PipelineParameter="ConversationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -158,6 +166,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetChatResponseConfiguration" OutputProperty="*" Verb="Get" Noun="ChatResponseConfiguration" PipelineParameter="ChatResponseConfigurationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDataAccessor" OutputProperty="*" Verb="Get" Noun="DataAccessor" PipelineParameter="DataAccessorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -203,6 +215,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAttachments" OutputProperty="Attachments" Verb="Get" Noun="AttachmentList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChatResponseConfigurations" OutputProperty="ChatResponseConfigurations" Verb="Get" Noun="ChatResponseConfigurationList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -303,6 +319,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateChatControlsConfiguration" Verb="Update" Noun="ChatControlsConfiguration" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateChatResponseConfiguration" Verb="Update" Noun="ChatResponseConfiguration" ShouldProcessTarget="ApplicationId" PipelineParameter="ChatResponseConfigurationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

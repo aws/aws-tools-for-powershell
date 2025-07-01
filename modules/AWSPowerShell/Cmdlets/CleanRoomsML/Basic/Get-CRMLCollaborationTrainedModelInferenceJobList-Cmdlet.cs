@@ -74,6 +74,17 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         public System.String TrainedModelArn { get; set; }
         #endregion
         
+        #region Parameter TrainedModelVersionIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The version identifier of the trained model to filter inference jobs by. When specified,
+        /// only inference jobs that used this specific version of the trained model are returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TrainedModelVersionIdentifier { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -164,6 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             #endif
             context.NextToken = this.NextToken;
             context.TrainedModelArn = this.TrainedModelArn;
+            context.TrainedModelVersionIdentifier = this.TrainedModelVersionIdentifier;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -193,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             if (cmdletContext.TrainedModelArn != null)
             {
                 request.TrainedModelArn = cmdletContext.TrainedModelArn;
+            }
+            if (cmdletContext.TrainedModelVersionIdentifier != null)
+            {
+                request.TrainedModelVersionIdentifier = cmdletContext.TrainedModelVersionIdentifier;
             }
             
             // Initialize loop variant and commence piping
@@ -278,6 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String TrainedModelArn { get; set; }
+            public System.String TrainedModelVersionIdentifier { get; set; }
             public System.Func<Amazon.CleanRoomsML.Model.ListCollaborationTrainedModelInferenceJobsResponse, GetCRMLCollaborationTrainedModelInferenceJobListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CollaborationTrainedModelInferenceJobs;
         }

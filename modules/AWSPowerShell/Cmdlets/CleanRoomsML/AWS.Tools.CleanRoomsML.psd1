@@ -116,6 +116,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CRMLTrainedModelInferenceJob', 
         'Get-CRMLTrainedModelInferenceJobList', 
         'Get-CRMLTrainedModelList', 
+        'Get-CRMLTrainedModelVersionList', 
         'Get-CRMLTrainingDataset', 
         'Get-CRMLTrainingDatasetList', 
         'New-CRMLAudienceModel', 

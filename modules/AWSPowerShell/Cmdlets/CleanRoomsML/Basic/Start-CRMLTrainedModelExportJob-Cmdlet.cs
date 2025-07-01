@@ -128,6 +128,17 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         public System.String TrainedModelArn { get; set; }
         #endregion
         
+        #region Parameter TrainedModelVersionIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The version identifier of the trained model to export. This specifies which version
+        /// of the trained model should be exported to the specified destination.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TrainedModelVersionIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -205,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
                 WriteWarning("You are passing $null as a value for parameter TrainedModelArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TrainedModelVersionIdentifier = this.TrainedModelVersionIdentifier;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -255,6 +267,10 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             if (cmdletContext.TrainedModelArn != null)
             {
                 request.TrainedModelArn = cmdletContext.TrainedModelArn;
+            }
+            if (cmdletContext.TrainedModelVersionIdentifier != null)
+            {
+                request.TrainedModelVersionIdentifier = cmdletContext.TrainedModelVersionIdentifier;
             }
             
             CmdletOutput output;
@@ -316,6 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             public System.String Name { get; set; }
             public List<Amazon.CleanRoomsML.Model.TrainedModelExportReceiverMember> OutputConfiguration_Member { get; set; }
             public System.String TrainedModelArn { get; set; }
+            public System.String TrainedModelVersionIdentifier { get; set; }
             public System.Func<Amazon.CleanRoomsML.Model.StartTrainedModelExportJobResponse, StartCRMLTrainedModelExportJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

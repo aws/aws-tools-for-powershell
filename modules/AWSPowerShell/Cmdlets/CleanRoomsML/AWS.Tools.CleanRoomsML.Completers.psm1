@@ -126,6 +126,13 @@ $CRML_Completers = {
             break
         }
 
+        # Amazon.CleanRoomsML.TrainedModelArtifactMaxSizeUnitType
+        "New-CRMLConfiguredModelAlgorithmAssociation/MaxArtifactSize_Unit"
+        {
+            $v = "GB"
+            break
+        }
+
         # Amazon.CleanRoomsML.TrainedModelExportsMaxSizeUnitType
         "New-CRMLConfiguredModelAlgorithmAssociation/MaxSize_Unit"
         {
@@ -137,6 +144,20 @@ $CRML_Completers = {
         "New-CRMLConfiguredModelAlgorithmAssociation/MaxOutputSize_Unit"
         {
             $v = "GB"
+            break
+        }
+
+        # Amazon.CleanRoomsML.TrainedModelStatus
+        "Get-CRMLTrainedModelVersionList/Status"
+        {
+            $v = "ACTIVE","CANCEL_FAILED","CANCEL_IN_PROGRESS","CANCEL_PENDING","CREATE_FAILED","CREATE_IN_PROGRESS","CREATE_PENDING","DELETE_FAILED","DELETE_IN_PROGRESS","DELETE_PENDING","INACTIVE"
+            break
+        }
+
+        # Amazon.CleanRoomsML.TrainingInputMode
+        "New-CRMLTrainedModel/TrainingInputMode"
+        {
+            $v = "FastFile","File","Pipe"
             break
         }
 
@@ -163,10 +184,13 @@ $CRML_map = @{
     "AudienceSizeConfig_AudienceSizeType"=@("New-CRMLConfiguredAudienceModel","Update-CRMLConfiguredAudienceModel")
     "ChildResourceTagOnCreatePolicy"=@("New-CRMLConfiguredAudienceModel")
     "ContainerMetrics_NoiseLevel"=@("New-CRMLConfiguredModelAlgorithmAssociation")
+    "MaxArtifactSize_Unit"=@("New-CRMLConfiguredModelAlgorithmAssociation")
     "MaxOutputSize_Unit"=@("New-CRMLConfiguredModelAlgorithmAssociation")
     "MaxSize_Unit"=@("New-CRMLConfiguredModelAlgorithmAssociation")
     "PolicyExistenceCondition"=@("Write-CRMLConfiguredAudienceModelPolicy")
     "ResourceConfig_InstanceType"=@("New-CRMLTrainedModel","Start-CRMLTrainedModelInferenceJob")
+    "Status"=@("Get-CRMLTrainedModelVersionList")
+    "TrainingInputMode"=@("New-CRMLTrainedModel")
     "Worker_Type"=@("New-CRMLMLInputChannel","Start-CRMLAudienceGenerationJob")
 }
 
@@ -268,6 +292,7 @@ $CRML_SelectMap = @{
                "Get-CRMLResourceTag",
                "Get-CRMLTrainedModelInferenceJobList",
                "Get-CRMLTrainedModelList",
+               "Get-CRMLTrainedModelVersionList",
                "Get-CRMLTrainingDatasetList",
                "Write-CRMLConfiguredAudienceModelPolicy",
                "Write-CRMLMLConfiguration",

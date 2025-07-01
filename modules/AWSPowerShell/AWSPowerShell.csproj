@@ -898,6 +898,9 @@
     <Reference Include="AWSSDK.ObservabilityAdmin">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ObservabilityAdmin.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Odb">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Odb.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Omics">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Omics.dll</HintPath>
     </Reference>
@@ -2121,6 +2124,9 @@
     </Reference>
     <Reference Include="AWSSDK.ObservabilityAdmin">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ObservabilityAdmin.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Odb">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Odb.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Omics">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Omics.dll</HintPath>
