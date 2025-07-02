@@ -343,7 +343,7 @@
             <SignableItemsBasePath>$(Deployment)</SignableItemsBasePath>
             <ZipPrefix>powershell</ZipPrefix>
             <ZipFilesPath>$(RootPath)/codesign-zip</ZipFilesPath>
-            <SigningS3KeyPrefix>powershell</SigningS3KeyPrefix>
+            <SigningS3KeyPrefix>powershell5-staging-$([System.Guid]::NewGuid())</SigningS3KeyPrefix>
             <SignedItemsPath>$(Deployment)</SignedItemsPath>
             <SigningRoleSessionName>powershell-signer-session</SigningRoleSessionName>
         </PropertyGroup>
@@ -391,7 +391,7 @@
             <SignableItemsBasePath>$(Deployment)</SignableItemsBasePath>
             <ZipPrefix>powershell</ZipPrefix>
             <ZipFilesPath>$(RootPath)/codesign-zip</ZipFilesPath>
-            <SigningS3KeyPrefix>powershell</SigningS3KeyPrefix>
+            <SigningS3KeyPrefix>powershell5-preview-$([System.Guid]::NewGuid())</SigningS3KeyPrefix>
             <SignedItemsPath>$(Deployment)</SignedItemsPath>
             <SigningRoleSessionName>powershell-signer-session</SigningRoleSessionName>
         </PropertyGroup>
