@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.1075.0",
+    "ProductVersion"    : "3.7.1076.0",
     "CoreVersion"       : "3.7.402.78",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.454.0",
+            "Version" : "3.7.455.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.78"
@@ -316,7 +316,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "3.7.419.4",
+            "Version" : "3.7.420.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.78"
@@ -1148,7 +1148,7 @@
             "InPreview"               : false
         },
         "S3Control"                       : {
-            "Version" : "3.7.410.4",
+            "Version" : "3.7.411.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.78"
@@ -2444,7 +2444,7 @@
             "InPreview"               : false
         },
         "ConnectCases"                        : {
-            "Version" : "3.7.403.30",
+            "Version" : "3.7.404.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.78"

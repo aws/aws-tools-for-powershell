@@ -28,21 +28,28 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
-    /// This operation removes the specified Amazon Web Services resource tags from an S3
-    /// resource. Each tag is a label consisting of a user-defined key and value. Tags can
-    /// help you manage, identify, organize, search for, and filter resources. 
+    /// This operation removes the specified user-defined tags from an S3 resource. You can
+    /// pass one or more tag keys. 
     /// 
     ///  <note><para>
-    /// This operation is only supported for <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html">S3
-    /// Storage Lens groups</a> and for <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-tagging.html">S3
-    /// Access Grants</a>. The tagged resource can be an S3 Storage Lens group or S3 Access
-    /// Grants instance, registered location, or grant. 
-    /// </para></note><dl><dt>Permissions</dt><dd><para>
-    /// You must have the <c>s3:UntagResource</c> permission to use this operation. 
-    /// </para></dd></dl><para>
+    /// This operation is only supported for the following Amazon S3 resources:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html">Directory
+    /// buckets</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html">Storage
+    /// Lens groups</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-tagging.html">S3
+    /// Access Grants instances, registered locations, and grants</a>.
+    /// </para></li></ul></note><dl><dt>Permissions</dt><dd><para>
+    /// For Storage Lens groups and S3 Access Grants, you must have the <c>s3:UntagResource</c>
+    /// permission to use this operation. 
+    /// </para><para>
     /// For more information about the required Storage Lens Groups permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions">Setting
     /// account permissions to use S3 Storage Lens groups</a>.
-    /// </para><para>
+    /// </para></dd><dt>Directory bucket permissions</dt><dd><para>
+    /// For directory buckets, you must have the <c>s3express:UntagResource</c> permission
+    /// to use this operation. For more information about directory buckets policies and permissions,
+    /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-permissions.html">Identity
+    /// and Access Management (IAM) for S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.
+    /// </para></dd><dt>HTTP Host header syntax</dt><dd><para><b>Directory buckets </b> - The HTTP Host header syntax is <c>s3express-control.<i>region</i>.amazonaws.com</c>.
+    /// </para></dd></dl><para>
     /// For information about S3 Tagging errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList">List
     /// of Amazon S3 Tagging error codes</a>.
     /// </para>
@@ -80,8 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the S3 resource that you're trying to remove the
-        /// tags from. </para>
+        /// <para>The Amazon Resource Name (ARN) of the S3 resource that you're removing tags from.
+        /// The tagged resource can be a directory bucket, S3 Storage Lens group or S3 Access
+        /// Grants instance, registered location, or grant.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

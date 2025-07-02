@@ -7175,6 +7175,8 @@ Set-Alias -Name Create-CCASRelatedItem -Value New-CCASRelatedItem
 Set-Alias -Name CCAS-CreateRelatedItem -Value New-CCASRelatedItem
 Set-Alias -Name Create-CCASTemplate -Value New-CCASTemplate
 Set-Alias -Name CCAS-CreateTemplate -Value New-CCASTemplate
+Set-Alias -Name Delete-CCASCase -Value Remove-CCASCase
+Set-Alias -Name CCAS-DeleteCase -Value Remove-CCASCase
 Set-Alias -Name Delete-CCASCaseRule -Value Remove-CCASCaseRule
 Set-Alias -Name CCAS-DeleteCaseRule -Value Remove-CCASCaseRule
 Set-Alias -Name Delete-CCASDomain -Value Remove-CCASDomain
@@ -7183,6 +7185,8 @@ Set-Alias -Name Delete-CCASField -Value Remove-CCASField
 Set-Alias -Name CCAS-DeleteField -Value Remove-CCASField
 Set-Alias -Name Delete-CCASLayout -Value Remove-CCASLayout
 Set-Alias -Name CCAS-DeleteLayout -Value Remove-CCASLayout
+Set-Alias -Name Delete-CCASRelatedItem -Value Remove-CCASRelatedItem
+Set-Alias -Name CCAS-DeleteRelatedItem -Value Remove-CCASRelatedItem
 Set-Alias -Name Delete-CCASTemplate -Value Remove-CCASTemplate
 Set-Alias -Name CCAS-DeleteTemplate -Value Remove-CCASTemplate
 Set-Alias -Name CCAS-GetCase -Value Get-CCASCase

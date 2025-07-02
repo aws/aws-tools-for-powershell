@@ -118,8 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Options_OutsideIpAddressType
         /// <summary>
         /// <para>
-        /// <para>The type of IPv4 address assigned to the outside interface of the customer gateway
-        /// device.</para><para>Valid values: <c>PrivateIpv4</c> | <c>PublicIpv4</c></para><para>Default: <c>PublicIpv4</c></para>
+        /// <para>The type of IP address assigned to the outside interface of the customer gateway device.</para><para>Valid values: <c>PrivateIpv4</c> | <c>PublicIpv4</c> | <c>Ipv6</c></para><para>Default: <c>PublicIpv4</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
