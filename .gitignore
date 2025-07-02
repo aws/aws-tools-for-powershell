@@ -41,6 +41,8 @@ PSGalleryDownloads
 /AWSPowerShell.NetCore.zip
 /GenerationSucceeded.tag
 /BreakingChangesLookup.xml
+/buildConfigValidationErrors.txt
+/buildConfigErrors
 
 codesign-zip
 *.binlog

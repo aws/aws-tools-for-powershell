@@ -39,9 +39,17 @@ namespace AWSPowerShellGenerator.ServiceConfig
                         overrides.ContainsKey(configModel.C2jFilename) ||
                         configModel.ServiceOperationsList.Where(op => op.IsAutoConfiguring || op.AnalysisErrors.Any()).Any())
                     .ToArray();
+
                 bool hasErrors = models.Any(configModel =>
                     configModel.AnalysisErrors.Any() ||
                     configModel.ServiceOperationsList.Any(op => op.AnalysisErrors.Any()));
+
+                // This creates a file named 'buildConfigErrors'. It is used as a flag file 
+                // for CDK to send trebuchet an approval for build config failures
+                if (hasErrors)
+                {
+                    File.WriteAllText(Path.Combine(folderPath, "buildConfigErrors"), string.Empty);
+                }
 
                 bool hasNewOperations = models.Any(model => model.ServiceOperationsList.Any(op => op.IsAutoConfiguring));
 
