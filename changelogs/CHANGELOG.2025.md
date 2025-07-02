@@ -1,4 +1,10 @@
-﻿### 5.0.6 (2025-07-01 22:28Z)
+﻿### 5.0.7 (2025-07-02 19:45Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.44.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Cases
+    * Added cmdlet Remove-CCASCase leveraging the DeleteCase service API.
+    * Added cmdlet Remove-CCASRelatedItem leveraging the DeleteRelatedItem service API.
+
+### 5.0.6 (2025-07-01 22:28Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.43.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CleanRoomsML
     * Added cmdlet Get-CRMLTrainedModelVersionList leveraging the ListTrainedModelVersions service API.

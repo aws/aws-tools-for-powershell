@@ -158,10 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// <para>A delimiter is a character that you specify to group keys. All keys that contain the
-        /// same string between the <code>prefix</code> and the first occurrence of the delimiter
-        /// are grouped under a single result element in <code>CommonPrefixes</code>. These groups
-        /// are counted as one result against the <code>max-keys</code> limitation. These keys
-        /// are not returned elsewhere in the response.</para>
+        /// same string between the <c>prefix</c> and the first occurrence of the delimiter
+        /// are grouped under a single result element in <c>CommonPrefixes</c>. These groups
+        /// are counted as one result against the <c>max-keys</c> limitation. These keys
+        /// are not returned elsewhere in the response.</para><para><c>CommonPrefixes</c> is filtered out from results if it is not lexicographically greater than the key-marker.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

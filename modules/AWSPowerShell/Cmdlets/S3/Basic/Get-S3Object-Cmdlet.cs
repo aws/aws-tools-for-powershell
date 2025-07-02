@@ -153,6 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// A delimiter is a character that you use to group keys.
+        /// <para><c>CommonPrefixes</c> is filtered out from results if it is not lexicographically greater than the key-marker.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = "GetMultipleObjects")]

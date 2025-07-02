@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Delimiter
         /// <summary>
         /// <para>
-        /// <para>A delimiter is a character that you use to group keys.</para><note><ul><li><para><b>Directory buckets</b> - For directory buckets, <c>/</c> is the only supported
+        /// <para>A delimiter is a character that you use to group keys.</para><para><c>CommonPrefixes</c> is filtered out from results if it is not lexicographically greater than the <c>StartAfter</c> value.</para><note><ul><li><para><b>Directory buckets</b> - For directory buckets, <c>/</c> is the only supported
         /// delimiter.</para></li><li><para><b>Directory buckets </b> - When you query <c>ListObjectsV2</c> with a delimiter
         /// during in-progress multipart uploads, the <c>CommonPrefixes</c> response parameter
         /// contains the prefixes that are associated with the in-progress multipart uploads.

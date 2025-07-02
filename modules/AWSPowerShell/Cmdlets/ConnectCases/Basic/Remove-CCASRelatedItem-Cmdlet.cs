@@ -30,16 +30,22 @@ using Amazon.ConnectCases.Model;
 namespace Amazon.PowerShell.Cmdlets.CCAS
 {
     /// <summary>
-    /// Amazon.ConnectCases.IAmazonConnectCases.UpdateCase
+    /// Deletes the related item resource under a case.
+    /// 
+    ///  <note><para>
+    /// This API cannot be used on a FILE type related attachment. To delete this type of
+    /// file, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteAttachedFile.html">DeleteAttachedFile</a>
+    /// API
+    /// </para></note>
     /// </summary>
-    [Cmdlet("Update", "CCASCase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "CCASRelatedItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Cases UpdateCase API operation.", Operation = new[] {"UpdateCase"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.UpdateCaseResponse))]
-    [AWSCmdletOutput("None or Amazon.ConnectCases.Model.UpdateCaseResponse",
+    [AWSCmdlet("Calls the Amazon Connect Cases DeleteRelatedItem API operation.", Operation = new[] {"DeleteRelatedItem"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.DeleteRelatedItemResponse))]
+    [AWSCmdletOutput("None or Amazon.ConnectCases.Model.DeleteRelatedItemResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConnectCases.Model.UpdateCaseResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.ConnectCases.Model.DeleteRelatedItemResponse) be returned by specifying '-Select *'."
     )]
-    public partial class UpdateCCASCaseCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
+    public partial class RemoveCCASRelatedItemCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -62,20 +68,27 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         public System.String CaseId { get; set; }
         #endregion
         
-        #region Parameter PerformedBy_CustomEntity
-        /// <summary>
-        /// <para>
-        /// <para>Any provided entity.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String PerformedBy_CustomEntity { get; set; }
-        #endregion
-        
         #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Cases domain. </para>
+        /// <para>A unique identifier of the Cases domain.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String DomainId { get; set; }
+        #endregion
+        
+        #region Parameter RelatedItemId
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier of a related item.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,46 +99,13 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainId { get; set; }
-        #endregion
-        
-        #region Parameter Field
-        /// <summary>
-        /// <para>
-        /// <para>An array of objects with <c>fieldId</c> (matching ListFields/DescribeField) and value
-        /// union data, structured identical to <c>CreateCase</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Fields")]
-        public Amazon.ConnectCases.Model.FieldValue[] Field { get; set; }
-        #endregion
-        
-        #region Parameter PerformedBy_UserArn
-        /// <summary>
-        /// <para>
-        /// <para>Represents the Amazon Connect ARN of the user.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String PerformedBy_UserArn { get; set; }
+        public System.String RelatedItemId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCases.Model.UpdateCaseResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCases.Model.DeleteRelatedItemResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CCASCase (UpdateCase)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RelatedItemId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CCASRelatedItem (DeleteRelatedItem)"))
             {
                 return;
             }
@@ -164,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConnectCases.Model.UpdateCaseResponse, UpdateCCASCaseCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ConnectCases.Model.DeleteRelatedItemResponse, RemoveCCASRelatedItemCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.CaseId = this.CaseId;
@@ -181,18 +161,13 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
                 WriteWarning("You are passing $null as a value for parameter DomainId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Field != null)
-            {
-                context.Field = new List<Amazon.ConnectCases.Model.FieldValue>(this.Field);
-            }
+            context.RelatedItemId = this.RelatedItemId;
             #if MODULAR
-            if (this.Field == null && ParameterWasBound(nameof(this.Field)))
+            if (this.RelatedItemId == null && ParameterWasBound(nameof(this.RelatedItemId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Field which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter RelatedItemId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.PerformedBy_CustomEntity = this.PerformedBy_CustomEntity;
-            context.PerformedBy_UserArn = this.PerformedBy_UserArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -207,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConnectCases.Model.UpdateCaseRequest();
+            var request = new Amazon.ConnectCases.Model.DeleteRelatedItemRequest();
             
             if (cmdletContext.CaseId != null)
             {
@@ -217,38 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             {
                 request.DomainId = cmdletContext.DomainId;
             }
-            if (cmdletContext.Field != null)
+            if (cmdletContext.RelatedItemId != null)
             {
-                request.Fields = cmdletContext.Field;
-            }
-            
-             // populate PerformedBy
-            var requestPerformedByIsNull = true;
-            request.PerformedBy = new Amazon.ConnectCases.Model.UserUnion();
-            System.String requestPerformedBy_performedBy_CustomEntity = null;
-            if (cmdletContext.PerformedBy_CustomEntity != null)
-            {
-                requestPerformedBy_performedBy_CustomEntity = cmdletContext.PerformedBy_CustomEntity;
-            }
-            if (requestPerformedBy_performedBy_CustomEntity != null)
-            {
-                request.PerformedBy.CustomEntity = requestPerformedBy_performedBy_CustomEntity;
-                requestPerformedByIsNull = false;
-            }
-            System.String requestPerformedBy_performedBy_UserArn = null;
-            if (cmdletContext.PerformedBy_UserArn != null)
-            {
-                requestPerformedBy_performedBy_UserArn = cmdletContext.PerformedBy_UserArn;
-            }
-            if (requestPerformedBy_performedBy_UserArn != null)
-            {
-                request.PerformedBy.UserArn = requestPerformedBy_performedBy_UserArn;
-                requestPerformedByIsNull = false;
-            }
-             // determine if request.PerformedBy should be set to null
-            if (requestPerformedByIsNull)
-            {
-                request.PerformedBy = null;
+                request.RelatedItemId = cmdletContext.RelatedItemId;
             }
             
             CmdletOutput output;
@@ -283,12 +229,12 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         #region AWS Service Operation Call
         
-        private Amazon.ConnectCases.Model.UpdateCaseResponse CallAWSServiceOperation(IAmazonConnectCases client, Amazon.ConnectCases.Model.UpdateCaseRequest request)
+        private Amazon.ConnectCases.Model.DeleteRelatedItemResponse CallAWSServiceOperation(IAmazonConnectCases client, Amazon.ConnectCases.Model.DeleteRelatedItemRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Cases", "UpdateCase");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Cases", "DeleteRelatedItem");
             try
             {
-                return client.UpdateCaseAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteRelatedItemAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -307,10 +253,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         {
             public System.String CaseId { get; set; }
             public System.String DomainId { get; set; }
-            public List<Amazon.ConnectCases.Model.FieldValue> Field { get; set; }
-            public System.String PerformedBy_CustomEntity { get; set; }
-            public System.String PerformedBy_UserArn { get; set; }
-            public System.Func<Amazon.ConnectCases.Model.UpdateCaseResponse, UpdateCCASCaseCmdlet, object> Select { get; set; } =
+            public System.String RelatedItemId { get; set; }
+            public System.Func<Amazon.ConnectCases.Model.DeleteRelatedItemResponse, RemoveCCASRelatedItemCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         
