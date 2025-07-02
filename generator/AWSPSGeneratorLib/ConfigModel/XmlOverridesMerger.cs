@@ -189,6 +189,11 @@ namespace AWSPowerShellGenerator.ServiceConfig
             catch (Exception e)
             {
                 errorMessage = $"Error deserializing the provided override file. {e.Message}";
+                
+                // This creates a file named 'buildConfigValidationErrors.txt'. It is used as a flag file 
+                // for CDK to send trebuchet an approval for build config validation failures
+                var errorFilePath = Path.Combine(folderPath, "buildConfigValidationErrors.txt");
+                File.WriteAllText(errorFilePath, errorMessage);
                 return new Dictionary<string, XmlElement>();
             }
         }
