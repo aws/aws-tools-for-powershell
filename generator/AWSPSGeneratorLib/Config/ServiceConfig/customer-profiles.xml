@@ -75,6 +75,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateUploadJob" OutputProperty="JobId" Verb="New" Noun="UploadJob" ShouldProcessTarget="DisplayName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCalculatedAttributeDefinition" Verb="Remove" Noun="CalculatedAttributeDefinition" AnonymousShouldProcessTarget="true" PipelineParameter="CalculatedAttributeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -195,6 +199,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetUploadJob" OutputProperty="*" Verb="Get" Noun="UploadJob" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUploadJobPath" OutputProperty="*" Verb="Get" Noun="UploadJobPath" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetWorkflow" OutputProperty="*" Verb="Get" Noun="Workflow" PipelineParameter="WorkflowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -271,6 +283,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListUploadJobs" OutputProperty="Items" Verb="Get" Noun="UploadJobList" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListWorkflows" OutputProperty="Items" Verb="Get" Noun="WorkflowList" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -294,6 +310,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchProfiles" OutputProperty="Items" Verb="Search" Noun="Profile" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartUploadJob" Verb="Start" Noun="UploadJob" ShouldProcessTarget="DomainName" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopUploadJob" Verb="Stop" Noun="UploadJob" ShouldProcessTarget="DomainName" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

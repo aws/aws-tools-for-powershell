@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// You can associate the security group with another VPC if your account owns the VPC
     /// or if the VPC was shared with you.
     /// </para></li><li><para>
-    /// You must own the security group and the VPC that it was created in.
+    /// You must own the security group.
     /// </para></li><li><para>
     /// You cannot use this feature with default security groups.
     /// </para></li><li><para>

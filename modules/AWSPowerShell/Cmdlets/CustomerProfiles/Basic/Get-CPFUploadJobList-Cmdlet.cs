@@ -23,77 +23,66 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.CustomerProfiles;
+using Amazon.CustomerProfiles.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.CPF
 {
     /// <summary>
-    /// Describes security group VPC associations made with <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateSecurityGroupVpc.html">AssociateSecurityGroupVpc</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// This API retrieves a list of upload jobs for the specified domain.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "EC2SecurityGroupVpcAssociation")]
-    [OutputType("Amazon.EC2.Model.SecurityGroupVpcAssociation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeSecurityGroupVpcAssociations API operation.", Operation = new[] {"DescribeSecurityGroupVpcAssociations"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeSecurityGroupVpcAssociationsResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.SecurityGroupVpcAssociation or Amazon.EC2.Model.DescribeSecurityGroupVpcAssociationsResponse",
-        "This cmdlet returns a collection of Amazon.EC2.Model.SecurityGroupVpcAssociation objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeSecurityGroupVpcAssociationsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "CPFUploadJobList")]
+    [OutputType("Amazon.CustomerProfiles.Model.UploadJobItem")]
+    [AWSCmdlet("Calls the Amazon Connect Customer Profiles ListUploadJobs API operation.", Operation = new[] {"ListUploadJobs"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.ListUploadJobsResponse))]
+    [AWSCmdletOutput("Amazon.CustomerProfiles.Model.UploadJobItem or Amazon.CustomerProfiles.Model.ListUploadJobsResponse",
+        "This cmdlet returns a collection of Amazon.CustomerProfiles.Model.UploadJobItem objects.",
+        "The service call response (type Amazon.CustomerProfiles.Model.ListUploadJobsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetEC2SecurityGroupVpcAssociationCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetCPFUploadJobListCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DryRun
+        #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>Checks whether you have the required permissions for the action, without actually
-        /// making the request, and provides an error response. If you have the required permissions,
-        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// <para>The unique name of the domain to list upload jobs for. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? DryRun { get; set; }
-        #endregion
-        
-        #region Parameter Filter
-        /// <summary>
-        /// <para>
-        /// <para>Security group VPC association filters.</para><ul><li><para><c>group-id</c>: The security group ID.</para></li><li><para><c>group-owner-id</c>: The group owner ID.</para></li><li><para><c>vpc-id</c>: The ID of the associated VPC.</para></li><li><para><c>vpc-owner-id</c>: The account ID of the VPC owner.</para></li><li><para><c>state</c>: The state of the association.</para></li><li><para><c>tag:&lt;key&gt;</c>: The key/value combination of a tag assigned to the resource.
-        /// Use the tag key in the filter name and the tag value as the filter value. For example,
-        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
-        /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c>: The key of a tag assigned to the resource. Use this filter to find
-        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Filters")]
-        public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String DomainName { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return for this request. To get the next page of items,
-        /// make another request with the token returned in the output. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</para>
+        /// <para>The maximum number of upload jobs to return per page. </para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token returned from a previous paginated request. Pagination continues from the
-        /// end of the items returned by the previous request.</para>
+        /// <para>The pagination token from the previous call to retrieve the next page of results.
+        /// </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -106,13 +95,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'SecurityGroupVpcAssociations'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DescribeSecurityGroupVpcAssociationsResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.DescribeSecurityGroupVpcAssociationsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CustomerProfiles.Model.ListUploadJobsResponse).
+        /// Specifying the name of a property of type Amazon.CustomerProfiles.Model.ListUploadJobsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "SecurityGroupVpcAssociations";
+        public string Select { get; set; } = "Items";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -141,15 +130,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeSecurityGroupVpcAssociationsResponse, GetEC2SecurityGroupVpcAssociationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CustomerProfiles.Model.ListUploadJobsResponse, GetCPFUploadJobListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DryRun = this.DryRun;
-            if (this.Filter != null)
+            context.DomainName = this.DomainName;
+            #if MODULAR
+            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
             {
-                context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
+                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
             context.MaxResult = this.MaxResult;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
+            {
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
+                    " to the service to specify how many items should be returned by each service call.");
+            }
+            #endif
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -167,19 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.EC2.Model.DescribeSecurityGroupVpcAssociationsRequest();
+            var request = new Amazon.CustomerProfiles.Model.ListUploadJobsRequest();
             
-            if (cmdletContext.DryRun != null)
+            if (cmdletContext.DomainName != null)
             {
-                request.DryRun = cmdletContext.DryRun.Value;
-            }
-            if (cmdletContext.Filter != null)
-            {
-                request.Filters = cmdletContext.Filter;
+                request.DomainName = cmdletContext.DomainName;
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
+                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
             
             // Initialize loop variant and commence piping
@@ -238,12 +234,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.DescribeSecurityGroupVpcAssociationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeSecurityGroupVpcAssociationsRequest request)
+        private Amazon.CustomerProfiles.Model.ListUploadJobsResponse CallAWSServiceOperation(IAmazonCustomerProfiles client, Amazon.CustomerProfiles.Model.ListUploadJobsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeSecurityGroupVpcAssociations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Customer Profiles", "ListUploadJobs");
             try
             {
-                return client.DescribeSecurityGroupVpcAssociationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListUploadJobsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -260,12 +256,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? DryRun { get; set; }
-            public List<Amazon.EC2.Model.Filter> Filter { get; set; }
-            public System.Int32? MaxResult { get; set; }
+            public System.String DomainName { get; set; }
+            public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.EC2.Model.DescribeSecurityGroupVpcAssociationsResponse, GetEC2SecurityGroupVpcAssociationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.SecurityGroupVpcAssociations;
+            public System.Func<Amazon.CustomerProfiles.Model.ListUploadJobsResponse, GetCPFUploadJobListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Items;
         }
         
     }

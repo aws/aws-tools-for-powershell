@@ -1,4 +1,22 @@
-﻿### 5.0.7 (2025-07-02 19:45Z)
+﻿### 5.0.8 (2025-07-03 20:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.45.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Customer Profiles
+    * Added cmdlet Get-CPFUploadJob leveraging the GetUploadJob service API.
+    * Added cmdlet Get-CPFUploadJobList leveraging the ListUploadJobs service API.
+    * Added cmdlet Get-CPFUploadJobPath leveraging the GetUploadJobPath service API.
+    * Added cmdlet New-CPFUploadJob leveraging the CreateUploadJob service API.
+    * Added cmdlet Start-CPFUploadJob leveraging the StartUploadJob service API.
+    * Added cmdlet Stop-CPFUploadJob leveraging the StopUploadJob service API.
+  * Amazon Elemental MediaPackage v2
+    * Modified cmdlet New-MPV2OriginEndpoint: added parameters Encryption_CmafExcludeSegmentDrmMetadata, EncryptionMethod_IsmEncryptionMethod and MssManifest.
+    * Modified cmdlet Update-MPV2OriginEndpoint: added parameters Encryption_CmafExcludeSegmentDrmMetadata, EncryptionMethod_IsmEncryptionMethod and MssManifest.
+  * Amazon SageMaker Service
+    * Added cmdlet New-SMHubContentPresignedUrl leveraging the CreateHubContentPresignedUrls service API.
+    * Added cmdlet Start-SMSession leveraging the StartSession service API.
+    * Modified cmdlet New-SMSpace: added parameter SpaceSettings_RemoteAccess.
+    * Modified cmdlet Update-SMSpace: added parameter SpaceSettings_RemoteAccess.
+
+### 5.0.7 (2025-07-02 19:45Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.44.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Cases
     * Added cmdlet Remove-CCASCase leveraging the DeleteCase service API.

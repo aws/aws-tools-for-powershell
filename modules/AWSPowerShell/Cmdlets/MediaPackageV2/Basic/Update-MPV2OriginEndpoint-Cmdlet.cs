@@ -98,6 +98,19 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         public Amazon.MediaPackageV2.CmafEncryptionMethod EncryptionMethod_CmafEncryptionMethod { get; set; }
         #endregion
         
+        #region Parameter Encryption_CmafExcludeSegmentDrmMetadata
+        /// <summary>
+        /// <para>
+        /// <para>Excludes SEIG and SGPD boxes from segment metadata in CMAF containers.</para><para>When set to <c>true</c>, MediaPackage omits these DRM metadata boxes from CMAF segments,
+        /// which can improve compatibility with certain devices and players that don't support
+        /// these boxes.</para><para>Important considerations:</para><ul><li><para>This setting only affects CMAF container formats</para></li><li><para>Key rotation can still be handled through media playlist signaling</para></li><li><para>PSSH and TENC boxes remain unaffected</para></li><li><para>Default behavior is preserved when this setting is disabled</para></li></ul><para>Valid values: <c>true</c> | <c>false</c></para><para>Default: <c>false</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Segment_Encryption_CmafExcludeSegmentDrmMetadata")]
+        public System.Boolean? Encryption_CmafExcludeSegmentDrmMetadata { get; set; }
+        #endregion
+        
         #region Parameter Encryption_ConstantInitializationVector
         /// <summary>
         /// <para>
@@ -219,6 +232,20 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         public System.Boolean? Segment_IncludeIframeOnlyStream { get; set; }
         #endregion
         
+        #region Parameter EncryptionMethod_IsmEncryptionMethod
+        /// <summary>
+        /// <para>
+        /// <para>The encryption method used for Microsoft Smooth Streaming (MSS) content. This specifies
+        /// how the MSS segments are encrypted to protect the content during delivery to client
+        /// players.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Segment_Encryption_EncryptionMethod_IsmEncryptionMethod")]
+        [AWSConstantClassSource("Amazon.MediaPackageV2.IsmEncryptionMethod")]
+        public Amazon.MediaPackageV2.IsmEncryptionMethod EncryptionMethod_IsmEncryptionMethod { get; set; }
+        #endregion
+        
         #region Parameter Encryption_KeyRotationIntervalSecond
         /// <summary>
         /// <para>
@@ -249,6 +276,22 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("LowLatencyHlsManifests")]
         public Amazon.MediaPackageV2.Model.CreateLowLatencyHlsManifestConfiguration[] LowLatencyHlsManifest { get; set; }
+        #endregion
+        
+        #region Parameter MssManifest
+        /// <summary>
+        /// <para>
+        /// <para>A list of Microsoft Smooth Streaming (MSS) manifest configurations to update for the
+        /// origin endpoint. This replaces the existing MSS manifest configurations.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MssManifests")]
+        public Amazon.MediaPackageV2.Model.CreateMssManifestConfiguration[] MssManifest { get; set; }
         #endregion
         
         #region Parameter OriginEndpointName
@@ -536,6 +579,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             {
                 context.LowLatencyHlsManifest = new List<Amazon.MediaPackageV2.Model.CreateLowLatencyHlsManifestConfiguration>(this.LowLatencyHlsManifest);
             }
+            if (this.MssManifest != null)
+            {
+                context.MssManifest = new List<Amazon.MediaPackageV2.Model.CreateMssManifestConfiguration>(this.MssManifest);
+            }
             context.OriginEndpointName = this.OriginEndpointName;
             #if MODULAR
             if (this.OriginEndpointName == null && ParameterWasBound(nameof(this.OriginEndpointName)))
@@ -543,8 +590,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
                 WriteWarning("You are passing $null as a value for parameter OriginEndpointName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Encryption_CmafExcludeSegmentDrmMetadata = this.Encryption_CmafExcludeSegmentDrmMetadata;
             context.Encryption_ConstantInitializationVector = this.Encryption_ConstantInitializationVector;
             context.EncryptionMethod_CmafEncryptionMethod = this.EncryptionMethod_CmafEncryptionMethod;
+            context.EncryptionMethod_IsmEncryptionMethod = this.EncryptionMethod_IsmEncryptionMethod;
             context.EncryptionMethod_TsEncryptionMethod = this.EncryptionMethod_TsEncryptionMethod;
             context.Encryption_KeyRotationIntervalSecond = this.Encryption_KeyRotationIntervalSecond;
             if (this.SpekeKeyProvider_DrmSystem != null)
@@ -632,6 +681,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             if (cmdletContext.LowLatencyHlsManifest != null)
             {
                 request.LowLatencyHlsManifests = cmdletContext.LowLatencyHlsManifest;
+            }
+            if (cmdletContext.MssManifest != null)
+            {
+                request.MssManifests = cmdletContext.MssManifest;
             }
             if (cmdletContext.OriginEndpointName != null)
             {
@@ -721,6 +774,16 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
              // populate Encryption
             var requestSegment_segment_EncryptionIsNull = true;
             requestSegment_segment_Encryption = new Amazon.MediaPackageV2.Model.Encryption();
+            System.Boolean? requestSegment_segment_Encryption_encryption_CmafExcludeSegmentDrmMetadata = null;
+            if (cmdletContext.Encryption_CmafExcludeSegmentDrmMetadata != null)
+            {
+                requestSegment_segment_Encryption_encryption_CmafExcludeSegmentDrmMetadata = cmdletContext.Encryption_CmafExcludeSegmentDrmMetadata.Value;
+            }
+            if (requestSegment_segment_Encryption_encryption_CmafExcludeSegmentDrmMetadata != null)
+            {
+                requestSegment_segment_Encryption.CmafExcludeSegmentDrmMetadata = requestSegment_segment_Encryption_encryption_CmafExcludeSegmentDrmMetadata.Value;
+                requestSegment_segment_EncryptionIsNull = false;
+            }
             System.String requestSegment_segment_Encryption_encryption_ConstantInitializationVector = null;
             if (cmdletContext.Encryption_ConstantInitializationVector != null)
             {
@@ -754,6 +817,16 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             if (requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod_encryptionMethod_CmafEncryptionMethod != null)
             {
                 requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod.CmafEncryptionMethod = requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod_encryptionMethod_CmafEncryptionMethod;
+                requestSegment_segment_Encryption_segment_Encryption_EncryptionMethodIsNull = false;
+            }
+            Amazon.MediaPackageV2.IsmEncryptionMethod requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod_encryptionMethod_IsmEncryptionMethod = null;
+            if (cmdletContext.EncryptionMethod_IsmEncryptionMethod != null)
+            {
+                requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod_encryptionMethod_IsmEncryptionMethod = cmdletContext.EncryptionMethod_IsmEncryptionMethod;
+            }
+            if (requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod_encryptionMethod_IsmEncryptionMethod != null)
+            {
+                requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod.IsmEncryptionMethod = requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod_encryptionMethod_IsmEncryptionMethod;
                 requestSegment_segment_Encryption_segment_Encryption_EncryptionMethodIsNull = false;
             }
             Amazon.MediaPackageV2.TsEncryptionMethod requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod_encryptionMethod_TsEncryptionMethod = null;
@@ -949,9 +1022,12 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             public List<System.String> ForceEndpointErrorConfiguration_EndpointErrorCondition { get; set; }
             public List<Amazon.MediaPackageV2.Model.CreateHlsManifestConfiguration> HlsManifest { get; set; }
             public List<Amazon.MediaPackageV2.Model.CreateLowLatencyHlsManifestConfiguration> LowLatencyHlsManifest { get; set; }
+            public List<Amazon.MediaPackageV2.Model.CreateMssManifestConfiguration> MssManifest { get; set; }
             public System.String OriginEndpointName { get; set; }
+            public System.Boolean? Encryption_CmafExcludeSegmentDrmMetadata { get; set; }
             public System.String Encryption_ConstantInitializationVector { get; set; }
             public Amazon.MediaPackageV2.CmafEncryptionMethod EncryptionMethod_CmafEncryptionMethod { get; set; }
+            public Amazon.MediaPackageV2.IsmEncryptionMethod EncryptionMethod_IsmEncryptionMethod { get; set; }
             public Amazon.MediaPackageV2.TsEncryptionMethod EncryptionMethod_TsEncryptionMethod { get; set; }
             public System.Int32? Encryption_KeyRotationIntervalSecond { get; set; }
             public List<System.String> SpekeKeyProvider_DrmSystem { get; set; }

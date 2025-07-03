@@ -887,14 +887,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("SubnetIds")]
         public System.String[] SubnetId { get; set; }
         #endregion
@@ -945,14 +938,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The ID of the Amazon Virtual Private Cloud (VPC) that the domain uses for communication.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String VpcId { get; set; }
         #endregion
         
@@ -1158,24 +1144,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.SubnetId = new List<System.String>(this.SubnetId);
             }
-            #if MODULAR
-            if (this.SubnetId == null && ParameterWasBound(nameof(this.SubnetId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SubnetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.TagPropagation = this.TagPropagation;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
             }
             context.VpcId = this.VpcId;
-            #if MODULAR
-            if (this.VpcId == null && ParameterWasBound(nameof(this.VpcId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VpcId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

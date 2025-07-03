@@ -513,6 +513,8 @@ $SM_Completers = {
             ($_ -eq "Update-SMDomain/AmazonQSettings_Status") -Or
             ($_ -eq "New-SMDomain/DockerSettings_EnableDockerAccess") -Or
             ($_ -eq "Update-SMDomain/DockerSettings_EnableDockerAccess") -Or
+            ($_ -eq "New-SMSpace/SpaceSettings_RemoteAccess") -Or
+            ($_ -eq "Update-SMSpace/SpaceSettings_RemoteAccess") -Or
             ($_ -eq "New-SMSpace/SpaceSettings_SpaceManagedResource") -Or
             ($_ -eq "Update-SMSpace/SpaceSettings_SpaceManagedResource") -Or
             ($_ -eq "New-SMDomain/UnifiedStudioSettings_StudioWebPortalAccess") -Or
@@ -563,6 +565,7 @@ $SM_Completers = {
             ($_ -eq "Get-SMHubContentList/HubContentType") -Or
             ($_ -eq "Get-SMHubContentVersionList/HubContentType") -Or
             ($_ -eq "Import-SMHubContent/HubContentType") -Or
+            ($_ -eq "New-SMHubContentPresignedUrl/HubContentType") -Or
             ($_ -eq "Remove-SMHubContent/HubContentType") -Or
             ($_ -eq "Remove-SMHubContentReference/HubContentType") -Or
             ($_ -eq "Update-SMHubContent/HubContentType") -Or
@@ -1747,7 +1750,7 @@ $SM_map = @{
     "EndpointInput_S3DataDistributionType"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
     "EndpointInput_S3InputMode"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
     "FeatureGroupStatusEqual"=@("Get-SMFeatureGroupList")
-    "HubContentType"=@("Get-SMHubContent","Get-SMHubContentList","Get-SMHubContentVersionList","Import-SMHubContent","Remove-SMHubContent","Remove-SMHubContentReference","Update-SMHubContent","Update-SMHubContentReference")
+    "HubContentType"=@("Get-SMHubContent","Get-SMHubContentList","Get-SMHubContentVersionList","Import-SMHubContent","New-SMHubContentPresignedUrl","Remove-SMHubContent","Remove-SMHubContentReference","Update-SMHubContent","Update-SMHubContentReference")
     "HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"=@("New-SMFlowDefinition")
     "HyperParameterTuningJobConfig_Strategy"=@("New-SMHyperParameterTuningJob")
     "HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType"=@("New-SMHyperParameterTuningJob")
@@ -1794,6 +1797,7 @@ $SM_map = @{
     "SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMSpace","Update-SMSpace")
     "SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMSpace","Update-SMSpace")
     "SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMSpace","Update-SMSpace")
+    "SpaceSettings_RemoteAccess"=@("New-SMSpace","Update-SMSpace")
     "SpaceSettings_SpaceManagedResource"=@("New-SMSpace","Update-SMSpace")
     "SpaceSharingSettings_SharingType"=@("New-SMSpace")
     "Status"=@("Get-SMClusterSchedulerConfigList","Get-SMComputeQuotaList","Get-SMInferenceRecommendationsJobStepList","New-SMAction","Update-SMAction")
@@ -1909,6 +1913,7 @@ $SM_SelectMap = @{
                "New-SMFeatureGroup",
                "New-SMFlowDefinition",
                "New-SMHub",
+               "New-SMHubContentPresignedUrl",
                "New-SMHubContentReference",
                "New-SMHumanTaskUi",
                "New-SMHyperParameterTuningJob",
@@ -2178,6 +2183,7 @@ $SM_SelectMap = @{
                "Start-SMMonitoringSchedule",
                "Start-SMNotebookInstance",
                "Start-SMPipelineExecution",
+               "Start-SMSession",
                "Stop-SMAutoMLJob",
                "Stop-SMCompilationJob",
                "Stop-SMEdgeDeploymentStage",
