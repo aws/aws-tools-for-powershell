@@ -22,62 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.CustomerProfiles;
+using Amazon.CustomerProfiles.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.CPF
 {
     /// <summary>
-    /// Associates a security group with another VPC in the same Region. This enables you
-    /// to use the same security group with network interfaces and instances in the specified
-    /// VPC.
-    /// 
-    ///  <note><ul><li><para>
-    /// The VPC you want to associate the security group with must be in the same Region.
-    /// </para></li><li><para>
-    /// You can associate the security group with another VPC if your account owns the VPC
-    /// or if the VPC was shared with you.
-    /// </para></li><li><para>
-    /// You must own the security group.
-    /// </para></li><li><para>
-    /// You cannot use this feature with default security groups.
-    /// </para></li><li><para>
-    /// You cannot use this feature with the default VPC.
-    /// </para></li></ul></note>
+    /// This API starts the processing of an upload job to ingest profile data.
     /// </summary>
-    [Cmdlet("Register", "EC2SecurityGroupVpc", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.SecurityGroupVpcAssociationState")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssociateSecurityGroupVpc API operation.", Operation = new[] {"AssociateSecurityGroupVpc"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateSecurityGroupVpcResponse))]
-    [AWSCmdletOutput("Amazon.EC2.SecurityGroupVpcAssociationState or Amazon.EC2.Model.AssociateSecurityGroupVpcResponse",
-        "This cmdlet returns an Amazon.EC2.SecurityGroupVpcAssociationState object.",
-        "The service call response (type Amazon.EC2.Model.AssociateSecurityGroupVpcResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Start", "CPFUploadJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Connect Customer Profiles StartUploadJob API operation.", Operation = new[] {"StartUploadJob"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.StartUploadJobResponse))]
+    [AWSCmdletOutput("None or Amazon.CustomerProfiles.Model.StartUploadJobResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.CustomerProfiles.Model.StartUploadJobResponse) be returned by specifying '-Select *'."
     )]
-    public partial class RegisterEC2SecurityGroupVpcCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class StartCPFUploadJobCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter GroupId
+        #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>A security group ID.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String GroupId { get; set; }
-        #endregion
-        
-        #region Parameter VpcId
-        /// <summary>
-        /// <para>
-        /// <para>A VPC ID.</para>
+        /// <para>The unique name of the domain containing the upload job to start. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,26 +56,42 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String VpcId { get; set; }
+        public System.String DomainName { get; set; }
+        #endregion
+        
+        #region Parameter JobId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the upload job to start. </para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String JobId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'State'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.AssociateSecurityGroupVpcResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.AssociateSecurityGroupVpcResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CustomerProfiles.Model.StartUploadJobResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "State";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the GroupId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^GroupId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the JobId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^JobId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GroupId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^JobId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -127,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.GroupId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-EC2SecurityGroupVpc (AssociateSecurityGroupVpc)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-CPFUploadJob (StartUploadJob)"))
             {
                 return;
             }
@@ -141,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.AssociateSecurityGroupVpcResponse, RegisterEC2SecurityGroupVpcCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CustomerProfiles.Model.StartUploadJobResponse, StartCPFUploadJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -150,21 +134,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.GroupId;
+                context.Select = (response, cmdlet) => this.JobId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.GroupId = this.GroupId;
+            context.DomainName = this.DomainName;
             #if MODULAR
-            if (this.GroupId == null && ParameterWasBound(nameof(this.GroupId)))
+            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
             {
-                WriteWarning("You are passing $null as a value for parameter GroupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.VpcId = this.VpcId;
+            context.JobId = this.JobId;
             #if MODULAR
-            if (this.VpcId == null && ParameterWasBound(nameof(this.VpcId)))
+            if (this.JobId == null && ParameterWasBound(nameof(this.JobId)))
             {
-                WriteWarning("You are passing $null as a value for parameter VpcId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter JobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -181,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.AssociateSecurityGroupVpcRequest();
+            var request = new Amazon.CustomerProfiles.Model.StartUploadJobRequest();
             
-            if (cmdletContext.GroupId != null)
+            if (cmdletContext.DomainName != null)
             {
-                request.GroupId = cmdletContext.GroupId;
+                request.DomainName = cmdletContext.DomainName;
             }
-            if (cmdletContext.VpcId != null)
+            if (cmdletContext.JobId != null)
             {
-                request.VpcId = cmdletContext.VpcId;
+                request.JobId = cmdletContext.JobId;
             }
             
             CmdletOutput output;
@@ -224,15 +208,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.AssociateSecurityGroupVpcResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateSecurityGroupVpcRequest request)
+        private Amazon.CustomerProfiles.Model.StartUploadJobResponse CallAWSServiceOperation(IAmazonCustomerProfiles client, Amazon.CustomerProfiles.Model.StartUploadJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AssociateSecurityGroupVpc");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Customer Profiles", "StartUploadJob");
             try
             {
                 #if DESKTOP
-                return client.AssociateSecurityGroupVpc(request);
+                return client.StartUploadJob(request);
                 #elif CORECLR
-                return client.AssociateSecurityGroupVpcAsync(request).GetAwaiter().GetResult();
+                return client.StartUploadJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -252,10 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String GroupId { get; set; }
-            public System.String VpcId { get; set; }
-            public System.Func<Amazon.EC2.Model.AssociateSecurityGroupVpcResponse, RegisterEC2SecurityGroupVpcCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.State;
+            public System.String DomainName { get; set; }
+            public System.String JobId { get; set; }
+            public System.Func<Amazon.CustomerProfiles.Model.StartUploadJobResponse, StartCPFUploadJobCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

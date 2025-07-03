@@ -7358,6 +7358,8 @@ Set-Alias -Name Create-CPFSegmentEstimate -Value New-CPFSegmentEstimate
 Set-Alias -Name CPF-CreateSegmentEstimate -Value New-CPFSegmentEstimate
 Set-Alias -Name Create-CPFSegmentSnapshot -Value New-CPFSegmentSnapshot
 Set-Alias -Name CPF-CreateSegmentSnapshot -Value New-CPFSegmentSnapshot
+Set-Alias -Name Create-CPFUploadJob -Value New-CPFUploadJob
+Set-Alias -Name CPF-CreateUploadJob -Value New-CPFUploadJob
 Set-Alias -Name Delete-CPFCalculatedAttributeDefinition -Value Remove-CPFCalculatedAttributeDefinition
 Set-Alias -Name CPF-DeleteCalculatedAttributeDefinition -Value Remove-CPFCalculatedAttributeDefinition
 Set-Alias -Name Delete-CPFDomain -Value Remove-CPFDomain
@@ -7403,6 +7405,8 @@ Set-Alias -Name CPF-GetSegmentMembership -Value Get-CPFSegmentMembership
 Set-Alias -Name CPF-GetSegmentSnapshot -Value Get-CPFSegmentSnapshot
 Set-Alias -Name Get-CPFSimilarProfiles -Value Get-CPFSimilarProfile
 Set-Alias -Name CPF-GetSimilarProfiles -Value Get-CPFSimilarProfile
+Set-Alias -Name CPF-GetUploadJob -Value Get-CPFUploadJob
+Set-Alias -Name CPF-GetUploadJobPath -Value Get-CPFUploadJobPath
 Set-Alias -Name CPF-GetWorkflow -Value Get-CPFWorkflow
 Set-Alias -Name Get-CPFWorkflowSteps -Value Get-CPFWorkflowStep
 Set-Alias -Name CPF-GetWorkflowSteps -Value Get-CPFWorkflowStep
@@ -7455,6 +7459,9 @@ Set-Alias -Name List-CPFSegmentDefinitions -Value Get-CPFSegmentDefinitionList
 Set-Alias -Name List-CPFSegmentDefinitionList -Value Get-CPFSegmentDefinitionList
 Set-Alias -Name CPF-ListSegmentDefinitions -Value Get-CPFSegmentDefinitionList
 Set-Alias -Name CPF-ListTagsForResource -Value Get-CPFResourceTag
+Set-Alias -Name List-CPFUploadJobs -Value Get-CPFUploadJobList
+Set-Alias -Name List-CPFUploadJobList -Value Get-CPFUploadJobList
+Set-Alias -Name CPF-ListUploadJobs -Value Get-CPFUploadJobList
 Set-Alias -Name List-CPFWorkflows -Value Get-CPFWorkflowList
 Set-Alias -Name List-CPFWorkflowList -Value Get-CPFWorkflowList
 Set-Alias -Name CPF-ListWorkflows -Value Get-CPFWorkflowList
@@ -7468,6 +7475,8 @@ Set-Alias -Name Put-CPFProfileObjectType -Value Write-CPFProfileObjectType
 Set-Alias -Name CPF-PutProfileObjectType -Value Write-CPFProfileObjectType
 Set-Alias -Name Search-CPFProfiles -Value Search-CPFProfile
 Set-Alias -Name CPF-SearchProfiles -Value Search-CPFProfile
+Set-Alias -Name CPF-StartUploadJob -Value Start-CPFUploadJob
+Set-Alias -Name CPF-StopUploadJob -Value Stop-CPFUploadJob
 Set-Alias -Name CPF-TagResource -Value Add-CPFResourceTag
 Set-Alias -Name CPF-UntagResource -Value Remove-CPFResourceTag
 Set-Alias -Name CPF-UpdateCalculatedAttributeDefinition -Value Update-CPFCalculatedAttributeDefinition
@@ -27286,6 +27295,9 @@ Set-Alias -Name Create-SMFlowDefinition -Value New-SMFlowDefinition
 Set-Alias -Name SM-CreateFlowDefinition -Value New-SMFlowDefinition
 Set-Alias -Name Create-SMHub -Value New-SMHub
 Set-Alias -Name SM-CreateHub -Value New-SMHub
+Set-Alias -Name Create-SMHubContentPresignedUrls -Value New-SMHubContentPresignedUrl
+Set-Alias -Name Create-SMHubContentPresignedUrl -Value New-SMHubContentPresignedUrl
+Set-Alias -Name SM-CreateHubContentPresignedUrls -Value New-SMHubContentPresignedUrl
 Set-Alias -Name Create-SMHubContentReference -Value New-SMHubContentReference
 Set-Alias -Name SM-CreateHubContentReference -Value New-SMHubContentReference
 Set-Alias -Name Create-SMHumanTaskUi -Value New-SMHumanTaskUi
@@ -27891,6 +27903,7 @@ Set-Alias -Name SM-StartMlflowTrackingServer -Value Start-SMMlflowTrackingServer
 Set-Alias -Name SM-StartMonitoringSchedule -Value Start-SMMonitoringSchedule
 Set-Alias -Name SM-StartNotebookInstance -Value Start-SMNotebookInstance
 Set-Alias -Name SM-StartPipelineExecution -Value Start-SMPipelineExecution
+Set-Alias -Name SM-StartSession -Value Start-SMSession
 Set-Alias -Name SM-StopAutoMLJob -Value Stop-SMAutoMLJob
 Set-Alias -Name SM-StopCompilationJob -Value Stop-SMCompilationJob
 Set-Alias -Name SM-StopEdgeDeploymentStage -Value Stop-SMEdgeDeploymentStage

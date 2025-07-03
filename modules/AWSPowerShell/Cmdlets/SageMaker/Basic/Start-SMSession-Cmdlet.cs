@@ -22,45 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.SageMaker;
+using Amazon.SageMaker.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Associates a security group with another VPC in the same Region. This enables you
-    /// to use the same security group with network interfaces and instances in the specified
-    /// VPC.
-    /// 
-    ///  <note><ul><li><para>
-    /// The VPC you want to associate the security group with must be in the same Region.
-    /// </para></li><li><para>
-    /// You can associate the security group with another VPC if your account owns the VPC
-    /// or if the VPC was shared with you.
-    /// </para></li><li><para>
-    /// You must own the security group.
-    /// </para></li><li><para>
-    /// You cannot use this feature with default security groups.
-    /// </para></li><li><para>
-    /// You cannot use this feature with the default VPC.
-    /// </para></li></ul></note>
+    /// Initiates a remote connection session between a local integrated development environments
+    /// (IDEs) and a remote SageMaker space.
     /// </summary>
-    [Cmdlet("Register", "EC2SecurityGroupVpc", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.SecurityGroupVpcAssociationState")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssociateSecurityGroupVpc API operation.", Operation = new[] {"AssociateSecurityGroupVpc"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateSecurityGroupVpcResponse))]
-    [AWSCmdletOutput("Amazon.EC2.SecurityGroupVpcAssociationState or Amazon.EC2.Model.AssociateSecurityGroupVpcResponse",
-        "This cmdlet returns an Amazon.EC2.SecurityGroupVpcAssociationState object.",
-        "The service call response (type Amazon.EC2.Model.AssociateSecurityGroupVpcResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Start", "SMSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.SageMaker.Model.StartSessionResponse")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service StartSession API operation.", Operation = new[] {"StartSession"}, SelectReturnType = typeof(Amazon.SageMaker.Model.StartSessionResponse))]
+    [AWSCmdletOutput("Amazon.SageMaker.Model.StartSessionResponse",
+        "This cmdlet returns an Amazon.SageMaker.Model.StartSessionResponse object containing multiple properties."
     )]
-    public partial class RegisterEC2SecurityGroupVpcCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class StartSMSessionCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter GroupId
+        #region Parameter ResourceIdentifier
         /// <summary>
         /// <para>
-        /// <para>A security group ID.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource to which the remote connection will
+        /// be established. For example, this identifies the specific ARN space application you
+        /// want to connect to from your local IDE.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,43 +58,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String GroupId { get; set; }
-        #endregion
-        
-        #region Parameter VpcId
-        /// <summary>
-        /// <para>
-        /// <para>A VPC ID.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String VpcId { get; set; }
+        public System.String ResourceIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'State'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.AssociateSecurityGroupVpcResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.AssociateSecurityGroupVpcResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.StartSessionResponse).
+        /// Specifying the name of a property of type Amazon.SageMaker.Model.StartSessionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "State";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the GroupId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^GroupId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GroupId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -127,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.GroupId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-EC2SecurityGroupVpc (AssociateSecurityGroupVpc)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-SMSession (StartSession)"))
             {
                 return;
             }
@@ -141,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.AssociateSecurityGroupVpcResponse, RegisterEC2SecurityGroupVpcCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.StartSessionResponse, StartSMSessionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -150,21 +120,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.GroupId;
+                context.Select = (response, cmdlet) => this.ResourceIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.GroupId = this.GroupId;
+            context.ResourceIdentifier = this.ResourceIdentifier;
             #if MODULAR
-            if (this.GroupId == null && ParameterWasBound(nameof(this.GroupId)))
+            if (this.ResourceIdentifier == null && ParameterWasBound(nameof(this.ResourceIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter GroupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.VpcId = this.VpcId;
-            #if MODULAR
-            if (this.VpcId == null && ParameterWasBound(nameof(this.VpcId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VpcId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -181,15 +144,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.AssociateSecurityGroupVpcRequest();
+            var request = new Amazon.SageMaker.Model.StartSessionRequest();
             
-            if (cmdletContext.GroupId != null)
+            if (cmdletContext.ResourceIdentifier != null)
             {
-                request.GroupId = cmdletContext.GroupId;
-            }
-            if (cmdletContext.VpcId != null)
-            {
-                request.VpcId = cmdletContext.VpcId;
+                request.ResourceIdentifier = cmdletContext.ResourceIdentifier;
             }
             
             CmdletOutput output;
@@ -224,15 +183,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.AssociateSecurityGroupVpcResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateSecurityGroupVpcRequest request)
+        private Amazon.SageMaker.Model.StartSessionResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.StartSessionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AssociateSecurityGroupVpc");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "StartSession");
             try
             {
                 #if DESKTOP
-                return client.AssociateSecurityGroupVpc(request);
+                return client.StartSession(request);
                 #elif CORECLR
-                return client.AssociateSecurityGroupVpcAsync(request).GetAwaiter().GetResult();
+                return client.StartSessionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -252,10 +211,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String GroupId { get; set; }
-            public System.String VpcId { get; set; }
-            public System.Func<Amazon.EC2.Model.AssociateSecurityGroupVpcResponse, RegisterEC2SecurityGroupVpcCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.State;
+            public System.String ResourceIdentifier { get; set; }
+            public System.Func<Amazon.SageMaker.Model.StartSessionResponse, StartSMSessionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

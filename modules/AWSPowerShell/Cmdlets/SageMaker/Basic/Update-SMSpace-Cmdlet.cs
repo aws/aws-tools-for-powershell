@@ -280,6 +280,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] KernelGatewayAppSettings_LifecycleConfigArn { get; set; }
         #endregion
         
+        #region Parameter SpaceSettings_RemoteAccess
+        /// <summary>
+        /// <para>
+        /// <para>A setting that enables or disables remote access for a SageMaker space. When enabled,
+        /// this allows you to connect to the remote space from your local IDE.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.FeatureStatus")]
+        public Amazon.SageMaker.FeatureStatus SpaceSettings_RemoteAccess { get; set; }
+        #endregion
+        
         #region Parameter SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_SageMakerImageArn
         /// <summary>
         /// <para>
@@ -584,6 +596,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.KernelGatewayAppSettings_LifecycleConfigArn = new List<System.String>(this.KernelGatewayAppSettings_LifecycleConfigArn);
             }
+            context.SpaceSettings_RemoteAccess = this.SpaceSettings_RemoteAccess;
             context.SpaceSettings_SpaceManagedResource = this.SpaceSettings_SpaceManagedResource;
             context.EbsStorageSettings_EbsVolumeSizeInGb = this.EbsStorageSettings_EbsVolumeSizeInGb;
             
@@ -636,6 +649,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestSpaceSettings_spaceSettings_CustomFileSystem != null)
             {
                 request.SpaceSettings.CustomFileSystems = requestSpaceSettings_spaceSettings_CustomFileSystem;
+                requestSpaceSettingsIsNull = false;
+            }
+            Amazon.SageMaker.FeatureStatus requestSpaceSettings_spaceSettings_RemoteAccess = null;
+            if (cmdletContext.SpaceSettings_RemoteAccess != null)
+            {
+                requestSpaceSettings_spaceSettings_RemoteAccess = cmdletContext.SpaceSettings_RemoteAccess;
+            }
+            if (requestSpaceSettings_spaceSettings_RemoteAccess != null)
+            {
+                request.SpaceSettings.RemoteAccess = requestSpaceSettings_spaceSettings_RemoteAccess;
                 requestSpaceSettingsIsNull = false;
             }
             Amazon.SageMaker.FeatureStatus requestSpaceSettings_spaceSettings_SpaceManagedResource = null;
@@ -1236,6 +1259,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias { get; set; }
             public System.String SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn { get; set; }
             public List<System.String> KernelGatewayAppSettings_LifecycleConfigArn { get; set; }
+            public Amazon.SageMaker.FeatureStatus SpaceSettings_RemoteAccess { get; set; }
             public Amazon.SageMaker.FeatureStatus SpaceSettings_SpaceManagedResource { get; set; }
             public System.Int32? EbsStorageSettings_EbsVolumeSizeInGb { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateSpaceResponse, UpdateSMSpaceCmdlet, object> Select { get; set; } =

@@ -96,7 +96,7 @@ $MPV2_Completers = {
             ($_ -eq "Update-MPV2OriginEndpoint/ContainerType")
         }
         {
-            $v = "CMAF","TS"
+            $v = "CMAF","ISM","TS"
             break
         }
 
@@ -111,6 +111,16 @@ $MPV2_Completers = {
         "New-MPV2Channel/InputType"
         {
             $v = "CMAF","HLS"
+            break
+        }
+
+        # Amazon.MediaPackageV2.IsmEncryptionMethod
+        {
+            ($_ -eq "New-MPV2OriginEndpoint/EncryptionMethod_IsmEncryptionMethod") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/EncryptionMethod_IsmEncryptionMethod")
+        }
+        {
+            $v = "CENC"
             break
         }
 
@@ -157,6 +167,7 @@ $MPV2_map = @{
     "EncryptionContractConfiguration_PresetSpeke20Audio"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "EncryptionContractConfiguration_PresetSpeke20Video"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "EncryptionMethod_CmafEncryptionMethod"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
+    "EncryptionMethod_IsmEncryptionMethod"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "EncryptionMethod_TsEncryptionMethod"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "InputType"=@("New-MPV2Channel")
     "Status"=@("Get-MPV2HarvestJobList")
