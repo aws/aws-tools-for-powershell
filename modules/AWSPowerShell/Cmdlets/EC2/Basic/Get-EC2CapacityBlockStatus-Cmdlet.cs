@@ -30,45 +30,41 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes a tree-based hierarchy that represents the physical host placement of your
-    /// EC2 instances within an Availability Zone or Local Zone. You can use this information
-    /// to determine the relative proximity of your EC2 instances within the Amazon Web Services
-    /// network to support your tightly coupled workloads.
-    /// 
-    ///  
-    /// <para>
-    /// Instance topology is supported for specific instance types only. For more information,
-    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology-prerequisites.html">
-    /// Prerequisites for Amazon EC2 instance topology</a> in the <i>Amazon EC2 User Guide</i>.
-    /// </para><note><para>
-    /// The Amazon EC2 API follows an eventual consistency model due to the distributed nature
-    /// of the system supporting it. As a result, when you call the DescribeInstanceTopology
-    /// API command immediately after launching instances, the response might return a <c>null</c>
-    /// value for <c>capacityBlockId</c> because the data might not have fully propagated
-    /// across all subsystems. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html">Eventual
-    /// consistency in the Amazon EC2 API</a> in the <i>Amazon EC2 Developer Guide</i>.
-    /// </para></note><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html">Amazon
-    /// EC2 instance topology</a> in the <i>Amazon EC2 User Guide</i>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the availability of capacity for the specified Capacity blocks, or all of
+    /// your Capacity Blocks.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "EC2InstanceTopology")]
-    [OutputType("Amazon.EC2.Model.InstanceTopology")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeInstanceTopology API operation.", Operation = new[] {"DescribeInstanceTopology"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeInstanceTopologyResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.InstanceTopology or Amazon.EC2.Model.DescribeInstanceTopologyResponse",
-        "This cmdlet returns a collection of Amazon.EC2.Model.InstanceTopology objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeInstanceTopologyResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "EC2CapacityBlockStatus")]
+    [OutputType("Amazon.EC2.Model.CapacityBlockStatus")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeCapacityBlockStatus API operation.", Operation = new[] {"DescribeCapacityBlockStatus"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeCapacityBlockStatusResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.CapacityBlockStatus or Amazon.EC2.Model.DescribeCapacityBlockStatusResponse",
+        "This cmdlet returns a collection of Amazon.EC2.Model.CapacityBlockStatus objects.",
+        "The service call response (type Amazon.EC2.Model.DescribeCapacityBlockStatusResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetEC2InstanceTopologyCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetEC2CapacityBlockStatusCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter CapacityBlockId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Capacity Block.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CapacityBlockIds")]
+        public System.String[] CapacityBlockId { get; set; }
+        #endregion
+        
         #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>Checks whether you have the required permissions for the operation, without actually
+        /// <para>Checks whether you have the required permissions for the action, without actually
         /// making the request, and provides an error response. If you have the required permissions,
         /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
         /// </para>
@@ -80,11 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><c>availability-zone</c> - The name of the Availability Zone (for example, <c>us-west-2a</c>)
-        /// or Local Zone (for example, <c>us-west-2-lax-1b</c>) that the instance is in.</para></li><li><para><c>instance-type</c> - The instance type (for example, <c>p4d.24xlarge</c>) or instance
-        /// family (for example, <c>p4d*</c>). You can use the <c>*</c> wildcard to match zero
-        /// or more characters, or the <c>?</c> wildcard to match zero or one character.</para></li><li><para><c>zone-id</c> - The ID of the Availability Zone (for example, <c>usw2-az2</c>) or
-        /// Local Zone (for example, <c>usw2-lax1-az1</c>) that the instance is in.</para></li></ul><para />
+        /// <para>One or more filters. </para><ul><li><para><c>interconnect-status</c> - The status of the interconnect for the Capacity Block
+        /// (<c>ok</c> | <c>impaired</c> | <c>insufficient-data</c>).</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -96,54 +89,28 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
         #endregion
         
-        #region Parameter GroupName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the placement group that each instance is in.</para><para>Constraints: Maximum 100 explicitly specified placement group names.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("GroupNames")]
-        public System.String[] GroupName { get; set; }
-        #endregion
-        
-        #region Parameter InstanceId
-        /// <summary>
-        /// <para>
-        /// <para>The instance IDs.</para><para>Default: Describes all your instances.</para><para>Constraints: Maximum 100 explicitly specified instance IDs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("InstanceIds")]
-        public object[] InstanceId { get; set; }
-        #endregion
-        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return for this request. To get the next page of items,
         /// make another request with the token returned in the output. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</para><para>You can't specify this parameter and the instance IDs parameter in the same request.</para><para>Default: <c>20</c></para>
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token returned from a previous paginated request. Pagination continues from the
-        /// end of the items returned by the previous request.</para>
+        /// <para>The token to use to retrieve the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -156,13 +123,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Instances'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DescribeInstanceTopologyResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.DescribeInstanceTopologyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'CapacityBlockStatuses'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DescribeCapacityBlockStatusResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.DescribeCapacityBlockStatusResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Instances";
+        public string Select { get; set; } = "CapacityBlockStatuses";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -191,24 +158,28 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeInstanceTopologyResponse, GetEC2InstanceTopologyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeCapacityBlockStatusResponse, GetEC2CapacityBlockStatusCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            if (this.CapacityBlockId != null)
+            {
+                context.CapacityBlockId = new List<System.String>(this.CapacityBlockId);
             }
             context.DryRun = this.DryRun;
             if (this.Filter != null)
             {
                 context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
-            if (this.GroupName != null)
-            {
-                context.GroupName = new List<System.String>(this.GroupName);
-            }
-            if (this.InstanceId != null)
-            {
-                context.InstanceId = AmazonEC2Helper.InstanceParamToIDs(this.InstanceId);
-            }
-            
             context.MaxResult = this.MaxResult;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
+            {
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
+                    " to the service to specify how many items should be returned by each service call.");
+            }
+            #endif
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -226,8 +197,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.EC2.Model.DescribeInstanceTopologyRequest();
+            var request = new Amazon.EC2.Model.DescribeCapacityBlockStatusRequest();
             
+            if (cmdletContext.CapacityBlockId != null)
+            {
+                request.CapacityBlockIds = cmdletContext.CapacityBlockId;
+            }
             if (cmdletContext.DryRun != null)
             {
                 request.DryRun = cmdletContext.DryRun.Value;
@@ -236,17 +211,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.Filters = cmdletContext.Filter;
             }
-            if (cmdletContext.GroupName != null)
-            {
-                request.GroupNames = cmdletContext.GroupName;
-            }
-            if (cmdletContext.InstanceId != null)
-            {
-                request.InstanceIds = cmdletContext.InstanceId;
-            }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
+                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
             
             // Initialize loop variant and commence piping
@@ -305,12 +272,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.DescribeInstanceTopologyResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeInstanceTopologyRequest request)
+        private Amazon.EC2.Model.DescribeCapacityBlockStatusResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeCapacityBlockStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeInstanceTopology");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeCapacityBlockStatus");
             try
             {
-                return client.DescribeInstanceTopologyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DescribeCapacityBlockStatusAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -327,14 +294,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> CapacityBlockId { get; set; }
             public System.Boolean? DryRun { get; set; }
             public List<Amazon.EC2.Model.Filter> Filter { get; set; }
-            public List<System.String> GroupName { get; set; }
-            public List<System.String> InstanceId { get; set; }
-            public System.Int32? MaxResult { get; set; }
+            public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.EC2.Model.DescribeInstanceTopologyResponse, GetEC2InstanceTopologyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Instances;
+            public System.Func<Amazon.EC2.Model.DescribeCapacityBlockStatusResponse, GetEC2CapacityBlockStatusCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.CapacityBlockStatuses;
         }
         
     }

@@ -30,7 +30,7 @@ using Amazon.OpsWorksCM.Model;
 namespace Amazon.PowerShell.Cmdlets.OWCM
 {
     /// <summary>
-    /// Removes specified tags from an AWS OpsWorks-CM server or backup.
+    /// Removes specified tags from an OpsWorks CM server or backup.
     /// </summary>
     [Cmdlet("Remove", "OWCMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

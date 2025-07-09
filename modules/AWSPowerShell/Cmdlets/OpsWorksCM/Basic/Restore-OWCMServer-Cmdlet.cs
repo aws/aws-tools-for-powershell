@@ -39,9 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     ///  
     /// <para>
     /// Restoring from a backup is performed by creating a new EC2 instance. If restoration
-    /// is successful, and the server is in a <c>HEALTHY</c> state, AWS OpsWorks CM switches
-    /// traffic over to the new instance. After restoration is finished, the old EC2 instance
-    /// is maintained in a <c>Running</c> or <c>Stopped</c> state, but is eventually terminated.
+    /// is successful, and the server is in a <c>HEALTHY</c> state, OpsWorks CM switches traffic
+    /// over to the new instance. After restoration is finished, the old EC2 instance is maintained
+    /// in a <c>Running</c> or <c>Stopped</c> state, but is eventually terminated.
     /// </para><para>
     ///  This operation is asynchronous. 
     /// </para><para>

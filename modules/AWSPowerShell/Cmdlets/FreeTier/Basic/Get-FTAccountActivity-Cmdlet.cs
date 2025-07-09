@@ -23,44 +23,31 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.OpsWorksCM;
-using Amazon.OpsWorksCM.Model;
+using Amazon.FreeTier;
+using Amazon.FreeTier.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.OWCM
+namespace Amazon.PowerShell.Cmdlets.FT
 {
     /// <summary>
-    /// Deletes the server and the underlying CloudFormation stacks (including the server's
-    /// EC2 instance). When you run this command, the server state is updated to <c>DELETING</c>.
-    /// After the server is deleted, it is no longer returned by <c>DescribeServer</c> requests.
-    /// If the CloudFormation stack cannot be deleted, the server cannot be deleted. 
-    /// 
-    ///  
-    /// <para>
-    ///  This operation is asynchronous. 
-    /// </para><para>
-    ///  An <c>InvalidStateException</c> is thrown when a server deletion is already in progress.
-    /// A <c>ResourceNotFoundException</c> is thrown when the server does not exist. A <c>ValidationException</c>
-    /// is raised when parameters of the request are not valid. 
-    /// </para><para></para>
+    /// Returns a specific activity record that is available to the customer.
     /// </summary>
-    [Cmdlet("Remove", "OWCMServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS OpsWorksCM DeleteServer API operation.", Operation = new[] {"DeleteServer"}, SelectReturnType = typeof(Amazon.OpsWorksCM.Model.DeleteServerResponse))]
-    [AWSCmdletOutput("None or Amazon.OpsWorksCM.Model.DeleteServerResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorksCM.Model.DeleteServerResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Get", "FTAccountActivity")]
+    [OutputType("Amazon.FreeTier.Model.GetAccountActivityResponse")]
+    [AWSCmdlet("Calls the AWS Free Tier GetAccountActivity API operation.", Operation = new[] {"GetAccountActivity"}, SelectReturnType = typeof(Amazon.FreeTier.Model.GetAccountActivityResponse))]
+    [AWSCmdletOutput("Amazon.FreeTier.Model.GetAccountActivityResponse",
+        "This cmdlet returns an Amazon.FreeTier.Model.GetAccountActivityResponse object containing multiple properties."
     )]
-    public partial class RemoveOWCMServerCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
+    public partial class GetFTAccountActivityCmdlet : AmazonFreeTierClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ServerName
+        #region Parameter ActivityId
         /// <summary>
         /// <para>
-        /// <para>The ID of the server to delete.</para>
+        /// <para> A unique identifier that identifies the activity. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,27 +58,29 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ServerName { get; set; }
+        public System.String ActivityId { get; set; }
+        #endregion
+        
+        #region Parameter LanguageCode
+        /// <summary>
+        /// <para>
+        /// <para> The language code used to return translated title and description fields. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.FreeTier.LanguageCode")]
+        public Amazon.FreeTier.LanguageCode LanguageCode { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpsWorksCM.Model.DeleteServerResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FreeTier.Model.GetAccountActivityResponse).
+        /// Specifying the name of a property of type Amazon.FreeTier.Model.GetAccountActivityResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -103,12 +92,6 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ServerName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-OWCMServer (DeleteServer)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -116,16 +99,17 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.OpsWorksCM.Model.DeleteServerResponse, RemoveOWCMServerCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.FreeTier.Model.GetAccountActivityResponse, GetFTAccountActivityCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ServerName = this.ServerName;
+            context.ActivityId = this.ActivityId;
             #if MODULAR
-            if (this.ServerName == null && ParameterWasBound(nameof(this.ServerName)))
+            if (this.ActivityId == null && ParameterWasBound(nameof(this.ActivityId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ServerName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ActivityId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LanguageCode = this.LanguageCode;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -140,11 +124,15 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.OpsWorksCM.Model.DeleteServerRequest();
+            var request = new Amazon.FreeTier.Model.GetAccountActivityRequest();
             
-            if (cmdletContext.ServerName != null)
+            if (cmdletContext.ActivityId != null)
             {
-                request.ServerName = cmdletContext.ServerName;
+                request.ActivityId = cmdletContext.ActivityId;
+            }
+            if (cmdletContext.LanguageCode != null)
+            {
+                request.LanguageCode = cmdletContext.LanguageCode;
             }
             
             CmdletOutput output;
@@ -179,12 +167,12 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         #region AWS Service Operation Call
         
-        private Amazon.OpsWorksCM.Model.DeleteServerResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.DeleteServerRequest request)
+        private Amazon.FreeTier.Model.GetAccountActivityResponse CallAWSServiceOperation(IAmazonFreeTier client, Amazon.FreeTier.Model.GetAccountActivityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorksCM", "DeleteServer");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Free Tier", "GetAccountActivity");
             try
             {
-                return client.DeleteServerAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetAccountActivityAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -201,9 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ServerName { get; set; }
-            public System.Func<Amazon.OpsWorksCM.Model.DeleteServerResponse, RemoveOWCMServerCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ActivityId { get; set; }
+            public Amazon.FreeTier.LanguageCode LanguageCode { get; set; }
+            public System.Func<Amazon.FreeTier.Model.GetAccountActivityResponse, GetFTAccountActivityCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// </para><para>
     ///  Example (Chef): <c>aws opsworks-cm associate-node --server-name <i>MyServer</i> --node-name
     /// <i>MyManagedNode</i> --engine-attributes "Name=<i>CHEF_ORGANIZATION</i>,Value=default"
-    /// "Name=<i>CHEF_NODE_PUBLIC_KEY</i>,Value=<i>public-key-pem</i>"</c></para><para>
+    /// "Name=<i>CHEF_AUTOMATE_NODE_PUBLIC_KEY</i>,Value=<i>public-key-pem</i>"</c></para><para>
     ///  On a Puppet server, this command is an alternative to the <c>puppet cert sign</c>
     /// command that signs a Puppet node CSR. 
     /// </para><para>
@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// Otherwise, an <c>InvalidStateException</c> is thrown. A <c>ResourceNotFoundException</c>
     /// is thrown when the server does not exist. A <c>ValidationException</c> is raised when
     /// parameters of the request are not valid. The AssociateNode API call can be integrated
-    /// into Auto Scaling configurations, AWS Cloudformation templates, or the user data of
-    /// a server's instance. 
+    /// into Auto Scaling configurations, CloudFormation templates, or the user data of a
+    /// server's instance. 
     /// </para>
     /// </summary>
     [Cmdlet("Add", "OWCMNode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <summary>
         /// <para>
         /// <para>Engine attributes used for associating the node. </para><para><b>Attributes accepted in a AssociateNode request for Chef</b></para><ul><li><para><c>CHEF_ORGANIZATION</c>: The Chef organization with which the node is associated.
-        /// By default only one organization named <c>default</c> can exist. </para></li><li><para><c>CHEF_NODE_PUBLIC_KEY</c>: A PEM-formatted public key. This key is required for
-        /// the <c>chef-client</c> agent to access the Chef API. </para></li></ul><para><b>Attributes accepted in a AssociateNode request for Puppet</b></para><ul><li><para><c>PUPPET_NODE_CSR</c>: A PEM-formatted certificate-signing request (CSR) that is
+        /// By default only one organization named <c>default</c> can exist. </para></li><li><para><c>CHEF_AUTOMATE_NODE_PUBLIC_KEY</c>: A PEM-formatted public key. This key is required
+        /// for the <c>chef-client</c> agent to access the Chef API. </para></li></ul><para><b>Attributes accepted in a AssociateNode request for Puppet</b></para><ul><li><para><c>PUPPET_NODE_CSR</c>: A PEM-formatted certificate-signing request (CSR) that is
         /// created by the node. </para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller

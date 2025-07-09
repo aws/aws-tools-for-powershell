@@ -76,11 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>Indicates the algorithm used to create the checksum for the object when you use the
         /// SDK. This header will not provide any additional functionality if you don't use the
-        /// SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code>
-        /// or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request
-        /// with the HTTP status code <code>400 Bad Request</code>. For more information, see
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
-        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code>
+        /// SDK. When you send this header, there must be a corresponding <c>x-amz-checksum</c>
+        /// or <c>x-amz-trailer</c> header sent. Otherwise, Amazon S3 fails the request with the
+        /// HTTP status code <c>400 Bad Request</c>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>If you provide an individual checksum, Amazon S3 ignores any provided <c>ChecksumAlgorithm</c>
         /// parameter.</para>
         /// </para>
         /// </summary>
@@ -117,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
         /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <code>403 Forbidden</code> (access denied).</para>
+        /// <c>403 Forbidden</c> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Token
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A token to allow Object Lock to be enabled for an existing bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -231,13 +230,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.BucketName = this.BucketName;
             context.ChecksumAlgorithm = this.ChecksumAlgorithm;
             context.ContentMD5 = this.ContentMD5;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             context.ObjectLockConfiguration_ObjectLockEnabled = this.ObjectLockConfiguration_ObjectLockEnabled;
             context.DefaultRetention_Day = this.DefaultRetention_Day;
             context.DefaultRetention_Mode = this.DefaultRetention_Mode;
             context.DefaultRetention_Year = this.DefaultRetention_Year;
             context.RequestPayer = this.RequestPayer;
             context.Token = this.Token;
-            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -265,6 +264,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ContentMD5 != null)
             {
                 request.ContentMD5 = cmdletContext.ContentMD5;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
              // populate ObjectLockConfiguration
@@ -353,10 +356,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.Token = cmdletContext.Token;
             }
-            if (cmdletContext.ExpectedBucketOwner != null)
-            {
-                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
-            }
             
             CmdletOutput output;
             
@@ -415,13 +414,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String BucketName { get; set; }
             public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public System.String ContentMD5 { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public Amazon.S3.ObjectLockEnabled ObjectLockConfiguration_ObjectLockEnabled { get; set; }
             public System.Int32? DefaultRetention_Day { get; set; }
             public Amazon.S3.ObjectLockRetentionMode DefaultRetention_Mode { get; set; }
             public System.Int32? DefaultRetention_Year { get; set; }
             public Amazon.S3.RequestPayer RequestPayer { get; set; }
             public System.String Token { get; set; }
-            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutObjectLockConfigurationResponse, WriteS3ObjectLockConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RequestCharged;
         }

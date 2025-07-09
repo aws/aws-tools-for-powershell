@@ -23,54 +23,61 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.OpsWorksCM;
-using Amazon.OpsWorksCM.Model;
+using Amazon.FreeTier;
+using Amazon.FreeTier.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.OWCM
+namespace Amazon.PowerShell.Cmdlets.FT
 {
     /// <summary>
-    /// Returns a list of tags that are applied to the specified OpsWorks for Chef Automate
-    /// or OpsWorks for Puppet Enterprise servers or backups.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of activities that are available. This operation supports pagination
+    /// and filtering by status.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "OWCMResourceTag")]
-    [OutputType("Amazon.OpsWorksCM.Model.Tag")]
-    [AWSCmdlet("Calls the AWS OpsWorksCM ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.OpsWorksCM.Model.ListTagsForResourceResponse))]
-    [AWSCmdletOutput("Amazon.OpsWorksCM.Model.Tag or Amazon.OpsWorksCM.Model.ListTagsForResourceResponse",
-        "This cmdlet returns a collection of Amazon.OpsWorksCM.Model.Tag objects.",
-        "The service call response (type Amazon.OpsWorksCM.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "FTAccountActivityList")]
+    [OutputType("Amazon.FreeTier.Model.ActivitySummary")]
+    [AWSCmdlet("Calls the AWS Free Tier ListAccountActivities API operation.", Operation = new[] {"ListAccountActivities"}, SelectReturnType = typeof(Amazon.FreeTier.Model.ListAccountActivitiesResponse))]
+    [AWSCmdletOutput("Amazon.FreeTier.Model.ActivitySummary or Amazon.FreeTier.Model.ListAccountActivitiesResponse",
+        "This cmdlet returns a collection of Amazon.FreeTier.Model.ActivitySummary objects.",
+        "The service call response (type Amazon.FreeTier.Model.ListAccountActivitiesResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetOWCMResourceTagCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
+    public partial class GetFTAccountActivityListCmdlet : AmazonFreeTierClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ResourceArn
+        #region Parameter FilterActivityStatus
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Number (ARN) of an OpsWorks for Chef Automate or OpsWorks for
-        /// Puppet Enterprise server for which you want to show applied tags. For example, <c>arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE</c>.</para>
+        /// <para> The activity status filter. This field can be used to filter the response by activities
+        /// status. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
-        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FilterActivityStatuses")]
+        public System.String[] FilterActivityStatus { get; set; }
+        #endregion
+        
+        #region Parameter LanguageCode
+        /// <summary>
+        /// <para>
+        /// <para> The language code used to return translated titles. </para>
+        /// </para>
+        /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        [AWSConstantClassSource("Amazon.FreeTier.LanguageCode")]
+        public Amazon.FreeTier.LanguageCode LanguageCode { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>To receive a paginated response, use this parameter to specify the maximum number
-        /// of results to be returned with a single call. If the number of available results exceeds
-        /// this maximum, the response includes a <c>NextToken</c> value that you can assign to
-        /// the <c>NextToken</c> request parameter to get the next set of results.</para>
+        /// <para> The maximum number of items to return for this request. To get the next page of items,
+        /// make another request with the token returned in the output. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -86,13 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>NextToken is a string that is returned in some command responses. It indicates that
-        /// not all entries have been returned, and that you must run at least one more request
-        /// to get remaining items. To get remaining results, call <c>ListTagsForResource</c>
-        /// again, and assign the token from the previous results as the value of the <c>nextToken</c>
-        /// parameter. If there are no more results, the response object's <c>nextToken</c> parameter
-        /// value is <c>null</c>. Setting a <c>nextToken</c> value that was not returned in your
-        /// previous results causes an <c>InvalidNextTokenException</c> to occur.</para>
+        /// <para> A token from a previous paginated response. If this is specified, the response includes
+        /// records beginning from this token (inclusive), up to the number specified by <c>maxResults</c>.
+        /// </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -105,13 +108,13 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpsWorksCM.Model.ListTagsForResourceResponse).
-        /// Specifying the name of a property of type Amazon.OpsWorksCM.Model.ListTagsForResourceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Activities'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FreeTier.Model.ListAccountActivitiesResponse).
+        /// Specifying the name of a property of type Amazon.FreeTier.Model.ListAccountActivitiesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Tags";
+        public string Select { get; set; } = "Activities";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -140,9 +143,14 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.OpsWorksCM.Model.ListTagsForResourceResponse, GetOWCMResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.FreeTier.Model.ListAccountActivitiesResponse, GetFTAccountActivityListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.FilterActivityStatus != null)
+            {
+                context.FilterActivityStatus = new List<System.String>(this.FilterActivityStatus);
+            }
+            context.LanguageCode = this.LanguageCode;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -154,13 +162,6 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
             }
             #endif
             context.NextToken = this.NextToken;
-            context.ResourceArn = this.ResourceArn;
-            #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -171,22 +172,25 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         #region IExecutor Members
         
-        #if MODULAR
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.OpsWorksCM.Model.ListTagsForResourceRequest();
+            var request = new Amazon.FreeTier.Model.ListAccountActivitiesRequest();
             
+            if (cmdletContext.FilterActivityStatus != null)
+            {
+                request.FilterActivityStatuses = cmdletContext.FilterActivityStatus;
+            }
+            if (cmdletContext.LanguageCode != null)
+            {
+                request.LanguageCode = cmdletContext.LanguageCode;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
-            }
-            if (cmdletContext.ResourceArn != null)
-            {
-                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             // Initialize loop variant and commence piping
@@ -235,92 +239,6 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
             
             return null;
         }
-        #else
-        public object Execute(ExecutorContext context)
-        {
-            var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
-            
-            // create request and set iteration invariants
-            var request = new Amazon.OpsWorksCM.Model.ListTagsForResourceRequest();
-            if (cmdletContext.ResourceArn != null)
-            {
-                request.ResourceArn = cmdletContext.ResourceArn;
-            }
-            
-            // Initialize loop variants and commence piping
-            System.String _nextToken = null;
-            int? _emitLimit = null;
-            int _retrievedSoFar = 0;
-            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
-            {
-                _nextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.MaxResult.HasValue)
-            {
-                _emitLimit = cmdletContext.MaxResult;
-            }
-            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
-            
-            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            do
-            {
-                request.NextToken = _nextToken;
-                if (_emitLimit.HasValue)
-                {
-                    request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
-                }
-                
-                CmdletOutput output;
-                
-                try
-                {
-                    
-                    var response = CallAWSServiceOperation(client, request);
-                    object pipelineOutput = null;
-                    if (!useParameterSelect)
-                    {
-                        pipelineOutput = cmdletContext.Select(response, this);
-                    }
-                    output = new CmdletOutput
-                    {
-                        PipelineOutput = pipelineOutput,
-                        ServiceResponse = response
-                    };
-                    int _receivedThisCall = response.Tags?.Count ?? 0;
-                    
-                    _nextToken = response.NextToken;
-                    _retrievedSoFar += _receivedThisCall;
-                    if (_emitLimit.HasValue)
-                    {
-                        _emitLimit -= _receivedThisCall;
-                    }
-                }
-                catch (Exception e)
-                {
-                    if (_retrievedSoFar == 0 || !_emitLimit.HasValue)
-                    {
-                        output = new CmdletOutput { ErrorResponse = e };
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-                
-                ProcessOutput(output);
-            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken) && (!_emitLimit.HasValue || _emitLimit.Value >= 1));
-            
-            
-            if (useParameterSelect)
-            {
-                WriteObject(cmdletContext.Select(null, this));
-            }
-            
-            
-            return null;
-        }
-        #endif
         
         public ExecutorContext CreateContext()
         {
@@ -331,12 +249,12 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         #region AWS Service Operation Call
         
-        private Amazon.OpsWorksCM.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.ListTagsForResourceRequest request)
+        private Amazon.FreeTier.Model.ListAccountActivitiesResponse CallAWSServiceOperation(IAmazonFreeTier client, Amazon.FreeTier.Model.ListAccountActivitiesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorksCM", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Free Tier", "ListAccountActivities");
             try
             {
-                return client.ListTagsForResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListAccountActivitiesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -353,11 +271,12 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> FilterActivityStatus { get; set; }
+            public Amazon.FreeTier.LanguageCode LanguageCode { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String ResourceArn { get; set; }
-            public System.Func<Amazon.OpsWorksCM.Model.ListTagsForResourceResponse, GetOWCMResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Tags;
+            public System.Func<Amazon.FreeTier.Model.ListAccountActivitiesResponse, GetFTAccountActivityListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Activities;
         }
         
     }

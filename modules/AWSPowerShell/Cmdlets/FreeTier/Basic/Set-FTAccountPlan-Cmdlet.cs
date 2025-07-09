@@ -23,61 +23,50 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.OpsWorksCM;
-using Amazon.OpsWorksCM.Model;
+using Amazon.FreeTier;
+using Amazon.FreeTier.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.OWCM
+namespace Amazon.PowerShell.Cmdlets.FT
 {
     /// <summary>
-    /// Deletes the server and the underlying CloudFormation stacks (including the server's
-    /// EC2 instance). When you run this command, the server state is updated to <c>DELETING</c>.
-    /// After the server is deleted, it is no longer returned by <c>DescribeServer</c> requests.
-    /// If the CloudFormation stack cannot be deleted, the server cannot be deleted. 
-    /// 
-    ///  
-    /// <para>
-    ///  This operation is asynchronous. 
-    /// </para><para>
-    ///  An <c>InvalidStateException</c> is thrown when a server deletion is already in progress.
-    /// A <c>ResourceNotFoundException</c> is thrown when the server does not exist. A <c>ValidationException</c>
-    /// is raised when parameters of the request are not valid. 
-    /// </para><para></para>
+    /// The account plan type for the Amazon Web Services account.
     /// </summary>
-    [Cmdlet("Remove", "OWCMServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS OpsWorksCM DeleteServer API operation.", Operation = new[] {"DeleteServer"}, SelectReturnType = typeof(Amazon.OpsWorksCM.Model.DeleteServerResponse))]
-    [AWSCmdletOutput("None or Amazon.OpsWorksCM.Model.DeleteServerResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorksCM.Model.DeleteServerResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Set", "FTAccountPlan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.FreeTier.Model.UpgradeAccountPlanResponse")]
+    [AWSCmdlet("Calls the AWS Free Tier UpgradeAccountPlan API operation.", Operation = new[] {"UpgradeAccountPlan"}, SelectReturnType = typeof(Amazon.FreeTier.Model.UpgradeAccountPlanResponse))]
+    [AWSCmdletOutput("Amazon.FreeTier.Model.UpgradeAccountPlanResponse",
+        "This cmdlet returns an Amazon.FreeTier.Model.UpgradeAccountPlanResponse object containing multiple properties."
     )]
-    public partial class RemoveOWCMServerCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
+    public partial class SetFTAccountPlanCmdlet : AmazonFreeTierClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ServerName
+        #region Parameter AccountPlanType
         /// <summary>
         /// <para>
-        /// <para>The ID of the server to delete.</para>
+        /// <para> The target account plan type. This makes it explicit about the change and latest
+        /// value of the <c>accountPlanType</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ServerName { get; set; }
+        [AWSConstantClassSource("Amazon.FreeTier.AccountPlanType")]
+        public Amazon.FreeTier.AccountPlanType AccountPlanType { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpsWorksCM.Model.DeleteServerResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FreeTier.Model.UpgradeAccountPlanResponse).
+        /// Specifying the name of a property of type Amazon.FreeTier.Model.UpgradeAccountPlanResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ServerName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-OWCMServer (DeleteServer)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AccountPlanType), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-FTAccountPlan (UpgradeAccountPlan)"))
             {
                 return;
             }
@@ -116,14 +105,14 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.OpsWorksCM.Model.DeleteServerResponse, RemoveOWCMServerCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.FreeTier.Model.UpgradeAccountPlanResponse, SetFTAccountPlanCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ServerName = this.ServerName;
+            context.AccountPlanType = this.AccountPlanType;
             #if MODULAR
-            if (this.ServerName == null && ParameterWasBound(nameof(this.ServerName)))
+            if (this.AccountPlanType == null && ParameterWasBound(nameof(this.AccountPlanType)))
             {
-                WriteWarning("You are passing $null as a value for parameter ServerName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AccountPlanType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -140,11 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.OpsWorksCM.Model.DeleteServerRequest();
+            var request = new Amazon.FreeTier.Model.UpgradeAccountPlanRequest();
             
-            if (cmdletContext.ServerName != null)
+            if (cmdletContext.AccountPlanType != null)
             {
-                request.ServerName = cmdletContext.ServerName;
+                request.AccountPlanType = cmdletContext.AccountPlanType;
             }
             
             CmdletOutput output;
@@ -179,12 +168,12 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         #region AWS Service Operation Call
         
-        private Amazon.OpsWorksCM.Model.DeleteServerResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.DeleteServerRequest request)
+        private Amazon.FreeTier.Model.UpgradeAccountPlanResponse CallAWSServiceOperation(IAmazonFreeTier client, Amazon.FreeTier.Model.UpgradeAccountPlanRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorksCM", "DeleteServer");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Free Tier", "UpgradeAccountPlan");
             try
             {
-                return client.DeleteServerAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.UpgradeAccountPlanAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -201,9 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ServerName { get; set; }
-            public System.Func<Amazon.OpsWorksCM.Model.DeleteServerResponse, RemoveOWCMServerCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public Amazon.FreeTier.AccountPlanType AccountPlanType { get; set; }
+            public System.Func<Amazon.FreeTier.Model.UpgradeAccountPlanResponse, SetFTAccountPlanCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

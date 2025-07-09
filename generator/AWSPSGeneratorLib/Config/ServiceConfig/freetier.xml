@@ -18,7 +18,23 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="GetAccountActivity" OutputProperty="*" Verb="Get" Noun="AccountActivity" PipelineParameter="ActivityId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccountPlanState" OutputProperty="*" Verb="Get" Noun="AccountPlanState" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetFreeTierUsage" OutputProperty="FreeTierUsages" Verb="Get" Noun="FreeTierUsage" PipelineParameter="Filter" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccountActivities" OutputProperty="Activities" Verb="Get" Noun="AccountActivityList" PipelineParameter="LanguageCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpgradeAccountPlan" OutputProperty="*" Verb="Set" Noun="AccountPlan" ShouldProcessTarget="AccountPlanType" PipelineParameter="AccountPlanType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

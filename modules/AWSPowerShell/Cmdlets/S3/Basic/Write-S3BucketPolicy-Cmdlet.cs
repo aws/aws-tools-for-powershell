@@ -94,10 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// <para>The name of the bucket.</para><para><b>Directory buckets </b> - When you use this operation with a directory bucket,
-        /// you must use path-style requests in the format <c>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i></c>. Virtual-hosted-style requests aren't supported. Directory bucket names must
-        /// be unique in the chosen Availability Zone. Bucket names must also follow the format
-        /// <c><i>bucket_base_name</i>--<i>az_id</i>--x-s3</c> (for example, <c><i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</c>).
-        /// For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory
+        /// you must use path-style requests in the format <c>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i></c>. Virtual-hosted-style requests aren't supported. Directory bucket names must
+        /// be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must
+        /// also follow the format <c><i>bucket-base-name</i>--<i>zone-id</i>--x-s3</c> (for
+        /// example, <c><i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</c>). For information
+        /// about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory
         /// bucket naming rules</a> in the <i>Amazon S3 User Guide</i></para>
         /// </para>
         /// </summary>
@@ -108,13 +109,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ChecksumAlgorithm
         /// <summary>
         /// <para>
-        /// <para>Indicates the algorithm used to create the checksum for the object when you use the
+        /// <para>Indicates the algorithm used to create the checksum for the request when you use the
         /// SDK. This header will not provide any additional functionality if you don't use the
-        /// SDK. When you send this header, there must be a corresponding <c>x-amz-checksum-<i>algorithm</i></c> or <c>x-amz-trailer</c> header sent. Otherwise, Amazon S3 fails the
-        /// request with the HTTP status code <c>400 Bad Request</c>.</para><para>For the <c>x-amz-checksum-<i>algorithm</i></c> header, replace <c><i>algorithm</i></c> with the supported algorithm from the following list: </para><ul><li><para>CRC-32</para></li><li><para>CRC-32C</para></li><li><para>CRC-64NVME</para></li><li><para>SHA-1</para></li><li><para>SHA-256</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// SDK. When you send this header, there must be a corresponding <c>x-amz-checksum-<i>algorithm</i></c> or <c>x-amz-trailer</c> header sent. Otherwise, Amazon S3 fails the request with
+        /// the HTTP status code <c>400 Bad Request</c>.</para><para>For the <c>x-amz-checksum-<i>algorithm</i></c> header, replace <c><i>algorithm</i></c> with the supported algorithm from the following list: </para><ul><li><para><c>CRC32</c></para></li><li><para><c>CRC32C</c></para></li><li><para><c>CRC64NVME</c></para></li><li><para><c>SHA1</c></para></li><li><para><c>SHA256</c></para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
         /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>If the individual checksum value you provide through <c>x-amz-checksum-<i>algorithm</i></c> doesn't match the checksum algorithm you set through <c>x-amz-sdk-checksum-algorithm</c>,
-        /// Amazon S3 fails the request with a <c>BadDigest</c> error.</para><note><para>For directory buckets, when you use Amazon Web Services SDKs, <c>CRC32</c> is
-        /// the default checksum algorithm that's used for performance.</para></note>
+        /// Amazon S3 fails the request with a <c>BadDigest</c> error.</para><note><para>For directory buckets, when you use Amazon Web Services SDKs, <c>CRC32</c> is the
+        /// default checksum algorithm that's used for performance.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,7 +164,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>The bucket policy as a JSON document.</para><para>For directory buckets, the only IAM action supported in the bucket policy is <c>s3express:CreateSession</c>.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Policy { get; set; }
         #endregion
         
@@ -214,10 +222,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             context.BucketName = this.BucketName;
             context.ChecksumAlgorithm = this.ChecksumAlgorithm;
-            context.ContentMD5 = this.ContentMD5;
-            context.Policy = this.Policy;
             context.ConfirmRemoveSelfBucketAccess = this.ConfirmRemoveSelfBucketAccess;
+            context.ContentMD5 = this.ContentMD5;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
+            context.Policy = this.Policy;
+            #if MODULAR
+            if (this.Policy == null && ParameterWasBound(nameof(this.Policy)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Policy which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -242,21 +256,21 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
             }
-            if (cmdletContext.ContentMD5 != null)
-            {
-                request.ContentMD5 = cmdletContext.ContentMD5;
-            }
-            if (cmdletContext.Policy != null)
-            {
-                request.Policy = cmdletContext.Policy;
-            }
             if (cmdletContext.ConfirmRemoveSelfBucketAccess != null)
             {
                 request.ConfirmRemoveSelfBucketAccess = cmdletContext.ConfirmRemoveSelfBucketAccess.Value;
             }
+            if (cmdletContext.ContentMD5 != null)
+            {
+                request.ContentMD5 = cmdletContext.ContentMD5;
+            }
             if (cmdletContext.ExpectedBucketOwner != null)
             {
                 request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+            }
+            if (cmdletContext.Policy != null)
+            {
+                request.Policy = cmdletContext.Policy;
             }
             
             CmdletOutput output;
@@ -315,10 +329,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             public System.String BucketName { get; set; }
             public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
-            public System.String ContentMD5 { get; set; }
-            public System.String Policy { get; set; }
             public System.Boolean? ConfirmRemoveSelfBucketAccess { get; set; }
+            public System.String ContentMD5 { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
+            public System.String Policy { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketPolicyResponse, WriteS3BucketPolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
