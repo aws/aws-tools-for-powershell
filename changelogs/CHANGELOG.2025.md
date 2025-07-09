@@ -1,4 +1,16 @@
-﻿### 4.1.854 (2025-07-03 20:21Z)
+﻿### 4.1.855 (2025-07-09 21:26Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1078.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Get-EC2CapacityBlock leveraging the DescribeCapacityBlocks service API.
+    * Added cmdlet Get-EC2CapacityBlockStatus leveraging the DescribeCapacityBlockStatus service API.
+    * Modified cmdlet Get-EC2CapacityBlockOffering: added parameters UltraserverCount and UltraserverType.
+  * Amazon Free Tier
+    * Added cmdlet Get-FTAccountActivity leveraging the GetAccountActivity service API.
+    * Added cmdlet Get-FTAccountActivityList leveraging the ListAccountActivities service API.
+    * Added cmdlet Get-FTAccountPlanState leveraging the GetAccountPlanState service API.
+    * Added cmdlet Set-FTAccountPlan leveraging the UpgradeAccountPlan service API.
+
+### 4.1.854 (2025-07-03 20:21Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1077.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Customer Profiles
     * Added cmdlet Get-CPFUploadJob leveraging the GetUploadJob service API.

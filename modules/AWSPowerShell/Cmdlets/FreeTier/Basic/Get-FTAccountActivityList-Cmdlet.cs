@@ -22,89 +22,55 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.FreeTier;
+using Amazon.FreeTier.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.FT
 {
     /// <summary>
-    /// Describes a tree-based hierarchy that represents the physical host placement of your
-    /// EC2 instances within an Availability Zone or Local Zone. You can use this information
-    /// to determine the relative proximity of your EC2 instances within the Amazon Web Services
-    /// network to support your tightly coupled workloads.
-    /// 
-    ///  
-    /// <para>
-    /// Instance topology is supported for specific instance types only. For more information,
-    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology-prerequisites.html">
-    /// Prerequisites for Amazon EC2 instance topology</a> in the <i>Amazon EC2 User Guide</i>.
-    /// </para><note><para>
-    /// The Amazon EC2 API follows an eventual consistency model due to the distributed nature
-    /// of the system supporting it. As a result, when you call the DescribeInstanceTopology
-    /// API command immediately after launching instances, the response might return a <c>null</c>
-    /// value for <c>capacityBlockId</c> because the data might not have fully propagated
-    /// across all subsystems. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html">Eventual
-    /// consistency in the Amazon EC2 API</a> in the <i>Amazon EC2 Developer Guide</i>.
-    /// </para></note><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html">Amazon
-    /// EC2 instance topology</a> in the <i>Amazon EC2 User Guide</i>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of activities that are available. This operation supports pagination
+    /// and filtering by status.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "EC2InstanceTopology")]
-    [OutputType("Amazon.EC2.Model.InstanceTopology")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeInstanceTopology API operation.", Operation = new[] {"DescribeInstanceTopology"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeInstanceTopologyResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.InstanceTopology or Amazon.EC2.Model.DescribeInstanceTopologyResponse",
-        "This cmdlet returns a collection of Amazon.EC2.Model.InstanceTopology objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeInstanceTopologyResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "FTAccountActivityList")]
+    [OutputType("Amazon.FreeTier.Model.ActivitySummary")]
+    [AWSCmdlet("Calls the AWS Free Tier ListAccountActivities API operation.", Operation = new[] {"ListAccountActivities"}, SelectReturnType = typeof(Amazon.FreeTier.Model.ListAccountActivitiesResponse))]
+    [AWSCmdletOutput("Amazon.FreeTier.Model.ActivitySummary or Amazon.FreeTier.Model.ListAccountActivitiesResponse",
+        "This cmdlet returns a collection of Amazon.FreeTier.Model.ActivitySummary objects.",
+        "The service call response (type Amazon.FreeTier.Model.ListAccountActivitiesResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetEC2InstanceTopologyCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetFTAccountActivityListCmdlet : AmazonFreeTierClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Filter
+        #region Parameter FilterActivityStatus
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><c>availability-zone</c> - The name of the Availability Zone (for example, <c>us-west-2a</c>)
-        /// or Local Zone (for example, <c>us-west-2-lax-1b</c>) that the instance is in.</para></li><li><para><c>instance-type</c> - The instance type (for example, <c>p4d.24xlarge</c>) or instance
-        /// family (for example, <c>p4d*</c>). You can use the <c>*</c> wildcard to match zero
-        /// or more characters, or the <c>?</c> wildcard to match zero or one character.</para></li><li><para><c>zone-id</c> - The ID of the Availability Zone (for example, <c>usw2-az2</c>) or
-        /// Local Zone (for example, <c>usw2-lax1-az1</c>) that the instance is in.</para></li></ul>
+        /// <para> The activity status filter. This field can be used to filter the response by activities
+        /// status. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Filters")]
-        public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        [Alias("FilterActivityStatuses")]
+        public System.String[] FilterActivityStatus { get; set; }
         #endregion
         
-        #region Parameter GroupName
+        #region Parameter LanguageCode
         /// <summary>
         /// <para>
-        /// <para>The name of the placement group that each instance is in.</para><para>Constraints: Maximum 100 explicitly specified placement group names.</para>
+        /// <para> The language code used to return translated titles. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("GroupNames")]
-        public System.String[] GroupName { get; set; }
-        #endregion
-        
-        #region Parameter InstanceId
-        /// <summary>
-        /// <para>
-        /// <para>The instance IDs.</para><para>Default: Describes all your instances.</para><para>Constraints: Maximum 100 explicitly specified instance IDs.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("InstanceIds")]
-        public object[] InstanceId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [AWSConstantClassSource("Amazon.FreeTier.LanguageCode")]
+        public Amazon.FreeTier.LanguageCode LanguageCode { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return for this request. To get the next page of items,
-        /// make another request with the token returned in the output. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</para><para>You can't specify this parameter and the instance IDs parameter in the same request.</para><para>Default: <c>20</c></para>
+        /// <para> The maximum number of items to return for this request. To get the next page of items,
+        /// make another request with the token returned in the output. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,8 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token returned from a previous paginated request. Pagination continues from the
-        /// end of the items returned by the previous request.</para>
+        /// <para> A token from a previous paginated response. If this is specified, the response includes
+        /// records beginning from this token (inclusive), up to the number specified by <c>maxResults</c>.
+        /// </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -129,13 +96,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Instances'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DescribeInstanceTopologyResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.DescribeInstanceTopologyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Activities'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FreeTier.Model.ListAccountActivitiesResponse).
+        /// Specifying the name of a property of type Amazon.FreeTier.Model.ListAccountActivitiesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Instances";
+        public string Select { get; set; } = "Activities";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the LanguageCode parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^LanguageCode' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LanguageCode' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter NoAutoIteration
@@ -158,24 +135,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeInstanceTopologyResponse, GetEC2InstanceTopologyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.FreeTier.Model.ListAccountActivitiesResponse, GetFTAccountActivityListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            if (this.Filter != null)
+            else if (this.PassThru.IsPresent)
             {
-                context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
+                context.Select = (response, cmdlet) => this.LanguageCode;
             }
-            if (this.GroupName != null)
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.FilterActivityStatus != null)
             {
-                context.GroupName = new List<System.String>(this.GroupName);
+                context.FilterActivityStatus = new List<System.String>(this.FilterActivityStatus);
             }
-            if (this.InstanceId != null)
-            {
-                context.InstanceId = AmazonEC2Helper.InstanceParamToIDs(this.InstanceId);
-            }
-            
+            context.LanguageCode = this.LanguageCode;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -191,22 +170,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.EC2.Model.DescribeInstanceTopologyRequest();
+            var request = new Amazon.FreeTier.Model.ListAccountActivitiesRequest();
             
-            if (cmdletContext.Filter != null)
+            if (cmdletContext.FilterActivityStatus != null)
             {
-                request.Filters = cmdletContext.Filter;
+                request.FilterActivityStatuses = cmdletContext.FilterActivityStatus;
             }
-            if (cmdletContext.GroupName != null)
+            if (cmdletContext.LanguageCode != null)
             {
-                request.GroupNames = cmdletContext.GroupName;
-            }
-            if (cmdletContext.InstanceId != null)
-            {
-                request.InstanceIds = cmdletContext.InstanceId;
+                request.LanguageCode = cmdletContext.LanguageCode;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -269,15 +246,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.DescribeInstanceTopologyResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeInstanceTopologyRequest request)
+        private Amazon.FreeTier.Model.ListAccountActivitiesResponse CallAWSServiceOperation(IAmazonFreeTier client, Amazon.FreeTier.Model.ListAccountActivitiesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeInstanceTopology");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Free Tier", "ListAccountActivities");
             try
             {
                 #if DESKTOP
-                return client.DescribeInstanceTopology(request);
+                return client.ListAccountActivities(request);
                 #elif CORECLR
-                return client.DescribeInstanceTopologyAsync(request).GetAwaiter().GetResult();
+                return client.ListAccountActivitiesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -297,13 +274,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.EC2.Model.Filter> Filter { get; set; }
-            public List<System.String> GroupName { get; set; }
-            public List<System.String> InstanceId { get; set; }
+            public List<System.String> FilterActivityStatus { get; set; }
+            public Amazon.FreeTier.LanguageCode LanguageCode { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.EC2.Model.DescribeInstanceTopologyResponse, GetEC2InstanceTopologyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Instances;
+            public System.Func<Amazon.FreeTier.Model.ListAccountActivitiesResponse, GetFTAccountActivityListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Activities;
         }
         
     }

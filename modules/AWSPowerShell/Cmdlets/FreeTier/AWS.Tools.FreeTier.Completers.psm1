@@ -75,6 +75,43 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service AWS Free Tier
 
 
+$FT_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.FreeTier.AccountPlanType
+        "Set-FTAccountPlan/AccountPlanType"
+        {
+            $v = "FREE","PAID"
+            break
+        }
+
+        # Amazon.FreeTier.LanguageCode
+        {
+            ($_ -eq "Get-FTAccountActivity/LanguageCode") -Or
+            ($_ -eq "Get-FTAccountActivityList/LanguageCode")
+        }
+        {
+            $v = "de-DE","en-GB","en-US","es-ES","fr-FR","id-ID","it-IT","ja-JP","ko-KR","pt-PT","tr-TR","zh-CN","zh-TW"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$FT_map = @{
+    "AccountPlanType"=@("Set-FTAccountPlan")
+    "LanguageCode"=@("Get-FTAccountActivity","Get-FTAccountActivityList")
+}
+
+_awsArgumentCompleterRegistration $FT_Completers $FT_map
+
 $FT_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -123,7 +160,11 @@ $FT_SelectCompleters = {
 }
 
 $FT_SelectMap = @{
-    "Select"=@("Get-FTFreeTierUsage")
+    "Select"=@("Get-FTAccountActivity",
+               "Get-FTAccountPlanState",
+               "Get-FTFreeTierUsage",
+               "Get-FTAccountActivityList",
+               "Set-FTAccountPlan")
 }
 
 _awsArgumentCompleterRegistration $FT_SelectCompleters $FT_SelectMap

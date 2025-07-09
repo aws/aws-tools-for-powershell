@@ -1779,6 +1779,8 @@ $EC2_SelectMap = @{
                "Get-EC2CapacityBlockExtensionHistory",
                "Get-EC2CapacityBlockExtensionOffering",
                "Get-EC2CapacityBlockOffering",
+               "Get-EC2CapacityBlock",
+               "Get-EC2CapacityBlockStatus",
                "Get-EC2CapacityReservationBillingRequest",
                "Get-EC2CapacityReservationFleet",
                "Get-EC2CapacityReservation",

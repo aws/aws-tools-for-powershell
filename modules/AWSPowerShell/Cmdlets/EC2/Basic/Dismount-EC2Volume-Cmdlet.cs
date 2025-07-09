@@ -41,9 +41,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// When a volume with an Amazon Web Services Marketplace product code is detached from
     /// an instance, the product code is no longer associated with the instance.
     /// </para><para>
-    /// You can't detach or force detach volumes that are attached to Amazon ECS or Fargate
-    /// tasks. Attempting to do this results in the <c>UnsupportedOperationException</c> exception
-    /// with the <c>Unable to detach volume attached to ECS tasks</c> error message.
+    /// You can't detach or force detach volumes that are attached to Amazon Web Services-managed
+    /// resources. Attempting to do this results in the <c>UnsupportedOperationException</c>
+    /// exception.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-detaching-volume.html">Detach
     /// an Amazon EBS volume</a> in the <i>Amazon EBS User Guide</i>.

@@ -22,40 +22,35 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.OpsWorksCM;
-using Amazon.OpsWorksCM.Model;
+using Amazon.FreeTier;
+using Amazon.FreeTier.Model;
 
-namespace Amazon.PowerShell.Cmdlets.OWCM
+namespace Amazon.PowerShell.Cmdlets.FT
 {
     /// <summary>
-    /// Describes your OpsWorks CM account attributes. 
-    /// 
-    ///  
-    /// <para>
-    ///  This operation is synchronous. 
-    /// </para>
+    /// This returns all of the information related to the state of the account plan related
+    /// to Free Tier.
     /// </summary>
-    [Cmdlet("Get", "OWCMAccountAttribute")]
-    [OutputType("Amazon.OpsWorksCM.Model.AccountAttribute")]
-    [AWSCmdlet("Calls the AWS OpsWorksCM DescribeAccountAttributes API operation.", Operation = new[] {"DescribeAccountAttributes"}, SelectReturnType = typeof(Amazon.OpsWorksCM.Model.DescribeAccountAttributesResponse))]
-    [AWSCmdletOutput("Amazon.OpsWorksCM.Model.AccountAttribute or Amazon.OpsWorksCM.Model.DescribeAccountAttributesResponse",
-        "This cmdlet returns a collection of Amazon.OpsWorksCM.Model.AccountAttribute objects.",
-        "The service call response (type Amazon.OpsWorksCM.Model.DescribeAccountAttributesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "FTAccountPlanState")]
+    [OutputType("Amazon.FreeTier.Model.GetAccountPlanStateResponse")]
+    [AWSCmdlet("Calls the AWS Free Tier GetAccountPlanState API operation.", Operation = new[] {"GetAccountPlanState"}, SelectReturnType = typeof(Amazon.FreeTier.Model.GetAccountPlanStateResponse))]
+    [AWSCmdletOutput("Amazon.FreeTier.Model.GetAccountPlanStateResponse",
+        "This cmdlet returns an Amazon.FreeTier.Model.GetAccountPlanStateResponse object containing multiple properties."
     )]
-    public partial class GetOWCMAccountAttributeCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
+    public partial class GetFTAccountPlanStateCmdlet : AmazonFreeTierClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Attributes'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpsWorksCM.Model.DescribeAccountAttributesResponse).
-        /// Specifying the name of a property of type Amazon.OpsWorksCM.Model.DescribeAccountAttributesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FreeTier.Model.GetAccountPlanStateResponse).
+        /// Specifying the name of a property of type Amazon.FreeTier.Model.GetAccountPlanStateResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Attributes";
+        public string Select { get; set; } = "*";
         #endregion
         
         protected override void ProcessRecord()
@@ -70,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.OpsWorksCM.Model.DescribeAccountAttributesResponse, GetOWCMAccountAttributeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.FreeTier.Model.GetAccountPlanStateResponse, GetFTAccountPlanStateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             
@@ -87,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.OpsWorksCM.Model.DescribeAccountAttributesRequest();
+            var request = new Amazon.FreeTier.Model.GetAccountPlanStateRequest();
             
             
             CmdletOutput output;
@@ -122,15 +117,15 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         #region AWS Service Operation Call
         
-        private Amazon.OpsWorksCM.Model.DescribeAccountAttributesResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.DescribeAccountAttributesRequest request)
+        private Amazon.FreeTier.Model.GetAccountPlanStateResponse CallAWSServiceOperation(IAmazonFreeTier client, Amazon.FreeTier.Model.GetAccountPlanStateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorksCM", "DescribeAccountAttributes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Free Tier", "GetAccountPlanState");
             try
             {
                 #if DESKTOP
-                return client.DescribeAccountAttributes(request);
+                return client.GetAccountPlanState(request);
                 #elif CORECLR
-                return client.DescribeAccountAttributesAsync(request).GetAwaiter().GetResult();
+                return client.GetAccountPlanStateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -150,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Func<Amazon.OpsWorksCM.Model.DescribeAccountAttributesResponse, GetOWCMAccountAttributeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Attributes;
+            public System.Func<Amazon.FreeTier.Model.GetAccountPlanStateResponse, GetFTAccountPlanStateCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

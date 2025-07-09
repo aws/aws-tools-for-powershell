@@ -87,10 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A map that contains tag keys and tag values to attach to an AWS OpsWorks-CM server
-        /// backup.</para><ul><li><para>The key cannot be empty.</para></li><li><para>The key can be a maximum of 127 characters, and can contain only Unicode letters,
+        /// <para>A map that contains tag keys and tag values to attach to an OpsWorks CM server backup.</para><ul><li><para>The key cannot be empty.</para></li><li><para>The key can be a maximum of 127 characters, and can contain only Unicode letters,
         /// numbers, or separators, or the following special characters: <c>+ - = . _ : /</c></para></li><li><para>The value can be a maximum 255 characters, and contain only Unicode letters, numbers,
-        /// or separators, or the following special characters: <c>+ - = . _ : /</c></para></li><li><para>Leading and trailing white spaces are trimmed from both the key and value.</para></li><li><para>A maximum of 50 user-applied tags is allowed for tag-supported AWS OpsWorks-CM resources.</para></li></ul>
+        /// or separators, or the following special characters: <c>+ - = . _ : /</c></para></li><li><para>Leading and trailing white spaces are trimmed from both the key and value.</para></li><li><para>A maximum of 50 user-applied tags is allowed for tag-supported OpsWorks CM resources.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

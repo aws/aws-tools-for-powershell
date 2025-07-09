@@ -28,8 +28,8 @@ using Amazon.OpsWorksCM.Model;
 namespace Amazon.PowerShell.Cmdlets.OWCM
 {
     /// <summary>
-    /// Returns a list of tags that are applied to the specified AWS OpsWorks for Chef Automate
-    /// or AWS OpsWorks for Puppet Enterprise servers or backups.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of tags that are applied to the specified OpsWorks for Chef Automate
+    /// or OpsWorks for Puppet Enterprise servers or backups.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "OWCMResourceTag")]
     [OutputType("Amazon.OpsWorksCM.Model.Tag")]
@@ -46,9 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Number (ARN) of an AWS OpsWorks for Chef Automate or AWS OpsWorks
-        /// for Puppet Enterprise server for which you want to show applied tags. For example,
-        /// <c>arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE</c>.</para>
+        /// <para>The Amazon Resource Number (ARN) of an OpsWorks for Chef Automate or OpsWorks for
+        /// Puppet Enterprise server for which you want to show applied tags. For example, <c>arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

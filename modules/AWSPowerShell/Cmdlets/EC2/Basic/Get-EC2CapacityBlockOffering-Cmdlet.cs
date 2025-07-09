@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Describes Capacity Block offerings available for purchase in the Amazon Web Services
-    /// Region that you're currently using. With Capacity Blocks, you purchase a specific
-    /// instance type for a period of time.
+    /// Region that you're currently using. With Capacity Blocks, you can purchase a specific
+    /// GPU instance type or EC2 UltraServer for a period of time.
     /// 
     ///  
     /// <para>
@@ -109,6 +109,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.DateTime? StartDateRange { get; set; }
         #endregion
         
+        #region Parameter UltraserverCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of EC2 UltraServers in the offerings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? UltraserverCount { get; set; }
+        #endregion
+        
+        #region Parameter UltraserverType
+        /// <summary>
+        /// <para>
+        /// <para>The EC2 UltraServer type of the Capacity Block offerings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UltraserverType { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -185,6 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.StartDateRange = this.StartDateRange;
+            context.UltraserverCount = this.UltraserverCount;
+            context.UltraserverType = this.UltraserverType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -226,6 +248,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.StartDateRange != null)
             {
                 request.StartDateRange = cmdletContext.StartDateRange.Value;
+            }
+            if (cmdletContext.UltraserverCount != null)
+            {
+                request.UltraserverCount = cmdletContext.UltraserverCount.Value;
+            }
+            if (cmdletContext.UltraserverType != null)
+            {
+                request.UltraserverType = cmdletContext.UltraserverType;
             }
             
             // Initialize loop variant and commence piping
@@ -319,6 +349,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.DateTime? StartDateRange { get; set; }
+            public System.Int32? UltraserverCount { get; set; }
+            public System.String UltraserverType { get; set; }
             public System.Func<Amazon.EC2.Model.DescribeCapacityBlockOfferingsResponse, GetEC2CapacityBlockOfferingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CapacityBlockOfferings;
         }

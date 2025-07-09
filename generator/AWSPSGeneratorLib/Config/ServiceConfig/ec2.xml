@@ -1120,6 +1120,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCapacityBlocks" OutputProperty="CapacityBlocks" Verb="Get" Noun="CapacityBlock" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCapacityBlockStatus" OutputProperty="CapacityBlockStatuses" Verb="Get" Noun="CapacityBlockStatus" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeCapacityReservationBillingRequests" OutputProperty="CapacityReservationBillingRequests" Verb="Get" Noun="CapacityReservationBillingRequest" PipelineParameter="Role" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

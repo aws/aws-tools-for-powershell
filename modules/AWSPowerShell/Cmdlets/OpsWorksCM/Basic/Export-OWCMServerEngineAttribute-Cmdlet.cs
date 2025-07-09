@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <para>The list of engine attributes. The list type is <c>EngineAttribute</c>. An <c>EngineAttribute</c>
         /// list item is a pair that includes an attribute name and its value. For the <c>Userdata</c>
         /// ExportAttributeName, the following are supported engine attribute names.</para><ul><li><para><b>RunList</b> In Chef, a list of roles or recipes that are run in the specified
-        /// order. In Puppet, this parameter is ignored.</para></li><li><para><b>OrganizationName</b> In Chef, an organization name. AWS OpsWorks for Chef Automate
+        /// order. In Puppet, this parameter is ignored.</para></li><li><para><b>OrganizationName</b> In Chef, an organization name. OpsWorks for Chef Automate
         /// always creates the organization <c>default</c>. In Puppet, this parameter is ignored.</para></li><li><para><b>NodeEnvironment</b> In Chef, a node environment (for example, development, staging,
         /// or one-box). In Puppet, this parameter is ignored.</para></li><li><para><b>NodeClientVersion</b> In Chef, the version of the Chef engine (three numbers separated
         /// by dots, such as 13.8.5). If this attribute is empty, OpsWorks for Chef Automate uses

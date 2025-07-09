@@ -28,8 +28,8 @@ using Amazon.OpsWorksCM.Model;
 namespace Amazon.PowerShell.Cmdlets.OWCM
 {
     /// <summary>
-    /// Applies tags to an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet Enterprise
-    /// server, or to server backups.
+    /// Applies tags to an OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server,
+    /// or to server backups.
     /// </summary>
     [Cmdlet("Add", "OWCMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -64,10 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A map that contains tag keys and tag values to attach to AWS OpsWorks-CM servers or
-        /// backups.</para><ul><li><para>The key cannot be empty.</para></li><li><para>The key can be a maximum of 127 characters, and can contain only Unicode letters,
+        /// <para>A map that contains tag keys and tag values to attach to OpsWorks CM servers or backups.</para><ul><li><para>The key cannot be empty.</para></li><li><para>The key can be a maximum of 127 characters, and can contain only Unicode letters,
         /// numbers, or separators, or the following special characters: <c>+ - = . _ : /</c></para></li><li><para>The value can be a maximum 255 characters, and contain only Unicode letters, numbers,
-        /// or separators, or the following special characters: <c>+ - = . _ : /</c></para></li><li><para>Leading and trailing white spaces are trimmed from both the key and value.</para></li><li><para>A maximum of 50 user-applied tags is allowed for any AWS OpsWorks-CM server or backup.</para></li></ul>
+        /// or separators, or the following special characters: <c>+ - = . _ : /</c></para></li><li><para>Leading and trailing white spaces are trimmed from both the key and value.</para></li><li><para>A maximum of 50 user-applied tags is allowed for any OpsWorks CM server or backup.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

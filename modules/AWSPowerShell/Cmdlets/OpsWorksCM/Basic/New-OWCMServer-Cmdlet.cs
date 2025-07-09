@@ -43,12 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// not valid. 
     /// </para><para>
     ///  If you do not specify a security group by adding the <c>SecurityGroupIds</c> parameter,
-    /// AWS OpsWorks creates a new security group. 
+    /// OpsWorks creates a new security group. 
     /// </para><para><i>Chef Automate:</i> The default security group opens the Chef server to the world
-    /// on TCP port 443. If a KeyName is present, AWS OpsWorks enables SSH access. SSH is
-    /// also open to the world on TCP port 22. 
+    /// on TCP port 443. If a KeyName is present, OpsWorks enables SSH access. SSH is also
+    /// open to the world on TCP port 22. 
     /// </para><para><i>Puppet Enterprise:</i> The default security group opens TCP ports 22, 443, 4433,
-    /// 8140, 8142, 8143, and 8170. If a KeyName is present, AWS OpsWorks enables SSH access.
+    /// 8140, 8142, 8143, and 8170. If a KeyName is present, OpsWorks enables SSH access.
     /// SSH is also open to the world on TCP port 22. 
     /// </para><para>
     /// By default, your server is accessible from any IP address. We recommend that you update
@@ -91,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter BackupId
         /// <summary>
         /// <para>
-        /// <para> If you specify this field, AWS OpsWorks CM creates the server by using the backup
-        /// represented by BackupId. </para>
+        /// <para> If you specify this field, OpsWorks CM creates the server by using the backup represented
+        /// by BackupId. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <summary>
         /// <para>
         /// <para> The number of automated backups that you want to keep. Whenever a new backup is created,
-        /// AWS OpsWorks CM deletes the oldest backups if this number is exceeded. The default
-        /// value is <c>1</c>. </para>
+        /// OpsWorks CM deletes the oldest backups if this number is exceeded. The default value
+        /// is <c>1</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -234,12 +234,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter InstanceProfileArn
         /// <summary>
         /// <para>
-        /// <para> The ARN of the instance profile that your Amazon EC2 instances use. Although the
-        /// AWS OpsWorks console typically creates the instance profile for you, if you are using
-        /// API commands instead, run the service-role-creation.yaml AWS CloudFormation template,
-        /// located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml.
-        /// This template creates a CloudFormation stack that includes the instance profile you
-        /// need. </para>
+        /// <para> The ARN of the instance profile that your Amazon EC2 instances use. The OpsWorks
+        /// console typically creates the instance profile for you</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -284,7 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter PreferredBackupWindow
         /// <summary>
         /// <para>
-        /// <para> The start time for a one-hour period during which AWS OpsWorks CM backs up application-level
+        /// <para> The start time for a one-hour period during which OpsWorks CM backs up application-level
         /// data on your server if automated backups are enabled. Valid values must be specified
         /// in one of the following formats: </para><ul><li><para><c>HH:MM</c> for daily backups</para></li><li><para><c>DDD:HH:MM</c> for weekly backups</para></li></ul><para><c>MM</c> must be specified as <c>00</c>. The specified time is in coordinated universal
         /// time (UTC). The default value is a random, daily start time.</para><para><b>Example:</b><c>08:00</c>, which represents a daily start time of 08:00 UTC.</para><para><b>Example:</b><c>Mon:08:00</c>, which represents a start time of every Monday at
@@ -298,7 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
-        /// <para> The start time for a one-hour period each week during which AWS OpsWorks CM performs
+        /// <para> The start time for a one-hour period each week during which OpsWorks CM performs
         /// maintenance on the instance. Valid values must be specified in the following format:
         /// <c>DDD:HH:MM</c>. <c>MM</c> must be specified as <c>00</c>. The specified time is
         /// in coordinated universal time (UTC). The default value is a random one-hour period
@@ -316,7 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <para>
         /// <para> A list of security group IDs to attach to the Amazon EC2 instance. If you add this
         /// parameter, the specified security groups must be within the VPC that is specified
-        /// by <c>SubnetIds</c>. </para><para> If you do not specify this parameter, AWS OpsWorks CM creates one new security group
+        /// by <c>SubnetIds</c>. </para><para> If you do not specify this parameter, OpsWorks CM creates one new security group
         /// that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone). </para>
         /// </para>
         /// </summary>
@@ -328,9 +324,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter ServerName
         /// <summary>
         /// <para>
-        /// <para> The name of the server. The server name must be unique within your AWS account, within
-        /// each region. Server names must start with a letter; then letters, numbers, or hyphens
-        /// (-) are allowed, up to a maximum of 40 characters. </para>
+        /// <para> The name of the server. The server name must be unique within your Amazon Web Services
+        /// account, within each region. Server names must start with a letter; then letters,
+        /// numbers, or hyphens (-) are allowed, up to a maximum of 40 characters. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -347,12 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter ServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para> The service role that the AWS OpsWorks CM service backend uses to work with your
-        /// account. Although the AWS OpsWorks management console typically creates the service
-        /// role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml
-        /// AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml.
-        /// This template creates a CloudFormation stack that includes the service role and instance
-        /// profile that you need. </para>
+        /// <para> The service role that the OpsWorks CM service backend uses to work with your account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -384,10 +375,10 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef
-        /// Automate or AWS OpsWorks for Puppet Enterprise server.</para><ul><li><para>The key cannot be empty.</para></li><li><para>The key can be a maximum of 127 characters, and can contain only Unicode letters,
+        /// <para>A map that contains tag keys and tag values to attach to an OpsWorks for Chef Automate
+        /// or OpsWorks for Puppet Enterprise server.</para><ul><li><para>The key cannot be empty.</para></li><li><para>The key can be a maximum of 127 characters, and can contain only Unicode letters,
         /// numbers, or separators, or the following special characters: <c>+ - = . _ : / @</c></para></li><li><para>The value can be a maximum 255 characters, and contain only Unicode letters, numbers,
-        /// or separators, or the following special characters: <c>+ - = . _ : / @</c></para></li><li><para>Leading and trailing white spaces are trimmed from both the key and value.</para></li><li><para>A maximum of 50 user-applied tags is allowed for any AWS OpsWorks-CM server.</para></li></ul>
+        /// or separators, or the following special characters: <c>+ - = . _ : / @</c></para></li><li><para>Leading and trailing spaces are trimmed from both the key and value.</para></li><li><para>A maximum of 50 user-applied tags is allowed for any OpsWorks CM server.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

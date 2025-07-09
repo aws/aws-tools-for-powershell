@@ -10132,6 +10132,11 @@ Set-Alias -Name EC2-DescribeCapacityBlockExtensionOfferings -Value Get-EC2Capaci
 Set-Alias -Name Describe-EC2CapacityBlockOfferings -Value Get-EC2CapacityBlockOffering
 Set-Alias -Name Describe-EC2CapacityBlockOffering -Value Get-EC2CapacityBlockOffering
 Set-Alias -Name EC2-DescribeCapacityBlockOfferings -Value Get-EC2CapacityBlockOffering
+Set-Alias -Name Describe-EC2CapacityBlocks -Value Get-EC2CapacityBlock
+Set-Alias -Name Describe-EC2CapacityBlock -Value Get-EC2CapacityBlock
+Set-Alias -Name EC2-DescribeCapacityBlocks -Value Get-EC2CapacityBlock
+Set-Alias -Name Describe-EC2CapacityBlockStatus -Value Get-EC2CapacityBlockStatus
+Set-Alias -Name EC2-DescribeCapacityBlockStatus -Value Get-EC2CapacityBlockStatus
 Set-Alias -Name Describe-EC2CapacityReservationBillingRequests -Value Get-EC2CapacityReservationBillingRequest
 Set-Alias -Name Describe-EC2CapacityReservationBillingRequest -Value Get-EC2CapacityReservationBillingRequest
 Set-Alias -Name EC2-DescribeCapacityReservationBillingRequests -Value Get-EC2CapacityReservationBillingRequest
@@ -13378,7 +13383,14 @@ Set-Alias -Name FD-UpdateModelVersionStatus -Value Update-FDModelVersionStatus
 Set-Alias -Name FD-UpdateRuleMetadata -Value Update-FDRuleMetadata
 Set-Alias -Name FD-UpdateRuleVersion -Value Update-FDRuleVersion
 Set-Alias -Name FD-UpdateVariable -Value Update-FDVariable
+Set-Alias -Name FT-GetAccountActivity -Value Get-FTAccountActivity
+Set-Alias -Name FT-GetAccountPlanState -Value Get-FTAccountPlanState
 Set-Alias -Name FT-GetFreeTierUsage -Value Get-FTFreeTierUsage
+Set-Alias -Name List-FTAccountActivities -Value Get-FTAccountActivityList
+Set-Alias -Name List-FTAccountActivityList -Value Get-FTAccountActivityList
+Set-Alias -Name FT-ListAccountActivities -Value Get-FTAccountActivityList
+Set-Alias -Name Upgrade-FTAccountPlan -Value Set-FTAccountPlan
+Set-Alias -Name FT-UpgradeAccountPlan -Value Set-FTAccountPlan
 Set-Alias -Name Associate-FSXFileSystemAliases -Value Register-FSXFileSystemAlias
 Set-Alias -Name Associate-FSXFileSystemAlias -Value Register-FSXFileSystemAlias
 Set-Alias -Name FSX-AssociateFileSystemAliases -Value Register-FSXFileSystemAlias
