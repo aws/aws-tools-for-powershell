@@ -1,0 +1,42 @@
+---
+s3_HeadBucket:
+  title: Use Get-S3HeadBucket
+  title_abbrev: Get-S3HeadBucket
+  synopsis: use Get-S3HeadBucket
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 5
+        sdk_action: Get-S3HeadBucket
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This command returns the output with HTTP status code 200 OK for existing bucket when user has permission to access it. BucketArn parameter is only supported for S3 directory buckets.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Get-S3HeadBucket.1.1.ps1
+          description:
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: "<programlisting language=\"none\" role=\"nocopy\">AccessPointAlias   : False\nBucketArn          :\nBucketLocationName : \nBucketLocationType : \nBucketRegion       : us-east-2\nResponseMetadata   : Amazon.Runtime.ResponseMetadata\nContentLength      : 0\nHttpStatusCode     : OK</programlisting>"
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: This command throws error with HTTP status code NotFound for non-existent bucket.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Get-S3HeadBucket.2.1.ps1
+          description:
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: "<programlisting language=\"none\" role=\"nocopy\">Get-S3HeadBucket: Error making request with Error Code NotFound and Http Status Code NotFound. No further error information was returned by the service.</programlisting>"
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 3: This command throws error with HTTP status code Forbidden for existing bucket where user does not have permission to access it.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Get-S3HeadBucket.3.1.ps1
+          description:
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: "<programlisting language=\"none\" role=\"nocopy\">Get-S3HeadBucket: Error making request with Error Code Forbidden and Http Status Code Forbidden. No further error information was returned by the service.</programlisting>"
+  services:
+    s3:
+      HeadBucket:
+

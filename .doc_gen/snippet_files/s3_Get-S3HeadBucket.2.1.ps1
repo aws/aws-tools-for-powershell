@@ -1,0 +1,1 @@
+Get-S3HeadBucket -BucketName amzn-s3-non-existing-bucket

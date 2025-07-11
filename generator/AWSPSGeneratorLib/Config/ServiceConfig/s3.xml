@@ -271,7 +271,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="HeadBucket" OutputProperty="*" Verb="Head" Noun="Bucket" Exclude="true" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="HeadBucket" OutputProperty="*" Verb="Get" Noun="HeadBucket" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
