@@ -4,6 +4,7 @@ $change1.ResourceRecordSet = New-Object Amazon.Route53.Model.ResourceRecordSet
 $change1.ResourceRecordSet.Name = "www.example.com"
 $change1.ResourceRecordSet.Type = "TXT"
 $change1.ResourceRecordSet.TTL = 600
+$change1.ResourceRecordSet.ResourceRecords = @()
 $change1.ResourceRecordSet.ResourceRecords.Add(@{Value="item 1 item 2 item 3"})
 
 $change2 = New-Object Amazon.Route53.Model.Change
@@ -12,6 +13,7 @@ $change2.ResourceRecordSet = New-Object Amazon.Route53.Model.ResourceRecordSet
 $change2.ResourceRecordSet.Name = "test.example.com"
 $change2.ResourceRecordSet.Type = "A"
 $change2.ResourceRecordSet.TTL = 600
+$change2.ResourceRecordSet.ResourceRecords = @()
 $change2.ResourceRecordSet.ResourceRecords.Add(@{Value="192.0.2.3"})
 
 $change3 = New-Object Amazon.Route53.Model.Change
@@ -20,6 +22,7 @@ $change3.ResourceRecordSet = New-Object Amazon.Route53.Model.ResourceRecordSet
 $change3.ResourceRecordSet.Name = "test.example.com"
 $change3.ResourceRecordSet.Type = "A"
 $change3.ResourceRecordSet.TTL = 600
+$change3.ResourceRecordSet.ResourceRecords = @()
 $change3.ResourceRecordSet.ResourceRecords.Add(@{Value="192.0.2.1"})
 
 $params = @{

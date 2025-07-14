@@ -6,6 +6,7 @@ $change1.ResourceRecordSet.Type = "A"
 $change1.ResourceRecordSet.SetIdentifier = "Rack 2, Positions 4 and 5"
 $change1.ResourceRecordSet.Weight = 1
 $change1.ResourceRecordSet.TTL = 600
+$change1.ResourceRecordSet.ResourceRecords = @()
 $change1.ResourceRecordSet.ResourceRecords.Add(@{Value="192.0.2.9"})
 $change1.ResourceRecordSet.ResourceRecords.Add(@{Value="192.0.2.10"})
 
@@ -17,6 +18,7 @@ $change2.ResourceRecordSet.Type = "A"
 $change2.ResourceRecordSet.SetIdentifier = "Rack 5, Positions 1 and 2"
 $change2.ResourceRecordSet.Weight = 3
 $change2.ResourceRecordSet.TTL = 600
+$change2.ResourceRecordSet.ResourceRecords = @()
 $change2.ResourceRecordSet.ResourceRecords.Add(@{Value="192.0.2.11"})
 $change2.ResourceRecordSet.ResourceRecords.Add(@{Value="192.0.2.12"})
 
