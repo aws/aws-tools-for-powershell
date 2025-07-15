@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <note><para>
     /// This operation is not supported for directory buckets.
     /// </para></note><para>
-    /// This implementation of the <c>PUT</c> action adds an inventory configuration (identified
+    /// This implementation of the <c>PUT</c> action adds an S3 Inventory configuration (identified
     /// by the inventory ID) to the bucket. You can have up to 1,000 inventory configurations
     /// per bucket. 
     /// </para><para>

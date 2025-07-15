@@ -364,6 +364,30 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String NeptuneAnalyticsConfiguration_GraphArn { get; set; }
         #endregion
         
+        #region Parameter S3VectorsConfiguration_IndexArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the vector index used for the knowledge base. This
+        /// ARN identifies the specific vector index resource within Amazon Bedrock.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_S3VectorsConfiguration_IndexArn")]
+        public System.String S3VectorsConfiguration_IndexArn { get; set; }
+        #endregion
+        
+        #region Parameter S3VectorsConfiguration_IndexName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the vector index used for the knowledge base. This name identifies the
+        /// vector index within the Amazon Bedrock service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_S3VectorsConfiguration_IndexName")]
+        public System.String S3VectorsConfiguration_IndexName { get; set; }
+        #endregion
+        
         #region Parameter KendraKnowledgeBaseConfiguration_KendraIndexArn
         /// <summary>
         /// <para>
@@ -773,6 +797,18 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String AuthConfiguration_UsernamePasswordSecretArn { get; set; }
         #endregion
         
+        #region Parameter S3VectorsConfiguration_VectorBucketArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the S3 bucket where vector embeddings are stored.
+        /// This bucket contains the vector data used by the knowledge base.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_S3VectorsConfiguration_VectorBucketArn")]
+        public System.String S3VectorsConfiguration_VectorBucketArn { get; set; }
+        #endregion
+        
         #region Parameter StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField
         /// <summary>
         /// <para>
@@ -1040,6 +1076,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             context.StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_TextField = this.StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_TextField;
             context.StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_VectorField = this.StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_VectorField;
             context.RedisEnterpriseCloudConfiguration_VectorIndexName = this.RedisEnterpriseCloudConfiguration_VectorIndexName;
+            context.S3VectorsConfiguration_IndexArn = this.S3VectorsConfiguration_IndexArn;
+            context.S3VectorsConfiguration_IndexName = this.S3VectorsConfiguration_IndexName;
+            context.S3VectorsConfiguration_VectorBucketArn = this.S3VectorsConfiguration_VectorBucketArn;
             context.StorageConfiguration_Type = this.StorageConfiguration_Type;
             if (this.Tag != null)
             {
@@ -1642,6 +1681,51 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (requestStorageConfiguration_storageConfiguration_OpensearchServerlessConfiguration != null)
             {
                 request.StorageConfiguration.OpensearchServerlessConfiguration = requestStorageConfiguration_storageConfiguration_OpensearchServerlessConfiguration;
+                requestStorageConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.S3VectorsConfiguration requestStorageConfiguration_storageConfiguration_S3VectorsConfiguration = null;
+            
+             // populate S3VectorsConfiguration
+            var requestStorageConfiguration_storageConfiguration_S3VectorsConfigurationIsNull = true;
+            requestStorageConfiguration_storageConfiguration_S3VectorsConfiguration = new Amazon.BedrockAgent.Model.S3VectorsConfiguration();
+            System.String requestStorageConfiguration_storageConfiguration_S3VectorsConfiguration_s3VectorsConfiguration_IndexArn = null;
+            if (cmdletContext.S3VectorsConfiguration_IndexArn != null)
+            {
+                requestStorageConfiguration_storageConfiguration_S3VectorsConfiguration_s3VectorsConfiguration_IndexArn = cmdletContext.S3VectorsConfiguration_IndexArn;
+            }
+            if (requestStorageConfiguration_storageConfiguration_S3VectorsConfiguration_s3VectorsConfiguration_IndexArn != null)
+            {
+                requestStorageConfiguration_storageConfiguration_S3VectorsConfiguration.IndexArn = requestStorageConfiguration_storageConfiguration_S3VectorsConfiguration_s3VectorsConfiguration_IndexArn;
+                requestStorageConfiguration_storageConfiguration_S3VectorsConfigurationIsNull = false;
+            }
+            System.String requestStorageConfiguration_storageConfiguration_S3VectorsConfiguration_s3VectorsConfiguration_IndexName = null;
+            if (cmdletContext.S3VectorsConfiguration_IndexName != null)
+            {
+                requestStorageConfiguration_storageConfiguration_S3VectorsConfiguration_s3VectorsConfiguration_IndexName = cmdletContext.S3VectorsConfiguration_IndexName;
+            }
+            if (requestStorageConfiguration_storageConfiguration_S3VectorsConfiguration_s3VectorsConfiguration_IndexName != null)
+            {
+                requestStorageConfiguration_storageConfiguration_S3VectorsConfiguration.IndexName = requestStorageConfiguration_storageConfiguration_S3VectorsConfiguration_s3VectorsConfiguration_IndexName;
+                requestStorageConfiguration_storageConfiguration_S3VectorsConfigurationIsNull = false;
+            }
+            System.String requestStorageConfiguration_storageConfiguration_S3VectorsConfiguration_s3VectorsConfiguration_VectorBucketArn = null;
+            if (cmdletContext.S3VectorsConfiguration_VectorBucketArn != null)
+            {
+                requestStorageConfiguration_storageConfiguration_S3VectorsConfiguration_s3VectorsConfiguration_VectorBucketArn = cmdletContext.S3VectorsConfiguration_VectorBucketArn;
+            }
+            if (requestStorageConfiguration_storageConfiguration_S3VectorsConfiguration_s3VectorsConfiguration_VectorBucketArn != null)
+            {
+                requestStorageConfiguration_storageConfiguration_S3VectorsConfiguration.VectorBucketArn = requestStorageConfiguration_storageConfiguration_S3VectorsConfiguration_s3VectorsConfiguration_VectorBucketArn;
+                requestStorageConfiguration_storageConfiguration_S3VectorsConfigurationIsNull = false;
+            }
+             // determine if requestStorageConfiguration_storageConfiguration_S3VectorsConfiguration should be set to null
+            if (requestStorageConfiguration_storageConfiguration_S3VectorsConfigurationIsNull)
+            {
+                requestStorageConfiguration_storageConfiguration_S3VectorsConfiguration = null;
+            }
+            if (requestStorageConfiguration_storageConfiguration_S3VectorsConfiguration != null)
+            {
+                request.StorageConfiguration.S3VectorsConfiguration = requestStorageConfiguration_storageConfiguration_S3VectorsConfiguration;
                 requestStorageConfigurationIsNull = false;
             }
             Amazon.BedrockAgent.Model.OpenSearchManagedClusterConfiguration requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration = null;
@@ -2285,6 +2369,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.String StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_TextField { get; set; }
             public System.String StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_VectorField { get; set; }
             public System.String RedisEnterpriseCloudConfiguration_VectorIndexName { get; set; }
+            public System.String S3VectorsConfiguration_IndexArn { get; set; }
+            public System.String S3VectorsConfiguration_IndexName { get; set; }
+            public System.String S3VectorsConfiguration_VectorBucketArn { get; set; }
             public Amazon.BedrockAgent.KnowledgeBaseStorageType StorageConfiguration_Type { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.BedrockAgent.Model.CreateKnowledgeBaseResponse, NewAABKnowledgeBaseCmdlet, object> Select { get; set; } =

@@ -7407,7 +7407,7 @@ $AAB_Completers = {
             ($_ -eq "Update-AABKnowledgeBase/StorageConfiguration_Type")
         }
         {
-            $v = "MONGO_DB_ATLAS","NEPTUNE_ANALYTICS","OPENSEARCH_MANAGED_CLUSTER","OPENSEARCH_SERVERLESS","PINECONE","RDS","REDIS_ENTERPRISE_CLOUD"
+            $v = "MONGO_DB_ATLAS","NEPTUNE_ANALYTICS","OPENSEARCH_MANAGED_CLUSTER","OPENSEARCH_SERVERLESS","PINECONE","RDS","REDIS_ENTERPRISE_CLOUD","S3_VECTORS"
             break
         }
 
@@ -21071,7 +21071,7 @@ $DZ_Completers = {
         # Amazon.DataZone.ConnectionType
         "Get-DZConnectionList/Type"
         {
-            $v = "ATHENA","BIGQUERY","DATABRICKS","DOCUMENTDB","DYNAMODB","HYPERPOD","IAM","MYSQL","OPENSEARCH","ORACLE","POSTGRESQL","REDSHIFT","SAPHANA","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","VERTICA","WORKFLOWS_MWAA"
+            $v = "ATHENA","BIGQUERY","DATABRICKS","DOCUMENTDB","DYNAMODB","HYPERPOD","IAM","MYSQL","OPENSEARCH","ORACLE","POSTGRESQL","REDSHIFT","S3","SAPHANA","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","VERTICA","WORKFLOWS_MWAA"
             break
         }
 
@@ -25294,6 +25294,32 @@ _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
 # Argument completions for service Amazon DynamoDB Streams
 
 
+$DDBS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.DynamoDBStreams.ShardFilterType
+        "Get-DDBSStream/ShardFilter_Type"
+        {
+            $v = "CHILD_SHARDS"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$DDBS_map = @{
+    "ShardFilter_Type"=@("Get-DDBSStream")
+}
+
+_awsArgumentCompleterRegistration $DDBS_Completers $DDBS_map
+
 $DDBS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -26135,6 +26161,7 @@ $EC2_Completers = {
         # Amazon.EC2.IpAddressType
         {
             ($_ -eq "Edit-EC2VpcEndpoint/IpAddressType") -Or
+            ($_ -eq "New-EC2InstanceConnectEndpoint/IpAddressType") -Or
             ($_ -eq "New-EC2VpcEndpoint/IpAddressType")
         }
         {
@@ -26806,7 +26833,7 @@ $EC2_map = @{
     "InterfaceType"=@("New-EC2NetworkInterface")
     "InternetGatewayBlockMode"=@("Edit-EC2VpcBlockPublicAccessOption")
     "InternetGatewayExclusionMode"=@("Edit-EC2VpcBlockPublicAccessExclusion","New-EC2VpcBlockPublicAccessExclusion")
-    "IpAddressType"=@("Edit-EC2VpcEndpoint","New-EC2VpcEndpoint")
+    "IpAddressType"=@("Edit-EC2VpcEndpoint","New-EC2InstanceConnectEndpoint","New-EC2VpcEndpoint")
     "KeyFormat"=@("Get-EC2InstanceTpmEkPub","New-EC2KeyPair")
     "KeyType"=@("Get-EC2InstanceTpmEkPub","New-EC2KeyPair")
     "LaunchSpecification_InstanceType"=@("Request-EC2SpotInstance")
@@ -27944,9 +27971,22 @@ $ECS_Completers = {
         }
 
         # Amazon.ECS.DeploymentControllerType
-        "New-ECSService/DeploymentController_Type"
+        {
+            ($_ -eq "New-ECSService/DeploymentController_Type") -Or
+            ($_ -eq "Update-ECSService/DeploymentController_Type")
+        }
         {
             $v = "CODE_DEPLOY","ECS","EXTERNAL"
+            break
+        }
+
+        # Amazon.ECS.DeploymentStrategy
+        {
+            ($_ -eq "New-ECSService/DeploymentConfiguration_Strategy") -Or
+            ($_ -eq "Update-ECSService/DeploymentConfiguration_Strategy")
+        }
+        {
+            $v = "BLUE_GREEN","ROLLING"
             break
         }
 
@@ -28147,7 +28187,8 @@ $ECS_map = @{
     "AutoScalingGroupProvider_ManagedTerminationProtection"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "AvailabilityZoneRebalancing"=@("New-ECSService","Update-ECSService")
     "AwsvpcConfiguration_AssignPublicIp"=@("New-ECSService","New-ECSTask","New-ECSTaskSet","Start-ECSTask","Update-ECSService")
-    "DeploymentController_Type"=@("New-ECSService")
+    "DeploymentConfiguration_Strategy"=@("New-ECSService","Update-ECSService")
+    "DeploymentController_Type"=@("New-ECSService","Update-ECSService")
     "DesiredStatus"=@("Get-ECSTaskList")
     "ExecuteCommandConfiguration_Logging"=@("New-ECSCluster","Update-ECSCluster")
     "IpcMode"=@("Register-ECSTaskDefinition")
@@ -30839,6 +30880,26 @@ $EVB_Completers = {
             break
         }
 
+        # Amazon.EventBridge.IncludeDetail
+        {
+            ($_ -eq "New-EVBEventBus/LogConfig_IncludeDetail") -Or
+            ($_ -eq "Update-EVBEventBus/LogConfig_IncludeDetail")
+        }
+        {
+            $v = "FULL","NONE"
+            break
+        }
+
+        # Amazon.EventBridge.Level
+        {
+            ($_ -eq "New-EVBEventBus/LogConfig_Level") -Or
+            ($_ -eq "Update-EVBEventBus/LogConfig_Level")
+        }
+        {
+            $v = "ERROR","INFO","OFF","TRACE"
+            break
+        }
+
         # Amazon.EventBridge.ReplayState
         "Get-EVBReplayList/State"
         {
@@ -30875,6 +30936,8 @@ $EVB_map = @{
     "AuthorizationType"=@("New-EVBConnection","Update-EVBConnection")
     "ConnectionState"=@("Get-EVBConnectionList")
     "HttpMethod"=@("New-EVBApiDestination","Update-EVBApiDestination")
+    "LogConfig_IncludeDetail"=@("New-EVBEventBus","Update-EVBEventBus")
+    "LogConfig_Level"=@("New-EVBEventBus","Update-EVBEventBus")
     "OAuthParameters_HttpMethod"=@("New-EVBConnection","Update-EVBConnection")
     "ReplicationConfig_State"=@("New-EVBEndpoint","Update-EVBEndpoint")
     "State"=@("Get-EVBArchiveList","Get-EVBReplayList","Write-EVBRule")
@@ -63894,6 +63957,26 @@ $RESP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Repostspace.ChannelRole
+        {
+            ($_ -eq "Add-RESPBatchChannelRoleToAccessor/ChannelRole") -Or
+            ($_ -eq "Remove-RESPBatchChannelRoleFromAccessor/ChannelRole")
+        }
+        {
+            $v = "ASKER","EXPERT","MODERATOR","SUPPORTREQUESTOR"
+            break
+        }
+
+        # Amazon.Repostspace.FeatureEnableParameter
+        {
+            ($_ -eq "New-RESPSpace/SupportedEmailDomains_Enabled") -Or
+            ($_ -eq "Update-RESPSpace/SupportedEmailDomains_Enabled")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Repostspace.Role
         {
             ($_ -eq "Add-RESPBatchRole/Role") -Or
@@ -63923,7 +64006,9 @@ $RESP_Completers = {
 }
 
 $RESP_map = @{
+    "ChannelRole"=@("Add-RESPBatchChannelRoleToAccessor","Remove-RESPBatchChannelRoleFromAccessor")
     "Role"=@("Add-RESPBatchRole","Remove-RESPBatchRole")
+    "SupportedEmailDomains_Enabled"=@("New-RESPSpace","Update-RESPSpace")
     "Tier"=@("New-RESPSpace","Update-RESPSpace")
 }
 
@@ -63977,18 +64062,24 @@ $RESP_SelectCompleters = {
 }
 
 $RESP_SelectMap = @{
-    "Select"=@("Add-RESPBatchRole",
+    "Select"=@("Add-RESPBatchChannelRoleToAccessor",
+               "Add-RESPBatchRole",
+               "Remove-RESPBatchChannelRoleFromAccessor",
                "Remove-RESPBatchRole",
+               "New-RESPChannel",
                "New-RESPSpace",
                "Remove-RESPSpace",
                "Unregister-RESPAdmin",
+               "Get-RESPChannel",
                "Get-RESPSpace",
+               "Get-RESPChannelList",
                "Get-RESPSpaceList",
                "Get-RESPResourceTag",
                "Register-RESPAdmin",
                "Send-RESPInvite",
                "Add-RESPResourceTag",
                "Remove-RESPResourceTag",
+               "Update-RESPChannel",
                "Update-RESPSpace")
 }
 
@@ -66197,6 +66288,7 @@ $S3_Completers = {
         {
             ($_ -eq "Add-S3PublicAccessBlock/ChecksumAlgorithm") -Or
             ($_ -eq "Copy-S3Object/ChecksumAlgorithm") -Or
+            ($_ -eq "New-S3BucketMetadataConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "New-S3BucketMetadataTableConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "Remove-S3Object/ChecksumAlgorithm") -Or
             ($_ -eq "Restore-S3Object/ChecksumAlgorithm") -Or
@@ -66204,6 +66296,8 @@ $S3_Completers = {
             ($_ -eq "Set-S3BucketACL/ChecksumAlgorithm") -Or
             ($_ -eq "Set-S3BucketEncryption/ChecksumAlgorithm") -Or
             ($_ -eq "Set-S3ObjectACL/ChecksumAlgorithm") -Or
+            ($_ -eq "Update-S3BucketMetadataInventoryTableConfiguration/ChecksumAlgorithm") -Or
+            ($_ -eq "Update-S3BucketMetadataJournalTableConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketAccelerateConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketLogging/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketNotification/ChecksumAlgorithm") -Or
@@ -66250,6 +66344,13 @@ $S3_Completers = {
             break
         }
 
+        # Amazon.S3.ExpirationState
+        "New-S3BucketMetadataConfiguration/RecordExpiration_Expiration"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.S3.ExpressionType
         "Select-S3ObjectContent/ExpressionType"
         {
@@ -66274,6 +66375,16 @@ $S3_Completers = {
             break
         }
 
+        # Amazon.S3.InventoryConfigurationState
+        {
+            ($_ -eq "New-S3BucketMetadataConfiguration/InventoryTableConfiguration_ConfigurationState") -Or
+            ($_ -eq "Update-S3BucketMetadataInventoryTableConfiguration/InventoryTableConfiguration_ConfigurationState")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.S3.InventoryFormat
         "Write-S3BucketInventoryConfiguration/S3BucketDestination_InventoryFormat"
         {
@@ -66292,6 +66403,13 @@ $S3_Completers = {
         "Write-S3BucketInventoryConfiguration/InventoryConfiguration_IncludedObjectVersion"
         {
             $v = "All","Current"
+            break
+        }
+
+        # Amazon.S3.JournalConfigurationState
+        "Update-S3BucketMetadataJournalTableConfiguration/JournalTableConfiguration_ConfigurationState"
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -66453,6 +66571,18 @@ $S3_Completers = {
             break
         }
 
+        # Amazon.S3.TableSseAlgorithm
+        {
+            ($_ -eq "Update-S3BucketMetadataInventoryTableConfiguration/EncryptionConfiguration_SseAlgorithm") -Or
+            ($_ -eq "Update-S3BucketMetadataJournalTableConfiguration/EncryptionConfiguration_SseAlgorithm") -Or
+            ($_ -eq "New-S3BucketMetadataConfiguration/MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_SseAlgorithm") -Or
+            ($_ -eq "New-S3BucketMetadataConfiguration/MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_SseAlgorithm")
+        }
+        {
+            $v = "AES256","aws:kms"
+            break
+        }
+
         # Amazon.S3.TransitionDefaultMinimumObjectSize
         "Write-S3LifecycleConfiguration/TransitionDefaultMinimumObjectSize"
         {
@@ -66480,21 +66610,27 @@ $S3_map = @{
     "ACL"=@("Set-S3BucketACL","Set-S3ObjectACL")
     "CannedACL"=@("Set-S3ACL")
     "CannedACLName"=@("Copy-S3Object","New-S3Bucket","Write-S3Object")
-    "ChecksumAlgorithm"=@("Add-S3PublicAccessBlock","Copy-S3Object","New-S3BucketMetadataTableConfiguration","Remove-S3Object","Restore-S3Object","Set-S3ACL","Set-S3BucketACL","Set-S3BucketEncryption","Set-S3ObjectACL","Write-S3BucketAccelerateConfiguration","Write-S3BucketLogging","Write-S3BucketNotification","Write-S3BucketOwnershipControl","Write-S3BucketPolicy","Write-S3BucketReplication","Write-S3BucketRequestPayment","Write-S3BucketTagging","Write-S3BucketVersioning","Write-S3BucketWebsite","Write-S3CORSConfiguration","Write-S3LifecycleConfiguration","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
+    "ChecksumAlgorithm"=@("Add-S3PublicAccessBlock","Copy-S3Object","New-S3BucketMetadataConfiguration","New-S3BucketMetadataTableConfiguration","Remove-S3Object","Restore-S3Object","Set-S3ACL","Set-S3BucketACL","Set-S3BucketEncryption","Set-S3ObjectACL","Update-S3BucketMetadataInventoryTableConfiguration","Update-S3BucketMetadataJournalTableConfiguration","Write-S3BucketAccelerateConfiguration","Write-S3BucketLogging","Write-S3BucketNotification","Write-S3BucketOwnershipControl","Write-S3BucketPolicy","Write-S3BucketReplication","Write-S3BucketRequestPayment","Write-S3BucketTagging","Write-S3BucketVersioning","Write-S3BucketWebsite","Write-S3CORSConfiguration","Write-S3LifecycleConfiguration","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "ChecksumMode"=@("Copy-S3Object","Get-S3ObjectMetadata","Read-S3Object")
     "CopySourceServerSideEncryptionCustomerMethod"=@("Copy-S3Object")
     "DataExport_OutputSchemaVersion"=@("Write-S3BucketAnalyticsConfiguration")
     "DefaultRetention_Mode"=@("Write-S3ObjectLockConfiguration")
     "Encoding"=@("Get-S3MultipartUpload","Get-S3Object","Get-S3ObjectV2","Get-S3Version")
     "Encryption_EncryptionType"=@("Restore-S3Object")
+    "EncryptionConfiguration_SseAlgorithm"=@("Update-S3BucketMetadataInventoryTableConfiguration","Update-S3BucketMetadataJournalTableConfiguration")
     "ExpressionType"=@("Select-S3ObjectContent")
     "IntelligentTieringConfiguration_Status"=@("Write-S3BucketIntelligentTieringConfiguration")
     "InventoryConfiguration_IncludedObjectVersion"=@("Write-S3BucketInventoryConfiguration")
+    "InventoryTableConfiguration_ConfigurationState"=@("New-S3BucketMetadataConfiguration","Update-S3BucketMetadataInventoryTableConfiguration")
+    "JournalTableConfiguration_ConfigurationState"=@("Update-S3BucketMetadataJournalTableConfiguration")
     "LegalHold_Status"=@("Write-S3ObjectLegalHold")
+    "MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_SseAlgorithm"=@("New-S3BucketMetadataConfiguration")
+    "MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_SseAlgorithm"=@("New-S3BucketMetadataConfiguration")
     "ObjectLockConfiguration_ObjectLockEnabled"=@("Write-S3ObjectLockConfiguration")
     "ObjectLockLegalHoldStatus"=@("Write-S3GetObjectResponse")
     "ObjectLockMode"=@("Write-S3GetObjectResponse")
     "PartitionedPrefix_PartitionDateSource"=@("Write-S3BucketLogging")
+    "RecordExpiration_Expiration"=@("New-S3BucketMetadataConfiguration")
     "ReplicationStatus"=@("Write-S3GetObjectResponse")
     "RequestCharged"=@("Write-S3GetObjectResponse")
     "RequestPayer"=@("Copy-S3Object","Get-S3BucketAccelerateConfiguration","Get-S3Object","Get-S3ObjectACL","Get-S3ObjectAttribute","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Get-S3ObjectV2","Get-S3Version","Remove-S3Object","Restore-S3Object","Set-S3ObjectACL","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
@@ -66567,12 +66703,14 @@ $S3_SelectCompleters = {
 }
 
 $S3_SelectMap = @{
-    "Select"=@("New-S3BucketMetadataTableConfiguration",
+    "Select"=@("New-S3BucketMetadataConfiguration",
+               "New-S3BucketMetadataTableConfiguration",
                "New-S3Session",
                "Remove-S3BucketAnalyticsConfiguration",
                "Remove-S3BucketEncryption",
                "Remove-S3BucketIntelligentTieringConfiguration",
                "Remove-S3BucketInventoryConfiguration",
+               "Remove-S3BucketMetadataConfiguration",
                "Remove-S3BucketMetadataTableConfiguration",
                "Remove-S3BucketMetricsConfiguration",
                "Remove-S3BucketOwnershipControl",
@@ -66585,15 +66723,15 @@ $S3_SelectMap = @{
                "Remove-S3ObjectTagSet",
                "Remove-S3PublicAccessBlock",
                "Get-S3ACL",
-               "Get-S3BucketACL",
-               "Get-S3ObjectACL",
                "Get-S3BucketAccelerateConfiguration",
+               "Get-S3BucketACL",
                "Get-S3BucketAnalyticsConfiguration",
                "Get-S3BucketEncryption",
                "Get-S3BucketIntelligentTieringConfiguration",
                "Get-S3BucketInventoryConfiguration",
                "Get-S3BucketLocation",
                "Get-S3BucketLogging",
+               "Get-S3BucketMetadataConfiguration",
                "Get-S3BucketMetadataTableConfiguration",
                "Get-S3BucketMetricsConfiguration",
                "Get-S3BucketNotification",
@@ -66607,6 +66745,7 @@ $S3_SelectMap = @{
                "Get-S3BucketWebsite",
                "Get-S3CORSConfiguration",
                "Get-S3LifecycleConfiguration",
+               "Get-S3ObjectACL",
                "Get-S3ObjectAttribute",
                "Get-S3ObjectLegalHold",
                "Get-S3ObjectLockConfiguration",
@@ -66614,6 +66753,7 @@ $S3_SelectMap = @{
                "Get-S3ObjectRetention",
                "Get-S3ObjectTagSet",
                "Get-S3PublicAccessBlock",
+               "Get-S3HeadBucket",
                "Get-S3BucketAnalyticsConfigurationList",
                "Get-S3BucketIntelligentTieringConfigurationList",
                "Get-S3BucketInventoryConfigurationList",
@@ -66624,9 +66764,8 @@ $S3_SelectMap = @{
                "Get-S3ObjectV2",
                "Get-S3Version",
                "Set-S3ACL",
-               "Set-S3BucketACL",
-               "Set-S3ObjectACL",
                "Write-S3BucketAccelerateConfiguration",
+               "Set-S3BucketACL",
                "Write-S3BucketAnalyticsConfiguration",
                "Set-S3BucketEncryption",
                "Write-S3BucketIntelligentTieringConfiguration",
@@ -66643,6 +66782,7 @@ $S3_SelectMap = @{
                "Write-S3BucketWebsite",
                "Write-S3CORSConfiguration",
                "Write-S3LifecycleConfiguration",
+               "Set-S3ObjectACL",
                "Write-S3ObjectLegalHold",
                "Write-S3ObjectLockConfiguration",
                "Write-S3ObjectRetention",
@@ -66651,6 +66791,8 @@ $S3_SelectMap = @{
                "Rename-S3Object",
                "Restore-S3Object",
                "Select-S3ObjectContent",
+               "Update-S3BucketMetadataInventoryTableConfiguration",
+               "Update-S3BucketMetadataJournalTableConfiguration",
                "Write-S3GetObjectResponse",
                "Copy-S3Object",
                "Get-S3MultipartUpload",
@@ -67181,6 +67323,13 @@ $S3T_Completers = {
             break
         }
 
+        # Amazon.S3Tables.TableBucketType
+        "Get-S3TTableBucketList/Type"
+        {
+            $v = "aws","customer"
+            break
+        }
+
         # Amazon.S3Tables.TableMaintenanceType
         "Write-S3TTableMaintenanceConfiguration/Type"
         {
@@ -67200,7 +67349,7 @@ $S3T_map = @{
     "EncryptionConfiguration_SseAlgorithm"=@("New-S3TTable","New-S3TTableBucket","Write-S3TTableBucketEncryption")
     "Format"=@("New-S3TTable")
     "IcebergCompaction_Strategy"=@("Write-S3TTableMaintenanceConfiguration")
-    "Type"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
+    "Type"=@("Get-S3TTableBucketList","Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
     "Value_Status"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
 }
 
@@ -67287,6 +67436,118 @@ $S3T_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $S3T_SelectCompleters $S3T_SelectMap
+# Argument completions for service Amazon S3 Vectors
+
+
+$S3V_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.S3Vectors.DataType
+        "New-S3VIndex/DataType"
+        {
+            $v = "float32"
+            break
+        }
+
+        # Amazon.S3Vectors.DistanceMetric
+        "New-S3VIndex/DistanceMetric"
+        {
+            $v = "cosine","euclidean"
+            break
+        }
+
+        # Amazon.S3Vectors.SseType
+        "New-S3VVectorBucket/EncryptionConfiguration_SseType"
+        {
+            $v = "AES256","aws:kms"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$S3V_map = @{
+    "DataType"=@("New-S3VIndex")
+    "DistanceMetric"=@("New-S3VIndex")
+    "EncryptionConfiguration_SseType"=@("New-S3VVectorBucket")
+}
+
+_awsArgumentCompleterRegistration $S3V_Completers $S3V_map
+
+$S3V_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.S3V.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$S3V_SelectMap = @{
+    "Select"=@("New-S3VIndex",
+               "New-S3VVectorBucket",
+               "Remove-S3VIndex",
+               "Remove-S3VVectorBucket",
+               "Remove-S3VVectorBucketPolicy",
+               "Remove-S3VVector",
+               "Get-S3VIndex",
+               "Get-S3VVectorBucket",
+               "Get-S3VVectorBucketPolicy",
+               "Get-S3VVector",
+               "Get-S3VIndexList",
+               "Get-S3VVectorBucketList",
+               "Get-S3VVectorList",
+               "Write-S3VVectorBucketPolicy",
+               "Write-S3VVector",
+               "Search-S3VVector")
+}
+
+_awsArgumentCompleterRegistration $S3V_SelectCompleters $S3V_SelectMap
 # Argument completions for service Amazon Augmented AI (A2I) Runtime
 
 
@@ -68942,7 +69203,7 @@ $SM_Completers = {
             ($_ -eq "Search-SMResource/Resource")
         }
         {
-            $v = "Endpoint","Experiment","ExperimentTrial","ExperimentTrialComponent","FeatureGroup","FeatureMetadata","HyperParameterTuningJob","Image","ImageVersion","Model","ModelCard","ModelPackage","ModelPackageGroup","Pipeline","PipelineExecution","Project","TrainingJob"
+            $v = "Endpoint","Experiment","ExperimentTrial","ExperimentTrialComponent","FeatureGroup","FeatureMetadata","HyperParameterTuningJob","Image","ImageVersion","Model","ModelCard","ModelPackage","ModelPackageGroup","Pipeline","PipelineExecution","PipelineVersion","Project","TrainingJob"
             break
         }
 
@@ -69119,6 +69380,7 @@ $SM_Completers = {
             ($_ -eq "Get-SMPipelineExecutionList/SortOrder") -Or
             ($_ -eq "Get-SMPipelineExecutionStepList/SortOrder") -Or
             ($_ -eq "Get-SMPipelineList/SortOrder") -Or
+            ($_ -eq "Get-SMPipelineVersionList/SortOrder") -Or
             ($_ -eq "Get-SMProcessingJobList/SortOrder") -Or
             ($_ -eq "Get-SMSpaceList/SortOrder") -Or
             ($_ -eq "Get-SMStudioLifecycleConfigList/SortOrder") -Or
@@ -69504,7 +69766,7 @@ $SM_map = @{
     "SearchExpression_Operator"=@("Search-SMResource")
     "SkipModelValidation"=@("New-SMModelPackage")
     "SortBy"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMClusterList","Get-SMClusterNodeList","Get-SMClusterSchedulerConfigList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMComputeQuotaList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMMlflowTrackingServerList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMPipelineExecutionList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTrainingPlanList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList")
-    "SortOrder"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMClusterList","Get-SMClusterNodeList","Get-SMClusterSchedulerConfigList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMComputeQuotaList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMFlowDefinitionList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHumanTaskUiList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMMlflowTrackingServerList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMPipelineExecutionList","Get-SMPipelineExecutionStepList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTrainingPlanList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList","Search-SMResource")
+    "SortOrder"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMClusterList","Get-SMClusterNodeList","Get-SMClusterSchedulerConfigList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMComputeQuotaList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMFlowDefinitionList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHumanTaskUiList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMMlflowTrackingServerList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMPipelineExecutionList","Get-SMPipelineExecutionStepList","Get-SMPipelineList","Get-SMPipelineVersionList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTrainingPlanList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList","Search-SMResource")
     "SpaceSettings_AppType"=@("New-SMSpace","Update-SMSpace")
     "SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMSpace","Update-SMSpace")
     "SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMSpace","Update-SMSpace")
@@ -69864,6 +70126,7 @@ $SM_SelectMap = @{
                "Get-SMPipelineExecutionStepList",
                "Get-SMPipelineParametersForExecutionList",
                "Get-SMPipelineList",
+               "Get-SMPipelineVersionList",
                "Get-SMProcessingJobList",
                "Get-SMProjectList",
                "Get-SMResourceCatalogList",
@@ -69948,6 +70211,7 @@ $SM_SelectMap = @{
                "Update-SMPartnerApp",
                "Update-SMPipeline",
                "Update-SMPipelineExecution",
+               "Update-SMPipelineVersion",
                "Update-SMProject",
                "Update-SMSpace",
                "Update-SMTrainingJob",

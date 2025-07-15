@@ -30,7 +30,7 @@ using Amazon.Repostspace.Model;
 namespace Amazon.PowerShell.Cmdlets.RESP
 {
     /// <summary>
-    /// Add role to multiple users or groups in a private re:Post.
+    /// Add a role to multiple users or groups in a private re:Post.
     /// </summary>
     [Cmdlet("Add", "RESPBatchRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Repostspace.Model.BatchAddRoleResponse")]

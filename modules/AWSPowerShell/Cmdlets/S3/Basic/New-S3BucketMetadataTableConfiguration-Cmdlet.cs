@@ -30,14 +30,28 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Creates a metadata table configuration for a general purpose bucket. For more information,
+    /// <important><para>
+    ///  We recommend that you create your S3 Metadata configurations by using the V2 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a>
+    /// API operation. We no longer recommend using the V1 <c>CreateBucketMetadataTableConfiguration</c>
+    /// API operation. 
+    /// </para><para>
+    /// If you created your S3 Metadata configuration before July 15, 2025, we recommend that
+    /// you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a>
+    /// so that you can expire journal table records and create a live inventory table.
+    /// </para></important><para>
+    /// Creates a V1 S3 Metadata configuration for a general purpose bucket. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html">Accelerating
-    /// data discovery with S3 Metadata</a> in the <i>Amazon S3 User Guide</i>. 
-    /// 
-    ///  <dl><dt>Permissions</dt><dd><para>
+    /// data discovery with S3 Metadata</a> in the <i>Amazon S3 User Guide</i>.
+    /// </para><dl><dt>Permissions</dt><dd><para>
     /// To use this operation, you must have the following permissions. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html">Setting
     /// up permissions for configuring metadata tables</a> in the <i>Amazon S3 User Guide</i>.
+    /// </para><para>
+    /// If you want to encrypt your metadata tables with server-side encryption with Key Management
+    /// Service (KMS) keys (SSE-KMS), you need additional permissions. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html">
+    /// Setting up permissions for configuring metadata tables</a> in the <i>Amazon S3 User
+    /// Guide</i>.
     /// </para><para>
     /// If you also want to integrate your table bucket with Amazon Web Services analytics
     /// services so that you can query your metadata table, you need additional permissions.
@@ -65,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// <para> The general purpose bucket that you want to create the metadata table configuration
-        /// in. </para>
+        /// for. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -96,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// <para> The expected owner of the general purpose bucket that contains your metadata table
-        /// configuration. </para>
+        /// <para> The expected owner of the general purpose bucket that corresponds to your metadata
+        /// table configuration. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

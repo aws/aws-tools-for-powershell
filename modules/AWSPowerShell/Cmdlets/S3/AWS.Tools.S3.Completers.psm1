@@ -91,6 +91,7 @@ $S3_Completers = {
         {
             ($_ -eq "Add-S3PublicAccessBlock/ChecksumAlgorithm") -Or
             ($_ -eq "Copy-S3Object/ChecksumAlgorithm") -Or
+            ($_ -eq "New-S3BucketMetadataConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "New-S3BucketMetadataTableConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "Remove-S3Object/ChecksumAlgorithm") -Or
             ($_ -eq "Restore-S3Object/ChecksumAlgorithm") -Or
@@ -98,6 +99,8 @@ $S3_Completers = {
             ($_ -eq "Set-S3BucketACL/ChecksumAlgorithm") -Or
             ($_ -eq "Set-S3BucketEncryption/ChecksumAlgorithm") -Or
             ($_ -eq "Set-S3ObjectACL/ChecksumAlgorithm") -Or
+            ($_ -eq "Update-S3BucketMetadataInventoryTableConfiguration/ChecksumAlgorithm") -Or
+            ($_ -eq "Update-S3BucketMetadataJournalTableConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketAccelerateConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketLogging/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketNotification/ChecksumAlgorithm") -Or
@@ -144,6 +147,13 @@ $S3_Completers = {
             break
         }
 
+        # Amazon.S3.ExpirationState
+        "New-S3BucketMetadataConfiguration/RecordExpiration_Expiration"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.S3.ExpressionType
         "Select-S3ObjectContent/ExpressionType"
         {
@@ -168,6 +178,16 @@ $S3_Completers = {
             break
         }
 
+        # Amazon.S3.InventoryConfigurationState
+        {
+            ($_ -eq "New-S3BucketMetadataConfiguration/InventoryTableConfiguration_ConfigurationState") -Or
+            ($_ -eq "Update-S3BucketMetadataInventoryTableConfiguration/InventoryTableConfiguration_ConfigurationState")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.S3.InventoryFormat
         "Write-S3BucketInventoryConfiguration/S3BucketDestination_InventoryFormat"
         {
@@ -186,6 +206,13 @@ $S3_Completers = {
         "Write-S3BucketInventoryConfiguration/InventoryConfiguration_IncludedObjectVersion"
         {
             $v = "All","Current"
+            break
+        }
+
+        # Amazon.S3.JournalConfigurationState
+        "Update-S3BucketMetadataJournalTableConfiguration/JournalTableConfiguration_ConfigurationState"
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -347,6 +374,18 @@ $S3_Completers = {
             break
         }
 
+        # Amazon.S3.TableSseAlgorithm
+        {
+            ($_ -eq "Update-S3BucketMetadataInventoryTableConfiguration/EncryptionConfiguration_SseAlgorithm") -Or
+            ($_ -eq "Update-S3BucketMetadataJournalTableConfiguration/EncryptionConfiguration_SseAlgorithm") -Or
+            ($_ -eq "New-S3BucketMetadataConfiguration/MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_SseAlgorithm") -Or
+            ($_ -eq "New-S3BucketMetadataConfiguration/MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_SseAlgorithm")
+        }
+        {
+            $v = "AES256","aws:kms"
+            break
+        }
+
         # Amazon.S3.TransitionDefaultMinimumObjectSize
         "Write-S3LifecycleConfiguration/TransitionDefaultMinimumObjectSize"
         {
@@ -374,21 +413,27 @@ $S3_map = @{
     "ACL"=@("Set-S3BucketACL","Set-S3ObjectACL")
     "CannedACL"=@("Set-S3ACL")
     "CannedACLName"=@("Copy-S3Object","New-S3Bucket","Write-S3Object")
-    "ChecksumAlgorithm"=@("Add-S3PublicAccessBlock","Copy-S3Object","New-S3BucketMetadataTableConfiguration","Remove-S3Object","Restore-S3Object","Set-S3ACL","Set-S3BucketACL","Set-S3BucketEncryption","Set-S3ObjectACL","Write-S3BucketAccelerateConfiguration","Write-S3BucketLogging","Write-S3BucketNotification","Write-S3BucketOwnershipControl","Write-S3BucketPolicy","Write-S3BucketReplication","Write-S3BucketRequestPayment","Write-S3BucketTagging","Write-S3BucketVersioning","Write-S3BucketWebsite","Write-S3CORSConfiguration","Write-S3LifecycleConfiguration","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
+    "ChecksumAlgorithm"=@("Add-S3PublicAccessBlock","Copy-S3Object","New-S3BucketMetadataConfiguration","New-S3BucketMetadataTableConfiguration","Remove-S3Object","Restore-S3Object","Set-S3ACL","Set-S3BucketACL","Set-S3BucketEncryption","Set-S3ObjectACL","Update-S3BucketMetadataInventoryTableConfiguration","Update-S3BucketMetadataJournalTableConfiguration","Write-S3BucketAccelerateConfiguration","Write-S3BucketLogging","Write-S3BucketNotification","Write-S3BucketOwnershipControl","Write-S3BucketPolicy","Write-S3BucketReplication","Write-S3BucketRequestPayment","Write-S3BucketTagging","Write-S3BucketVersioning","Write-S3BucketWebsite","Write-S3CORSConfiguration","Write-S3LifecycleConfiguration","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "ChecksumMode"=@("Copy-S3Object","Get-S3ObjectMetadata","Read-S3Object")
     "CopySourceServerSideEncryptionCustomerMethod"=@("Copy-S3Object")
     "DataExport_OutputSchemaVersion"=@("Write-S3BucketAnalyticsConfiguration")
     "DefaultRetention_Mode"=@("Write-S3ObjectLockConfiguration")
     "Encoding"=@("Get-S3MultipartUpload","Get-S3Object","Get-S3ObjectV2","Get-S3Version")
     "Encryption_EncryptionType"=@("Restore-S3Object")
+    "EncryptionConfiguration_SseAlgorithm"=@("Update-S3BucketMetadataInventoryTableConfiguration","Update-S3BucketMetadataJournalTableConfiguration")
     "ExpressionType"=@("Select-S3ObjectContent")
     "IntelligentTieringConfiguration_Status"=@("Write-S3BucketIntelligentTieringConfiguration")
     "InventoryConfiguration_IncludedObjectVersion"=@("Write-S3BucketInventoryConfiguration")
+    "InventoryTableConfiguration_ConfigurationState"=@("New-S3BucketMetadataConfiguration","Update-S3BucketMetadataInventoryTableConfiguration")
+    "JournalTableConfiguration_ConfigurationState"=@("Update-S3BucketMetadataJournalTableConfiguration")
     "LegalHold_Status"=@("Write-S3ObjectLegalHold")
+    "MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_SseAlgorithm"=@("New-S3BucketMetadataConfiguration")
+    "MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_SseAlgorithm"=@("New-S3BucketMetadataConfiguration")
     "ObjectLockConfiguration_ObjectLockEnabled"=@("Write-S3ObjectLockConfiguration")
     "ObjectLockLegalHoldStatus"=@("Write-S3GetObjectResponse")
     "ObjectLockMode"=@("Write-S3GetObjectResponse")
     "PartitionedPrefix_PartitionDateSource"=@("Write-S3BucketLogging")
+    "RecordExpiration_Expiration"=@("New-S3BucketMetadataConfiguration")
     "ReplicationStatus"=@("Write-S3GetObjectResponse")
     "RequestCharged"=@("Write-S3GetObjectResponse")
     "RequestPayer"=@("Copy-S3Object","Get-S3BucketAccelerateConfiguration","Get-S3Object","Get-S3ObjectACL","Get-S3ObjectAttribute","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Get-S3ObjectV2","Get-S3Version","Remove-S3Object","Restore-S3Object","Set-S3ObjectACL","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
@@ -461,12 +506,14 @@ $S3_SelectCompleters = {
 }
 
 $S3_SelectMap = @{
-    "Select"=@("New-S3BucketMetadataTableConfiguration",
+    "Select"=@("New-S3BucketMetadataConfiguration",
+               "New-S3BucketMetadataTableConfiguration",
                "New-S3Session",
                "Remove-S3BucketAnalyticsConfiguration",
                "Remove-S3BucketEncryption",
                "Remove-S3BucketIntelligentTieringConfiguration",
                "Remove-S3BucketInventoryConfiguration",
+               "Remove-S3BucketMetadataConfiguration",
                "Remove-S3BucketMetadataTableConfiguration",
                "Remove-S3BucketMetricsConfiguration",
                "Remove-S3BucketOwnershipControl",
@@ -479,15 +526,15 @@ $S3_SelectMap = @{
                "Remove-S3ObjectTagSet",
                "Remove-S3PublicAccessBlock",
                "Get-S3ACL",
-               "Get-S3BucketACL",
-               "Get-S3ObjectACL",
                "Get-S3BucketAccelerateConfiguration",
+               "Get-S3BucketACL",
                "Get-S3BucketAnalyticsConfiguration",
                "Get-S3BucketEncryption",
                "Get-S3BucketIntelligentTieringConfiguration",
                "Get-S3BucketInventoryConfiguration",
                "Get-S3BucketLocation",
                "Get-S3BucketLogging",
+               "Get-S3BucketMetadataConfiguration",
                "Get-S3BucketMetadataTableConfiguration",
                "Get-S3BucketMetricsConfiguration",
                "Get-S3BucketNotification",
@@ -501,6 +548,7 @@ $S3_SelectMap = @{
                "Get-S3BucketWebsite",
                "Get-S3CORSConfiguration",
                "Get-S3LifecycleConfiguration",
+               "Get-S3ObjectACL",
                "Get-S3ObjectAttribute",
                "Get-S3ObjectLegalHold",
                "Get-S3ObjectLockConfiguration",
@@ -508,6 +556,7 @@ $S3_SelectMap = @{
                "Get-S3ObjectRetention",
                "Get-S3ObjectTagSet",
                "Get-S3PublicAccessBlock",
+               "Get-S3HeadBucket",
                "Get-S3BucketAnalyticsConfigurationList",
                "Get-S3BucketIntelligentTieringConfigurationList",
                "Get-S3BucketInventoryConfigurationList",
@@ -518,9 +567,8 @@ $S3_SelectMap = @{
                "Get-S3ObjectV2",
                "Get-S3Version",
                "Set-S3ACL",
-               "Set-S3BucketACL",
-               "Set-S3ObjectACL",
                "Write-S3BucketAccelerateConfiguration",
+               "Set-S3BucketACL",
                "Write-S3BucketAnalyticsConfiguration",
                "Set-S3BucketEncryption",
                "Write-S3BucketIntelligentTieringConfiguration",
@@ -537,6 +585,7 @@ $S3_SelectMap = @{
                "Write-S3BucketWebsite",
                "Write-S3CORSConfiguration",
                "Write-S3LifecycleConfiguration",
+               "Set-S3ObjectACL",
                "Write-S3ObjectLegalHold",
                "Write-S3ObjectLockConfiguration",
                "Write-S3ObjectRetention",
@@ -545,6 +594,8 @@ $S3_SelectMap = @{
                "Rename-S3Object",
                "Restore-S3Object",
                "Select-S3ObjectContent",
+               "Update-S3BucketMetadataInventoryTableConfiguration",
+               "Update-S3BucketMetadataJournalTableConfiguration",
                "Write-S3GetObjectResponse",
                "Copy-S3Object",
                "Get-S3MultipartUpload",

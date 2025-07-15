@@ -121,9 +121,22 @@ $ECS_Completers = {
         }
 
         # Amazon.ECS.DeploymentControllerType
-        "New-ECSService/DeploymentController_Type"
+        {
+            ($_ -eq "New-ECSService/DeploymentController_Type") -Or
+            ($_ -eq "Update-ECSService/DeploymentController_Type")
+        }
         {
             $v = "CODE_DEPLOY","ECS","EXTERNAL"
+            break
+        }
+
+        # Amazon.ECS.DeploymentStrategy
+        {
+            ($_ -eq "New-ECSService/DeploymentConfiguration_Strategy") -Or
+            ($_ -eq "Update-ECSService/DeploymentConfiguration_Strategy")
+        }
+        {
+            $v = "BLUE_GREEN","ROLLING"
             break
         }
 
@@ -324,7 +337,8 @@ $ECS_map = @{
     "AutoScalingGroupProvider_ManagedTerminationProtection"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "AvailabilityZoneRebalancing"=@("New-ECSService","Update-ECSService")
     "AwsvpcConfiguration_AssignPublicIp"=@("New-ECSService","New-ECSTask","New-ECSTaskSet","Start-ECSTask","Update-ECSService")
-    "DeploymentController_Type"=@("New-ECSService")
+    "DeploymentConfiguration_Strategy"=@("New-ECSService","Update-ECSService")
+    "DeploymentController_Type"=@("New-ECSService","Update-ECSService")
     "DesiredStatus"=@("Get-ECSTaskList")
     "ExecuteCommandConfiguration_Logging"=@("New-ECSCluster","Update-ECSCluster")
     "IpcMode"=@("Register-ECSTaskDefinition")

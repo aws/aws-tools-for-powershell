@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>s3vectors</C2jFilename>
+    <AssemblyName>S3Vectors</AssemblyName>
+    <ServiceNounPrefix>S3V</ServiceNounPrefix>
+    <ServiceName>Amazon S3 Vectors</ServiceName>
+    <ServiceClientInterface>IAmazonS3Vectors</ServiceClientInterface>
+    <ServiceClient>AmazonS3VectorsClient</ServiceClient>
+    <ServiceModuleGuid>d92f75db-6e8d-47a9-93de-e2911b58b94f</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateIndex" Verb="New" Noun="Index" ShouldProcessTarget="IndexName" PipelineParameter="IndexName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVectorBucket" Verb="New" Noun="VectorBucket" ShouldProcessTarget="VectorBucketName" PipelineParameter="VectorBucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIndex" Verb="Remove" Noun="Index" ShouldProcessTarget="IndexName" PipelineParameter="IndexName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVectorBucket" Verb="Remove" Noun="VectorBucket" ShouldProcessTarget="VectorBucketName" PipelineParameter="VectorBucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVectorBucketPolicy" Verb="Remove" Noun="VectorBucketPolicy" ShouldProcessTarget="VectorBucketName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVectors" Verb="Remove" Noun="Vector" ShouldProcessTarget="IndexName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIndex" OutputProperty="Index" Verb="Get" Noun="Index" PipelineParameter="IndexName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVectorBucket" OutputProperty="VectorBucket" Verb="Get" Noun="VectorBucket" PipelineParameter="VectorBucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVectorBucketPolicy" OutputProperty="Policy" Verb="Get" Noun="VectorBucketPolicy" PipelineParameter="VectorBucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVectors" OutputProperty="Vectors" Verb="Get" Noun="Vector" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIndexes" OutputProperty="Indexes" Verb="Get" Noun="IndexList" PipelineParameter="VectorBucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVectorBuckets" OutputProperty="VectorBuckets" Verb="Get" Noun="VectorBucketList" PipelineParameter="Prefix" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVectors" OutputProperty="Vectors" Verb="Get" Noun="VectorList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutVectorBucketPolicy" Verb="Write" Noun="VectorBucketPolicy" ShouldProcessTarget="" PipelineParameter="Policy" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutVectors" Verb="Write" Noun="Vector" ShouldProcessTarget="VectorBucketName" PipelineParameter="VectorBucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="QueryVectors" OutputProperty="Vectors" Verb="Search" Noun="Vector" ShouldProcessTarget="" PipelineParameter="TopK" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

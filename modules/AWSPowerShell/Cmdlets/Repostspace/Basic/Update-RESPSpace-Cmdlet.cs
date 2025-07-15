@@ -45,6 +45,21 @@ namespace Amazon.PowerShell.Cmdlets.RESP
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter SupportedEmailDomains_AllowedDomain
+        /// <summary>
+        /// <para>
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SupportedEmailDomains_AllowedDomains")]
+        public System.String[] SupportedEmailDomains_AllowedDomain { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -54,6 +69,17 @@ namespace Amazon.PowerShell.Cmdlets.RESP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter SupportedEmailDomains_Enabled
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Repostspace.FeatureEnableParameter")]
+        public Amazon.Repostspace.FeatureEnableParameter SupportedEmailDomains_Enabled { get; set; }
         #endregion
         
         #region Parameter RoleArn
@@ -149,6 +175,11 @@ namespace Amazon.PowerShell.Cmdlets.RESP
                 WriteWarning("You are passing $null as a value for parameter SpaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.SupportedEmailDomains_AllowedDomain != null)
+            {
+                context.SupportedEmailDomains_AllowedDomain = new List<System.String>(this.SupportedEmailDomains_AllowedDomain);
+            }
+            context.SupportedEmailDomains_Enabled = this.SupportedEmailDomains_Enabled;
             context.Tier = this.Tier;
             
             // allow further manipulation of loaded context prior to processing
@@ -177,6 +208,35 @@ namespace Amazon.PowerShell.Cmdlets.RESP
             if (cmdletContext.SpaceId != null)
             {
                 request.SpaceId = cmdletContext.SpaceId;
+            }
+            
+             // populate SupportedEmailDomains
+            var requestSupportedEmailDomainsIsNull = true;
+            request.SupportedEmailDomains = new Amazon.Repostspace.Model.SupportedEmailDomainsParameters();
+            List<System.String> requestSupportedEmailDomains_supportedEmailDomains_AllowedDomain = null;
+            if (cmdletContext.SupportedEmailDomains_AllowedDomain != null)
+            {
+                requestSupportedEmailDomains_supportedEmailDomains_AllowedDomain = cmdletContext.SupportedEmailDomains_AllowedDomain;
+            }
+            if (requestSupportedEmailDomains_supportedEmailDomains_AllowedDomain != null)
+            {
+                request.SupportedEmailDomains.AllowedDomains = requestSupportedEmailDomains_supportedEmailDomains_AllowedDomain;
+                requestSupportedEmailDomainsIsNull = false;
+            }
+            Amazon.Repostspace.FeatureEnableParameter requestSupportedEmailDomains_supportedEmailDomains_Enabled = null;
+            if (cmdletContext.SupportedEmailDomains_Enabled != null)
+            {
+                requestSupportedEmailDomains_supportedEmailDomains_Enabled = cmdletContext.SupportedEmailDomains_Enabled;
+            }
+            if (requestSupportedEmailDomains_supportedEmailDomains_Enabled != null)
+            {
+                request.SupportedEmailDomains.Enabled = requestSupportedEmailDomains_supportedEmailDomains_Enabled;
+                requestSupportedEmailDomainsIsNull = false;
+            }
+             // determine if request.SupportedEmailDomains should be set to null
+            if (requestSupportedEmailDomainsIsNull)
+            {
+                request.SupportedEmailDomains = null;
             }
             if (cmdletContext.Tier != null)
             {
@@ -240,6 +300,8 @@ namespace Amazon.PowerShell.Cmdlets.RESP
             public System.String Description { get; set; }
             public System.String RoleArn { get; set; }
             public System.String SpaceId { get; set; }
+            public List<System.String> SupportedEmailDomains_AllowedDomain { get; set; }
+            public Amazon.Repostspace.FeatureEnableParameter SupportedEmailDomains_Enabled { get; set; }
             public Amazon.Repostspace.TierLevel Tier { get; set; }
             public System.Func<Amazon.Repostspace.Model.UpdateSpaceResponse, UpdateRESPSpaceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

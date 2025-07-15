@@ -75,6 +75,32 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon DynamoDB Streams
 
 
+$DDBS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.DynamoDBStreams.ShardFilterType
+        "Get-DDBSStream/ShardFilter_Type"
+        {
+            $v = "CHILD_SHARDS"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$DDBS_map = @{
+    "ShardFilter_Type"=@("Get-DDBSStream")
+}
+
+_awsArgumentCompleterRegistration $DDBS_Completers $DDBS_map
+
 $DDBS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 

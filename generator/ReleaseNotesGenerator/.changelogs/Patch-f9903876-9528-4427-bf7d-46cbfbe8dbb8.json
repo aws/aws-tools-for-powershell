@@ -1,4 +1,0 @@
-{
-    "Type": "Patch",
-    "Description": "Enabled support for generating Get-S3HeadBucket CmdLet corresponding to S3 HeadBucket service API operation."
-}

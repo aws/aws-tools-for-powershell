@@ -124,6 +124,26 @@ $EVB_Completers = {
             break
         }
 
+        # Amazon.EventBridge.IncludeDetail
+        {
+            ($_ -eq "New-EVBEventBus/LogConfig_IncludeDetail") -Or
+            ($_ -eq "Update-EVBEventBus/LogConfig_IncludeDetail")
+        }
+        {
+            $v = "FULL","NONE"
+            break
+        }
+
+        # Amazon.EventBridge.Level
+        {
+            ($_ -eq "New-EVBEventBus/LogConfig_Level") -Or
+            ($_ -eq "Update-EVBEventBus/LogConfig_Level")
+        }
+        {
+            $v = "ERROR","INFO","OFF","TRACE"
+            break
+        }
+
         # Amazon.EventBridge.ReplayState
         "Get-EVBReplayList/State"
         {
@@ -160,6 +180,8 @@ $EVB_map = @{
     "AuthorizationType"=@("New-EVBConnection","Update-EVBConnection")
     "ConnectionState"=@("Get-EVBConnectionList")
     "HttpMethod"=@("New-EVBApiDestination","Update-EVBApiDestination")
+    "LogConfig_IncludeDetail"=@("New-EVBEventBus","Update-EVBEventBus")
+    "LogConfig_Level"=@("New-EVBEventBus","Update-EVBEventBus")
     "OAuthParameters_HttpMethod"=@("New-EVBConnection","Update-EVBConnection")
     "ReplicationConfig_State"=@("New-EVBEndpoint","Update-EVBEndpoint")
     "State"=@("Get-EVBArchiveList","Get-EVBReplayList","Write-EVBRule")

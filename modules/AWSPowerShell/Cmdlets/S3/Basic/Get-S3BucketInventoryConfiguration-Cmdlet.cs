@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <note><para>
     /// This operation is not supported for directory buckets.
     /// </para></note><para>
-    /// Returns an inventory configuration (identified by the inventory configuration ID)
+    /// Returns an S3 Inventory configuration (identified by the inventory configuration ID)
     /// from the bucket.
     /// </para><para>
     /// To use this operation, you must have permissions to perform the <c>s3:GetInventoryConfiguration</c>

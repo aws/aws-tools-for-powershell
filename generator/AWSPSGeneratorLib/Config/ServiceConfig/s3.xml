@@ -58,6 +58,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateBucketMetadataConfiguration" Verb="New" Noun="BucketMetadataConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_KmsKeyArn" NewName="MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_KmsKeyArn" />
+                <Param Name="MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_SseAlgorithm" NewName="MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_SseAlgorithm" />
+                <Param Name="MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_KmsKeyArn" NewName="MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_KmsKeyArn" />
+                <Param Name="MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_SseAlgorithm" NewName="MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_SseAlgorithm" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateBucketMetadataTableConfiguration" Verb="New" Noun="BucketMetadataTableConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -83,6 +92,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteBucketInventoryConfiguration" Verb="Remove" Noun="BucketInventoryConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBucketMetadataConfiguration" Verb="Remove" Noun="BucketMetadataConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -138,7 +151,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetACL" OutputProperty="AccessControlList" Verb="Get" Noun="ACL" PositionalParameters="Key;VersionId" PipelineParameter="BucketName" NoPipelineParameter="false" ReplacementObsoleteMessage="This cmdlet is deprecated, use Get-S3BucketACL or Get-S3ObjectACL instead." LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetACL" OutputProperty="AccessControlList" Verb="Get" Noun="ACL" PositionalParameters="Key;VersionId" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true" ReplacementObsoleteMessage="This cmdlet is deprecated, use Get-S3BucketACL or Get-S3ObjectACL instead.">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBucketAccelerateConfiguration" OutputProperty="Status" Verb="Get" Noun="BucketAccelerateConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -146,17 +163,6 @@
             <Params>
                 <Param Name="BucketName" Mandatory="true" />
             </Params>
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="GetObjectAcl" OutputProperty="Grants" Verb="Get" Noun="ObjectACL" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params>
-                <Param Name="BucketName" Mandatory="true" />
-            </Params>
-            <TypesNotToFlatten />
-        </ServiceOperation>
-    
-        <ServiceOperation MethodName="GetBucketAccelerateConfiguration" OutputProperty="Status" Verb="Get" Noun="BucketAccelerateConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetBucketAnalyticsConfiguration" OutputProperty="AnalyticsConfiguration" Verb="Get" Noun="BucketAnalyticsConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -180,6 +186,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetBucketLogging" OutputProperty="BucketLoggingConfig" Verb="Get" Noun="BucketLogging" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBucketMetadataConfiguration" OutputProperty="GetBucketMetadataConfigurationResult" Verb="Get" Noun="BucketMetadataConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -239,6 +249,12 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetObjectAcl" OutputProperty="Grants" Verb="Get" Noun="ObjectACL" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params>
+                <Param Name="BucketName" Mandatory="true" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetObjectAttributes" OutputProperty="*" Verb="Get" Noun="ObjectAttribute" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -252,7 +268,7 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetObjectMetadata" OutputProperty="*" Verb="Get" Noun="ObjectMetadata" PositionalParameters="Key" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
-			<Params />
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetObjectRetention" OutputProperty="Retention" Verb="Get" Noun="ObjectRetention" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -337,7 +353,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutACL" Verb="Set" Noun="ACL" ShouldProcessTarget="Key" PositionalParameters="Key;AccessControlList_Owner_Id;AccessControlList_Owner_DisplayName;AccessControlList_Grants;VersionId" PipelineParameter="BucketName" NoPipelineParameter="false" ReplacementObsoleteMessage="This cmdlet is deprecated, use Set-S3BucketACL or Set-S3ObjectACL instead." LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutACL" Verb="Set" Noun="ACL" ShouldProcessTarget="Key" PositionalParameters="Key;AccessControlList_Owner_Id;AccessControlList_Owner_DisplayName;AccessControlList_Grants;VersionId" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true" ReplacementObsoleteMessage="This cmdlet is deprecated, use Set-S3BucketACL or Set-S3ObjectACL instead.">
             <Params>
                 <Param Name="BucketName" Mandatory="true" />
                 <Param Name="AccessControlList_Owner_Id" NewName="Owner_Id" Alias="OwnerId;ACL_Owner_Id" />
@@ -347,18 +363,6 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketAcl" Verb="Set" Noun="BucketACL" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params>
-                <Param Name="BucketName" Mandatory="true" />
-            </Params>
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="PutObjectAcl" OutputProperty="RequestCharged" Verb="Set" Noun="ObjectACL" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
-        <Params>
-            <Param Name="BucketName" Mandatory="true" />
-        </Params>
-        <TypesNotToFlatten />
-        </ServiceOperation>    
         <ServiceOperation MethodName="PutBucket" OutputProperty="*" Verb="New" Noun="Bucket" Exclude="true" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="BucketName" Mandatory="true" />
@@ -367,6 +371,12 @@
         </ServiceOperation>
         <ServiceOperation MethodName="PutBucketAccelerateConfiguration" Verb="Write" Noun="BucketAccelerateConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutBucketAcl" Verb="Set" Noun="BucketACL" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params>
+                <Param Name="BucketName" Mandatory="true" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutBucketAnalyticsConfiguration" Verb="Write" Noun="BucketAnalyticsConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -439,6 +449,12 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutObjectAcl" OutputProperty="RequestCharged" Verb="Set" Noun="ObjectACL" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params>
+                <Param Name="BucketName" Mandatory="true" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutObjectLegalHold" OutputProperty="RequestCharged" Verb="Write" Noun="ObjectLegalHold" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -470,6 +486,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SelectObjectContent" OutputProperty="Payload" Verb="Select" Noun="ObjectContent" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="Expression" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBucketMetadataInventoryTableConfiguration" Verb="Update" Noun="BucketMetadataInventoryTableConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBucketMetadataJournalTableConfiguration" Verb="Update" Noun="BucketMetadataJournalTableConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

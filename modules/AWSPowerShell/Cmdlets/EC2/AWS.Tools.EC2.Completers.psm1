@@ -707,6 +707,7 @@ $EC2_Completers = {
         # Amazon.EC2.IpAddressType
         {
             ($_ -eq "Edit-EC2VpcEndpoint/IpAddressType") -Or
+            ($_ -eq "New-EC2InstanceConnectEndpoint/IpAddressType") -Or
             ($_ -eq "New-EC2VpcEndpoint/IpAddressType")
         }
         {
@@ -1378,7 +1379,7 @@ $EC2_map = @{
     "InterfaceType"=@("New-EC2NetworkInterface")
     "InternetGatewayBlockMode"=@("Edit-EC2VpcBlockPublicAccessOption")
     "InternetGatewayExclusionMode"=@("Edit-EC2VpcBlockPublicAccessExclusion","New-EC2VpcBlockPublicAccessExclusion")
-    "IpAddressType"=@("Edit-EC2VpcEndpoint","New-EC2VpcEndpoint")
+    "IpAddressType"=@("Edit-EC2VpcEndpoint","New-EC2InstanceConnectEndpoint","New-EC2VpcEndpoint")
     "KeyFormat"=@("Get-EC2InstanceTpmEkPub","New-EC2KeyPair")
     "KeyType"=@("Get-EC2InstanceTpmEkPub","New-EC2KeyPair")
     "LaunchSpecification_InstanceType"=@("Request-EC2SpotInstance")

@@ -62,6 +62,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String AwsAccountId { get; set; }
         #endregion
         
+        #region Parameter CustomInstructions_CustomInstructionsString
+        /// <summary>
+        /// <para>
+        /// <para>A text field for providing additional guidance or context for response generation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomInstructions_CustomInstructionsString { get; set; }
+        #endregion
+        
         #region Parameter Topic_DataSet
         /// <summary>
         /// <para>
@@ -190,6 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.CustomInstructions_CustomInstructionsString = this.CustomInstructions_CustomInstructionsString;
             context.ConfigOptions_QBusinessInsightsEnabled = this.ConfigOptions_QBusinessInsightsEnabled;
             if (this.Topic_DataSet != null)
             {
@@ -224,6 +235,25 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.AwsAccountId != null)
             {
                 request.AwsAccountId = cmdletContext.AwsAccountId;
+            }
+            
+             // populate CustomInstructions
+            var requestCustomInstructionsIsNull = true;
+            request.CustomInstructions = new Amazon.QuickSight.Model.CustomInstructions();
+            System.String requestCustomInstructions_customInstructions_CustomInstructionsString = null;
+            if (cmdletContext.CustomInstructions_CustomInstructionsString != null)
+            {
+                requestCustomInstructions_customInstructions_CustomInstructionsString = cmdletContext.CustomInstructions_CustomInstructionsString;
+            }
+            if (requestCustomInstructions_customInstructions_CustomInstructionsString != null)
+            {
+                request.CustomInstructions.CustomInstructionsString = requestCustomInstructions_customInstructions_CustomInstructionsString;
+                requestCustomInstructionsIsNull = false;
+            }
+             // determine if request.CustomInstructions should be set to null
+            if (requestCustomInstructionsIsNull)
+            {
+                request.CustomInstructions = null;
             }
             
              // populate Topic
@@ -359,6 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AwsAccountId { get; set; }
+            public System.String CustomInstructions_CustomInstructionsString { get; set; }
             public System.Boolean? ConfigOptions_QBusinessInsightsEnabled { get; set; }
             public List<Amazon.QuickSight.Model.DatasetMetadata> Topic_DataSet { get; set; }
             public System.String Topic_Description { get; set; }

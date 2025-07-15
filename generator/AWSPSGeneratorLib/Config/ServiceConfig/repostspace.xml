@@ -18,11 +18,23 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="BatchAddChannelRoleToAccessors" OutputProperty="*" Verb="Add" Noun="BatchChannelRoleToAccessor" ShouldProcessTarget="ChannelId" PipelineParameter="SpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchAddRole" OutputProperty="*" Verb="Add" Noun="BatchRole" ShouldProcessTarget="SpaceId" PipelineParameter="SpaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchRemoveChannelRoleFromAccessors" OutputProperty="*" Verb="Remove" Noun="BatchChannelRoleFromAccessor" ShouldProcessTarget="ChannelId" PipelineParameter="SpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchRemoveRole" OutputProperty="*" Verb="Remove" Noun="BatchRole" ShouldProcessTarget="SpaceId" PipelineParameter="SpaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateChannel" OutputProperty="ChannelId" Verb="New" Noun="Channel" ShouldProcessTarget="SpaceId" PipelineParameter="SpaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -38,7 +50,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetChannel" OutputProperty="*" Verb="Get" Noun="Channel" PipelineParameter="SpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSpace" OutputProperty="*" Verb="Get" Noun="Space" PipelineParameter="SpaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelList" PipelineParameter="SpaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -63,6 +83,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateChannel" Verb="Update" Noun="Channel" ShouldProcessTarget="ChannelId" PipelineParameter="SpaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

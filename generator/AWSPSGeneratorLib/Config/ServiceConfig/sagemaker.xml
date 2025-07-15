@@ -1195,6 +1195,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPipelineVersions" OutputProperty="PipelineVersionSummaries" Verb="Get" Noun="PipelineVersionList" PipelineParameter="PipelineName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListProcessingJobs" OutputProperty="ProcessingJobSummaries" Verb="Get" Noun="ProcessingJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -1554,6 +1558,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePipelineExecution" OutputProperty="PipelineExecutionArn" Verb="Update" Noun="PipelineExecution" ShouldProcessTarget="PipelineExecutionArn" PipelineParameter="PipelineExecutionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePipelineVersion" OutputProperty="*" Verb="Update" Noun="PipelineVersion" ShouldProcessTarget="PipelineVersionId" PipelineParameter="PipelineVersionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

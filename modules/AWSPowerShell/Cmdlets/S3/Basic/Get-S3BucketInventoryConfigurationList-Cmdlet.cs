@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <note><para>
     /// This operation is not supported for directory buckets.
     /// </para></note><para>
-    /// Returns a list of inventory configurations for the bucket. You can have up to 1,000
+    /// Returns a list of S3 Inventory configurations for the bucket. You can have up to 1,000
     /// analytics configurations per bucket.
     /// </para><para>
     /// This action supports list pagination and does not return more than 100 configurations

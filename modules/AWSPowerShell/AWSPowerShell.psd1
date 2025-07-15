@@ -392,6 +392,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.S3Control.dll',
         'AWSSDK.S3Outposts.dll',
         'AWSSDK.S3Tables.dll',
+        'AWSSDK.S3Vectors.dll',
         'AWSSDK.SageMaker.dll',
         'AWSSDK.SagemakerEdgeManager.dll',
         'AWSSDK.SageMakerFeatureStoreRuntime.dll',
