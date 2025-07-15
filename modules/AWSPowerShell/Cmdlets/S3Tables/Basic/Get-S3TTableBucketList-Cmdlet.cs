@@ -80,6 +80,17 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         public System.String Prefix { get; set; }
         #endregion
         
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of table buckets to filter by in the list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3Tables.TableBucketType")]
+        public Amazon.S3Tables.TableBucketType Type { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -109,6 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             context.ContinuationToken = this.ContinuationToken;
             context.MaxBucket = this.MaxBucket;
             context.Prefix = this.Prefix;
+            context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -136,6 +148,10 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             if (cmdletContext.Prefix != null)
             {
                 request.Prefix = cmdletContext.Prefix;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
             }
             
             CmdletOutput output;
@@ -201,6 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             public System.String ContinuationToken { get; set; }
             public System.Int32? MaxBucket { get; set; }
             public System.String Prefix { get; set; }
+            public Amazon.S3Tables.TableBucketType Type { get; set; }
             public System.Func<Amazon.S3Tables.Model.ListTableBucketsResponse, GetS3TTableBucketListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

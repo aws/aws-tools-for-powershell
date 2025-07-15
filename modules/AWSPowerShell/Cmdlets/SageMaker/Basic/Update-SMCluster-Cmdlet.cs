@@ -92,6 +92,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.ClusterNodeRecovery NodeRecovery { get; set; }
         #endregion
         
+        #region Parameter RestrictedInstanceGroup
+        /// <summary>
+        /// <para>
+        /// <para>The specialized instance groups for training models like Amazon Nova to be created
+        /// in the SageMaker HyperPod cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RestrictedInstanceGroups")]
+        public Amazon.SageMaker.Model.ClusterRestrictedInstanceGroupSpecification[] RestrictedInstanceGroup { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ClusterArn'.
@@ -170,6 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.InstanceGroupsToDelete = new List<System.String>(this.InstanceGroupsToDelete);
             }
             context.NodeRecovery = this.NodeRecovery;
+            if (this.RestrictedInstanceGroup != null)
+            {
+                context.RestrictedInstanceGroup = new List<Amazon.SageMaker.Model.ClusterRestrictedInstanceGroupSpecification>(this.RestrictedInstanceGroup);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -201,6 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.NodeRecovery != null)
             {
                 request.NodeRecovery = cmdletContext.NodeRecovery;
+            }
+            if (cmdletContext.RestrictedInstanceGroup != null)
+            {
+                request.RestrictedInstanceGroups = cmdletContext.RestrictedInstanceGroup;
             }
             
             CmdletOutput output;
@@ -267,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<Amazon.SageMaker.Model.ClusterInstanceGroupSpecification> InstanceGroup { get; set; }
             public List<System.String> InstanceGroupsToDelete { get; set; }
             public Amazon.SageMaker.ClusterNodeRecovery NodeRecovery { get; set; }
+            public List<Amazon.SageMaker.Model.ClusterRestrictedInstanceGroupSpecification> RestrictedInstanceGroup { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateClusterResponse, UpdateSMClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ClusterArn;
         }

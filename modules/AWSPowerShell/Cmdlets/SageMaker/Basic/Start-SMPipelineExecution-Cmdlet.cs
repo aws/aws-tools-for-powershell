@@ -112,6 +112,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.Parameter[] PipelineParameter { get; set; }
         #endregion
         
+        #region Parameter PipelineVersionId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the pipeline version to start execution from.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? PipelineVersionId { get; set; }
+        #endregion
+        
         #region Parameter SelectiveExecutionConfig_SelectedStep
         /// <summary>
         /// <para>
@@ -216,6 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.PipelineParameter = new List<Amazon.SageMaker.Model.Parameter>(this.PipelineParameter);
             }
+            context.PipelineVersionId = this.PipelineVersionId;
             if (this.SelectiveExecutionConfig_SelectedStep != null)
             {
                 context.SelectiveExecutionConfig_SelectedStep = new List<Amazon.SageMaker.Model.SelectedStep>(this.SelectiveExecutionConfig_SelectedStep);
@@ -275,6 +286,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.PipelineParameter != null)
             {
                 request.PipelineParameters = cmdletContext.PipelineParameter;
+            }
+            if (cmdletContext.PipelineVersionId != null)
+            {
+                request.PipelineVersionId = cmdletContext.PipelineVersionId.Value;
             }
             
              // populate SelectiveExecutionConfig
@@ -372,6 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String PipelineExecutionDisplayName { get; set; }
             public System.String PipelineName { get; set; }
             public List<Amazon.SageMaker.Model.Parameter> PipelineParameter { get; set; }
+            public System.Int64? PipelineVersionId { get; set; }
             public List<Amazon.SageMaker.Model.SelectedStep> SelectiveExecutionConfig_SelectedStep { get; set; }
             public System.String SelectiveExecutionConfig_SourcePipelineExecutionArn { get; set; }
             public System.Func<Amazon.SageMaker.Model.StartPipelineExecutionResponse, StartSMPipelineExecutionCmdlet, object> Select { get; set; } =

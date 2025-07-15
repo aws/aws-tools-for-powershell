@@ -33,7 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// An EC2 Instance Connect Endpoint allows you to connect to an instance, without requiring
-    /// the instance to have a public IPv4 address. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect-Endpoint.html">Connect
+    /// the instance to have a public IPv4 or public IPv6 address. For more information, see
+    /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect-Endpoint.html">Connect
     /// to your instances using EC2 Instance Connect Endpoint</a> in the <i>Amazon EC2 User
     /// Guide</i>.
     /// </para>
@@ -50,11 +51,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address type of the endpoint.</para><para>If no value is specified, the default value is determined by the IP address type of
+        /// the subnet:</para><ul><li><para><c>dualstack</c> - If the subnet has both IPv4 and IPv6 CIDRs</para></li><li><para><c>ipv4</c> - If the subnet has only IPv4 CIDRs</para></li><li><para><c>ipv6</c> - If the subnet has only IPv6 CIDRs</para></li></ul><note><para><c>PreserveClientIp</c> is only supported on IPv4 EC2 Instance Connect Endpoints.
+        /// To use <c>PreserveClientIp</c>, the value for <c>IpAddressType</c> must be <c>ipv4</c>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.IpAddressType")]
+        public Amazon.EC2.IpAddressType IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter PreserveClientIp
         /// <summary>
         /// <para>
         /// <para>Indicates whether the client IP address is preserved as the source. The following
-        /// are the possible values.</para><ul><li><para><c>true</c> - Use the client IP address as the source.</para></li><li><para><c>false</c> - Use the network interface IP address as the source.</para></li></ul><para>Default: <c>false</c></para>
+        /// are the possible values.</para><ul><li><para><c>true</c> - Use the client IP address as the source.</para></li><li><para><c>false</c> - Use the network interface IP address as the source.</para></li></ul><note><para><c>PreserveClientIp</c> is only supported on IPv4 EC2 Instance Connect Endpoints.
+        /// To use <c>PreserveClientIp</c>, the value for <c>IpAddressType</c> must be <c>ipv4</c>.</para></note><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.IpAddressType = this.IpAddressType;
             context.PreserveClientIp = this.PreserveClientIp;
             if (this.SecurityGroupId != null)
             {
@@ -211,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.IpAddressType != null)
+            {
+                request.IpAddressType = cmdletContext.IpAddressType;
             }
             if (cmdletContext.PreserveClientIp != null)
             {
@@ -290,6 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public Amazon.EC2.IpAddressType IpAddressType { get; set; }
             public System.Boolean? PreserveClientIp { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public System.String SubnetId { get; set; }

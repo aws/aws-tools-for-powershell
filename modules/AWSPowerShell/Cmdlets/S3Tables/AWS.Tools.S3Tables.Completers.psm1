@@ -122,6 +122,13 @@ $S3T_Completers = {
             break
         }
 
+        # Amazon.S3Tables.TableBucketType
+        "Get-S3TTableBucketList/Type"
+        {
+            $v = "aws","customer"
+            break
+        }
+
         # Amazon.S3Tables.TableMaintenanceType
         "Write-S3TTableMaintenanceConfiguration/Type"
         {
@@ -141,7 +148,7 @@ $S3T_map = @{
     "EncryptionConfiguration_SseAlgorithm"=@("New-S3TTable","New-S3TTableBucket","Write-S3TTableBucketEncryption")
     "Format"=@("New-S3TTable")
     "IcebergCompaction_Strategy"=@("Write-S3TTableMaintenanceConfiguration")
-    "Type"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
+    "Type"=@("Get-S3TTableBucketList","Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
     "Value_Status"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
 }
 

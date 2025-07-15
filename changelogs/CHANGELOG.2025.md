@@ -1,4 +1,54 @@
-﻿### 4.1.855 (2025-07-09 21:26Z)
+﻿### 4.1.856 (2025-07-15 20:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1079.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet New-AABKnowledgeBase: added parameters S3VectorsConfiguration_IndexArn, S3VectorsConfiguration_IndexName and S3VectorsConfiguration_VectorBucketArn.
+    * Modified cmdlet Update-AABKnowledgeBase: added parameters S3VectorsConfiguration_IndexArn, S3VectorsConfiguration_IndexName and S3VectorsConfiguration_VectorBucketArn.
+  * Amazon DataZone
+    * Modified cmdlet New-DZConnection: added parameters S3Properties_S3AccessGrantLocationId and S3Properties_S3Uri.
+    * Modified cmdlet Update-DZConnection: added parameters S3Properties_S3AccessGrantLocationId and S3Properties_S3Uri.
+  * Amazon DynamoDB
+    * Modified cmdlet Get-DDBStream: added parameters ShardFilter_ShardId and ShardFilter_Type.
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSService: added parameters DeploymentConfiguration_BakeTimeInMinute, DeploymentConfiguration_LifecycleHook and DeploymentConfiguration_Strategy.
+    * Modified cmdlet Update-ECSService: added parameters DeploymentConfiguration_BakeTimeInMinute, DeploymentConfiguration_LifecycleHook, DeploymentConfiguration_Strategy and DeploymentController_Type.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2InstanceConnectEndpoint: added parameter IpAddressType.
+  * Amazon EventBridge
+    * Modified cmdlet New-EVBEventBus: added parameters LogConfig_IncludeDetail and LogConfig_Level.
+    * Modified cmdlet Update-EVBEventBus: added parameters LogConfig_IncludeDetail and LogConfig_Level.
+  * Amazon OpenSearch Service
+    * Modified cmdlet New-OSDomain: added parameter S3VectorsEngine_Enabled.
+    * Modified cmdlet Update-OSDomainConfig: added parameter S3VectorsEngine_Enabled.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSTopic: added parameter CustomInstructions_CustomInstructionsString.
+    * Modified cmdlet Update-QSTopic: added parameter CustomInstructions_CustomInstructionsString.
+  * Amazon re:Post Private
+    * Added cmdlet Add-RESPBatchChannelRoleToAccessor leveraging the BatchAddChannelRoleToAccessors service API.
+    * Added cmdlet Get-RESPChannel leveraging the GetChannel service API.
+    * Added cmdlet Get-RESPChannelList leveraging the ListChannels service API.
+    * Added cmdlet New-RESPChannel leveraging the CreateChannel service API.
+    * Added cmdlet Remove-RESPBatchChannelRoleFromAccessor leveraging the BatchRemoveChannelRoleFromAccessors service API.
+    * Added cmdlet Update-RESPChannel leveraging the UpdateChannel service API.
+    * Modified cmdlet New-RESPSpace: added parameters SupportedEmailDomains_AllowedDomain and SupportedEmailDomains_Enabled.
+    * Modified cmdlet Update-RESPSpace: added parameters SupportedEmailDomains_AllowedDomain and SupportedEmailDomains_Enabled.
+  * Amazon S3 Tables
+    * Modified cmdlet Get-S3TTableBucketList: added parameter Type.
+  * Amazon S3 Vectors. Added cmdlets to support the service. Cmdlets for the service have the noun prefix S3V and can be listed using the command 'Get-AWSCmdletName -Service S3V'.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMPipelineVersionList leveraging the ListPipelineVersions service API.
+    * Added cmdlet Update-SMPipelineVersion leveraging the UpdatePipelineVersion service API.
+    * Modified cmdlet Get-SMPipeline: added parameter PipelineVersionId.
+    * Modified cmdlet New-SMCluster: added parameter RestrictedInstanceGroup.
+    * Modified cmdlet Start-SMPipelineExecution: added parameter PipelineVersionId.
+    * Modified cmdlet Update-SMCluster: added parameter RestrictedInstanceGroup.
+  * Amazon Simple Storage Service (S3)
+    * Added cmdlet Get-S3BucketMetadataConfiguration leveraging the GetBucketMetadataConfiguration service API.
+    * Added cmdlet New-S3BucketMetadataConfiguration leveraging the CreateBucketMetadataConfiguration service API.
+    * Added cmdlet Remove-S3BucketMetadataConfiguration leveraging the DeleteBucketMetadataConfiguration service API.
+    * Added cmdlet Update-S3BucketMetadataInventoryTableConfiguration leveraging the UpdateBucketMetadataInventoryTableConfiguration service API.
+    * Added cmdlet Update-S3BucketMetadataJournalTableConfiguration leveraging the UpdateBucketMetadataJournalTableConfiguration service API.
+
+### 4.1.855 (2025-07-09 21:26Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1078.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Added cmdlet Get-EC2CapacityBlock leveraging the DescribeCapacityBlocks service API.

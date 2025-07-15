@@ -58,6 +58,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateBucketMetadataConfiguration" Verb="New" Noun="BucketMetadataConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_KmsKeyArn" NewName="MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_KmsKeyArn" />
+                <Param Name="MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_SseAlgorithm" NewName="MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_SseAlgorithm" />
+                <Param Name="MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_KmsKeyArn" NewName="MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_KmsKeyArn" />
+                <Param Name="MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_SseAlgorithm" NewName="MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_SseAlgorithm" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateBucketMetadataTableConfiguration" Verb="New" Noun="BucketMetadataTableConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -83,6 +92,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteBucketInventoryConfiguration" Verb="Remove" Noun="BucketInventoryConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBucketMetadataConfiguration" Verb="Remove" Noun="BucketMetadataConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -167,6 +180,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetBucketLogging" OutputProperty="BucketLoggingConfig" Verb="Get" Noun="BucketLogging" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBucketMetadataConfiguration" OutputProperty="GetBucketMetadataConfigurationResult" Verb="Get" Noun="BucketMetadataConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -454,6 +471,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SelectObjectContent" OutputProperty="Payload" Verb="Select" Noun="ObjectContent" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="Expression" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBucketMetadataInventoryTableConfiguration" Verb="Update" Noun="BucketMetadataInventoryTableConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBucketMetadataJournalTableConfiguration" Verb="Update" Noun="BucketMetadataJournalTableConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -277,6 +277,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.Boolean? SAMLOptions_Enabled { get; set; }
         #endregion
         
+        #region Parameter S3VectorsEngine_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables S3 vectors engine features.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AIMLOptions_S3VectorsEngine_Enabled")]
+        public System.Boolean? S3VectorsEngine_Enabled { get; set; }
+        #endregion
+        
         #region Parameter ColdStorageOptions_Enabled
         /// <summary>
         /// <para>
@@ -925,6 +936,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             context.SAMLOptions_SessionTimeoutMinute = this.SAMLOptions_SessionTimeoutMinute;
             context.SAMLOptions_SubjectKey = this.SAMLOptions_SubjectKey;
             context.NaturalLanguageQueryGenerationOptions_DesiredState = this.NaturalLanguageQueryGenerationOptions_DesiredState;
+            context.S3VectorsEngine_Enabled = this.S3VectorsEngine_Enabled;
             context.AutoTuneOptions_DesiredState = this.AutoTuneOptions_DesiredState;
             if (this.AutoTuneOptions_MaintenanceSchedule != null)
             {
@@ -1302,6 +1314,31 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions != null)
             {
                 request.AIMLOptions.NaturalLanguageQueryGenerationOptions = requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions;
+                requestAIMLOptionsIsNull = false;
+            }
+            Amazon.OpenSearchService.Model.S3VectorsEngine requestAIMLOptions_aIMLOptions_S3VectorsEngine = null;
+            
+             // populate S3VectorsEngine
+            var requestAIMLOptions_aIMLOptions_S3VectorsEngineIsNull = true;
+            requestAIMLOptions_aIMLOptions_S3VectorsEngine = new Amazon.OpenSearchService.Model.S3VectorsEngine();
+            System.Boolean? requestAIMLOptions_aIMLOptions_S3VectorsEngine_s3VectorsEngine_Enabled = null;
+            if (cmdletContext.S3VectorsEngine_Enabled != null)
+            {
+                requestAIMLOptions_aIMLOptions_S3VectorsEngine_s3VectorsEngine_Enabled = cmdletContext.S3VectorsEngine_Enabled.Value;
+            }
+            if (requestAIMLOptions_aIMLOptions_S3VectorsEngine_s3VectorsEngine_Enabled != null)
+            {
+                requestAIMLOptions_aIMLOptions_S3VectorsEngine.Enabled = requestAIMLOptions_aIMLOptions_S3VectorsEngine_s3VectorsEngine_Enabled.Value;
+                requestAIMLOptions_aIMLOptions_S3VectorsEngineIsNull = false;
+            }
+             // determine if requestAIMLOptions_aIMLOptions_S3VectorsEngine should be set to null
+            if (requestAIMLOptions_aIMLOptions_S3VectorsEngineIsNull)
+            {
+                requestAIMLOptions_aIMLOptions_S3VectorsEngine = null;
+            }
+            if (requestAIMLOptions_aIMLOptions_S3VectorsEngine != null)
+            {
+                request.AIMLOptions.S3VectorsEngine = requestAIMLOptions_aIMLOptions_S3VectorsEngine;
                 requestAIMLOptionsIsNull = false;
             }
              // determine if request.AIMLOptions should be set to null
@@ -2019,6 +2056,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public System.Int32? SAMLOptions_SessionTimeoutMinute { get; set; }
             public System.String SAMLOptions_SubjectKey { get; set; }
             public Amazon.OpenSearchService.NaturalLanguageQueryGenerationDesiredState NaturalLanguageQueryGenerationOptions_DesiredState { get; set; }
+            public System.Boolean? S3VectorsEngine_Enabled { get; set; }
             public Amazon.OpenSearchService.AutoTuneDesiredState AutoTuneOptions_DesiredState { get; set; }
             public List<Amazon.OpenSearchService.Model.AutoTuneMaintenanceSchedule> AutoTuneOptions_MaintenanceSchedule { get; set; }
             public System.Boolean? AutoTuneOptions_UseOffPeakWindow { get; set; }

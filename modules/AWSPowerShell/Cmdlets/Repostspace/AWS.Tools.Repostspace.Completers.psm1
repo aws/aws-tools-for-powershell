@@ -80,6 +80,26 @@ $RESP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Repostspace.ChannelRole
+        {
+            ($_ -eq "Add-RESPBatchChannelRoleToAccessor/ChannelRole") -Or
+            ($_ -eq "Remove-RESPBatchChannelRoleFromAccessor/ChannelRole")
+        }
+        {
+            $v = "ASKER","EXPERT","MODERATOR","SUPPORTREQUESTOR"
+            break
+        }
+
+        # Amazon.Repostspace.FeatureEnableParameter
+        {
+            ($_ -eq "New-RESPSpace/SupportedEmailDomains_Enabled") -Or
+            ($_ -eq "Update-RESPSpace/SupportedEmailDomains_Enabled")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Repostspace.Role
         {
             ($_ -eq "Add-RESPBatchRole/Role") -Or
@@ -109,7 +129,9 @@ $RESP_Completers = {
 }
 
 $RESP_map = @{
+    "ChannelRole"=@("Add-RESPBatchChannelRoleToAccessor","Remove-RESPBatchChannelRoleFromAccessor")
     "Role"=@("Add-RESPBatchRole","Remove-RESPBatchRole")
+    "SupportedEmailDomains_Enabled"=@("New-RESPSpace","Update-RESPSpace")
     "Tier"=@("New-RESPSpace","Update-RESPSpace")
 }
 
@@ -163,18 +185,24 @@ $RESP_SelectCompleters = {
 }
 
 $RESP_SelectMap = @{
-    "Select"=@("Add-RESPBatchRole",
+    "Select"=@("Add-RESPBatchChannelRoleToAccessor",
+               "Add-RESPBatchRole",
+               "Remove-RESPBatchChannelRoleFromAccessor",
                "Remove-RESPBatchRole",
+               "New-RESPChannel",
                "New-RESPSpace",
                "Remove-RESPSpace",
                "Unregister-RESPAdmin",
+               "Get-RESPChannel",
                "Get-RESPSpace",
+               "Get-RESPChannelList",
                "Get-RESPSpaceList",
                "Get-RESPResourceTag",
                "Register-RESPAdmin",
                "Send-RESPInvite",
                "Add-RESPResourceTag",
                "Remove-RESPResourceTag",
+               "Update-RESPChannel",
                "Update-RESPSpace")
 }
 

@@ -61,6 +61,20 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter LogConfig_IncludeDetail
+        /// <summary>
+        /// <para>
+        /// <para>Whether EventBridge include detailed event information in the records it generates.
+        /// Detailed data can be useful for troubleshooting and debugging. This information includes
+        /// details of the event itself, as well as target details.</para><para>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus-logs.html#eb-event-logs-data">Including
+        /// detail data in event bus logs</a> in the <i>EventBridge User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EventBridge.IncludeDetail")]
+        public Amazon.EventBridge.IncludeDetail LogConfig_IncludeDetail { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyIdentifier
         /// <summary>
         /// <para>
@@ -79,6 +93,19 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String KmsKeyIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter LogConfig_Level
+        /// <summary>
+        /// <para>
+        /// <para>The level of logging detail to include. This applies to all log destinations for the
+        /// event bus.</para><para>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus-logs.html#eb-event-bus-logs-level">Specifying
+        /// event bus log level</a> in the <i>EventBridge User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EventBridge.Level")]
+        public Amazon.EventBridge.Level LogConfig_Level { get; set; }
         #endregion
         
         #region Parameter Name
@@ -156,6 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             context.DeadLetterConfig_Arn = this.DeadLetterConfig_Arn;
             context.Description = this.Description;
             context.KmsKeyIdentifier = this.KmsKeyIdentifier;
+            context.LogConfig_IncludeDetail = this.LogConfig_IncludeDetail;
+            context.LogConfig_Level = this.LogConfig_Level;
             context.Name = this.Name;
             
             // allow further manipulation of loaded context prior to processing
@@ -199,6 +228,35 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             if (cmdletContext.KmsKeyIdentifier != null)
             {
                 request.KmsKeyIdentifier = cmdletContext.KmsKeyIdentifier;
+            }
+            
+             // populate LogConfig
+            var requestLogConfigIsNull = true;
+            request.LogConfig = new Amazon.EventBridge.Model.LogConfig();
+            Amazon.EventBridge.IncludeDetail requestLogConfig_logConfig_IncludeDetail = null;
+            if (cmdletContext.LogConfig_IncludeDetail != null)
+            {
+                requestLogConfig_logConfig_IncludeDetail = cmdletContext.LogConfig_IncludeDetail;
+            }
+            if (requestLogConfig_logConfig_IncludeDetail != null)
+            {
+                request.LogConfig.IncludeDetail = requestLogConfig_logConfig_IncludeDetail;
+                requestLogConfigIsNull = false;
+            }
+            Amazon.EventBridge.Level requestLogConfig_logConfig_Level = null;
+            if (cmdletContext.LogConfig_Level != null)
+            {
+                requestLogConfig_logConfig_Level = cmdletContext.LogConfig_Level;
+            }
+            if (requestLogConfig_logConfig_Level != null)
+            {
+                request.LogConfig.Level = requestLogConfig_logConfig_Level;
+                requestLogConfigIsNull = false;
+            }
+             // determine if request.LogConfig should be set to null
+            if (requestLogConfigIsNull)
+            {
+                request.LogConfig = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -268,6 +326,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             public System.String DeadLetterConfig_Arn { get; set; }
             public System.String Description { get; set; }
             public System.String KmsKeyIdentifier { get; set; }
+            public Amazon.EventBridge.IncludeDetail LogConfig_IncludeDetail { get; set; }
+            public Amazon.EventBridge.Level LogConfig_Level { get; set; }
             public System.String Name { get; set; }
             public System.Func<Amazon.EventBridge.Model.UpdateEventBusResponse, UpdateEVBEventBusCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

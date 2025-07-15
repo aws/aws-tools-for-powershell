@@ -28,7 +28,8 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Lists the history of SPICE ingestions for a dataset.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the history of SPICE ingestions for a dataset. Limited to 5 TPS per user and
+    /// 25 TPS per account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "QSIngestionList")]
     [OutputType("Amazon.QuickSight.Model.Ingestion")]

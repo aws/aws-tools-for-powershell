@@ -495,6 +495,13 @@ $DDB_Completers = {
             break
         }
 
+        # Amazon.DynamoDBv2.ShardFilterType
+        "Get-DDBStream/ShardFilter_Type"
+        {
+            $v = "CHILD_SHARDS"
+            break
+        }
+
 
     }
 
@@ -510,6 +517,7 @@ $DDB_map = @{
     "KeyType"=@("Add-DDBKeySchema")
     "ProjectionType"=@("Add-DDBIndexSchema")
     "RangeKeyDataType"=@("Add-DDBIndexSchema")
+    "ShardFilter_Type"=@("Get-DDBStream")
 }
 
 _awsArgumentCompleterRegistration $DDB_Completers $DDB_map

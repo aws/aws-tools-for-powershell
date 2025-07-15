@@ -65,6 +65,17 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public System.String ExclusiveStartShardId { get; set; }
         #endregion
         
+        #region Parameter ShardFilter_ShardId
+        /// <summary>
+        /// <para>
+        /// <para>Contains the <c>shardId</c> of the parent shard for which you are requesting child
+        /// shards.</para><para><i>Sample request:</i></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ShardFilter_ShardId { get; set; }
+        #endregion
+        
         #region Parameter StreamArn
         /// <summary>
         /// <para>
@@ -80,6 +91,18 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String StreamArn { get; set; }
+        #endregion
+        
+        #region Parameter ShardFilter_Type
+        /// <summary>
+        /// <para>
+        /// <para>Contains the type of filter to be applied on the <c>DescribeStream</c> API. Currently,
+        /// the only value this parameter accepts is <c>CHILD_SHARDS</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DynamoDBv2.ShardFilterType")]
+        public Amazon.DynamoDBv2.ShardFilterType ShardFilter_Type { get; set; }
         #endregion
         
         #region Parameter Limit
@@ -140,6 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ExclusiveStartShardId = this.ExclusiveStartShardId;
             context.Limit = this.Limit;
+            context.ShardFilter_ShardId = this.ShardFilter_ShardId;
+            context.ShardFilter_Type = this.ShardFilter_Type;
             context.StreamArn = this.StreamArn;
             #if MODULAR
             if (this.StreamArn == null && ParameterWasBound(nameof(this.StreamArn)))
@@ -170,6 +195,35 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (cmdletContext.Limit != null)
             {
                 request.Limit = cmdletContext.Limit.Value;
+            }
+            
+             // populate ShardFilter
+            var requestShardFilterIsNull = true;
+            request.ShardFilter = new Amazon.DynamoDBv2.Model.ShardFilter();
+            System.String requestShardFilter_shardFilter_ShardId = null;
+            if (cmdletContext.ShardFilter_ShardId != null)
+            {
+                requestShardFilter_shardFilter_ShardId = cmdletContext.ShardFilter_ShardId;
+            }
+            if (requestShardFilter_shardFilter_ShardId != null)
+            {
+                request.ShardFilter.ShardId = requestShardFilter_shardFilter_ShardId;
+                requestShardFilterIsNull = false;
+            }
+            Amazon.DynamoDBv2.ShardFilterType requestShardFilter_shardFilter_Type = null;
+            if (cmdletContext.ShardFilter_Type != null)
+            {
+                requestShardFilter_shardFilter_Type = cmdletContext.ShardFilter_Type;
+            }
+            if (requestShardFilter_shardFilter_Type != null)
+            {
+                request.ShardFilter.Type = requestShardFilter_shardFilter_Type;
+                requestShardFilterIsNull = false;
+            }
+             // determine if request.ShardFilter should be set to null
+            if (requestShardFilterIsNull)
+            {
+                request.ShardFilter = null;
             }
             if (cmdletContext.StreamArn != null)
             {
@@ -238,6 +292,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         {
             public System.String ExclusiveStartShardId { get; set; }
             public System.Int32? Limit { get; set; }
+            public System.String ShardFilter_ShardId { get; set; }
+            public Amazon.DynamoDBv2.ShardFilterType ShardFilter_Type { get; set; }
             public System.String StreamArn { get; set; }
             public System.Func<Amazon.DynamoDBv2.Model.DescribeStreamResponse, GetDDBStreamCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.StreamDescription;

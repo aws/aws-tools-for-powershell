@@ -79,14 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// for assistance.</para></li></ul></note>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("NodeIds")]
         public System.String[] NodeId { get; set; }
         #endregion
@@ -164,12 +157,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.NodeId = new List<System.String>(this.NodeId);
             }
-            #if MODULAR
-            if (this.NodeId == null && ParameterWasBound(nameof(this.NodeId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter NodeId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

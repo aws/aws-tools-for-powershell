@@ -127,14 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// environment.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String EnvironmentProfileIdentifier { get; set; }
         #endregion
         
@@ -270,12 +263,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.EnvironmentBlueprintIdentifier = this.EnvironmentBlueprintIdentifier;
             context.EnvironmentConfigurationId = this.EnvironmentConfigurationId;
             context.EnvironmentProfileIdentifier = this.EnvironmentProfileIdentifier;
-            #if MODULAR
-            if (this.EnvironmentProfileIdentifier == null && ParameterWasBound(nameof(this.EnvironmentProfileIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter EnvironmentProfileIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.GlossaryTerm != null)
             {
                 context.GlossaryTerm = new List<System.String>(this.GlossaryTerm);

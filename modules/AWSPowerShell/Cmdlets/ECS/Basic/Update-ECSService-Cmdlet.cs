@@ -192,6 +192,18 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.AvailabilityZoneRebalancing AvailabilityZoneRebalancing { get; set; }
         #endregion
         
+        #region Parameter DeploymentConfiguration_BakeTimeInMinute
+        /// <summary>
+        /// <para>
+        /// <para>The duration when both blue and green service revisions are running simultaneously
+        /// after the production traffic has shifted.</para><para>You must provide this parameter when you use the <c>BLUE_GREEN</c> deployment strategy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfiguration_BakeTimeInMinutes")]
+        public System.Int32? DeploymentConfiguration_BakeTimeInMinute { get; set; }
+        #endregion
+        
         #region Parameter CapacityProviderStrategy
         /// <summary>
         /// <para>
@@ -315,6 +327,19 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("HealthCheckGracePeriodSeconds")]
         public System.Int32? HealthCheckGracePeriodSecond { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentConfiguration_LifecycleHook
+        /// <summary>
+        /// <para>
+        /// <para>An array of deployment lifecycle hook objects to run custom logic at specific stages
+        /// of the deployment lifecycle. These hooks allow you to run custom logic at key points
+        /// during the deployment process.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfiguration_LifecycleHooks")]
+        public Amazon.ECS.Model.DeploymentLifecycleHook[] DeploymentConfiguration_LifecycleHook { get; set; }
         #endregion
         
         #region Parameter LoadBalancer
@@ -699,6 +724,24 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.Model.ServiceConnectService[] ServiceConnectConfiguration_Service { get; set; }
         #endregion
         
+        #region Parameter DeploymentConfiguration_Strategy
+        /// <summary>
+        /// <para>
+        /// <para>The deployment strategy for the service. Choose from these valid values:</para><ul><li><para><c>ROLLING</c> - When you create a service which uses the rolling update (<c>ROLLING</c>)
+        /// deployment strategy, the Amazon ECS service scheduler replaces the currently running
+        /// tasks with new tasks. The number of tasks that Amazon ECS adds or removes from the
+        /// service during a rolling update is controlled by the service deployment configuration.</para></li><li><para><c>BLUE_GREEN</c> - A blue/green deployment strategy (<c>BLUE_GREEN</c>) is a release
+        /// methodology that reduces downtime and risk by running two identical production environments
+        /// called blue and green. With Amazon ECS blue/green deployments, you can validate new
+        /// service revisions before directing production traffic to them. This approach provides
+        /// a safer way to deploy changes with the ability to quickly roll back if needed.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ECS.DeploymentStrategy")]
+        public Amazon.ECS.DeploymentStrategy DeploymentConfiguration_Strategy { get; set; }
+        #endregion
+        
         #region Parameter AwsvpcConfiguration_Subnet
         /// <summary>
         /// <para>
@@ -723,6 +766,43 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TaskDefinition { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentController_Type
+        /// <summary>
+        /// <para>
+        /// <para>The deployment controller type to use.</para><para>The deployment controller is the mechanism that determines how tasks are deployed
+        /// for your service. The valid options are:</para><ul><li><para>ECS</para><para>When you create a service which uses the <c>ECS</c> deployment controller, you can
+        /// choose between the following deployment strategies:</para><ul><li><para><c>ROLLING</c>: When you create a service which uses the <i>rolling update</i> (<c>ROLLING</c>)
+        /// deployment strategy, the Amazon ECS service scheduler replaces the currently running
+        /// tasks with new tasks. The number of tasks that Amazon ECS adds or removes from the
+        /// service during a rolling update is controlled by the service deployment configuration.
+        /// </para><para>Rolling update deployments are best suited for the following scenarios:</para><ul><li><para>Gradual service updates: You need to update your service incrementally without taking
+        /// the entire service offline at once.</para></li><li><para>Limited resource requirements: You want to avoid the additional resource costs of
+        /// running two complete environments simultaneously (as required by blue/green deployments).</para></li><li><para>Acceptable deployment time: Your application can tolerate a longer deployment process,
+        /// as rolling updates replace tasks one by one.</para></li><li><para>No need for instant roll back: Your service can tolerate a rollback process that takes
+        /// minutes rather than seconds.</para></li><li><para>Simple deployment process: You prefer a straightforward deployment approach without
+        /// the complexity of managing multiple environments, target groups, and listeners.</para></li><li><para>No load balancer requirement: Your service doesn't use or require a load balancer,
+        /// Application Load Balancer, Network Load Balancer, or Service Connect (which are required
+        /// for blue/green deployments).</para></li><li><para>Stateful applications: Your application maintains state that makes it difficult to
+        /// run two parallel environments.</para></li><li><para>Cost sensitivity: You want to minimize deployment costs by not running duplicate environments
+        /// during deployment.</para></li></ul><para>Rolling updates are the default deployment strategy for services and provide a balance
+        /// between deployment safety and resource efficiency for many common application scenarios.</para></li><li><para><c>BLUE_GREEN</c>: A <i>blue/green</i> deployment strategy (<c>BLUE_GREEN</c>) is
+        /// a release methodology that reduces downtime and risk by running two identical production
+        /// environments called blue and green. With Amazon ECS blue/green deployments, you can
+        /// validate new service revisions before directing production traffic to them. This approach
+        /// provides a safer way to deploy changes with the ability to quickly roll back if needed.</para><para>Amazon ECS blue/green deployments are best suited for the following scenarios:</para><ul><li><para>Service validation: When you need to validate new service revisions before directing
+        /// production traffic to them</para></li><li><para>Zero downtime: When your service requires zero-downtime deployments</para></li><li><para>Instant roll back: When you need the ability to quickly roll back if issues are detected</para></li><li><para>Load balancer requirement: When your service uses Application Load Balancer, Network
+        /// Load Balancer, or Service Connect</para></li></ul></li></ul></li><li><para>External</para><para>Use a third-party deployment controller.</para></li><li><para>Blue/green deployment (powered by CodeDeploy)</para><para>CodeDeploy installs an updated version of the application as a new replacement task
+        /// set and reroutes production traffic from the original application task set to the
+        /// replacement task set. The original task set is terminated after a successful deployment.
+        /// Use this deployment controller to verify a new deployment of a service before sending
+        /// production traffic to it.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ECS.DeploymentControllerType")]
+        public Amazon.ECS.DeploymentControllerType DeploymentController_Type { get; set; }
         #endregion
         
         #region Parameter VolumeConfiguration
@@ -825,10 +905,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             }
             context.Alarms_Enable = this.Alarms_Enable;
             context.Alarms_Rollback = this.Alarms_Rollback;
+            context.DeploymentConfiguration_BakeTimeInMinute = this.DeploymentConfiguration_BakeTimeInMinute;
             context.DeploymentCircuitBreaker_Enable = this.DeploymentCircuitBreaker_Enable;
             context.DeploymentCircuitBreaker_Rollback = this.DeploymentCircuitBreaker_Rollback;
+            if (this.DeploymentConfiguration_LifecycleHook != null)
+            {
+                context.DeploymentConfiguration_LifecycleHook = new List<Amazon.ECS.Model.DeploymentLifecycleHook>(this.DeploymentConfiguration_LifecycleHook);
+            }
             context.DeploymentConfiguration_MaximumPercent = this.DeploymentConfiguration_MaximumPercent;
             context.DeploymentConfiguration_MinimumHealthyPercent = this.DeploymentConfiguration_MinimumHealthyPercent;
+            context.DeploymentConfiguration_Strategy = this.DeploymentConfiguration_Strategy;
+            context.DeploymentController_Type = this.DeploymentController_Type;
             context.DesiredCount = this.DesiredCount;
             context.EnableECSManagedTag = this.EnableECSManagedTag;
             context.EnableExecuteCommand = this.EnableExecuteCommand;
@@ -928,6 +1015,26 @@ namespace Amazon.PowerShell.Cmdlets.ECS
              // populate DeploymentConfiguration
             var requestDeploymentConfigurationIsNull = true;
             request.DeploymentConfiguration = new Amazon.ECS.Model.DeploymentConfiguration();
+            System.Int32? requestDeploymentConfiguration_deploymentConfiguration_BakeTimeInMinute = null;
+            if (cmdletContext.DeploymentConfiguration_BakeTimeInMinute != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_BakeTimeInMinute = cmdletContext.DeploymentConfiguration_BakeTimeInMinute.Value;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_BakeTimeInMinute != null)
+            {
+                request.DeploymentConfiguration.BakeTimeInMinutes = requestDeploymentConfiguration_deploymentConfiguration_BakeTimeInMinute.Value;
+                requestDeploymentConfigurationIsNull = false;
+            }
+            List<Amazon.ECS.Model.DeploymentLifecycleHook> requestDeploymentConfiguration_deploymentConfiguration_LifecycleHook = null;
+            if (cmdletContext.DeploymentConfiguration_LifecycleHook != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_LifecycleHook = cmdletContext.DeploymentConfiguration_LifecycleHook;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_LifecycleHook != null)
+            {
+                request.DeploymentConfiguration.LifecycleHooks = requestDeploymentConfiguration_deploymentConfiguration_LifecycleHook;
+                requestDeploymentConfigurationIsNull = false;
+            }
             System.Int32? requestDeploymentConfiguration_deploymentConfiguration_MaximumPercent = null;
             if (cmdletContext.DeploymentConfiguration_MaximumPercent != null)
             {
@@ -946,6 +1053,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestDeploymentConfiguration_deploymentConfiguration_MinimumHealthyPercent != null)
             {
                 request.DeploymentConfiguration.MinimumHealthyPercent = requestDeploymentConfiguration_deploymentConfiguration_MinimumHealthyPercent.Value;
+                requestDeploymentConfigurationIsNull = false;
+            }
+            Amazon.ECS.DeploymentStrategy requestDeploymentConfiguration_deploymentConfiguration_Strategy = null;
+            if (cmdletContext.DeploymentConfiguration_Strategy != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_Strategy = cmdletContext.DeploymentConfiguration_Strategy;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_Strategy != null)
+            {
+                request.DeploymentConfiguration.Strategy = requestDeploymentConfiguration_deploymentConfiguration_Strategy;
                 requestDeploymentConfigurationIsNull = false;
             }
             Amazon.ECS.Model.DeploymentCircuitBreaker requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker = null;
@@ -1032,6 +1149,25 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestDeploymentConfigurationIsNull)
             {
                 request.DeploymentConfiguration = null;
+            }
+            
+             // populate DeploymentController
+            var requestDeploymentControllerIsNull = true;
+            request.DeploymentController = new Amazon.ECS.Model.DeploymentController();
+            Amazon.ECS.DeploymentControllerType requestDeploymentController_deploymentController_Type = null;
+            if (cmdletContext.DeploymentController_Type != null)
+            {
+                requestDeploymentController_deploymentController_Type = cmdletContext.DeploymentController_Type;
+            }
+            if (requestDeploymentController_deploymentController_Type != null)
+            {
+                request.DeploymentController.Type = requestDeploymentController_deploymentController_Type;
+                requestDeploymentControllerIsNull = false;
+            }
+             // determine if request.DeploymentController should be set to null
+            if (requestDeploymentControllerIsNull)
+            {
+                request.DeploymentController = null;
             }
             if (cmdletContext.DesiredCount != null)
             {
@@ -1298,10 +1434,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public List<System.String> Alarms_AlarmName { get; set; }
             public System.Boolean? Alarms_Enable { get; set; }
             public System.Boolean? Alarms_Rollback { get; set; }
+            public System.Int32? DeploymentConfiguration_BakeTimeInMinute { get; set; }
             public System.Boolean? DeploymentCircuitBreaker_Enable { get; set; }
             public System.Boolean? DeploymentCircuitBreaker_Rollback { get; set; }
+            public List<Amazon.ECS.Model.DeploymentLifecycleHook> DeploymentConfiguration_LifecycleHook { get; set; }
             public System.Int32? DeploymentConfiguration_MaximumPercent { get; set; }
             public System.Int32? DeploymentConfiguration_MinimumHealthyPercent { get; set; }
+            public Amazon.ECS.DeploymentStrategy DeploymentConfiguration_Strategy { get; set; }
+            public Amazon.ECS.DeploymentControllerType DeploymentController_Type { get; set; }
             public System.Int32? DesiredCount { get; set; }
             public System.Boolean? EnableECSManagedTag { get; set; }
             public System.Boolean? EnableExecuteCommand { get; set; }

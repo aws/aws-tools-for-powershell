@@ -28,7 +28,7 @@ using Amazon.Repostspace.Model;
 namespace Amazon.PowerShell.Cmdlets.RESP
 {
     /// <summary>
-    /// Remove role from multiple users or groups in a private re:Post.
+    /// Remove a role from multiple users or groups in a private re:Post.
     /// </summary>
     [Cmdlet("Remove", "RESPBatchRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Repostspace.Model.BatchRemoveRoleResponse")]

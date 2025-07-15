@@ -28,11 +28,28 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Deletes a metadata table configuration from a general purpose bucket. For more information,
+    /// <important><para>
+    ///  We recommend that you delete your S3 Metadata configurations by using the V2 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetadataTableConfiguration.html">DeleteBucketMetadataTableConfiguration</a>
+    /// API operation. We no longer recommend using the V1 <c>DeleteBucketMetadataTableConfiguration</c>
+    /// API operation. 
+    /// </para><para>
+    /// If you created your S3 Metadata configuration before July 15, 2025, we recommend that
+    /// you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a>
+    /// so that you can expire journal table records and create a live inventory table.
+    /// </para></important><para>
+    ///  Deletes a V1 S3 Metadata configuration from a general purpose bucket. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html">Accelerating
     /// data discovery with S3 Metadata</a> in the <i>Amazon S3 User Guide</i>. 
-    /// 
-    ///  <dl><dt>Permissions</dt><dd><para>
+    /// </para><note><para>
+    /// You can use the V2 <c>DeleteBucketMetadataConfiguration</c> API operation with V1
+    /// or V2 metadata table configurations. However, if you try to use the V1 <c>DeleteBucketMetadataTableConfiguration</c>
+    /// API operation with V2 configurations, you will receive an HTTP <c>405 Method Not Allowed</c>
+    /// error.
+    /// </para><para>
+    /// Make sure that you update your processes to use the new V2 API operations (<c>CreateBucketMetadataConfiguration</c>,
+    /// <c>GetBucketMetadataConfiguration</c>, and <c>DeleteBucketMetadataConfiguration</c>)
+    /// instead of the V1 API operations. 
+    /// </para></note><dl><dt>Permissions</dt><dd><para>
     /// To use this operation, you must have the <c>s3:DeleteBucketMetadataTableConfiguration</c>
     /// permission. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html">Setting
     /// up permissions for configuring metadata tables</a> in the <i>Amazon S3 User Guide</i>.

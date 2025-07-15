@@ -68,49 +68,86 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// for running tasks. It also stops tasks that don't meet the placement constraints.
     /// When using this strategy, you don't need to specify a desired number of tasks, a task
     /// placement strategy, or use Service Auto Scaling policies. For more information, see
-    /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Service
-    /// scheduler concepts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+    /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Amazon
+    /// ECS services</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para></li></ul><para>
-    /// You can optionally specify a deployment configuration for your service. The deployment
-    /// is initiated by changing properties. For example, the deployment might be initiated
-    /// by the task definition or by your desired count of a service. You can use <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html">UpdateService</a>.
-    /// The default value for a replica service for <c>minimumHealthyPercent</c> is 100%.
-    /// The default value for a daemon service for <c>minimumHealthyPercent</c> is 0%.
+    /// The deployment controller is the mechanism that determines how tasks are deployed
+    /// for your service. The valid options are:
+    /// </para><ul><li><para>
+    /// ECS
     /// </para><para>
-    /// If a service uses the <c>ECS</c> deployment controller, the minimum healthy percent
-    /// represents a lower limit on the number of tasks in a service that must remain in the
-    /// <c>RUNNING</c> state during a deployment. Specifically, it represents it as a percentage
-    /// of your desired number of tasks (rounded up to the nearest integer). This happens
-    /// when any of your container instances are in the <c>DRAINING</c> state if the service
-    /// contains tasks using the EC2 launch type. Using this parameter, you can deploy without
-    /// using additional cluster capacity. For example, if you set your service to have desired
-    /// number of four tasks and a minimum healthy percent of 50%, the scheduler might stop
-    /// two existing tasks to free up cluster capacity before starting two new tasks. If they're
-    /// in the <c>RUNNING</c> state, tasks for services that don't use a load balancer are
-    /// considered healthy . If they're in the <c>RUNNING</c> state and reported as healthy
-    /// by the load balancer, tasks for services that <i>do</i> use a load balancer are considered
-    /// healthy . The default value for minimum healthy percent is 100%.
+    /// When you create a service which uses the <c>ECS</c> deployment controller, you can
+    /// choose between the following deployment strategies:
+    /// </para><ul><li><para><c>ROLLING</c>: When you create a service which uses the <i>rolling update</i> (<c>ROLLING</c>)
+    /// deployment strategy, the Amazon ECS service scheduler replaces the currently running
+    /// tasks with new tasks. The number of tasks that Amazon ECS adds or removes from the
+    /// service during a rolling update is controlled by the service deployment configuration.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html">Deploy
+    /// Amazon ECS services by replacing tasks</a> in the <i>Amazon Elastic Container Service
+    /// Developer Guide</i>.
     /// </para><para>
-    /// If a service uses the <c>ECS</c> deployment controller, the <b>maximum percent</b>
-    /// parameter represents an upper limit on the number of tasks in a service that are allowed
-    /// in the <c>RUNNING</c> or <c>PENDING</c> state during a deployment. Specifically, it
-    /// represents it as a percentage of the desired number of tasks (rounded down to the
-    /// nearest integer). This happens when any of your container instances are in the <c>DRAINING</c>
-    /// state if the service contains tasks using the EC2 launch type. Using this parameter,
-    /// you can define the deployment batch size. For example, if your service has a desired
-    /// number of four tasks and a maximum percent value of 200%, the scheduler may start
-    /// four new tasks before stopping the four older tasks (provided that the cluster resources
-    /// required to do this are available). The default value for maximum percent is 200%.
+    /// Rolling update deployments are best suited for the following scenarios:
+    /// </para><ul><li><para>
+    /// Gradual service updates: You need to update your service incrementally without taking
+    /// the entire service offline at once.
+    /// </para></li><li><para>
+    /// Limited resource requirements: You want to avoid the additional resource costs of
+    /// running two complete environments simultaneously (as required by blue/green deployments).
+    /// </para></li><li><para>
+    /// Acceptable deployment time: Your application can tolerate a longer deployment process,
+    /// as rolling updates replace tasks one by one.
+    /// </para></li><li><para>
+    /// No need for instant roll back: Your service can tolerate a rollback process that takes
+    /// minutes rather than seconds.
+    /// </para></li><li><para>
+    /// Simple deployment process: You prefer a straightforward deployment approach without
+    /// the complexity of managing multiple environments, target groups, and listeners.
+    /// </para></li><li><para>
+    /// No load balancer requirement: Your service doesn't use or require a load balancer,
+    /// Application Load Balancer, Network Load Balancer, or Service Connect (which are required
+    /// for blue/green deployments).
+    /// </para></li><li><para>
+    /// Stateful applications: Your application maintains state that makes it difficult to
+    /// run two parallel environments.
+    /// </para></li><li><para>
+    /// Cost sensitivity: You want to minimize deployment costs by not running duplicate environments
+    /// during deployment.
+    /// </para></li></ul><para>
+    /// Rolling updates are the default deployment strategy for services and provide a balance
+    /// between deployment safety and resource efficiency for many common application scenarios.
+    /// </para></li><li><para><c>BLUE_GREEN</c>: A <i>blue/green</i> deployment strategy (<c>BLUE_GREEN</c>) is
+    /// a release methodology that reduces downtime and risk by running two identical production
+    /// environments called blue and green. With Amazon ECS blue/green deployments, you can
+    /// validate new service revisions before directing production traffic to them. This approach
+    /// provides a safer way to deploy changes with the ability to quickly roll back if needed.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-blue-green.html">Amazon
+    /// ECS blue/green deployments</a> in the <i>Amazon Elastic Container Service Developer
+    /// Guide</i>.
     /// </para><para>
-    /// If a service uses either the <c>CODE_DEPLOY</c> or <c>EXTERNAL</c> deployment controller
-    /// types and tasks that use the EC2 launch type, the <b>minimum healthy percent</b> and
-    /// <b>maximum percent</b> values are used only to define the lower and upper limit on
-    /// the number of the tasks in the service that remain in the <c>RUNNING</c> state. This
-    /// is while the container instances are in the <c>DRAINING</c> state. If the tasks in
-    /// the service use the Fargate launch type, the minimum healthy percent and maximum percent
-    /// values aren't used. This is the case even if they're currently visible when describing
-    /// your service.
+    /// Amazon ECS blue/green deployments are best suited for the following scenarios:
+    /// </para><ul><li><para>
+    /// Service validation: When you need to validate new service revisions before directing
+    /// production traffic to them
+    /// </para></li><li><para>
+    /// Zero downtime: When your service requires zero-downtime deployments
+    /// </para></li><li><para>
+    /// Instant roll back: When you need the ability to quickly roll back if issues are detected
+    /// </para></li><li><para>
+    /// Load balancer requirement: When your service uses Application Load Balancer, Network
+    /// Load Balancer, or Service Connect
+    /// </para></li></ul></li></ul></li><li><para>
+    /// External
     /// </para><para>
+    /// Use a third-party deployment controller.
+    /// </para></li><li><para>
+    /// Blue/green deployment (powered by CodeDeploy)
+    /// </para><para>
+    /// CodeDeploy installs an updated version of the application as a new replacement task
+    /// set and reroutes production traffic from the original application task set to the
+    /// replacement task set. The original task set is terminated after a successful deployment.
+    /// Use this deployment controller to verify a new deployment of a service before sending
+    /// production traffic to it.
+    /// </para></li></ul><para>
     /// When creating a service that uses the <c>EXTERNAL</c> deployment controller, you can
     /// specify only parameters that aren't controlled at the task set level. The only required
     /// parameter is the service name. You control your services using the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateTaskSet.html">CreateTaskSet</a>.
@@ -169,6 +206,18 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.ECS.AvailabilityZoneRebalancing")]
         public Amazon.ECS.AvailabilityZoneRebalancing AvailabilityZoneRebalancing { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentConfiguration_BakeTimeInMinute
+        /// <summary>
+        /// <para>
+        /// <para>The duration when both blue and green service revisions are running simultaneously
+        /// after the production traffic has shifted.</para><para>You must provide this parameter when you use the <c>BLUE_GREEN</c> deployment strategy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfiguration_BakeTimeInMinutes")]
+        public System.Int32? DeploymentConfiguration_BakeTimeInMinute { get; set; }
         #endregion
         
         #region Parameter CapacityProviderStrategy
@@ -244,7 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>Specifies whether to turn on Amazon ECS managed tags for the tasks within the service.
         /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging
         /// your Amazon ECS resources</a> in the <i>Amazon Elastic Container Service Developer
-        /// Guide</i>.</para><para>When you use Amazon ECS managed tags, you need to set the <c>propagateTags</c> request
+        /// Guide</i>.</para><para>When you use Amazon ECS managed tags, you must set the <c>propagateTags</c> request
         /// parameter.</para>
         /// </para>
         /// </summary>
@@ -299,6 +348,19 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.ECS.LaunchType")]
         public Amazon.ECS.LaunchType LaunchType { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentConfiguration_LifecycleHook
+        /// <summary>
+        /// <para>
+        /// <para>An array of deployment lifecycle hook objects to run custom logic at specific stages
+        /// of the deployment lifecycle. These hooks allow you to run custom logic at key points
+        /// during the deployment process.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfiguration_LifecycleHooks")]
+        public Amazon.ECS.Model.DeploymentLifecycleHook[] DeploymentConfiguration_LifecycleHook { get; set; }
         #endregion
         
         #region Parameter LoadBalancer
@@ -742,6 +804,24 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.Model.ServiceConnectService[] ServiceConnectConfiguration_Service { get; set; }
         #endregion
         
+        #region Parameter DeploymentConfiguration_Strategy
+        /// <summary>
+        /// <para>
+        /// <para>The deployment strategy for the service. Choose from these valid values:</para><ul><li><para><c>ROLLING</c> - When you create a service which uses the rolling update (<c>ROLLING</c>)
+        /// deployment strategy, the Amazon ECS service scheduler replaces the currently running
+        /// tasks with new tasks. The number of tasks that Amazon ECS adds or removes from the
+        /// service during a rolling update is controlled by the service deployment configuration.</para></li><li><para><c>BLUE_GREEN</c> - A blue/green deployment strategy (<c>BLUE_GREEN</c>) is a release
+        /// methodology that reduces downtime and risk by running two identical production environments
+        /// called blue and green. With Amazon ECS blue/green deployments, you can validate new
+        /// service revisions before directing production traffic to them. This approach provides
+        /// a safer way to deploy changes with the ability to quickly roll back if needed.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ECS.DeploymentStrategy")]
+        public Amazon.ECS.DeploymentStrategy DeploymentConfiguration_Strategy { get; set; }
+        #endregion
+        
         #region Parameter AwsvpcConfiguration_Subnet
         /// <summary>
         /// <para>
@@ -791,21 +871,33 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter DeploymentController_Type
         /// <summary>
         /// <para>
-        /// <para>The deployment controller type to use.</para><para>There are three deployment controller types available:</para><dl><dt>ECS</dt><dd><para>The rolling update (<c>ECS</c>) deployment type involves replacing the current running
-        /// version of the container with the latest version. The number of containers Amazon
-        /// ECS adds or removes from the service during a rolling update is controlled by adjusting
-        /// the minimum and maximum number of healthy tasks allowed during a service deployment,
-        /// as specified in the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeploymentConfiguration.html">DeploymentConfiguration</a>.</para><para>For more information about rolling deployments, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html">Deploy
-        /// Amazon ECS services by replacing tasks</a> in the <i>Amazon Elastic Container Service
-        /// Developer Guide</i>.</para></dd><dt>CODE_DEPLOY</dt><dd><para>The blue/green (<c>CODE_DEPLOY</c>) deployment type uses the blue/green deployment
-        /// model powered by CodeDeploy, which allows you to verify a new deployment of a service
-        /// before sending production traffic to it.</para><para>For more information about blue/green deployments, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html">Validate
-        /// the state of an Amazon ECS service before deployment </a> in the <i>Amazon Elastic
-        /// Container Service Developer Guide</i>.</para></dd><dt>EXTERNAL</dt><dd><para>The external (<c>EXTERNAL</c>) deployment type enables you to use any third-party
-        /// deployment controller for full control over the deployment process for an Amazon ECS
-        /// service.</para><para>For more information about external deployments, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-external.html">Deploy
-        /// Amazon ECS services using a third-party controller </a> in the <i>Amazon Elastic Container
-        /// Service Developer Guide</i>.</para></dd></dl>
+        /// <para>The deployment controller type to use.</para><para>The deployment controller is the mechanism that determines how tasks are deployed
+        /// for your service. The valid options are:</para><ul><li><para>ECS</para><para>When you create a service which uses the <c>ECS</c> deployment controller, you can
+        /// choose between the following deployment strategies:</para><ul><li><para><c>ROLLING</c>: When you create a service which uses the <i>rolling update</i> (<c>ROLLING</c>)
+        /// deployment strategy, the Amazon ECS service scheduler replaces the currently running
+        /// tasks with new tasks. The number of tasks that Amazon ECS adds or removes from the
+        /// service during a rolling update is controlled by the service deployment configuration.
+        /// </para><para>Rolling update deployments are best suited for the following scenarios:</para><ul><li><para>Gradual service updates: You need to update your service incrementally without taking
+        /// the entire service offline at once.</para></li><li><para>Limited resource requirements: You want to avoid the additional resource costs of
+        /// running two complete environments simultaneously (as required by blue/green deployments).</para></li><li><para>Acceptable deployment time: Your application can tolerate a longer deployment process,
+        /// as rolling updates replace tasks one by one.</para></li><li><para>No need for instant roll back: Your service can tolerate a rollback process that takes
+        /// minutes rather than seconds.</para></li><li><para>Simple deployment process: You prefer a straightforward deployment approach without
+        /// the complexity of managing multiple environments, target groups, and listeners.</para></li><li><para>No load balancer requirement: Your service doesn't use or require a load balancer,
+        /// Application Load Balancer, Network Load Balancer, or Service Connect (which are required
+        /// for blue/green deployments).</para></li><li><para>Stateful applications: Your application maintains state that makes it difficult to
+        /// run two parallel environments.</para></li><li><para>Cost sensitivity: You want to minimize deployment costs by not running duplicate environments
+        /// during deployment.</para></li></ul><para>Rolling updates are the default deployment strategy for services and provide a balance
+        /// between deployment safety and resource efficiency for many common application scenarios.</para></li><li><para><c>BLUE_GREEN</c>: A <i>blue/green</i> deployment strategy (<c>BLUE_GREEN</c>) is
+        /// a release methodology that reduces downtime and risk by running two identical production
+        /// environments called blue and green. With Amazon ECS blue/green deployments, you can
+        /// validate new service revisions before directing production traffic to them. This approach
+        /// provides a safer way to deploy changes with the ability to quickly roll back if needed.</para><para>Amazon ECS blue/green deployments are best suited for the following scenarios:</para><ul><li><para>Service validation: When you need to validate new service revisions before directing
+        /// production traffic to them</para></li><li><para>Zero downtime: When your service requires zero-downtime deployments</para></li><li><para>Instant roll back: When you need the ability to quickly roll back if issues are detected</para></li><li><para>Load balancer requirement: When your service uses Application Load Balancer, Network
+        /// Load Balancer, or Service Connect</para></li></ul></li></ul></li><li><para>External</para><para>Use a third-party deployment controller.</para></li><li><para>Blue/green deployment (powered by CodeDeploy)</para><para>CodeDeploy installs an updated version of the application as a new replacement task
+        /// set and reroutes production traffic from the original application task set to the
+        /// replacement task set. The original task set is terminated after a successful deployment.
+        /// Use this deployment controller to verify a new deployment of a service before sending
+        /// production traffic to it.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -924,10 +1016,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             }
             context.Alarms_Enable = this.Alarms_Enable;
             context.Alarms_Rollback = this.Alarms_Rollback;
+            context.DeploymentConfiguration_BakeTimeInMinute = this.DeploymentConfiguration_BakeTimeInMinute;
             context.DeploymentCircuitBreaker_Enable = this.DeploymentCircuitBreaker_Enable;
             context.DeploymentCircuitBreaker_Rollback = this.DeploymentCircuitBreaker_Rollback;
+            if (this.DeploymentConfiguration_LifecycleHook != null)
+            {
+                context.DeploymentConfiguration_LifecycleHook = new List<Amazon.ECS.Model.DeploymentLifecycleHook>(this.DeploymentConfiguration_LifecycleHook);
+            }
             context.DeploymentConfiguration_MaximumPercent = this.DeploymentConfiguration_MaximumPercent;
             context.DeploymentConfiguration_MinimumHealthyPercent = this.DeploymentConfiguration_MinimumHealthyPercent;
+            context.DeploymentConfiguration_Strategy = this.DeploymentConfiguration_Strategy;
             context.DeploymentController_Type = this.DeploymentController_Type;
             context.DesiredCount = this.DesiredCount;
             context.EnableECSManagedTag = this.EnableECSManagedTag;
@@ -1038,6 +1136,26 @@ namespace Amazon.PowerShell.Cmdlets.ECS
              // populate DeploymentConfiguration
             var requestDeploymentConfigurationIsNull = true;
             request.DeploymentConfiguration = new Amazon.ECS.Model.DeploymentConfiguration();
+            System.Int32? requestDeploymentConfiguration_deploymentConfiguration_BakeTimeInMinute = null;
+            if (cmdletContext.DeploymentConfiguration_BakeTimeInMinute != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_BakeTimeInMinute = cmdletContext.DeploymentConfiguration_BakeTimeInMinute.Value;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_BakeTimeInMinute != null)
+            {
+                request.DeploymentConfiguration.BakeTimeInMinutes = requestDeploymentConfiguration_deploymentConfiguration_BakeTimeInMinute.Value;
+                requestDeploymentConfigurationIsNull = false;
+            }
+            List<Amazon.ECS.Model.DeploymentLifecycleHook> requestDeploymentConfiguration_deploymentConfiguration_LifecycleHook = null;
+            if (cmdletContext.DeploymentConfiguration_LifecycleHook != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_LifecycleHook = cmdletContext.DeploymentConfiguration_LifecycleHook;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_LifecycleHook != null)
+            {
+                request.DeploymentConfiguration.LifecycleHooks = requestDeploymentConfiguration_deploymentConfiguration_LifecycleHook;
+                requestDeploymentConfigurationIsNull = false;
+            }
             System.Int32? requestDeploymentConfiguration_deploymentConfiguration_MaximumPercent = null;
             if (cmdletContext.DeploymentConfiguration_MaximumPercent != null)
             {
@@ -1056,6 +1174,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestDeploymentConfiguration_deploymentConfiguration_MinimumHealthyPercent != null)
             {
                 request.DeploymentConfiguration.MinimumHealthyPercent = requestDeploymentConfiguration_deploymentConfiguration_MinimumHealthyPercent.Value;
+                requestDeploymentConfigurationIsNull = false;
+            }
+            Amazon.ECS.DeploymentStrategy requestDeploymentConfiguration_deploymentConfiguration_Strategy = null;
+            if (cmdletContext.DeploymentConfiguration_Strategy != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_Strategy = cmdletContext.DeploymentConfiguration_Strategy;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_Strategy != null)
+            {
+                request.DeploymentConfiguration.Strategy = requestDeploymentConfiguration_deploymentConfiguration_Strategy;
                 requestDeploymentConfigurationIsNull = false;
             }
             Amazon.ECS.Model.DeploymentCircuitBreaker requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker = null;
@@ -1440,10 +1568,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public List<System.String> Alarms_AlarmName { get; set; }
             public System.Boolean? Alarms_Enable { get; set; }
             public System.Boolean? Alarms_Rollback { get; set; }
+            public System.Int32? DeploymentConfiguration_BakeTimeInMinute { get; set; }
             public System.Boolean? DeploymentCircuitBreaker_Enable { get; set; }
             public System.Boolean? DeploymentCircuitBreaker_Rollback { get; set; }
+            public List<Amazon.ECS.Model.DeploymentLifecycleHook> DeploymentConfiguration_LifecycleHook { get; set; }
             public System.Int32? DeploymentConfiguration_MaximumPercent { get; set; }
             public System.Int32? DeploymentConfiguration_MinimumHealthyPercent { get; set; }
+            public Amazon.ECS.DeploymentStrategy DeploymentConfiguration_Strategy { get; set; }
             public Amazon.ECS.DeploymentControllerType DeploymentController_Type { get; set; }
             public System.Int32? DesiredCount { get; set; }
             public System.Boolean? EnableECSManagedTag { get; set; }
