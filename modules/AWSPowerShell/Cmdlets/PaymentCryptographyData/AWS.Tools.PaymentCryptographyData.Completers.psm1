@@ -178,7 +178,7 @@ $PAYCD_Completers = {
             ($_ -eq "Unprotect-PAYCDData/WrappedKey_KeyCheckValueAlgorithm")
         }
         {
-            $v = "ANSI_X9_24","CMAC","HMAC"
+            $v = "ANSI_X9_24","CMAC","HMAC","SHA_1"
             break
         }
 
@@ -220,7 +220,7 @@ $PAYCD_Completers = {
             ($_ -eq "Test-PAYCDMac/VerificationAttributes_Algorithm")
         }
         {
-            $v = "CMAC","HMAC_SHA224","HMAC_SHA256","HMAC_SHA384","HMAC_SHA512","ISO9797_ALGORITHM1","ISO9797_ALGORITHM3"
+            $v = "CMAC","HMAC","HMAC_SHA224","HMAC_SHA256","HMAC_SHA384","HMAC_SHA512","ISO9797_ALGORITHM1","ISO9797_ALGORITHM3"
             break
         }
 

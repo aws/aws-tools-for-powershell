@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// A <i>delivery</i> is a connection between a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html"><i>delivery source</i></a> and a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html"><i>delivery destination</i></a>.
     /// </para><para>
     /// A delivery source represents an Amazon Web Services resource that sends logs to an
-    /// logs delivery destination. The destination can be CloudWatch Logs, Amazon S3, or Firehose.
-    /// Only some Amazon Web Services services support being configured as a delivery source.
-    /// These services are listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enable
+    /// logs delivery destination. The destination can be CloudWatch Logs, Amazon S3, Firehose
+    /// or X-Ray. Only some Amazon Web Services services support being configured as a delivery
+    /// source. These services are listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enable
     /// logging from Amazon Web Services services.</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Find", "CWLDelivery")]

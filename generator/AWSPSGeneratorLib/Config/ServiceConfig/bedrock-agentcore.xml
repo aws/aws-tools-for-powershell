@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>bedrock-agentcore</C2jFilename>
+    <AssemblyName>BedrockAgentCore</AssemblyName>
+    <ServiceNounPrefix>BAC</ServiceNounPrefix>
+    <ServiceName>Amazon Bedrock AgentCore Data Plane Fronting Layer</ServiceName>
+    <ServiceClientInterface>IAmazonBedrockAgentCore</ServiceClientInterface>
+    <ServiceClient>AmazonBedrockAgentCoreClient</ServiceClient>
+    <ServiceModuleGuid>071d6e44-6022-4867-92ca-271f6abca217</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateEvent" OutputProperty="Event" Verb="New" Noun="Event" ShouldProcessTarget="MemoryId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEvent" OutputProperty="EventId" Verb="Remove" Noun="Event" ShouldProcessTarget="EventId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMemoryRecord" OutputProperty="MemoryRecordId" Verb="Remove" Noun="MemoryRecord" ShouldProcessTarget="MemoryRecordId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBrowserSession" OutputProperty="*" Verb="Get" Noun="BrowserSession" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCodeInterpreterSession" OutputProperty="*" Verb="Get" Noun="CodeInterpreterSession" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEvent" OutputProperty="Event" Verb="Get" Noun="Event" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMemoryRecord" OutputProperty="MemoryRecord" Verb="Get" Noun="MemoryRecord" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceApiKey" OutputProperty="ApiKey" Verb="Get" Noun="ResourceApiKey" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceOauth2Token" OutputProperty="*" Verb="Get" Noun="ResourceOauth2Token" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkloadAccessToken" OutputProperty="WorkloadAccessToken" Verb="Get" Noun="WorkloadAccessToken" PipelineParameter="WorkloadName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkloadAccessTokenForJWT" OutputProperty="WorkloadAccessToken" Verb="Get" Noun="WorkloadAccessTokenForJWT" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkloadAccessTokenForUserId" OutputProperty="WorkloadAccessToken" Verb="Get" Noun="WorkloadAccessTokenForUserId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="InvokeAgentRuntime" OutputProperty="*" Verb="Invoke" Noun="AgentRuntime" ShouldProcessTarget="AgentRuntimeArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="InvokeCodeInterpreter" OutputProperty="*" Verb="Invoke" Noun="CodeInterpreter" ShouldProcessTarget="CodeInterpreterIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Arguments_Path" NewName="Arguments_Path" />
+                <Param Name="Arguments_Paths" NewName="Arguments_Paths" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListActors" OutputProperty="ActorSummaries" Verb="Get" Noun="ActorList" PipelineParameter="MemoryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBrowserSessions" OutputProperty="Items" Verb="Get" Noun="BrowserSessionList" PipelineParameter="BrowserIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCodeInterpreterSessions" OutputProperty="Items" Verb="Get" Noun="CodeInterpreterSessionList" PipelineParameter="CodeInterpreterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEvents" OutputProperty="Events" Verb="Get" Noun="EventList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMemoryRecords" OutputProperty="MemoryRecordSummaries" Verb="Get" Noun="MemoryRecordList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSessions" OutputProperty="SessionSummaries" Verb="Get" Noun="SessionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RetrieveMemoryRecords" OutputProperty="MemoryRecordSummaries" Verb="Invoke" Noun="MemoryRecord" ShouldProcessTarget="MemoryId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartBrowserSession" OutputProperty="*" Verb="Start" Noun="BrowserSession" ShouldProcessTarget="BrowserIdentifier" PipelineParameter="BrowserIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartCodeInterpreterSession" OutputProperty="*" Verb="Start" Noun="CodeInterpreterSession" ShouldProcessTarget="CodeInterpreterIdentifier" PipelineParameter="CodeInterpreterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopBrowserSession" OutputProperty="*" Verb="Stop" Noun="BrowserSession" ShouldProcessTarget="SessionId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopCodeInterpreterSession" OutputProperty="*" Verb="Stop" Noun="CodeInterpreterSession" ShouldProcessTarget="SessionId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBrowserStream" OutputProperty="*" Verb="Update" Noun="BrowserStream" ShouldProcessTarget="SessionId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

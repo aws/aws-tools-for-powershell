@@ -218,13 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <para>The <c>TableInput</c> object that defines the metadata table to create in the catalog.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public Amazon.Glue.Model.TableInput TableInput { get; set; }
         #endregion
         
@@ -367,12 +361,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.PartitionIndex = new List<Amazon.Glue.Model.PartitionIndex>(this.PartitionIndex);
             }
             context.TableInput = this.TableInput;
-            #if MODULAR
-            if (this.TableInput == null && ParameterWasBound(nameof(this.TableInput)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TableInput which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.TransactionId = this.TransactionId;
             
             // allow further manipulation of loaded context prior to processing

@@ -7008,6 +7008,13 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.CustomModelDeploymentStatus
+        "Get-BDRCustomModelDeploymentList/StatusEqual"
+        {
+            $v = "Active","Creating","Failed"
+            break
+        }
+
         # Amazon.Bedrock.EvaluationJobStatus
         "Get-BDREvaluationJobList/StatusEqual"
         {
@@ -7148,6 +7155,7 @@ $BDR_Completers = {
 
         # Amazon.Bedrock.SortModelsBy
         {
+            ($_ -eq "Get-BDRCustomModelDeploymentList/SortBy") -Or
             ($_ -eq "Get-BDRCustomModelList/SortBy") -Or
             ($_ -eq "Get-BDRImportedModelList/SortBy")
         }
@@ -7158,6 +7166,7 @@ $BDR_Completers = {
 
         # Amazon.Bedrock.SortOrder
         {
+            ($_ -eq "Get-BDRCustomModelDeploymentList/SortOrder") -Or
             ($_ -eq "Get-BDRCustomModelList/SortOrder") -Or
             ($_ -eq "Get-BDREvaluationJobList/SortOrder") -Or
             ($_ -eq "Get-BDRImportedModelList/SortOrder") -Or
@@ -7192,9 +7201,9 @@ $BDR_map = @{
     "ModelStatus"=@("Get-BDRCustomModelList")
     "OfferType"=@("Get-BDRFoundationModelAgreementOfferList")
     "S3InputDataConfig_S3InputFormat"=@("New-BDRModelInvocationJob")
-    "SortBy"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
-    "SortOrder"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
-    "StatusEqual"=@("Get-BDREvaluationJobList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
+    "SortBy"=@("Get-BDRCustomModelDeploymentList","Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
+    "SortOrder"=@("Get-BDRCustomModelDeploymentList","Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
+    "StatusEqual"=@("Get-BDRCustomModelDeploymentList","Get-BDREvaluationJobList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
     "TopicPolicyConfig_TierConfig_TierName"=@("New-BDRGuardrail","Update-BDRGuardrail")
     "Type"=@("Get-BDRPromptRouterList")
     "TypeEqual"=@("Get-BDRInferenceProfileList")
@@ -7252,6 +7261,7 @@ $BDR_SelectCompleters = {
 $BDR_SelectMap = @{
     "Select"=@("Set-BDRBatchDeleteEvaluationJob",
                "New-BDRCustomModel",
+               "New-BDRCustomModelDeployment",
                "New-BDREvaluationJob",
                "New-BDRFoundationModelAgreement",
                "New-BDRGuardrail",
@@ -7265,6 +7275,7 @@ $BDR_SelectMap = @{
                "New-BDRPromptRouter",
                "New-BDRProvisionedModelThroughput",
                "Remove-BDRCustomModel",
+               "Remove-BDRCustomModelDeployment",
                "Remove-BDRFoundationModelAgreement",
                "Remove-BDRGuardrail",
                "Remove-BDRImportedModel",
@@ -7275,6 +7286,7 @@ $BDR_SelectMap = @{
                "Remove-BDRProvisionedModelThroughput",
                "Unregister-BDRMarketplaceModelEndpoint",
                "Get-BDRCustomModel",
+               "Get-BDRCustomModelDeployment",
                "Get-BDREvaluationJob",
                "Get-BDRFoundationModel",
                "Get-BDRFoundationModelAvailability",
@@ -7290,6 +7302,7 @@ $BDR_SelectMap = @{
                "Get-BDRPromptRouter",
                "Get-BDRProvisionedModelThroughput",
                "Get-BDRUseCaseForModelAccess",
+               "Get-BDRCustomModelDeploymentList",
                "Get-BDRCustomModelList",
                "Get-BDREvaluationJobList",
                "Get-BDRFoundationModelAgreementOfferList",
@@ -7815,6 +7828,384 @@ $AAB_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $AAB_SelectCompleters $AAB_SelectMap
+# Argument completions for service Amazon Bedrock AgentCore Data Plane Fronting Layer
+
+
+$BAC_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.BedrockAgentCore.AutomationStreamStatus
+        "Update-BACBrowserStream/AutomationStreamUpdate_StreamStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.BedrockAgentCore.BrowserSessionStatus
+        "Get-BACBrowserSessionList/Status"
+        {
+            $v = "READY","TERMINATED"
+            break
+        }
+
+        # Amazon.BedrockAgentCore.CodeInterpreterSessionStatus
+        "Get-BACCodeInterpreterSessionList/Status"
+        {
+            $v = "READY","TERMINATED"
+            break
+        }
+
+        # Amazon.BedrockAgentCore.Oauth2FlowType
+        "Get-BACResourceOauth2Token/Oauth2Flow"
+        {
+            $v = "M2M","USER_FEDERATION"
+            break
+        }
+
+        # Amazon.BedrockAgentCore.ProgrammingLanguage
+        "Invoke-BACCodeInterpreter/Arguments_Language"
+        {
+            $v = "javascript","python","typescript"
+            break
+        }
+
+        # Amazon.BedrockAgentCore.ToolName
+        "Invoke-BACCodeInterpreter/Name"
+        {
+            $v = "executeCode","executeCommand","getTask","listFiles","readFiles","removeFiles","startCommandExecution","stopTask","writeFiles"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BAC_map = @{
+    "Arguments_Language"=@("Invoke-BACCodeInterpreter")
+    "AutomationStreamUpdate_StreamStatus"=@("Update-BACBrowserStream")
+    "Name"=@("Invoke-BACCodeInterpreter")
+    "Oauth2Flow"=@("Get-BACResourceOauth2Token")
+    "Status"=@("Get-BACBrowserSessionList","Get-BACCodeInterpreterSessionList")
+}
+
+_awsArgumentCompleterRegistration $BAC_Completers $BAC_map
+
+$BAC_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.BAC.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BAC_SelectMap = @{
+    "Select"=@("New-BACEvent",
+               "Remove-BACEvent",
+               "Remove-BACMemoryRecord",
+               "Get-BACBrowserSession",
+               "Get-BACCodeInterpreterSession",
+               "Get-BACEvent",
+               "Get-BACMemoryRecord",
+               "Get-BACResourceApiKey",
+               "Get-BACResourceOauth2Token",
+               "Get-BACWorkloadAccessToken",
+               "Get-BACWorkloadAccessTokenForJWT",
+               "Get-BACWorkloadAccessTokenForUserId",
+               "Invoke-BACAgentRuntime",
+               "Invoke-BACCodeInterpreter",
+               "Get-BACActorList",
+               "Get-BACBrowserSessionList",
+               "Get-BACCodeInterpreterSessionList",
+               "Get-BACEventList",
+               "Get-BACMemoryRecordList",
+               "Get-BACSessionList",
+               "Invoke-BACMemoryRecord",
+               "Start-BACBrowserSession",
+               "Start-BACCodeInterpreterSession",
+               "Stop-BACBrowserSession",
+               "Stop-BACCodeInterpreterSession",
+               "Update-BACBrowserStream")
+}
+
+_awsArgumentCompleterRegistration $BAC_SelectCompleters $BAC_SelectMap
+# Argument completions for service Amazon Bedrock Agent Core Control Plane Fronting Layer
+
+
+$BACC_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.BedrockAgentCoreControl.AuthorizerType
+        {
+            ($_ -eq "New-BACCGateway/AuthorizerType") -Or
+            ($_ -eq "Update-BACCGateway/AuthorizerType")
+        }
+        {
+            $v = "CUSTOM_JWT"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.BrowserNetworkMode
+        "New-BACCBrowser/NetworkConfiguration_NetworkMode"
+        {
+            $v = "PUBLIC"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.CodeInterpreterNetworkMode
+        "New-BACCCodeInterpreter/NetworkConfiguration_NetworkMode"
+        {
+            $v = "PUBLIC","SANDBOX"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.CredentialProviderVendorType
+        {
+            ($_ -eq "New-BACCOauth2CredentialProvider/CredentialProviderVendor") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/CredentialProviderVendor")
+        }
+        {
+            $v = "CustomOauth2","GithubOauth2","GoogleOauth2","MicrosoftOauth2","SalesforceOauth2","SlackOauth2"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.ExceptionLevel
+        {
+            ($_ -eq "New-BACCGateway/ExceptionLevel") -Or
+            ($_ -eq "Update-BACCGateway/ExceptionLevel")
+        }
+        {
+            $v = "DEBUG"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.GatewayProtocolType
+        {
+            ($_ -eq "New-BACCGateway/ProtocolType") -Or
+            ($_ -eq "Update-BACCGateway/ProtocolType")
+        }
+        {
+            $v = "MCP"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.KeyType
+        "Set-BACCTokenVaultCMK/KmsConfiguration_KeyType"
+        {
+            $v = "CustomerManagedKey","ServiceManagedKey"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.NetworkMode
+        {
+            ($_ -eq "New-BACCAgentRuntime/NetworkConfiguration_NetworkMode") -Or
+            ($_ -eq "Update-BACCAgentRuntime/NetworkConfiguration_NetworkMode")
+        }
+        {
+            $v = "PUBLIC"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.ResourceType
+        {
+            ($_ -eq "Get-BACCBrowserList/Type") -Or
+            ($_ -eq "Get-BACCCodeInterpreterList/Type")
+        }
+        {
+            $v = "CUSTOM","SYSTEM"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.SearchType
+        {
+            ($_ -eq "New-BACCGateway/Mcp_SearchType") -Or
+            ($_ -eq "Update-BACCGateway/Mcp_SearchType")
+        }
+        {
+            $v = "SEMANTIC"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.ServerProtocol
+        {
+            ($_ -eq "New-BACCAgentRuntime/ProtocolConfiguration_ServerProtocol") -Or
+            ($_ -eq "Update-BACCAgentRuntime/ProtocolConfiguration_ServerProtocol")
+        }
+        {
+            $v = "HTTP","MCP"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BACC_map = @{
+    "AuthorizerType"=@("New-BACCGateway","Update-BACCGateway")
+    "CredentialProviderVendor"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "ExceptionLevel"=@("New-BACCGateway","Update-BACCGateway")
+    "KmsConfiguration_KeyType"=@("Set-BACCTokenVaultCMK")
+    "Mcp_SearchType"=@("New-BACCGateway","Update-BACCGateway")
+    "NetworkConfiguration_NetworkMode"=@("New-BACCAgentRuntime","New-BACCBrowser","New-BACCCodeInterpreter","Update-BACCAgentRuntime")
+    "ProtocolConfiguration_ServerProtocol"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
+    "ProtocolType"=@("New-BACCGateway","Update-BACCGateway")
+    "Type"=@("Get-BACCBrowserList","Get-BACCCodeInterpreterList")
+}
+
+_awsArgumentCompleterRegistration $BACC_Completers $BACC_map
+
+$BACC_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.BACC.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BACC_SelectMap = @{
+    "Select"=@("New-BACCAgentRuntime",
+               "New-BACCAgentRuntimeEndpoint",
+               "New-BACCApiKeyCredentialProvider",
+               "New-BACCBrowser",
+               "New-BACCCodeInterpreter",
+               "New-BACCGateway",
+               "New-BACCGatewayTarget",
+               "New-BACCMemory",
+               "New-BACCOauth2CredentialProvider",
+               "New-BACCWorkloadIdentity",
+               "Remove-BACCAgentRuntime",
+               "Remove-BACCAgentRuntimeEndpoint",
+               "Remove-BACCApiKeyCredentialProvider",
+               "Remove-BACCBrowser",
+               "Remove-BACCCodeInterpreter",
+               "Remove-BACCGateway",
+               "Remove-BACCGatewayTarget",
+               "Remove-BACCMemory",
+               "Remove-BACCOauth2CredentialProvider",
+               "Remove-BACCWorkloadIdentity",
+               "Get-BACCAgentRuntime",
+               "Get-BACCAgentRuntimeEndpoint",
+               "Get-BACCApiKeyCredentialProvider",
+               "Get-BACCBrowser",
+               "Get-BACCCodeInterpreter",
+               "Get-BACCGateway",
+               "Get-BACCGatewayTarget",
+               "Get-BACCMemory",
+               "Get-BACCOauth2CredentialProvider",
+               "Get-BACCTokenVault",
+               "Get-BACCWorkloadIdentity",
+               "Get-BACCAgentRuntimeEndpointList",
+               "Get-BACCAgentRuntimeList",
+               "Get-BACCAgentRuntimeVersionList",
+               "Get-BACCApiKeyCredentialProviderList",
+               "Get-BACCBrowserList",
+               "Get-BACCCodeInterpreterList",
+               "Get-BACCGatewayList",
+               "Get-BACCGatewayTargetList",
+               "Get-BACCMemoryList",
+               "Get-BACCOauth2CredentialProviderList",
+               "Get-BACCWorkloadIdentityList",
+               "Set-BACCTokenVaultCMK",
+               "Update-BACCAgentRuntime",
+               "Update-BACCAgentRuntimeEndpoint",
+               "Update-BACCApiKeyCredentialProvider",
+               "Update-BACCGateway",
+               "Update-BACCGatewayTarget",
+               "Update-BACCMemory",
+               "Update-BACCOauth2CredentialProvider",
+               "Update-BACCWorkloadIdentity")
+}
+
+_awsArgumentCompleterRegistration $BACC_SelectCompleters $BACC_SelectMap
 # Argument completions for service Amazon Bedrock Agent Runtime
 
 
@@ -41414,7 +41805,7 @@ $IOTW_Completers = {
         # Amazon.IoTWireless.EventNotificationResourceType
         "Get-IOTWEventConfigurationList/ResourceType"
         {
-            $v = "FuotaTask","SidewalkAccount","WirelessDevice","WirelessGateway"
+            $v = "SidewalkAccount","WirelessDevice","WirelessGateway"
             break
         }
 
@@ -41457,7 +41848,7 @@ $IOTW_Completers = {
             ($_ -eq "Update-IOTWResourceEventConfiguration/IdentifierType")
         }
         {
-            $v = "DevEui","FuotaTaskId","GatewayEui","PartnerAccountId","WirelessDeviceId","WirelessGatewayId"
+            $v = "DevEui","GatewayEui","PartnerAccountId","WirelessDeviceId","WirelessGatewayId"
             break
         }
 
@@ -46378,6 +46769,13 @@ $CWL_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CloudWatchLogs.DeliveryDestinationType
+        "Write-CWLDeliveryDestination/DeliveryDestinationType"
+        {
+            $v = "CWL","FH","S3","XRAY"
+            break
+        }
+
         # Amazon.CloudWatchLogs.Distribution
         "Write-CWLSubscriptionFilter/Distribution"
         {
@@ -46441,6 +46839,13 @@ $CWL_Completers = {
         "Write-CWLDeliveryDestination/OutputFormat"
         {
             $v = "json","parquet","plain","raw","w3c"
+            break
+        }
+
+        # Amazon.CloudWatchLogs.PolicyScope
+        "Get-CWLResourcePolicy/PolicyScope"
+        {
+            $v = "ACCOUNT","RESOURCE"
             break
         }
 
@@ -46511,6 +46916,7 @@ $CWL_Completers = {
 }
 
 $CWL_map = @{
+    "DeliveryDestinationType"=@("Write-CWLDeliveryDestination")
     "Distribution"=@("Write-CWLSubscriptionFilter")
     "EvaluationFrequency"=@("New-CWLLogAnomalyDetector","Update-CWLLogAnomalyDetector")
     "IntegrationStatus"=@("Get-CWLIntegrationList")
@@ -46518,6 +46924,7 @@ $CWL_map = @{
     "LogGroupClass"=@("Get-CWLLogGroup","Get-CWLLogGroupList","New-CWLLogGroup")
     "OrderBy"=@("Get-CWLLogStream")
     "OutputFormat"=@("Write-CWLDeliveryDestination")
+    "PolicyScope"=@("Get-CWLResourcePolicy")
     "PolicyType"=@("Get-CWLAccountPolicy","Remove-CWLAccountPolicy","Write-CWLAccountPolicy")
     "QueryLanguage"=@("Get-CWLQuery","Get-CWLQueryDefinition","Start-CWLQuery","Write-CWLQueryDefinition")
     "Scope"=@("Write-CWLAccountPolicy")
@@ -57684,7 +58091,7 @@ $PAYCD_Completers = {
             ($_ -eq "Unprotect-PAYCDData/WrappedKey_KeyCheckValueAlgorithm")
         }
         {
-            $v = "ANSI_X9_24","CMAC","HMAC"
+            $v = "ANSI_X9_24","CMAC","HMAC","SHA_1"
             break
         }
 
@@ -57726,7 +58133,7 @@ $PAYCD_Completers = {
             ($_ -eq "Test-PAYCDMac/VerificationAttributes_Algorithm")
         }
         {
-            $v = "CMAC","HMAC_SHA224","HMAC_SHA256","HMAC_SHA384","HMAC_SHA512","ISO9797_ALGORITHM1","ISO9797_ALGORITHM3"
+            $v = "CMAC","HMAC","HMAC_SHA224","HMAC_SHA256","HMAC_SHA384","HMAC_SHA512","ISO9797_ALGORITHM1","ISO9797_ALGORITHM3"
             break
         }
 

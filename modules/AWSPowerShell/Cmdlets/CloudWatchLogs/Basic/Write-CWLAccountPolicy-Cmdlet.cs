@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// and <c>logs:PutAccountPolicy</c> permissions.
     /// </para></li><li><para>
     /// To create a subscription filter policy, you must have the <c>logs:PutSubscriptionFilter</c>
-    /// and <c>logs:PutccountPolicy</c> permissions.
+    /// and <c>logs:PutAccountPolicy</c> permissions.
     /// </para></li><li><para>
     /// To create a transformer policy, you must have the <c>logs:PutTransformer</c> and <c>logs:PutAccountPolicy</c>
     /// permissions.

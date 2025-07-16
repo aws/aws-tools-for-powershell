@@ -1,4 +1,26 @@
-﻿### 4.1.857 (2025-07-16 02:26Z)
+﻿### 4.1.858 (2025-07-16 17:39Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1081.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock
+    * Added cmdlet Get-BDRCustomModelDeployment leveraging the GetCustomModelDeployment service API.
+    * Added cmdlet Get-BDRCustomModelDeploymentList leveraging the ListCustomModelDeployments service API.
+    * Added cmdlet New-BDRCustomModelDeployment leveraging the CreateCustomModelDeployment service API.
+    * Added cmdlet Remove-BDRCustomModelDeployment leveraging the DeleteCustomModelDeployment service API.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer. Added cmdlets to support the service. Cmdlets for the service have the noun prefix BACC and can be listed using the command 'Get-AWSCmdletName -Service BACC'.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer. Added cmdlets to support the service. Cmdlets for the service have the noun prefix BAC and can be listed using the command 'Get-AWSCmdletName -Service BAC'.
+  * Amazon CloudWatch Logs
+    * Modified cmdlet Get-CWLResourcePolicy: added parameters PolicyScope and ResourceArn.
+    * Modified cmdlet Remove-CWLResourcePolicy: added parameters ExpectedRevisionId and ResourceArn.
+    * Modified cmdlet Write-CWLDeliveryDestination: added parameter DeliveryDestinationType.
+    * Modified cmdlet Write-CWLResourcePolicy: added parameters ExpectedRevisionId and ResourceArn.
+  * Amazon Elemental MediaPackage v2
+    * Modified cmdlet Write-MPV2OriginEndpointPolicy: added parameters CdnAuthConfiguration_CdnIdentifierSecretArn and CdnAuthConfiguration_SecretsRoleArn.
+  * Amazon GuardDuty
+    * Modified cmdlet New-GDIPSet: added parameter ExpectedBucketOwner.
+    * Modified cmdlet New-GDThreatIntelSet: added parameter ExpectedBucketOwner.
+    * Modified cmdlet Update-GDIPSet: added parameter ExpectedBucketOwner.
+    * Modified cmdlet Update-GDThreatIntelSet: added parameter ExpectedBucketOwner.
+
+### 4.1.857 (2025-07-16 02:26Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1080.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.856 (2025-07-15 20:33Z)

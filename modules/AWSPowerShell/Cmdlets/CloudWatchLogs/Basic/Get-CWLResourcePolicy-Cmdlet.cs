@@ -42,6 +42,28 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter PolicyScope
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the scope of the resource policy. Valid values are <c>ACCOUNT</c> or <c>RESOURCE</c>.
+        /// When not specified, defaults to <c>ACCOUNT</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudWatchLogs.PolicyScope")]
+        public Amazon.CloudWatchLogs.PolicyScope PolicyScope { get; set; }
+        #endregion
+        
+        #region Parameter ResourceArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the CloudWatch Logs resource for which to query the resource policy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceArn { get; set; }
+        #endregion
+        
         #region Parameter Limit
         /// <summary>
         /// <para>
@@ -119,6 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             #endif
             context.NextToken = this.NextToken;
+            context.PolicyScope = this.PolicyScope;
+            context.ResourceArn = this.ResourceArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -141,6 +165,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.Limit != null)
             {
                 request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+            }
+            if (cmdletContext.PolicyScope != null)
+            {
+                request.PolicyScope = cmdletContext.PolicyScope;
+            }
+            if (cmdletContext.ResourceArn != null)
+            {
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             // Initialize loop variant and commence piping
@@ -197,6 +229,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             
             // create request and set iteration invariants
             var request = new Amazon.CloudWatchLogs.Model.DescribeResourcePoliciesRequest();
+            if (cmdletContext.PolicyScope != null)
+            {
+                request.PolicyScope = cmdletContext.PolicyScope;
+            }
+            if (cmdletContext.ResourceArn != null)
+            {
+                request.ResourceArn = cmdletContext.ResourceArn;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextToken = null;
@@ -318,6 +358,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             public int? Limit { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.CloudWatchLogs.PolicyScope PolicyScope { get; set; }
+            public System.String ResourceArn { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.DescribeResourcePoliciesResponse, GetCWLResourcePolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ResourcePolicies;
         }

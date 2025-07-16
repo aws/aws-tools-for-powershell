@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// An <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-services.html">Amazon
     /// Web Services service integration</a> request and response
     /// </para></li><li><para>
-    /// An <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-third-party-apis.html">HTTP
+    /// An <a href="https://docs.aws.amazon.com/step-functions/latest/dg/call-https-apis.html">HTTP
     /// Task</a> request and response
     /// </para></li></ul><para>
     /// You can call this API on only one state at a time. The states that you can test include

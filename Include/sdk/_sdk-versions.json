@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.1080.0",
+    "ProductVersion"    : "3.7.1081.0",
     "CoreVersion"       : "3.7.402.82",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -88,7 +88,7 @@
             "InPreview"               : false
         },
         "CloudWatchLogs"    : {
-            "Version" : "3.7.415.5",
+            "Version" : "3.7.416.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.82"
@@ -636,7 +636,7 @@
             "InPreview"               : false
         },
         "StepFunctions"                   : {
-            "Version" : "3.7.403.119",
+            "Version" : "3.7.403.120",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.82"
@@ -820,7 +820,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "3.7.424.5",
+            "Version" : "3.7.425.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.82"
@@ -900,7 +900,7 @@
             "InPreview"               : false
         },
         "GuardDuty"                       : {
-            "Version" : "3.7.408.6",
+            "Version" : "3.7.409.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.82"
@@ -1204,7 +1204,7 @@
             "InPreview"               : false
         },
         "DataSync"                        : {
-            "Version" : "3.7.406.19",
+            "Version" : "3.7.407.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.82"
@@ -1948,7 +1948,7 @@
             "InPreview"               : false
         },
         "IoTWireless"                     : {
-            "Version" : "3.7.402.57",
+            "Version" : "3.7.403.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.82"
@@ -2652,7 +2652,7 @@
             "InPreview"               : false
         },
         "MediaPackageV2"                      : {
-            "Version" : "3.7.406.3",
+            "Version" : "3.7.407.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.82"
@@ -2660,7 +2660,7 @@
             "InPreview"               : false
         },
         "PaymentCryptographyData"             : {
-            "Version" : "3.7.403.10",
+            "Version" : "3.7.404.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.82"
@@ -2740,7 +2740,7 @@
             "InPreview"               : false
         },
         "BedrockRuntime"                      : {
-            "Version" : "3.7.421.5",
+            "Version" : "3.7.422.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.82"
@@ -2748,7 +2748,7 @@
             "InPreview"               : false
         },
         "Bedrock"                             : {
-            "Version" : "3.7.426.5",
+            "Version" : "3.7.427.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.82"
@@ -3172,7 +3172,7 @@
             "InPreview"               : false
         },
         "NetworkFlowMonitor"                  : {
-            "Version" : "3.7.402.5",
+            "Version" : "3.7.403.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.82"
@@ -3293,6 +3293,22 @@
         },
         "S3Vectors"                           : {
             "Version" : "3.7.400.1",
+            "AssemblyVersionOverride" : "3.3",
+            "Dependencies"            : {
+                "Core" : "3.7.402.82"
+            },
+            "InPreview"               : false
+        },
+        "BedrockAgentCore"                    : {
+            "Version" : "3.7.400.0",
+            "AssemblyVersionOverride" : "3.3",
+            "Dependencies"            : {
+                "Core" : "3.7.402.82"
+            },
+            "InPreview"               : false
+        },
+        "BedrockAgentCoreControl"             : {
+            "Version" : "3.7.400.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.82"

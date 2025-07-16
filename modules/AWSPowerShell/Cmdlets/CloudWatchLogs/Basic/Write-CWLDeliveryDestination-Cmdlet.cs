@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// Creates or updates a logical <i>delivery destination</i>. A delivery destination is
     /// an Amazon Web Services resource that represents an Amazon Web Services service that
     /// logs can be sent to. CloudWatch Logs, Amazon S3, and Firehose are supported as logs
-    /// delivery destinations.
+    /// delivery destinations and X-Ray as the trace delivery destination.
     /// 
     ///  
     /// <para>
@@ -77,6 +77,19 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter DeliveryDestinationType
+        /// <summary>
+        /// <para>
+        /// <para>The type of delivery destination. This parameter specifies the target service where
+        /// log data will be delivered. Valid values include:</para><ul><li><para><c>S3</c> - Amazon S3 for long-term storage and analytics</para></li><li><para><c>CWL</c> - CloudWatch Logs for centralized log management</para></li><li><para><c>FH</c> - Amazon Kinesis Data Firehose for real-time data streaming</para></li><li><para><c>XRAY</c> - Amazon Web Services X-Ray for distributed tracing and application monitoring</para></li></ul><para>The delivery destination type determines the format and configuration options available
+        /// for log delivery.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudWatchLogs.DeliveryDestinationType")]
+        public Amazon.CloudWatchLogs.DeliveryDestinationType DeliveryDestinationType { get; set; }
+        #endregion
+        
         #region Parameter DeliveryDestinationConfiguration_DestinationResourceArn
         /// <summary>
         /// <para>
@@ -85,14 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// S3 bucket, or a delivery stream in Firehose.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DeliveryDestinationConfiguration_DestinationResourceArn { get; set; }
         #endregion
         
@@ -200,12 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DeliveryDestinationConfiguration_DestinationResourceArn = this.DeliveryDestinationConfiguration_DestinationResourceArn;
-            #if MODULAR
-            if (this.DeliveryDestinationConfiguration_DestinationResourceArn == null && ParameterWasBound(nameof(this.DeliveryDestinationConfiguration_DestinationResourceArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DeliveryDestinationConfiguration_DestinationResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.DeliveryDestinationType = this.DeliveryDestinationType;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -256,6 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (requestDeliveryDestinationConfigurationIsNull)
             {
                 request.DeliveryDestinationConfiguration = null;
+            }
+            if (cmdletContext.DeliveryDestinationType != null)
+            {
+                request.DeliveryDestinationType = cmdletContext.DeliveryDestinationType;
             }
             if (cmdletContext.Name != null)
             {
@@ -331,6 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DeliveryDestinationConfiguration_DestinationResourceArn { get; set; }
+            public Amazon.CloudWatchLogs.DeliveryDestinationType DeliveryDestinationType { get; set; }
             public System.String Name { get; set; }
             public Amazon.CloudWatchLogs.OutputFormat OutputFormat { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

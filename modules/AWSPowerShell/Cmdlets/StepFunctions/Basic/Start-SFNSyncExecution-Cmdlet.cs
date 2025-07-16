@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter Input
         /// <summary>
         /// <para>
-        /// <para>The string that contains the JSON input data for the execution, for example:</para><para><c>"input": "{\"first_name\" : \"test\"}"</c></para><note><para>If you don't include any JSON input data, you still must include the two braces, for
-        /// example: <c>"input": "{}"</c></para></note><para>Length constraints apply to the payload size, and are expressed as bytes in UTF-8
+        /// <para>The string that contains the JSON input data for the execution, for example:</para><para><c>"{\"first_name\" : \"Tim\"}"</c></para><note><para>If you don't include any JSON input data, you still must include the two braces, for
+        /// example: <c>"{}"</c></para></note><para>Length constraints apply to the payload size, and are expressed as bytes in UTF-8
         /// encoding.</para>
         /// </para>
         /// </summary>
@@ -111,7 +111,12 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <summary>
         /// <para>
         /// <para>Passes the X-Ray trace header. The trace header can also be passed in the request
-        /// payload.</para>
+        /// payload.</para><note><para> For X-Ray traces, all Amazon Web Services services use the <c>X-Amzn-Trace-Id</c>
+        /// header from the HTTP request. Using the header is the preferred mechanism to identify
+        /// a trace. <c>StartExecution</c> and <c>StartSyncExecution</c> API operations can also
+        /// use <c>traceHeader</c> from the body of the request payload. If <b>both</b> sources
+        /// are provided, Step Functions will use the <b>header value</b> (preferred) over the
+        /// value in the request body. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

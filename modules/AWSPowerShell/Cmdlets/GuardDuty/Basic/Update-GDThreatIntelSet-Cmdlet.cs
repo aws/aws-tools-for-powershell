@@ -73,6 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.GD
         public System.String DetectorId { get; set; }
         #endregion
         
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the
+        /// <b>location</b> parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
+        #endregion
+        
         #region Parameter Location
         /// <summary>
         /// <para>
@@ -179,6 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
                 WriteWarning("You are passing $null as a value for parameter DetectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             context.Location = this.Location;
             context.Name = this.Name;
             context.ThreatIntelSetId = this.ThreatIntelSetId;
@@ -211,6 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
             if (cmdletContext.DetectorId != null)
             {
                 request.DetectorId = cmdletContext.DetectorId;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             if (cmdletContext.Location != null)
             {
@@ -287,6 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         {
             public System.Boolean? Activate { get; set; }
             public System.String DetectorId { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.String Location { get; set; }
             public System.String Name { get; set; }
             public System.String ThreatIntelSetId { get; set; }
