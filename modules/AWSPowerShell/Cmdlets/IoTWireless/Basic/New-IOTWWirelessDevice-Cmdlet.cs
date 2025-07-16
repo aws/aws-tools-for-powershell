@@ -324,7 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the new resource.</para>
+        /// <para>The name of the new resource.</para><note><para>The following special characters aren't accepted: <c>&lt;&gt;^#~$</c></para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

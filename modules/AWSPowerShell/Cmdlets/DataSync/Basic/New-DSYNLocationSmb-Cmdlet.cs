@@ -92,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter DnsIpAddress
         /// <summary>
         /// <para>
-        /// <para>Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs
-        /// to. This parameter applies only if <c>AuthenticationType</c> is set to <c>KERBEROS</c>.</para><para>If you have multiple domains in your environment, configuring this parameter makes
+        /// <para>Specifies the IPv4 or IPv6 addresses for the DNS servers that your SMB file server
+        /// belongs to. This parameter applies only if <c>AuthenticationType</c> is set to <c>KERBEROS</c>.</para><para>If you have multiple domains in your environment, configuring this parameter makes
         /// sure that DataSync connects to the right SMB file server.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter KerberosPrincipal
         /// <summary>
         /// <para>
-        /// <para>Specifies a Kerberos prinicpal, which is an identity in your Kerberos realm that has
+        /// <para>Specifies a Kerberos principal, which is an identity in your Kerberos realm that has
         /// permission to access the files, folders, and file metadata in your SMB file server.</para><para>A Kerberos principal might look like <c>HOST/kerberosuser@MYDOMAIN.ORG</c>.</para><para>Principal names are case sensitive. Your DataSync task execution will fail if the
         /// principal that you specify for this parameter doesn’t exactly match the principal
         /// that you use to create the keytab file.</para>
@@ -175,8 +175,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter ServerHostname
         /// <summary>
         /// <para>
-        /// <para>Specifies the domain name or IP address of the SMB file server that your DataSync
-        /// agent connects to.</para><para>Remember the following when configuring this parameter:</para><ul><li><para>You can't specify an IP version 6 (IPv6) address.</para></li><li><para>If you're using Kerberos authentication, you must specify a domain name.</para></li></ul>
+        /// <para>Specifies the domain name or IP address (IPv4 or IPv6) of the SMB file server that
+        /// your DataSync agent connects to.</para><note><para>If you're using Kerberos authentication, you must specify a domain name.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

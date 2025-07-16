@@ -133,9 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>If you specify a string for this parameter, the operation returns only log groups
         /// that have names that match the string based on a case-sensitive substring search.
-        /// For example, if you specify <c>Foo</c>, log groups named <c>FooBar</c>, <c>aws/Foo</c>,
-        /// and <c>GroupFoo</c> would match, but <c>foo</c>, <c>F/o/o</c> and <c>Froo</c> would
-        /// not match.</para><para>If you specify <c>logGroupNamePattern</c> in your request, then only <c>arn</c>, <c>creationTime</c>,
+        /// For example, if you specify <c>DataLogs</c>, log groups named <c>DataLogs</c>, <c>aws/DataLogs</c>,
+        /// and <c>GroupDataLogs</c> would match, but <c>datalogs</c>, <c>Data/log/s</c> and <c>Groupdata</c>
+        /// would not match.</para><para>If you specify <c>logGroupNamePattern</c> in your request, then only <c>arn</c>, <c>creationTime</c>,
         /// and <c>logGroupName</c> are included in the response. </para><note><para><c>logGroupNamePattern</c> and <c>logGroupNamePrefix</c> are mutually exclusive.
         /// Only one of these parameters can be passed. </para></note>
         /// </para>

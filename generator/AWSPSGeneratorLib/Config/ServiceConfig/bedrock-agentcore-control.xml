@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>bedrock-agentcore-control</C2jFilename>
+    <AssemblyName>BedrockAgentCoreControl</AssemblyName>
+    <ServiceNounPrefix>BACC</ServiceNounPrefix>
+    <ServiceName>Amazon Bedrock Agent Core Control Plane Fronting Layer</ServiceName>
+    <ServiceClientInterface>IAmazonBedrockAgentCoreControl</ServiceClientInterface>
+    <ServiceClient>AmazonBedrockAgentCoreControlClient</ServiceClient>
+    <ServiceModuleGuid>7631d60f-aa2d-452a-a71c-c8ce762edef8</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateAgentRuntime" OutputProperty="*" Verb="New" Noun="AgentRuntime" ShouldProcessTarget="AgentRuntimeName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAgentRuntimeEndpoint" OutputProperty="*" Verb="New" Noun="AgentRuntimeEndpoint" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateApiKeyCredentialProvider" OutputProperty="*" Verb="New" Noun="ApiKeyCredentialProvider" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBrowser" OutputProperty="*" Verb="New" Noun="Browser" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCodeInterpreter" OutputProperty="*" Verb="New" Noun="CodeInterpreter" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGateway" OutputProperty="*" Verb="New" Noun="Gateway" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGatewayTarget" OutputProperty="*" Verb="New" Noun="GatewayTarget" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="TargetConfiguration_Mcp_Lambda_ToolSchema_S3_BucketOwnerAccountId" NewName="Lambda_ToolSchema_S3_BucketOwnerAccountId" />
+                <Param Name="TargetConfiguration_Mcp_OpenApiSchema_S3_BucketOwnerAccountId" NewName="OpenApiSchema_S3_BucketOwnerAccountId" />
+                <Param Name="TargetConfiguration_Mcp_SmithyModel_S3_BucketOwnerAccountId" NewName="SmithyModel_S3_BucketOwnerAccountId" />
+                <Param Name="TargetConfiguration_Mcp_Lambda_ToolSchema_S3_Uri" NewName="Lambda_ToolSchema_S3_Uri" />
+                <Param Name="TargetConfiguration_Mcp_OpenApiSchema_S3_Uri" NewName="OpenApiSchema_S3_Uri" />
+                <Param Name="TargetConfiguration_Mcp_SmithyModel_S3_Uri" NewName="SmithyModel_S3_Uri" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMemory" OutputProperty="Memory" Verb="New" Noun="Memory" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateOauth2CredentialProvider" OutputProperty="*" Verb="New" Noun="Oauth2CredentialProvider" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorkloadIdentity" OutputProperty="*" Verb="New" Noun="WorkloadIdentity" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAgentRuntime" OutputProperty="Status" Verb="Remove" Noun="AgentRuntime" ShouldProcessTarget="AgentRuntimeId" PipelineParameter="AgentRuntimeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAgentRuntimeEndpoint" OutputProperty="Status" Verb="Remove" Noun="AgentRuntimeEndpoint" ShouldProcessTarget="EndpointName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApiKeyCredentialProvider" Verb="Remove" Noun="ApiKeyCredentialProvider" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBrowser" OutputProperty="*" Verb="Remove" Noun="Browser" ShouldProcessTarget="BrowserId" PipelineParameter="BrowserId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCodeInterpreter" OutputProperty="*" Verb="Remove" Noun="CodeInterpreter" ShouldProcessTarget="CodeInterpreterId" PipelineParameter="CodeInterpreterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGateway" OutputProperty="*" Verb="Remove" Noun="Gateway" ShouldProcessTarget="GatewayIdentifier" PipelineParameter="GatewayIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGatewayTarget" OutputProperty="*" Verb="Remove" Noun="GatewayTarget" ShouldProcessTarget="TargetId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMemory" OutputProperty="*" Verb="Remove" Noun="Memory" ShouldProcessTarget="MemoryId" PipelineParameter="MemoryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOauth2CredentialProvider" Verb="Remove" Noun="Oauth2CredentialProvider" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorkloadIdentity" Verb="Remove" Noun="WorkloadIdentity" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentRuntime" OutputProperty="*" Verb="Get" Noun="AgentRuntime" PipelineParameter="AgentRuntimeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentRuntimeEndpoint" OutputProperty="*" Verb="Get" Noun="AgentRuntimeEndpoint" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetApiKeyCredentialProvider" OutputProperty="*" Verb="Get" Noun="ApiKeyCredentialProvider" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBrowser" OutputProperty="*" Verb="Get" Noun="Browser" PipelineParameter="BrowserId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCodeInterpreter" OutputProperty="*" Verb="Get" Noun="CodeInterpreter" PipelineParameter="CodeInterpreterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGateway" OutputProperty="*" Verb="Get" Noun="Gateway" PipelineParameter="GatewayIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGatewayTarget" OutputProperty="*" Verb="Get" Noun="GatewayTarget" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMemory" OutputProperty="Memory" Verb="Get" Noun="Memory" PipelineParameter="MemoryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOauth2CredentialProvider" OutputProperty="*" Verb="Get" Noun="Oauth2CredentialProvider" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTokenVault" OutputProperty="*" Verb="Get" Noun="TokenVault" PipelineParameter="TokenVaultId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkloadIdentity" OutputProperty="*" Verb="Get" Noun="WorkloadIdentity" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAgentRuntimeEndpoints" OutputProperty="RuntimeEndpoints" Verb="Get" Noun="AgentRuntimeEndpointList" PipelineParameter="AgentRuntimeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAgentRuntimes" OutputProperty="AgentRuntimes" Verb="Get" Noun="AgentRuntimeList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAgentRuntimeVersions" OutputProperty="AgentRuntimes" Verb="Get" Noun="AgentRuntimeVersionList" PipelineParameter="AgentRuntimeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListApiKeyCredentialProviders" OutputProperty="CredentialProviders" Verb="Get" Noun="ApiKeyCredentialProviderList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBrowsers" OutputProperty="BrowserSummaries" Verb="Get" Noun="BrowserList" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCodeInterpreters" OutputProperty="CodeInterpreterSummaries" Verb="Get" Noun="CodeInterpreterList" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGateways" OutputProperty="Items" Verb="Get" Noun="GatewayList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGatewayTargets" OutputProperty="Items" Verb="Get" Noun="GatewayTargetList" PipelineParameter="GatewayIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMemories" OutputProperty="Memories" Verb="Get" Noun="MemoryList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOauth2CredentialProviders" OutputProperty="CredentialProviders" Verb="Get" Noun="Oauth2CredentialProviderList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkloadIdentities" OutputProperty="WorkloadIdentities" Verb="Get" Noun="WorkloadIdentityList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetTokenVaultCMK" OutputProperty="*" Verb="Set" Noun="TokenVaultCMK" ShouldProcessTarget="TokenVaultId" PipelineParameter="KmsConfiguration_KeyType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAgentRuntime" OutputProperty="*" Verb="Update" Noun="AgentRuntime" ShouldProcessTarget="AgentRuntimeId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAgentRuntimeEndpoint" OutputProperty="*" Verb="Update" Noun="AgentRuntimeEndpoint" ShouldProcessTarget="EndpointName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApiKeyCredentialProvider" OutputProperty="*" Verb="Update" Noun="ApiKeyCredentialProvider" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGateway" OutputProperty="*" Verb="Update" Noun="Gateway" ShouldProcessTarget="GatewayIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGatewayTarget" OutputProperty="*" Verb="Update" Noun="GatewayTarget" ShouldProcessTarget="TargetId" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="TargetConfiguration_Mcp_Lambda_ToolSchema_S3_BucketOwnerAccountId" NewName="Lambda_ToolSchema_S3_BucketOwnerAccountId" />
+                <Param Name="TargetConfiguration_Mcp_OpenApiSchema_S3_BucketOwnerAccountId" NewName="OpenApiSchema_S3_BucketOwnerAccountId" />
+                <Param Name="TargetConfiguration_Mcp_SmithyModel_S3_BucketOwnerAccountId" NewName="SmithyModel_S3_BucketOwnerAccountId" />
+                <Param Name="TargetConfiguration_Mcp_Lambda_ToolSchema_S3_Uri" NewName="Lambda_ToolSchema_S3_Uri" />
+                <Param Name="TargetConfiguration_Mcp_OpenApiSchema_S3_Uri" NewName="OpenApiSchema_S3_Uri" />
+                <Param Name="TargetConfiguration_Mcp_SmithyModel_S3_Uri" NewName="SmithyModel_S3_Uri" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMemory" OutputProperty="Memory" Verb="Update" Noun="Memory" ShouldProcessTarget="MemoryId" PipelineParameter="MemoryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateOauth2CredentialProvider" OutputProperty="*" Verb="Update" Noun="Oauth2CredentialProvider" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWorkloadIdentity" OutputProperty="*" Verb="Update" Noun="WorkloadIdentity" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

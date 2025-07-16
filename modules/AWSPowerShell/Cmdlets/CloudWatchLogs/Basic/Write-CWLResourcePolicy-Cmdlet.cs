@@ -47,6 +47,18 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter ExpectedRevisionId
+        /// <summary>
+        /// <para>
+        /// <para>The expected revision ID of the resource policy. Required when <c>resourceArn</c>
+        /// is provided to prevent concurrent modifications. Use <c>null</c> when creating a resource
+        /// policy for the first time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedRevisionId { get; set; }
+        #endregion
+        
         #region Parameter PolicyDocument
         /// <summary>
         /// <para>
@@ -78,6 +90,17 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String PolicyName { get; set; }
+        #endregion
+        
+        #region Parameter ResourceArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the CloudWatch Logs resource to which the resource policy needs to be added
+        /// or attached. Currently only supports LogGroup ARN.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
@@ -126,8 +149,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.PutResourcePolicyResponse, WriteCWLResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ExpectedRevisionId = this.ExpectedRevisionId;
             context.PolicyDocument = this.PolicyDocument;
             context.PolicyName = this.PolicyName;
+            context.ResourceArn = this.ResourceArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -144,6 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             // create request
             var request = new Amazon.CloudWatchLogs.Model.PutResourcePolicyRequest();
             
+            if (cmdletContext.ExpectedRevisionId != null)
+            {
+                request.ExpectedRevisionId = cmdletContext.ExpectedRevisionId;
+            }
             if (cmdletContext.PolicyDocument != null)
             {
                 request.PolicyDocument = cmdletContext.PolicyDocument;
@@ -151,6 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.PolicyName != null)
             {
                 request.PolicyName = cmdletContext.PolicyName;
+            }
+            if (cmdletContext.ResourceArn != null)
+            {
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -207,8 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ExpectedRevisionId { get; set; }
             public System.String PolicyDocument { get; set; }
             public System.String PolicyName { get; set; }
+            public System.String ResourceArn { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.PutResourcePolicyResponse, WriteCWLResourcePolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ResourcePolicy;
         }

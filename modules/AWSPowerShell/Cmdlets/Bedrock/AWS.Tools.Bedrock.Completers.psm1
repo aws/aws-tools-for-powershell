@@ -104,6 +104,13 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.CustomModelDeploymentStatus
+        "Get-BDRCustomModelDeploymentList/StatusEqual"
+        {
+            $v = "Active","Creating","Failed"
+            break
+        }
+
         # Amazon.Bedrock.EvaluationJobStatus
         "Get-BDREvaluationJobList/StatusEqual"
         {
@@ -244,6 +251,7 @@ $BDR_Completers = {
 
         # Amazon.Bedrock.SortModelsBy
         {
+            ($_ -eq "Get-BDRCustomModelDeploymentList/SortBy") -Or
             ($_ -eq "Get-BDRCustomModelList/SortBy") -Or
             ($_ -eq "Get-BDRImportedModelList/SortBy")
         }
@@ -254,6 +262,7 @@ $BDR_Completers = {
 
         # Amazon.Bedrock.SortOrder
         {
+            ($_ -eq "Get-BDRCustomModelDeploymentList/SortOrder") -Or
             ($_ -eq "Get-BDRCustomModelList/SortOrder") -Or
             ($_ -eq "Get-BDREvaluationJobList/SortOrder") -Or
             ($_ -eq "Get-BDRImportedModelList/SortOrder") -Or
@@ -288,9 +297,9 @@ $BDR_map = @{
     "ModelStatus"=@("Get-BDRCustomModelList")
     "OfferType"=@("Get-BDRFoundationModelAgreementOfferList")
     "S3InputDataConfig_S3InputFormat"=@("New-BDRModelInvocationJob")
-    "SortBy"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
-    "SortOrder"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
-    "StatusEqual"=@("Get-BDREvaluationJobList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
+    "SortBy"=@("Get-BDRCustomModelDeploymentList","Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
+    "SortOrder"=@("Get-BDRCustomModelDeploymentList","Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
+    "StatusEqual"=@("Get-BDRCustomModelDeploymentList","Get-BDREvaluationJobList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
     "TopicPolicyConfig_TierConfig_TierName"=@("New-BDRGuardrail","Update-BDRGuardrail")
     "Type"=@("Get-BDRPromptRouterList")
     "TypeEqual"=@("Get-BDRInferenceProfileList")
@@ -348,6 +357,7 @@ $BDR_SelectCompleters = {
 $BDR_SelectMap = @{
     "Select"=@("Set-BDRBatchDeleteEvaluationJob",
                "New-BDRCustomModel",
+               "New-BDRCustomModelDeployment",
                "New-BDREvaluationJob",
                "New-BDRFoundationModelAgreement",
                "New-BDRGuardrail",
@@ -361,6 +371,7 @@ $BDR_SelectMap = @{
                "New-BDRPromptRouter",
                "New-BDRProvisionedModelThroughput",
                "Remove-BDRCustomModel",
+               "Remove-BDRCustomModelDeployment",
                "Remove-BDRFoundationModelAgreement",
                "Remove-BDRGuardrail",
                "Remove-BDRImportedModel",
@@ -371,6 +382,7 @@ $BDR_SelectMap = @{
                "Remove-BDRProvisionedModelThroughput",
                "Unregister-BDRMarketplaceModelEndpoint",
                "Get-BDRCustomModel",
+               "Get-BDRCustomModelDeployment",
                "Get-BDREvaluationJob",
                "Get-BDRFoundationModel",
                "Get-BDRFoundationModelAvailability",
@@ -386,6 +398,7 @@ $BDR_SelectMap = @{
                "Get-BDRPromptRouter",
                "Get-BDRProvisionedModelThroughput",
                "Get-BDRUseCaseForModelAccess",
+               "Get-BDRCustomModelDeploymentList",
                "Get-BDRCustomModelList",
                "Get-BDREvaluationJobList",
                "Get-BDRFoundationModelAgreementOfferList",

@@ -202,6 +202,12 @@
     <Reference Include="AWSSDK.BedrockAgent">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.BedrockAgent.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.BedrockAgentCore">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.BedrockAgentCore.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.BedrockAgentCoreControl">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.BedrockAgentCoreControl.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.BedrockAgentRuntime">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.BedrockAgentRuntime.dll</HintPath>
     </Reference>
@@ -1431,6 +1437,12 @@
     </Reference>
     <Reference Include="AWSSDK.BedrockAgent">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BedrockAgent.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.BedrockAgentCore">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BedrockAgentCore.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.BedrockAgentCoreControl">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BedrockAgentCoreControl.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.BedrockAgentRuntime">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BedrockAgentRuntime.dll</HintPath>

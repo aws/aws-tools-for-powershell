@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// in the table at <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enabling
     /// logging from Amazon Web Services services.</a></para><para>
     /// A delivery destination can represent a log group in CloudWatch Logs, an Amazon S3
-    /// bucket, or a delivery stream in Firehose.
+    /// bucket, a delivery stream in Firehose, or X-Ray.
     /// </para><para>
     /// To configure logs delivery between a supported Amazon Web Services service and a destination,
     /// you must do the following:

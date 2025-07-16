@@ -85,6 +85,17 @@ namespace Amazon.PowerShell.Cmdlets.GD
         public System.String DetectorId { get; set; }
         #endregion
         
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the
+        /// <b>location</b> parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
+        #endregion
+        
         #region Parameter Format
         /// <summary>
         /// <para>
@@ -222,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
                 WriteWarning("You are passing $null as a value for parameter DetectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             context.Format = this.Format;
             #if MODULAR
             if (this.Format == null && ParameterWasBound(nameof(this.Format)))
@@ -278,6 +290,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
             if (cmdletContext.DetectorId != null)
             {
                 request.DetectorId = cmdletContext.DetectorId;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             if (cmdletContext.Format != null)
             {
@@ -353,6 +369,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             public System.Boolean? Activate { get; set; }
             public System.String ClientToken { get; set; }
             public System.String DetectorId { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public Amazon.GuardDuty.IpSetFormat Format { get; set; }
             public System.String Location { get; set; }
             public System.String Name { get; set; }

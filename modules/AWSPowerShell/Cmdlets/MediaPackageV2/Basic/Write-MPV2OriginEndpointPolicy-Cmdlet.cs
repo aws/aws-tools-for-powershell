@@ -46,6 +46,22 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter CdnAuthConfiguration_CdnIdentifierSecretArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN for the secret in Secrets Manager that your CDN uses for authorization to
+        /// access the endpoint.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CdnAuthConfiguration_CdnIdentifierSecretArns")]
+        public System.String[] CdnAuthConfiguration_CdnIdentifierSecretArn { get; set; }
+        #endregion
+        
         #region Parameter ChannelGroupName
         /// <summary>
         /// <para>
@@ -118,6 +134,17 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         public System.String Policy { get; set; }
         #endregion
         
+        #region Parameter CdnAuthConfiguration_SecretsRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and
+        /// KMS for CDN authorization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CdnAuthConfiguration_SecretsRoleArn { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -163,6 +190,11 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
                 context.Select = CreateSelectDelegate<Amazon.MediaPackageV2.Model.PutOriginEndpointPolicyResponse, WriteMPV2OriginEndpointPolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.CdnAuthConfiguration_CdnIdentifierSecretArn != null)
+            {
+                context.CdnAuthConfiguration_CdnIdentifierSecretArn = new List<System.String>(this.CdnAuthConfiguration_CdnIdentifierSecretArn);
+            }
+            context.CdnAuthConfiguration_SecretsRoleArn = this.CdnAuthConfiguration_SecretsRoleArn;
             context.ChannelGroupName = this.ChannelGroupName;
             #if MODULAR
             if (this.ChannelGroupName == null && ParameterWasBound(nameof(this.ChannelGroupName)))
@@ -207,6 +239,35 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             // create request
             var request = new Amazon.MediaPackageV2.Model.PutOriginEndpointPolicyRequest();
             
+            
+             // populate CdnAuthConfiguration
+            var requestCdnAuthConfigurationIsNull = true;
+            request.CdnAuthConfiguration = new Amazon.MediaPackageV2.Model.CdnAuthConfiguration();
+            List<System.String> requestCdnAuthConfiguration_cdnAuthConfiguration_CdnIdentifierSecretArn = null;
+            if (cmdletContext.CdnAuthConfiguration_CdnIdentifierSecretArn != null)
+            {
+                requestCdnAuthConfiguration_cdnAuthConfiguration_CdnIdentifierSecretArn = cmdletContext.CdnAuthConfiguration_CdnIdentifierSecretArn;
+            }
+            if (requestCdnAuthConfiguration_cdnAuthConfiguration_CdnIdentifierSecretArn != null)
+            {
+                request.CdnAuthConfiguration.CdnIdentifierSecretArns = requestCdnAuthConfiguration_cdnAuthConfiguration_CdnIdentifierSecretArn;
+                requestCdnAuthConfigurationIsNull = false;
+            }
+            System.String requestCdnAuthConfiguration_cdnAuthConfiguration_SecretsRoleArn = null;
+            if (cmdletContext.CdnAuthConfiguration_SecretsRoleArn != null)
+            {
+                requestCdnAuthConfiguration_cdnAuthConfiguration_SecretsRoleArn = cmdletContext.CdnAuthConfiguration_SecretsRoleArn;
+            }
+            if (requestCdnAuthConfiguration_cdnAuthConfiguration_SecretsRoleArn != null)
+            {
+                request.CdnAuthConfiguration.SecretsRoleArn = requestCdnAuthConfiguration_cdnAuthConfiguration_SecretsRoleArn;
+                requestCdnAuthConfigurationIsNull = false;
+            }
+             // determine if request.CdnAuthConfiguration should be set to null
+            if (requestCdnAuthConfigurationIsNull)
+            {
+                request.CdnAuthConfiguration = null;
+            }
             if (cmdletContext.ChannelGroupName != null)
             {
                 request.ChannelGroupName = cmdletContext.ChannelGroupName;
@@ -278,6 +339,8 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> CdnAuthConfiguration_CdnIdentifierSecretArn { get; set; }
+            public System.String CdnAuthConfiguration_SecretsRoleArn { get; set; }
             public System.String ChannelGroupName { get; set; }
             public System.String ChannelName { get; set; }
             public System.String OriginEndpointName { get; set; }

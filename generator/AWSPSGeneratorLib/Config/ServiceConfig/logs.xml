@@ -179,7 +179,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeResourcePolicies" OutputProperty="ResourcePolicies" Verb="Get" Noun="ResourcePolicy" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeResourcePolicies" OutputProperty="ResourcePolicies" Verb="Get" Noun="ResourcePolicy" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -223,7 +223,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLogEvents" OutputProperty="*" Verb="Get" Noun="LogEvent" PositionalParameters="LogGroupName" PipelineParameter="LogStreamName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-CWLLogEvents" CustomAutoIteration="true">
+        <ServiceOperation MethodName="GetLogEvents" OutputProperty="*" Verb="Get" Noun="LogEvent" PositionalParameters="LogGroupName" PipelineParameter="LogStreamName" NoPipelineParameter="false" LegacyV4Pagination="true" CustomAutoIteration="true" LegacyAlias="Get-CWLLogEvents">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

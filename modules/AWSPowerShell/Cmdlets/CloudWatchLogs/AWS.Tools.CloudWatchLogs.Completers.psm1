@@ -80,6 +80,13 @@ $CWL_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CloudWatchLogs.DeliveryDestinationType
+        "Write-CWLDeliveryDestination/DeliveryDestinationType"
+        {
+            $v = "CWL","FH","S3","XRAY"
+            break
+        }
+
         # Amazon.CloudWatchLogs.Distribution
         "Write-CWLSubscriptionFilter/Distribution"
         {
@@ -143,6 +150,13 @@ $CWL_Completers = {
         "Write-CWLDeliveryDestination/OutputFormat"
         {
             $v = "json","parquet","plain","raw","w3c"
+            break
+        }
+
+        # Amazon.CloudWatchLogs.PolicyScope
+        "Get-CWLResourcePolicy/PolicyScope"
+        {
+            $v = "ACCOUNT","RESOURCE"
             break
         }
 
@@ -213,6 +227,7 @@ $CWL_Completers = {
 }
 
 $CWL_map = @{
+    "DeliveryDestinationType"=@("Write-CWLDeliveryDestination")
     "Distribution"=@("Write-CWLSubscriptionFilter")
     "EvaluationFrequency"=@("New-CWLLogAnomalyDetector","Update-CWLLogAnomalyDetector")
     "IntegrationStatus"=@("Get-CWLIntegrationList")
@@ -220,6 +235,7 @@ $CWL_map = @{
     "LogGroupClass"=@("Get-CWLLogGroup","Get-CWLLogGroupList","New-CWLLogGroup")
     "OrderBy"=@("Get-CWLLogStream")
     "OutputFormat"=@("Write-CWLDeliveryDestination")
+    "PolicyScope"=@("Get-CWLResourcePolicy")
     "PolicyType"=@("Get-CWLAccountPolicy","Remove-CWLAccountPolicy","Write-CWLAccountPolicy")
     "QueryLanguage"=@("Get-CWLQuery","Get-CWLQueryDefinition","Start-CWLQuery","Write-CWLQueryDefinition")
     "Scope"=@("Write-CWLAccountPolicy")
