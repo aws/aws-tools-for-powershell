@@ -78,8 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </para><ul><li><para>
     /// ECS
     /// </para><para>
-    /// When you create a service which uses the <c>ECS</c> deployment controller, you can
-    /// choose between the following deployment strategies:
+    ///  When you create a service which uses the <c>ECS</c> deployment controller, you can
+    /// choose between the following deployment strategies (which you can set in the “<c>strategy</c>”
+    /// field in “<c>deploymentConfiguration</c>”): :
     /// </para><ul><li><para><c>ROLLING</c>: When you create a service which uses the <i>rolling update</i> (<c>ROLLING</c>)
     /// deployment strategy, the Amazon ECS service scheduler replaces the currently running
     /// tasks with new tasks. The number of tasks that Amazon ECS adds or removes from the
@@ -218,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter DeploymentConfiguration_BakeTimeInMinute
         /// <summary>
         /// <para>
-        /// <para>The duration when both blue and green service revisions are running simultaneously
+        /// <para>The time period when both blue and green service revisions are running simultaneously
         /// after the production traffic has shifted.</para><para>You must provide this parameter when you use the <c>BLUE_GREEN</c> deployment strategy.</para>
         /// </para>
         /// </summary>
@@ -365,8 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>An array of deployment lifecycle hook objects to run custom logic at specific stages
-        /// of the deployment lifecycle. These hooks allow you to run custom logic at key points
-        /// during the deployment process.</para><para />
+        /// of the deployment lifecycle.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

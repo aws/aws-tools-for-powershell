@@ -1,4 +1,7 @@
-﻿### 5.0.10 (2025-07-15 20:27Z)
+﻿### 5.0.11 (2025-07-16 02:34Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.48.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 5.0.10 (2025-07-15 20:27Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.47.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Modified cmdlet New-AABKnowledgeBase: added parameters S3VectorsConfiguration_IndexArn, S3VectorsConfiguration_IndexName and S3VectorsConfiguration_VectorBucketArn.
