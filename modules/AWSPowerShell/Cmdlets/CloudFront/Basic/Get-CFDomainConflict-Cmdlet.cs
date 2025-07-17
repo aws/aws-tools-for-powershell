@@ -28,13 +28,7 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Lists existing domain associations that conflict with the domain that you specify.
-    /// 
-    ///  
-    /// <para>
-    /// You can use this API operation when transferring domains to identify potential domain
-    /// conflicts. Domain conflicts must be resolved first before they can be moved.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Amazon.CloudFront.IAmazonCloudFront.ListDomainConflicts<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFDomainConflict")]
     [OutputType("Amazon.CloudFront.Model.DomainConflict")]

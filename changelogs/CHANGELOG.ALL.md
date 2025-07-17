@@ -1,4 +1,13 @@
-﻿### 4.1.858 (2025-07-16 17:39Z)
+﻿### 4.1.859 (2025-07-17 20:40Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1082.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CleanRoomsML
+    * Modified cmdlet New-CRMLMLInputChannel: added parameter ProtectedQueryInputParameters_ResultFormat.
+  * Amazon CloudWatch Synthetics
+    * Modified cmdlet New-CWSYNCanary: added parameter Code_Dependency.
+    * Modified cmdlet Start-CWSYNCanaryDryRun: added parameter Code_Dependency.
+    * Modified cmdlet Update-CWSYNCanary: added parameter Code_Dependency.
+
+### 4.1.858 (2025-07-16 17:39Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1081.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock
     * Added cmdlet Get-BDRCustomModelDeployment leveraging the GetCustomModelDeployment service API.

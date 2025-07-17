@@ -63,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_AnycastIpListId
         /// <summary>
         /// <para>
-        /// <para>ID of the Anycast static IP list that is associated with the distribution.</para>
+        /// <para><note><para>To use this field for a multi-tenant distribution, use a connection group instead.
+        /// For more information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ConnectionGroup.html">ConnectionGroup</a>.</para></note><para>ID of the Anycast static IP list that is associated with the distribution.</para></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,7 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_ConnectionMode
         /// <summary>
         /// <para>
-        /// <para>The connection mode to filter distributions by.</para>
+        /// <para>This field specifies whether the connection mode is through a standard distribution
+        /// (direct) or a multi-tenant distribution with distribution tenants(tenant-only).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,7 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_ContinuousDeploymentPolicyId
         /// <summary>
         /// <para>
-        /// <para>The identifier of a continuous deployment policy. For more information, see <c>CreateContinuousDeploymentPolicy</c>.</para>
+        /// <para><note><para>This field only supports standard distributions. You can't specify this field for
+        /// multi-tenant distributions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas">Unsupported
+        /// features for SaaS Manager for Amazon CloudFront</a> in the <i>Amazon CloudFront Developer
+        /// Guide</i>.</para></note><para>The identifier of a continuous deployment policy. For more information, see <c>CreateContinuousDeploymentPolicy</c>.</para></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -327,10 +332,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_IAMCertificateId
         /// <summary>
         /// <para>
-        /// <para>If the distribution uses <c>Aliases</c> (alternate domain names or CNAMEs) and the
+        /// <para><note><para>This field only supports standard distributions. You can't specify this field for
+        /// multi-tenant distributions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas">Unsupported
+        /// features for SaaS Manager for Amazon CloudFront</a> in the <i>Amazon CloudFront Developer
+        /// Guide</i>.</para></note><para>If the distribution uses <c>Aliases</c> (alternate domain names or CNAMEs) and the
         /// SSL/TLS certificate is stored in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Identity
         /// and Access Management (IAM)</a>, provide the ID of the IAM certificate.</para><para>If you specify an IAM certificate ID, you must also specify values for <c>MinimumProtocolVersion</c>
-        /// and <c>SSLSupportMethod</c>. </para>
+        /// and <c>SSLSupportMethod</c>. </para></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -357,7 +365,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_IsIPV6Enabled
         /// <summary>
         /// <para>
-        /// <para>If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your
+        /// <para><note><para>To use this field for a multi-tenant distribution, use a connection group instead.
+        /// For more information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ConnectionGroup.html">ConnectionGroup</a>.</para></note><para>If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your
         /// distribution, specify <c>true</c>. If you specify <c>false</c>, CloudFront responds
         /// to IPv6 DNS requests with the DNS response code <c>NOERROR</c> and with no IP addresses.
         /// This allows viewers to submit a second request, for an IPv4 address for your distribution.</para><para>In general, you should enable IPv6 if you have users on IPv6 networks who want to
@@ -374,7 +383,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// the <i>Route 53 Amazon Web Services Integration Developer Guide</i>.</para><para>If you created a CNAME resource record set, either with Route 53 Amazon Web Services
         /// Integration or with another DNS service, you don't need to make any changes. A CNAME
         /// record will route traffic to your distribution regardless of the IP address format
-        /// of the viewer request.</para>
+        /// of the viewer request.</para></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -635,7 +644,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_PriceClass
         /// <summary>
         /// <para>
-        /// <para>The price class that corresponds with the maximum price that you want to pay for CloudFront
+        /// <para><note><para>This field only supports standard distributions. You can't specify this field for
+        /// multi-tenant distributions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas">Unsupported
+        /// features for SaaS Manager for Amazon CloudFront</a> in the <i>Amazon CloudFront Developer
+        /// Guide</i>.</para></note><para>The price class that corresponds with the maximum price that you want to pay for CloudFront
         /// service. If you specify <c>PriceClass_All</c>, CloudFront responds to requests for
         /// your objects from all CloudFront edge locations.</para><para>If you specify a price class other than <c>PriceClass_All</c>, CloudFront serves your
         /// objects from the CloudFront edge location that has the lowest latency among the edge
@@ -644,7 +656,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// the Price Class for a CloudFront Distribution</a> in the <i>Amazon CloudFront Developer
         /// Guide</i>. For information about CloudFront pricing, including how price classes (such
         /// as Price Class 100) map to CloudFront regions, see <a href="http://aws.amazon.com/cloudfront/pricing/">Amazon
-        /// CloudFront Pricing</a>.</para>
+        /// CloudFront Pricing</a>.</para></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -902,11 +914,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DefaultCacheBehavior_SmoothStreaming
         /// <summary>
         /// <para>
-        /// <para>Indicates whether you want to distribute media files in the Microsoft Smooth Streaming
+        /// <para><note><para>This field only supports standard distributions. You can't specify this field for
+        /// multi-tenant distributions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas">Unsupported
+        /// features for SaaS Manager for Amazon CloudFront</a> in the <i>Amazon CloudFront Developer
+        /// Guide</i>.</para></note><para>Indicates whether you want to distribute media files in the Microsoft Smooth Streaming
         /// format using the origin that is associated with this cache behavior. If so, specify
         /// <c>true</c>; if not, specify <c>false</c>. If you specify <c>true</c> for <c>SmoothStreaming</c>,
         /// you can still distribute other content using this cache behavior if the content matches
-        /// the value of <c>PathPattern</c>.</para>
+        /// the value of <c>PathPattern</c>.</para></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -938,9 +953,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_Staging
         /// <summary>
         /// <para>
-        /// <para>A Boolean that indicates whether this is a staging distribution. When this value is
+        /// <para><note><para>This field only supports standard distributions. You can't specify this field for
+        /// multi-tenant distributions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas">Unsupported
+        /// features for SaaS Manager for Amazon CloudFront</a> in the <i>Amazon CloudFront Developer
+        /// Guide</i>.</para></note><para>A Boolean that indicates whether this is a staging distribution. When this value is
         /// <c>true</c>, this is a staging distribution. When this value is <c>false</c>, this
-        /// is not a staging distribution.</para>
+        /// is not a staging distribution.</para></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -999,7 +1017,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_WebACLId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier that specifies the WAF web ACL, if any, to associate with this
+        /// <para><note><para>Multi-tenant distributions only support WAF V2 web ACLs.</para></note><para>A unique identifier that specifies the WAF web ACL, if any, to associate with this
         /// distribution. To specify a web ACL created using the latest version of WAF, use the
         /// ACL ARN, for example <c>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</c>.
         /// To specify a web ACL created using WAF Classic, use the ACL ID, for example <c>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</c>.</para><para>WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests
@@ -1009,7 +1027,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront
         /// to return a custom error page when a request is blocked. For more information about
         /// WAF, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">WAF
-        /// Developer Guide</a>.</para>
+        /// Developer Guide</a>.</para></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1046,7 +1064,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DefaultCacheBehavior_DefaultTTL
         /// <summary>
         /// <para>
-        /// <para>This field is deprecated. We recommend that you use the <c>DefaultTTL</c> field in
+        /// <para><note><para>This field only supports standard distributions. You can't specify this field for
+        /// multi-tenant distributions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas">Unsupported
+        /// features for SaaS Manager for Amazon CloudFront</a> in the <i>Amazon CloudFront Developer
+        /// Guide</i>.</para></note><para>This field is deprecated. We recommend that you use the <c>DefaultTTL</c> field in
         /// a cache policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating
         /// cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using
         /// the managed cache policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>The default amount of time that you want objects to stay in CloudFront caches before
@@ -1055,7 +1076,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// add HTTP headers such as <c>Cache-Control max-age</c>, <c>Cache-Control s-maxage</c>,
         /// and <c>Expires</c> to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing
         /// How Long Content Stays in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront
-        /// Developer Guide</i>.</para>
+        /// Developer Guide</i>.</para></para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -1068,7 +1089,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DefaultCacheBehavior_MaxTTL
         /// <summary>
         /// <para>
-        /// <para>This field is deprecated. We recommend that you use the <c>MaxTTL</c> field in a cache
+        /// <para><note><para>This field only supports standard distributions. You can't specify this field for
+        /// multi-tenant distributions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas">Unsupported
+        /// features for SaaS Manager for Amazon CloudFront</a> in the <i>Amazon CloudFront Developer
+        /// Guide</i>.</para></note><para>This field is deprecated. We recommend that you use the <c>MaxTTL</c> field in a cache
         /// policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating
         /// cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using
         /// the managed cache policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>The maximum amount of time that you want objects to stay in CloudFront caches before
@@ -1077,7 +1101,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// headers such as <c>Cache-Control max-age</c>, <c>Cache-Control s-maxage</c>, and <c>Expires</c>
         /// to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing
         /// How Long Content Stays in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront
-        /// Developer Guide</i>.</para>
+        /// Developer Guide</i>.</para></para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -1090,7 +1114,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DefaultCacheBehavior_MinTTL
         /// <summary>
         /// <para>
-        /// <para>This field is deprecated. We recommend that you use the <c>MinTTL</c> field in a cache
+        /// <para><note><para>This field only supports standard distributions. You can't specify this field for
+        /// multi-tenant distributions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas">Unsupported
+        /// features for SaaS Manager for Amazon CloudFront</a> in the <i>Amazon CloudFront Developer
+        /// Guide</i>.</para></note><para>This field is deprecated. We recommend that you use the <c>MinTTL</c> field in a cache
         /// policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating
         /// cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using
         /// the managed cache policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>The minimum amount of time that you want objects to stay in CloudFront caches before
@@ -1099,7 +1126,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// How Long Content Stays in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront
         /// Developer Guide</i>.</para><para>You must specify <c>0</c> for <c>MinTTL</c> if you configure CloudFront to forward
         /// all headers to your origin (under <c>Headers</c>, if you specify <c>1</c> for <c>Quantity</c>
-        /// and <c>*</c> for <c>Name</c>).</para>
+        /// and <c>*</c> for <c>Name</c>).</para></para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

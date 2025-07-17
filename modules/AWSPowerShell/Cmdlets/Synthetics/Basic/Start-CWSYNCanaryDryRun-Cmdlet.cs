@@ -99,6 +99,19 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         public Amazon.Synthetics.Model.BaseScreenshot[] VisualReference_BaseScreenshot { get; set; }
         #endregion
         
+        #region Parameter Code_Dependency
+        /// <summary>
+        /// <para>
+        /// <para>A list of dependencies that should be used for running this canary. Specify the dependencies
+        /// as a key-value pair, where the key is the type of dependency and the value is the
+        /// dependency reference.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Code_Dependencies")]
+        public Amazon.Synthetics.Model.Dependency[] Code_Dependency { get; set; }
+        #endregion
+        
         #region Parameter S3Encryption_EncryptionMode
         /// <summary>
         /// <para>
@@ -422,6 +435,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             context.S3Encryption_EncryptionMode = this.S3Encryption_EncryptionMode;
             context.S3Encryption_KmsKeyArn = this.S3Encryption_KmsKeyArn;
             context.ArtifactS3Location = this.ArtifactS3Location;
+            if (this.Code_Dependency != null)
+            {
+                context.Code_Dependency = new List<Amazon.Synthetics.Model.Dependency>(this.Code_Dependency);
+            }
             context.Code_Handler = this.Code_Handler;
             context.Code_S3Bucket = this.Code_S3Bucket;
             context.Code_S3Key = this.Code_S3Key;
@@ -537,6 +554,16 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                  // populate Code
                 var requestCodeIsNull = true;
                 request.Code = new Amazon.Synthetics.Model.CanaryCodeInput();
+                List<Amazon.Synthetics.Model.Dependency> requestCode_code_Dependency = null;
+                if (cmdletContext.Code_Dependency != null)
+                {
+                    requestCode_code_Dependency = cmdletContext.Code_Dependency;
+                }
+                if (requestCode_code_Dependency != null)
+                {
+                    request.Code.Dependencies = requestCode_code_Dependency;
+                    requestCodeIsNull = false;
+                }
                 System.String requestCode_code_Handler = null;
                 if (cmdletContext.Code_Handler != null)
                 {
@@ -816,6 +843,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             public Amazon.Synthetics.EncryptionMode S3Encryption_EncryptionMode { get; set; }
             public System.String S3Encryption_KmsKeyArn { get; set; }
             public System.String ArtifactS3Location { get; set; }
+            public List<Amazon.Synthetics.Model.Dependency> Code_Dependency { get; set; }
             public System.String Code_Handler { get; set; }
             public System.String Code_S3Bucket { get; set; }
             public System.String Code_S3Key { get; set; }

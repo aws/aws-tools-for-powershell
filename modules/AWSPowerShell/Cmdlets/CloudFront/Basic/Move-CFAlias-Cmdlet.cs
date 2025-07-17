@@ -28,23 +28,7 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Associates an alias (also known as a CNAME or an alternate domain name) with a CloudFront
-    /// distribution.
-    /// 
-    ///  
-    /// <para>
-    /// With this operation you can move an alias that's already in use on a CloudFront distribution
-    /// to a different distribution in one step. This prevents the downtime that could occur
-    /// if you first remove the alias from one distribution and then separately add the alias
-    /// to another distribution.
-    /// </para><para>
-    /// To use this operation to associate an alias with a distribution, you provide the alias
-    /// and the ID of the target distribution for the alias. For more information, including
-    /// how to set up the target distribution, prerequisites that you must complete, and other
-    /// restrictions, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html#alternate-domain-names-move">Moving
-    /// an alternate domain name to a different distribution</a> in the <i>Amazon CloudFront
-    /// Developer Guide</i>.
-    /// </para>
+    /// Amazon.CloudFront.IAmazonCloudFront.AssociateAlias
     /// </summary>
     [Cmdlet("Move", "CFAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -61,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Alias
         /// <summary>
         /// <para>
-        /// <para>The alias (also known as a CNAME) to add to the target distribution.</para>
+        /// <para>The alias (also known as a CNAME) to add to the target standard distribution.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TargetDistributionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the distribution that you're associating the alias with.</para>
+        /// <para>The ID of the standard distribution that you're associating the alias with.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

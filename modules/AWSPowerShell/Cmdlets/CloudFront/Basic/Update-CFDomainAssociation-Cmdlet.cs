@@ -28,7 +28,7 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Moves a domain from its current distribution or distribution tenant to another one.
+    /// Amazon.CloudFront.IAmazonCloudFront.UpdateDomainAssociation
     /// </summary>
     [Cmdlet("Update", "CFDomainAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudFront.Model.UpdateDomainAssociationResponse")]
@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter IfMatch
         /// <summary>
         /// <para>
-        /// <para>The value of the <c>ETag</c> identifier for the distribution or distribution tenant
-        /// that will be associated with the domain.</para>
+        /// <para>The value of the <c>ETag</c> identifier for the standard distribution or distribution
+        /// tenant that will be associated with the domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
