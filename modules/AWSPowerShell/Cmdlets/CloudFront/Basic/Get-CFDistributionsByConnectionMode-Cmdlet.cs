@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ConnectionMode
         /// <summary>
         /// <para>
-        /// <para>The connection mode to filter distributions by.</para>
+        /// <para>This field specifies whether the connection mode is through a standard distribution
+        /// (direct) or a multi-tenant distribution with distribution tenants(tenant-only).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

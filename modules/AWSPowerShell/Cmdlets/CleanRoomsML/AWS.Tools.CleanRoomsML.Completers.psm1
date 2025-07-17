@@ -119,6 +119,13 @@ $CRML_Completers = {
             break
         }
 
+        # Amazon.CleanRoomsML.ResultFormat
+        "New-CRMLMLInputChannel/ProtectedQueryInputParameters_ResultFormat"
+        {
+            $v = "CSV","PARQUET"
+            break
+        }
+
         # Amazon.CleanRoomsML.TagOnCreatePolicy
         "New-CRMLConfiguredAudienceModel/ChildResourceTagOnCreatePolicy"
         {
@@ -188,6 +195,7 @@ $CRML_map = @{
     "MaxOutputSize_Unit"=@("New-CRMLConfiguredModelAlgorithmAssociation")
     "MaxSize_Unit"=@("New-CRMLConfiguredModelAlgorithmAssociation")
     "PolicyExistenceCondition"=@("Write-CRMLConfiguredAudienceModelPolicy")
+    "ProtectedQueryInputParameters_ResultFormat"=@("New-CRMLMLInputChannel")
     "ResourceConfig_InstanceType"=@("New-CRMLTrainedModel","Start-CRMLTrainedModelInferenceJob")
     "Status"=@("Get-CRMLTrainedModelVersionList")
     "TrainingInputMode"=@("New-CRMLTrainedModel")

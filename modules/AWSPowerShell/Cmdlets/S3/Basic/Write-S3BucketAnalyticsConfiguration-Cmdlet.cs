@@ -103,7 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// The identifier used to represent an analytics configuration.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AnalyticsConfiguration_AnalyticsId { get; set; }
         #endregion
         
@@ -234,6 +241,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.AnalyticsId = this.AnalyticsId;
             context.AnalyticsFilter_AnalyticsFilterPredicate = this.AnalyticsFilter_AnalyticsFilterPredicate;
             context.AnalyticsConfiguration_AnalyticsId = this.AnalyticsConfiguration_AnalyticsId;
+            #if MODULAR
+            if (this.AnalyticsConfiguration_AnalyticsId == null && ParameterWasBound(nameof(this.AnalyticsConfiguration_AnalyticsId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AnalyticsConfiguration_AnalyticsId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.DataExport_OutputSchemaVersion = this.DataExport_OutputSchemaVersion;
             context.S3BucketDestination_BucketAccountId = this.S3BucketDestination_BucketAccountId;
             context.S3BucketDestination_BucketName = this.S3BucketDestination_BucketName;

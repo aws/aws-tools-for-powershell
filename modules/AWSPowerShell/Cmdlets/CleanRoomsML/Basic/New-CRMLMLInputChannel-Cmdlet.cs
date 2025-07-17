@@ -171,6 +171,19 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         public System.String SqlParameters_QueryString { get; set; }
         #endregion
         
+        #region Parameter ProtectedQueryInputParameters_ResultFormat
+        /// <summary>
+        /// <para>
+        /// <para>The format in which the query results should be returned. If not specified, defaults
+        /// to <c>CSV</c>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputChannel_DataSource_ProtectedQueryInputParameters_ResultFormat")]
+        [AWSConstantClassSource("Amazon.CleanRoomsML.ResultFormat")]
+        public Amazon.CleanRoomsML.ResultFormat ProtectedQueryInputParameters_ResultFormat { get; set; }
+        #endregion
+        
         #region Parameter RetentionInDay
         /// <summary>
         /// <para>
@@ -303,6 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             context.Description = this.Description;
             context.Worker_Number = this.Worker_Number;
             context.Worker_Type = this.Worker_Type;
+            context.ProtectedQueryInputParameters_ResultFormat = this.ProtectedQueryInputParameters_ResultFormat;
             context.SqlParameters_AnalysisTemplateArn = this.SqlParameters_AnalysisTemplateArn;
             if (this.SqlParameters_Parameter != null)
             {
@@ -398,6 +412,16 @@ namespace Amazon.PowerShell.Cmdlets.CRML
              // populate ProtectedQueryInputParameters
             var requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParametersIsNull = true;
             requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters = new Amazon.CleanRoomsML.Model.ProtectedQueryInputParameters();
+            Amazon.CleanRoomsML.ResultFormat requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_protectedQueryInputParameters_ResultFormat = null;
+            if (cmdletContext.ProtectedQueryInputParameters_ResultFormat != null)
+            {
+                requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_protectedQueryInputParameters_ResultFormat = cmdletContext.ProtectedQueryInputParameters_ResultFormat;
+            }
+            if (requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_protectedQueryInputParameters_ResultFormat != null)
+            {
+                requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters.ResultFormat = requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_protectedQueryInputParameters_ResultFormat;
+                requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParametersIsNull = false;
+            }
             Amazon.CleanRoomsML.Model.ComputeConfiguration requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_ComputeConfiguration = null;
             
              // populate ComputeConfiguration
@@ -597,6 +621,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             public System.String Description { get; set; }
             public System.Int32? Worker_Number { get; set; }
             public Amazon.CleanRoomsML.WorkerComputeType Worker_Type { get; set; }
+            public Amazon.CleanRoomsML.ResultFormat ProtectedQueryInputParameters_ResultFormat { get; set; }
             public System.String SqlParameters_AnalysisTemplateArn { get; set; }
             public Dictionary<System.String, System.String> SqlParameters_Parameter { get; set; }
             public System.String SqlParameters_QueryString { get; set; }

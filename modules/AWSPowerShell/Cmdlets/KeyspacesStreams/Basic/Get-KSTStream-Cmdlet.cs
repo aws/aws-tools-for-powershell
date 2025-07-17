@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.KST
         /// <summary>
         /// <para>
         /// <para> The maximum number of shard objects to return in a single <c>GetStream</c> request.
-        /// Default value is 100. The minimum value is 1 and the maximum value is 1000. </para>
+        /// Default value is 100. The minimum value is 1 and the maximum value is 100. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

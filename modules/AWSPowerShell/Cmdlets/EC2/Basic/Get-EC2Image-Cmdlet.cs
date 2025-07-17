@@ -123,7 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <c>2021-09-29T11:04:43.305Z</c>.
         /// You can use a wildcard (<c>*</c>), for example, <c>2021-09-29T*</c>, which matches
         /// an entire day.</para></li><li><para><c>description</c> - The description of the image (provided during image creation).</para></li><li><para><c>ena-support</c> - A Boolean that indicates whether enhanced networking with ENA
-        /// is enabled.</para></li><li><para><c>hypervisor</c> - The hypervisor type (<c>ovm</c> | <c>xen</c>).</para></li><li><para><c>image-allowed</c> - A Boolean that indicates whether the image meets the criteria
+        /// is enabled.</para></li><li><para><c>free-tier-eligible</c> - A Boolean that indicates whether this image can be used
+        /// under the Amazon Web Services Free Tier (<c>true</c> | <c>false</c>).</para></li><li><para><c>hypervisor</c> - The hypervisor type (<c>ovm</c> | <c>xen</c>).</para></li><li><para><c>image-allowed</c> - A Boolean that indicates whether the image meets the criteria
         /// specified for Allowed AMIs.</para></li><li><para><c>image-id</c> - The ID of the image.</para></li><li><para><c>image-type</c> - The image type (<c>machine</c> | <c>kernel</c> | <c>ramdisk</c>).</para></li><li><para><c>is-public</c> - A Boolean that indicates whether the image is public.</para></li><li><para><c>kernel-id</c> - The kernel ID.</para></li><li><para><c>manifest-location</c> - The location of the image manifest.</para></li><li><para><c>name</c> - The name of the AMI (provided during image creation).</para></li><li><para><c>owner-alias</c> - The owner alias (<c>amazon</c> | <c>aws-backup-vault</c> | <c>aws-marketplace</c>).
         /// The valid aliases are defined in an Amazon-maintained list. This is not the Amazon
         /// Web Services account alias that can be set using the IAM console. We recommend that

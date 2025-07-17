@@ -99,6 +99,23 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         public System.String ArtifactS3Location { get; set; }
         #endregion
         
+        #region Parameter Code_Dependency
+        /// <summary>
+        /// <para>
+        /// <para>A list of dependencies that should be used for running this canary. Specify the dependencies
+        /// as a key-value pair, where the key is the type of dependency and the value is the
+        /// dependency reference.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Code_Dependencies")]
+        public Amazon.Synthetics.Model.Dependency[] Code_Dependency { get; set; }
+        #endregion
+        
         #region Parameter Schedule_DurationInSecond
         /// <summary>
         /// <para>
@@ -534,6 +551,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 WriteWarning("You are passing $null as a value for parameter ArtifactS3Location which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Code_Dependency != null)
+            {
+                context.Code_Dependency = new List<Amazon.Synthetics.Model.Dependency>(this.Code_Dependency);
+            }
             context.Code_Handler = this.Code_Handler;
             #if MODULAR
             if (this.Code_Handler == null && ParameterWasBound(nameof(this.Code_Handler)))
@@ -683,6 +704,16 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                  // populate Code
                 var requestCodeIsNull = true;
                 request.Code = new Amazon.Synthetics.Model.CanaryCodeInput();
+                List<Amazon.Synthetics.Model.Dependency> requestCode_code_Dependency = null;
+                if (cmdletContext.Code_Dependency != null)
+                {
+                    requestCode_code_Dependency = cmdletContext.Code_Dependency;
+                }
+                if (requestCode_code_Dependency != null)
+                {
+                    request.Code.Dependencies = requestCode_code_Dependency;
+                    requestCodeIsNull = false;
+                }
                 System.String requestCode_code_Handler = null;
                 if (cmdletContext.Code_Handler != null)
                 {
@@ -989,6 +1020,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             public Amazon.Synthetics.EncryptionMode S3Encryption_EncryptionMode { get; set; }
             public System.String S3Encryption_KmsKeyArn { get; set; }
             public System.String ArtifactS3Location { get; set; }
+            public List<Amazon.Synthetics.Model.Dependency> Code_Dependency { get; set; }
             public System.String Code_Handler { get; set; }
             public System.String Code_S3Bucket { get; set; }
             public System.String Code_S3Key { get; set; }

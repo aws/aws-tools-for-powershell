@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter Input
         /// <summary>
         /// <para>
-        /// <para>The string that contains the JSON input data for the execution, for example:</para><para><c>"{\"first_name\" : \"Tim\"}"</c></para><note><para>If you don't include any JSON input data, you still must include the two braces, for
+        /// <para>The string that contains the JSON input data for the execution, for example:</para><para><c>"{\"first_name\" : \"Alejandro\"}"</c></para><note><para>If you don't include any JSON input data, you still must include the two braces, for
         /// example: <c>"{}"</c></para></note><para>Length constraints apply to the payload size, and are expressed as bytes in UTF-8
         /// encoding.</para>
         /// </para>
