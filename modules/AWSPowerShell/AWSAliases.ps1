@@ -19150,6 +19150,7 @@ Set-Alias -Name Get-CWLLogEvents -Value Get-CWLLogEvent
 Set-Alias -Name CWL-GetLogEvents -Value Get-CWLLogEvent
 Set-Alias -Name Get-CWLLogGroupFields -Value Get-CWLLogGroupField
 Set-Alias -Name CWL-GetLogGroupFields -Value Get-CWLLogGroupField
+Set-Alias -Name CWL-GetLogObject -Value Get-CWLLogObject
 Set-Alias -Name CWL-GetLogRecord -Value Get-CWLLogRecord
 Set-Alias -Name Get-CWLQueryResults -Value Get-CWLQueryResult
 Set-Alias -Name CWL-GetQueryResults -Value Get-CWLQueryResult
@@ -22973,6 +22974,7 @@ Set-Alias -Name OUTP-GetCatalogItem -Value Get-OUTPCatalogItem
 Set-Alias -Name OUTP-GetConnection -Value Get-OUTPConnection
 Set-Alias -Name OUTP-GetOrder -Value Get-OUTPOrder
 Set-Alias -Name OUTP-GetOutpost -Value Get-OUTPOutpost
+Set-Alias -Name OUTP-GetOutpostBillingInformation -Value Get-OUTPOutpostBillingInformation
 Set-Alias -Name Get-OUTPOutpostInstanceTypes -Value Get-OUTPOutpostInstanceType
 Set-Alias -Name OUTP-GetOutpostInstanceTypes -Value Get-OUTPOutpostInstanceType
 Set-Alias -Name Get-OUTPOutpostSupportedInstanceTypes -Value Get-OUTPOutpostSupportedInstanceType

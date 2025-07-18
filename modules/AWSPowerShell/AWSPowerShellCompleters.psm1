@@ -46818,7 +46818,7 @@ $CWL_Completers = {
             ($_ -eq "Write-CWLAccountPolicy/PolicyType")
         }
         {
-            $v = "DATA_PROTECTION_POLICY","FIELD_INDEX_POLICY","SUBSCRIPTION_FILTER_POLICY","TRANSFORMER_POLICY"
+            $v = "DATA_PROTECTION_POLICY","FIELD_INDEX_POLICY","METRIC_EXTRACTION_POLICY","SUBSCRIPTION_FILTER_POLICY","TRANSFORMER_POLICY"
             break
         }
 
@@ -46999,6 +46999,7 @@ $CWL_SelectMap = @{
                "Get-CWLLogAnomalyDetector",
                "Get-CWLLogEvent",
                "Get-CWLLogGroupField",
+               "Get-CWLLogObject",
                "Get-CWLLogRecord",
                "Get-CWLQueryResult",
                "Get-CWLTransformer",
@@ -57111,6 +57112,7 @@ $OUTP_SelectMap = @{
                "Get-OUTPConnection",
                "Get-OUTPOrder",
                "Get-OUTPOutpost",
+               "Get-OUTPOutpostBillingInformation",
                "Get-OUTPOutpostInstanceType",
                "Get-OUTPOutpostSupportedInstanceType",
                "Get-OUTPSite",

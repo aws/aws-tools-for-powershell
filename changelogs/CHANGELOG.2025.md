@@ -1,4 +1,11 @@
-﻿### 5.0.13 (2025-07-17 19:53Z)
+﻿### 5.0.14 (2025-07-18 20:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.51.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Logs
+    * Added cmdlet Get-CWLLogObject leveraging the GetLogObject service API.
+  * Amazon Outposts
+    * Added cmdlet Get-OUTPOutpostBillingInformation leveraging the GetOutpostBillingInformation service API.
+
+### 5.0.13 (2025-07-17 19:53Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.50.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CleanRoomsML
     * Modified cmdlet New-CRMLMLInputChannel: added parameter ProtectedQueryInputParameters_ResultFormat.

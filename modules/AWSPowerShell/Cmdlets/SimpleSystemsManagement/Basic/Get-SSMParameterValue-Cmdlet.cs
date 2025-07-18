@@ -35,7 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     ///  <note><para>
     /// To get information about a single parameter, you can use the <a>GetParameter</a> operation
     /// instead.
-    /// </para></note>
+    /// </para></note><para>
+    /// Parameter names can't contain spaces. The service removes any spaces specified for
+    /// the beginning or end of a parameter name. If the specified name for a parameter contains
+    /// spaces between characters, the request fails with a <c>ValidationException</c> error.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "SSMParameterValue")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetParametersResponse")]

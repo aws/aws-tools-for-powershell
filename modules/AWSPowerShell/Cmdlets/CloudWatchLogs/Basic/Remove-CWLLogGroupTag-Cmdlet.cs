@@ -40,9 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>.
     /// To add tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">TagResource</a>.
     /// </para><para>
-    /// CloudWatch Logs doesn't support IAM policies that prevent users from assigning specified
-    /// tags to log groups using the <c>aws:Resource/<i>key-name</i></c> or <c>aws:TagKeys</c>
-    /// condition keys. 
+    /// When using IAM policies to control tag management for CloudWatch Logs log groups,
+    /// the condition keys <c>aws:Resource/key-name</c> and <c>aws:TagKeys</c> cannot be used
+    /// to restrict which tags users can assign. 
     /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "CWLLogGroupTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -61,6 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// Labels can't begin with a number, "<c>aws</c>" or "<c>ssm</c>" (not case sensitive).
     /// If a label fails to meet these requirements, then the label isn't associated with
     /// a parameter and the system displays it in the list of InvalidLabels.
+    /// </para></li><li><para>
+    /// Parameter names can't contain spaces. The service removes any spaces specified for
+    /// the beginning or end of a parameter name. If the specified name for a parameter contains
+    /// spaces between characters, the request fails with a <c>ValidationException</c> error.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Set", "SSMParameterVersionLabel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

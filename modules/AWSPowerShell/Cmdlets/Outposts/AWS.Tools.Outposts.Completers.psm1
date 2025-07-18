@@ -307,6 +307,7 @@ $OUTP_SelectMap = @{
                "Get-OUTPConnection",
                "Get-OUTPOrder",
                "Get-OUTPOutpost",
+               "Get-OUTPOutpostBillingInformation",
                "Get-OUTPOutpostInstanceType",
                "Get-OUTPOutpostSupportedInstanceType",
                "Get-OUTPSite",

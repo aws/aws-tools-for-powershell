@@ -42,6 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// If the service reaches an internal limit while processing the results, it stops the
     /// operation and returns the matching values up to that point and a <c>NextToken</c>.
     /// You can specify the <c>NextToken</c> in a subsequent call to get the next set of results.
+    /// </para><para>
+    /// Parameter names can't contain spaces. The service removes any spaces specified for
+    /// the beginning or end of a parameter name. If the specified name for a parameter contains
+    /// spaces between characters, the request fails with a <c>ValidationException</c> error.
     /// </para><important><para>
     /// If you change the KMS key alias for the KMS key used to encrypt a parameter, then
     /// you must also update the key alias the parameter uses to reference KMS. Otherwise,

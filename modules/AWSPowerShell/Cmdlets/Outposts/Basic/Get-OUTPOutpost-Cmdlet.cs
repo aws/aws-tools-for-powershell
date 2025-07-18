@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter OutpostId
         /// <summary>
         /// <para>
-        /// <para> The ID or ARN of the Outpost. </para>
+        /// <para>The ID or ARN of the Outpost.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

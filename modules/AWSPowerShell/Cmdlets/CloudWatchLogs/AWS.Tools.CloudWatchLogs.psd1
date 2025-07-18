@@ -115,6 +115,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CWLLogGroupList', 
         'Get-CWLLogGroupsForQueryList', 
         'Get-CWLLogGroupTag', 
+        'Get-CWLLogObject', 
         'Get-CWLLogRecord', 
         'Get-CWLLogStream', 
         'Get-CWLMetricFilter', 
