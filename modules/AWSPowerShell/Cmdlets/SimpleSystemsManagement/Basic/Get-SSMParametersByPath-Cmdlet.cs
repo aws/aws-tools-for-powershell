@@ -39,6 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// If the service reaches an internal limit while processing the results, it stops the
     /// operation and returns the matching values up to that point and a <c>NextToken</c>.
     /// You can specify the <c>NextToken</c> in a subsequent call to get the next set of results.
+    /// </para><para>
+    /// Parameter names can't contain spaces. The service removes any spaces specified for
+    /// the beginning or end of a parameter name. If the specified name for a parameter contains
+    /// spaces between characters, the request fails with a <c>ValidationException</c> error.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMParametersByPath")]

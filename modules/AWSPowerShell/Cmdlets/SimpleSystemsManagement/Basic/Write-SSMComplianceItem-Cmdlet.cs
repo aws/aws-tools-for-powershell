@@ -44,7 +44,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </para></li><li><para>
     /// ExecutionTime. The time the patch, association, or custom compliance item was applied
     /// to the managed node.
-    /// </para></li><li><para>
+    /// </para><important><para>
+    /// For State Manager associations, this represents the time when compliance status was
+    /// captured by the Systems Manager service during its internal compliance aggregation
+    /// workflow, not necessarily when the association was executed on the managed node. State
+    /// Manager updates compliance information for all associations on an instance whenever
+    /// any association executes, which may result in multiple associations showing the same
+    /// execution time.
+    /// </para></important></li><li><para>
     /// Id: The patch, association, or custom compliance ID.
     /// </para></li><li><para>
     /// Title: A title.
@@ -116,7 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The time the execution ran as a datetime object that is saved in the following format:
-        /// <c>yyyy-MM-dd'T'HH:mm:ss'Z'</c></para>
+        /// <c>yyyy-MM-dd'T'HH:mm:ss'Z'</c></para><important><para>For State Manager associations, this timestamp represents when the compliance status
+        /// was captured and reported by the Systems Manager service, not when the underlying
+        /// association was actually executed on the managed node. To track actual association
+        /// execution times, use the <a>DescribeAssociationExecutionTargets</a> command or check
+        /// the association execution history in the Systems Manager console.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

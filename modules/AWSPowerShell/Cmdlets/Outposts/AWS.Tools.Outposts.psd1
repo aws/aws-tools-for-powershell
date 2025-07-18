@@ -100,6 +100,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-OUTPOrder', 
         'Get-OUTPOrderList', 
         'Get-OUTPOutpost', 
+        'Get-OUTPOutpostBillingInformation', 
         'Get-OUTPOutpostInstanceType', 
         'Get-OUTPOutpostList', 
         'Get-OUTPOutpostSupportedInstanceType', 
