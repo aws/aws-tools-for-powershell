@@ -829,7 +829,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>The VPC subnets that the domain uses for communication.</para>
+        /// <para>The VPC subnets that the domain uses for communication.</para><para>The field is optional when the <c>AppNetworkAccessType</c> parameter is set to <c>PublicInternetOnly</c>
+        /// for domains created from Amazon SageMaker Unified Studio.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -876,7 +877,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter VpcId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Virtual Private Cloud (VPC) that the domain uses for communication.</para>
+        /// <para>The ID of the Amazon Virtual Private Cloud (VPC) that the domain uses for communication.</para><para>The field is optional when the <c>AppNetworkAccessType</c> parameter is set to <c>PublicInternetOnly</c>
+        /// for domains created from Amazon SageMaker Unified Studio.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

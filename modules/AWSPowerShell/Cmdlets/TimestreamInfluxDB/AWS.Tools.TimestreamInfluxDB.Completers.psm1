@@ -95,7 +95,7 @@ $TIDB_Completers = {
             ($_ -eq "Update-TIDBDbInstance/DbInstanceType")
         }
         {
-            $v = "db.influx.12xlarge","db.influx.16xlarge","db.influx.2xlarge","db.influx.4xlarge","db.influx.8xlarge","db.influx.large","db.influx.medium","db.influx.xlarge"
+            $v = "db.influx.12xlarge","db.influx.16xlarge","db.influx.24xlarge","db.influx.2xlarge","db.influx.4xlarge","db.influx.8xlarge","db.influx.large","db.influx.medium","db.influx.xlarge"
             break
         }
 
