@@ -1195,7 +1195,7 @@ $SM_Completers = {
         # Amazon.SageMaker.ReservedCapacityInstanceType
         "Search-SMTrainingPlanOffering/InstanceType"
         {
-            $v = "ml.p4d.24xlarge","ml.p5.48xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.trn1.32xlarge","ml.trn2.48xlarge"
+            $v = "ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.trn1.32xlarge","ml.trn2.48xlarge"
             break
         }
 
@@ -1703,6 +1703,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.WorkforceIpAddressType
+        {
+            ($_ -eq "New-SMWorkforce/IpAddressType") -Or
+            ($_ -eq "Update-SMWorkforce/IpAddressType")
+        }
+        {
+            $v = "dualstack","ipv4"
+            break
+        }
+
 
     }
 
@@ -1764,6 +1774,7 @@ $SM_map = @{
     "InferenceExecutionConfig_Mode"=@("New-SMModel")
     "InputConfig_Framework"=@("New-SMCompilationJob")
     "InstanceType"=@("New-SMNotebookInstance","Search-SMTrainingPlanOffering","Update-SMNotebookInstance")
+    "IpAddressType"=@("New-SMWorkforce","Update-SMWorkforce")
     "JobType"=@("New-SMImageVersion","New-SMInferenceRecommendationsJob","Update-SMImageVersion")
     "LinearStepSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
     "MaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMClusterSoftware","Update-SMEndpoint","Update-SMInferenceComponent")

@@ -141,6 +141,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String OidcConfig_ClientSecret { get; set; }
         #endregion
         
+        #region Parameter IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>Use this parameter to specify whether you want <c>IPv4</c> only or <c>dualstack</c>
+        /// (<c>IPv4</c> and <c>IPv6</c>) to support your labeling workforce.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.WorkforceIpAddressType")]
+        public Amazon.SageMaker.WorkforceIpAddressType IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter OidcConfig_Issuer
         /// <summary>
         /// <para>
@@ -308,6 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.UpdateWorkforceResponse, UpdateSMWorkforceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.IpAddressType = this.IpAddressType;
             if (this.OidcConfig_AuthenticationRequestExtraParam != null)
             {
                 context.OidcConfig_AuthenticationRequestExtraParam = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -361,6 +374,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.UpdateWorkforceRequest();
             
+            if (cmdletContext.IpAddressType != null)
+            {
+                request.IpAddressType = cmdletContext.IpAddressType;
+            }
             
              // populate OidcConfig
             var requestOidcConfigIsNull = true;
@@ -587,6 +604,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.SageMaker.WorkforceIpAddressType IpAddressType { get; set; }
             public Dictionary<System.String, System.String> OidcConfig_AuthenticationRequestExtraParam { get; set; }
             public System.String OidcConfig_AuthorizationEndpoint { get; set; }
             public System.String OidcConfig_ClientId { get; set; }

@@ -454,6 +454,21 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public Amazon.Deadline.ServiceManagedFleetOperatingSystemFamily InstanceCapabilities_OsFamily { get; set; }
         #endregion
         
+        #region Parameter VpcConfiguration_ResourceConfigurationArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARNs of the VPC Lattice resource configurations attached to the fleet.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ServiceManagedEc2_VpcConfiguration_ResourceConfigurationArns")]
+        public System.String[] VpcConfiguration_ResourceConfigurationArn { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -720,6 +735,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             context.Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Min = this.Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Min;
             context.InstanceMarketOptions_Type = this.InstanceMarketOptions_Type;
             context.ServiceManagedEc2_StorageProfileId = this.ServiceManagedEc2_StorageProfileId;
+            if (this.VpcConfiguration_ResourceConfigurationArn != null)
+            {
+                context.VpcConfiguration_ResourceConfigurationArn = new List<System.String>(this.VpcConfiguration_ResourceConfigurationArn);
+            }
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
             #if MODULAR
@@ -784,6 +803,256 @@ namespace Amazon.PowerShell.Cmdlets.ADC
              // populate Configuration
             var requestConfigurationIsNull = true;
             request.Configuration = new Amazon.Deadline.Model.FleetConfiguration();
+            Amazon.Deadline.Model.CustomerManagedFleetConfiguration requestConfiguration_configuration_CustomerManaged = null;
+            
+             // populate CustomerManaged
+            var requestConfiguration_configuration_CustomerManagedIsNull = true;
+            requestConfiguration_configuration_CustomerManaged = new Amazon.Deadline.Model.CustomerManagedFleetConfiguration();
+            Amazon.Deadline.AutoScalingMode requestConfiguration_configuration_CustomerManaged_customerManaged_Mode = null;
+            if (cmdletContext.CustomerManaged_Mode != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_customerManaged_Mode = cmdletContext.CustomerManaged_Mode;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_customerManaged_Mode != null)
+            {
+                requestConfiguration_configuration_CustomerManaged.Mode = requestConfiguration_configuration_CustomerManaged_customerManaged_Mode;
+                requestConfiguration_configuration_CustomerManagedIsNull = false;
+            }
+            System.String requestConfiguration_configuration_CustomerManaged_customerManaged_StorageProfileId = null;
+            if (cmdletContext.CustomerManaged_StorageProfileId != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_customerManaged_StorageProfileId = cmdletContext.CustomerManaged_StorageProfileId;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_customerManaged_StorageProfileId != null)
+            {
+                requestConfiguration_configuration_CustomerManaged.StorageProfileId = requestConfiguration_configuration_CustomerManaged_customerManaged_StorageProfileId;
+                requestConfiguration_configuration_CustomerManagedIsNull = false;
+            }
+            Amazon.Deadline.TagPropagationMode requestConfiguration_configuration_CustomerManaged_customerManaged_TagPropagationMode = null;
+            if (cmdletContext.CustomerManaged_TagPropagationMode != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_customerManaged_TagPropagationMode = cmdletContext.CustomerManaged_TagPropagationMode;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_customerManaged_TagPropagationMode != null)
+            {
+                requestConfiguration_configuration_CustomerManaged.TagPropagationMode = requestConfiguration_configuration_CustomerManaged_customerManaged_TagPropagationMode;
+                requestConfiguration_configuration_CustomerManagedIsNull = false;
+            }
+            Amazon.Deadline.Model.CustomerManagedWorkerCapabilities requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities = null;
+            
+             // populate WorkerCapabilities
+            var requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilitiesIsNull = true;
+            requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities = new Amazon.Deadline.Model.CustomerManagedWorkerCapabilities();
+            List<System.String> requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_AcceleratorType = null;
+            if (cmdletContext.WorkerCapabilities_AcceleratorType != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_AcceleratorType = cmdletContext.WorkerCapabilities_AcceleratorType;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_AcceleratorType != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities.AcceleratorTypes = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_AcceleratorType;
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilitiesIsNull = false;
+            }
+            Amazon.Deadline.CpuArchitectureType requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CpuArchitectureType = null;
+            if (cmdletContext.WorkerCapabilities_CpuArchitectureType != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CpuArchitectureType = cmdletContext.WorkerCapabilities_CpuArchitectureType;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CpuArchitectureType != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities.CpuArchitectureType = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CpuArchitectureType;
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilitiesIsNull = false;
+            }
+            List<Amazon.Deadline.Model.FleetAmountCapability> requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CustomAmount = null;
+            if (cmdletContext.WorkerCapabilities_CustomAmount != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CustomAmount = cmdletContext.WorkerCapabilities_CustomAmount;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CustomAmount != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities.CustomAmounts = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CustomAmount;
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilitiesIsNull = false;
+            }
+            List<Amazon.Deadline.Model.FleetAttributeCapability> requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CustomAttribute = null;
+            if (cmdletContext.WorkerCapabilities_CustomAttribute != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CustomAttribute = cmdletContext.WorkerCapabilities_CustomAttribute;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CustomAttribute != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities.CustomAttributes = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CustomAttribute;
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilitiesIsNull = false;
+            }
+            Amazon.Deadline.CustomerManagedFleetOperatingSystemFamily requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_OsFamily = null;
+            if (cmdletContext.WorkerCapabilities_OsFamily != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_OsFamily = cmdletContext.WorkerCapabilities_OsFamily;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_OsFamily != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities.OsFamily = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_OsFamily;
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilitiesIsNull = false;
+            }
+            Amazon.Deadline.Model.AcceleratorCountRange requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount = null;
+            
+             // populate AcceleratorCount
+            var requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCountIsNull = true;
+            requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount = new Amazon.Deadline.Model.AcceleratorCountRange();
+            System.Int32? requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount_acceleratorCount_Max = null;
+            if (cmdletContext.AcceleratorCount_Max != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount_acceleratorCount_Max = cmdletContext.AcceleratorCount_Max.Value;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount_acceleratorCount_Max != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount.Max = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount_acceleratorCount_Max.Value;
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCountIsNull = false;
+            }
+            System.Int32? requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount_acceleratorCount_Min = null;
+            if (cmdletContext.AcceleratorCount_Min != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount_acceleratorCount_Min = cmdletContext.AcceleratorCount_Min.Value;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount_acceleratorCount_Min != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount.Min = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount_acceleratorCount_Min.Value;
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCountIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount should be set to null
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCountIsNull)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount = null;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities.AcceleratorCount = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount;
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilitiesIsNull = false;
+            }
+            Amazon.Deadline.Model.AcceleratorTotalMemoryMiBRange requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB = null;
+            
+             // populate AcceleratorTotalMemoryMiB
+            var requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiBIsNull = true;
+            requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB = new Amazon.Deadline.Model.AcceleratorTotalMemoryMiBRange();
+            System.Int32? requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB_acceleratorTotalMemoryMiB_Max = null;
+            if (cmdletContext.AcceleratorTotalMemoryMiB_Max != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB_acceleratorTotalMemoryMiB_Max = cmdletContext.AcceleratorTotalMemoryMiB_Max.Value;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB_acceleratorTotalMemoryMiB_Max != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB.Max = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB_acceleratorTotalMemoryMiB_Max.Value;
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiBIsNull = false;
+            }
+            System.Int32? requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB_acceleratorTotalMemoryMiB_Min = null;
+            if (cmdletContext.AcceleratorTotalMemoryMiB_Min != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB_acceleratorTotalMemoryMiB_Min = cmdletContext.AcceleratorTotalMemoryMiB_Min.Value;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB_acceleratorTotalMemoryMiB_Min != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB.Min = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB_acceleratorTotalMemoryMiB_Min.Value;
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiBIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB should be set to null
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiBIsNull)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB = null;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities.AcceleratorTotalMemoryMiB = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB;
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilitiesIsNull = false;
+            }
+            Amazon.Deadline.Model.MemoryMiBRange requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB = null;
+            
+             // populate MemoryMiB
+            var requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiBIsNull = true;
+            requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB = new Amazon.Deadline.Model.MemoryMiBRange();
+            System.Int32? requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Max = null;
+            if (cmdletContext.Configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Max != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Max = cmdletContext.Configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Max.Value;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Max != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB.Max = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Max.Value;
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiBIsNull = false;
+            }
+            System.Int32? requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Min = null;
+            if (cmdletContext.Configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Min != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Min = cmdletContext.Configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Min.Value;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Min != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB.Min = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Min.Value;
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiBIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB should be set to null
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiBIsNull)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB = null;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities.MemoryMiB = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB;
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilitiesIsNull = false;
+            }
+            Amazon.Deadline.Model.VCpuCountRange requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount = null;
+            
+             // populate VCpuCount
+            var requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCountIsNull = true;
+            requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount = new Amazon.Deadline.Model.VCpuCountRange();
+            System.Int32? requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Max = null;
+            if (cmdletContext.Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Max != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Max = cmdletContext.Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Max.Value;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Max != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount.Max = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Max.Value;
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCountIsNull = false;
+            }
+            System.Int32? requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min = null;
+            if (cmdletContext.Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min = cmdletContext.Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min.Value;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount.Min = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min.Value;
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCountIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount should be set to null
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCountIsNull)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount = null;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities.VCpuCount = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount;
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilitiesIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities should be set to null
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilitiesIsNull)
+            {
+                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities = null;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities != null)
+            {
+                requestConfiguration_configuration_CustomerManaged.WorkerCapabilities = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities;
+                requestConfiguration_configuration_CustomerManagedIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_CustomerManaged should be set to null
+            if (requestConfiguration_configuration_CustomerManagedIsNull)
+            {
+                requestConfiguration_configuration_CustomerManaged = null;
+            }
+            if (requestConfiguration_configuration_CustomerManaged != null)
+            {
+                request.Configuration.CustomerManaged = requestConfiguration_configuration_CustomerManaged;
+                requestConfigurationIsNull = false;
+            }
             Amazon.Deadline.Model.ServiceManagedEc2FleetConfiguration requestConfiguration_configuration_ServiceManagedEc2 = null;
             
              // populate ServiceManagedEc2
@@ -822,6 +1091,31 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceMarketOptions != null)
             {
                 requestConfiguration_configuration_ServiceManagedEc2.InstanceMarketOptions = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceMarketOptions;
+                requestConfiguration_configuration_ServiceManagedEc2IsNull = false;
+            }
+            Amazon.Deadline.Model.VpcConfiguration requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_VpcConfiguration = null;
+            
+             // populate VpcConfiguration
+            var requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_VpcConfigurationIsNull = true;
+            requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_VpcConfiguration = new Amazon.Deadline.Model.VpcConfiguration();
+            List<System.String> requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_VpcConfiguration_vpcConfiguration_ResourceConfigurationArn = null;
+            if (cmdletContext.VpcConfiguration_ResourceConfigurationArn != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_VpcConfiguration_vpcConfiguration_ResourceConfigurationArn = cmdletContext.VpcConfiguration_ResourceConfigurationArn;
+            }
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_VpcConfiguration_vpcConfiguration_ResourceConfigurationArn != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_VpcConfiguration.ResourceConfigurationArns = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_VpcConfiguration_vpcConfiguration_ResourceConfigurationArn;
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_VpcConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_VpcConfiguration should be set to null
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_VpcConfigurationIsNull)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_VpcConfiguration = null;
+            }
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_VpcConfiguration != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2.VpcConfiguration = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_VpcConfiguration;
                 requestConfiguration_configuration_ServiceManagedEc2IsNull = false;
             }
             Amazon.Deadline.Model.ServiceManagedEc2InstanceCapabilities requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities = null;
@@ -1084,256 +1378,6 @@ namespace Amazon.PowerShell.Cmdlets.ADC
                 request.Configuration.ServiceManagedEc2 = requestConfiguration_configuration_ServiceManagedEc2;
                 requestConfigurationIsNull = false;
             }
-            Amazon.Deadline.Model.CustomerManagedFleetConfiguration requestConfiguration_configuration_CustomerManaged = null;
-            
-             // populate CustomerManaged
-            var requestConfiguration_configuration_CustomerManagedIsNull = true;
-            requestConfiguration_configuration_CustomerManaged = new Amazon.Deadline.Model.CustomerManagedFleetConfiguration();
-            Amazon.Deadline.AutoScalingMode requestConfiguration_configuration_CustomerManaged_customerManaged_Mode = null;
-            if (cmdletContext.CustomerManaged_Mode != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_customerManaged_Mode = cmdletContext.CustomerManaged_Mode;
-            }
-            if (requestConfiguration_configuration_CustomerManaged_customerManaged_Mode != null)
-            {
-                requestConfiguration_configuration_CustomerManaged.Mode = requestConfiguration_configuration_CustomerManaged_customerManaged_Mode;
-                requestConfiguration_configuration_CustomerManagedIsNull = false;
-            }
-            System.String requestConfiguration_configuration_CustomerManaged_customerManaged_StorageProfileId = null;
-            if (cmdletContext.CustomerManaged_StorageProfileId != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_customerManaged_StorageProfileId = cmdletContext.CustomerManaged_StorageProfileId;
-            }
-            if (requestConfiguration_configuration_CustomerManaged_customerManaged_StorageProfileId != null)
-            {
-                requestConfiguration_configuration_CustomerManaged.StorageProfileId = requestConfiguration_configuration_CustomerManaged_customerManaged_StorageProfileId;
-                requestConfiguration_configuration_CustomerManagedIsNull = false;
-            }
-            Amazon.Deadline.TagPropagationMode requestConfiguration_configuration_CustomerManaged_customerManaged_TagPropagationMode = null;
-            if (cmdletContext.CustomerManaged_TagPropagationMode != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_customerManaged_TagPropagationMode = cmdletContext.CustomerManaged_TagPropagationMode;
-            }
-            if (requestConfiguration_configuration_CustomerManaged_customerManaged_TagPropagationMode != null)
-            {
-                requestConfiguration_configuration_CustomerManaged.TagPropagationMode = requestConfiguration_configuration_CustomerManaged_customerManaged_TagPropagationMode;
-                requestConfiguration_configuration_CustomerManagedIsNull = false;
-            }
-            Amazon.Deadline.Model.CustomerManagedWorkerCapabilities requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities = null;
-            
-             // populate WorkerCapabilities
-            var requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilitiesIsNull = true;
-            requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities = new Amazon.Deadline.Model.CustomerManagedWorkerCapabilities();
-            List<System.String> requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_AcceleratorType = null;
-            if (cmdletContext.WorkerCapabilities_AcceleratorType != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_AcceleratorType = cmdletContext.WorkerCapabilities_AcceleratorType;
-            }
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_AcceleratorType != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities.AcceleratorTypes = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_AcceleratorType;
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilitiesIsNull = false;
-            }
-            Amazon.Deadline.CpuArchitectureType requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CpuArchitectureType = null;
-            if (cmdletContext.WorkerCapabilities_CpuArchitectureType != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CpuArchitectureType = cmdletContext.WorkerCapabilities_CpuArchitectureType;
-            }
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CpuArchitectureType != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities.CpuArchitectureType = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CpuArchitectureType;
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilitiesIsNull = false;
-            }
-            List<Amazon.Deadline.Model.FleetAmountCapability> requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CustomAmount = null;
-            if (cmdletContext.WorkerCapabilities_CustomAmount != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CustomAmount = cmdletContext.WorkerCapabilities_CustomAmount;
-            }
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CustomAmount != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities.CustomAmounts = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CustomAmount;
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilitiesIsNull = false;
-            }
-            List<Amazon.Deadline.Model.FleetAttributeCapability> requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CustomAttribute = null;
-            if (cmdletContext.WorkerCapabilities_CustomAttribute != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CustomAttribute = cmdletContext.WorkerCapabilities_CustomAttribute;
-            }
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CustomAttribute != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities.CustomAttributes = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_CustomAttribute;
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilitiesIsNull = false;
-            }
-            Amazon.Deadline.CustomerManagedFleetOperatingSystemFamily requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_OsFamily = null;
-            if (cmdletContext.WorkerCapabilities_OsFamily != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_OsFamily = cmdletContext.WorkerCapabilities_OsFamily;
-            }
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_OsFamily != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities.OsFamily = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_workerCapabilities_OsFamily;
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilitiesIsNull = false;
-            }
-            Amazon.Deadline.Model.AcceleratorCountRange requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount = null;
-            
-             // populate AcceleratorCount
-            var requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCountIsNull = true;
-            requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount = new Amazon.Deadline.Model.AcceleratorCountRange();
-            System.Int32? requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount_acceleratorCount_Max = null;
-            if (cmdletContext.AcceleratorCount_Max != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount_acceleratorCount_Max = cmdletContext.AcceleratorCount_Max.Value;
-            }
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount_acceleratorCount_Max != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount.Max = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount_acceleratorCount_Max.Value;
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCountIsNull = false;
-            }
-            System.Int32? requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount_acceleratorCount_Min = null;
-            if (cmdletContext.AcceleratorCount_Min != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount_acceleratorCount_Min = cmdletContext.AcceleratorCount_Min.Value;
-            }
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount_acceleratorCount_Min != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount.Min = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount_acceleratorCount_Min.Value;
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCountIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount should be set to null
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCountIsNull)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount = null;
-            }
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities.AcceleratorCount = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorCount;
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilitiesIsNull = false;
-            }
-            Amazon.Deadline.Model.AcceleratorTotalMemoryMiBRange requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB = null;
-            
-             // populate AcceleratorTotalMemoryMiB
-            var requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiBIsNull = true;
-            requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB = new Amazon.Deadline.Model.AcceleratorTotalMemoryMiBRange();
-            System.Int32? requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB_acceleratorTotalMemoryMiB_Max = null;
-            if (cmdletContext.AcceleratorTotalMemoryMiB_Max != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB_acceleratorTotalMemoryMiB_Max = cmdletContext.AcceleratorTotalMemoryMiB_Max.Value;
-            }
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB_acceleratorTotalMemoryMiB_Max != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB.Max = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB_acceleratorTotalMemoryMiB_Max.Value;
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiBIsNull = false;
-            }
-            System.Int32? requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB_acceleratorTotalMemoryMiB_Min = null;
-            if (cmdletContext.AcceleratorTotalMemoryMiB_Min != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB_acceleratorTotalMemoryMiB_Min = cmdletContext.AcceleratorTotalMemoryMiB_Min.Value;
-            }
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB_acceleratorTotalMemoryMiB_Min != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB.Min = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB_acceleratorTotalMemoryMiB_Min.Value;
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiBIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB should be set to null
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiBIsNull)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB = null;
-            }
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities.AcceleratorTotalMemoryMiB = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_AcceleratorTotalMemoryMiB;
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilitiesIsNull = false;
-            }
-            Amazon.Deadline.Model.MemoryMiBRange requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB = null;
-            
-             // populate MemoryMiB
-            var requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiBIsNull = true;
-            requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB = new Amazon.Deadline.Model.MemoryMiBRange();
-            System.Int32? requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Max = null;
-            if (cmdletContext.Configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Max != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Max = cmdletContext.Configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Max.Value;
-            }
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Max != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB.Max = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Max.Value;
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiBIsNull = false;
-            }
-            System.Int32? requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Min = null;
-            if (cmdletContext.Configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Min != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Min = cmdletContext.Configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Min.Value;
-            }
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Min != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB.Min = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Min.Value;
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiBIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB should be set to null
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiBIsNull)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB = null;
-            }
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities.MemoryMiB = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_MemoryMiB;
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilitiesIsNull = false;
-            }
-            Amazon.Deadline.Model.VCpuCountRange requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount = null;
-            
-             // populate VCpuCount
-            var requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCountIsNull = true;
-            requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount = new Amazon.Deadline.Model.VCpuCountRange();
-            System.Int32? requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Max = null;
-            if (cmdletContext.Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Max != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Max = cmdletContext.Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Max.Value;
-            }
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Max != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount.Max = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Max.Value;
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCountIsNull = false;
-            }
-            System.Int32? requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min = null;
-            if (cmdletContext.Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min = cmdletContext.Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min.Value;
-            }
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount.Min = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min.Value;
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCountIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount should be set to null
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCountIsNull)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount = null;
-            }
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount != null)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities.VCpuCount = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities_configuration_CustomerManaged_WorkerCapabilities_VCpuCount;
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilitiesIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities should be set to null
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilitiesIsNull)
-            {
-                requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities = null;
-            }
-            if (requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities != null)
-            {
-                requestConfiguration_configuration_CustomerManaged.WorkerCapabilities = requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities;
-                requestConfiguration_configuration_CustomerManagedIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_CustomerManaged should be set to null
-            if (requestConfiguration_configuration_CustomerManagedIsNull)
-            {
-                requestConfiguration_configuration_CustomerManaged = null;
-            }
-            if (requestConfiguration_configuration_CustomerManaged != null)
-            {
-                request.Configuration.CustomerManaged = requestConfiguration_configuration_CustomerManaged;
-                requestConfigurationIsNull = false;
-            }
              // determine if request.Configuration should be set to null
             if (requestConfigurationIsNull)
             {
@@ -1486,6 +1530,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public System.Int32? Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Min { get; set; }
             public Amazon.Deadline.Ec2MarketType InstanceMarketOptions_Type { get; set; }
             public System.String ServiceManagedEc2_StorageProfileId { get; set; }
+            public List<System.String> VpcConfiguration_ResourceConfigurationArn { get; set; }
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public System.String FarmId { get; set; }

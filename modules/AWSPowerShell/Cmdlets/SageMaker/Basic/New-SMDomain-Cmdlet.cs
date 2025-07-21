@@ -880,7 +880,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>The VPC subnets that the domain uses for communication.</para><para />
+        /// <para>The VPC subnets that the domain uses for communication.</para><para>The field is optional when the <c>AppNetworkAccessType</c> parameter is set to <c>PublicInternetOnly</c>
+        /// for domains created from Amazon SageMaker Unified Studio.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -935,7 +936,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter VpcId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Virtual Private Cloud (VPC) that the domain uses for communication.</para>
+        /// <para>The ID of the Amazon Virtual Private Cloud (VPC) that the domain uses for communication.</para><para>The field is optional when the <c>AppNetworkAccessType</c> parameter is set to <c>PublicInternetOnly</c>
+        /// for domains created from Amazon SageMaker Unified Studio.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,4 +1,13 @@
-﻿### 5.0.14 (2025-07-18 20:04Z)
+﻿### 5.0.15 (2025-07-21 20:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.52.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSDeadlineCloud
+    * Modified cmdlet New-ADCFleet: added parameter VpcConfiguration_ResourceConfigurationArn.
+    * Modified cmdlet Update-ADCFleet: added parameter VpcConfiguration_ResourceConfigurationArn.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMWorkforce: added parameter IpAddressType.
+    * Modified cmdlet Update-SMWorkforce: added parameter IpAddressType.
+
+### 5.0.14 (2025-07-18 20:04Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.51.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Logs
     * Added cmdlet Get-CWLLogObject leveraging the GetLogObject service API.
