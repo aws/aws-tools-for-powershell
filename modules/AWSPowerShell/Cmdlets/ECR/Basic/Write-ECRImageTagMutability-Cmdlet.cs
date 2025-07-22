@@ -65,6 +65,22 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         public Amazon.ECR.ImageTagMutability ImageTagMutability { get; set; }
         #endregion
         
+        #region Parameter ImageTagMutabilityExclusionFilter
+        /// <summary>
+        /// <para>
+        /// <para>Creates or updates a repository with filters that define which image tags can override
+        /// the default image tag mutability setting.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ImageTagMutabilityExclusionFilters")]
+        public Amazon.ECR.Model.ImageTagMutabilityExclusionFilter[] ImageTagMutabilityExclusionFilter { get; set; }
+        #endregion
+        
         #region Parameter RegistryId
         /// <summary>
         /// <para>
@@ -147,6 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
                 WriteWarning("You are passing $null as a value for parameter ImageTagMutability which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ImageTagMutabilityExclusionFilter != null)
+            {
+                context.ImageTagMutabilityExclusionFilter = new List<Amazon.ECR.Model.ImageTagMutabilityExclusionFilter>(this.ImageTagMutabilityExclusionFilter);
+            }
             context.RegistryId = this.RegistryId;
             context.RepositoryName = this.RepositoryName;
             #if MODULAR
@@ -174,6 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             if (cmdletContext.ImageTagMutability != null)
             {
                 request.ImageTagMutability = cmdletContext.ImageTagMutability;
+            }
+            if (cmdletContext.ImageTagMutabilityExclusionFilter != null)
+            {
+                request.ImageTagMutabilityExclusionFilters = cmdletContext.ImageTagMutabilityExclusionFilter;
             }
             if (cmdletContext.RegistryId != null)
             {
@@ -239,6 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.ECR.ImageTagMutability ImageTagMutability { get; set; }
+            public List<Amazon.ECR.Model.ImageTagMutabilityExclusionFilter> ImageTagMutabilityExclusionFilter { get; set; }
             public System.String RegistryId { get; set; }
             public System.String RepositoryName { get; set; }
             public System.Func<Amazon.ECR.Model.PutImageTagMutabilityResponse, WriteECRImageTagMutabilityCmdlet, object> Select { get; set; } =

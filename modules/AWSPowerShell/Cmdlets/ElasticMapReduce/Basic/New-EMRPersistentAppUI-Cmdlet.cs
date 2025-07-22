@@ -57,8 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ProfilerType
         /// <summary>
         /// <para>
-        /// <para>The profiler type for the persistent application user interface. Valid values are
-        /// SHS, TEZUI, or YTS.</para>
+        /// <para>The profiler type for the persistent application user interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.52.0",
+    "ProductVersion"    : "4.0.53.0",
     "CoreVersion"       : "4.0.0.16",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -194,7 +194,7 @@
             "InPreview"               : false
         },
         "ElasticMapReduce"     : {
-            "Version" : "4.0.1.10",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.16"
@@ -244,7 +244,7 @@
             "InPreview"               : false
         },
         "Lambda"               : {
-            "Version" : "4.0.1.4",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.16"
@@ -316,7 +316,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "4.0.6.0",
+            "Version" : "4.0.6.1",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.16"
@@ -492,7 +492,7 @@
             "InPreview"               : false
         },
         "ECR"                             : {
-            "Version" : "4.0.2.5",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.16"
@@ -2740,7 +2740,7 @@
             "InPreview"               : false
         },
         "Neptunedata"                         : {
-            "Version" : "4.0.0.14",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.16"

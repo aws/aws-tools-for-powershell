@@ -118,6 +118,22 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         public Amazon.ECR.ImageTagMutability ImageTagMutability { get; set; }
         #endregion
         
+        #region Parameter ImageTagMutabilityExclusionFilter
+        /// <summary>
+        /// <para>
+        /// <para>Updates a repository with filters that define which image tags can override the default
+        /// image tag mutability setting.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ImageTagMutabilityExclusionFilters")]
+        public Amazon.ECR.Model.ImageTagMutabilityExclusionFilter[] ImageTagMutabilityExclusionFilter { get; set; }
+        #endregion
+        
         #region Parameter EncryptionConfiguration_KmsKey
         /// <summary>
         /// <para>
@@ -247,6 +263,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             context.EncryptionConfiguration_EncryptionType = this.EncryptionConfiguration_EncryptionType;
             context.EncryptionConfiguration_KmsKey = this.EncryptionConfiguration_KmsKey;
             context.ImageTagMutability = this.ImageTagMutability;
+            if (this.ImageTagMutabilityExclusionFilter != null)
+            {
+                context.ImageTagMutabilityExclusionFilter = new List<Amazon.ECR.Model.ImageTagMutabilityExclusionFilter>(this.ImageTagMutabilityExclusionFilter);
+            }
             context.LifecyclePolicy = this.LifecyclePolicy;
             context.Prefix = this.Prefix;
             #if MODULAR
@@ -320,6 +340,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             if (cmdletContext.ImageTagMutability != null)
             {
                 request.ImageTagMutability = cmdletContext.ImageTagMutability;
+            }
+            if (cmdletContext.ImageTagMutabilityExclusionFilter != null)
+            {
+                request.ImageTagMutabilityExclusionFilters = cmdletContext.ImageTagMutabilityExclusionFilter;
             }
             if (cmdletContext.LifecyclePolicy != null)
             {
@@ -398,6 +422,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             public Amazon.ECR.EncryptionType EncryptionConfiguration_EncryptionType { get; set; }
             public System.String EncryptionConfiguration_KmsKey { get; set; }
             public Amazon.ECR.ImageTagMutability ImageTagMutability { get; set; }
+            public List<Amazon.ECR.Model.ImageTagMutabilityExclusionFilter> ImageTagMutabilityExclusionFilter { get; set; }
             public System.String LifecyclePolicy { get; set; }
             public System.String Prefix { get; set; }
             public System.String RepositoryPolicy { get; set; }
