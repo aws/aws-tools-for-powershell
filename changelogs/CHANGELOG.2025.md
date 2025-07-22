@@ -1,4 +1,15 @@
-﻿### 4.1.861 (2025-07-21 20:09Z)
+﻿### 4.1.862 (2025-07-22 20:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1085.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon EC2 Container Registry
+    * Modified cmdlet New-ECRRepository: added parameter ImageTagMutabilityExclusionFilter.
+    * Modified cmdlet New-ECRRepositoryCreationTemplate: added parameter ImageTagMutabilityExclusionFilter.
+    * Modified cmdlet Update-ECRRepositoryCreationTemplate: added parameter ImageTagMutabilityExclusionFilter.
+    * Modified cmdlet Write-ECRImageTagMutability: added parameter ImageTagMutabilityExclusionFilter.
+  * Amazon Elastic MapReduce
+    * Modified cmdlet Edit-EMRCluster: added parameter ExtendedSupport.
+    * Modified cmdlet Start-EMRJobFlow: added parameter ExtendedSupport.
+
+### 4.1.861 (2025-07-21 20:09Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1084.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSDeadlineCloud
     * Modified cmdlet New-ADCFleet: added parameter VpcConfiguration_ResourceConfigurationArn.

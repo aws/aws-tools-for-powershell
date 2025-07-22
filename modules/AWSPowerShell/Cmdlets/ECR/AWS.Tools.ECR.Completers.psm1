@@ -99,7 +99,7 @@ $ECR_Completers = {
             ($_ -eq "Write-ECRImageTagMutability/ImageTagMutability")
         }
         {
-            $v = "IMMUTABLE","MUTABLE"
+            $v = "IMMUTABLE","IMMUTABLE_WITH_EXCLUSION","MUTABLE","MUTABLE_WITH_EXCLUSION"
             break
         }
 

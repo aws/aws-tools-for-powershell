@@ -327,6 +327,16 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.String Instances_EmrManagedSlaveSecurityGroup { get; set; }
         #endregion
         
+        #region Parameter ExtendedSupport
+        /// <summary>
+        /// <para>
+        /// <para>Reserved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ExtendedSupport { get; set; }
+        #endregion
+        
         #region Parameter Instances_HadoopVersion
         /// <summary>
         /// <para>
@@ -885,6 +895,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             context.EbsRootVolumeIops = this.EbsRootVolumeIops;
             context.EbsRootVolumeSize = this.EbsRootVolumeSize;
             context.EbsRootVolumeThroughput = this.EbsRootVolumeThroughput;
+            context.ExtendedSupport = this.ExtendedSupport;
             if (this.Instances_AdditionalMasterSecurityGroup != null)
             {
                 context.Instances_AdditionalMasterSecurityGroup = new List<System.String>(this.Instances_AdditionalMasterSecurityGroup);
@@ -1046,6 +1057,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (cmdletContext.EbsRootVolumeThroughput != null)
             {
                 request.EbsRootVolumeThroughput = cmdletContext.EbsRootVolumeThroughput.Value;
+            }
+            if (cmdletContext.ExtendedSupport != null)
+            {
+                request.ExtendedSupport = cmdletContext.ExtendedSupport.Value;
             }
             
              // populate Instances
@@ -1554,6 +1569,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public System.Int32? EbsRootVolumeIops { get; set; }
             public System.Int32? EbsRootVolumeSize { get; set; }
             public System.Int32? EbsRootVolumeThroughput { get; set; }
+            public System.Boolean? ExtendedSupport { get; set; }
             public List<System.String> Instances_AdditionalMasterSecurityGroup { get; set; }
             public List<System.String> Instances_AdditionalSlaveSecurityGroup { get; set; }
             public System.String Instances_Ec2KeyName { get; set; }

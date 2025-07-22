@@ -60,6 +60,16 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.String ClusterId { get; set; }
         #endregion
         
+        #region Parameter ExtendedSupport
+        /// <summary>
+        /// <para>
+        /// <para>Reserved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ExtendedSupport { get; set; }
+        #endregion
+        
         #region Parameter StepConcurrencyLevel
         /// <summary>
         /// <para>
@@ -142,6 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 WriteWarning("You are passing $null as a value for parameter ClusterId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ExtendedSupport = this.ExtendedSupport;
             context.StepConcurrencyLevel = this.StepConcurrencyLevel;
             
             // allow further manipulation of loaded context prior to processing
@@ -162,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (cmdletContext.ClusterId != null)
             {
                 request.ClusterId = cmdletContext.ClusterId;
+            }
+            if (cmdletContext.ExtendedSupport != null)
+            {
+                request.ExtendedSupport = cmdletContext.ExtendedSupport.Value;
             }
             if (cmdletContext.StepConcurrencyLevel != null)
             {
@@ -229,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClusterId { get; set; }
+            public System.Boolean? ExtendedSupport { get; set; }
             public System.Int32? StepConcurrencyLevel { get; set; }
             public System.Func<Amazon.ElasticMapReduce.Model.ModifyClusterResponse, EditEMRClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.StepConcurrencyLevel;

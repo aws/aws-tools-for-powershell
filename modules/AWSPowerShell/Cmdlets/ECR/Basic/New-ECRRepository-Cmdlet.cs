@@ -78,6 +78,18 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         public Amazon.ECR.ImageTagMutability ImageTagMutability { get; set; }
         #endregion
         
+        #region Parameter ImageTagMutabilityExclusionFilter
+        /// <summary>
+        /// <para>
+        /// <para>Creates a repository with a list of filters that define which image tags can override
+        /// the default image tag mutability setting.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ImageTagMutabilityExclusionFilters")]
+        public Amazon.ECR.Model.ImageTagMutabilityExclusionFilter[] ImageTagMutabilityExclusionFilter { get; set; }
+        #endregion
+        
         #region Parameter EncryptionConfiguration_KmsKey
         /// <summary>
         /// <para>
@@ -216,6 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             context.EncryptionConfiguration_KmsKey = this.EncryptionConfiguration_KmsKey;
             context.ImageScanningConfiguration_ScanOnPush = this.ImageScanningConfiguration_ScanOnPush;
             context.ImageTagMutability = this.ImageTagMutability;
+            if (this.ImageTagMutabilityExclusionFilter != null)
+            {
+                context.ImageTagMutabilityExclusionFilter = new List<Amazon.ECR.Model.ImageTagMutabilityExclusionFilter>(this.ImageTagMutabilityExclusionFilter);
+            }
             context.RegistryId = this.RegistryId;
             context.RepositoryName = this.RepositoryName;
             #if MODULAR
@@ -296,6 +312,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             {
                 request.ImageTagMutability = cmdletContext.ImageTagMutability;
             }
+            if (cmdletContext.ImageTagMutabilityExclusionFilter != null)
+            {
+                request.ImageTagMutabilityExclusionFilters = cmdletContext.ImageTagMutabilityExclusionFilter;
+            }
             if (cmdletContext.RegistryId != null)
             {
                 request.RegistryId = cmdletContext.RegistryId;
@@ -373,6 +393,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             public System.String EncryptionConfiguration_KmsKey { get; set; }
             public System.Boolean? ImageScanningConfiguration_ScanOnPush { get; set; }
             public Amazon.ECR.ImageTagMutability ImageTagMutability { get; set; }
+            public List<Amazon.ECR.Model.ImageTagMutabilityExclusionFilter> ImageTagMutabilityExclusionFilter { get; set; }
             public System.String RegistryId { get; set; }
             public System.String RepositoryName { get; set; }
             public List<Amazon.ECR.Model.Tag> Tag { get; set; }
