@@ -29,10 +29,11 @@ iam_GetUserPolicy:
                 {
                   "Effect": "Allow",
                   "Action": [
-                    "iam:*"
+                    "iam:GetUser",
+                    "iam:ListUsers"
                   ],
                   "Resource": [
-                    "*"
+                    "arn:aws:iam::111122223333:user/*"
                   ]
                 }
               ]

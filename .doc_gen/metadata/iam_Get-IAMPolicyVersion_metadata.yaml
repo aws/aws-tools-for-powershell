@@ -29,8 +29,12 @@ iam_GetPolicyVersion:
               "Statement": 
                 {
                   "Effect": "Allow",
-                  "Action": "*",
-                  "Resource": "*"
+                  "Action": [
+                    "ec2:DescribeInstances"
+                  ],
+                  "Resource": [
+                    "arn:aws:ec2:us-east-1:555555555555:instance/i-b188560f"
+                  ]
                 }
             }</programlisting>
           snippet_files: []
