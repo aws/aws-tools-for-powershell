@@ -28,8 +28,12 @@ iam_GetGroupPolicy:
               "Statement": [
                 {
                   "Effect": "Allow",
-                  "NotAction": "iam:*",
-                  "Resource": "*"
+                  "Action": [
+                    "ec2:DescribeInstances"
+                  ],
+                  "Resource": [
+                    "arn:aws:ec2:us-east-1:555555555555:instance/i-b188560f"
+                  ]
                 }
               ]
             }</programlisting>

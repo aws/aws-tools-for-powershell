@@ -35,7 +35,7 @@ iam_GetRolePolicy:
                   "Action": [
                     "logs:*"
                   ],
-                  "Resource": "arn:aws:logs:*:*:*"
+                  "Resource": "arn:aws:logs:us-east-1:555555555555:log-group:/aws/lambda/aws-example-function:*"
                 },
                 {
                   "Effect": "Allow",
@@ -44,7 +44,7 @@ iam_GetRolePolicy:
                     "s3:PutObject"
                   ],
                   "Resource": [
-                    "arn:aws:s3:::*"
+                    "arn:aws:s3:::amzn-s3-demo-bucket/*"
                   ]
                 }
               ]
