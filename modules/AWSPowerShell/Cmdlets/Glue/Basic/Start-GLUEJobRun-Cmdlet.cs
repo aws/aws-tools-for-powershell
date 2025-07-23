@@ -78,6 +78,18 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public Amazon.Glue.ExecutionClass ExecutionClass { get; set; }
         #endregion
         
+        #region Parameter ExecutionRoleSessionPolicy
+        /// <summary>
+        /// <para>
+        /// <para>This inline session policy to the StartJobRun API allows you to dynamically restrict
+        /// the permissions of the specified execution role for the scope of the job, without
+        /// requiring the creation of additional IAM roles.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExecutionRoleSessionPolicy { get; set; }
+        #endregion
+        
         #region Parameter JobName
         /// <summary>
         /// <para>
@@ -309,6 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 }
             }
             context.ExecutionClass = this.ExecutionClass;
+            context.ExecutionRoleSessionPolicy = this.ExecutionRoleSessionPolicy;
             context.JobName = this.JobName;
             #if MODULAR
             if (this.JobName == null && ParameterWasBound(nameof(this.JobName)))
@@ -353,6 +366,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.ExecutionClass != null)
             {
                 request.ExecutionClass = cmdletContext.ExecutionClass;
+            }
+            if (cmdletContext.ExecutionRoleSessionPolicy != null)
+            {
+                request.ExecutionRoleSessionPolicy = cmdletContext.ExecutionRoleSessionPolicy;
             }
             if (cmdletContext.JobName != null)
             {
@@ -470,6 +487,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.Int32? AllocatedCapacity { get; set; }
             public Dictionary<System.String, System.String> Argument { get; set; }
             public Amazon.Glue.ExecutionClass ExecutionClass { get; set; }
+            public System.String ExecutionRoleSessionPolicy { get; set; }
             public System.String JobName { get; set; }
             public System.String JobRunId { get; set; }
             public System.Boolean? JobRunQueuingEnabled { get; set; }

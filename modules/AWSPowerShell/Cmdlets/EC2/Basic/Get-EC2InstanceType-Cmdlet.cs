@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// performance for an EBS-optimized instance type, in MB/s.</para></li><li><para><c>ebs-info.ebs-optimized-support</c> - Indicates whether the instance type is EBS-optimized
         /// (<c>supported</c> | <c>unsupported</c> | <c>default</c>).</para></li><li><para><c>ebs-info.encryption-support</c> - Indicates whether EBS encryption is supported
         /// (<c>supported</c> | <c>unsupported</c>).</para></li><li><para><c>ebs-info.nvme-support</c> - Indicates whether non-volatile memory express (NVMe)
-        /// is supported for EBS volumes (<c>required</c> | <c>supported</c> | <c>unsupported</c>).</para></li><li><para><c>free-tier-eligible</c> - Indicates whether the instance type is eligible to use
-        /// in the free tier (<c>true</c> | <c>false</c>).</para></li><li><para><c>hibernation-supported</c> - Indicates whether On-Demand hibernation is supported
+        /// is supported for EBS volumes (<c>required</c> | <c>supported</c> | <c>unsupported</c>).</para></li><li><para><c>free-tier-eligible</c> - A Boolean that indicates whether this instance type can
+        /// be used under the Amazon Web Services Free Tier (<c>true</c> | <c>false</c>).</para></li><li><para><c>hibernation-supported</c> - Indicates whether On-Demand hibernation is supported
         /// (<c>true</c> | <c>false</c>).</para></li><li><para><c>hypervisor</c> - The hypervisor (<c>nitro</c> | <c>xen</c>).</para></li><li><para><c>instance-storage-info.disk.count</c> - The number of local disks.</para></li><li><para><c>instance-storage-info.disk.size-in-gb</c> - The storage size of each instance
         /// storage disk, in GB.</para></li><li><para><c>instance-storage-info.disk.type</c> - The storage technology for the local instance
         /// storage disks (<c>hdd</c> | <c>ssd</c>).</para></li><li><para><c>instance-storage-info.encryption-support</c> - Indicates whether data is encrypted

@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// When you stop an instance, we shut it down.
+    /// When you stop or hibernate an instance, we shut it down. By default, this includes
+    /// a graceful operating system (OS) shutdown. To bypass the graceful shutdown, use the
+    /// <c>skipOsShutdown</c> parameter; however, this might risk data integrity.
     /// </para><para>
-    /// You can use the Stop operation together with the Hibernate parameter to hibernate
-    /// an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enabling-hibernation.html">enabled
+    /// You can use the StopInstances operation together with the <c>Hibernate</c> parameter
+    /// to hibernate an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enabling-hibernation.html">enabled
     /// for hibernation</a> and meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
     /// prerequisites</a>. Stopping an instance doesn't preserve data stored in RAM, while
     /// hibernation does. If hibernation fails, a normal shutdown occurs. For more information,
@@ -46,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// your Amazon EC2 instance</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><para>
     /// If your instance appears stuck in the <c>stopping</c> state, there might be an issue
-    /// with the underlying host computer. You can use the Stop operation together with the
-    /// Force parameter to force stop your instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshoot
+    /// with the underlying host computer. You can use the StopInstances operation together
+    /// with the Force parameter to force stop your instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshoot
     /// Amazon EC2 instance stop issues</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><para>
     /// Stopping and hibernating an instance differs from rebooting or terminating it. For
@@ -98,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>Hibernates the instance if the instance was enabled for hibernation at launch. If
         /// the instance cannot hibernate successfully, a normal shutdown occurs. For more information,
         /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
-        /// your instance</a> in the <i>Amazon EC2 User Guide</i>.</para><para> Default: <c>false</c></para>
+        /// your Amazon EC2 instance</a> in the <i>Amazon EC2 User Guide</i>.</para><para> Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,6 +123,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("InstanceIds")]
         public object[] InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter SkipOsShutdown
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to bypass the graceful OS shutdown process when the instance is
+        /// stopped.</para><important><para>Bypassing the graceful OS shutdown might result in data loss or corruption (for example,
+        /// memory contents not flushed to disk or loss of in-flight IOs) or skipped shutdown
+        /// scripts.</para></important><para>Default: <c>false</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SkipOsShutdown { get; set; }
         #endregion
         
         #region Parameter Select
@@ -192,6 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.InstanceId = AmazonEC2Helper.InstanceParamToIDs(this.InstanceId);
             }
             
+            context.SkipOsShutdown = this.SkipOsShutdown;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -219,6 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceIds = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.SkipOsShutdown != null)
+            {
+                request.SkipOsShutdown = cmdletContext.SkipOsShutdown.Value;
             }
             
             CmdletOutput output;
@@ -284,6 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? Enforce { get; set; }
             public System.Boolean? Hibernate { get; set; }
             public List<System.String> InstanceId { get; set; }
+            public System.Boolean? SkipOsShutdown { get; set; }
             public System.Func<Amazon.EC2.Model.StopInstancesResponse, StopEC2InstanceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.StoppingInstances;
         }

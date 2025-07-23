@@ -174,9 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The number of instances for which to reserve capacity.</para><note><para>You can request future-dated Capacity Reservations for an instance count with a minimum
-        /// of 100 vCPUs. For example, if you request a future-dated Capacity Reservation for
-        /// <c>m5.xlarge</c> instances, you must request at least 25 instances (<i>25 * m5.xlarge
-        /// = 100 vCPUs</i>).</para></note><para>Valid range: 1 - 1000</para>
+        /// of 64 vCPUs. For example, if you request a future-dated Capacity Reservation for <c>m5.xlarge</c>
+        /// instances, you must request at least 25 instances (<i>16 * m5.xlarge = 64 vCPUs</i>).</para></note><para>Valid range: 1 - 1000</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -229,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The instance type for which to reserve capacity.</para><note><para>You can request future-dated Capacity Reservations for instance types in the C, M,
-        /// R, I, and T instance families only.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
+        /// R, I, T, and G instance families only.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
         /// types</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>

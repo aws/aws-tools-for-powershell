@@ -1,4 +1,12 @@
-﻿### 4.1.862 (2025-07-22 20:13Z)
+﻿### 4.1.863 (2025-07-23 20:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1086.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Stop-EC2Instance: added parameter SkipOsShutdown.
+    * Modified cmdlet Remove-EC2Instance: added parameter SkipOsShutdown.
+  * Amazon Glue
+    * Modified cmdlet Start-GLUEJobRun: added parameter ExecutionRoleSessionPolicy.
+
+### 4.1.862 (2025-07-22 20:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1085.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EC2 Container Registry
     * Modified cmdlet New-ECRRepository: added parameter ImageTagMutabilityExclusionFilter.

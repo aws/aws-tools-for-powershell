@@ -256,8 +256,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates whether an instance is enabled for stop protection. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
-        /// protection</a>. </para>
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html">Enable
+        /// stop protection for your EC2 instances</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -528,8 +528,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Amazon
-        /// EC2 instance types</a> in the <i>Amazon EC2 User Guide</i>.</para>
+        /// <para>The instance type. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-types.html">Amazon
+        /// EC2 Instance Types Guide</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -579,8 +579,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter KeyName
         /// <summary>
         /// <para>
-        /// <para>The name of the key pair. You can create a key pair using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a>
-        /// or <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.</para><important><para>If you do not specify a key pair, you can't connect to the instance unless you choose
+        /// <para>The name of the key pair. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html">Create
+        /// a key pair for your EC2 instance</a>.</para><important><para>If you do not specify a key pair, you can't connect to the instance unless you choose
         /// an AMI that is configured to allow users another way to log in.</para></important>
         /// </para>
         /// </summary>
@@ -726,7 +726,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the security groups. You can create a security group using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</para><para>If you specify a network interface, you must specify any security groups as part of
+        /// <para>The IDs of the security groups.</para><para>If you specify a network interface, you must specify any security groups as part of
         /// the network interface instead of using this parameter.</para>
         /// </para>
         /// </summary>
@@ -807,8 +807,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
         /// If you do not specify a client token, a randomly generated token is used for the request
-        /// to ensure idempotency.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-        /// Idempotency</a>.</para><para>Constraints: Maximum 64 ASCII characters</para>
+        /// to ensure idempotency.</para><para>For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring
+        /// idempotency in Amazon EC2 API requests</a>.</para><para>Constraints: Maximum 64 ASCII characters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
