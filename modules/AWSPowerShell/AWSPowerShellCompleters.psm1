@@ -55445,6 +55445,16 @@ $OMICS_Completers = {
             break
         }
 
+        # Amazon.Omics.SourceReferenceType
+        {
+            ($_ -eq "New-OMICSWorkflow/SourceReference_Type") -Or
+            ($_ -eq "New-OMICSWorkflowVersion/SourceReference_Type")
+        }
+        {
+            $v = "BRANCH","COMMIT","TAG"
+            break
+        }
+
         # Amazon.Omics.StorageType
         {
             ($_ -eq "New-OMICSWorkflow/StorageType") -Or
@@ -55533,6 +55543,7 @@ $OMICS_map = @{
     "ResourceOwner"=@("Get-OMICSShareList")
     "RetentionMode"=@("Start-OMICSRun")
     "SourceFileType"=@("New-OMICSMultipartReadSetUpload")
+    "SourceReference_Type"=@("New-OMICSWorkflow","New-OMICSWorkflowVersion")
     "SseConfig_Type"=@("New-OMICSAnnotationStore","New-OMICSReferenceStore","New-OMICSSequenceStore","New-OMICSVariantStore")
     "Status"=@("Get-OMICSRunList","Get-OMICSRunTaskList")
     "StorageType"=@("New-OMICSWorkflow","New-OMICSWorkflowVersion","Start-OMICSRun","Update-OMICSWorkflow","Update-OMICSWorkflowVersion")

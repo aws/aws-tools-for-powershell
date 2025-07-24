@@ -30,13 +30,13 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Retrieve the details for the specified run cache.
+    /// Retrieves detailed information about the specified run cache using its ID.
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-call-caching.html">Call
-    /// caching for Amazon Web Services HealthOmics runs</a> in the Amazon Web Services HealthOmics
-    /// User Guide.
+    /// For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-call-caching.html">Call
+    /// caching for Amazon Web Services HealthOmics runs</a> in the <i>Amazon Web Services
+    /// HealthOmics User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "OMICSRunCache")]

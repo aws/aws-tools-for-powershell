@@ -30,7 +30,20 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Deletes a workflow run.
+    /// Deletes a run and returns a response with no body if the operation is successful.
+    /// You can only delete a run that has reached a <c>COMPLETED</c>, <c>FAILED</c>, or <c>CANCELLED</c>
+    /// stage. A completed run has delivered an output, or was cancelled and resulted in no
+    /// output. When you delete a run, only the metadata associated with the run is deleted.
+    /// The run outputs remain in Amazon S3 and logs remain in CloudWatch.
+    /// 
+    ///  
+    /// <para>
+    /// To verify that the workflow is deleted:
+    /// </para><ul><li><para>
+    /// Use <c>ListRuns</c> to confirm the workflow no longer appears in the list.
+    /// </para></li><li><para>
+    /// Use <c>GetRun</c> to verify the workflow cannot be found.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "OMICSRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

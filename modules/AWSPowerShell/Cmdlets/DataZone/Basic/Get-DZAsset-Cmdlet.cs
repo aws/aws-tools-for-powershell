@@ -64,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon DataZone asset.</para>
+        /// <para>The ID of the Amazon DataZone asset.</para><para>This parameter supports either the value of <c>assetId</c> or <c>externalIdentifier</c>
+        /// as input. If you are passing the value of <c>externalIdentifier</c>, you must prefix
+        /// this value with <c>externalIdentifer%2F</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

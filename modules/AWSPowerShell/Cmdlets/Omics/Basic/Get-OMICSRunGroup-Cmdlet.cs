@@ -30,7 +30,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Gets information about a workflow run group.
+    /// Gets information about a run group and returns its metadata.
     /// </summary>
     [Cmdlet("Get", "OMICSRunGroup")]
     [OutputType("Amazon.Omics.Model.GetRunGroupResponse")]

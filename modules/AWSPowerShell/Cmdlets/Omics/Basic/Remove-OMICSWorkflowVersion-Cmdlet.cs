@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html">Workflow
-    /// versioning in Amazon Web Services HealthOmics</a> in the Amazon Web Services HealthOmics
-    /// User Guide.
+    /// versioning in Amazon Web Services HealthOmics</a> in the <i>Amazon Web Services HealthOmics
+    /// User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "OMICSWorkflowVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

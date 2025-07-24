@@ -30,7 +30,16 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Deletes a workflow run group.
+    /// Deletes a run group and returns a response with no body if the operation is successful.
+    /// 
+    ///  
+    /// <para>
+    /// To verify that the run group is deleted:
+    /// </para><ul><li><para>
+    /// Use <c>ListRunGroups</c> to confirm the workflow no longer appears in the list.
+    /// </para></li><li><para>
+    /// Use <c>GetRunGroup</c> to verify the workflow cannot be found.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "OMICSRunGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

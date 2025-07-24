@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     /// names appear in the workflow version ARN.
     /// </para></note><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html">Workflow
-    /// versioning in Amazon Web Services HealthOmics</a> in the Amazon Web Services HealthOmics
-    /// User Guide.
+    /// versioning in Amazon Web Services HealthOmics</a> in the <i>Amazon Web Services HealthOmics
+    /// User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "OMICSWorkflowVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -71,6 +71,16 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         [Alias("Accelerators")]
         [AWSConstantClassSource("Amazon.Omics.Accelerators")]
         public Amazon.Omics.Accelerators Accelerator { get; set; }
+        #endregion
+        
+        #region Parameter DefinitionRepository_ConnectionArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the connection to the source code repository.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DefinitionRepository_ConnectionArn { get; set; }
         #endregion
         
         #region Parameter DefinitionUri
@@ -116,6 +126,33 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public Amazon.Omics.WorkflowEngine Engine { get; set; }
         #endregion
         
+        #region Parameter DefinitionRepository_ExcludeFilePattern
+        /// <summary>
+        /// <para>
+        /// <para>A list of file patterns to exclude when retrieving the workflow definition from the
+        /// repository.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefinitionRepository_ExcludeFilePatterns")]
+        public System.String[] DefinitionRepository_ExcludeFilePattern { get; set; }
+        #endregion
+        
+        #region Parameter DefinitionRepository_FullRepositoryId
+        /// <summary>
+        /// <para>
+        /// <para>The full repository identifier, including the repository owner and name. For example,
+        /// 'repository-owner/repository-name'.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DefinitionRepository_FullRepositoryId { get; set; }
+        #endregion
+        
         #region Parameter Main
         /// <summary>
         /// <para>
@@ -139,6 +176,52 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Collections.Hashtable ParameterTemplate { get; set; }
+        #endregion
+        
+        #region Parameter ParameterTemplatePath
+        /// <summary>
+        /// <para>
+        /// <para>The path to the workflow version parameter template JSON file within the repository.
+        /// This file defines the input parameters for runs that use this workflow version. If
+        /// not specified, the workflow version will be created without a parameter template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ParameterTemplatePath { get; set; }
+        #endregion
+        
+        #region Parameter ReadmeMarkdown
+        /// <summary>
+        /// <para>
+        /// <para>The markdown content for the workflow version's README file. This provides documentation
+        /// and usage information for users of this specific workflow version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ReadmeMarkdown { get; set; }
+        #endregion
+        
+        #region Parameter ReadmePath
+        /// <summary>
+        /// <para>
+        /// <para>The path to the workflow version README markdown file within the repository. This
+        /// file provides documentation and usage information for the workflow. If not specified,
+        /// the <c>README.md</c> file from the root directory of the repository will be used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ReadmePath { get; set; }
+        #endregion
+        
+        #region Parameter ReadmeUri
+        /// <summary>
+        /// <para>
+        /// <para>The S3 URI of the README file for the workflow version. This file provides documentation
+        /// and usage information for the workflow version. Requirements include:</para><ul><li><para>The S3 URI must begin with <c>s3://USER-OWNED-BUCKET/</c></para></li><li><para>The requester must have access to the S3 bucket and object.</para></li><li><para>The max README content length is 500 KiB.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ReadmeUri { get; set; }
         #endregion
         
         #region Parameter RequestId
@@ -190,6 +273,29 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter SourceReference_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of source reference, such as branch, tag, or commit.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefinitionRepository_SourceReference_Type")]
+        [AWSConstantClassSource("Amazon.Omics.SourceReferenceType")]
+        public Amazon.Omics.SourceReferenceType SourceReference_Type { get; set; }
+        #endregion
+        
+        #region Parameter SourceReference_Value
+        /// <summary>
+        /// <para>
+        /// <para>The value of the source reference, such as the branch name, tag name, or commit ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefinitionRepository_SourceReference_Value")]
+        public System.String SourceReference_Value { get; set; }
         #endregion
         
         #region Parameter VersionName
@@ -289,6 +395,14 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Accelerator = this.Accelerator;
+            context.DefinitionRepository_ConnectionArn = this.DefinitionRepository_ConnectionArn;
+            if (this.DefinitionRepository_ExcludeFilePattern != null)
+            {
+                context.DefinitionRepository_ExcludeFilePattern = new List<System.String>(this.DefinitionRepository_ExcludeFilePattern);
+            }
+            context.DefinitionRepository_FullRepositoryId = this.DefinitionRepository_FullRepositoryId;
+            context.SourceReference_Type = this.SourceReference_Type;
+            context.SourceReference_Value = this.SourceReference_Value;
             context.DefinitionUri = this.DefinitionUri;
             context.DefinitionZip = this.DefinitionZip;
             context.Description = this.Description;
@@ -302,6 +416,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                     context.ParameterTemplate.Add((String)hashKey, (Amazon.Omics.Model.WorkflowParameter)(this.ParameterTemplate[hashKey]));
                 }
             }
+            context.ParameterTemplatePath = this.ParameterTemplatePath;
+            context.ReadmeMarkdown = this.ReadmeMarkdown;
+            context.ReadmePath = this.ReadmePath;
+            context.ReadmeUri = this.ReadmeUri;
             context.RequestId = this.RequestId;
             context.StorageCapacity = this.StorageCapacity;
             context.StorageType = this.StorageType;
@@ -352,6 +470,80 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 {
                     request.Accelerators = cmdletContext.Accelerator;
                 }
+                
+                 // populate DefinitionRepository
+                var requestDefinitionRepositoryIsNull = true;
+                request.DefinitionRepository = new Amazon.Omics.Model.DefinitionRepository();
+                System.String requestDefinitionRepository_definitionRepository_ConnectionArn = null;
+                if (cmdletContext.DefinitionRepository_ConnectionArn != null)
+                {
+                    requestDefinitionRepository_definitionRepository_ConnectionArn = cmdletContext.DefinitionRepository_ConnectionArn;
+                }
+                if (requestDefinitionRepository_definitionRepository_ConnectionArn != null)
+                {
+                    request.DefinitionRepository.ConnectionArn = requestDefinitionRepository_definitionRepository_ConnectionArn;
+                    requestDefinitionRepositoryIsNull = false;
+                }
+                List<System.String> requestDefinitionRepository_definitionRepository_ExcludeFilePattern = null;
+                if (cmdletContext.DefinitionRepository_ExcludeFilePattern != null)
+                {
+                    requestDefinitionRepository_definitionRepository_ExcludeFilePattern = cmdletContext.DefinitionRepository_ExcludeFilePattern;
+                }
+                if (requestDefinitionRepository_definitionRepository_ExcludeFilePattern != null)
+                {
+                    request.DefinitionRepository.ExcludeFilePatterns = requestDefinitionRepository_definitionRepository_ExcludeFilePattern;
+                    requestDefinitionRepositoryIsNull = false;
+                }
+                System.String requestDefinitionRepository_definitionRepository_FullRepositoryId = null;
+                if (cmdletContext.DefinitionRepository_FullRepositoryId != null)
+                {
+                    requestDefinitionRepository_definitionRepository_FullRepositoryId = cmdletContext.DefinitionRepository_FullRepositoryId;
+                }
+                if (requestDefinitionRepository_definitionRepository_FullRepositoryId != null)
+                {
+                    request.DefinitionRepository.FullRepositoryId = requestDefinitionRepository_definitionRepository_FullRepositoryId;
+                    requestDefinitionRepositoryIsNull = false;
+                }
+                Amazon.Omics.Model.SourceReference requestDefinitionRepository_definitionRepository_SourceReference = null;
+                
+                 // populate SourceReference
+                var requestDefinitionRepository_definitionRepository_SourceReferenceIsNull = true;
+                requestDefinitionRepository_definitionRepository_SourceReference = new Amazon.Omics.Model.SourceReference();
+                Amazon.Omics.SourceReferenceType requestDefinitionRepository_definitionRepository_SourceReference_sourceReference_Type = null;
+                if (cmdletContext.SourceReference_Type != null)
+                {
+                    requestDefinitionRepository_definitionRepository_SourceReference_sourceReference_Type = cmdletContext.SourceReference_Type;
+                }
+                if (requestDefinitionRepository_definitionRepository_SourceReference_sourceReference_Type != null)
+                {
+                    requestDefinitionRepository_definitionRepository_SourceReference.Type = requestDefinitionRepository_definitionRepository_SourceReference_sourceReference_Type;
+                    requestDefinitionRepository_definitionRepository_SourceReferenceIsNull = false;
+                }
+                System.String requestDefinitionRepository_definitionRepository_SourceReference_sourceReference_Value = null;
+                if (cmdletContext.SourceReference_Value != null)
+                {
+                    requestDefinitionRepository_definitionRepository_SourceReference_sourceReference_Value = cmdletContext.SourceReference_Value;
+                }
+                if (requestDefinitionRepository_definitionRepository_SourceReference_sourceReference_Value != null)
+                {
+                    requestDefinitionRepository_definitionRepository_SourceReference.Value = requestDefinitionRepository_definitionRepository_SourceReference_sourceReference_Value;
+                    requestDefinitionRepository_definitionRepository_SourceReferenceIsNull = false;
+                }
+                 // determine if requestDefinitionRepository_definitionRepository_SourceReference should be set to null
+                if (requestDefinitionRepository_definitionRepository_SourceReferenceIsNull)
+                {
+                    requestDefinitionRepository_definitionRepository_SourceReference = null;
+                }
+                if (requestDefinitionRepository_definitionRepository_SourceReference != null)
+                {
+                    request.DefinitionRepository.SourceReference = requestDefinitionRepository_definitionRepository_SourceReference;
+                    requestDefinitionRepositoryIsNull = false;
+                }
+                 // determine if request.DefinitionRepository should be set to null
+                if (requestDefinitionRepositoryIsNull)
+                {
+                    request.DefinitionRepository = null;
+                }
                 if (cmdletContext.DefinitionUri != null)
                 {
                     request.DefinitionUri = cmdletContext.DefinitionUri;
@@ -376,6 +568,22 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 if (cmdletContext.ParameterTemplate != null)
                 {
                     request.ParameterTemplate = cmdletContext.ParameterTemplate;
+                }
+                if (cmdletContext.ParameterTemplatePath != null)
+                {
+                    request.ParameterTemplatePath = cmdletContext.ParameterTemplatePath;
+                }
+                if (cmdletContext.ReadmeMarkdown != null)
+                {
+                    request.ReadmeMarkdown = cmdletContext.ReadmeMarkdown;
+                }
+                if (cmdletContext.ReadmePath != null)
+                {
+                    request.ReadmePath = cmdletContext.ReadmePath;
+                }
+                if (cmdletContext.ReadmeUri != null)
+                {
+                    request.ReadmeUri = cmdletContext.ReadmeUri;
                 }
                 if (cmdletContext.RequestId != null)
                 {
@@ -469,12 +677,21 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.Omics.Accelerators Accelerator { get; set; }
+            public System.String DefinitionRepository_ConnectionArn { get; set; }
+            public List<System.String> DefinitionRepository_ExcludeFilePattern { get; set; }
+            public System.String DefinitionRepository_FullRepositoryId { get; set; }
+            public Amazon.Omics.SourceReferenceType SourceReference_Type { get; set; }
+            public System.String SourceReference_Value { get; set; }
             public System.String DefinitionUri { get; set; }
             public byte[] DefinitionZip { get; set; }
             public System.String Description { get; set; }
             public Amazon.Omics.WorkflowEngine Engine { get; set; }
             public System.String Main { get; set; }
             public Dictionary<System.String, Amazon.Omics.Model.WorkflowParameter> ParameterTemplate { get; set; }
+            public System.String ParameterTemplatePath { get; set; }
+            public System.String ReadmeMarkdown { get; set; }
+            public System.String ReadmePath { get; set; }
+            public System.String ReadmeUri { get; set; }
             public System.String RequestId { get; set; }
             public System.Int32? StorageCapacity { get; set; }
             public Amazon.Omics.StorageType StorageType { get; set; }

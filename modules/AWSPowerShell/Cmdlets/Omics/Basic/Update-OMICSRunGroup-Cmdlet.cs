@@ -30,7 +30,27 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Updates a run group.
+    /// Updates the settings of a run group and returns a response with no body if the operation
+    /// is successful.
+    /// 
+    ///  
+    /// <para>
+    /// You can update the following settings with <c>UpdateRunGroup</c>:
+    /// </para><ul><li><para>
+    /// Maximum number of CPUs
+    /// </para></li><li><para>
+    /// Run time (measured in minutes)
+    /// </para></li><li><para>
+    /// Number of GPUs
+    /// </para></li><li><para>
+    /// Number of concurrent runs
+    /// </para></li><li><para>
+    /// Group name
+    /// </para></li></ul><para>
+    /// To confirm that the settings have been successfully updated, use the <c>ListRunGroups</c>
+    /// or <c>GetRunGroup</c> API operations to verify that the desired changes have been
+    /// made.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "OMICSRunGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

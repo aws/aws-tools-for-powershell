@@ -30,17 +30,15 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Gets information about a workflow run.
+    /// Gets detailed information about a specific run using its ID.
     /// 
     ///  
     /// <para>
-    /// If a workflow is shared with you, you cannot export information about the run.
-    /// </para><para>
-    /// Amazon Web Services HealthOmics stores a fixed number of runs that are available to
-    /// the console and API. If GetRun doesn't return the requested run, you can find run
-    /// logs for all runs in the CloudWatch logs. For more information about viewing the run
-    /// logs, see <a href="https://docs.aws.amazon.com/omics/latest/dev/cloudwatch-logs.html">CloudWatch
-    /// logs</a> in the <i>in the Amazon Web Services HealthOmics User Guide</i>.
+    /// Amazon Web Services HealthOmics stores a configurable number of runs, as determined
+    /// by service limits, that are available to the console and API. If <c>GetRun</c> does
+    /// not return the requested run, you can find all run logs in the CloudWatch logs. For
+    /// more information about viewing the run logs, see <a href="https://docs.aws.amazon.com/omics/latest/dev/monitoring-cloudwatch-logs.html">CloudWatch
+    /// logs</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "OMICSRun")]

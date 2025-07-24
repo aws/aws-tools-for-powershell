@@ -1,4 +1,14 @@
-﻿### 5.0.17 (2025-07-23 20:02Z)
+﻿### 5.0.18 (2025-07-24 19:58Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.55.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DataZone
+    * Modified cmdlet Search-DZListing: added parameter Aggregation.
+  * Amazon Omics
+    * Modified cmdlet New-OMICSWorkflow: added parameters DefinitionRepository_ConnectionArn, DefinitionRepository_ExcludeFilePattern, DefinitionRepository_FullRepositoryId, ParameterTemplatePath, ReadmeMarkdown, ReadmePath, ReadmeUri, SourceReference_Type, SourceReference_Value and WorkflowBucketOwnerId.
+    * Modified cmdlet New-OMICSWorkflowVersion: added parameters DefinitionRepository_ConnectionArn, DefinitionRepository_ExcludeFilePattern, DefinitionRepository_FullRepositoryId, ParameterTemplatePath, ReadmeMarkdown, ReadmePath, ReadmeUri, SourceReference_Type and SourceReference_Value.
+    * Modified cmdlet Update-OMICSWorkflow: added parameter ReadmeMarkdown.
+    * Modified cmdlet Update-OMICSWorkflowVersion: added parameter ReadmeMarkdown.
+
+### 5.0.17 (2025-07-23 20:02Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.54.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud
     * Modified cmdlet Stop-EC2Instance: added parameter SkipOsShutdown.
