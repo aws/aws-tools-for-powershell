@@ -28,8 +28,8 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// You can optionally create a run group to limit the compute resources for the runs
-    /// that you add to the group.
+    /// Creates a run group to limit the compute resources for the runs that are added to
+    /// the group. Returns an ARN, ID, and tags for the run group.
     /// </summary>
     [Cmdlet("New", "OMICSRunGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Omics.Model.CreateRunGroupResponse")]

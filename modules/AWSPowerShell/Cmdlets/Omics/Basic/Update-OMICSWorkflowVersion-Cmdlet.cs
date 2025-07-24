@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
     /// Updates information about the workflow version. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html">Workflow
-    /// versioning in Amazon Web Services HealthOmics</a> in the Amazon Web Services HealthOmics
-    /// User Guide.
+    /// versioning in Amazon Web Services HealthOmics</a> in the <i>Amazon Web Services HealthOmics
+    /// User Guide</i>.
     /// </summary>
     [Cmdlet("Update", "OMICSWorkflowVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -52,6 +52,17 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter ReadmeMarkdown
+        /// <summary>
+        /// <para>
+        /// <para>The markdown content for the workflow version's README file. This provides documentation
+        /// and usage information for users of this specific workflow version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ReadmeMarkdown { get; set; }
         #endregion
         
         #region Parameter StorageCapacity
@@ -176,6 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
+            context.ReadmeMarkdown = this.ReadmeMarkdown;
             context.StorageCapacity = this.StorageCapacity;
             context.StorageType = this.StorageType;
             context.VersionName = this.VersionName;
@@ -211,6 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.ReadmeMarkdown != null)
+            {
+                request.ReadmeMarkdown = cmdletContext.ReadmeMarkdown;
             }
             if (cmdletContext.StorageCapacity != null)
             {
@@ -290,6 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public System.String ReadmeMarkdown { get; set; }
             public System.Int32? StorageCapacity { get; set; }
             public Amazon.Omics.StorageType StorageType { get; set; }
             public System.String VersionName { get; set; }

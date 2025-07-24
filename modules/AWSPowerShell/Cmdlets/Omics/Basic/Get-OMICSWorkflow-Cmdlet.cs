@@ -28,11 +28,14 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Gets information about a workflow.
+    /// Gets all information about a workflow using its ID.
     /// 
     ///  
     /// <para>
     /// If a workflow is shared with you, you cannot export the workflow.
+    /// </para><para>
+    /// For more information about your workflow status, see <a href="https://docs.aws.amazon.com/omics/latest/dev/using-get-workflow.html">Verify
+    /// the workflow status</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "OMICSWorkflow")]

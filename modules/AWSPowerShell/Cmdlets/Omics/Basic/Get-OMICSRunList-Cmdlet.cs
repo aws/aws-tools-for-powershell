@@ -28,14 +28,14 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Retrieves a list of runs.
+    /// Retrieves a list of runs and returns each run's metadata and status.
     /// 
     ///  
     /// <para>
-    /// Amazon Web Services HealthOmics stores a fixed number of runs that are available to
-    /// the console and API. If the ListRuns response doesn't include specific runs that you
-    /// expected, you can find run logs for all runs in the CloudWatch logs. For more information
-    /// about viewing the run logs, see <a href="https://docs.aws.amazon.com/omics/latest/dev/cloudwatch-logs.html">CloudWatch
+    /// Amazon Web Services HealthOmics stores a configurable number of runs, as determined
+    /// by service limits, that are available to the console and API. If the <c>ListRuns</c>
+    /// response doesn't include specific runs that you expected, you can find all run logs
+    /// in the CloudWatch logs. For more information about viewing the run logs, see <a href="https://docs.aws.amazon.com/omics/latest/dev/monitoring-cloudwatch-logs.html">CloudWatch
     /// logs</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.
     /// </para>
     /// </summary>

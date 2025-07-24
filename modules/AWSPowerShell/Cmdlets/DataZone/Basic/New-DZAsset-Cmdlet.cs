@@ -86,7 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter ExternalIdentifier
         /// <summary>
         /// <para>
-        /// <para>The external identifier of the asset.</para>
+        /// <para>The external identifier of the asset.</para><para>If the value for the <c>externalIdentifier</c> parameter is specified, it must be
+        /// a unique value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Gets information about a workflow run task.
+    /// Gets detailed information about a run task using its ID.
     /// </summary>
     [Cmdlet("Get", "OMICSRunTask")]
     [OutputType("Amazon.Omics.Model.GetRunTaskResponse")]

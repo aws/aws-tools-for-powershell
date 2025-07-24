@@ -28,7 +28,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Retrieves a list of your run caches.
+    /// Retrieves a list of your run caches and the metadata for each cache.
     /// </summary>
     [Cmdlet("Get", "OMICSRunCachList")]
     [OutputType("Amazon.Omics.Model.RunCacheListItem")]

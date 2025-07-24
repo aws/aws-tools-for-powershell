@@ -28,8 +28,26 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Updates information about a workflow. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/update-private-workflow.html">Update
-    /// a private workflow</a> in the Amazon Web Services HealthOmics User Guide.
+    /// Updates information about a workflow.
+    /// 
+    ///  
+    /// <para>
+    /// You can update the following workflow information:
+    /// </para><ul><li><para>
+    /// Name
+    /// </para></li><li><para>
+    /// Description
+    /// </para></li><li><para>
+    /// Default storage type
+    /// </para></li><li><para>
+    /// Default storage capacity (with workflow ID)
+    /// </para></li></ul><para>
+    /// This operation returns a response with no body if the operation is successful. You
+    /// can check the workflow updates by calling the <c>GetWorkflow</c> API operation.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/update-private-workflow.html">Update
+    /// a private workflow</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "OMICSWorkflow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -78,6 +96,17 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter ReadmeMarkdown
+        /// <summary>
+        /// <para>
+        /// <para>The markdown content for the workflow's README file. This provides documentation and
+        /// usage information for users of the workflow.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ReadmeMarkdown { get; set; }
         #endregion
         
         #region Parameter StorageCapacity
@@ -176,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             }
             #endif
             context.Name = this.Name;
+            context.ReadmeMarkdown = this.ReadmeMarkdown;
             context.StorageCapacity = this.StorageCapacity;
             context.StorageType = this.StorageType;
             
@@ -205,6 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.ReadmeMarkdown != null)
+            {
+                request.ReadmeMarkdown = cmdletContext.ReadmeMarkdown;
             }
             if (cmdletContext.StorageCapacity != null)
             {
@@ -278,6 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public System.String Description { get; set; }
             public System.String Id { get; set; }
             public System.String Name { get; set; }
+            public System.String ReadmeMarkdown { get; set; }
             public System.Int32? StorageCapacity { get; set; }
             public Amazon.Omics.StorageType StorageType { get; set; }
             public System.Func<Amazon.Omics.Model.UpdateWorkflowResponse, UpdateOMICSWorkflowCmdlet, object> Select { get; set; } =

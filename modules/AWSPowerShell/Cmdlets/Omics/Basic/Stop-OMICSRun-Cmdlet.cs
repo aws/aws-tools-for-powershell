@@ -28,7 +28,9 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Cancels a run.
+    /// Cancels a run using its ID and returns a response with no body if the operation is
+    /// successful. To confirm that the run has been cancelled, use the <c>ListRuns</c> API
+    /// operation to check that it is no longer listed.
     /// </summary>
     [Cmdlet("Stop", "OMICSRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

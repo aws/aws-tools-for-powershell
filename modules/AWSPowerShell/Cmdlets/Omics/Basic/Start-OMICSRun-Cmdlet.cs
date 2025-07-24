@@ -28,18 +28,56 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Starts a new run or duplicates an existing run.
+    /// Starts a new run and returns details about the run, or duplicates an existing run.
+    /// A run is a single invocation of a workflow. If you provide request IDs, Amazon Web
+    /// Services HealthOmics identifies duplicate requests and starts the run only once. Monitor
+    /// the progress of the run by calling the <c>GetRun</c> API operation.
     /// 
     ///  
     /// <para>
-    /// For a new run, specify a unique <c>requestId</c>, the <c>workflowId</c>, and a role
-    /// ARN. If you're using static run storage (the default), specify the required <c>storageCapacity</c>.
+    /// To start a new run, the following inputs are required:
+    /// </para><ul><li><para>
+    /// A service role ARN (<c>roleArn</c>).
+    /// </para></li><li><para>
+    /// The run's workflow ID (<c>workflowId</c>, not the <c>uuid</c> or <c>runId</c>).
+    /// </para></li><li><para>
+    /// An Amazon S3 location (<c>outputUri</c>) where the run outputs will be saved.
+    /// </para></li><li><para>
+    /// All required workflow parameters (<c>parameter</c>), which can include optional parameters
+    /// from the parameter template. The run cannot include any parameters that are not defined
+    /// in the parameter template. To see all possible parameters, use the <c>GetRun</c> API
+    /// operation. 
+    /// </para></li><li><para>
+    /// For runs with a <c>STATIC</c> (default) storage type, specify the required storage
+    /// capacity (in gibibytes). A storage capacity value is not required for runs that use
+    /// <c>DYNAMIC</c> storage.
+    /// </para></li></ul><para><c>StartRun</c> can also duplicate an existing run using the run's default values.
+    /// You can modify these default values and/or add other optional inputs. To duplicate
+    /// a run, the following inputs are required:
+    /// </para><ul><li><para>
+    /// A service role ARN (<c>roleArn</c>).
+    /// </para></li><li><para>
+    /// The ID of the run to duplicate (<c>runId</c>).
+    /// </para></li><li><para>
+    /// An Amazon S3 location where the run outputs will be saved (<c>outputUri</c>).
+    /// </para></li></ul><para>
+    /// To learn more about the optional parameters for <c>StartRun</c>, see <a href="https://docs.aws.amazon.com/omics/latest/dev/starting-a-run.html">Starting
+    /// a run</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.
     /// </para><para>
-    /// You duplicate a run by specifing a unique <c>requestId</c>, the <c>runID</c> of the
-    /// run to duplicate, and a role ARN.
-    /// </para><para>
-    /// For more information about the optional parameters in the StartRun request, see <a href="https://docs.aws.amazon.com/omics/latest/dev/starting-a-run.html">Starting a
-    /// run</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.
+    /// Use the <c>retentionMode</c> input to control how long the metadata for each run is
+    /// stored in CloudWatch. There are two retention modes:
+    /// </para><ul><li><para>
+    /// Specify <c>REMOVE</c> to automatically remove the oldest runs when you reach the maximum
+    /// service retention limit for runs. It is recommended that you use the <c>REMOVE</c>
+    /// mode to initiate major run requests so that your runs do not fail when you reach the
+    /// limit.
+    /// </para></li><li><para>
+    /// The <c>retentionMode</c> is set to the <c>RETAIN</c> mode by default, which allows
+    /// you to manually remove runs after reaching the maximum service retention limit. Under
+    /// this setting, you cannot create additional runs until you remove the excess runs.
+    /// </para></li></ul><para>
+    /// To learn more about the retention modes, see <a href="https://docs.aws.amazon.com/omics/latest/dev/run-retention.html">Run
+    /// retention mode</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "OMICSRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -59,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// <para>The cache behavior for the run. You specify this value if you want to override the
         /// default behavior for the cache. You had set the default value when you created the
         /// cache. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/how-run-cache.html#run-cache-behavior">Run
-        /// cache behavior</a> in the Amazon Web Services HealthOmics User Guide.</para>
+        /// cache behavior</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A name for the run.</para>
+        /// <para>A name for the run. This is recommended to view and organize runs in the Amazon Web
+        /// Services HealthOmics console and CloudWatch logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter OutputUri
         /// <summary>
         /// <para>
-        /// <para>An output URI for the run.</para>
+        /// <para>An output S3 URI for the run. The S3 bucket must be in the same region as the workflow.
+        /// The role ARN must have permission to write to this S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>Parameters for the run.</para>
+        /// <para>Parameters for the run. The run needs all required parameters and can include optional
+        /// parameters. The run cannot include any parameters that are not defined in the parameter
+        /// template. To retrieve parameters from the run, use the GetRun API operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +165,12 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Priority
         /// <summary>
         /// <para>
-        /// <para>A priority for the run.</para>
+        /// <para>Use the run priority (highest: 1) to establish the order of runs in a run group when
+        /// you start a run. If multiple runs share the same priority, the run that was initiated
+        /// first will have the higher priority. Runs that do not belong to a run group can be
+        /// assigned a priority. The priorities of these runs are ranked among other runs that
+        /// are not in a run group. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/creating-run-groups.html#run-priority">Run
+        /// priority</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +180,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter RequestId
         /// <summary>
         /// <para>
-        /// <para>To ensure that requests don't run multiple times, specify a unique ID for each request.</para>
+        /// <para>An idempotency token used to dedupe retry requests so that duplicate runs are not
+        /// created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,13 +191,13 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter RetentionMode
         /// <summary>
         /// <para>
-        /// <para>The retention mode for the run. The default value is RETAIN. </para><para>Amazon Web Services HealthOmics stores a fixed number of runs that are available to
-        /// the console and API. In the default mode (RETAIN), you need to remove runs manually
-        /// when the number of run exceeds the maximum. If you set the retention mode to <c>REMOVE</c>,
-        /// Amazon Web Services HealthOmics automatically removes runs (that have mode set to
-        /// REMOVE) when the number of run exceeds the maximum. All run logs are available in
-        /// CloudWatch logs, if you need information about a run that is no longer available to
-        /// the API.</para><para>For more information about retention mode, see <a href="https://docs.aws.amazon.com/omics/latest/dev/starting-a-run.html">Specifying
+        /// <para>The retention mode for the run. The default value is <c>RETAIN</c>. </para><para>Amazon Web Services HealthOmics stores a fixed number of runs that are available to
+        /// the console and API. In the default mode (<c>RETAIN</c>), you need to remove runs
+        /// manually when the number of run exceeds the maximum. If you set the retention mode
+        /// to <c>REMOVE</c>, Amazon Web Services HealthOmics automatically removes runs (that
+        /// have mode set to <c>REMOVE</c>) when the number of run exceeds the maximum. All run
+        /// logs are available in CloudWatch logs, if you need information about a run that is
+        /// no longer available to the API.</para><para>For more information about retention mode, see <a href="https://docs.aws.amazon.com/omics/latest/dev/starting-a-run.html">Specifying
         /// run retention mode</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -161,7 +209,9 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>A service role for the run.</para>
+        /// <para>A service role for the run. The <c>roleArn</c> requires access to Amazon Web Services
+        /// HealthOmics, S3, Cloudwatch logs, and EC2. An example <c>roleArn</c> is <c>arn:aws:iam::123456789012:role/omics-service-role-serviceRole-W8O1XMPL7QZ</c>.
+        /// In this example, the AWS account ID is <c>123456789012</c> and the role name is <c>omics-service-role-serviceRole-W8O1XMPL7QZ</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -178,7 +228,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter RunGroupId
         /// <summary>
         /// <para>
-        /// <para>The run's group ID.</para>
+        /// <para>The run's group ID. Use a run group to cap the compute resources (and number of concurrent
+        /// runs) for the runs that you add to the run group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,8 +249,12 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter StorageCapacity
         /// <summary>
         /// <para>
-        /// <para>The static storage capacity (in gibibytes) for this run. This field is not required
-        /// if the storage type is dynamic (the system ignores any value that you enter).</para>
+        /// <para>The <c>STATIC</c> storage capacity (in gibibytes, GiB) for this run. The default run
+        /// storage capacity is 1200 GiB. If your requested storage capacity is unavailable, the
+        /// system rounds up the value to the nearest 1200 GiB multiple. If the requested storage
+        /// capacity is still unavailable, the system rounds up the value to the nearest 2400
+        /// GiB multiple. This field is not required if the storage type is <c>DYNAMIC</c> (the
+        /// system ignores any value that you enter).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -209,11 +264,12 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>The storage type for the run. By default, the run uses STATIC storage type, which
-        /// allocates a fixed amount of storage. If you set the storage type to DYNAMIC, Amazon
+        /// <para>The storage type for the run. If you set the storage type to <c>DYNAMIC</c>, Amazon
         /// Web Services HealthOmics dynamically scales the storage up or down, based on file
-        /// system utilization. For more information about static and dynamic storage, see <a href="https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html">Running workflows</a>
-        /// in the <i>Amazon Web Services HealthOmics User Guide</i>.</para>
+        /// system utilization. By default, the run uses <c>STATIC</c> storage type, which allocates
+        /// a fixed amount of storage. For more information about <c>DYNAMIC</c> and <c>STATIC</c>
+        /// storage, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-run-types.html">Run
+        /// storage types</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,7 +280,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags for the run.</para>
+        /// <para>Tags for the run. You can add up to 50 tags per run. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/add-a-tag.html">Adding a tag</a>
+        /// in the <i>Amazon Web Services HealthOmics User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -235,7 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter WorkflowId
         /// <summary>
         /// <para>
-        /// <para>The run's workflow ID.</para>
+        /// <para>The run's workflow ID. The <c>workflowId</c> is not the UUID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -245,7 +302,9 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter WorkflowOwnerId
         /// <summary>
         /// <para>
-        /// <para>The ID of the workflow owner. </para>
+        /// <para>The 12-digit account ID of the workflow owner that is used for running a shared workflow.
+        /// The workflow owner ID can be retrieved using the <c>GetShare</c> API operation. If
+        /// you are the workflow owner, you do not need to include this ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -255,7 +314,9 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter WorkflowType
         /// <summary>
         /// <para>
-        /// <para>The run's workflow type.</para>
+        /// <para>The run's workflow type. The <c>workflowType</c> must be specified if you are running
+        /// a <c>READY2RUN</c> workflow. If you are running a <c>PRIVATE</c> workflow (default),
+        /// you do not need to include the workflow type. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -266,7 +327,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter WorkflowVersionName
         /// <summary>
         /// <para>
-        /// <para>The name of the workflow version.</para>
+        /// <para>The name of the workflow version. Use workflow versions to track and organize changes
+        /// to the workflow. If your workflow has multiple versions, the run uses the default
+        /// version unless you specify a version name. To learn more, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html">Workflow
+        /// versioning</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,16 +28,17 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// You can create a run cache to save the task outputs from completed tasks in a run
-    /// for a private workflow. Subsequent runs use the task outputs from the cache, rather
-    /// than computing the task outputs again. You specify an Amazon S3 location where Amazon
-    /// Web Services HealthOmics saves the cached data. This data must be immediately accessible
-    /// (not in an archived state).
+    /// Creates a run cache to store and reference task outputs from completed private runs.
+    /// Specify an Amazon S3 location where Amazon Web Services HealthOmics saves the cached
+    /// data. This data must be immediately accessible and not in an archived state. You can
+    /// save intermediate task files to a run cache if they are declared as task outputs in
+    /// the workflow definition file.
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-cache-create.html">Creating
-    /// a run cache</a> in the Amazon Web Services HealthOmics User Guide.
+    /// For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-call-caching.html">Call
+    /// caching</a> and <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-cache-create.html">Creating
+    /// a run cache</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "OMICSRunCache", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -61,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// run.</para><para><c>CACHE_ALWAYS</c>: Caches task outputs from completed tasks for all runs. This
         /// setting is useful in development mode, but do not use it in a production setting.</para><para>If you don't specify a value, the default behavior is CACHE_ON_FAILURE. When you start
         /// a run that uses this cache, you can override the default cache behavior.</para><para>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/how-run-cache.html#run-cache-behavior">Run
-        /// cache behavior</a> in the Amazon Web Services HealthOmics User Guide.</para>
+        /// cache behavior</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

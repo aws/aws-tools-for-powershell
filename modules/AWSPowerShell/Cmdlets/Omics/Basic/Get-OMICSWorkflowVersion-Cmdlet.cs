@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
     /// Gets information about a workflow version. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html">Workflow
-    /// versioning in Amazon Web Services HealthOmics</a> in the Amazon Web Services HealthOmics
-    /// User Guide.
+    /// versioning in Amazon Web Services HealthOmics</a> in the <i>Amazon Web Services HealthOmics
+    /// User Guide</i>.
     /// </summary>
     [Cmdlet("Get", "OMICSWorkflowVersion")]
     [OutputType("Amazon.Omics.Model.GetWorkflowVersionResponse")]

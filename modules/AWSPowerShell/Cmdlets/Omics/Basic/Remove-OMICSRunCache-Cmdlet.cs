@@ -28,15 +28,16 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Delete a run cache. This action removes the cache metadata stored in the service account,
-    /// but doesn't delete the data in Amazon S3. You can access the cache data in Amazon
-    /// S3, for inspection or to troubleshoot issues. You can remove old cache data using
-    /// standard S3 <c>Delete</c> operations. 
+    /// Deletes a run cache and returns a response with no body if the operation is successful.
+    /// This action removes the cache metadata stored in the service account, but does not
+    /// delete the data in Amazon S3. You can access the cache data in Amazon S3, for inspection
+    /// or to troubleshoot issues. You can remove old cache data using standard S3 <c>Delete</c>
+    /// operations. 
     /// 
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-cache-delete.html">Deleting
-    /// a run cache</a> in the Amazon Web Services HealthOmics User Guide.
+    /// a run cache</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "OMICSRunCache", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

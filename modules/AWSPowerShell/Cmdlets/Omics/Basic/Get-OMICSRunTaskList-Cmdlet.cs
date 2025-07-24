@@ -28,7 +28,8 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Retrieves a list of tasks for a run.
+    /// Returns a list of tasks and status information within their specified run. Use this
+    /// operation to monitor runs and to identify which specific tasks have failed.
     /// </summary>
     [Cmdlet("Get", "OMICSRunTaskList")]
     [OutputType("Amazon.Omics.Model.TaskListItem")]

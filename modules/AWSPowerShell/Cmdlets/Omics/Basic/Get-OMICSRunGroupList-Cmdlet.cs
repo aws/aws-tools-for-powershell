@@ -28,7 +28,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Retrieves a list of run groups.
+    /// Retrieves a list of all run groups and returns the metadata for each run group.
     /// </summary>
     [Cmdlet("Get", "OMICSRunGroupList")]
     [OutputType("Amazon.Omics.Model.RunGroupListItem")]
