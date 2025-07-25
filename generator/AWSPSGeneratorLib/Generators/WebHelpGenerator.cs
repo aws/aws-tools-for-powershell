@@ -514,7 +514,14 @@ namespace AWSPowerShellGenerator.Generators
                         serviceName = ServiceNamespaceContractions[serviceName];
 
                     var tName = nameComponents[nameComponents.Length - 1];
-                    var sdkTypePagePath = ShrinkSdkLongFilepath($"T{serviceName}{tName}");
+
+                    // Check if this is a Config class (not in Model namespace and tName starts with Amazon)
+                    bool isConfigClass = !t.Contains(".Model.") && tName.StartsWith("Amazon" + serviceName);
+
+                    var sdkTypePagePath = isConfigClass
+                        ? ShrinkSdkLongFilepath($"T{tName}")  // Don't prepend serviceName for Config classes
+                        : ShrinkSdkLongFilepath($"T{serviceName}{tName}"); // Prepend for Model classes
+                        
                     return $"{SDKHelpRoot}index.html?page={serviceName}/{sdkTypePagePath}.html&tocid={t.Replace('.', '_')}";
                 }
 
