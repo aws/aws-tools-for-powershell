@@ -77,8 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter EvaluationMode
         /// <summary>
         /// <para>
-        /// <para>The mode of an evaluation. The valid values for this API are <c>DETECTIVE</c> and
-        /// <c>PROACTIVE</c>.</para>
+        /// <para>The mode of an evaluation.</para><note><para>The only valid value for this API is <c>PROACTIVE</c>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

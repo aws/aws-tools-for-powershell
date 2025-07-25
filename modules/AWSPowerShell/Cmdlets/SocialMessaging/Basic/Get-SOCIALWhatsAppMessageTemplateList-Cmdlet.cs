@@ -23,34 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.MediaPackageV2;
-using Amazon.MediaPackageV2.Model;
+using Amazon.SocialMessaging;
+using Amazon.SocialMessaging.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.MPV2
+namespace Amazon.PowerShell.Cmdlets.SOCIAL
 {
     /// <summary>
-    /// Retrieves all channels in a specific channel group that are configured in AWS Elemental
-    /// MediaPackage.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// Lists WhatsApp message templates for a specific WhatsApp Business Account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "MPV2ChannelList")]
-    [OutputType("Amazon.MediaPackageV2.Model.ChannelListConfiguration")]
-    [AWSCmdlet("Calls the AWS Elemental MediaPackage v2 ListChannels API operation.", Operation = new[] {"ListChannels"}, SelectReturnType = typeof(Amazon.MediaPackageV2.Model.ListChannelsResponse))]
-    [AWSCmdletOutput("Amazon.MediaPackageV2.Model.ChannelListConfiguration or Amazon.MediaPackageV2.Model.ListChannelsResponse",
-        "This cmdlet returns a collection of Amazon.MediaPackageV2.Model.ChannelListConfiguration objects.",
-        "The service call response (type Amazon.MediaPackageV2.Model.ListChannelsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "SOCIALWhatsAppMessageTemplateList")]
+    [OutputType("Amazon.SocialMessaging.Model.TemplateSummary")]
+    [AWSCmdlet("Calls the AWS End User Messaging Social ListWhatsAppMessageTemplates API operation.", Operation = new[] {"ListWhatsAppMessageTemplates"}, SelectReturnType = typeof(Amazon.SocialMessaging.Model.ListWhatsAppMessageTemplatesResponse))]
+    [AWSCmdletOutput("Amazon.SocialMessaging.Model.TemplateSummary or Amazon.SocialMessaging.Model.ListWhatsAppMessageTemplatesResponse",
+        "This cmdlet returns a collection of Amazon.SocialMessaging.Model.TemplateSummary objects.",
+        "The service call response (type Amazon.SocialMessaging.Model.ListWhatsAppMessageTemplatesResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetMPV2ChannelListCmdlet : AmazonMediaPackageV2ClientCmdlet, IExecutor
+    public partial class GetSOCIALWhatsAppMessageTemplateListCmdlet : AmazonSocialMessagingClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ChannelGroupName
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The name that describes the channel group. The name is the primary identifier for
-        /// the channel group, and must be unique for your account in the AWS Region.</para>
+        /// <para>The ID of the WhatsApp Business Account to list templates for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,13 +59,13 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ChannelGroupName { get; set; }
+        public System.String Id { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in the response.</para>
+        /// <para>The maximum number of results to return per page (1-100).</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -83,8 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The pagination token from the GET list request. Use the token to fetch the next page
-        /// of results.</para>
+        /// <para>The token for the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -97,13 +94,13 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MediaPackageV2.Model.ListChannelsResponse).
-        /// Specifying the name of a property of type Amazon.MediaPackageV2.Model.ListChannelsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Templates'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SocialMessaging.Model.ListWhatsAppMessageTemplatesResponse).
+        /// Specifying the name of a property of type Amazon.SocialMessaging.Model.ListWhatsAppMessageTemplatesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Items";
+        public string Select { get; set; } = "Templates";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -111,7 +108,6 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
         /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
         /// as the start point.
-        /// This cmdlet didn't autopaginate in V4. To preserve the V4 autopagination behavior for all cmdlets, run Set-AWSAutoIterationMode -IterationMode v4.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter NoAutoIteration { get; set; }
@@ -133,14 +129,14 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MediaPackageV2.Model.ListChannelsResponse, GetMPV2ChannelListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SocialMessaging.Model.ListWhatsAppMessageTemplatesResponse, GetSOCIALWhatsAppMessageTemplateListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ChannelGroupName = this.ChannelGroupName;
+            context.Id = this.Id;
             #if MODULAR
-            if (this.ChannelGroupName == null && ParameterWasBound(nameof(this.ChannelGroupName)))
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
             {
-                WriteWarning("You are passing $null as a value for parameter ChannelGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.MaxResult = this.MaxResult;
@@ -170,11 +166,11 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.MediaPackageV2.Model.ListChannelsRequest();
+            var request = new Amazon.SocialMessaging.Model.ListWhatsAppMessageTemplatesRequest();
             
-            if (cmdletContext.ChannelGroupName != null)
+            if (cmdletContext.Id != null)
             {
-                request.ChannelGroupName = cmdletContext.ChannelGroupName;
+                request.Id = cmdletContext.Id;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -184,7 +180,6 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;
             var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
-            var _shouldAutoIterate = !(SessionState.PSVariable.GetValue("AWSPowerShell_AutoIteration_Mode")?.ToString() == "v4");
             
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             do
@@ -218,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
                 
                 ProcessOutput(output);
                 
-            } while (!_userControllingPaging && _shouldAutoIterate && AutoIterationHelpers.HasValue(_nextToken));
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
             
             if (useParameterSelect)
             {
@@ -238,12 +233,12 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         
         #region AWS Service Operation Call
         
-        private Amazon.MediaPackageV2.Model.ListChannelsResponse CallAWSServiceOperation(IAmazonMediaPackageV2 client, Amazon.MediaPackageV2.Model.ListChannelsRequest request)
+        private Amazon.SocialMessaging.Model.ListWhatsAppMessageTemplatesResponse CallAWSServiceOperation(IAmazonSocialMessaging client, Amazon.SocialMessaging.Model.ListWhatsAppMessageTemplatesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaPackage v2", "ListChannels");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS End User Messaging Social", "ListWhatsAppMessageTemplates");
             try
             {
-                return client.ListChannelsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListWhatsAppMessageTemplatesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -260,11 +255,11 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ChannelGroupName { get; set; }
+            public System.String Id { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.MediaPackageV2.Model.ListChannelsResponse, GetMPV2ChannelListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Items;
+            public System.Func<Amazon.SocialMessaging.Model.ListWhatsAppMessageTemplatesResponse, GetSOCIALWhatsAppMessageTemplateListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Templates;
         }
         
     }

@@ -67,6 +67,16 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
         public System.String SetupFinalization_AssociateInProgressToken { get; set; }
         #endregion
         
+        #region Parameter SignupCallback_CallbackUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL where WhatsApp will send callback notifications for this account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SignupCallback_CallbackUrl { get; set; }
+        #endregion
+        
         #region Parameter Waba_EventDestination
         /// <summary>
         /// <para>
@@ -197,6 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
                 context.Waba_Tag = new List<Amazon.SocialMessaging.Model.Tag>(this.Waba_Tag);
             }
             context.SignupCallback_AccessToken = this.SignupCallback_AccessToken;
+            context.SignupCallback_CallbackUrl = this.SignupCallback_CallbackUrl;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -311,6 +322,16 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
                 request.SignupCallback.AccessToken = requestSignupCallback_signupCallback_AccessToken;
                 requestSignupCallbackIsNull = false;
             }
+            System.String requestSignupCallback_signupCallback_CallbackUrl = null;
+            if (cmdletContext.SignupCallback_CallbackUrl != null)
+            {
+                requestSignupCallback_signupCallback_CallbackUrl = cmdletContext.SignupCallback_CallbackUrl;
+            }
+            if (requestSignupCallback_signupCallback_CallbackUrl != null)
+            {
+                request.SignupCallback.CallbackUrl = requestSignupCallback_signupCallback_CallbackUrl;
+                requestSignupCallbackIsNull = false;
+            }
              // determine if request.SignupCallback should be set to null
             if (requestSignupCallbackIsNull)
             {
@@ -378,6 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
             public System.String Waba_Id { get; set; }
             public List<Amazon.SocialMessaging.Model.Tag> Waba_Tag { get; set; }
             public System.String SignupCallback_AccessToken { get; set; }
+            public System.String SignupCallback_CallbackUrl { get; set; }
             public System.Func<Amazon.SocialMessaging.Model.AssociateWhatsAppBusinessAccountResponse, ConnectSOCIALWhatsAppBusinessAccountCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

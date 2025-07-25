@@ -1,4 +1,23 @@
-﻿### 5.0.18 (2025-07-24 19:58Z)
+﻿### 5.0.19 (2025-07-25 19:59Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.56.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppIntegrations Service
+    * Modified cmdlet New-AISApplication: added parameters ContactHandling_Scope, IframeConfig_Allow, IframeConfig_Sandbox, InitializationTimeout and IsService.
+    * Modified cmdlet Update-AISApplication: added parameters ContactHandling_Scope, IframeConfig_Allow, IframeConfig_Sandbox, InitializationTimeout and IsService.
+  * Amazon Elemental MediaPackage v2
+    * Modified cmdlet New-MPV2Channel: added parameter InputSwitchConfiguration_PreferredInput.
+    * Modified cmdlet Update-MPV2Channel: added parameter InputSwitchConfiguration_PreferredInput.
+  * Amazon End User Messaging Social
+    * Added cmdlet Get-SOCIALWhatsAppMessageTemplate leveraging the GetWhatsAppMessageTemplate service API.
+    * Added cmdlet Get-SOCIALWhatsAppMessageTemplateList leveraging the ListWhatsAppMessageTemplates service API.
+    * Added cmdlet Get-SOCIALWhatsAppTemplateLibraryList leveraging the ListWhatsAppTemplateLibrary service API.
+    * Added cmdlet New-SOCIALWhatsAppMessageTemplate leveraging the CreateWhatsAppMessageTemplate service API.
+    * Added cmdlet New-SOCIALWhatsAppMessageTemplateFromLibrary leveraging the CreateWhatsAppMessageTemplateFromLibrary service API.
+    * Added cmdlet New-SOCIALWhatsAppMessageTemplateMedia leveraging the CreateWhatsAppMessageTemplateMedia service API.
+    * Added cmdlet Remove-SOCIALWhatsAppMessageTemplate leveraging the DeleteWhatsAppMessageTemplate service API.
+    * Added cmdlet Update-SOCIALWhatsAppMessageTemplate leveraging the UpdateWhatsAppMessageTemplate service API.
+    * Modified cmdlet Connect-SOCIALWhatsAppBusinessAccount: added parameter SignupCallback_CallbackUrl.
+
+### 5.0.18 (2025-07-24 19:58Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.55.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DataZone
     * Modified cmdlet Search-DZListing: added parameter Aggregation.

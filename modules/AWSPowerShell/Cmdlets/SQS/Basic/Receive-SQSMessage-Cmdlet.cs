@@ -131,8 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a>
         /// or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</para></li><li><para><c>MessageDeduplicationId</c> – Returns the value provided by the producer that calls
         /// the <c><a>SendMessage</a></c> action.</para></li><li><para><c>MessageGroupId</c> – Returns the value provided by the producer that calls the
-        /// <c><a>SendMessage</a></c> action. Messages with the same <c>MessageGroupId</c> are
-        /// returned in sequence.</para></li><li><para><c>SequenceNumber</c> – Returns the value provided by Amazon SQS.</para></li></ul><para />
+        /// <c><a>SendMessage</a></c> action.</para></li><li><para><c>SequenceNumber</c> – Returns the value provided by Amazon SQS.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -181,8 +180,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// tries to delete the processed messages, the action fails with an error.</para><para>To mitigate this effect, ensure that your application observes a safe threshold before
         /// the visibility timeout expires and extend the visibility timeout as necessary.</para></important></li><li><para>While messages with a particular <c>MessageGroupId</c> are invisible, no more messages
         /// belonging to the same <c>MessageGroupId</c> are returned until the visibility timeout
-        /// expires. You can still receive messages with another <c>MessageGroupId</c> as long
-        /// as it is also visible.</para></li><li><para>If a caller of <c>ReceiveMessage</c> can't track the <c>ReceiveRequestAttemptId</c>,
+        /// expires. You can still receive messages with another <c>MessageGroupId</c> from your
+        /// FIFO queue as long as they are visible.</para></li><li><para>If a caller of <c>ReceiveMessage</c> can't track the <c>ReceiveRequestAttemptId</c>,
         /// no retries work until the original visibility timeout expires. As a result, delays
         /// might occur but the messages in the queue remain in a strict order.</para></li></ul><para>The maximum length of <c>ReceiveRequestAttemptId</c> is 128 characters. <c>ReceiveRequestAttemptId</c>
         /// can contain alphanumeric characters (<c>a-z</c>, <c>A-Z</c>, <c>0-9</c>) and punctuation
@@ -252,8 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a>
         /// or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</para></li><li><para><c>MessageDeduplicationId</c> – Returns the value provided by the producer that calls
         /// the <c><a>SendMessage</a></c> action.</para></li><li><para><c>MessageGroupId</c> – Returns the value provided by the producer that calls the
-        /// <c><a>SendMessage</a></c> action. Messages with the same <c>MessageGroupId</c> are
-        /// returned in sequence.</para></li><li><para><c>SequenceNumber</c> – Returns the value provided by Amazon SQS.</para></li></ul><para />
+        /// <c><a>SendMessage</a></c> action. </para></li><li><para><c>SequenceNumber</c> – Returns the value provided by Amazon SQS.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

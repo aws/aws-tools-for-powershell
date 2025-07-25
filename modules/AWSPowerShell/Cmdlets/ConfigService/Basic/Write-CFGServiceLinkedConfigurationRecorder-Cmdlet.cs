@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// and <c>recordingScope</c> is set by the service that is linked to the configuration
     /// recorder.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html"><b>Working with the Configuration Recorder</b></a> in the <i>Config Developer Guide</i>.
+    /// For more information and a list of supported services/service principals, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html"><b>Working with the Configuration Recorder</b></a> in the <i>Config Developer Guide</i>.
     /// </para><para>
     /// This API creates a service-linked role <c>AWSServiceRoleForConfig</c> in your account.
     /// The service-linked role is created only when the role does not exist in your account.

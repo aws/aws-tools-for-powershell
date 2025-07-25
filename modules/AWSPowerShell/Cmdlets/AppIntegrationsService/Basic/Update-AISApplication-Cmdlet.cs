@@ -56,6 +56,20 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         public System.String ExternalUrlConfig_AccessUrl { get; set; }
         #endregion
         
+        #region Parameter IframeConfig_Allow
+        /// <summary>
+        /// <para>
+        /// <para>The list of features that are allowed in the iframe.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] IframeConfig_Allow { get; set; }
+        #endregion
+        
         #region Parameter ExternalUrlConfig_ApprovedOrigin
         /// <summary>
         /// <para>
@@ -98,6 +112,26 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter InitializationTimeout
+        /// <summary>
+        /// <para>
+        /// <para>The maximum time in milliseconds allowed to establish a connection with the workspace.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? InitializationTimeout { get; set; }
+        #endregion
+        
+        #region Parameter IsService
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the application is a service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IsService { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -121,6 +155,33 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Permissions")]
         public System.String[] Permission { get; set; }
+        #endregion
+        
+        #region Parameter IframeConfig_Sandbox
+        /// <summary>
+        /// <para>
+        /// <para>The list of sandbox attributes for the iframe.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] IframeConfig_Sandbox { get; set; }
+        #endregion
+        
+        #region Parameter ContactHandling_Scope
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the application refreshes for each contact or refreshes only with
+        /// each new browser session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ApplicationConfig_ContactHandling_Scope")]
+        [AWSConstantClassSource("Amazon.AppIntegrationsService.ContactHandlingScope")]
+        public Amazon.AppIntegrationsService.ContactHandlingScope ContactHandling_Scope { get; set; }
         #endregion
         
         #region Parameter Publication
@@ -202,6 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.AIS
                 context.Select = CreateSelectDelegate<Amazon.AppIntegrationsService.Model.UpdateApplicationResponse, UpdateAISApplicationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ContactHandling_Scope = this.ContactHandling_Scope;
             context.ExternalUrlConfig_AccessUrl = this.ExternalUrlConfig_AccessUrl;
             if (this.ExternalUrlConfig_ApprovedOrigin != null)
             {
@@ -215,6 +277,16 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             }
             #endif
             context.Description = this.Description;
+            if (this.IframeConfig_Allow != null)
+            {
+                context.IframeConfig_Allow = new List<System.String>(this.IframeConfig_Allow);
+            }
+            if (this.IframeConfig_Sandbox != null)
+            {
+                context.IframeConfig_Sandbox = new List<System.String>(this.IframeConfig_Sandbox);
+            }
+            context.InitializationTimeout = this.InitializationTimeout;
+            context.IsService = this.IsService;
             context.Name = this.Name;
             if (this.Permission != null)
             {
@@ -248,6 +320,40 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             // create request
             var request = new Amazon.AppIntegrationsService.Model.UpdateApplicationRequest();
             
+            
+             // populate ApplicationConfig
+            var requestApplicationConfigIsNull = true;
+            request.ApplicationConfig = new Amazon.AppIntegrationsService.Model.ApplicationConfig();
+            Amazon.AppIntegrationsService.Model.ContactHandling requestApplicationConfig_applicationConfig_ContactHandling = null;
+            
+             // populate ContactHandling
+            var requestApplicationConfig_applicationConfig_ContactHandlingIsNull = true;
+            requestApplicationConfig_applicationConfig_ContactHandling = new Amazon.AppIntegrationsService.Model.ContactHandling();
+            Amazon.AppIntegrationsService.ContactHandlingScope requestApplicationConfig_applicationConfig_ContactHandling_contactHandling_Scope = null;
+            if (cmdletContext.ContactHandling_Scope != null)
+            {
+                requestApplicationConfig_applicationConfig_ContactHandling_contactHandling_Scope = cmdletContext.ContactHandling_Scope;
+            }
+            if (requestApplicationConfig_applicationConfig_ContactHandling_contactHandling_Scope != null)
+            {
+                requestApplicationConfig_applicationConfig_ContactHandling.Scope = requestApplicationConfig_applicationConfig_ContactHandling_contactHandling_Scope;
+                requestApplicationConfig_applicationConfig_ContactHandlingIsNull = false;
+            }
+             // determine if requestApplicationConfig_applicationConfig_ContactHandling should be set to null
+            if (requestApplicationConfig_applicationConfig_ContactHandlingIsNull)
+            {
+                requestApplicationConfig_applicationConfig_ContactHandling = null;
+            }
+            if (requestApplicationConfig_applicationConfig_ContactHandling != null)
+            {
+                request.ApplicationConfig.ContactHandling = requestApplicationConfig_applicationConfig_ContactHandling;
+                requestApplicationConfigIsNull = false;
+            }
+             // determine if request.ApplicationConfig should be set to null
+            if (requestApplicationConfigIsNull)
+            {
+                request.ApplicationConfig = null;
+            }
             
              // populate ApplicationSourceConfig
             var requestApplicationSourceConfigIsNull = true;
@@ -299,6 +405,43 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate IframeConfig
+            var requestIframeConfigIsNull = true;
+            request.IframeConfig = new Amazon.AppIntegrationsService.Model.IframeConfig();
+            List<System.String> requestIframeConfig_iframeConfig_Allow = null;
+            if (cmdletContext.IframeConfig_Allow != null)
+            {
+                requestIframeConfig_iframeConfig_Allow = cmdletContext.IframeConfig_Allow;
+            }
+            if (requestIframeConfig_iframeConfig_Allow != null)
+            {
+                request.IframeConfig.Allow = requestIframeConfig_iframeConfig_Allow;
+                requestIframeConfigIsNull = false;
+            }
+            List<System.String> requestIframeConfig_iframeConfig_Sandbox = null;
+            if (cmdletContext.IframeConfig_Sandbox != null)
+            {
+                requestIframeConfig_iframeConfig_Sandbox = cmdletContext.IframeConfig_Sandbox;
+            }
+            if (requestIframeConfig_iframeConfig_Sandbox != null)
+            {
+                request.IframeConfig.Sandbox = requestIframeConfig_iframeConfig_Sandbox;
+                requestIframeConfigIsNull = false;
+            }
+             // determine if request.IframeConfig should be set to null
+            if (requestIframeConfigIsNull)
+            {
+                request.IframeConfig = null;
+            }
+            if (cmdletContext.InitializationTimeout != null)
+            {
+                request.InitializationTimeout = cmdletContext.InitializationTimeout.Value;
+            }
+            if (cmdletContext.IsService != null)
+            {
+                request.IsService = cmdletContext.IsService.Value;
             }
             if (cmdletContext.Name != null)
             {
@@ -375,10 +518,15 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.AppIntegrationsService.ContactHandlingScope ContactHandling_Scope { get; set; }
             public System.String ExternalUrlConfig_AccessUrl { get; set; }
             public List<System.String> ExternalUrlConfig_ApprovedOrigin { get; set; }
             public System.String Arn { get; set; }
             public System.String Description { get; set; }
+            public List<System.String> IframeConfig_Allow { get; set; }
+            public List<System.String> IframeConfig_Sandbox { get; set; }
+            public System.Int32? InitializationTimeout { get; set; }
+            public System.Boolean? IsService { get; set; }
             public System.String Name { get; set; }
             public List<System.String> Permission { get; set; }
             [System.ObsoleteAttribute]

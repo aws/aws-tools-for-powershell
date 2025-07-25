@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigurationRecorderName
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration recorder. If the name is not specified, the opertation
+        /// <para>The name of the configuration recorder. If the name is not specified, the operation
         /// returns the status for the customer managed configuration recorder configured for
         /// the account, if applicable.</para><note><para>When making a request to this operation, you can only specify one configuration recorder.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned

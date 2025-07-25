@@ -123,6 +123,19 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         public System.Boolean? InputSwitchConfiguration_MQCSInputSwitching { get; set; }
         #endregion
         
+        #region Parameter InputSwitchConfiguration_PreferredInput
+        /// <summary>
+        /// <para>
+        /// <para>For CMAF inputs, indicates which input MediaPackage should prefer when both inputs
+        /// have equal MQCS scores. Select <c>1</c> to prefer the first ingest endpoint, or <c>2</c>
+        /// to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage
+        /// uses its default switching behavior when MQCS scores are equal.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? InputSwitchConfiguration_PreferredInput { get; set; }
+        #endregion
+        
         #region Parameter OutputHeaderConfiguration_PublishMQCS
         /// <summary>
         /// <para>
@@ -222,6 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.InputSwitchConfiguration_MQCSInputSwitching = this.InputSwitchConfiguration_MQCSInputSwitching;
+            context.InputSwitchConfiguration_PreferredInput = this.InputSwitchConfiguration_PreferredInput;
             context.InputType = this.InputType;
             context.OutputHeaderConfiguration_PublishMQCS = this.OutputHeaderConfiguration_PublishMQCS;
             if (this.Tag != null)
@@ -276,6 +290,16 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             if (requestInputSwitchConfiguration_inputSwitchConfiguration_MQCSInputSwitching != null)
             {
                 request.InputSwitchConfiguration.MQCSInputSwitching = requestInputSwitchConfiguration_inputSwitchConfiguration_MQCSInputSwitching.Value;
+                requestInputSwitchConfigurationIsNull = false;
+            }
+            System.Int32? requestInputSwitchConfiguration_inputSwitchConfiguration_PreferredInput = null;
+            if (cmdletContext.InputSwitchConfiguration_PreferredInput != null)
+            {
+                requestInputSwitchConfiguration_inputSwitchConfiguration_PreferredInput = cmdletContext.InputSwitchConfiguration_PreferredInput.Value;
+            }
+            if (requestInputSwitchConfiguration_inputSwitchConfiguration_PreferredInput != null)
+            {
+                request.InputSwitchConfiguration.PreferredInput = requestInputSwitchConfiguration_inputSwitchConfiguration_PreferredInput.Value;
                 requestInputSwitchConfigurationIsNull = false;
             }
              // determine if request.InputSwitchConfiguration should be set to null
@@ -370,6 +394,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.Boolean? InputSwitchConfiguration_MQCSInputSwitching { get; set; }
+            public System.Int32? InputSwitchConfiguration_PreferredInput { get; set; }
             public Amazon.MediaPackageV2.InputType InputType { get; set; }
             public System.Boolean? OutputHeaderConfiguration_PublishMQCS { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

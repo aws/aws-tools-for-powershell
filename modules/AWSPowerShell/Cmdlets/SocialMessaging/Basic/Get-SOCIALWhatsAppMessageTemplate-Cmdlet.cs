@@ -23,50 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.MediaPackageV2;
-using Amazon.MediaPackageV2.Model;
+using Amazon.SocialMessaging;
+using Amazon.SocialMessaging.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.MPV2
+namespace Amazon.PowerShell.Cmdlets.SOCIAL
 {
     /// <summary>
-    /// Retrieves the specified channel that's configured in AWS Elemental MediaPackage.
+    /// Retrieves a specific WhatsApp message template.
     /// </summary>
-    [Cmdlet("Get", "MPV2Channel")]
-    [OutputType("Amazon.MediaPackageV2.Model.GetChannelResponse")]
-    [AWSCmdlet("Calls the AWS Elemental MediaPackage v2 GetChannel API operation.", Operation = new[] {"GetChannel"}, SelectReturnType = typeof(Amazon.MediaPackageV2.Model.GetChannelResponse))]
-    [AWSCmdletOutput("Amazon.MediaPackageV2.Model.GetChannelResponse",
-        "This cmdlet returns an Amazon.MediaPackageV2.Model.GetChannelResponse object containing multiple properties."
+    [Cmdlet("Get", "SOCIALWhatsAppMessageTemplate")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS End User Messaging Social GetWhatsAppMessageTemplate API operation.", Operation = new[] {"GetWhatsAppMessageTemplate"}, SelectReturnType = typeof(Amazon.SocialMessaging.Model.GetWhatsAppMessageTemplateResponse))]
+    [AWSCmdletOutput("System.String or Amazon.SocialMessaging.Model.GetWhatsAppMessageTemplateResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.SocialMessaging.Model.GetWhatsAppMessageTemplateResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetMPV2ChannelCmdlet : AmazonMediaPackageV2ClientCmdlet, IExecutor
+    public partial class GetSOCIALWhatsAppMessageTemplateCmdlet : AmazonSocialMessagingClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ChannelGroupName
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The name that describes the channel group. The name is the primary identifier for
-        /// the channel group, and must be unique for your account in the AWS Region.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ChannelGroupName { get; set; }
-        #endregion
-        
-        #region Parameter ChannelName
-        /// <summary>
-        /// <para>
-        /// <para>The name that describes the channel. The name is the primary identifier for the channel,
-        /// and must be unique for your account in the AWS Region and channel group. </para>
+        /// <para>The ID of the WhatsApp Business Account associated with this template.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,18 +59,35 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ChannelName { get; set; }
+        public System.String Id { get; set; }
+        #endregion
+        
+        #region Parameter MetaTemplateId
+        /// <summary>
+        /// <para>
+        /// <para>The numeric ID of the template assigned by Meta.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String MetaTemplateId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MediaPackageV2.Model.GetChannelResponse).
-        /// Specifying the name of a property of type Amazon.MediaPackageV2.Model.GetChannelResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Template'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SocialMessaging.Model.GetWhatsAppMessageTemplateResponse).
+        /// Specifying the name of a property of type Amazon.SocialMessaging.Model.GetWhatsAppMessageTemplateResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Template";
         #endregion
         
         protected override void StopProcessing()
@@ -107,21 +106,21 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MediaPackageV2.Model.GetChannelResponse, GetMPV2ChannelCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SocialMessaging.Model.GetWhatsAppMessageTemplateResponse, GetSOCIALWhatsAppMessageTemplateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ChannelGroupName = this.ChannelGroupName;
+            context.Id = this.Id;
             #if MODULAR
-            if (this.ChannelGroupName == null && ParameterWasBound(nameof(this.ChannelGroupName)))
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
             {
-                WriteWarning("You are passing $null as a value for parameter ChannelGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ChannelName = this.ChannelName;
+            context.MetaTemplateId = this.MetaTemplateId;
             #if MODULAR
-            if (this.ChannelName == null && ParameterWasBound(nameof(this.ChannelName)))
+            if (this.MetaTemplateId == null && ParameterWasBound(nameof(this.MetaTemplateId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ChannelName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter MetaTemplateId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -138,15 +137,15 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.MediaPackageV2.Model.GetChannelRequest();
+            var request = new Amazon.SocialMessaging.Model.GetWhatsAppMessageTemplateRequest();
             
-            if (cmdletContext.ChannelGroupName != null)
+            if (cmdletContext.Id != null)
             {
-                request.ChannelGroupName = cmdletContext.ChannelGroupName;
+                request.Id = cmdletContext.Id;
             }
-            if (cmdletContext.ChannelName != null)
+            if (cmdletContext.MetaTemplateId != null)
             {
-                request.ChannelName = cmdletContext.ChannelName;
+                request.MetaTemplateId = cmdletContext.MetaTemplateId;
             }
             
             CmdletOutput output;
@@ -181,12 +180,12 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         
         #region AWS Service Operation Call
         
-        private Amazon.MediaPackageV2.Model.GetChannelResponse CallAWSServiceOperation(IAmazonMediaPackageV2 client, Amazon.MediaPackageV2.Model.GetChannelRequest request)
+        private Amazon.SocialMessaging.Model.GetWhatsAppMessageTemplateResponse CallAWSServiceOperation(IAmazonSocialMessaging client, Amazon.SocialMessaging.Model.GetWhatsAppMessageTemplateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaPackage v2", "GetChannel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS End User Messaging Social", "GetWhatsAppMessageTemplate");
             try
             {
-                return client.GetChannelAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetWhatsAppMessageTemplateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -203,10 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ChannelGroupName { get; set; }
-            public System.String ChannelName { get; set; }
-            public System.Func<Amazon.MediaPackageV2.Model.GetChannelResponse, GetMPV2ChannelCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String Id { get; set; }
+            public System.String MetaTemplateId { get; set; }
+            public System.Func<Amazon.SocialMessaging.Model.GetWhatsAppMessageTemplateResponse, GetSOCIALWhatsAppMessageTemplateCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Template;
         }
         
     }

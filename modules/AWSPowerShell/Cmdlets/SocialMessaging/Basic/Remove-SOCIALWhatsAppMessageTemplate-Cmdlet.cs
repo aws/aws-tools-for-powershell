@@ -23,57 +23,43 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.ConfigService;
-using Amazon.ConfigService.Model;
+using Amazon.SocialMessaging;
+using Amazon.SocialMessaging.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.CFG
+namespace Amazon.PowerShell.Cmdlets.SOCIAL
 {
     /// <summary>
-    /// Deletes the specified organization Config rule and all of its evaluation results from
-    /// all member accounts in that organization. 
-    /// 
-    ///  
-    /// <para>
-    /// Only a management account and a delegated administrator account can delete an organization
-    /// Config rule. When calling this API with a delegated administrator, you must ensure
-    /// Organizations <c>ListDelegatedAdministrator</c> permissions are added.
-    /// </para><para>
-    /// Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion is complete.
-    /// You cannot update a rule while it is in this state.
-    /// </para><note><para><b>Recommendation: Consider excluding the <c>AWS::Config::ResourceCompliance</c>
-    /// resource type from recording before deleting rules</b></para><para>
-    /// Deleting rules creates configuration items (CIs) for <c>AWS::Config::ResourceCompliance</c>
-    /// that can affect your costs for the configuration recorder. If you are deleting rules
-    /// which evaluate a large number of resource types, this can lead to a spike in the number
-    /// of CIs recorded.
-    /// </para><para>
-    /// To avoid the associated costs, you can opt to disable recording for the <c>AWS::Config::ResourceCompliance</c>
-    /// resource type before deleting rules, and re-enable recording after the rules have
-    /// been deleted.
-    /// </para><para>
-    /// However, since deleting rules is an asynchronous process, it might take an hour or
-    /// more to complete. During the time when recording is disabled for <c>AWS::Config::ResourceCompliance</c>,
-    /// rule evaluations will not be recorded in the associated resource’s history.
-    /// </para></note>
+    /// Deletes a WhatsApp message template.
     /// </summary>
-    [Cmdlet("Remove", "CFGOrganizationConfigRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "SOCIALWhatsAppMessageTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Config DeleteOrganizationConfigRule API operation.", Operation = new[] {"DeleteOrganizationConfigRule"}, SelectReturnType = typeof(Amazon.ConfigService.Model.DeleteOrganizationConfigRuleResponse))]
-    [AWSCmdletOutput("None or Amazon.ConfigService.Model.DeleteOrganizationConfigRuleResponse",
+    [AWSCmdlet("Calls the AWS End User Messaging Social DeleteWhatsAppMessageTemplate API operation.", Operation = new[] {"DeleteWhatsAppMessageTemplate"}, SelectReturnType = typeof(Amazon.SocialMessaging.Model.DeleteWhatsAppMessageTemplateResponse))]
+    [AWSCmdletOutput("None or Amazon.SocialMessaging.Model.DeleteWhatsAppMessageTemplateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConfigService.Model.DeleteOrganizationConfigRuleResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.SocialMessaging.Model.DeleteWhatsAppMessageTemplateResponse) be returned by specifying '-Select *'."
     )]
-    public partial class RemoveCFGOrganizationConfigRuleCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
+    public partial class RemoveSOCIALWhatsAppMessageTemplateCmdlet : AmazonSocialMessagingClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter OrganizationConfigRuleName
+        #region Parameter DeleteAllLanguage
         /// <summary>
         /// <para>
-        /// <para>The name of organization Config rule that you want to delete.</para>
+        /// <para>If true, deletes all language versions of the template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeleteAllLanguages")]
+        public System.Boolean? DeleteAllLanguage { get; set; }
+        #endregion
+        
+        #region Parameter Id
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the WhatsApp Business Account associated with this template.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,13 +70,40 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String OrganizationConfigRuleName { get; set; }
+        public System.String Id { get; set; }
+        #endregion
+        
+        #region Parameter MetaTemplateId
+        /// <summary>
+        /// <para>
+        /// <para>The numeric ID of the template assigned by Meta.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MetaTemplateId { get; set; }
+        #endregion
+        
+        #region Parameter TemplateName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the template to delete.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String TemplateName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConfigService.Model.DeleteOrganizationConfigRuleResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SocialMessaging.Model.DeleteWhatsAppMessageTemplateResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OrganizationConfigRuleName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CFGOrganizationConfigRule (DeleteOrganizationConfigRule)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SOCIALWhatsAppMessageTemplate (DeleteWhatsAppMessageTemplate)"))
             {
                 return;
             }
@@ -129,14 +142,23 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConfigService.Model.DeleteOrganizationConfigRuleResponse, RemoveCFGOrganizationConfigRuleCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SocialMessaging.Model.DeleteWhatsAppMessageTemplateResponse, RemoveSOCIALWhatsAppMessageTemplateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.OrganizationConfigRuleName = this.OrganizationConfigRuleName;
+            context.DeleteAllLanguage = this.DeleteAllLanguage;
+            context.Id = this.Id;
             #if MODULAR
-            if (this.OrganizationConfigRuleName == null && ParameterWasBound(nameof(this.OrganizationConfigRuleName)))
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
             {
-                WriteWarning("You are passing $null as a value for parameter OrganizationConfigRuleName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.MetaTemplateId = this.MetaTemplateId;
+            context.TemplateName = this.TemplateName;
+            #if MODULAR
+            if (this.TemplateName == null && ParameterWasBound(nameof(this.TemplateName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TemplateName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -153,11 +175,23 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConfigService.Model.DeleteOrganizationConfigRuleRequest();
+            var request = new Amazon.SocialMessaging.Model.DeleteWhatsAppMessageTemplateRequest();
             
-            if (cmdletContext.OrganizationConfigRuleName != null)
+            if (cmdletContext.DeleteAllLanguage != null)
             {
-                request.OrganizationConfigRuleName = cmdletContext.OrganizationConfigRuleName;
+                request.DeleteAllLanguages = cmdletContext.DeleteAllLanguage.Value;
+            }
+            if (cmdletContext.Id != null)
+            {
+                request.Id = cmdletContext.Id;
+            }
+            if (cmdletContext.MetaTemplateId != null)
+            {
+                request.MetaTemplateId = cmdletContext.MetaTemplateId;
+            }
+            if (cmdletContext.TemplateName != null)
+            {
+                request.TemplateName = cmdletContext.TemplateName;
             }
             
             CmdletOutput output;
@@ -192,12 +226,12 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region AWS Service Operation Call
         
-        private Amazon.ConfigService.Model.DeleteOrganizationConfigRuleResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DeleteOrganizationConfigRuleRequest request)
+        private Amazon.SocialMessaging.Model.DeleteWhatsAppMessageTemplateResponse CallAWSServiceOperation(IAmazonSocialMessaging client, Amazon.SocialMessaging.Model.DeleteWhatsAppMessageTemplateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "DeleteOrganizationConfigRule");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS End User Messaging Social", "DeleteWhatsAppMessageTemplate");
             try
             {
-                return client.DeleteOrganizationConfigRuleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteWhatsAppMessageTemplateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -214,8 +248,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String OrganizationConfigRuleName { get; set; }
-            public System.Func<Amazon.ConfigService.Model.DeleteOrganizationConfigRuleResponse, RemoveCFGOrganizationConfigRuleCmdlet, object> Select { get; set; } =
+            public System.Boolean? DeleteAllLanguage { get; set; }
+            public System.String Id { get; set; }
+            public System.String MetaTemplateId { get; set; }
+            public System.String TemplateName { get; set; }
+            public System.Func<Amazon.SocialMessaging.Model.DeleteWhatsAppMessageTemplateResponse, RemoveSOCIALWhatsAppMessageTemplateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

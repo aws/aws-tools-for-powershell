@@ -124,18 +124,26 @@ $SOCIAL_SelectCompleters = {
 
 $SOCIAL_SelectMap = @{
     "Select"=@("Connect-SOCIALWhatsAppBusinessAccount",
+               "New-SOCIALWhatsAppMessageTemplate",
+               "New-SOCIALWhatsAppMessageTemplateFromLibrary",
+               "New-SOCIALWhatsAppMessageTemplateMedia",
                "Remove-SOCIALWhatsAppMessageMedia",
+               "Remove-SOCIALWhatsAppMessageTemplate",
                "Disconnect-SOCIALWhatsAppBusinessAccount",
                "Get-SOCIALLinkedWhatsAppBusinessAccount",
                "Get-SOCIALLinkedWhatsAppBusinessAccountPhoneNumber",
                "Get-SOCIALWhatsAppMessageMedia",
+               "Get-SOCIALWhatsAppMessageTemplate",
                "Get-SOCIALLinkedWhatsAppBusinessAccountList",
                "Get-SOCIALResourceTag",
+               "Get-SOCIALWhatsAppMessageTemplateList",
+               "Get-SOCIALWhatsAppTemplateLibraryList",
                "Send-SOCIALWhatsAppMessageMedia",
                "Write-SOCIALWhatsAppBusinessAccountEventDestination",
                "Send-SOCIALWhatsAppMessage",
                "Add-SOCIALResourceTag",
-               "Remove-SOCIALResourceTag")
+               "Remove-SOCIALResourceTag",
+               "Update-SOCIALWhatsAppMessageTemplate")
 }
 
 _awsArgumentCompleterRegistration $SOCIAL_SelectCompleters $SOCIAL_SelectMap

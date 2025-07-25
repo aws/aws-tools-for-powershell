@@ -80,6 +80,16 @@ $AIS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AppIntegrationsService.ContactHandlingScope
+        {
+            ($_ -eq "New-AISApplication/ContactHandling_Scope") -Or
+            ($_ -eq "Update-AISApplication/ContactHandling_Scope")
+        }
+        {
+            $v = "CROSS_CONTACTS","PER_CONTACT"
+            break
+        }
+
         # Amazon.AppIntegrationsService.ExecutionMode
         {
             ($_ -eq "New-AISDataIntegrationAssociation/ExecutionConfiguration_ExecutionMode") -Or
@@ -99,6 +109,7 @@ $AIS_Completers = {
 }
 
 $AIS_map = @{
+    "ContactHandling_Scope"=@("New-AISApplication","Update-AISApplication")
     "ExecutionConfiguration_ExecutionMode"=@("New-AISDataIntegrationAssociation","Update-AISDataIntegrationAssociation")
 }
 
