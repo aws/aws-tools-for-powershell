@@ -51,9 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// </para><para><c>#x9</c> | <c>#xA</c> | <c>#xD</c> | <c>#x20</c> to <c>#xD7FF</c> | <c>#xE000</c>
     /// to <c>#xFFFD</c> | <c>#x10000</c> to <c>#x10FFFF</c></para><para>
     /// Amazon SQS does not throw an exception or completely reject the message if it contains
-    /// invalid characters. Instead, it replaces those invalid characters with <c>U+FFFD</c>
-    /// before storing the message in the queue, as long as the message body contains at least
-    /// one valid character.
+    /// invalid characters. Instead, it replaces those invalid characters with U+FFFD before
+    /// storing the message in the queue, as long as the message body contains at least one
+    /// valid character.
     /// </para></important><para>
     /// If you don't specify the <c>DelaySeconds</c> parameter for an entry, Amazon SQS uses
     /// the default value for the queue.

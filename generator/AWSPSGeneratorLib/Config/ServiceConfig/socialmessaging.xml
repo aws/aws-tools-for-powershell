@@ -22,7 +22,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateWhatsAppMessageTemplate" OutputProperty="*" Verb="New" Noun="WhatsAppMessageTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWhatsAppMessageTemplateFromLibrary" OutputProperty="*" Verb="New" Noun="WhatsAppMessageTemplateFromLibrary" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWhatsAppMessageTemplateMedia" OutputProperty="MetaHeaderHandle" Verb="New" Noun="WhatsAppMessageTemplateMedia" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteWhatsAppMessageMedia" OutputProperty="Success" Verb="Remove" Noun="WhatsAppMessageMedia" ShouldProcessTarget="OriginationPhoneNumberId" PipelineParameter="OriginationPhoneNumberId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWhatsAppMessageTemplate" Verb="Remove" Noun="WhatsAppMessageTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -42,11 +58,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetWhatsAppMessageTemplate" OutputProperty="Template" Verb="Get" Noun="WhatsAppMessageTemplate" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListLinkedWhatsAppBusinessAccounts" OutputProperty="LinkedAccounts" Verb="Get" Noun="LinkedWhatsAppBusinessAccountList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWhatsAppMessageTemplates" OutputProperty="Templates" Verb="Get" Noun="WhatsAppMessageTemplateList" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWhatsAppTemplateLibrary" OutputProperty="MetaLibraryTemplates" Verb="Get" Noun="WhatsAppTemplateLibraryList" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -67,6 +95,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" OutputProperty="StatusCode" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWhatsAppMessageTemplate" Verb="Update" Noun="WhatsAppMessageTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

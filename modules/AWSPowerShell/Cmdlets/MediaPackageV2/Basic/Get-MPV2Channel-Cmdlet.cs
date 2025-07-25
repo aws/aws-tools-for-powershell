@@ -28,8 +28,7 @@ using Amazon.MediaPackageV2.Model;
 namespace Amazon.PowerShell.Cmdlets.MPV2
 {
     /// <summary>
-    /// Retrieves the specified channel that's configured in AWS Elemental MediaPackage, including
-    /// the origin endpoints that are associated with it.
+    /// Retrieves the specified channel that's configured in AWS Elemental MediaPackage.
     /// </summary>
     [Cmdlet("Get", "MPV2Channel")]
     [OutputType("Amazon.MediaPackageV2.Model.GetChannelResponse")]

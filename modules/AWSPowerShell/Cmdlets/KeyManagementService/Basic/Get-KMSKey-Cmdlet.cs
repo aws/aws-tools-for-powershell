@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
     /// Provides detailed information about a KMS key. You can run <c>DescribeKey</c> on a
-    /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer
-    /// managed key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
+    /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer
+    /// managed key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon
     /// Web Services managed key</a>.
     /// 
     ///  
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para></li></ul><para>
     /// In general, <c>DescribeKey</c> is a non-mutating operation. It returns data about
     /// KMS keys, but doesn't change them. However, Amazon Web Services services use <c>DescribeKey</c>
-    /// to create <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
+    /// to create <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon
     /// Web Services managed keys</a> from a <i>predefined Amazon Web Services alias</i> with
     /// no key ID.
     /// </para><para><b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Describes the specified KMS key. </para><para>If you specify a predefined Amazon Web Services alias (an Amazon Web Services alias
-        /// with no key ID), KMS associates the alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html##aws-managed-cmk">Amazon
+        /// with no key ID), KMS associates the alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon
         /// Web Services managed key</a> and returns its <c>KeyId</c> and <c>Arn</c> in the response.</para><para>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using
         /// an alias name, prefix it with <c>"alias/"</c>. To specify a KMS key in a different
         /// Amazon Web Services account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Alias name: <c>alias/ExampleAlias</c></para></li><li><para>Alias ARN: <c>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</c></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.

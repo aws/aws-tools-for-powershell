@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.1087.0",
+    "ProductVersion"    : "3.7.1088.0",
     "CoreVersion"       : "3.7.402.88",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -72,7 +72,7 @@
             "InPreview"               : false
         },
         "ConfigService"     : {
-            "Version" : "3.7.403.11",
+            "Version" : "3.7.403.12",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.88"
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.461.1",
+            "Version" : "3.7.462.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.88"
@@ -252,7 +252,7 @@
             "InPreview"               : false
         },
         "KeyManagementService" : {
-            "Version" : "3.7.403.17",
+            "Version" : "3.7.403.18",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.88"
@@ -364,7 +364,7 @@
             "InPreview"               : false
         },
         "SQS"                       : {
-            "Version" : "3.7.400.182",
+            "Version" : "3.7.400.183",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.88"
@@ -596,7 +596,7 @@
             "InPreview"               : false
         },
         "Budgets"                         : {
-            "Version" : "3.7.403.45",
+            "Version" : "3.7.404.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.88"
@@ -1852,7 +1852,7 @@
             "InPreview"               : false
         },
         "AppIntegrationsService"          : {
-            "Version" : "3.7.401.179",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.88"
@@ -2652,7 +2652,7 @@
             "InPreview"               : false
         },
         "MediaPackageV2"                      : {
-            "Version" : "3.7.407.6",
+            "Version" : "3.7.408.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.88"
@@ -3068,7 +3068,7 @@
             "InPreview"               : false
         },
         "SocialMessaging"                     : {
-            "Version" : "3.7.401.123",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.88"

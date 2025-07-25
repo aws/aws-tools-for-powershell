@@ -22,51 +22,41 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ConfigService;
-using Amazon.ConfigService.Model;
+using Amazon.SocialMessaging;
+using Amazon.SocialMessaging.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CFG
+namespace Amazon.PowerShell.Cmdlets.SOCIAL
 {
     /// <summary>
-    /// Deletes the specified conformance pack and all the Config rules, remediation actions,
-    /// and all evaluation results within that conformance pack.
-    /// 
-    ///  
-    /// <para>
-    /// Config sets the conformance pack to <c>DELETE_IN_PROGRESS</c> until the deletion is
-    /// complete. You cannot update a conformance pack while it is in this state.
-    /// </para><note><para><b>Recommendation: Consider excluding the <c>AWS::Config::ResourceCompliance</c>
-    /// resource type from recording before deleting rules</b></para><para>
-    /// Deleting rules creates configuration items (CIs) for <c>AWS::Config::ResourceCompliance</c>
-    /// that can affect your costs for the configuration recorder. If you are deleting rules
-    /// which evaluate a large number of resource types, this can lead to a spike in the number
-    /// of CIs recorded.
-    /// </para><para>
-    /// To avoid the associated costs, you can opt to disable recording for the <c>AWS::Config::ResourceCompliance</c>
-    /// resource type before deleting rules, and re-enable recording after the rules have
-    /// been deleted.
-    /// </para><para>
-    /// However, since deleting rules is an asynchronous process, it might take an hour or
-    /// more to complete. During the time when recording is disabled for <c>AWS::Config::ResourceCompliance</c>,
-    /// rule evaluations will not be recorded in the associated resource’s history.
-    /// </para></note>
+    /// Deletes a WhatsApp message template.
     /// </summary>
-    [Cmdlet("Remove", "CFGConformancePack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "SOCIALWhatsAppMessageTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Config DeleteConformancePack API operation.", Operation = new[] {"DeleteConformancePack"}, SelectReturnType = typeof(Amazon.ConfigService.Model.DeleteConformancePackResponse))]
-    [AWSCmdletOutput("None or Amazon.ConfigService.Model.DeleteConformancePackResponse",
+    [AWSCmdlet("Calls the AWS End User Messaging Social DeleteWhatsAppMessageTemplate API operation.", Operation = new[] {"DeleteWhatsAppMessageTemplate"}, SelectReturnType = typeof(Amazon.SocialMessaging.Model.DeleteWhatsAppMessageTemplateResponse))]
+    [AWSCmdletOutput("None or Amazon.SocialMessaging.Model.DeleteWhatsAppMessageTemplateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConfigService.Model.DeleteConformancePackResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.SocialMessaging.Model.DeleteWhatsAppMessageTemplateResponse) be returned by specifying '-Select *'."
     )]
-    public partial class RemoveCFGConformancePackCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
+    public partial class RemoveSOCIALWhatsAppMessageTemplateCmdlet : AmazonSocialMessagingClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ConformancePackName
+        #region Parameter DeleteAllLanguage
         /// <summary>
         /// <para>
-        /// <para>Name of the conformance pack you want to delete.</para>
+        /// <para>If true, deletes all language versions of the template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeleteAllLanguages")]
+        public System.Boolean? DeleteAllLanguage { get; set; }
+        #endregion
+        
+        #region Parameter Id
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the WhatsApp Business Account associated with this template.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,13 +67,40 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ConformancePackName { get; set; }
+        public System.String Id { get; set; }
+        #endregion
+        
+        #region Parameter MetaTemplateId
+        /// <summary>
+        /// <para>
+        /// <para>The numeric ID of the template assigned by Meta.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MetaTemplateId { get; set; }
+        #endregion
+        
+        #region Parameter TemplateName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the template to delete.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String TemplateName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConfigService.Model.DeleteConformancePackResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SocialMessaging.Model.DeleteWhatsAppMessageTemplateResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,10 +109,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ConformancePackName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ConformancePackName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConformancePackName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -115,8 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConformancePackName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CFGConformancePack (DeleteConformancePack)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SOCIALWhatsAppMessageTemplate (DeleteWhatsAppMessageTemplate)"))
             {
                 return;
             }
@@ -129,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConfigService.Model.DeleteConformancePackResponse, RemoveCFGConformancePackCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SocialMessaging.Model.DeleteWhatsAppMessageTemplateResponse, RemoveSOCIALWhatsAppMessageTemplateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -138,14 +155,23 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ConformancePackName;
+                context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ConformancePackName = this.ConformancePackName;
+            context.DeleteAllLanguage = this.DeleteAllLanguage;
+            context.Id = this.Id;
             #if MODULAR
-            if (this.ConformancePackName == null && ParameterWasBound(nameof(this.ConformancePackName)))
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
             {
-                WriteWarning("You are passing $null as a value for parameter ConformancePackName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.MetaTemplateId = this.MetaTemplateId;
+            context.TemplateName = this.TemplateName;
+            #if MODULAR
+            if (this.TemplateName == null && ParameterWasBound(nameof(this.TemplateName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TemplateName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -162,11 +188,23 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConfigService.Model.DeleteConformancePackRequest();
+            var request = new Amazon.SocialMessaging.Model.DeleteWhatsAppMessageTemplateRequest();
             
-            if (cmdletContext.ConformancePackName != null)
+            if (cmdletContext.DeleteAllLanguage != null)
             {
-                request.ConformancePackName = cmdletContext.ConformancePackName;
+                request.DeleteAllLanguages = cmdletContext.DeleteAllLanguage.Value;
+            }
+            if (cmdletContext.Id != null)
+            {
+                request.Id = cmdletContext.Id;
+            }
+            if (cmdletContext.MetaTemplateId != null)
+            {
+                request.MetaTemplateId = cmdletContext.MetaTemplateId;
+            }
+            if (cmdletContext.TemplateName != null)
+            {
+                request.TemplateName = cmdletContext.TemplateName;
             }
             
             CmdletOutput output;
@@ -201,15 +239,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region AWS Service Operation Call
         
-        private Amazon.ConfigService.Model.DeleteConformancePackResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DeleteConformancePackRequest request)
+        private Amazon.SocialMessaging.Model.DeleteWhatsAppMessageTemplateResponse CallAWSServiceOperation(IAmazonSocialMessaging client, Amazon.SocialMessaging.Model.DeleteWhatsAppMessageTemplateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "DeleteConformancePack");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS End User Messaging Social", "DeleteWhatsAppMessageTemplate");
             try
             {
                 #if DESKTOP
-                return client.DeleteConformancePack(request);
+                return client.DeleteWhatsAppMessageTemplate(request);
                 #elif CORECLR
-                return client.DeleteConformancePackAsync(request).GetAwaiter().GetResult();
+                return client.DeleteWhatsAppMessageTemplateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -229,8 +267,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ConformancePackName { get; set; }
-            public System.Func<Amazon.ConfigService.Model.DeleteConformancePackResponse, RemoveCFGConformancePackCmdlet, object> Select { get; set; } =
+            public System.Boolean? DeleteAllLanguage { get; set; }
+            public System.String Id { get; set; }
+            public System.String MetaTemplateId { get; set; }
+            public System.String TemplateName { get; set; }
+            public System.Func<Amazon.SocialMessaging.Model.DeleteWhatsAppMessageTemplateResponse, RemoveSOCIALWhatsAppMessageTemplateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

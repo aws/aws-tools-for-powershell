@@ -42,9 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// Use the parameters of <c>CreateKey</c> to specify the type of KMS key, the source
     /// of its key material, its key policy, description, tags, and other properties.
     /// </para><note><para>
-    /// KMS has replaced the term <i>customer master key (CMK)</i> with <i>KMS key</i> and
-    /// <i>KMS key</i>. The concept has not changed. To prevent breaking changes, KMS is keeping
-    /// some variations of this term.
+    /// KMS has replaced the term <i>customer master key (CMK)</i> with <i>Key Management
+    /// Service key</i> and <i>KMS key</i>. The concept has not changed. To prevent breaking
+    /// changes, KMS is keeping some variations of this term.
     /// </para></note><para>
     /// To create different types of KMS keys, use the following guidance:
     /// </para><dl><dt>Symmetric encryption KMS key</dt><dd><para>

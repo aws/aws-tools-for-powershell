@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// 
     ///  
     /// <para>
-    /// By default, when you enable automatic rotation of a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer
+    /// By default, when you enable automatic rotation of a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer
     /// managed KMS key</a>, KMS rotates the key material of the KMS key one year (approximately
     /// 365 days) from the enable date and every year thereafter. You can use the optional
     /// <c>RotationPeriodInDays</c> parameter to specify a custom rotation period when you
@@ -54,9 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// key store</a>. To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#multi-region-rotate">multi-Region
     /// keys</a>, set the property on the primary key. 
     /// </para><para>
-    /// You cannot enable or disable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
+    /// You cannot enable or disable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon
     /// Web Services managed KMS keys</a>. KMS always rotates the key material of Amazon Web
-    /// Services managed keys every year. Rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon
+    /// Services managed keys every year. Rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-key">Amazon
     /// Web Services owned KMS keys</a> is managed by the Amazon Web Services service that
     /// owns the key.
     /// </para><note><para>

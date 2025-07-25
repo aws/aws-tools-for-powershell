@@ -2575,6 +2575,16 @@ $AIS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AppIntegrationsService.ContactHandlingScope
+        {
+            ($_ -eq "New-AISApplication/ContactHandling_Scope") -Or
+            ($_ -eq "Update-AISApplication/ContactHandling_Scope")
+        }
+        {
+            $v = "CROSS_CONTACTS","PER_CONTACT"
+            break
+        }
+
         # Amazon.AppIntegrationsService.ExecutionMode
         {
             ($_ -eq "New-AISDataIntegrationAssociation/ExecutionConfiguration_ExecutionMode") -Or
@@ -2594,6 +2604,7 @@ $AIS_Completers = {
 }
 
 $AIS_map = @{
+    "ContactHandling_Scope"=@("New-AISApplication","Update-AISApplication")
     "ExecutionConfiguration_ExecutionMode"=@("New-AISDataIntegrationAssociation","Update-AISDataIntegrationAssociation")
 }
 
@@ -73688,18 +73699,26 @@ $SOCIAL_SelectCompleters = {
 
 $SOCIAL_SelectMap = @{
     "Select"=@("Connect-SOCIALWhatsAppBusinessAccount",
+               "New-SOCIALWhatsAppMessageTemplate",
+               "New-SOCIALWhatsAppMessageTemplateFromLibrary",
+               "New-SOCIALWhatsAppMessageTemplateMedia",
                "Remove-SOCIALWhatsAppMessageMedia",
+               "Remove-SOCIALWhatsAppMessageTemplate",
                "Disconnect-SOCIALWhatsAppBusinessAccount",
                "Get-SOCIALLinkedWhatsAppBusinessAccount",
                "Get-SOCIALLinkedWhatsAppBusinessAccountPhoneNumber",
                "Get-SOCIALWhatsAppMessageMedia",
+               "Get-SOCIALWhatsAppMessageTemplate",
                "Get-SOCIALLinkedWhatsAppBusinessAccountList",
                "Get-SOCIALResourceTag",
+               "Get-SOCIALWhatsAppMessageTemplateList",
+               "Get-SOCIALWhatsAppTemplateLibraryList",
                "Send-SOCIALWhatsAppMessageMedia",
                "Write-SOCIALWhatsAppBusinessAccountEventDestination",
                "Send-SOCIALWhatsAppMessage",
                "Add-SOCIALResourceTag",
-               "Remove-SOCIALResourceTag")
+               "Remove-SOCIALResourceTag",
+               "Update-SOCIALWhatsAppMessageTemplate")
 }
 
 _awsArgumentCompleterRegistration $SOCIAL_SelectCompleters $SOCIAL_SelectMap

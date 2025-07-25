@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigurationRecorderName
         /// <summary>
         /// <para>
-        /// <para>A list of names of the configuration recorders that you want to specify.</para>
+        /// <para>A list of names of the configuration recorders that you want to specify.</para><note><para>When making a request to this operation, you can only specify one configuration recorder.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

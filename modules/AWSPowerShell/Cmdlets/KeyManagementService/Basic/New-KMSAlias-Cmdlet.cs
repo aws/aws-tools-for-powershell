@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// be displayed in plaintext in CloudTrail logs and other output.</para></important><para>The <c>AliasName</c> value must be string of 1-256 characters. It can contain only
         /// alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). The
         /// alias name cannot begin with <c>alias/aws/</c>. The <c>alias/aws/</c> prefix is reserved
-        /// for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
+        /// for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon
         /// Web Services managed keys</a>.</para>
         /// </para>
         /// </summary>
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter TargetKeyId
         /// <summary>
         /// <para>
-        /// <para>Associates the alias with the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer
+        /// <para>Associates the alias with the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer
         /// managed key</a>. The KMS key must be in the same Amazon Web Services Region. </para><para>A valid key ID is required. If you supply a null or empty string value, this operation
         /// returns an error.</para><para>For help finding the key ID and ARN, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/find-cmk-id-arn.html">Find
         /// the key ID and key ARN</a> in the <i><i>Key Management Service Developer Guide</i></i>.</para><para>Specify the key ID or key ARN of the KMS key.</para><para>For example:</para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
