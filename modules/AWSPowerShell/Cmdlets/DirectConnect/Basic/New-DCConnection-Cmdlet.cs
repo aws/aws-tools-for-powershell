@@ -129,9 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter RequestMACSec
         /// <summary>
         /// <para>
-        /// <para>Indicates whether you want the connection to support MAC Security (MACsec).</para><para>MAC Security (MACsec) is only available on dedicated connections. For information
-        /// about MAC Security (MACsec) prerequisties, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites">MACsec
-        /// prerequisties</a> in the <i>Direct Connect User Guide</i>.</para>
+        /// <para>Indicates whether you want the connection to support MAC Security (MACsec).</para><para>MAC Security (MACsec) is unavailable on hosted connections. For information about
+        /// MAC Security (MACsec) prerequisites, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/MACSec.html">MAC
+        /// Security in Direct Connect</a> in the <i>Direct Connect User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

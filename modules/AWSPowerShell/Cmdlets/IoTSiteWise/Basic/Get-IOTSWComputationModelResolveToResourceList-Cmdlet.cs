@@ -28,24 +28,25 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Run SQL queries to retrieve metadata and time-series data from asset models, assets,
-    /// measurements, metrics, transforms, and aggregates.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all distinct resources that are resolved from the executed actions of the computation
+    /// model.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Start", "IOTSWQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.IoTSiteWise.Model.ExecuteQueryResponse")]
-    [AWSCmdlet("Calls the AWS IoT SiteWise ExecuteQuery API operation.", Operation = new[] {"ExecuteQuery"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.ExecuteQueryResponse))]
-    [AWSCmdletOutput("Amazon.IoTSiteWise.Model.ExecuteQueryResponse",
-        "This cmdlet returns an Amazon.IoTSiteWise.Model.ExecuteQueryResponse object containing multiple properties."
+    [Cmdlet("Get", "IOTSWComputationModelResolveToResourceList")]
+    [OutputType("Amazon.IoTSiteWise.Model.ComputationModelResolveToResourceSummary")]
+    [AWSCmdlet("Calls the AWS IoT SiteWise ListComputationModelResolveToResources API operation.", Operation = new[] {"ListComputationModelResolveToResources"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.ListComputationModelResolveToResourcesResponse))]
+    [AWSCmdletOutput("Amazon.IoTSiteWise.Model.ComputationModelResolveToResourceSummary or Amazon.IoTSiteWise.Model.ListComputationModelResolveToResourcesResponse",
+        "This cmdlet returns a collection of Amazon.IoTSiteWise.Model.ComputationModelResolveToResourceSummary objects.",
+        "The service call response (type Amazon.IoTSiteWise.Model.ListComputationModelResolveToResourcesResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class StartIOTSWQueryCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
+    public partial class GetIOTSWComputationModelResolveToResourceListCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter QueryStatement
+        #region Parameter ComputationModelId
         /// <summary>
         /// <para>
-        /// <para>The IoT SiteWise query statement.</para>
+        /// <para>The ID of the computation model for which to list resolved resources.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,24 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String QueryStatement { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique case-sensitive identifier that you can provide to ensure the idempotency
-        /// of the request. Don't reuse this client token if a new idempotent request is required.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        public System.String ComputationModelId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return at one time.</para><ul><li><para>Minimum is 1</para></li><li><para>Maximum is 20000</para></li><li><para>Default is 250</para></li></ul>
+        /// <para>The maximum number of results returned for each paginated request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The string that specifies the next page of results.</para>
+        /// <para>The token used for the next set of paginated results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -97,33 +87,23 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTSiteWise.Model.ExecuteQueryResponse).
-        /// Specifying the name of a property of type Amazon.IoTSiteWise.Model.ExecuteQueryResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ComputationModelResolveToResourceSummaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTSiteWise.Model.ListComputationModelResolveToResourcesResponse).
+        /// Specifying the name of a property of type Amazon.IoTSiteWise.Model.ListComputationModelResolveToResourcesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "ComputationModelResolveToResourceSummaries";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the QueryStatement parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^QueryStatement' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ComputationModelId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ComputationModelId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^QueryStatement' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ComputationModelId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         #region Parameter NoAutoIteration
@@ -141,12 +121,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.QueryStatement), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-IOTSWQuery (ExecuteQuery)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -155,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.ExecuteQueryResponse, StartIOTSWQueryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.ListComputationModelResolveToResourcesResponse, GetIOTSWComputationModelResolveToResourceListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -164,19 +138,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.QueryStatement;
+                context.Select = (response, cmdlet) => this.ComputationModelId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientToken = this.ClientToken;
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
-            context.QueryStatement = this.QueryStatement;
+            context.ComputationModelId = this.ComputationModelId;
             #if MODULAR
-            if (this.QueryStatement == null && ParameterWasBound(nameof(this.QueryStatement)))
+            if (this.ComputationModelId == null && ParameterWasBound(nameof(this.ComputationModelId)))
             {
-                WriteWarning("You are passing $null as a value for parameter QueryStatement which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ComputationModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -195,19 +168,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.IoTSiteWise.Model.ExecuteQueryRequest();
+            var request = new Amazon.IoTSiteWise.Model.ListComputationModelResolveToResourcesRequest();
             
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.ComputationModelId != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
+                request.ComputationModelId = cmdletContext.ComputationModelId;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.QueryStatement != null)
-            {
-                request.QueryStatement = cmdletContext.QueryStatement;
             }
             
             // Initialize loop variant and commence piping
@@ -266,15 +235,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         #region AWS Service Operation Call
         
-        private Amazon.IoTSiteWise.Model.ExecuteQueryResponse CallAWSServiceOperation(IAmazonIoTSiteWise client, Amazon.IoTSiteWise.Model.ExecuteQueryRequest request)
+        private Amazon.IoTSiteWise.Model.ListComputationModelResolveToResourcesResponse CallAWSServiceOperation(IAmazonIoTSiteWise client, Amazon.IoTSiteWise.Model.ListComputationModelResolveToResourcesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT SiteWise", "ExecuteQuery");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT SiteWise", "ListComputationModelResolveToResources");
             try
             {
                 #if DESKTOP
-                return client.ExecuteQuery(request);
+                return client.ListComputationModelResolveToResources(request);
                 #elif CORECLR
-                return client.ExecuteQueryAsync(request).GetAwaiter().GetResult();
+                return client.ListComputationModelResolveToResourcesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -294,12 +263,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
+            public System.String ComputationModelId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String QueryStatement { get; set; }
-            public System.Func<Amazon.IoTSiteWise.Model.ExecuteQueryResponse, StartIOTSWQueryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.IoTSiteWise.Model.ListComputationModelResolveToResourcesResponse, GetIOTSWComputationModelResolveToResourceListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ComputationModelResolveToResourceSummaries;
         }
         
     }

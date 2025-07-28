@@ -180,6 +180,19 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         public System.String PipelineName { get; set; }
         #endregion
         
+        #region Parameter PipelineRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that provides the required permissions
+        /// for a pipeline to read from the source and write to the sink. For more information,
+        /// see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline-security-overview.html">Setting
+        /// up roles and users in Amazon OpenSearch Ingestion</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PipelineRoleArn { get; set; }
+        #endregion
+        
         #region Parameter VpcOptions_SecurityGroupId
         /// <summary>
         /// <para>
@@ -319,6 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
                 WriteWarning("You are passing $null as a value for parameter PipelineName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PipelineRoleArn = this.PipelineRoleArn;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.OSIS.Model.Tag>(this.Tag);
@@ -447,6 +461,10 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
             if (cmdletContext.PipelineName != null)
             {
                 request.PipelineName = cmdletContext.PipelineName;
+            }
+            if (cmdletContext.PipelineRoleArn != null)
+            {
+                request.PipelineRoleArn = cmdletContext.PipelineRoleArn;
             }
             if (cmdletContext.Tag != null)
             {
@@ -595,6 +613,7 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
             public System.Int32? MinUnit { get; set; }
             public System.String PipelineConfigurationBody { get; set; }
             public System.String PipelineName { get; set; }
+            public System.String PipelineRoleArn { get; set; }
             public List<Amazon.OSIS.Model.Tag> Tag { get; set; }
             public List<System.String> VpcOptions_SecurityGroupId { get; set; }
             public List<System.String> VpcOptions_SubnetId { get; set; }

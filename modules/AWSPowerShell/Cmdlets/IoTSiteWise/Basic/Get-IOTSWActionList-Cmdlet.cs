@@ -42,6 +42,27 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ResolveToResourceId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the resolved resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResolveToResourceId { get; set; }
+        #endregion
+        
+        #region Parameter ResolveToResourceType
+        /// <summary>
+        /// <para>
+        /// <para>The type of the resolved resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoTSiteWise.ResolveToResourceType")]
+        public Amazon.IoTSiteWise.ResolveToResourceType ResolveToResourceType { get; set; }
+        #endregion
+        
         #region Parameter TargetResourceId
         /// <summary>
         /// <para>
@@ -139,6 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.ResolveToResourceId = this.ResolveToResourceId;
+            context.ResolveToResourceType = this.ResolveToResourceType;
             context.TargetResourceId = this.TargetResourceId;
             #if MODULAR
             if (this.TargetResourceId == null && ParameterWasBound(nameof(this.TargetResourceId)))
@@ -174,6 +197,14 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.ResolveToResourceId != null)
+            {
+                request.ResolveToResourceId = cmdletContext.ResolveToResourceId;
+            }
+            if (cmdletContext.ResolveToResourceType != null)
+            {
+                request.ResolveToResourceType = cmdletContext.ResolveToResourceType;
             }
             if (cmdletContext.TargetResourceId != null)
             {
@@ -270,6 +301,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String ResolveToResourceId { get; set; }
+            public Amazon.IoTSiteWise.ResolveToResourceType ResolveToResourceType { get; set; }
             public System.String TargetResourceId { get; set; }
             public Amazon.IoTSiteWise.TargetResourceType TargetResourceType { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.ListActionsResponse, GetIOTSWActionListCmdlet, object> Select { get; set; } =

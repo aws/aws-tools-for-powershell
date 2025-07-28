@@ -22,38 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DirectConnect;
-using Amazon.DirectConnect.Model;
+using Amazon.IoTSiteWise;
+using Amazon.IoTSiteWise.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DC
+namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Updates the Direct Connect connection configuration.
-    /// 
-    ///  
-    /// <para>
-    /// You can update the following parameters for a connection:
-    /// </para><ul><li><para>
-    /// The connection name
-    /// </para></li><li><para>
-    /// The connection's MAC Security (MACsec) encryption mode.
-    /// </para></li></ul>
+    /// Retrieves information about a computation model.
     /// </summary>
-    [Cmdlet("Update", "DCConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DirectConnect.Model.UpdateConnectionResponse")]
-    [AWSCmdlet("Calls the AWS Direct Connect UpdateConnection API operation.", Operation = new[] {"UpdateConnection"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.UpdateConnectionResponse))]
-    [AWSCmdletOutput("Amazon.DirectConnect.Model.UpdateConnectionResponse",
-        "This cmdlet returns an Amazon.DirectConnect.Model.UpdateConnectionResponse object containing multiple properties."
+    [Cmdlet("Get", "IOTSWComputationModel")]
+    [OutputType("Amazon.IoTSiteWise.Model.DescribeComputationModelResponse")]
+    [AWSCmdlet("Calls the AWS IoT SiteWise DescribeComputationModel API operation.", Operation = new[] {"DescribeComputationModel"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.DescribeComputationModelResponse))]
+    [AWSCmdletOutput("Amazon.IoTSiteWise.Model.DescribeComputationModelResponse",
+        "This cmdlet returns an Amazon.IoTSiteWise.Model.DescribeComputationModelResponse object containing multiple properties."
     )]
-    public partial class UpdateDCConnectionCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
+    public partial class GetIOTSWComputationModelCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ConnectionId
+        #region Parameter ComputationModelId
         /// <summary>
         /// <para>
-        /// <para>The ID of the connection.</para><para>You can use <a>DescribeConnections</a> to retrieve the connection ID.</para>
+        /// <para>The ID of the computation model.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,34 +55,14 @@ namespace Amazon.PowerShell.Cmdlets.DC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ConnectionId { get; set; }
-        #endregion
-        
-        #region Parameter ConnectionName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the connection.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ConnectionName { get; set; }
-        #endregion
-        
-        #region Parameter EncryptionMode
-        /// <summary>
-        /// <para>
-        /// <para>The connection MAC Security (MACsec) encryption mode.</para><para>The valid values are <c>no_encrypt</c>, <c>should_encrypt</c>, and <c>must_encrypt</c>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String EncryptionMode { get; set; }
+        public System.String ComputationModelId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DirectConnect.Model.UpdateConnectionResponse).
-        /// Specifying the name of a property of type Amazon.DirectConnect.Model.UpdateConnectionResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTSiteWise.Model.DescribeComputationModelResponse).
+        /// Specifying the name of a property of type Amazon.IoTSiteWise.Model.DescribeComputationModelResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,34 +71,18 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ConnectionId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ConnectionId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ComputationModelId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ComputationModelId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConnectionId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ComputationModelId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConnectionId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DCConnection (UpdateConnection)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -137,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DirectConnect.Model.UpdateConnectionResponse, UpdateDCConnectionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.DescribeComputationModelResponse, GetIOTSWComputationModelCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -146,18 +101,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ConnectionId;
+                context.Select = (response, cmdlet) => this.ComputationModelId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ConnectionId = this.ConnectionId;
+            context.ComputationModelId = this.ComputationModelId;
             #if MODULAR
-            if (this.ConnectionId == null && ParameterWasBound(nameof(this.ConnectionId)))
+            if (this.ComputationModelId == null && ParameterWasBound(nameof(this.ComputationModelId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ConnectionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ComputationModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ConnectionName = this.ConnectionName;
-            context.EncryptionMode = this.EncryptionMode;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -172,19 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectConnect.Model.UpdateConnectionRequest();
+            var request = new Amazon.IoTSiteWise.Model.DescribeComputationModelRequest();
             
-            if (cmdletContext.ConnectionId != null)
+            if (cmdletContext.ComputationModelId != null)
             {
-                request.ConnectionId = cmdletContext.ConnectionId;
-            }
-            if (cmdletContext.ConnectionName != null)
-            {
-                request.ConnectionName = cmdletContext.ConnectionName;
-            }
-            if (cmdletContext.EncryptionMode != null)
-            {
-                request.EncryptionMode = cmdletContext.EncryptionMode;
+                request.ComputationModelId = cmdletContext.ComputationModelId;
             }
             
             CmdletOutput output;
@@ -219,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region AWS Service Operation Call
         
-        private Amazon.DirectConnect.Model.UpdateConnectionResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.UpdateConnectionRequest request)
+        private Amazon.IoTSiteWise.Model.DescribeComputationModelResponse CallAWSServiceOperation(IAmazonIoTSiteWise client, Amazon.IoTSiteWise.Model.DescribeComputationModelRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Direct Connect", "UpdateConnection");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT SiteWise", "DescribeComputationModel");
             try
             {
                 #if DESKTOP
-                return client.UpdateConnection(request);
+                return client.DescribeComputationModel(request);
                 #elif CORECLR
-                return client.UpdateConnectionAsync(request).GetAwaiter().GetResult();
+                return client.DescribeComputationModelAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -247,10 +192,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ConnectionId { get; set; }
-            public System.String ConnectionName { get; set; }
-            public System.String EncryptionMode { get; set; }
-            public System.Func<Amazon.DirectConnect.Model.UpdateConnectionResponse, UpdateDCConnectionCmdlet, object> Select { get; set; } =
+            public System.String ComputationModelId { get; set; }
+            public System.Func<Amazon.IoTSiteWise.Model.DescribeComputationModelResponse, GetIOTSWComputationModelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

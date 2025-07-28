@@ -71,6 +71,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateComputationModel" OutputProperty="*" Verb="New" Noun="ComputationModel" ShouldProcessTarget="ComputationModelName" PipelineParameter="ComputationModelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDashboard" OutputProperty="*" Verb="New" Noun="Dashboard" AnonymousShouldProcessTarget="true" PipelineParameter="ProjectId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -104,6 +108,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAssetModelCompositeModel" OutputProperty="AssetModelStatus" Verb="Remove" Noun="AssetModelCompositeModel" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteComputationModel" OutputProperty="ComputationModelStatus" Verb="Remove" Noun="ComputationModel" ShouldProcessTarget="ComputationModelId" PipelineParameter="ComputationModelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -163,6 +171,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeComputationModel" OutputProperty="*" Verb="Get" Noun="ComputationModel" PipelineParameter="ComputationModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeComputationModelExecutionSummary" OutputProperty="*" Verb="Get" Noun="ComputationModelExecutionSummary" PipelineParameter="ComputationModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeDashboard" OutputProperty="*" Verb="Get" Noun="Dashboard" PipelineParameter="DashboardId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -172,6 +188,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeDefaultEncryptionConfiguration" OutputProperty="*" Verb="Get" Noun="DefaultEncryptionConfiguration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeExecution" OutputProperty="*" Verb="Get" Noun="Execution" PipelineParameter="ExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -283,11 +303,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListComputationModelDataBindingUsages" OutputProperty="DataBindingUsageSummaries" Verb="Get" Noun="ComputationModelDataBindingUsageList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListComputationModelResolveToResources" OutputProperty="ComputationModelResolveToResourceSummaries" Verb="Get" Noun="ComputationModelResolveToResourceList" PipelineParameter="ComputationModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListComputationModels" OutputProperty="ComputationModelSummaries" Verb="Get" Noun="ComputationModelList" PipelineParameter="ComputationModelType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDashboards" OutputProperty="DashboardSummaries" Verb="Get" Noun="DashboardList" PipelineParameter="ProjectId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDatasets" OutputProperty="DatasetSummaries" Verb="Get" Noun="DatasetList" PipelineParameter="SourceType" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExecutions" OutputProperty="ExecutionSummaries" Verb="Get" Noun="ExecutionList" PipelineParameter="TargetResourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -352,6 +388,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAssetProperty" Verb="Update" Noun="AssetProperty" ShouldProcessTarget="AssetId" PipelineParameter="AssetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateComputationModel" OutputProperty="ComputationModelStatus" Verb="Update" Noun="ComputationModel" ShouldProcessTarget="ComputationModelId" PipelineParameter="ComputationModelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

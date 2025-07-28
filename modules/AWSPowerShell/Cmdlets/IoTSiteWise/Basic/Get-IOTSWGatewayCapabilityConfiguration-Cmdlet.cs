@@ -28,11 +28,24 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Retrieves information about a gateway capability configuration. Each gateway capability
-    /// defines data sources for a gateway. A capability configuration can contain multiple
-    /// data source configurations. If you define OPC-UA sources for a gateway in the IoT
-    /// SiteWise console, all of your OPC-UA sources are stored in one capability configuration.
-    /// To list all capability configurations for a gateway, use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html">DescribeGateway</a>.
+    /// Each gateway capability defines data sources for a gateway. This is the namespace
+    /// of the gateway capability.
+    /// 
+    ///  
+    /// <para>
+    /// . The namespace follows the format <c>service:capability:version</c>, where:
+    /// </para><ul><li><para><c>service</c> - The service providing the capability, or <c>iotsitewise</c>.
+    /// </para></li><li><para><c>capability</c> - The specific capability type. Options include: <c>opcuacollector</c>
+    /// for the OPC UA data source collector, or <c>publisher</c> for data publisher capability.
+    /// </para></li><li><para><c>version</c> - The version number of the capability. Option include <c>2</c> for
+    /// Classic streams, V2 gateways, and <c>3</c> for MQTT-enabled, V3 gateways.
+    /// </para></li></ul><para>
+    /// After updating a capability configuration, the sync status becomes <c>OUT_OF_SYNC</c>
+    /// until the gateway processes the configuration.Use <c>DescribeGatewayCapabilityConfiguration</c>
+    /// to check the sync status and verify the configuration was applied.
+    /// </para><para>
+    /// A gateway can have multiple capability configurations with different namespaces.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTSWGatewayCapabilityConfiguration")]
     [OutputType("Amazon.IoTSiteWise.Model.DescribeGatewayCapabilityConfigurationResponse")]
@@ -48,10 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter CapabilityNamespace
         /// <summary>
         /// <para>
-        /// <para>The namespace of the capability configuration. For example, if you configure OPC-UA
-        /// sources from the IoT SiteWise console, your OPC-UA capability configuration has the
-        /// namespace <c>iotsitewise:opcuacollector:version</c>, where <c>version</c> is a number
-        /// such as <c>1</c>.</para>
+        /// <para>The namespace of the capability configuration. For example, if you configure OPC UA
+        /// sources for an MQTT-enabled gateway, your OPC-UA capability configuration has the
+        /// namespace <c>iotsitewise:opcuacollector:3</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

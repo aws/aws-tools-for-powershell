@@ -1,4 +1,25 @@
-﻿### 4.1.865 (2025-07-25 20:26Z)
+﻿### 4.1.866 (2025-07-28 21:49Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1089.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Direct Connect
+    * Modified cmdlet New-DCInterconnect: added parameter RequestMACSec.
+  * Amazon IoT SiteWise
+    * Added cmdlet Get-IOTSWComputationModel leveraging the DescribeComputationModel service API.
+    * Added cmdlet Get-IOTSWComputationModelDataBindingUsageList leveraging the ListComputationModelDataBindingUsages service API.
+    * Added cmdlet Get-IOTSWComputationModelExecutionSummary leveraging the DescribeComputationModelExecutionSummary service API.
+    * Added cmdlet Get-IOTSWComputationModelList leveraging the ListComputationModels service API.
+    * Added cmdlet Get-IOTSWComputationModelResolveToResourceList leveraging the ListComputationModelResolveToResources service API.
+    * Added cmdlet Get-IOTSWExecution leveraging the DescribeExecution service API.
+    * Added cmdlet Get-IOTSWExecutionList leveraging the ListExecutions service API.
+    * Added cmdlet New-IOTSWComputationModel leveraging the CreateComputationModel service API.
+    * Added cmdlet Remove-IOTSWComputationModel leveraging the DeleteComputationModel service API.
+    * Added cmdlet Update-IOTSWComputationModel leveraging the UpdateComputationModel service API.
+    * Modified cmdlet Get-IOTSWActionList: added parameters ResolveToResourceId and ResolveToResourceType.
+    * Modified cmdlet Start-IOTSWAction: added parameters ResolveTo_AssetId and TargetResource_ComputationModelId.
+  * Amazon OpenSearch Ingestion
+    * Modified cmdlet New-OSISPipeline: added parameter PipelineRoleArn.
+    * Modified cmdlet Update-OSISPipeline: added parameter PipelineRoleArn.
+
+### 4.1.865 (2025-07-25 20:26Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1088.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppIntegrations Service
     * Modified cmdlet New-AISApplication: added parameters ContactHandling_Scope, IframeConfig_Allow, IframeConfig_Sandbox, InitializationTimeout and IsService.

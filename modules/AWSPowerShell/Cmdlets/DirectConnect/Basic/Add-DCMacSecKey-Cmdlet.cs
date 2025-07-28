@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
     /// Associates a MAC Security (MACsec) Connection Key Name (CKN)/ Connectivity Association
-    /// Key (CAK) pair with an Direct Connect dedicated connection.
+    /// Key (CAK) pair with a Direct Connect connection.
     /// 
     ///  
     /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter Cak
         /// <summary>
         /// <para>
-        /// <para>The MAC Security (MACsec) CAK to associate with the dedicated connection.</para><para>You can create the CKN/CAK pair using an industry standard tool.</para><para> The valid values are 64 hexadecimal characters (0-9, A-E).</para><para>If you use this request parameter, you must use the <c>ckn</c> request parameter and
+        /// <para>The MAC Security (MACsec) CAK to associate with the connection.</para><para>You can create the CKN/CAK pair using an industry standard tool.</para><para> The valid values are 64 hexadecimal characters (0-9, A-E).</para><para>If you use this request parameter, you must use the <c>ckn</c> request parameter and
         /// not use the <c>secretARN</c> request parameter.</para>
         /// </para>
         /// </summary>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter Ckn
         /// <summary>
         /// <para>
-        /// <para>The MAC Security (MACsec) CKN to associate with the dedicated connection.</para><para>You can create the CKN/CAK pair using an industry standard tool.</para><para> The valid values are 64 hexadecimal characters (0-9, A-E).</para><para>If you use this request parameter, you must use the <c>cak</c> request parameter and
+        /// <para>The MAC Security (MACsec) CKN to associate with the connection.</para><para>You can create the CKN/CAK pair using an industry standard tool.</para><para> The valid values are 64 hexadecimal characters (0-9, A-E).</para><para>If you use this request parameter, you must use the <c>cak</c> request parameter and
         /// not use the <c>secretARN</c> request parameter.</para>
         /// </para>
         /// </summary>
@@ -76,8 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG (dxlag-xxxx).</para><para>You can use <a>DescribeConnections</a> or <a>DescribeLags</a> to retrieve connection
-        /// ID.</para>
+        /// <para>The ID of the dedicated connection (dxcon-xxxx), interconnect (dxcon-xxxx), or LAG
+        /// (dxlag-xxxx).</para><para>You can use <a>DescribeConnections</a>, <a>DescribeInterconnects</a>, or <a>DescribeLags</a>
+        /// to retrieve connection ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate
-        /// with the dedicated connection.</para><para>You can use <a>DescribeConnections</a> or <a>DescribeLags</a> to retrieve the MAC
+        /// with the connection.</para><para>You can use <a>DescribeConnections</a> or <a>DescribeLags</a> to retrieve the MAC
         /// Security (MACsec) secret key.</para><para>If you use this request parameter, you do not use the <c>ckn</c> and <c>cak</c> request
         /// parameters.</para>
         /// </para>

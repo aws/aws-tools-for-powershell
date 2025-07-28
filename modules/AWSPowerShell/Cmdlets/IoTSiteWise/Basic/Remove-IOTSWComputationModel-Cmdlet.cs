@@ -22,38 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DirectConnect;
-using Amazon.DirectConnect.Model;
+using Amazon.IoTSiteWise;
+using Amazon.IoTSiteWise.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DC
+namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Updates the Direct Connect connection configuration.
-    /// 
-    ///  
-    /// <para>
-    /// You can update the following parameters for a connection:
-    /// </para><ul><li><para>
-    /// The connection name
-    /// </para></li><li><para>
-    /// The connection's MAC Security (MACsec) encryption mode.
-    /// </para></li></ul>
+    /// Deletes a computation model. This action can't be undone.
     /// </summary>
-    [Cmdlet("Update", "DCConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DirectConnect.Model.UpdateConnectionResponse")]
-    [AWSCmdlet("Calls the AWS Direct Connect UpdateConnection API operation.", Operation = new[] {"UpdateConnection"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.UpdateConnectionResponse))]
-    [AWSCmdletOutput("Amazon.DirectConnect.Model.UpdateConnectionResponse",
-        "This cmdlet returns an Amazon.DirectConnect.Model.UpdateConnectionResponse object containing multiple properties."
+    [Cmdlet("Remove", "IOTSWComputationModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.IoTSiteWise.Model.ComputationModelStatus")]
+    [AWSCmdlet("Calls the AWS IoT SiteWise DeleteComputationModel API operation.", Operation = new[] {"DeleteComputationModel"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.DeleteComputationModelResponse))]
+    [AWSCmdletOutput("Amazon.IoTSiteWise.Model.ComputationModelStatus or Amazon.IoTSiteWise.Model.DeleteComputationModelResponse",
+        "This cmdlet returns an Amazon.IoTSiteWise.Model.ComputationModelStatus object.",
+        "The service call response (type Amazon.IoTSiteWise.Model.DeleteComputationModelResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class UpdateDCConnectionCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
+    public partial class RemoveIOTSWComputationModelCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ConnectionId
+        #region Parameter ComputationModelId
         /// <summary>
         /// <para>
-        /// <para>The ID of the connection.</para><para>You can use <a>DescribeConnections</a> to retrieve the connection ID.</para>
+        /// <para>The ID of the computation model.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,46 +56,37 @@ namespace Amazon.PowerShell.Cmdlets.DC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ConnectionId { get; set; }
+        public System.String ComputationModelId { get; set; }
         #endregion
         
-        #region Parameter ConnectionName
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The name of the connection.</para>
+        /// <para>A unique case-sensitive identifier that you can provide to ensure the idempotency
+        /// of the request. Don't reuse this client token if a new idempotent request is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ConnectionName { get; set; }
-        #endregion
-        
-        #region Parameter EncryptionMode
-        /// <summary>
-        /// <para>
-        /// <para>The connection MAC Security (MACsec) encryption mode.</para><para>The valid values are <c>no_encrypt</c>, <c>should_encrypt</c>, and <c>must_encrypt</c>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String EncryptionMode { get; set; }
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DirectConnect.Model.UpdateConnectionResponse).
-        /// Specifying the name of a property of type Amazon.DirectConnect.Model.UpdateConnectionResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ComputationModelStatus'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTSiteWise.Model.DeleteComputationModelResponse).
+        /// Specifying the name of a property of type Amazon.IoTSiteWise.Model.DeleteComputationModelResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "ComputationModelStatus";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ConnectionId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ConnectionId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ComputationModelId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ComputationModelId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConnectionId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ComputationModelId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -123,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConnectionId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DCConnection (UpdateConnection)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ComputationModelId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IOTSWComputationModel (DeleteComputationModel)"))
             {
                 return;
             }
@@ -137,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DirectConnect.Model.UpdateConnectionResponse, UpdateDCConnectionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.DeleteComputationModelResponse, RemoveIOTSWComputationModelCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -146,18 +129,17 @@ namespace Amazon.PowerShell.Cmdlets.DC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ConnectionId;
+                context.Select = (response, cmdlet) => this.ComputationModelId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ConnectionId = this.ConnectionId;
+            context.ClientToken = this.ClientToken;
+            context.ComputationModelId = this.ComputationModelId;
             #if MODULAR
-            if (this.ConnectionId == null && ParameterWasBound(nameof(this.ConnectionId)))
+            if (this.ComputationModelId == null && ParameterWasBound(nameof(this.ComputationModelId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ConnectionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ComputationModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ConnectionName = this.ConnectionName;
-            context.EncryptionMode = this.EncryptionMode;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -172,19 +154,15 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectConnect.Model.UpdateConnectionRequest();
+            var request = new Amazon.IoTSiteWise.Model.DeleteComputationModelRequest();
             
-            if (cmdletContext.ConnectionId != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.ConnectionId = cmdletContext.ConnectionId;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.ConnectionName != null)
+            if (cmdletContext.ComputationModelId != null)
             {
-                request.ConnectionName = cmdletContext.ConnectionName;
-            }
-            if (cmdletContext.EncryptionMode != null)
-            {
-                request.EncryptionMode = cmdletContext.EncryptionMode;
+                request.ComputationModelId = cmdletContext.ComputationModelId;
             }
             
             CmdletOutput output;
@@ -219,15 +197,15 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region AWS Service Operation Call
         
-        private Amazon.DirectConnect.Model.UpdateConnectionResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.UpdateConnectionRequest request)
+        private Amazon.IoTSiteWise.Model.DeleteComputationModelResponse CallAWSServiceOperation(IAmazonIoTSiteWise client, Amazon.IoTSiteWise.Model.DeleteComputationModelRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Direct Connect", "UpdateConnection");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT SiteWise", "DeleteComputationModel");
             try
             {
                 #if DESKTOP
-                return client.UpdateConnection(request);
+                return client.DeleteComputationModel(request);
                 #elif CORECLR
-                return client.UpdateConnectionAsync(request).GetAwaiter().GetResult();
+                return client.DeleteComputationModelAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -247,11 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ConnectionId { get; set; }
-            public System.String ConnectionName { get; set; }
-            public System.String EncryptionMode { get; set; }
-            public System.Func<Amazon.DirectConnect.Model.UpdateConnectionResponse, UpdateDCConnectionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ClientToken { get; set; }
+            public System.String ComputationModelId { get; set; }
+            public System.Func<Amazon.IoTSiteWise.Model.DeleteComputationModelResponse, RemoveIOTSWComputationModelCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ComputationModelStatus;
         }
         
     }

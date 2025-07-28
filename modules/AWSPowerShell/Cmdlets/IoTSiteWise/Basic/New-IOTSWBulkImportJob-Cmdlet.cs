@@ -37,9 +37,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     /// SiteWise cold tier. For more information about how to configure storage settings,
     /// see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html">PutStorageConfiguration</a>.
     /// </para><para>
-    /// Bulk import is designed to store historical data to IoT SiteWise. It does not trigger
-    /// computations or notifications on IoT SiteWise warm or cold tier storage.
-    /// </para></important>
+    /// Bulk import is designed to store historical data to IoT SiteWise.
+    /// </para><ul><li><para>
+    /// Newly ingested data in the hot tier triggers notifications and computations.
+    /// </para></li><li><para>
+    /// After data moves from the hot tier to the warm or cold tier based on retention settings,
+    /// it does not trigger computations or notifications.
+    /// </para></li><li><para>
+    /// Data older than 7 days does not trigger computations or notifications.
+    /// </para></li></ul></important>
     /// </summary>
     [Cmdlet("New", "IOTSWBulkImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTSiteWise.Model.CreateBulkImportJobResponse")]
