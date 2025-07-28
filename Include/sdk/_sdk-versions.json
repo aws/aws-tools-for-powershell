@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.56.0",
+    "ProductVersion"    : "4.0.57.0",
     "CoreVersion"       : "4.0.0.18",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -138,7 +138,7 @@
             "InPreview"               : false
         },
         "DirectConnect"     : {
-            "Version" : "4.0.0.15",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.17"
@@ -1716,7 +1716,7 @@
             "InPreview"               : false
         },
         "IoTSiteWise"                     : {
-            "Version" : "4.0.0.15",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.17"
@@ -2652,7 +2652,7 @@
             "InPreview"               : false
         },
         "OSIS"                                : {
-            "Version" : "4.0.0.15",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.17"

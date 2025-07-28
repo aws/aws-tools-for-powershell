@@ -62,21 +62,34 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         public System.String ActionDefinitionId { get; set; }
         #endregion
         
+        #region Parameter ResolveTo_AssetId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the asset that the resource resolves to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResolveTo_AssetId { get; set; }
+        #endregion
+        
         #region Parameter TargetResource_AssetId
         /// <summary>
         /// <para>
         /// <para>The ID of the asset, in UUID format.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TargetResource_AssetId { get; set; }
+        #endregion
+        
+        #region Parameter TargetResource_ComputationModelId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the computation model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetResource_ComputationModelId { get; set; }
         #endregion
         
         #region Parameter ActionPayload_StringValue
@@ -168,13 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             }
             #endif
             context.ClientToken = this.ClientToken;
+            context.ResolveTo_AssetId = this.ResolveTo_AssetId;
             context.TargetResource_AssetId = this.TargetResource_AssetId;
-            #if MODULAR
-            if (this.TargetResource_AssetId == null && ParameterWasBound(nameof(this.TargetResource_AssetId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TargetResource_AssetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.TargetResource_ComputationModelId = this.TargetResource_ComputationModelId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -219,6 +228,25 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 request.ClientToken = cmdletContext.ClientToken;
             }
             
+             // populate ResolveTo
+            var requestResolveToIsNull = true;
+            request.ResolveTo = new Amazon.IoTSiteWise.Model.ResolveTo();
+            System.String requestResolveTo_resolveTo_AssetId = null;
+            if (cmdletContext.ResolveTo_AssetId != null)
+            {
+                requestResolveTo_resolveTo_AssetId = cmdletContext.ResolveTo_AssetId;
+            }
+            if (requestResolveTo_resolveTo_AssetId != null)
+            {
+                request.ResolveTo.AssetId = requestResolveTo_resolveTo_AssetId;
+                requestResolveToIsNull = false;
+            }
+             // determine if request.ResolveTo should be set to null
+            if (requestResolveToIsNull)
+            {
+                request.ResolveTo = null;
+            }
+            
              // populate TargetResource
             var requestTargetResourceIsNull = true;
             request.TargetResource = new Amazon.IoTSiteWise.Model.TargetResource();
@@ -230,6 +258,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestTargetResource_targetResource_AssetId != null)
             {
                 request.TargetResource.AssetId = requestTargetResource_targetResource_AssetId;
+                requestTargetResourceIsNull = false;
+            }
+            System.String requestTargetResource_targetResource_ComputationModelId = null;
+            if (cmdletContext.TargetResource_ComputationModelId != null)
+            {
+                requestTargetResource_targetResource_ComputationModelId = cmdletContext.TargetResource_ComputationModelId;
+            }
+            if (requestTargetResource_targetResource_ComputationModelId != null)
+            {
+                request.TargetResource.ComputationModelId = requestTargetResource_targetResource_ComputationModelId;
                 requestTargetResourceIsNull = false;
             }
              // determine if request.TargetResource should be set to null
@@ -295,7 +333,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             public System.String ActionDefinitionId { get; set; }
             public System.String ActionPayload_StringValue { get; set; }
             public System.String ClientToken { get; set; }
+            public System.String ResolveTo_AssetId { get; set; }
             public System.String TargetResource_AssetId { get; set; }
+            public System.String TargetResource_ComputationModelId { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.ExecuteActionResponse, StartIOTSWActionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ActionId;
         }

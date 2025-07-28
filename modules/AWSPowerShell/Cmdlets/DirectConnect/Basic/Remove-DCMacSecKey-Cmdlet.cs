@@ -30,8 +30,8 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Removes the association between a MAC Security (MACsec) security key and an Direct
-    /// Connect dedicated connection.
+    /// Removes the association between a MAC Security (MACsec) security key and a Direct
+    /// Connect connection.
     /// </summary>
     [Cmdlet("Remove", "DCMacSecKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DirectConnect.Model.DisassociateMacSecKeyResponse")]
@@ -48,8 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG (dxlag-xxxx).</para><para>You can use <a>DescribeConnections</a> or <a>DescribeLags</a> to retrieve connection
-        /// ID.</para>
+        /// <para>The ID of the dedicated connection (dxcon-xxxx), interconnect (dxcon-xxxx), or LAG
+        /// (dxlag-xxxx).</para><para>You can use <a>DescribeConnections</a>, <a>DescribeInterconnects</a>, or <a>DescribeLags</a>
+        /// to retrieve connection ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

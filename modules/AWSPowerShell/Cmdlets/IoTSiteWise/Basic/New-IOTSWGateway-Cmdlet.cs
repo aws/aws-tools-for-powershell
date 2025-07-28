@@ -49,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter GreengrassV2_CoreDeviceOperatingSystem
         /// <summary>
         /// <para>
-        /// <para>The operating system of the core device in IoT Greengrass V2.</para>
+        /// <para>The operating system of the core device in IoT Greengrass V2. Specifying the operating
+        /// system is required for MQTT-enabled, V3 gateways (<c>gatewayVersion</c><c>3</c>)
+        /// and not applicable for Classic stream, V2 gateways (<c>gatewayVersion</c><c>2</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,11 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The version of the gateway to create. Specify <c>3</c> to create an MQTT-enabled,
-        /// V3 gateway and <c>2</c> To create a Classic streams, V2 gateway. If the version isn't
-        /// specified, a Classic streams, V2 gateway is created by default.</para><para> We recommend creating an MQTT-enabled, V3 gateway for self-hosted gateways. SiteWise
-        /// Edge gateways on Siemens Industrial Edge should use gateway version <c>2</c>. For
-        /// more information on gateway versions, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gw-self-host-gg2.html">
-        /// Self-host a SiteWise Edge gateway with IoT Greengrass V2</a>.</para>
+        /// V3 gateway and <c>2</c> to create a Classic streams, V2 gateway. If not specified,
+        /// the default is <c>2</c> (Classic streams, V2 gateway).</para><note><para>When creating a V3 gateway (<c>gatewayVersion=3</c>) with the <c>GreengrassV2</c>
+        /// platform, you must also specify the <c>coreDeviceOperatingSystem</c> parameter.</para></note><para> We recommend creating an MQTT-enabled gateway for self-hosted gateways and Siemens
+        /// Industrial Edge gateways. For more information on gateway versions, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateways.html">Use
+        /// Amazon Web Services IoT SiteWise Edge Edge gateways</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

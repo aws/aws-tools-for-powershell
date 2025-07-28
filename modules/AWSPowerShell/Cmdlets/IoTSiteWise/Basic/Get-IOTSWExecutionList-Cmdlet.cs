@@ -30,20 +30,30 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Retrieves a paginated list of actions for a specific target resource.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves a paginated list of summaries of all executions.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "IOTSWActionList")]
-    [OutputType("Amazon.IoTSiteWise.Model.ActionSummary")]
-    [AWSCmdlet("Calls the AWS IoT SiteWise ListActions API operation.", Operation = new[] {"ListActions"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.ListActionsResponse))]
-    [AWSCmdletOutput("Amazon.IoTSiteWise.Model.ActionSummary or Amazon.IoTSiteWise.Model.ListActionsResponse",
-        "This cmdlet returns a collection of Amazon.IoTSiteWise.Model.ActionSummary objects.",
-        "The service call response (type Amazon.IoTSiteWise.Model.ListActionsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "IOTSWExecutionList")]
+    [OutputType("Amazon.IoTSiteWise.Model.ExecutionSummary")]
+    [AWSCmdlet("Calls the AWS IoT SiteWise ListExecutions API operation.", Operation = new[] {"ListExecutions"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.ListExecutionsResponse))]
+    [AWSCmdletOutput("Amazon.IoTSiteWise.Model.ExecutionSummary or Amazon.IoTSiteWise.Model.ListExecutionsResponse",
+        "This cmdlet returns a collection of Amazon.IoTSiteWise.Model.ExecutionSummary objects.",
+        "The service call response (type Amazon.IoTSiteWise.Model.ListExecutionsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetIOTSWActionListCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
+    public partial class GetIOTSWExecutionListCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter ActionType
+        /// <summary>
+        /// <para>
+        /// <para>The type of action exectued.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ActionType { get; set; }
+        #endregion
         
         #region Parameter ResolveToResourceId
         /// <summary>
@@ -73,9 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -86,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter TargetResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of resource.</para>
+        /// <para>The type of the target resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -103,18 +113,23 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return for each paginated request.</para>
+        /// <para>The maximum number of results returned for each paginated request.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token to be used for the next set of paginated results.</para>
+        /// <para>The token used for the next set of paginated results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -127,13 +142,13 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ActionSummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTSiteWise.Model.ListActionsResponse).
-        /// Specifying the name of a property of type Amazon.IoTSiteWise.Model.ListActionsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ExecutionSummaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTSiteWise.Model.ListExecutionsResponse).
+        /// Specifying the name of a property of type Amazon.IoTSiteWise.Model.ListExecutionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ActionSummaries";
+        public string Select { get; set; } = "ExecutionSummaries";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -162,10 +177,20 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.ListActionsResponse, GetIOTSWActionListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.ListExecutionsResponse, GetIOTSWExecutionListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ActionType = this.ActionType;
             context.MaxResult = this.MaxResult;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
+            {
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
+                    " to the service to specify how many items should be returned by each service call.");
+            }
+            #endif
             context.NextToken = this.NextToken;
             context.ResolveToResourceId = this.ResolveToResourceId;
             context.ResolveToResourceType = this.ResolveToResourceType;
@@ -199,11 +224,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.IoTSiteWise.Model.ListActionsRequest();
+            var request = new Amazon.IoTSiteWise.Model.ListExecutionsRequest();
             
+            if (cmdletContext.ActionType != null)
+            {
+                request.ActionType = cmdletContext.ActionType;
+            }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
+                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
             if (cmdletContext.ResolveToResourceId != null)
             {
@@ -278,12 +307,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         #region AWS Service Operation Call
         
-        private Amazon.IoTSiteWise.Model.ListActionsResponse CallAWSServiceOperation(IAmazonIoTSiteWise client, Amazon.IoTSiteWise.Model.ListActionsRequest request)
+        private Amazon.IoTSiteWise.Model.ListExecutionsResponse CallAWSServiceOperation(IAmazonIoTSiteWise client, Amazon.IoTSiteWise.Model.ListExecutionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT SiteWise", "ListActions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT SiteWise", "ListExecutions");
             try
             {
-                return client.ListActionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListExecutionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -300,14 +329,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
+            public System.String ActionType { get; set; }
+            public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String ResolveToResourceId { get; set; }
             public Amazon.IoTSiteWise.ResolveToResourceType ResolveToResourceType { get; set; }
             public System.String TargetResourceId { get; set; }
             public Amazon.IoTSiteWise.TargetResourceType TargetResourceType { get; set; }
-            public System.Func<Amazon.IoTSiteWise.Model.ListActionsResponse, GetIOTSWActionListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ActionSummaries;
+            public System.Func<Amazon.IoTSiteWise.Model.ListExecutionsResponse, GetIOTSWExecutionListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ExecutionSummaries;
         }
         
     }

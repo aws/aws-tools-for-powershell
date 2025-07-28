@@ -138,6 +138,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
         public System.String ProviderName { get; set; }
         #endregion
         
+        #region Parameter RequestMACSec
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether you want the interconnect to support MAC Security (MACsec).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RequestMACSec { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -222,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             }
             #endif
             context.ProviderName = this.ProviderName;
+            context.RequestMACSec = this.RequestMACSec;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.DirectConnect.Model.Tag>(this.Tag);
@@ -261,6 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (cmdletContext.ProviderName != null)
             {
                 request.ProviderName = cmdletContext.ProviderName;
+            }
+            if (cmdletContext.RequestMACSec != null)
+            {
+                request.RequestMACSec = cmdletContext.RequestMACSec.Value;
             }
             if (cmdletContext.Tag != null)
             {
@@ -326,6 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             public System.String LagId { get; set; }
             public System.String Location { get; set; }
             public System.String ProviderName { get; set; }
+            public System.Boolean? RequestMACSec { get; set; }
             public List<Amazon.DirectConnect.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.DirectConnect.Model.CreateInterconnectResponse, NewDCInterconnectCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
