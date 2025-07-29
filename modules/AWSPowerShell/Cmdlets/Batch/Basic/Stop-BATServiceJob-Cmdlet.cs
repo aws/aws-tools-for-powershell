@@ -23,44 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.CleanRooms;
-using Amazon.CleanRooms.Model;
+using Amazon.Batch;
+using Amazon.Batch.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.CRS
+namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Updates collaboration metadata and can only be called by the collaboration owner.
+    /// Terminates a service job in a job queue.
     /// </summary>
-    [Cmdlet("Update", "CRSCollaboration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CleanRooms.Model.Collaboration")]
-    [AWSCmdlet("Calls the AWS Clean Rooms Service UpdateCollaboration API operation.", Operation = new[] {"UpdateCollaboration"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.UpdateCollaborationResponse))]
-    [AWSCmdletOutput("Amazon.CleanRooms.Model.Collaboration or Amazon.CleanRooms.Model.UpdateCollaborationResponse",
-        "This cmdlet returns an Amazon.CleanRooms.Model.Collaboration object.",
-        "The service call response (type Amazon.CleanRooms.Model.UpdateCollaborationResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Stop", "BATServiceJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Batch TerminateServiceJob API operation.", Operation = new[] {"TerminateServiceJob"}, SelectReturnType = typeof(Amazon.Batch.Model.TerminateServiceJobResponse))]
+    [AWSCmdletOutput("None or Amazon.Batch.Model.TerminateServiceJobResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Batch.Model.TerminateServiceJobResponse) be returned by specifying '-Select *'."
     )]
-    public partial class UpdateCRSCollaborationCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
+    public partial class StopBATServiceJobCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AnalyticsEngine
+        #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The analytics engine.</para><note><para>After July 16, 2025, the <c>CLEAN_ROOMS_SQL</c> parameter will no longer be available.
-        /// </para></note>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.CleanRooms.AnalyticsEngine")]
-        public Amazon.CleanRooms.AnalyticsEngine AnalyticsEngine { get; set; }
-        #endregion
-        
-        #region Parameter CollaborationIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The identifier for the collaboration.</para>
+        /// <para>The service job ID of the service job to terminate.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,39 +59,35 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String CollaborationIdentifier { get; set; }
+        public System.String JobId { get; set; }
         #endregion
         
-        #region Parameter Description
+        #region Parameter Reason
         /// <summary>
         /// <para>
-        /// <para>A description of the collaboration.</para>
+        /// <para>A message to attach to the service job that explains the reason for canceling it.
+        /// This message is returned by <c>DescribeServiceJob</c> operations on the service job.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>A human-readable identifier provided by the collaboration owner. Display names are
-        /// not unique.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Reason { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Collaboration'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CleanRooms.Model.UpdateCollaborationResponse).
-        /// Specifying the name of a property of type Amazon.CleanRooms.Model.UpdateCollaborationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.TerminateServiceJobResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Collaboration";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -125,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CollaborationIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CRSCollaboration (UpdateCollaboration)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.JobId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-BATServiceJob (TerminateServiceJob)"))
             {
                 return;
             }
@@ -138,19 +122,23 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CleanRooms.Model.UpdateCollaborationResponse, UpdateCRSCollaborationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Batch.Model.TerminateServiceJobResponse, StopBATServiceJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AnalyticsEngine = this.AnalyticsEngine;
-            context.CollaborationIdentifier = this.CollaborationIdentifier;
+            context.JobId = this.JobId;
             #if MODULAR
-            if (this.CollaborationIdentifier == null && ParameterWasBound(nameof(this.CollaborationIdentifier)))
+            if (this.JobId == null && ParameterWasBound(nameof(this.JobId)))
             {
-                WriteWarning("You are passing $null as a value for parameter CollaborationIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter JobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Description = this.Description;
-            context.Name = this.Name;
+            context.Reason = this.Reason;
+            #if MODULAR
+            if (this.Reason == null && ParameterWasBound(nameof(this.Reason)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Reason which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -165,23 +153,15 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CleanRooms.Model.UpdateCollaborationRequest();
+            var request = new Amazon.Batch.Model.TerminateServiceJobRequest();
             
-            if (cmdletContext.AnalyticsEngine != null)
+            if (cmdletContext.JobId != null)
             {
-                request.AnalyticsEngine = cmdletContext.AnalyticsEngine;
+                request.JobId = cmdletContext.JobId;
             }
-            if (cmdletContext.CollaborationIdentifier != null)
+            if (cmdletContext.Reason != null)
             {
-                request.CollaborationIdentifier = cmdletContext.CollaborationIdentifier;
-            }
-            if (cmdletContext.Description != null)
-            {
-                request.Description = cmdletContext.Description;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
+                request.Reason = cmdletContext.Reason;
             }
             
             CmdletOutput output;
@@ -216,12 +196,12 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         #region AWS Service Operation Call
         
-        private Amazon.CleanRooms.Model.UpdateCollaborationResponse CallAWSServiceOperation(IAmazonCleanRooms client, Amazon.CleanRooms.Model.UpdateCollaborationRequest request)
+        private Amazon.Batch.Model.TerminateServiceJobResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.TerminateServiceJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Clean Rooms Service", "UpdateCollaboration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "TerminateServiceJob");
             try
             {
-                return client.UpdateCollaborationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.TerminateServiceJobAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -238,12 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.CleanRooms.AnalyticsEngine AnalyticsEngine { get; set; }
-            public System.String CollaborationIdentifier { get; set; }
-            public System.String Description { get; set; }
-            public System.String Name { get; set; }
-            public System.Func<Amazon.CleanRooms.Model.UpdateCollaborationResponse, UpdateCRSCollaborationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Collaboration;
+            public System.String JobId { get; set; }
+            public System.String Reason { get; set; }
+            public System.Func<Amazon.Batch.Model.TerminateServiceJobResponse, StopBATServiceJobCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

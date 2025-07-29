@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         /// <para>
         /// <para>If your initial <c>ListVpcEndpoints</c> operation returns a <c>nextToken</c>, you
         /// can include the returned <c>nextToken</c> in subsequent <c>ListVpcEndpoints</c> operations,
-        /// which returns results in the next page. </para>
+        /// which returns results in the next page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

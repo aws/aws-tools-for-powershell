@@ -30,7 +30,7 @@ using Amazon.CleanRooms.Model;
 namespace Amazon.PowerShell.Cmdlets.CRS
 {
     /// <summary>
-    /// Deletes a privacy budget template for a specified membership.
+    /// Deletes a privacy budget template for a specified collaboration.
     /// </summary>
     [Cmdlet("Remove", "CRSPrivacyBudgetTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

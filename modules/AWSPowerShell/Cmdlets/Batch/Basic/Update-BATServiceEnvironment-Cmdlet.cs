@@ -23,44 +23,49 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.CleanRooms;
-using Amazon.CleanRooms.Model;
+using Amazon.Batch;
+using Amazon.Batch.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.CRS
+namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Updates collaboration metadata and can only be called by the collaboration owner.
+    /// Updates a service environment. You can update the state of a service environment from
+    /// <c>ENABLED</c> to <c>DISABLED</c> to prevent new service jobs from being placed in
+    /// the service environment.
     /// </summary>
-    [Cmdlet("Update", "CRSCollaboration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CleanRooms.Model.Collaboration")]
-    [AWSCmdlet("Calls the AWS Clean Rooms Service UpdateCollaboration API operation.", Operation = new[] {"UpdateCollaboration"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.UpdateCollaborationResponse))]
-    [AWSCmdletOutput("Amazon.CleanRooms.Model.Collaboration or Amazon.CleanRooms.Model.UpdateCollaborationResponse",
-        "This cmdlet returns an Amazon.CleanRooms.Model.Collaboration object.",
-        "The service call response (type Amazon.CleanRooms.Model.UpdateCollaborationResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Update", "BATServiceEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Batch.Model.UpdateServiceEnvironmentResponse")]
+    [AWSCmdlet("Calls the AWS Batch UpdateServiceEnvironment API operation.", Operation = new[] {"UpdateServiceEnvironment"}, SelectReturnType = typeof(Amazon.Batch.Model.UpdateServiceEnvironmentResponse))]
+    [AWSCmdletOutput("Amazon.Batch.Model.UpdateServiceEnvironmentResponse",
+        "This cmdlet returns an Amazon.Batch.Model.UpdateServiceEnvironmentResponse object containing multiple properties."
     )]
-    public partial class UpdateCRSCollaborationCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
+    public partial class UpdateBATServiceEnvironmentCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AnalyticsEngine
+        #region Parameter CapacityLimit
         /// <summary>
         /// <para>
-        /// <para>The analytics engine.</para><note><para>After July 16, 2025, the <c>CLEAN_ROOMS_SQL</c> parameter will no longer be available.
-        /// </para></note>
+        /// <para>The capacity limits for the service environment. This defines the maximum resources
+        /// that can be used by service jobs in this environment.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.CleanRooms.AnalyticsEngine")]
-        public Amazon.CleanRooms.AnalyticsEngine AnalyticsEngine { get; set; }
+        [Alias("CapacityLimits")]
+        public Amazon.Batch.Model.CapacityLimit[] CapacityLimit { get; set; }
         #endregion
         
-        #region Parameter CollaborationIdentifier
+        #region Parameter ServiceEnvironment
         /// <summary>
         /// <para>
-        /// <para>The identifier for the collaboration.</para>
+        /// <para>The name or ARN of the service environment to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,39 +76,29 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String CollaborationIdentifier { get; set; }
+        public System.String ServiceEnvironment { get; set; }
         #endregion
         
-        #region Parameter Description
+        #region Parameter State
         /// <summary>
         /// <para>
-        /// <para>A description of the collaboration.</para>
+        /// <para>The state of the service environment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>A human-readable identifier provided by the collaboration owner. Display names are
-        /// not unique.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
+        [AWSConstantClassSource("Amazon.Batch.ServiceEnvironmentState")]
+        public Amazon.Batch.ServiceEnvironmentState State { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Collaboration'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CleanRooms.Model.UpdateCollaborationResponse).
-        /// Specifying the name of a property of type Amazon.CleanRooms.Model.UpdateCollaborationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.UpdateServiceEnvironmentResponse).
+        /// Specifying the name of a property of type Amazon.Batch.Model.UpdateServiceEnvironmentResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Collaboration";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -125,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CollaborationIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CRSCollaboration (UpdateCollaboration)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ServiceEnvironment), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-BATServiceEnvironment (UpdateServiceEnvironment)"))
             {
                 return;
             }
@@ -138,19 +133,21 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CleanRooms.Model.UpdateCollaborationResponse, UpdateCRSCollaborationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Batch.Model.UpdateServiceEnvironmentResponse, UpdateBATServiceEnvironmentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AnalyticsEngine = this.AnalyticsEngine;
-            context.CollaborationIdentifier = this.CollaborationIdentifier;
-            #if MODULAR
-            if (this.CollaborationIdentifier == null && ParameterWasBound(nameof(this.CollaborationIdentifier)))
+            if (this.CapacityLimit != null)
             {
-                WriteWarning("You are passing $null as a value for parameter CollaborationIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.CapacityLimit = new List<Amazon.Batch.Model.CapacityLimit>(this.CapacityLimit);
+            }
+            context.ServiceEnvironment = this.ServiceEnvironment;
+            #if MODULAR
+            if (this.ServiceEnvironment == null && ParameterWasBound(nameof(this.ServiceEnvironment)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ServiceEnvironment which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Description = this.Description;
-            context.Name = this.Name;
+            context.State = this.State;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -165,23 +162,19 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CleanRooms.Model.UpdateCollaborationRequest();
+            var request = new Amazon.Batch.Model.UpdateServiceEnvironmentRequest();
             
-            if (cmdletContext.AnalyticsEngine != null)
+            if (cmdletContext.CapacityLimit != null)
             {
-                request.AnalyticsEngine = cmdletContext.AnalyticsEngine;
+                request.CapacityLimits = cmdletContext.CapacityLimit;
             }
-            if (cmdletContext.CollaborationIdentifier != null)
+            if (cmdletContext.ServiceEnvironment != null)
             {
-                request.CollaborationIdentifier = cmdletContext.CollaborationIdentifier;
+                request.ServiceEnvironment = cmdletContext.ServiceEnvironment;
             }
-            if (cmdletContext.Description != null)
+            if (cmdletContext.State != null)
             {
-                request.Description = cmdletContext.Description;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
+                request.State = cmdletContext.State;
             }
             
             CmdletOutput output;
@@ -216,12 +209,12 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         #region AWS Service Operation Call
         
-        private Amazon.CleanRooms.Model.UpdateCollaborationResponse CallAWSServiceOperation(IAmazonCleanRooms client, Amazon.CleanRooms.Model.UpdateCollaborationRequest request)
+        private Amazon.Batch.Model.UpdateServiceEnvironmentResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.UpdateServiceEnvironmentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Clean Rooms Service", "UpdateCollaboration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "UpdateServiceEnvironment");
             try
             {
-                return client.UpdateCollaborationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.UpdateServiceEnvironmentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -238,12 +231,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.CleanRooms.AnalyticsEngine AnalyticsEngine { get; set; }
-            public System.String CollaborationIdentifier { get; set; }
-            public System.String Description { get; set; }
-            public System.String Name { get; set; }
-            public System.Func<Amazon.CleanRooms.Model.UpdateCollaborationResponse, UpdateCRSCollaborationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Collaboration;
+            public List<Amazon.Batch.Model.CapacityLimit> CapacityLimit { get; set; }
+            public System.String ServiceEnvironment { get; set; }
+            public Amazon.Batch.ServiceEnvironmentState State { get; set; }
+            public System.Func<Amazon.Batch.Model.UpdateServiceEnvironmentResponse, UpdateBATServiceEnvironmentCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

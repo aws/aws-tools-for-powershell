@@ -41,7 +41,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// Amazon Web Services Region
     /// </para></li><li><para>
     /// Data provider specified in the place index resource
-    /// </para></li></ul></note>
+    /// </para></li></ul></note><note><para>
+    /// If your Place index resource is configured with Grab as your geolocation provider
+    /// and Storage as Intended use, the GetPlace operation is unavailable. For more information,
+    /// see <a href="http://aws.amazon.com/service-terms">AWS service terms</a>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "LOCPlace")]
     [OutputType("Amazon.LocationService.Model.Place")]
@@ -76,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Key
         /// <summary>
         /// <para>
-        /// <para>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API
+        /// <para>The optional <a href="https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html">API
         /// key</a> to authorize the request.</para>
         /// </para>
         /// </summary>

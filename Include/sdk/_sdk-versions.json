@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.57.0",
+    "ProductVersion"    : "4.0.58.0",
     "CoreVersion"       : "4.0.0.18",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -708,7 +708,7 @@
             "InPreview"               : false
         },
         "Batch"                           : {
-            "Version" : "4.0.1.4",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.17"
@@ -1980,7 +1980,7 @@
             "InPreview"               : false
         },
         "LocationService"                 : {
-            "Version" : "4.0.0.15",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.17"
@@ -2524,7 +2524,7 @@
             "InPreview"               : false
         },
         "OpenSearchServerless"                : {
-            "Version" : "4.0.0.15",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.17"
@@ -2604,7 +2604,7 @@
             "InPreview"               : false
         },
         "CleanRooms"                          : {
-            "Version" : "4.0.1.14",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.17"
@@ -2972,7 +2972,7 @@
             "InPreview"               : false
         },
         "Deadline"                            : {
-            "Version" : "4.0.6.1",
+            "Version" : "4.0.7.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.17"

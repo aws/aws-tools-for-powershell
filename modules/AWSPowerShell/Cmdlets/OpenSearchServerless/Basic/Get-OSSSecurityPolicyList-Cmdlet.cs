@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>Resource filters (can be collection or indexes) that policies can apply to. </para><para />
+        /// <para>Resource filters (can be collection or indexes) that policies can apply to.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         /// <para>
         /// <para>If your initial <c>ListSecurityPolicies</c> operation returns a <c>nextToken</c>,
         /// you can include the returned <c>nextToken</c> in subsequent <c>ListSecurityPolicies</c>
-        /// operations, which returns results in the next page. </para>
+        /// operations, which returns results in the next page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

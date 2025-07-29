@@ -23,107 +23,106 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Deadline;
-using Amazon.Deadline.Model;
+using Amazon.Batch;
+using Amazon.Batch.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.ADC
+namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Creates an Amazon Web Services Deadline Cloud monitor that you can use to view your
-    /// farms, queues, and fleets. After you submit a job, you can track the progress of the
-    /// tasks and steps that make up the job, and then download the job's results.
+    /// Creates a service environment for running service jobs. Service environments define
+    /// capacity limits for specific service types such as SageMaker Training jobs.
     /// </summary>
-    [Cmdlet("New", "ADCMonitor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Deadline.Model.CreateMonitorResponse")]
-    [AWSCmdlet("Calls the AWSDeadlineCloud CreateMonitor API operation.", Operation = new[] {"CreateMonitor"}, SelectReturnType = typeof(Amazon.Deadline.Model.CreateMonitorResponse))]
-    [AWSCmdletOutput("Amazon.Deadline.Model.CreateMonitorResponse",
-        "This cmdlet returns an Amazon.Deadline.Model.CreateMonitorResponse object containing multiple properties."
+    [Cmdlet("New", "BATServiceEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Batch.Model.CreateServiceEnvironmentResponse")]
+    [AWSCmdlet("Calls the AWS Batch CreateServiceEnvironment API operation.", Operation = new[] {"CreateServiceEnvironment"}, SelectReturnType = typeof(Amazon.Batch.Model.CreateServiceEnvironmentResponse))]
+    [AWSCmdletOutput("Amazon.Batch.Model.CreateServiceEnvironmentResponse",
+        "This cmdlet returns an Amazon.Batch.Model.CreateServiceEnvironmentResponse object containing multiple properties."
     )]
-    public partial class NewADCMonitorCmdlet : AmazonDeadlineClientCmdlet, IExecutor
+    public partial class NewBATServiceEnvironmentCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DisplayName
+        #region Parameter CapacityLimit
         /// <summary>
         /// <para>
-        /// <para>The name that you give the monitor that is displayed in the Deadline Cloud console.</para><important><para>This field can store any content. Escape or encode this content before displaying
-        /// it on a webpage or any other system that might interpret the content of this field.</para></important>
+        /// <para>The capacity limits for the service environment. The number of instances a job consumes
+        /// is the total number of instances requested in the submit training job request resource
+        /// configuration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DisplayName { get; set; }
+        [Alias("CapacityLimits")]
+        public Amazon.Batch.Model.CapacityLimit[] CapacityLimit { get; set; }
         #endregion
         
-        #region Parameter IdentityCenterInstanceArn
+        #region Parameter ServiceEnvironmentName
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM Identity Center instance that authenticates
-        /// monitor users.</para>
+        /// <para>The name for the service environment. It can be up to 128 characters long and can
+        /// contain letters, numbers, hyphens (-), and underscores (_).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String IdentityCenterInstanceArn { get; set; }
+        public System.String ServiceEnvironmentName { get; set; }
         #endregion
         
-        #region Parameter RoleArn
+        #region Parameter ServiceEnvironmentType
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM role that the monitor uses to connect to
-        /// Deadline Cloud. Every user that signs in to the monitor using IAM Identity Center
-        /// uses this role to access Deadline Cloud resources.</para>
+        /// <para>The type of service environment. For SageMaker Training jobs, specify <c>SAGEMAKER_TRAINING</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RoleArn { get; set; }
+        [AWSConstantClassSource("Amazon.Batch.ServiceEnvironmentType")]
+        public Amazon.Batch.ServiceEnvironmentType ServiceEnvironmentType { get; set; }
         #endregion
         
-        #region Parameter Subdomain
+        #region Parameter State
         /// <summary>
         /// <para>
-        /// <para>The subdomain to use when creating the monitor URL. The full URL of the monitor is
-        /// subdomain.Region.deadlinecloud.amazonaws.com.</para>
+        /// <para>The state of the service environment. Valid values are <c>ENABLED</c> and <c>DISABLED</c>.
+        /// The default value is <c>ENABLED</c>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Subdomain { get; set; }
+        [AWSConstantClassSource("Amazon.Batch.ServiceEnvironmentState")]
+        public Amazon.Batch.ServiceEnvironmentState State { get; set; }
         #endregion
         
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to add to your monitor. Each tag consists of a tag key and a tag value. Tag
-        /// keys and values are both required, but tag values can be empty strings.</para><para />
+        /// <para>The tags that you apply to the service environment to help you categorize and organize
+        /// your resources. Each tag consists of a key and an optional value. For more information,
+        /// see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging
+        /// your Batch resources</a>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -135,21 +134,11 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>The unique token which the server uses to recognize retries of the same request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Deadline.Model.CreateMonitorResponse).
-        /// Specifying the name of a property of type Amazon.Deadline.Model.CreateMonitorResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.CreateServiceEnvironmentResponse).
+        /// Specifying the name of a property of type Amazon.Batch.Model.CreateServiceEnvironmentResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,8 +164,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-ADCMonitor (CreateMonitor)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ServiceEnvironmentName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-BATServiceEnvironment (CreateServiceEnvironment)"))
             {
                 return;
             }
@@ -188,38 +177,34 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Deadline.Model.CreateMonitorResponse, NewADCMonitorCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Batch.Model.CreateServiceEnvironmentResponse, NewBATServiceEnvironmentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ClientToken = this.ClientToken;
-            context.DisplayName = this.DisplayName;
-            #if MODULAR
-            if (this.DisplayName == null && ParameterWasBound(nameof(this.DisplayName)))
+            if (this.CapacityLimit != null)
             {
-                WriteWarning("You are passing $null as a value for parameter DisplayName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.CapacityLimit = new List<Amazon.Batch.Model.CapacityLimit>(this.CapacityLimit);
+            }
+            #if MODULAR
+            if (this.CapacityLimit == null && ParameterWasBound(nameof(this.CapacityLimit)))
+            {
+                WriteWarning("You are passing $null as a value for parameter CapacityLimit which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.IdentityCenterInstanceArn = this.IdentityCenterInstanceArn;
+            context.ServiceEnvironmentName = this.ServiceEnvironmentName;
             #if MODULAR
-            if (this.IdentityCenterInstanceArn == null && ParameterWasBound(nameof(this.IdentityCenterInstanceArn)))
+            if (this.ServiceEnvironmentName == null && ParameterWasBound(nameof(this.ServiceEnvironmentName)))
             {
-                WriteWarning("You are passing $null as a value for parameter IdentityCenterInstanceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ServiceEnvironmentName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RoleArn = this.RoleArn;
+            context.ServiceEnvironmentType = this.ServiceEnvironmentType;
             #if MODULAR
-            if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
+            if (this.ServiceEnvironmentType == null && ParameterWasBound(nameof(this.ServiceEnvironmentType)))
             {
-                WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ServiceEnvironmentType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Subdomain = this.Subdomain;
-            #if MODULAR
-            if (this.Subdomain == null && ParameterWasBound(nameof(this.Subdomain)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Subdomain which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.State = this.State;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -242,27 +227,23 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Deadline.Model.CreateMonitorRequest();
+            var request = new Amazon.Batch.Model.CreateServiceEnvironmentRequest();
             
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.CapacityLimit != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
+                request.CapacityLimits = cmdletContext.CapacityLimit;
             }
-            if (cmdletContext.DisplayName != null)
+            if (cmdletContext.ServiceEnvironmentName != null)
             {
-                request.DisplayName = cmdletContext.DisplayName;
+                request.ServiceEnvironmentName = cmdletContext.ServiceEnvironmentName;
             }
-            if (cmdletContext.IdentityCenterInstanceArn != null)
+            if (cmdletContext.ServiceEnvironmentType != null)
             {
-                request.IdentityCenterInstanceArn = cmdletContext.IdentityCenterInstanceArn;
+                request.ServiceEnvironmentType = cmdletContext.ServiceEnvironmentType;
             }
-            if (cmdletContext.RoleArn != null)
+            if (cmdletContext.State != null)
             {
-                request.RoleArn = cmdletContext.RoleArn;
-            }
-            if (cmdletContext.Subdomain != null)
-            {
-                request.Subdomain = cmdletContext.Subdomain;
+                request.State = cmdletContext.State;
             }
             if (cmdletContext.Tag != null)
             {
@@ -301,12 +282,12 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         
         #region AWS Service Operation Call
         
-        private Amazon.Deadline.Model.CreateMonitorResponse CallAWSServiceOperation(IAmazonDeadline client, Amazon.Deadline.Model.CreateMonitorRequest request)
+        private Amazon.Batch.Model.CreateServiceEnvironmentResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.CreateServiceEnvironmentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWSDeadlineCloud", "CreateMonitor");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "CreateServiceEnvironment");
             try
             {
-                return client.CreateMonitorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.CreateServiceEnvironmentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -323,13 +304,12 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
-            public System.String DisplayName { get; set; }
-            public System.String IdentityCenterInstanceArn { get; set; }
-            public System.String RoleArn { get; set; }
-            public System.String Subdomain { get; set; }
+            public List<Amazon.Batch.Model.CapacityLimit> CapacityLimit { get; set; }
+            public System.String ServiceEnvironmentName { get; set; }
+            public Amazon.Batch.ServiceEnvironmentType ServiceEnvironmentType { get; set; }
+            public Amazon.Batch.ServiceEnvironmentState State { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.Deadline.Model.CreateMonitorResponse, NewADCMonitorCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.Batch.Model.CreateServiceEnvironmentResponse, NewBATServiceEnvironmentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

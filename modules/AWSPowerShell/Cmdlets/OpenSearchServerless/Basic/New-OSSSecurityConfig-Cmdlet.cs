@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter IamFederationOptions_GroupAttribute
+        /// <summary>
+        /// <para>
+        /// <para>The group attribute for this IAM federation integration. This attribute is used to
+        /// map identity provider groups to OpenSearch Serverless permissions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IamFederationOptions_GroupAttribute { get; set; }
+        #endregion
+        
         #region Parameter IamIdentityCenterOptions_GroupAttribute
         /// <summary>
         /// <para>
@@ -118,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         #region Parameter SamlOptions_OpenSearchServerlessEntityId
         /// <summary>
         /// <para>
-        /// <para>Custom entity id attribute to override default entity id for this saml integration.</para>
+        /// <para>Custom entity ID attribute to override the default entity ID for this SAML integration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,6 +161,17 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.OpenSearchServerless.SecurityConfigType")]
         public Amazon.OpenSearchServerless.SecurityConfigType Type { get; set; }
+        #endregion
+        
+        #region Parameter IamFederationOptions_UserAttribute
+        /// <summary>
+        /// <para>
+        /// <para>The user attribute for this IAM federation integration. This attribute is used to
+        /// identify users in the federated authentication process.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IamFederationOptions_UserAttribute { get; set; }
         #endregion
         
         #region Parameter IamIdentityCenterOptions_UserAttribute
@@ -231,6 +253,8 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             }
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.IamFederationOptions_GroupAttribute = this.IamFederationOptions_GroupAttribute;
+            context.IamFederationOptions_UserAttribute = this.IamFederationOptions_UserAttribute;
             context.IamIdentityCenterOptions_GroupAttribute = this.IamIdentityCenterOptions_GroupAttribute;
             context.IamIdentityCenterOptions_InstanceArn = this.IamIdentityCenterOptions_InstanceArn;
             context.IamIdentityCenterOptions_UserAttribute = this.IamIdentityCenterOptions_UserAttribute;
@@ -276,6 +300,35 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate IamFederationOptions
+            var requestIamFederationOptionsIsNull = true;
+            request.IamFederationOptions = new Amazon.OpenSearchServerless.Model.IamFederationConfigOptions();
+            System.String requestIamFederationOptions_iamFederationOptions_GroupAttribute = null;
+            if (cmdletContext.IamFederationOptions_GroupAttribute != null)
+            {
+                requestIamFederationOptions_iamFederationOptions_GroupAttribute = cmdletContext.IamFederationOptions_GroupAttribute;
+            }
+            if (requestIamFederationOptions_iamFederationOptions_GroupAttribute != null)
+            {
+                request.IamFederationOptions.GroupAttribute = requestIamFederationOptions_iamFederationOptions_GroupAttribute;
+                requestIamFederationOptionsIsNull = false;
+            }
+            System.String requestIamFederationOptions_iamFederationOptions_UserAttribute = null;
+            if (cmdletContext.IamFederationOptions_UserAttribute != null)
+            {
+                requestIamFederationOptions_iamFederationOptions_UserAttribute = cmdletContext.IamFederationOptions_UserAttribute;
+            }
+            if (requestIamFederationOptions_iamFederationOptions_UserAttribute != null)
+            {
+                request.IamFederationOptions.UserAttribute = requestIamFederationOptions_iamFederationOptions_UserAttribute;
+                requestIamFederationOptionsIsNull = false;
+            }
+             // determine if request.IamFederationOptions should be set to null
+            if (requestIamFederationOptionsIsNull)
+            {
+                request.IamFederationOptions = null;
             }
             
              // populate IamIdentityCenterOptions
@@ -440,6 +493,8 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         {
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.String IamFederationOptions_GroupAttribute { get; set; }
+            public System.String IamFederationOptions_UserAttribute { get; set; }
             public Amazon.OpenSearchServerless.IamIdentityCenterGroupAttribute IamIdentityCenterOptions_GroupAttribute { get; set; }
             public System.String IamIdentityCenterOptions_InstanceArn { get; set; }
             public Amazon.OpenSearchServerless.IamIdentityCenterUserAttribute IamIdentityCenterOptions_UserAttribute { get; set; }

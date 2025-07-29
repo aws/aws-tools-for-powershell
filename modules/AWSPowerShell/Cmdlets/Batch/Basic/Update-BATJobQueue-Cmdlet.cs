@@ -128,6 +128,21 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String SchedulingPolicyArn { get; set; }
         #endregion
         
+        #region Parameter ServiceEnvironmentOrder
+        /// <summary>
+        /// <para>
+        /// <para>The order of the service environment associated with the job queue. Job queues with
+        /// a higher priority are evaluated first when associated with the same service environment.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Batch.Model.ServiceEnvironmentOrder[] ServiceEnvironmentOrder { get; set; }
+        #endregion
+        
         #region Parameter State
         /// <summary>
         /// <para>
@@ -204,6 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             }
             context.Priority = this.Priority;
             context.SchedulingPolicyArn = this.SchedulingPolicyArn;
+            if (this.ServiceEnvironmentOrder != null)
+            {
+                context.ServiceEnvironmentOrder = new List<Amazon.Batch.Model.ServiceEnvironmentOrder>(this.ServiceEnvironmentOrder);
+            }
             context.State = this.State;
             
             // allow further manipulation of loaded context prior to processing
@@ -240,6 +259,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (cmdletContext.SchedulingPolicyArn != null)
             {
                 request.SchedulingPolicyArn = cmdletContext.SchedulingPolicyArn;
+            }
+            if (cmdletContext.ServiceEnvironmentOrder != null)
+            {
+                request.ServiceEnvironmentOrder = cmdletContext.ServiceEnvironmentOrder;
             }
             if (cmdletContext.State != null)
             {
@@ -305,6 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public List<Amazon.Batch.Model.JobStateTimeLimitAction> JobStateTimeLimitAction { get; set; }
             public System.Int32? Priority { get; set; }
             public System.String SchedulingPolicyArn { get; set; }
+            public List<Amazon.Batch.Model.ServiceEnvironmentOrder> ServiceEnvironmentOrder { get; set; }
             public Amazon.Batch.JQState State { get; set; }
             public System.Func<Amazon.Batch.Model.UpdateJobQueueResponse, UpdateBATJobQueueCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

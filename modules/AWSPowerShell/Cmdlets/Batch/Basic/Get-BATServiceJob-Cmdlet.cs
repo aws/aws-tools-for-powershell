@@ -23,49 +23,31 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.LocationService;
-using Amazon.LocationService.Model;
+using Amazon.Batch;
+using Amazon.Batch.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.LOC
+namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Retrieves the map style descriptor from a map resource. 
-    /// 
-    ///  
-    /// <para>
-    /// The style descriptor contains speciﬁcations on how features render on a map. For example,
-    /// what data to display, what order to display the data in, and the style for the data.
-    /// Style descriptors follow the Mapbox Style Specification.
-    /// </para>
+    /// The details of a service job.
     /// </summary>
-    [Cmdlet("Get", "LOCMapStyleDescriptor")]
-    [OutputType("Amazon.LocationService.Model.GetMapStyleDescriptorResponse")]
-    [AWSCmdlet("Calls the Amazon Location Service GetMapStyleDescriptor API operation.", Operation = new[] {"GetMapStyleDescriptor"}, SelectReturnType = typeof(Amazon.LocationService.Model.GetMapStyleDescriptorResponse))]
-    [AWSCmdletOutput("Amazon.LocationService.Model.GetMapStyleDescriptorResponse",
-        "This cmdlet returns an Amazon.LocationService.Model.GetMapStyleDescriptorResponse object containing multiple properties."
+    [Cmdlet("Get", "BATServiceJob")]
+    [OutputType("Amazon.Batch.Model.DescribeServiceJobResponse")]
+    [AWSCmdlet("Calls the AWS Batch DescribeServiceJob API operation.", Operation = new[] {"DescribeServiceJob"}, SelectReturnType = typeof(Amazon.Batch.Model.DescribeServiceJobResponse))]
+    [AWSCmdletOutput("Amazon.Batch.Model.DescribeServiceJobResponse",
+        "This cmdlet returns an Amazon.Batch.Model.DescribeServiceJobResponse object containing multiple properties."
     )]
-    public partial class GetLOCMapStyleDescriptorCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
+    public partial class GetBATServiceJobCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Key
+        #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The optional <a href="https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html">API
-        /// key</a> to authorize the request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Key { get; set; }
-        #endregion
-        
-        #region Parameter MapName
-        /// <summary>
-        /// <para>
-        /// <para>The map resource to retrieve the style descriptor from.</para>
+        /// <para>The job ID for the service job to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,14 +58,14 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MapName { get; set; }
+        public System.String JobId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LocationService.Model.GetMapStyleDescriptorResponse).
-        /// Specifying the name of a property of type Amazon.LocationService.Model.GetMapStyleDescriptorResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.DescribeServiceJobResponse).
+        /// Specifying the name of a property of type Amazon.Batch.Model.DescribeServiceJobResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,15 +88,14 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.LocationService.Model.GetMapStyleDescriptorResponse, GetLOCMapStyleDescriptorCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Batch.Model.DescribeServiceJobResponse, GetBATServiceJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Key = this.Key;
-            context.MapName = this.MapName;
+            context.JobId = this.JobId;
             #if MODULAR
-            if (this.MapName == null && ParameterWasBound(nameof(this.MapName)))
+            if (this.JobId == null && ParameterWasBound(nameof(this.JobId)))
             {
-                WriteWarning("You are passing $null as a value for parameter MapName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter JobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -131,15 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.LocationService.Model.GetMapStyleDescriptorRequest();
+            var request = new Amazon.Batch.Model.DescribeServiceJobRequest();
             
-            if (cmdletContext.Key != null)
+            if (cmdletContext.JobId != null)
             {
-                request.Key = cmdletContext.Key;
-            }
-            if (cmdletContext.MapName != null)
-            {
-                request.MapName = cmdletContext.MapName;
+                request.JobId = cmdletContext.JobId;
             }
             
             CmdletOutput output;
@@ -174,12 +151,12 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         #region AWS Service Operation Call
         
-        private Amazon.LocationService.Model.GetMapStyleDescriptorResponse CallAWSServiceOperation(IAmazonLocationService client, Amazon.LocationService.Model.GetMapStyleDescriptorRequest request)
+        private Amazon.Batch.Model.DescribeServiceJobResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.DescribeServiceJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Location Service", "GetMapStyleDescriptor");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "DescribeServiceJob");
             try
             {
-                return client.GetMapStyleDescriptorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DescribeServiceJobAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -196,9 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Key { get; set; }
-            public System.String MapName { get; set; }
-            public System.Func<Amazon.LocationService.Model.GetMapStyleDescriptorResponse, GetLOCMapStyleDescriptorCmdlet, object> Select { get; set; } =
+            public System.String JobId { get; set; }
+            public System.Func<Amazon.Batch.Model.DescribeServiceJobResponse, GetBATServiceJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

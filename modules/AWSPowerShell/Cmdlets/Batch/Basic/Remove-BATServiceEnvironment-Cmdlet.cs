@@ -23,49 +23,35 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.LocationService;
-using Amazon.LocationService.Model;
+using Amazon.Batch;
+using Amazon.Batch.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.LOC
+namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Retrieves the map style descriptor from a map resource. 
-    /// 
-    ///  
-    /// <para>
-    /// The style descriptor contains speciﬁcations on how features render on a map. For example,
-    /// what data to display, what order to display the data in, and the style for the data.
-    /// Style descriptors follow the Mapbox Style Specification.
-    /// </para>
+    /// Deletes a Service environment. Before you can delete a service environment, you must
+    /// first set its state to <c>DISABLED</c> with the <c>UpdateServiceEnvironment</c> API
+    /// operation and disassociate it from any job queues with the <c>UpdateJobQueue</c> API
+    /// operation.
     /// </summary>
-    [Cmdlet("Get", "LOCMapStyleDescriptor")]
-    [OutputType("Amazon.LocationService.Model.GetMapStyleDescriptorResponse")]
-    [AWSCmdlet("Calls the Amazon Location Service GetMapStyleDescriptor API operation.", Operation = new[] {"GetMapStyleDescriptor"}, SelectReturnType = typeof(Amazon.LocationService.Model.GetMapStyleDescriptorResponse))]
-    [AWSCmdletOutput("Amazon.LocationService.Model.GetMapStyleDescriptorResponse",
-        "This cmdlet returns an Amazon.LocationService.Model.GetMapStyleDescriptorResponse object containing multiple properties."
+    [Cmdlet("Remove", "BATServiceEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Batch DeleteServiceEnvironment API operation.", Operation = new[] {"DeleteServiceEnvironment"}, SelectReturnType = typeof(Amazon.Batch.Model.DeleteServiceEnvironmentResponse))]
+    [AWSCmdletOutput("None or Amazon.Batch.Model.DeleteServiceEnvironmentResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Batch.Model.DeleteServiceEnvironmentResponse) be returned by specifying '-Select *'."
     )]
-    public partial class GetLOCMapStyleDescriptorCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
+    public partial class RemoveBATServiceEnvironmentCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Key
+        #region Parameter ServiceEnvironment
         /// <summary>
         /// <para>
-        /// <para>The optional <a href="https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html">API
-        /// key</a> to authorize the request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Key { get; set; }
-        #endregion
-        
-        #region Parameter MapName
-        /// <summary>
-        /// <para>
-        /// <para>The map resource to retrieve the style descriptor from.</para>
+        /// <para>The name or ARN of the service environment to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,18 +62,27 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MapName { get; set; }
+        public System.String ServiceEnvironment { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LocationService.Model.GetMapStyleDescriptorResponse).
-        /// Specifying the name of a property of type Amazon.LocationService.Model.GetMapStyleDescriptorResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.DeleteServiceEnvironmentResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -99,6 +94,12 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         {
             base.ProcessRecord();
             
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ServiceEnvironment), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BATServiceEnvironment (DeleteServiceEnvironment)"))
+            {
+                return;
+            }
+            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -106,15 +107,14 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.LocationService.Model.GetMapStyleDescriptorResponse, GetLOCMapStyleDescriptorCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Batch.Model.DeleteServiceEnvironmentResponse, RemoveBATServiceEnvironmentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Key = this.Key;
-            context.MapName = this.MapName;
+            context.ServiceEnvironment = this.ServiceEnvironment;
             #if MODULAR
-            if (this.MapName == null && ParameterWasBound(nameof(this.MapName)))
+            if (this.ServiceEnvironment == null && ParameterWasBound(nameof(this.ServiceEnvironment)))
             {
-                WriteWarning("You are passing $null as a value for parameter MapName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ServiceEnvironment which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -131,15 +131,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.LocationService.Model.GetMapStyleDescriptorRequest();
+            var request = new Amazon.Batch.Model.DeleteServiceEnvironmentRequest();
             
-            if (cmdletContext.Key != null)
+            if (cmdletContext.ServiceEnvironment != null)
             {
-                request.Key = cmdletContext.Key;
-            }
-            if (cmdletContext.MapName != null)
-            {
-                request.MapName = cmdletContext.MapName;
+                request.ServiceEnvironment = cmdletContext.ServiceEnvironment;
             }
             
             CmdletOutput output;
@@ -174,12 +170,12 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         #region AWS Service Operation Call
         
-        private Amazon.LocationService.Model.GetMapStyleDescriptorResponse CallAWSServiceOperation(IAmazonLocationService client, Amazon.LocationService.Model.GetMapStyleDescriptorRequest request)
+        private Amazon.Batch.Model.DeleteServiceEnvironmentResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.DeleteServiceEnvironmentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Location Service", "GetMapStyleDescriptor");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "DeleteServiceEnvironment");
             try
             {
-                return client.GetMapStyleDescriptorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteServiceEnvironmentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -196,10 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Key { get; set; }
-            public System.String MapName { get; set; }
-            public System.Func<Amazon.LocationService.Model.GetMapStyleDescriptorResponse, GetLOCMapStyleDescriptorCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ServiceEnvironment { get; set; }
+            public System.Func<Amazon.Batch.Model.DeleteServiceEnvironmentResponse, RemoveBATServiceEnvironmentCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

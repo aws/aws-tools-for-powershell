@@ -23,52 +23,77 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.OpenSearchServerless;
-using Amazon.OpenSearchServerless.Model;
+using Amazon.Batch;
+using Amazon.Batch.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.OSS
+namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Returns information about configured OpenSearch Serverless security configurations.
-    /// For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
-    /// authentication for Amazon OpenSearch Serverless</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// Returns a list of service jobs for a specified job queue.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "OSSSecurityConfigList")]
-    [OutputType("Amazon.OpenSearchServerless.Model.SecurityConfigSummary")]
-    [AWSCmdlet("Calls the OpenSearch Serverless ListSecurityConfigs API operation.", Operation = new[] {"ListSecurityConfigs"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.ListSecurityConfigsResponse))]
-    [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.SecurityConfigSummary or Amazon.OpenSearchServerless.Model.ListSecurityConfigsResponse",
-        "This cmdlet returns a collection of Amazon.OpenSearchServerless.Model.SecurityConfigSummary objects.",
-        "The service call response (type Amazon.OpenSearchServerless.Model.ListSecurityConfigsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "BATServiceJobList")]
+    [OutputType("Amazon.Batch.Model.ServiceJobSummary")]
+    [AWSCmdlet("Calls the AWS Batch ListServiceJobs API operation.", Operation = new[] {"ListServiceJobs"}, SelectReturnType = typeof(Amazon.Batch.Model.ListServiceJobsResponse))]
+    [AWSCmdletOutput("Amazon.Batch.Model.ServiceJobSummary or Amazon.Batch.Model.ListServiceJobsResponse",
+        "This cmdlet returns a collection of Amazon.Batch.Model.ServiceJobSummary objects.",
+        "The service call response (type Amazon.Batch.Model.ListServiceJobsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetOSSSecurityConfigListCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
+    public partial class GetBATServiceJobListCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Type
+        #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The type of security configuration.</para>
+        /// <para>The filters to apply to the service job list query. The filter names and values can
+        /// be:</para><ul><li><para>name: <c>JOB_STATUS</c></para><para>values: <c>SUBMITTED | PENDING | RUNNABLE | STARTING | RUNNING | SUCCEEDED | FAILED
+        /// | SCHEDULED</c></para></li><li><para>name: <c>JOB_NAME</c></para><para>values: case-insensitive matches for the job name. If a filter value ends with an
+        /// asterisk (*), it matches any job name that begins with the string before the '*'.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
-        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters")]
+        public Amazon.Batch.Model.KeyValuesPair[] Filter { get; set; }
+        #endregion
+        
+        #region Parameter JobQueue
+        /// <summary>
+        /// <para>
+        /// <para>The name or ARN of the job queue with which to list service jobs.</para>
+        /// </para>
+        /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.OpenSearchServerless.SecurityConfigType")]
-        public Amazon.OpenSearchServerless.SecurityConfigType Type { get; set; }
+        public System.String JobQueue { get; set; }
+        #endregion
+        
+        #region Parameter JobStatus
+        /// <summary>
+        /// <para>
+        /// <para>The job status with which to filter service jobs. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Batch.ServiceJobStatus")]
+        public Amazon.Batch.ServiceJobStatus JobStatus { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>An optional parameter that specifies the maximum number of results to return. You
-        /// can use <c>nextToken</c> to get the next page of results. The default is 20.</para>
+        /// <para>The maximum number of results returned by <c>ListServiceJobs</c> in paginated output.
+        /// When this parameter is used, <c>ListServiceJobs</c> only returns <c>maxResults</c>
+        /// results in a single page and a <c>nextToken</c> response element. The remaining results
+        /// of the initial request can be seen by sending another <c>ListServiceJobs</c> request
+        /// with the returned <c>nextToken</c> value. This value can be between 1 and 100. If
+        /// this parameter isn't used, then <c>ListServiceJobs</c> returns up to 100 results and
+        /// a <c>nextToken</c> value if applicable.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -84,9 +109,12 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If your initial <c>ListSecurityConfigs</c> operation returns a <c>nextToken</c>, you
-        /// can include the returned <c>nextToken</c> in subsequent <c>ListSecurityConfigs</c>
-        /// operations, which returns results in the next page.</para>
+        /// <para>The <c>nextToken</c> value returned from a previous paginated <c>ListServiceJobs</c>
+        /// request where <c>maxResults</c> was used and the results exceeded the value of that
+        /// parameter. Pagination continues from the end of the previous results that returned
+        /// the <c>nextToken</c> value. This value is <c>null</c> when there are no more results
+        /// to return.</para><note><para>Treat this token as an opaque identifier that's only used to retrieve the next items
+        /// in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -99,13 +127,13 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'SecurityConfigSummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpenSearchServerless.Model.ListSecurityConfigsResponse).
-        /// Specifying the name of a property of type Amazon.OpenSearchServerless.Model.ListSecurityConfigsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'JobSummaryList'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.ListServiceJobsResponse).
+        /// Specifying the name of a property of type Amazon.Batch.Model.ListServiceJobsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "SecurityConfigSummaries";
+        public string Select { get; set; } = "JobSummaryList";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -113,7 +141,6 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
         /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
         /// as the start point.
-        /// This cmdlet didn't autopaginate in V4. To preserve the V4 autopagination behavior for all cmdlets, run Set-AWSAutoIterationMode -IterationMode v4.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter NoAutoIteration { get; set; }
@@ -135,9 +162,15 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.OpenSearchServerless.Model.ListSecurityConfigsResponse, GetOSSSecurityConfigListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Batch.Model.ListServiceJobsResponse, GetBATServiceJobListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.Batch.Model.KeyValuesPair>(this.Filter);
+            }
+            context.JobQueue = this.JobQueue;
+            context.JobStatus = this.JobStatus;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -149,13 +182,6 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             }
             #endif
             context.NextToken = this.NextToken;
-            context.Type = this.Type;
-            #if MODULAR
-            if (this.Type == null && ParameterWasBound(nameof(this.Type)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -172,21 +198,28 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.OpenSearchServerless.Model.ListSecurityConfigsRequest();
+            var request = new Amazon.Batch.Model.ListServiceJobsRequest();
             
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.JobQueue != null)
+            {
+                request.JobQueue = cmdletContext.JobQueue;
+            }
+            if (cmdletContext.JobStatus != null)
+            {
+                request.JobStatus = cmdletContext.JobStatus;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
-            }
-            if (cmdletContext.Type != null)
-            {
-                request.Type = cmdletContext.Type;
             }
             
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;
             var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
-            var _shouldAutoIterate = !(SessionState.PSVariable.GetValue("AWSPowerShell_AutoIteration_Mode")?.ToString() == "v4");
             
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             do
@@ -220,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
                 
                 ProcessOutput(output);
                 
-            } while (!_userControllingPaging && _shouldAutoIterate && AutoIterationHelpers.HasValue(_nextToken));
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
             
             if (useParameterSelect)
             {
@@ -240,12 +273,12 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         
         #region AWS Service Operation Call
         
-        private Amazon.OpenSearchServerless.Model.ListSecurityConfigsResponse CallAWSServiceOperation(IAmazonOpenSearchServerless client, Amazon.OpenSearchServerless.Model.ListSecurityConfigsRequest request)
+        private Amazon.Batch.Model.ListServiceJobsResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.ListServiceJobsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "OpenSearch Serverless", "ListSecurityConfigs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "ListServiceJobs");
             try
             {
-                return client.ListSecurityConfigsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListServiceJobsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -262,11 +295,13 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Batch.Model.KeyValuesPair> Filter { get; set; }
+            public System.String JobQueue { get; set; }
+            public Amazon.Batch.ServiceJobStatus JobStatus { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public Amazon.OpenSearchServerless.SecurityConfigType Type { get; set; }
-            public System.Func<Amazon.OpenSearchServerless.Model.ListSecurityConfigsResponse, GetOSSSecurityConfigListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.SecurityConfigSummaries;
+            public System.Func<Amazon.Batch.Model.ListServiceJobsResponse, GetBATServiceJobListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.JobSummaryList;
         }
         
     }
