@@ -145,7 +145,7 @@ $OSS_Completers = {
             ($_ -eq "New-OSSSecurityConfig/Type")
         }
         {
-            $v = "iamidentitycenter","saml"
+            $v = "iamfederation","iamidentitycenter","saml"
             break
         }
 

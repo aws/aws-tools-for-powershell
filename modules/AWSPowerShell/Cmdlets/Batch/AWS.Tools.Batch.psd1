@@ -101,10 +101,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-BATResourceTag', 
         'Get-BATSchedulingPolicy', 
         'Get-BATSchedulingPolicyList', 
+        'Get-BATServiceEnvironment', 
+        'Get-BATServiceJob', 
+        'Get-BATServiceJobList', 
         'New-BATComputeEnvironment', 
         'New-BATConsumableResource', 
         'New-BATJobQueue', 
         'New-BATSchedulingPolicy', 
+        'New-BATServiceEnvironment', 
         'Register-BATJobDefinition', 
         'Remove-BATComputeEnvironment', 
         'Remove-BATConsumableResource', 
@@ -112,13 +116,17 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-BATJobQueue', 
         'Remove-BATResourceTag', 
         'Remove-BATSchedulingPolicy', 
+        'Remove-BATServiceEnvironment', 
         'Stop-BATJob', 
+        'Stop-BATServiceJob', 
         'Submit-BATJob', 
+        'Submit-BATServiceJob', 
         'Unregister-BATJobDefinition', 
         'Update-BATComputeEnvironment', 
         'Update-BATConsumableResource', 
         'Update-BATJobQueue', 
-        'Update-BATSchedulingPolicy')
+        'Update-BATSchedulingPolicy', 
+        'Update-BATServiceEnvironment')
 
     # Variables to export from this module
     VariablesToExport = '*'

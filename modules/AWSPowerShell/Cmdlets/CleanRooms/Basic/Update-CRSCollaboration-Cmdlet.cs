@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter AnalyticsEngine
         /// <summary>
         /// <para>
-        /// <para>The analytics engine.</para>
+        /// <para>The analytics engine.</para><note><para>After July 16, 2025, the <c>CLEAN_ROOMS_SQL</c> parameter will no longer be available.
+        /// </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

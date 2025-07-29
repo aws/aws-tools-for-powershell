@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Circle_Center
@@ -77,7 +79,13 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>Geobuf is a compact binary encoding for geographic data that provides lossless compression
-        /// of GeoJSON polygons. The Geobuf must be Base64-encoded.</para><para>A polygon in Geobuf format can have up to 100,000 vertices.</para>
+        /// of GeoJSON polygons. The Geobuf must be Base64-encoded.</para><para>This parameter can contain a Geobuf-encoded GeoJSON geometry object of type <c>Polygon</c><i>OR</i><c>MultiPolygon</c>. For more information and specific configuration requirements
+        /// for these object types, see <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointGeofencing_GeofenceGeometry.html#location-Type-WaypointGeofencing_GeofenceGeometry-Polygon">Polygon</a>
+        /// and <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointGeofencing_GeofenceGeometry.html#location-Type-WaypointGeofencing_GeofenceGeometry-MultiPolygon">MultiPolygon</a>.</para><note><para>The following limitations apply specifically to geometries defined using the <c>Geobuf</c>
+        /// parameter, and supercede the corresponding limitations of the <c>Polygon</c> and <c>MultiPolygon</c>
+        /// parameters:</para><ul><li><para>A <c>Polygon</c> in <c>Geobuf</c> format can have up to 25,000 rings and up to 100,000
+        /// total vertices, including all vertices from all component rings.</para></li><li><para>A <c>MultiPolygon</c> in <c>Geobuf</c> format can contain up to 10,000 <c>Polygons</c>
+        /// and up to 100,000 total vertices, including all vertices from all component <c>Polygons</c>.</para></li></ul></note>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -115,16 +123,45 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         public System.Collections.Hashtable GeofenceProperty { get; set; }
         #endregion
         
+        #region Parameter Geometry_MultiPolygon
+        /// <summary>
+        /// <para>
+        /// <para>A <c>MultiPolygon</c> is a list of up to 250 <c>Polygon</c> elements which represent
+        /// the shape of a geofence. The <c>Polygon</c> components of a <c>MultiPolygon</c> geometry
+        /// can define separate geographical areas that are considered part of the same geofence,
+        /// perimeters of larger exterior areas with smaller interior spaces that are excluded
+        /// from the geofence, or some combination of these use cases to form complex geofence
+        /// boundaries.</para><para>For more information and specific configuration requirements for the <c>Polygon</c>
+        /// components that form a <c>MultiPolygon</c>, see <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointGeofencing_GeofenceGeometry.html#location-Type-WaypointGeofencing_GeofenceGeometry-Polygon">Polygon</a>.</para><note><para>The following additional requirements and limitations apply to geometries defined
+        /// using the <c>MultiPolygon</c> parameter:</para><ul><li><para>The entire <c>MultiPolygon</c> must consist of no more than 1,000 vertices, including
+        /// all vertices from all component <c>Polygons</c>.</para></li><li><para>Each edge of a component <c>Polygon</c> must intersect no more than 5 edges from other
+        /// <c>Polygons</c>. Parallel edges that are shared but do not cross are not counted toward
+        /// this limit.</para></li><li><para>The total number of intersecting edges of component <c>Polygons</c> must be no more
+        /// than 100,000. Parallel edges that are shared but do not cross are not counted toward
+        /// this limit.</para></li></ul></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double[][][][] Geometry_MultiPolygon { get; set; }
+        #endregion
+        
         #region Parameter Geometry_Polygon
         /// <summary>
         /// <para>
-        /// <para>A polygon is a list of linear rings which are each made up of a list of vertices.</para><para>Each vertex is a 2-dimensional point of the form: <c>[longitude, latitude]</c>. This
-        /// is represented as an array of doubles of length 2 (so <c>[double, double]</c>).</para><para>An array of 4 or more vertices, where the first and last vertex are the same (to form
-        /// a closed boundary), is called a linear ring. The linear ring vertices must be listed
-        /// in counter-clockwise order around the ring’s interior. The linear ring is represented
-        /// as an array of vertices, or an array of arrays of doubles (<c>[[double, double], ...]</c>).</para><para>A geofence consists of a single linear ring. To allow for future expansion, the Polygon
-        /// parameter takes an array of linear rings, which is represented as an array of arrays
-        /// of arrays of doubles (<c>[[[double, double], ...], ...]</c>).</para><para>A linear ring for use in geofences can consist of between 4 and 1,000 vertices.</para>
+        /// <para>A <c>Polygon</c> is a list of up to 250 linear rings which represent the shape of
+        /// a geofence. This list <i>must</i> include 1 exterior ring (representing the outer
+        /// perimeter of the geofence), and can optionally include up to 249 interior rings (representing
+        /// polygonal spaces within the perimeter, which are excluded from the geofence area).</para><para>A linear ring is an array of 4 or more vertices, where the first and last vertex are
+        /// the same (to form a closed boundary). Each vertex is a 2-dimensional point represented
+        /// as an array of doubles of length 2: <c>[longitude, latitude]</c>.</para><para>Each linear ring is represented as an array of arrays of doubles (<c>[[longitude,
+        /// latitude], [longitude, latitude], ...]</c>). The vertices for the exterior ring must
+        /// be listed in <i>counter-clockwise</i> sequence. Vertices for all interior rings must
+        /// be listed in <i>clockwise</i> sequence.</para><para>The list of linear rings that describe the entire <c>Polygon</c> is represented as
+        /// an array of arrays of arrays of doubles (<c>[[[longitude, latitude], [longitude, latitude],
+        /// ...], [[longitude, latitude], [longitude, latitude], ...], ...]</c>). The exterior
+        /// ring must be listed first, before any interior rings.</para><note><para>The following additional requirements and limitations apply to geometries defined
+        /// using the <c>Polygon</c> parameter:</para><ul><li><para>The entire <c>Polygon</c> must consist of no more than 1,000 vertices, including all
+        /// vertices from the exterior ring and all interior rings.</para></li><li><para>Rings must not touch or cross each other.</para></li><li><para>All interior rings must be fully contained within the exterior ring.</para></li><li><para>Interior rings must not contain other interior rings.</para></li><li><para>No ring is permitted to intersect itself.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -247,6 +284,25 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             }
             context.Circle_Radius = this.Circle_Radius;
             context.Geometry_Geobuf = this.Geometry_Geobuf;
+            if (this.Geometry_MultiPolygon != null)
+            {
+                context.Geometry_MultiPolygon = new List<List<List<List<System.Double>>>>();
+                foreach (var innerList in this.Geometry_MultiPolygon)
+                {
+                    var innerListCopy = new List<List<List<System.Double>>>();
+                    context.Geometry_MultiPolygon.Add(innerListCopy);
+                    foreach (var secondInnerList in innerList)
+                    {
+                        var secondInnerListCopy = new List<List<System.Double>>();
+                        innerListCopy.Add(secondInnerListCopy);
+                        foreach (var innermostList in secondInnerList)
+                        {
+                            var innermostListCopy = new List<System.Double>(innermostList);
+                            secondInnerListCopy.Add(innermostListCopy);
+                        }
+                    }
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -302,6 +358,16 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 if (requestGeometry_geometry_Geobuf != null)
                 {
                     request.Geometry.Geobuf = requestGeometry_geometry_Geobuf;
+                    requestGeometryIsNull = false;
+                }
+                List<List<List<List<System.Double>>>> requestGeometry_geometry_MultiPolygon = null;
+                if (cmdletContext.Geometry_MultiPolygon != null)
+                {
+                    requestGeometry_geometry_MultiPolygon = cmdletContext.Geometry_MultiPolygon;
+                }
+                if (requestGeometry_geometry_MultiPolygon != null)
+                {
+                    request.Geometry.MultiPolygon = requestGeometry_geometry_MultiPolygon;
                     requestGeometryIsNull = false;
                 }
                 Amazon.LocationService.Model.Circle requestGeometry_geometry_Circle = null;
@@ -420,6 +486,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             public List<System.Double> Circle_Center { get; set; }
             public System.Double? Circle_Radius { get; set; }
             public byte[] Geometry_Geobuf { get; set; }
+            public List<List<List<List<System.Double>>>> Geometry_MultiPolygon { get; set; }
             public System.Func<Amazon.LocationService.Model.PutGeofenceResponse, SetLOCGeofenceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

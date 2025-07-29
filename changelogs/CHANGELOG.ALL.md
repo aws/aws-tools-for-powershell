@@ -1,4 +1,27 @@
-﻿### 4.1.866 (2025-07-28 21:49Z)
+﻿### 4.1.867 (2025-07-29 20:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1090.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSDeadlineCloud
+    * Modified cmdlet New-ADCMonitor: added parameter Tag.
+  * Amazon Batch
+    * Added cmdlet Get-BATServiceEnvironment leveraging the DescribeServiceEnvironments service API.
+    * Added cmdlet Get-BATServiceJob leveraging the DescribeServiceJob service API.
+    * Added cmdlet Get-BATServiceJobList leveraging the ListServiceJobs service API.
+    * Added cmdlet New-BATServiceEnvironment leveraging the CreateServiceEnvironment service API.
+    * Added cmdlet Remove-BATServiceEnvironment leveraging the DeleteServiceEnvironment service API.
+    * Added cmdlet Stop-BATServiceJob leveraging the TerminateServiceJob service API.
+    * Added cmdlet Submit-BATServiceJob leveraging the SubmitServiceJob service API.
+    * Added cmdlet Update-BATServiceEnvironment leveraging the UpdateServiceEnvironment service API.
+    * Modified cmdlet New-BATJobQueue: added parameters JobQueueType and ServiceEnvironmentOrder.
+    * Modified cmdlet Update-BATJobQueue: added parameter ServiceEnvironmentOrder.
+  * Amazon Clean Rooms Service
+    * Modified cmdlet Update-CRSConfiguredTable: added parameters AllowedColumn, Athena_DatabaseName, Athena_OutputLocation, Athena_TableName, Athena_WorkGroup, Glue_DatabaseName, Glue_TableName, Snowflake_AccountIdentifier, Snowflake_DatabaseName, Snowflake_SchemaName, Snowflake_SecretArn, Snowflake_TableName and TableSchema_V1.
+  * Amazon Location Service
+    * Modified cmdlet Set-LOCGeofence: added parameter Geometry_MultiPolygon.
+  * Amazon OpenSearch Serverless
+    * Modified cmdlet New-OSSSecurityConfig: added parameters IamFederationOptions_GroupAttribute and IamFederationOptions_UserAttribute.
+    * Modified cmdlet Update-OSSSecurityConfig: added parameters IamFederationOptions_GroupAttribute and IamFederationOptions_UserAttribute.
+
+### 4.1.866 (2025-07-28 21:49Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1089.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Direct Connect
     * Modified cmdlet New-DCInterconnect: added parameter RequestMACSec.

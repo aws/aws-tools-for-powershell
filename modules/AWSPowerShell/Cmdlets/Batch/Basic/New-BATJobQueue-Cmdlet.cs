@@ -65,14 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// in a single job queue.</para></note>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public Amazon.Batch.Model.ComputeEnvironmentOrder[] ComputeEnvironmentOrder { get; set; }
         #endregion
         
@@ -92,6 +85,19 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String JobQueueName { get; set; }
+        #endregion
+        
+        #region Parameter JobQueueType
+        /// <summary>
+        /// <para>
+        /// <para>The type of job queue. For service jobs that run on SageMaker Training, this value
+        /// is <c>SAGEMAKER_TRAINING</c>. For regular container jobs, this value is <c>EKS</c>,
+        /// <c>ECS</c>, or <c>ECS_FARGATE</c> depending on the compute environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Batch.JobQueueType")]
+        public Amazon.Batch.JobQueueType JobQueueType { get; set; }
         #endregion
         
         #region Parameter JobStateTimeLimitAction
@@ -144,6 +150,18 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SchedulingPolicyArn { get; set; }
+        #endregion
+        
+        #region Parameter ServiceEnvironmentOrder
+        /// <summary>
+        /// <para>
+        /// <para>A list of service environments that this job queue can use to allocate jobs. All serviceEnvironments
+        /// must have the same type. A job queue can't have both a serviceEnvironmentOrder and
+        /// a computeEnvironmentOrder field.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Batch.Model.ServiceEnvironmentOrder[] ServiceEnvironmentOrder { get; set; }
         #endregion
         
         #region Parameter State
@@ -219,12 +237,6 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 context.ComputeEnvironmentOrder = new List<Amazon.Batch.Model.ComputeEnvironmentOrder>(this.ComputeEnvironmentOrder);
             }
-            #if MODULAR
-            if (this.ComputeEnvironmentOrder == null && ParameterWasBound(nameof(this.ComputeEnvironmentOrder)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ComputeEnvironmentOrder which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.JobQueueName = this.JobQueueName;
             #if MODULAR
             if (this.JobQueueName == null && ParameterWasBound(nameof(this.JobQueueName)))
@@ -232,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 WriteWarning("You are passing $null as a value for parameter JobQueueName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.JobQueueType = this.JobQueueType;
             if (this.JobStateTimeLimitAction != null)
             {
                 context.JobStateTimeLimitAction = new List<Amazon.Batch.Model.JobStateTimeLimitAction>(this.JobStateTimeLimitAction);
@@ -244,6 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             }
             #endif
             context.SchedulingPolicyArn = this.SchedulingPolicyArn;
+            if (this.ServiceEnvironmentOrder != null)
+            {
+                context.ServiceEnvironmentOrder = new List<Amazon.Batch.Model.ServiceEnvironmentOrder>(this.ServiceEnvironmentOrder);
+            }
             context.State = this.State;
             if (this.Tag != null)
             {
@@ -277,6 +294,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 request.JobQueueName = cmdletContext.JobQueueName;
             }
+            if (cmdletContext.JobQueueType != null)
+            {
+                request.JobQueueType = cmdletContext.JobQueueType;
+            }
             if (cmdletContext.JobStateTimeLimitAction != null)
             {
                 request.JobStateTimeLimitActions = cmdletContext.JobStateTimeLimitAction;
@@ -288,6 +309,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (cmdletContext.SchedulingPolicyArn != null)
             {
                 request.SchedulingPolicyArn = cmdletContext.SchedulingPolicyArn;
+            }
+            if (cmdletContext.ServiceEnvironmentOrder != null)
+            {
+                request.ServiceEnvironmentOrder = cmdletContext.ServiceEnvironmentOrder;
             }
             if (cmdletContext.State != null)
             {
@@ -360,9 +385,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         {
             public List<Amazon.Batch.Model.ComputeEnvironmentOrder> ComputeEnvironmentOrder { get; set; }
             public System.String JobQueueName { get; set; }
+            public Amazon.Batch.JobQueueType JobQueueType { get; set; }
             public List<Amazon.Batch.Model.JobStateTimeLimitAction> JobStateTimeLimitAction { get; set; }
             public System.Int32? Priority { get; set; }
             public System.String SchedulingPolicyArn { get; set; }
+            public List<Amazon.Batch.Model.ServiceEnvironmentOrder> ServiceEnvironmentOrder { get; set; }
             public Amazon.Batch.JQState State { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Batch.Model.CreateJobQueueResponse, NewBATJobQueueCmdlet, object> Select { get; set; } =

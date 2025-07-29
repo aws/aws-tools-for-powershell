@@ -97,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>A list of one or more Amazon Location categories to filter the returned places. If
         /// you include more than one category, the results will include results that match <i>any</i>
         /// of the categories listed.</para><para>For more information about using categories, including a list of Amazon Location categories,
-        /// see <a href="https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html">Categories
-        /// and filtering</a>, in the <i>Amazon Location Service Developer Guide</i>.</para>
+        /// see <a href="https://docs.aws.amazon.com/location/previous/developerguide/category-filtering.html">Categories
+        /// and filtering</a>, in the <i>Amazon Location Service developer guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Key
         /// <summary>
         /// <para>
-        /// <para>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API
+        /// <para>The optional <a href="https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html">API
         /// key</a> to authorize the request.</para>
         /// </para>
         /// </summary>

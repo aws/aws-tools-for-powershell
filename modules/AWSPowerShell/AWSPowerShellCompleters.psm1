@@ -6595,6 +6595,13 @@ $BAT_Completers = {
             break
         }
 
+        # Amazon.Batch.JobQueueType
+        "New-BATJobQueue/JobQueueType"
+        {
+            $v = "ECS","ECS_FARGATE","EKS","SAGEMAKER_TRAINING"
+            break
+        }
+
         # Amazon.Batch.JobStatus
         "Get-BATJobList/JobStatus"
         {
@@ -6619,6 +6626,37 @@ $BAT_Completers = {
             break
         }
 
+        # Amazon.Batch.ServiceEnvironmentState
+        {
+            ($_ -eq "New-BATServiceEnvironment/State") -Or
+            ($_ -eq "Update-BATServiceEnvironment/State")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Batch.ServiceEnvironmentType
+        "New-BATServiceEnvironment/ServiceEnvironmentType"
+        {
+            $v = "SAGEMAKER_TRAINING"
+            break
+        }
+
+        # Amazon.Batch.ServiceJobStatus
+        "Get-BATServiceJobList/JobStatus"
+        {
+            $v = "FAILED","PENDING","RUNNABLE","RUNNING","SCHEDULED","STARTING","SUBMITTED","SUCCEEDED"
+            break
+        }
+
+        # Amazon.Batch.ServiceJobType
+        "Submit-BATServiceJob/ServiceJobType"
+        {
+            $v = "SAGEMAKER_TRAINING"
+            break
+        }
+
         # Amazon.Batch.UserdataType
         {
             ($_ -eq "New-BATComputeEnvironment/LaunchTemplate_UserdataType") -Or
@@ -6640,11 +6678,14 @@ $BAT_Completers = {
 $BAT_map = @{
     "ComputeResources_AllocationStrategy"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "ComputeResources_Type"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
-    "JobStatus"=@("Get-BATJobList")
+    "JobQueueType"=@("New-BATJobQueue")
+    "JobStatus"=@("Get-BATJobList","Get-BATServiceJobList")
     "LaunchTemplate_UserdataType"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "LogConfiguration_LogDriver"=@("Register-BATJobDefinition")
     "NetworkConfiguration_AssignPublicIp"=@("Register-BATJobDefinition")
-    "State"=@("New-BATComputeEnvironment","New-BATJobQueue","Update-BATComputeEnvironment","Update-BATJobQueue")
+    "ServiceEnvironmentType"=@("New-BATServiceEnvironment")
+    "ServiceJobType"=@("Submit-BATServiceJob")
+    "State"=@("New-BATComputeEnvironment","New-BATJobQueue","New-BATServiceEnvironment","Update-BATComputeEnvironment","Update-BATJobQueue","Update-BATServiceEnvironment")
     "Type"=@("New-BATComputeEnvironment","Register-BATJobDefinition")
 }
 
@@ -6703,10 +6744,12 @@ $BAT_SelectMap = @{
                "New-BATConsumableResource",
                "New-BATJobQueue",
                "New-BATSchedulingPolicy",
+               "New-BATServiceEnvironment",
                "Remove-BATComputeEnvironment",
                "Remove-BATConsumableResource",
                "Remove-BATJobQueue",
                "Remove-BATSchedulingPolicy",
+               "Remove-BATServiceEnvironment",
                "Unregister-BATJobDefinition",
                "Get-BATComputeEnvironment",
                "Get-BATConsumableResource",
@@ -6714,21 +6757,27 @@ $BAT_SelectMap = @{
                "Get-BATJobQueue",
                "Get-BATJobDetail",
                "Get-BATSchedulingPolicy",
+               "Get-BATServiceEnvironment",
+               "Get-BATServiceJob",
                "Get-BATJobQueueSnapshot",
                "Get-BATConsumableResourceList",
                "Get-BATJobList",
                "Get-BATJobsByConsumableResourceList",
                "Get-BATSchedulingPolicyList",
+               "Get-BATServiceJobList",
                "Get-BATResourceTag",
                "Register-BATJobDefinition",
                "Submit-BATJob",
+               "Submit-BATServiceJob",
                "Add-BATResourceTag",
                "Remove-BATJob",
+               "Stop-BATServiceJob",
                "Remove-BATResourceTag",
                "Update-BATComputeEnvironment",
                "Update-BATConsumableResource",
                "Update-BATJobQueue",
-               "Update-BATSchedulingPolicy")
+               "Update-BATSchedulingPolicy",
+               "Update-BATServiceEnvironment")
 }
 
 _awsArgumentCompleterRegistration $BAT_SelectCompleters $BAT_SelectMap
@@ -56244,7 +56293,7 @@ $OSS_Completers = {
             ($_ -eq "New-OSSSecurityConfig/Type")
         }
         {
-            $v = "iamidentitycenter","saml"
+            $v = "iamfederation","iamidentitycenter","saml"
             break
         }
 

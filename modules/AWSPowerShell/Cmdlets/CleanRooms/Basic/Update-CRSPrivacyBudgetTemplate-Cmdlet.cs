@@ -28,7 +28,7 @@ using Amazon.CleanRooms.Model;
 namespace Amazon.PowerShell.Cmdlets.CRS
 {
     /// <summary>
-    /// Updates the privacy budget template for the specified membership.
+    /// Updates the privacy budget template for the specified collaboration.
     /// </summary>
     [Cmdlet("Update", "CRSPrivacyBudgetTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CleanRooms.Model.PrivacyBudgetTemplate")]

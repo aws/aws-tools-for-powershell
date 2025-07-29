@@ -22,31 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.LocationService;
-using Amazon.LocationService.Model;
+using Amazon.Batch;
+using Amazon.Batch.Model;
 
-namespace Amazon.PowerShell.Cmdlets.LOC
+namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Retrieves the route calculator resource details.
+    /// The details of a service job.
     /// </summary>
-    [Cmdlet("Get", "LOCRouteCalculator")]
-    [OutputType("Amazon.LocationService.Model.DescribeRouteCalculatorResponse")]
-    [AWSCmdlet("Calls the Amazon Location Service DescribeRouteCalculator API operation.", Operation = new[] {"DescribeRouteCalculator"}, SelectReturnType = typeof(Amazon.LocationService.Model.DescribeRouteCalculatorResponse))]
-    [AWSCmdletOutput("Amazon.LocationService.Model.DescribeRouteCalculatorResponse",
-        "This cmdlet returns an Amazon.LocationService.Model.DescribeRouteCalculatorResponse object containing multiple properties."
+    [Cmdlet("Get", "BATServiceJob")]
+    [OutputType("Amazon.Batch.Model.DescribeServiceJobResponse")]
+    [AWSCmdlet("Calls the AWS Batch DescribeServiceJob API operation.", Operation = new[] {"DescribeServiceJob"}, SelectReturnType = typeof(Amazon.Batch.Model.DescribeServiceJobResponse))]
+    [AWSCmdletOutput("Amazon.Batch.Model.DescribeServiceJobResponse",
+        "This cmdlet returns an Amazon.Batch.Model.DescribeServiceJobResponse object containing multiple properties."
     )]
-    public partial class GetLOCRouteCalculatorCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
+    public partial class GetBATServiceJobCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter CalculatorName
+        #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The name of the route calculator resource.</para>
+        /// <para>The job ID for the service job to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,14 +55,14 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String CalculatorName { get; set; }
+        public System.String JobId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LocationService.Model.DescribeRouteCalculatorResponse).
-        /// Specifying the name of a property of type Amazon.LocationService.Model.DescribeRouteCalculatorResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.DescribeServiceJobResponse).
+        /// Specifying the name of a property of type Amazon.Batch.Model.DescribeServiceJobResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,10 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the CalculatorName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^CalculatorName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the JobId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^JobId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CalculatorName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^JobId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -94,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.LocationService.Model.DescribeRouteCalculatorResponse, GetLOCRouteCalculatorCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Batch.Model.DescribeServiceJobResponse, GetBATServiceJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -103,14 +101,14 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.CalculatorName;
+                context.Select = (response, cmdlet) => this.JobId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.CalculatorName = this.CalculatorName;
+            context.JobId = this.JobId;
             #if MODULAR
-            if (this.CalculatorName == null && ParameterWasBound(nameof(this.CalculatorName)))
+            if (this.JobId == null && ParameterWasBound(nameof(this.JobId)))
             {
-                WriteWarning("You are passing $null as a value for parameter CalculatorName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter JobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -127,11 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.LocationService.Model.DescribeRouteCalculatorRequest();
+            var request = new Amazon.Batch.Model.DescribeServiceJobRequest();
             
-            if (cmdletContext.CalculatorName != null)
+            if (cmdletContext.JobId != null)
             {
-                request.CalculatorName = cmdletContext.CalculatorName;
+                request.JobId = cmdletContext.JobId;
             }
             
             CmdletOutput output;
@@ -166,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         #region AWS Service Operation Call
         
-        private Amazon.LocationService.Model.DescribeRouteCalculatorResponse CallAWSServiceOperation(IAmazonLocationService client, Amazon.LocationService.Model.DescribeRouteCalculatorRequest request)
+        private Amazon.Batch.Model.DescribeServiceJobResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.DescribeServiceJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Location Service", "DescribeRouteCalculator");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "DescribeServiceJob");
             try
             {
                 #if DESKTOP
-                return client.DescribeRouteCalculator(request);
+                return client.DescribeServiceJob(request);
                 #elif CORECLR
-                return client.DescribeRouteCalculatorAsync(request).GetAwaiter().GetResult();
+                return client.DescribeServiceJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -194,8 +192,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CalculatorName { get; set; }
-            public System.Func<Amazon.LocationService.Model.DescribeRouteCalculatorResponse, GetLOCRouteCalculatorCmdlet, object> Select { get; set; } =
+            public System.String JobId { get; set; }
+            public System.Func<Amazon.Batch.Model.DescribeServiceJobResponse, GetBATServiceJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

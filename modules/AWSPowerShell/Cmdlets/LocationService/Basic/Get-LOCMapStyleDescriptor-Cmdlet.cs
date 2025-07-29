@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Key
         /// <summary>
         /// <para>
-        /// <para>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API
+        /// <para>The optional <a href="https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html">API
         /// key</a> to authorize the request.</para>
         /// </para>
         /// </summary>

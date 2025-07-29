@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         /// <para>
         /// <para>If your initial <c>ListSecurityConfigs</c> operation returns a <c>nextToken</c>, you
         /// can include the returned <c>nextToken</c> in subsequent <c>ListSecurityConfigs</c>
-        /// operations, which returns results in the next page. </para>
+        /// operations, which returns results in the next page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

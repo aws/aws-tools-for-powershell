@@ -22,31 +22,43 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.LocationService;
-using Amazon.LocationService.Model;
+using Amazon.Batch;
+using Amazon.Batch.Model;
 
-namespace Amazon.PowerShell.Cmdlets.LOC
+namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Updates the specified properties for a given route calculator resource.
+    /// Updates a service environment. You can update the state of a service environment from
+    /// <c>ENABLED</c> to <c>DISABLED</c> to prevent new service jobs from being placed in
+    /// the service environment.
     /// </summary>
-    [Cmdlet("Edit", "LOCRouteCalculator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.LocationService.Model.UpdateRouteCalculatorResponse")]
-    [AWSCmdlet("Calls the Amazon Location Service UpdateRouteCalculator API operation.", Operation = new[] {"UpdateRouteCalculator"}, SelectReturnType = typeof(Amazon.LocationService.Model.UpdateRouteCalculatorResponse))]
-    [AWSCmdletOutput("Amazon.LocationService.Model.UpdateRouteCalculatorResponse",
-        "This cmdlet returns an Amazon.LocationService.Model.UpdateRouteCalculatorResponse object containing multiple properties."
+    [Cmdlet("Update", "BATServiceEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Batch.Model.UpdateServiceEnvironmentResponse")]
+    [AWSCmdlet("Calls the AWS Batch UpdateServiceEnvironment API operation.", Operation = new[] {"UpdateServiceEnvironment"}, SelectReturnType = typeof(Amazon.Batch.Model.UpdateServiceEnvironmentResponse))]
+    [AWSCmdletOutput("Amazon.Batch.Model.UpdateServiceEnvironmentResponse",
+        "This cmdlet returns an Amazon.Batch.Model.UpdateServiceEnvironmentResponse object containing multiple properties."
     )]
-    public partial class EditLOCRouteCalculatorCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
+    public partial class UpdateBATServiceEnvironmentCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter CalculatorName
+        #region Parameter CapacityLimit
         /// <summary>
         /// <para>
-        /// <para>The name of the route calculator resource to update.</para>
+        /// <para>The capacity limits for the service environment. This defines the maximum resources
+        /// that can be used by service jobs in this environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CapacityLimits")]
+        public Amazon.Batch.Model.CapacityLimit[] CapacityLimit { get; set; }
+        #endregion
+        
+        #region Parameter ServiceEnvironment
+        /// <summary>
+        /// <para>
+        /// <para>The name or ARN of the service environment to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,37 +69,25 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String CalculatorName { get; set; }
+        public System.String ServiceEnvironment { get; set; }
         #endregion
         
-        #region Parameter Description
+        #region Parameter State
         /// <summary>
         /// <para>
-        /// <para>Updates the description for the route calculator resource.</para>
+        /// <para>The state of the service environment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
-        
-        #region Parameter PricingPlan
-        /// <summary>
-        /// <para>
-        /// <para>No longer used. If included, the only allowed value is <c>RequestBasedUsage</c>.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [System.ObsoleteAttribute("Deprecated. If included, the only allowed value is RequestBasedUsage.")]
-        [AWSConstantClassSource("Amazon.LocationService.PricingPlan")]
-        public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
+        [AWSConstantClassSource("Amazon.Batch.ServiceEnvironmentState")]
+        public Amazon.Batch.ServiceEnvironmentState State { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LocationService.Model.UpdateRouteCalculatorResponse).
-        /// Specifying the name of a property of type Amazon.LocationService.Model.UpdateRouteCalculatorResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.UpdateServiceEnvironmentResponse).
+        /// Specifying the name of a property of type Amazon.Batch.Model.UpdateServiceEnvironmentResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,10 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the CalculatorName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^CalculatorName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ServiceEnvironment parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ServiceEnvironment' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CalculatorName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ServiceEnvironment' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -119,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CalculatorName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-LOCRouteCalculator (UpdateRouteCalculator)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ServiceEnvironment), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-BATServiceEnvironment (UpdateServiceEnvironment)"))
             {
                 return;
             }
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.LocationService.Model.UpdateRouteCalculatorResponse, EditLOCRouteCalculatorCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Batch.Model.UpdateServiceEnvironmentResponse, UpdateBATServiceEnvironmentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -142,20 +142,21 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.CalculatorName;
+                context.Select = (response, cmdlet) => this.ServiceEnvironment;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.CalculatorName = this.CalculatorName;
-            #if MODULAR
-            if (this.CalculatorName == null && ParameterWasBound(nameof(this.CalculatorName)))
+            if (this.CapacityLimit != null)
             {
-                WriteWarning("You are passing $null as a value for parameter CalculatorName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.CapacityLimit = new List<Amazon.Batch.Model.CapacityLimit>(this.CapacityLimit);
+            }
+            context.ServiceEnvironment = this.ServiceEnvironment;
+            #if MODULAR
+            if (this.ServiceEnvironment == null && ParameterWasBound(nameof(this.ServiceEnvironment)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ServiceEnvironment which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Description = this.Description;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.PricingPlan = this.PricingPlan;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.State = this.State;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -170,22 +171,20 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.LocationService.Model.UpdateRouteCalculatorRequest();
+            var request = new Amazon.Batch.Model.UpdateServiceEnvironmentRequest();
             
-            if (cmdletContext.CalculatorName != null)
+            if (cmdletContext.CapacityLimit != null)
             {
-                request.CalculatorName = cmdletContext.CalculatorName;
+                request.CapacityLimits = cmdletContext.CapacityLimit;
             }
-            if (cmdletContext.Description != null)
+            if (cmdletContext.ServiceEnvironment != null)
             {
-                request.Description = cmdletContext.Description;
+                request.ServiceEnvironment = cmdletContext.ServiceEnvironment;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (cmdletContext.PricingPlan != null)
+            if (cmdletContext.State != null)
             {
-                request.PricingPlan = cmdletContext.PricingPlan;
+                request.State = cmdletContext.State;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -219,15 +218,15 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         #region AWS Service Operation Call
         
-        private Amazon.LocationService.Model.UpdateRouteCalculatorResponse CallAWSServiceOperation(IAmazonLocationService client, Amazon.LocationService.Model.UpdateRouteCalculatorRequest request)
+        private Amazon.Batch.Model.UpdateServiceEnvironmentResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.UpdateServiceEnvironmentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Location Service", "UpdateRouteCalculator");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "UpdateServiceEnvironment");
             try
             {
                 #if DESKTOP
-                return client.UpdateRouteCalculator(request);
+                return client.UpdateServiceEnvironment(request);
                 #elif CORECLR
-                return client.UpdateRouteCalculatorAsync(request).GetAwaiter().GetResult();
+                return client.UpdateServiceEnvironmentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -247,11 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CalculatorName { get; set; }
-            public System.String Description { get; set; }
-            [System.ObsoleteAttribute]
-            public Amazon.LocationService.PricingPlan PricingPlan { get; set; }
-            public System.Func<Amazon.LocationService.Model.UpdateRouteCalculatorResponse, EditLOCRouteCalculatorCmdlet, object> Select { get; set; } =
+            public List<Amazon.Batch.Model.CapacityLimit> CapacityLimit { get; set; }
+            public System.String ServiceEnvironment { get; set; }
+            public Amazon.Batch.ServiceEnvironmentState State { get; set; }
+            public System.Func<Amazon.Batch.Model.UpdateServiceEnvironmentResponse, UpdateBATServiceEnvironmentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

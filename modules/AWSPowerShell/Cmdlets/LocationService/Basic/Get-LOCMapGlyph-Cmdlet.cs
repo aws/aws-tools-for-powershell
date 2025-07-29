@@ -47,16 +47,16 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>A comma-separated list of fonts to load glyphs from in order of preference. For example,
-        /// <c>Noto Sans Regular, Arial Unicode</c>.</para><para>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>
+        /// <c>Noto Sans Regular, Arial Unicode</c>.</para><para>Valid font stacks for <a href="https://docs.aws.amazon.com/location/previous/developerguide/esri.html">Esri</a>
         /// styles: </para><ul><li><para>VectorEsriDarkGrayCanvas – <c>Ubuntu Medium Italic</c> | <c>Ubuntu Medium</c> | <c>Ubuntu
         /// Italic</c> | <c>Ubuntu Regular</c> | <c>Ubuntu Bold</c></para></li><li><para>VectorEsriLightGrayCanvas – <c>Ubuntu Italic</c> | <c>Ubuntu Regular</c> | <c>Ubuntu
         /// Light</c> | <c>Ubuntu Bold</c></para></li><li><para>VectorEsriTopographic – <c>Noto Sans Italic</c> | <c>Noto Sans Regular</c> | <c>Noto
-        /// Sans Bold</c> | <c>Noto Serif Regular</c> | <c>Roboto Condensed Light Italic</c></para></li><li><para>VectorEsriStreets – <c>Arial Regular</c> | <c>Arial Italic</c> | <c>Arial Bold</c></para></li><li><para>VectorEsriNavigation – <c>Arial Regular</c> | <c>Arial Italic</c> | <c>Arial Bold</c></para></li></ul><para>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
+        /// Sans Bold</c> | <c>Noto Serif Regular</c> | <c>Roboto Condensed Light Italic</c></para></li><li><para>VectorEsriStreets – <c>Arial Regular</c> | <c>Arial Italic</c> | <c>Arial Bold</c></para></li><li><para>VectorEsriNavigation – <c>Arial Regular</c> | <c>Arial Italic</c> | <c>Arial Bold</c></para></li></ul><para>Valid font stacks for <a href="https://docs.aws.amazon.com/location/previous/developerguide/HERE.html">HERE
         /// Technologies</a> styles:</para><ul><li><para>VectorHereContrast – <c>Fira GO Regular</c> | <c>Fira GO Bold</c></para></li><li><para>VectorHereExplore, VectorHereExploreTruck, HybridHereExploreSatellite – <c>Fira GO
         /// Italic</c> | <c>Fira GO Map</c> | <c>Fira GO Map Bold</c> | <c>Noto Sans CJK JP Bold</c>
-        /// | <c>Noto Sans CJK JP Light</c> | <c>Noto Sans CJK JP Regular</c></para></li></ul><para>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a>
+        /// | <c>Noto Sans CJK JP Light</c> | <c>Noto Sans CJK JP Regular</c></para></li></ul><para>Valid font stacks for <a href="https://docs.aws.amazon.com/location/previous/developerguide/grab.html">GrabMaps</a>
         /// styles:</para><ul><li><para>VectorGrabStandardLight, VectorGrabStandardDark – <c>Noto Sans Regular</c> | <c>Noto
-        /// Sans Medium</c> | <c>Noto Sans Bold</c></para></li></ul><para>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open
+        /// Sans Medium</c> | <c>Noto Sans Bold</c></para></li></ul><para>Valid font stacks for <a href="https://docs.aws.amazon.com/location/previous/developerguide/open-data.html">Open
         /// Data</a> styles:</para><ul><li><para>VectorOpenDataStandardLight, VectorOpenDataStandardDark, VectorOpenDataVisualizationLight,
         /// VectorOpenDataVisualizationDark – <c>Amazon Ember Regular,Noto Sans Regular</c> |
         /// <c>Amazon Ember Bold,Noto Sans Bold</c> | <c>Amazon Ember Medium,Noto Sans Medium</c>
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Key
         /// <summary>
         /// <para>
-        /// <para>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API
+        /// <para>The optional <a href="https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html">API
         /// key</a> to authorize the request.</para>
         /// </para>
         /// </summary>

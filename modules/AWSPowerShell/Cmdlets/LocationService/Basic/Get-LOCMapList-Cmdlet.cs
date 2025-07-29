@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class GetLOCMapListCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter MaxResult

@@ -47,6 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class NewLOCMapCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Configuration_CustomLayer
@@ -96,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>
         /// <para>Specifies the political view for the style. Leave unset to not use a political view,
         /// or, for styles that support specific political views, you can choose a view, such
-        /// as <c>IND</c> for the Indian view.</para><para>Default is unset.</para><note><para>Not all map resources or styles support political view styles. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#political-views">Political
+        /// as <c>IND</c> for the Indian view.</para><para>Default is unset.</para><note><para>Not all map resources or styles support political view styles. See <a href="https://docs.aws.amazon.com/location/previous/developerguide/map-concepts.html#political-views">Political
         /// views</a> for more information.</para></note>
         /// </para>
         /// </summary>
@@ -107,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Configuration_Style
         /// <summary>
         /// <para>
-        /// <para>Specifies the map style selected from an available data provider.</para><para>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri
+        /// <para>Specifies the map style selected from an available data provider.</para><para>Valid <a href="https://docs.aws.amazon.com/location/previous/developerguide/esri.html">Esri
         /// map styles</a>:</para><ul><li><para><c>VectorEsriDarkGrayCanvas</c> – The Esri Dark Gray Canvas map style. A vector basemap
         /// with a dark gray, neutral background with minimal colors, labels, and features that's
         /// designed to draw attention to your thematic content. </para></li><li><para><c>RasterEsriImagery</c> – The Esri Imagery map style. A raster basemap that provides
@@ -120,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// basemap for the world symbolized with a classic Esri street map style. The vector
         /// tile layer is similar in content and style to the World Street Map raster map.</para></li><li><para><c>VectorEsriNavigation</c> – The Esri Navigation map style, which provides a detailed
         /// basemap for the world symbolized with a custom navigation map style that's designed
-        /// for use during the day in mobile devices.</para></li></ul><para>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
+        /// for use during the day in mobile devices.</para></li></ul><para>Valid <a href="https://docs.aws.amazon.com/location/previous/developerguide/HERE.html">HERE
         /// Technologies map styles</a>:</para><ul><li><para><c>VectorHereContrast</c> – The HERE Contrast (Berlin) map style is a high contrast
         /// detailed base map of the world that blends 3D and 2D rendering.</para><note><para>The <c>VectorHereContrast</c> style has been renamed from <c>VectorHereBerlin</c>.
         /// <c>VectorHereBerlin</c> has been deprecated, but will continue to work in applications
@@ -133,14 +137,14 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// names, and city labels over satellite imagery. This style will automatically retrieve
         /// both raster and vector tiles, and your charges will be based on total tiles retrieved.</para><note><para>Hybrid styles use both vector and raster tiles when rendering the map that you see.
         /// This means that more tiles are retrieved than when using either vector or raster tiles
-        /// alone. Your charges will include all tiles retrieved.</para></note></li></ul><para>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps
+        /// alone. Your charges will include all tiles retrieved.</para></note></li></ul><para>Valid <a href="https://docs.aws.amazon.com/location/previous/developerguide/grab.html">GrabMaps
         /// map styles</a>:</para><ul><li><para><c>VectorGrabStandardLight</c> – The Grab Standard Light map style provides a basemap
         /// with detailed land use coloring, area names, roads, landmarks, and points of interest
         /// covering Southeast Asia.</para></li><li><para><c>VectorGrabStandardDark</c> – The Grab Standard Dark map style provides a dark
         /// variation of the standard basemap covering Southeast Asia.</para></li></ul><note><para>Grab provides maps only for countries in Southeast Asia, and is only available in
         /// the Asia Pacific (Singapore) Region (<c>ap-southeast-1</c>). For more information,
-        /// see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area">GrabMaps
-        /// countries and area covered</a>.</para></note><para>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open
+        /// see <a href="https://docs.aws.amazon.com/location/previous/developerguide/grab.html#grab-coverage-area">GrabMaps
+        /// countries and area covered</a>.</para></note><para>Valid <a href="https://docs.aws.amazon.com/location/previous/developerguide/open-data.html">Open
         /// Data map styles</a>:</para><ul><li><para><c>VectorOpenDataStandardLight</c> – The Open Data Standard Light map style provides
         /// a detailed basemap for the world suitable for website and mobile application use.
         /// The map includes highways major roads, minor roads, railways, water features, cities,

@@ -64,6 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter TrackerName

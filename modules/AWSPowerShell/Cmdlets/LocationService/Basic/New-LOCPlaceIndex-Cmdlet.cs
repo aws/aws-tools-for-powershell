@@ -50,23 +50,25 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class NewLOCPlaceIndexCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter DataSource
         /// <summary>
         /// <para>
         /// <para>Specifies the geospatial data provider for the new place index.</para><note><para>This field is case-sensitive. Enter the valid values as shown. For example, entering
-        /// <c>HERE</c> returns an error.</para></note><para>Valid values include:</para><ul><li><para><c>Esri</c> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>'s
+        /// <c>HERE</c> returns an error.</para></note><para>Valid values include:</para><ul><li><para><c>Esri</c> – For additional information about <a href="https://docs.aws.amazon.com/location/previous/developerguide/esri.html">Esri</a>'s
         /// coverage in your region of interest, see <a href="https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm">Esri
         /// details on geocoding coverage</a>.</para></li><li><para><c>Grab</c> – Grab provides place index functionality for Southeast Asia. For additional
-        /// information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a>'
-        /// coverage, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area">GrabMaps
-        /// countries and areas covered</a>.</para></li><li><para><c>Here</c> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
+        /// information about <a href="https://docs.aws.amazon.com/location/previous/developerguide/grab.html">GrabMaps</a>'
+        /// coverage, see <a href="https://docs.aws.amazon.com/location/previous/developerguide/grab.html#grab-coverage-area">GrabMaps
+        /// countries and areas covered</a>.</para></li><li><para><c>Here</c> – For additional information about <a href="https://docs.aws.amazon.com/location/previous/developerguide/HERE.html">HERE
         /// Technologies</a>' coverage in your region of interest, see <a href="https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html">HERE
         /// details on goecoding coverage</a>.</para><important><para>If you specify HERE Technologies (<c>Here</c>) as the data provider, you may not <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store
         /// results</a> for locations in Japan. For more information, see the <a href="http://aws.amazon.com/service-terms/">Amazon
-        /// Web Services Service Terms</a> for Amazon Location Service.</para></important></li></ul><para>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data
-        /// providers</a> on the <i>Amazon Location Service Developer Guide</i>.</para>
+        /// Web Services service terms</a> for Amazon Location Service.</para></important></li></ul><para>For additional information , see <a href="https://docs.aws.amazon.com/location/previous/developerguide/what-is-data-provider.html">Data
+        /// providers</a> on the <i>Amazon Location Service developer guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

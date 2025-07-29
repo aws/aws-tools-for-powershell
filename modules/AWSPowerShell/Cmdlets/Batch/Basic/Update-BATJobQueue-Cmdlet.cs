@@ -117,6 +117,17 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String SchedulingPolicyArn { get; set; }
         #endregion
         
+        #region Parameter ServiceEnvironmentOrder
+        /// <summary>
+        /// <para>
+        /// <para>The order of the service environment associated with the job queue. Job queues with
+        /// a higher priority are evaluated first when associated with the same service environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Batch.Model.ServiceEnvironmentOrder[] ServiceEnvironmentOrder { get; set; }
+        #endregion
+        
         #region Parameter State
         /// <summary>
         /// <para>
@@ -209,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             }
             context.Priority = this.Priority;
             context.SchedulingPolicyArn = this.SchedulingPolicyArn;
+            if (this.ServiceEnvironmentOrder != null)
+            {
+                context.ServiceEnvironmentOrder = new List<Amazon.Batch.Model.ServiceEnvironmentOrder>(this.ServiceEnvironmentOrder);
+            }
             context.State = this.State;
             
             // allow further manipulation of loaded context prior to processing
@@ -245,6 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (cmdletContext.SchedulingPolicyArn != null)
             {
                 request.SchedulingPolicyArn = cmdletContext.SchedulingPolicyArn;
+            }
+            if (cmdletContext.ServiceEnvironmentOrder != null)
+            {
+                request.ServiceEnvironmentOrder = cmdletContext.ServiceEnvironmentOrder;
             }
             if (cmdletContext.State != null)
             {
@@ -316,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public List<Amazon.Batch.Model.JobStateTimeLimitAction> JobStateTimeLimitAction { get; set; }
             public System.Int32? Priority { get; set; }
             public System.String SchedulingPolicyArn { get; set; }
+            public List<Amazon.Batch.Model.ServiceEnvironmentOrder> ServiceEnvironmentOrder { get; set; }
             public Amazon.Batch.JQState State { get; set; }
             public System.Func<Amazon.Batch.Model.UpdateJobQueueResponse, UpdateBATJobQueueCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

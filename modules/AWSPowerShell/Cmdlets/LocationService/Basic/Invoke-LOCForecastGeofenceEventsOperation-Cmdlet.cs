@@ -28,16 +28,24 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Evaluates device positions against geofence geometries from a given geofence collection.
-    /// The event forecasts three states for which a device can be in relative to a geofence:
+    /// This action forecasts future geofence events that are likely to occur within a specified
+    /// time horizon if a device continues moving at its current speed. Each forecasted event
+    /// is associated with a geofence from a provided geofence collection. A forecast event
+    /// can have one of the following states:
     /// 
     ///  
-    /// <para><c>ENTER</c>: If a device is outside of a geofence, but would breach the fence if
-    /// the device is moving at its current speed within time horizon window.
-    /// </para><para><c>EXIT</c>: If a device is inside of a geofence, but would breach the fence if the
-    /// device is moving at its current speed within time horizon window.
-    /// </para><para><c>IDLE</c>: If a device is inside of a geofence, and the device is not moving.
-    /// </para>
+    /// <para><c>ENTER</c>: The device position is outside the referenced geofence, but the device
+    /// may cross into the geofence during the forecasting time horizon if it maintains its
+    /// current speed.
+    /// </para><para><c>EXIT</c>: The device position is inside the referenced geofence, but the device
+    /// may leave the geofence during the forecasted time horizon if the device maintains
+    /// it's current speed.
+    /// </para><para><c>IDLE</c>:The device is inside the geofence, and it will remain inside the geofence
+    /// through the end of the time horizon if the device maintains it's current speed.
+    /// </para><note><para>
+    /// Heading direction is not considered in the current version. The API takes a conservative
+    /// approach and includes events that can occur for any heading.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Invoke", "LOCForecastGeofenceEventsOperation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LocationService.Model.ForecastGeofenceEventsResponse")]
@@ -128,7 +136,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter TimeHorizonMinute
         /// <summary>
         /// <para>
-        /// <para>Specifies the time horizon in minutes for the forecasted events.</para>
+        /// <para>The forward-looking time window for forecasting, specified in minutes. The API only
+        /// returns events that are predicted to occur within this time horizon. When no value
+        /// is specified, this API performs a <i>containment check</i>. The <i>containment check</i>
+        /// operation returns <c>IDLE</c> events for geofences where the device is currently inside
+        /// of, but no other events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

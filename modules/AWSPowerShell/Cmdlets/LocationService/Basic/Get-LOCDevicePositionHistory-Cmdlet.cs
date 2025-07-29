@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class GetLOCDevicePositionHistoryCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;

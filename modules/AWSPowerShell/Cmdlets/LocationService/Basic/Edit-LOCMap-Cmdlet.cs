@@ -39,6 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class EditLOCMapCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ConfigurationUpdate_CustomLayer
@@ -87,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>
         /// <para>Specifies the political view for the style. Set to an empty string to not use a political
         /// view, or, for styles that support specific political views, you can choose a view,
-        /// such as <c>IND</c> for the Indian view.</para><note><para>Not all map resources or styles support political view styles. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#political-views">Political
+        /// such as <c>IND</c> for the Indian view.</para><note><para>Not all map resources or styles support political view styles. See <a href="https://docs.aws.amazon.com/location/previous/developerguide/map-concepts.html#political-views">Political
         /// views</a> for more information.</para></note>
         /// </para>
         /// </summary>

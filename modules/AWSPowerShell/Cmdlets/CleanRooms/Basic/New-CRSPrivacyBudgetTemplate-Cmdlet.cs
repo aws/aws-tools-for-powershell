@@ -28,10 +28,9 @@ using Amazon.CleanRooms.Model;
 namespace Amazon.PowerShell.Cmdlets.CRS
 {
     /// <summary>
-    /// Creates a privacy budget template for a specified membership. Each membership can
-    /// have only one privacy budget template, but it can be deleted and recreated. If you
-    /// need to change the privacy budget template for a membership, use the <a>UpdatePrivacyBudgetTemplate</a>
-    /// operation.
+    /// Creates a privacy budget template for a specified collaboration. Each collaboration
+    /// can have only one privacy budget template. If you need to change the privacy budget
+    /// template, use the <a>UpdatePrivacyBudgetTemplate</a> operation.
     /// </summary>
     [Cmdlet("New", "CRSPrivacyBudgetTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CleanRooms.Model.PrivacyBudgetTemplate")]
