@@ -1776,11 +1776,15 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     }
                 }
 
-                writer.WriteLine($" // determine if {variableName} should be set to null");
-                writer.WriteLine($"if ({usableVariableName}IsNull)");
-                writer.OpenRegion();
-                writer.WriteLine($"{variableName} = null;");
-                writer.CloseRegion();
+                // If property is Required, then do not emit code that resets it's value to null if none of the child properties are set (currently controlled by NoResetToNullForRequiredParameter build config parameter).
+                if (!Operation.NoResetToNullForRequiredParameter || !property.IsRequired)
+                {
+                    writer.WriteLine($" // determine if {variableName} should be set to null");
+                    writer.WriteLine($"if ({usableVariableName}IsNull)");
+                    writer.OpenRegion();
+                    writer.WriteLine($"{variableName} = null;");
+                    writer.CloseRegion();
+                }
             }
         }
 

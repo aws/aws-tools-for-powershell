@@ -416,20 +416,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis.DataExport = requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport;
                 requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysisIsNull = false;
             }
-             // determine if requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis should be set to null
-            if (requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysisIsNull)
-            {
-                requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis = null;
-            }
             if (requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis != null)
             {
                 request.AnalyticsConfiguration.StorageClassAnalysis = requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis;
                 requestAnalyticsConfigurationIsNull = false;
-            }
-             // determine if request.AnalyticsConfiguration should be set to null
-            if (requestAnalyticsConfigurationIsNull)
-            {
-                request.AnalyticsConfiguration = null;
             }
             if (cmdletContext.ExpectedBucketOwner != null)
             {
