@@ -42,7 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// </para></li><li><para>
     /// Call <c>UpdateCachePolicy</c> by providing the entire cache policy configuration,
     /// including the fields that you modified and those that you didn't.
-    /// </para></li></ol>
+    /// </para></li></ol><important><para>
+    /// If your minimum TTL is greater than 0, CloudFront will cache content for at least
+    /// the duration specified in the cache policy's minimum TTL, even if the <c>Cache-Control:
+    /// no-cache</c>, <c>no-store</c>, or <c>private</c> directives are present in the origin
+    /// headers.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Update", "CFCachePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudFront.Model.CachePolicy")]

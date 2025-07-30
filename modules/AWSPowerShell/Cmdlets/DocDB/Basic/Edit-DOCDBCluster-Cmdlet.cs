@@ -208,6 +208,30 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         public System.String MasterUserSecretKmsKeyId { get; set; }
         #endregion
         
+        #region Parameter ServerlessV2ScalingConfiguration_MaxCapacity
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an
+        /// Amazon DocumentDB Serverless cluster. You can specify DCU values in half-step increments,
+        /// such as 32, 32.5, 33, and so on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? ServerlessV2ScalingConfiguration_MaxCapacity { get; set; }
+        #endregion
+        
+        #region Parameter ServerlessV2ScalingConfiguration_MinCapacity
+        /// <summary>
+        /// <para>
+        /// <para>The minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an
+        /// Amazon DocumentDB Serverless cluster. You can specify DCU values in half-step increments,
+        /// such as 8, 8.5, 9, and so on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? ServerlessV2ScalingConfiguration_MinCapacity { get; set; }
+        #endregion
+        
         #region Parameter NewDBClusterIdentifier
         /// <summary>
         /// <para>
@@ -380,6 +404,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             context.RotateMasterUserPassword = this.RotateMasterUserPassword;
+            context.ServerlessV2ScalingConfiguration_MaxCapacity = this.ServerlessV2ScalingConfiguration_MaxCapacity;
+            context.ServerlessV2ScalingConfiguration_MinCapacity = this.ServerlessV2ScalingConfiguration_MinCapacity;
             context.StorageType = this.StorageType;
             if (this.VpcSecurityGroupId != null)
             {
@@ -490,6 +516,35 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             {
                 request.RotateMasterUserPassword = cmdletContext.RotateMasterUserPassword.Value;
             }
+            
+             // populate ServerlessV2ScalingConfiguration
+            var requestServerlessV2ScalingConfigurationIsNull = true;
+            request.ServerlessV2ScalingConfiguration = new Amazon.DocDB.Model.ServerlessV2ScalingConfiguration();
+            System.Double? requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MaxCapacity = null;
+            if (cmdletContext.ServerlessV2ScalingConfiguration_MaxCapacity != null)
+            {
+                requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MaxCapacity = cmdletContext.ServerlessV2ScalingConfiguration_MaxCapacity.Value;
+            }
+            if (requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MaxCapacity != null)
+            {
+                request.ServerlessV2ScalingConfiguration.MaxCapacity = requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MaxCapacity.Value;
+                requestServerlessV2ScalingConfigurationIsNull = false;
+            }
+            System.Double? requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MinCapacity = null;
+            if (cmdletContext.ServerlessV2ScalingConfiguration_MinCapacity != null)
+            {
+                requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MinCapacity = cmdletContext.ServerlessV2ScalingConfiguration_MinCapacity.Value;
+            }
+            if (requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MinCapacity != null)
+            {
+                request.ServerlessV2ScalingConfiguration.MinCapacity = requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MinCapacity.Value;
+                requestServerlessV2ScalingConfigurationIsNull = false;
+            }
+             // determine if request.ServerlessV2ScalingConfiguration should be set to null
+            if (requestServerlessV2ScalingConfigurationIsNull)
+            {
+                request.ServerlessV2ScalingConfiguration = null;
+            }
             if (cmdletContext.StorageType != null)
             {
                 request.StorageType = cmdletContext.StorageType;
@@ -576,6 +631,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             public System.String PreferredBackupWindow { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.Boolean? RotateMasterUserPassword { get; set; }
+            public System.Double? ServerlessV2ScalingConfiguration_MaxCapacity { get; set; }
+            public System.Double? ServerlessV2ScalingConfiguration_MinCapacity { get; set; }
             public System.String StorageType { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }
             public System.Func<Amazon.DocDB.Model.ModifyDBClusterResponse, EditDOCDBClusterCmdlet, object> Select { get; set; } =

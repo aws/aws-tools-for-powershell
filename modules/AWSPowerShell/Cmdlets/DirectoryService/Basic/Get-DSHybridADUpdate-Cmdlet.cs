@@ -22,84 +22,85 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CloudFront;
-using Amazon.CloudFront.Model;
+using Amazon.DirectoryService;
+using Amazon.DirectoryService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CF
+namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Lists the distributions by the connection mode that you specify.
+    /// Retrieves information about update activities for a hybrid directory. This operation
+    /// provides details about configuration changes, administrator account updates, and self-managed
+    /// instance settings (IDs and DNS IPs).
     /// </summary>
-    [Cmdlet("Get", "CFDistributionsByConnectionMode")]
-    [OutputType("Amazon.CloudFront.Model.DistributionList")]
-    [AWSCmdlet("Calls the Amazon CloudFront ListDistributionsByConnectionMode API operation.", Operation = new[] {"ListDistributionsByConnectionMode"}, SelectReturnType = typeof(Amazon.CloudFront.Model.ListDistributionsByConnectionModeResponse))]
-    [AWSCmdletOutput("Amazon.CloudFront.Model.DistributionList or Amazon.CloudFront.Model.ListDistributionsByConnectionModeResponse",
-        "This cmdlet returns an Amazon.CloudFront.Model.DistributionList object.",
-        "The service call response (type Amazon.CloudFront.Model.ListDistributionsByConnectionModeResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "DSHybridADUpdate")]
+    [OutputType("Amazon.DirectoryService.Model.HybridUpdateActivities")]
+    [AWSCmdlet("Calls the AWS Directory Service DescribeHybridADUpdate API operation.", Operation = new[] {"DescribeHybridADUpdate"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.DescribeHybridADUpdateResponse))]
+    [AWSCmdletOutput("Amazon.DirectoryService.Model.HybridUpdateActivities or Amazon.DirectoryService.Model.DescribeHybridADUpdateResponse",
+        "This cmdlet returns an Amazon.DirectoryService.Model.HybridUpdateActivities object.",
+        "The service call response (type Amazon.DirectoryService.Model.DescribeHybridADUpdateResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetCFDistributionsByConnectionModeCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
+    public partial class GetDSHybridADUpdateCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ConnectionMode
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>This field specifies whether the connection mode is through a standard distribution
-        /// (direct) or a multi-tenant distribution with distribution tenants (tenant-only).</para>
+        /// <para>The identifier of the hybrid directory for which to retrieve update information.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.CloudFront.ConnectionMode")]
-        public Amazon.CloudFront.ConnectionMode ConnectionMode { get; set; }
+        public System.String DirectoryId { get; set; }
         #endregion
         
-        #region Parameter Marker
+        #region Parameter UpdateType
         /// <summary>
         /// <para>
-        /// <para> The marker for the next set of distributions to retrieve.</para>
+        /// <para>The type of update activities to retrieve. Valid values include <c>SelfManagedInstances</c>
+        /// and <c>HybridAdministratorAccount</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Marker { get; set; }
+        [AWSConstantClassSource("Amazon.DirectoryService.HybridUpdateType")]
+        public Amazon.DirectoryService.HybridUpdateType UpdateType { get; set; }
         #endregion
         
-        #region Parameter MaxItem
+        #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The maximum number of distributions to return.</para>
+        /// <para>The pagination token from a previous request to <a>DescribeHybridADUpdate</a>. Pass
+        /// null if this is the first request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems")]
-        public System.Int32? MaxItem { get; set; }
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'DistributionList'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudFront.Model.ListDistributionsByConnectionModeResponse).
-        /// Specifying the name of a property of type Amazon.CloudFront.Model.ListDistributionsByConnectionModeResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'UpdateActivities'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DirectoryService.Model.DescribeHybridADUpdateResponse).
+        /// Specifying the name of a property of type Amazon.DirectoryService.Model.DescribeHybridADUpdateResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "DistributionList";
+        public string Select { get; set; } = "UpdateActivities";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ConnectionMode parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ConnectionMode' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DirectoryId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DirectoryId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConnectionMode' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DirectoryId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -117,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudFront.Model.ListDistributionsByConnectionModeResponse, GetCFDistributionsByConnectionModeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DirectoryService.Model.DescribeHybridADUpdateResponse, GetDSHybridADUpdateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -126,18 +127,18 @@ namespace Amazon.PowerShell.Cmdlets.CF
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ConnectionMode;
+                context.Select = (response, cmdlet) => this.DirectoryId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ConnectionMode = this.ConnectionMode;
+            context.DirectoryId = this.DirectoryId;
             #if MODULAR
-            if (this.ConnectionMode == null && ParameterWasBound(nameof(this.ConnectionMode)))
+            if (this.DirectoryId == null && ParameterWasBound(nameof(this.DirectoryId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ConnectionMode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DirectoryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Marker = this.Marker;
-            context.MaxItem = this.MaxItem;
+            context.NextToken = this.NextToken;
+            context.UpdateType = this.UpdateType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -152,19 +153,19 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudFront.Model.ListDistributionsByConnectionModeRequest();
+            var request = new Amazon.DirectoryService.Model.DescribeHybridADUpdateRequest();
             
-            if (cmdletContext.ConnectionMode != null)
+            if (cmdletContext.DirectoryId != null)
             {
-                request.ConnectionMode = cmdletContext.ConnectionMode;
+                request.DirectoryId = cmdletContext.DirectoryId;
             }
-            if (cmdletContext.Marker != null)
+            if (cmdletContext.NextToken != null)
             {
-                request.Marker = cmdletContext.Marker;
+                request.NextToken = cmdletContext.NextToken;
             }
-            if (cmdletContext.MaxItem != null)
+            if (cmdletContext.UpdateType != null)
             {
-                request.MaxItems = cmdletContext.MaxItem.Value;
+                request.UpdateType = cmdletContext.UpdateType;
             }
             
             CmdletOutput output;
@@ -199,15 +200,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudFront.Model.ListDistributionsByConnectionModeResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.ListDistributionsByConnectionModeRequest request)
+        private Amazon.DirectoryService.Model.DescribeHybridADUpdateResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DescribeHybridADUpdateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "ListDistributionsByConnectionMode");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "DescribeHybridADUpdate");
             try
             {
                 #if DESKTOP
-                return client.ListDistributionsByConnectionMode(request);
+                return client.DescribeHybridADUpdate(request);
                 #elif CORECLR
-                return client.ListDistributionsByConnectionModeAsync(request).GetAwaiter().GetResult();
+                return client.DescribeHybridADUpdateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -227,11 +228,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.CloudFront.ConnectionMode ConnectionMode { get; set; }
-            public System.String Marker { get; set; }
-            public System.Int32? MaxItem { get; set; }
-            public System.Func<Amazon.CloudFront.Model.ListDistributionsByConnectionModeResponse, GetCFDistributionsByConnectionModeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.DistributionList;
+            public System.String DirectoryId { get; set; }
+            public System.String NextToken { get; set; }
+            public Amazon.DirectoryService.HybridUpdateType UpdateType { get; set; }
+            public System.Func<Amazon.DirectoryService.Model.DescribeHybridADUpdateResponse, GetDSHybridADUpdateCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.UpdateActivities;
         }
         
     }

@@ -55,8 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para><i>Actions</i>: Reflect the actions you might have to take in response to an event.
     /// For example, if the status of the volume is <c>impaired</c> and the volume event shows
     /// <c>potential-data-inconsistency</c>, then the action shows <c>enable-volume-io</c>.
-    /// This means that you may want to enable the I/O operations for the volume by calling
-    /// the <a>EnableVolumeIO</a> action and then check the volume for data consistency.
+    /// This means that you may want to enable the I/O operations for the volume and then
+    /// check the volume for data consistency. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/work_volumes_impaired.html">Work
+    /// with an impaired EBS volume</a>.
     /// </para><para>
     /// Volume status is based on the volume status checks, and does not reflect the volume
     /// state. Therefore, volume status does not indicate volumes in the <c>error</c> state

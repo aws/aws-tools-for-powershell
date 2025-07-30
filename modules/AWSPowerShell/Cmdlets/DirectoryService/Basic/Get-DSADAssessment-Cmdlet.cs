@@ -22,55 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.DirectoryService;
+using Amazon.DirectoryService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Describes the specified attribute of the specified AMI. You can specify only one attribute
-    /// at a time.
-    /// 
-    ///  <note><para>
-    /// The order of the elements in the response, including those within nested structures,
-    /// might vary. Applications should not assume the elements appear in a particular order.
-    /// </para></note>
+    /// Retrieves detailed information about a directory assessment, including its current
+    /// status, validation results, and configuration details. Use this operation to monitor
+    /// assessment progress and review results.
     /// </summary>
-    [Cmdlet("Get", "EC2ImageAttribute")]
-    [OutputType("Amazon.EC2.Model.ImageAttribute")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeImageAttribute API operation.", Operation = new[] {"DescribeImageAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeImageAttributeResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.ImageAttribute or Amazon.EC2.Model.DescribeImageAttributeResponse",
-        "This cmdlet returns an Amazon.EC2.Model.ImageAttribute object.",
-        "The service call response (type Amazon.EC2.Model.DescribeImageAttributeResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "DSADAssessment")]
+    [OutputType("Amazon.DirectoryService.Model.DescribeADAssessmentResponse")]
+    [AWSCmdlet("Calls the AWS Directory Service DescribeADAssessment API operation.", Operation = new[] {"DescribeADAssessment"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.DescribeADAssessmentResponse))]
+    [AWSCmdletOutput("Amazon.DirectoryService.Model.DescribeADAssessmentResponse",
+        "This cmdlet returns an Amazon.DirectoryService.Model.DescribeADAssessmentResponse object containing multiple properties."
     )]
-    public partial class GetEC2ImageAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetDSADAssessmentCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Attribute
+        #region Parameter AssessmentId
         /// <summary>
         /// <para>
-        /// <para>The AMI attribute.</para><para><b>Note</b>: The <c>blockDeviceMapping</c> attribute is deprecated. Using this attribute
-        /// returns the <c>Client.AuthFailure</c> error. To get information about the block device
-        /// mappings for an AMI, describe the image instead.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.EC2.ImageAttributeName")]
-        public Amazon.EC2.ImageAttributeName Attribute { get; set; }
-        #endregion
-        
-        #region Parameter ImageId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the AMI.</para>
+        /// <para>The identifier of the directory assessment to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,26 +57,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ImageId { get; set; }
+        public System.String AssessmentId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ImageAttribute'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DescribeImageAttributeResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.DescribeImageAttributeResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DirectoryService.Model.DescribeADAssessmentResponse).
+        /// Specifying the name of a property of type Amazon.DirectoryService.Model.DescribeADAssessmentResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ImageAttribute";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ImageId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ImageId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AssessmentId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AssessmentId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ImageId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AssessmentId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -118,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeImageAttributeResponse, GetEC2ImageAttributeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DirectoryService.Model.DescribeADAssessmentResponse, GetDSADAssessmentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -127,21 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ImageId;
+                context.Select = (response, cmdlet) => this.AssessmentId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Attribute = this.Attribute;
+            context.AssessmentId = this.AssessmentId;
             #if MODULAR
-            if (this.Attribute == null && ParameterWasBound(nameof(this.Attribute)))
+            if (this.AssessmentId == null && ParameterWasBound(nameof(this.AssessmentId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Attribute which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.ImageId = this.ImageId;
-            #if MODULAR
-            if (this.ImageId == null && ParameterWasBound(nameof(this.ImageId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ImageId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AssessmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -158,15 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.DescribeImageAttributeRequest();
+            var request = new Amazon.DirectoryService.Model.DescribeADAssessmentRequest();
             
-            if (cmdletContext.Attribute != null)
+            if (cmdletContext.AssessmentId != null)
             {
-                request.Attribute = cmdletContext.Attribute;
-            }
-            if (cmdletContext.ImageId != null)
-            {
-                request.ImageId = cmdletContext.ImageId;
+                request.AssessmentId = cmdletContext.AssessmentId;
             }
             
             CmdletOutput output;
@@ -201,15 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.DescribeImageAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeImageAttributeRequest request)
+        private Amazon.DirectoryService.Model.DescribeADAssessmentResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DescribeADAssessmentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeImageAttribute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "DescribeADAssessment");
             try
             {
                 #if DESKTOP
-                return client.DescribeImageAttribute(request);
+                return client.DescribeADAssessment(request);
                 #elif CORECLR
-                return client.DescribeImageAttributeAsync(request).GetAwaiter().GetResult();
+                return client.DescribeADAssessmentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -229,10 +194,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.EC2.ImageAttributeName Attribute { get; set; }
-            public System.String ImageId { get; set; }
-            public System.Func<Amazon.EC2.Model.DescribeImageAttributeResponse, GetEC2ImageAttributeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ImageAttribute;
+            public System.String AssessmentId { get; set; }
+            public System.Func<Amazon.DirectoryService.Model.DescribeADAssessmentResponse, GetDSADAssessmentCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

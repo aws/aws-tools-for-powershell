@@ -98,6 +98,26 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter LoRaWAN_NbTransMax
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of transmissions.</para><para>Default: <c>3</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? LoRaWAN_NbTransMax { get; set; }
+        #endregion
+        
+        #region Parameter LoRaWAN_NbTransMin
+        /// <summary>
+        /// <para>
+        /// <para>The minimum number of transmissions.</para><para>Default: <c>0</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? LoRaWAN_NbTransMin { get; set; }
+        #endregion
+        
         #region Parameter LoRaWAN_PrAllowed
         /// <summary>
         /// <para>
@@ -128,6 +148,26 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.IoTWireless.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter LoRaWAN_TxPowerIndexMax
+        /// <summary>
+        /// <para>
+        /// <para>The Transmit Power Index maximum.</para><para>Default: <c>15</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? LoRaWAN_TxPowerIndexMax { get; set; }
+        #endregion
+        
+        #region Parameter LoRaWAN_TxPowerIndexMin
+        /// <summary>
+        /// <para>
+        /// <para>The Transmit Power Index minimum.</para><para>Default: <c>0</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? LoRaWAN_TxPowerIndexMin { get; set; }
         #endregion
         
         #region Parameter Select
@@ -196,8 +236,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             context.LoRaWAN_AddGwMetadata = this.LoRaWAN_AddGwMetadata;
             context.LoRaWAN_DrMax = this.LoRaWAN_DrMax;
             context.LoRaWAN_DrMin = this.LoRaWAN_DrMin;
+            context.LoRaWAN_NbTransMax = this.LoRaWAN_NbTransMax;
+            context.LoRaWAN_NbTransMin = this.LoRaWAN_NbTransMin;
             context.LoRaWAN_PrAllowed = this.LoRaWAN_PrAllowed;
             context.LoRaWAN_RaAllowed = this.LoRaWAN_RaAllowed;
+            context.LoRaWAN_TxPowerIndexMax = this.LoRaWAN_TxPowerIndexMax;
+            context.LoRaWAN_TxPowerIndexMin = this.LoRaWAN_TxPowerIndexMin;
             context.Name = this.Name;
             if (this.Tag != null)
             {
@@ -257,6 +301,26 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
                 request.LoRaWAN.DrMin = requestLoRaWAN_loRaWAN_DrMin.Value;
                 requestLoRaWANIsNull = false;
             }
+            System.Int32? requestLoRaWAN_loRaWAN_NbTransMax = null;
+            if (cmdletContext.LoRaWAN_NbTransMax != null)
+            {
+                requestLoRaWAN_loRaWAN_NbTransMax = cmdletContext.LoRaWAN_NbTransMax.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_NbTransMax != null)
+            {
+                request.LoRaWAN.NbTransMax = requestLoRaWAN_loRaWAN_NbTransMax.Value;
+                requestLoRaWANIsNull = false;
+            }
+            System.Int32? requestLoRaWAN_loRaWAN_NbTransMin = null;
+            if (cmdletContext.LoRaWAN_NbTransMin != null)
+            {
+                requestLoRaWAN_loRaWAN_NbTransMin = cmdletContext.LoRaWAN_NbTransMin.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_NbTransMin != null)
+            {
+                request.LoRaWAN.NbTransMin = requestLoRaWAN_loRaWAN_NbTransMin.Value;
+                requestLoRaWANIsNull = false;
+            }
             System.Boolean? requestLoRaWAN_loRaWAN_PrAllowed = null;
             if (cmdletContext.LoRaWAN_PrAllowed != null)
             {
@@ -275,6 +339,26 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestLoRaWAN_loRaWAN_RaAllowed != null)
             {
                 request.LoRaWAN.RaAllowed = requestLoRaWAN_loRaWAN_RaAllowed.Value;
+                requestLoRaWANIsNull = false;
+            }
+            System.Int32? requestLoRaWAN_loRaWAN_TxPowerIndexMax = null;
+            if (cmdletContext.LoRaWAN_TxPowerIndexMax != null)
+            {
+                requestLoRaWAN_loRaWAN_TxPowerIndexMax = cmdletContext.LoRaWAN_TxPowerIndexMax.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_TxPowerIndexMax != null)
+            {
+                request.LoRaWAN.TxPowerIndexMax = requestLoRaWAN_loRaWAN_TxPowerIndexMax.Value;
+                requestLoRaWANIsNull = false;
+            }
+            System.Int32? requestLoRaWAN_loRaWAN_TxPowerIndexMin = null;
+            if (cmdletContext.LoRaWAN_TxPowerIndexMin != null)
+            {
+                requestLoRaWAN_loRaWAN_TxPowerIndexMin = cmdletContext.LoRaWAN_TxPowerIndexMin.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_TxPowerIndexMin != null)
+            {
+                request.LoRaWAN.TxPowerIndexMin = requestLoRaWAN_loRaWAN_TxPowerIndexMin.Value;
                 requestLoRaWANIsNull = false;
             }
              // determine if request.LoRaWAN should be set to null
@@ -355,8 +439,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.Boolean? LoRaWAN_AddGwMetadata { get; set; }
             public System.Int32? LoRaWAN_DrMax { get; set; }
             public System.Int32? LoRaWAN_DrMin { get; set; }
+            public System.Int32? LoRaWAN_NbTransMax { get; set; }
+            public System.Int32? LoRaWAN_NbTransMin { get; set; }
             public System.Boolean? LoRaWAN_PrAllowed { get; set; }
             public System.Boolean? LoRaWAN_RaAllowed { get; set; }
+            public System.Int32? LoRaWAN_TxPowerIndexMax { get; set; }
+            public System.Int32? LoRaWAN_TxPowerIndexMin { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.IoTWireless.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.IoTWireless.Model.CreateServiceProfileResponse, NewIOTWServiceProfileCmdlet, object> Select { get; set; } =
