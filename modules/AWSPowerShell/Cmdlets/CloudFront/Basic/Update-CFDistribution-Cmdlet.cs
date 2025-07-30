@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>This field specifies whether the connection mode is through a standard distribution
-        /// (direct) or a multi-tenant distribution with distribution tenants(tenant-only).</para>
+        /// (direct) or a multi-tenant distribution with distribution tenants (tenant-only).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

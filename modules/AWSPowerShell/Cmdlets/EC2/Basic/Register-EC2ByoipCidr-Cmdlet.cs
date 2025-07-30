@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Provisions an IPv4 or IPv6 address range for use with your Amazon Web Services resources
     /// through bring your own IP addresses (BYOIP) and creates a corresponding address pool.
-    /// After the address range is provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.
+    /// After the address range is provisioned, it is ready to be advertised.
     /// 
     ///  
     /// <para>
@@ -44,9 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para>
     /// Provisioning an address range is an asynchronous operation, so the call returns immediately,
     /// but the address range is not ready to use until its status changes from <c>pending-provision</c>
-    /// to <c>provisioned</c>. To monitor the status of an address range, use <a>DescribeByoipCidrs</a>.
-    /// To allocate an Elastic IP address from your IPv4 address pool, use <a>AllocateAddress</a>
-    /// with either the specific address from the address pool or the ID of the address pool.
+    /// to <c>provisioned</c>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/byoip-onboard.html">Onboard
+    /// your address range</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "EC2ByoipCidr", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

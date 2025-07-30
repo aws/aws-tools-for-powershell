@@ -1,4 +1,22 @@
-﻿### 5.0.21 (2025-07-29 20:10Z)
+﻿### 5.0.22 (2025-07-30 20:03Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.59.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Directory Service
+    * Added cmdlet Get-DSADAssessment leveraging the DescribeADAssessment service API.
+    * Added cmdlet Get-DSADAssessmentList leveraging the ListADAssessments service API.
+    * Added cmdlet Get-DSHybridADUpdate leveraging the DescribeHybridADUpdate service API.
+    * Added cmdlet New-DSHybridAD leveraging the CreateHybridAD service API.
+    * Added cmdlet Remove-DSADAssessment leveraging the DeleteADAssessment service API.
+    * Added cmdlet Start-DSADAssessment leveraging the StartADAssessment service API.
+    * Added cmdlet Update-DSHybridAD leveraging the UpdateHybridAD service API.
+  * Amazon DocumentDB (with MongoDB compatibility)
+    * Modified cmdlet Edit-DOCDBCluster: added parameters ServerlessV2ScalingConfiguration_MaxCapacity and ServerlessV2ScalingConfiguration_MinCapacity.
+    * Modified cmdlet New-DOCDBCluster: added parameters ServerlessV2ScalingConfiguration_MaxCapacity and ServerlessV2ScalingConfiguration_MinCapacity.
+    * Modified cmdlet Restore-DOCDBClusterFromSnapshot: added parameters ServerlessV2ScalingConfiguration_MaxCapacity and ServerlessV2ScalingConfiguration_MinCapacity.
+    * Modified cmdlet Restore-DOCDBClusterToPointInTime: added parameters ServerlessV2ScalingConfiguration_MaxCapacity and ServerlessV2ScalingConfiguration_MinCapacity.
+  * Amazon IoT Wireless
+    * Modified cmdlet New-IOTWServiceProfile: added parameters LoRaWAN_NbTransMax, LoRaWAN_NbTransMin, LoRaWAN_TxPowerIndexMax and LoRaWAN_TxPowerIndexMin.
+
+### 5.0.21 (2025-07-29 20:10Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.58.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSDeadlineCloud
     * Modified cmdlet New-ADCMonitor: added parameter Tag.

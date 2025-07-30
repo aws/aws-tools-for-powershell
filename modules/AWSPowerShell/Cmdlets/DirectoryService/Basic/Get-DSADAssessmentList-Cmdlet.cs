@@ -23,86 +23,62 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.DirectoryService;
+using Amazon.DirectoryService.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Describes your managed prefix lists and any Amazon Web Services-managed prefix lists.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves a list of directory assessments for the specified directory or all assessments
+    /// in your account. Use this operation to monitor assessment status and manage multiple
+    /// assessments.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "EC2ManagedPrefixList")]
-    [OutputType("Amazon.EC2.Model.ManagedPrefixList")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeManagedPrefixLists API operation.", Operation = new[] {"DescribeManagedPrefixLists"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeManagedPrefixListsResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.ManagedPrefixList or Amazon.EC2.Model.DescribeManagedPrefixListsResponse",
-        "This cmdlet returns a collection of Amazon.EC2.Model.ManagedPrefixList objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeManagedPrefixListsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "DSADAssessmentList")]
+    [OutputType("Amazon.DirectoryService.Model.AssessmentSummary")]
+    [AWSCmdlet("Calls the AWS Directory Service ListADAssessments API operation.", Operation = new[] {"ListADAssessments"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.ListADAssessmentsResponse))]
+    [AWSCmdletOutput("Amazon.DirectoryService.Model.AssessmentSummary or Amazon.DirectoryService.Model.ListADAssessmentsResponse",
+        "This cmdlet returns a collection of Amazon.DirectoryService.Model.AssessmentSummary objects.",
+        "The service call response (type Amazon.DirectoryService.Model.ListADAssessmentsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetEC2ManagedPrefixListCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetDSADAssessmentListCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DryRun
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>Checks whether you have the required permissions for the action, without actually
-        /// making the request, and provides an error response. If you have the required permissions,
-        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// <para>The identifier of the directory for which to list assessments. If not specified, all
+        /// assessments in your account are returned.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? DryRun { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String DirectoryId { get; set; }
         #endregion
         
-        #region Parameter Filter
+        #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><c>owner-id</c> - The ID of the prefix list owner.</para></li><li><para><c>prefix-list-id</c> - The ID of the prefix list.</para></li><li><para><c>prefix-list-name</c> - The name of the prefix list.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// <para>The maximum number of assessment summaries to return.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Filters")]
-        public Amazon.EC2.Model.Filter[] Filter { get; set; }
-        #endregion
-        
-        #region Parameter PrefixListId
-        /// <summary>
-        /// <para>
-        /// <para>One or more prefix list IDs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("PrefixListIds")]
-        public System.String[] PrefixListId { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <c>nextToken</c> value.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
+        [Alias("MaxItems")]
+        public int? Limit { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next page of results.</para>
+        /// <para>The pagination token from a previous request to <a>ListADAssessments</a>. Pass null
+        /// if this is the first request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -115,13 +91,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'PrefixLists'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DescribeManagedPrefixListsResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.DescribeManagedPrefixListsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Assessments'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DirectoryService.Model.ListADAssessmentsResponse).
+        /// Specifying the name of a property of type Amazon.DirectoryService.Model.ListADAssessmentsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "PrefixLists";
+        public string Select { get; set; } = "Assessments";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -150,20 +126,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeManagedPrefixListsResponse, GetEC2ManagedPrefixListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DirectoryService.Model.ListADAssessmentsResponse, GetDSADAssessmentListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DryRun = this.DryRun;
-            if (this.Filter != null)
+            context.DirectoryId = this.DirectoryId;
+            context.Limit = this.Limit;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.Limit)) && this.Limit.HasValue)
             {
-                context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the Limit parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing Limit" +
+                    " to the service to specify how many items should be returned by each service call.");
             }
-            context.MaxResult = this.MaxResult;
+            #endif
             context.NextToken = this.NextToken;
-            if (this.PrefixListId != null)
-            {
-                context.PrefixListId = new List<System.String>(this.PrefixListId);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -180,23 +157,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.EC2.Model.DescribeManagedPrefixListsRequest();
+            var request = new Amazon.DirectoryService.Model.ListADAssessmentsRequest();
             
-            if (cmdletContext.DryRun != null)
+            if (cmdletContext.DirectoryId != null)
             {
-                request.DryRun = cmdletContext.DryRun.Value;
+                request.DirectoryId = cmdletContext.DirectoryId;
             }
-            if (cmdletContext.Filter != null)
+            if (cmdletContext.Limit != null)
             {
-                request.Filters = cmdletContext.Filter;
-            }
-            if (cmdletContext.MaxResult != null)
-            {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.PrefixListId != null)
-            {
-                request.PrefixListIds = cmdletContext.PrefixListId;
+                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
             }
             
             // Initialize loop variant and commence piping
@@ -255,12 +224,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.DescribeManagedPrefixListsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeManagedPrefixListsRequest request)
+        private Amazon.DirectoryService.Model.ListADAssessmentsResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.ListADAssessmentsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeManagedPrefixLists");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "ListADAssessments");
             try
             {
-                return client.DescribeManagedPrefixListsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListADAssessmentsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -277,13 +246,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? DryRun { get; set; }
-            public List<Amazon.EC2.Model.Filter> Filter { get; set; }
-            public System.Int32? MaxResult { get; set; }
+            public System.String DirectoryId { get; set; }
+            public int? Limit { get; set; }
             public System.String NextToken { get; set; }
-            public List<System.String> PrefixListId { get; set; }
-            public System.Func<Amazon.EC2.Model.DescribeManagedPrefixListsResponse, GetEC2ManagedPrefixListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.PrefixLists;
+            public System.Func<Amazon.DirectoryService.Model.ListADAssessmentsResponse, GetDSADAssessmentListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Assessments;
         }
         
     }

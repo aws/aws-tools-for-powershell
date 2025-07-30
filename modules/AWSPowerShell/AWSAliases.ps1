@@ -9492,6 +9492,8 @@ Set-Alias -Name Create-DSConditionalForwarder -Value New-DSConditionalForwarder
 Set-Alias -Name DS-CreateConditionalForwarder -Value New-DSConditionalForwarder
 Set-Alias -Name Create-DSDirectory -Value New-DSDirectory
 Set-Alias -Name DS-CreateDirectory -Value New-DSDirectory
+Set-Alias -Name Create-DSHybridAD -Value New-DSHybridAD
+Set-Alias -Name DS-CreateHybridAD -Value New-DSHybridAD
 Set-Alias -Name Create-DSLogSubscription -Value New-DSLogSubscription
 Set-Alias -Name DS-CreateLogSubscription -Value New-DSLogSubscription
 Set-Alias -Name Create-DSMicrosoftAD -Value New-DSMicrosoftAD
@@ -9500,6 +9502,8 @@ Set-Alias -Name Create-DSSnapshot -Value New-DSSnapshot
 Set-Alias -Name DS-CreateSnapshot -Value New-DSSnapshot
 Set-Alias -Name Create-DSTrust -Value New-DSTrust
 Set-Alias -Name DS-CreateTrust -Value New-DSTrust
+Set-Alias -Name Delete-DSADAssessment -Value Remove-DSADAssessment
+Set-Alias -Name DS-DeleteADAssessment -Value Remove-DSADAssessment
 Set-Alias -Name Delete-DSConditionalForwarder -Value Remove-DSConditionalForwarder
 Set-Alias -Name DS-DeleteConditionalForwarder -Value Remove-DSConditionalForwarder
 Set-Alias -Name Delete-DSDirectory -Value Remove-DSDirectory
@@ -9514,6 +9518,8 @@ Set-Alias -Name Deregister-DSCertificate -Value Unregister-DSCertificate
 Set-Alias -Name DS-DeregisterCertificate -Value Unregister-DSCertificate
 Set-Alias -Name Deregister-DSEventTopic -Value Unregister-DSEventTopic
 Set-Alias -Name DS-DeregisterEventTopic -Value Unregister-DSEventTopic
+Set-Alias -Name Describe-DSADAssessment -Value Get-DSADAssessment
+Set-Alias -Name DS-DescribeADAssessment -Value Get-DSADAssessment
 Set-Alias -Name Describe-DSCertificate -Value Get-DSCertificate
 Set-Alias -Name DS-DescribeCertificate -Value Get-DSCertificate
 Set-Alias -Name Describe-DSClientAuthenticationSettings -Value Get-DSClientAuthenticationSetting
@@ -9533,6 +9539,8 @@ Set-Alias -Name DS-DescribeDomainControllers -Value Get-DSDomainControllerList
 Set-Alias -Name Describe-DSEventTopics -Value Get-DSEventTopic
 Set-Alias -Name Describe-DSEventTopic -Value Get-DSEventTopic
 Set-Alias -Name DS-DescribeEventTopics -Value Get-DSEventTopic
+Set-Alias -Name Describe-DSHybridADUpdate -Value Get-DSHybridADUpdate
+Set-Alias -Name DS-DescribeHybridADUpdate -Value Get-DSHybridADUpdate
 Set-Alias -Name Describe-DSLDAPSSettings -Value Get-DSLDAPSSetting
 Set-Alias -Name Describe-DSLDAPSSetting -Value Get-DSLDAPSSetting
 Set-Alias -Name DS-DescribeLDAPSSettings -Value Get-DSLDAPSSetting
@@ -9567,6 +9575,9 @@ Set-Alias -Name Get-DSDirectoryLimits -Value Get-DSDirectoryLimit
 Set-Alias -Name DS-GetDirectoryLimits -Value Get-DSDirectoryLimit
 Set-Alias -Name Get-DSSnapshotLimits -Value Get-DSSnapshotLimit
 Set-Alias -Name DS-GetSnapshotLimits -Value Get-DSSnapshotLimit
+Set-Alias -Name List-DSADAssessments -Value Get-DSADAssessmentList
+Set-Alias -Name List-DSADAssessmentList -Value Get-DSADAssessmentList
+Set-Alias -Name DS-ListADAssessments -Value Get-DSADAssessmentList
 Set-Alias -Name List-DSCertificates -Value Get-DSCertificateList
 Set-Alias -Name List-DSCertificateList -Value Get-DSCertificateList
 Set-Alias -Name DS-ListCertificates -Value Get-DSCertificateList
@@ -9594,12 +9605,14 @@ Set-Alias -Name DS-RestoreFromSnapshot -Value Restore-DSFromSnapshot
 Set-Alias -Name Share-DSDirectory -Value Enable-DSDirectoryShare
 Set-Alias -Name Share-DSDirectoryShare -Value Enable-DSDirectoryShare
 Set-Alias -Name DS-ShareDirectory -Value Enable-DSDirectoryShare
+Set-Alias -Name DS-StartADAssessment -Value Start-DSADAssessment
 Set-Alias -Name DS-StartSchemaExtension -Value Start-DSSchemaExtension
 Set-Alias -Name Unshare-DSDirectory -Value Disable-DSDirectoryShare
 Set-Alias -Name Unshare-DSDirectoryShare -Value Disable-DSDirectoryShare
 Set-Alias -Name DS-UnshareDirectory -Value Disable-DSDirectoryShare
 Set-Alias -Name DS-UpdateConditionalForwarder -Value Update-DSConditionalForwarder
 Set-Alias -Name DS-UpdateDirectorySetup -Value Update-DSDirectorySetup
+Set-Alias -Name DS-UpdateHybridAD -Value Update-DSHybridAD
 Set-Alias -Name Update-DSNumberOfDomainControllers -Value Set-DSDomainControllerCount
 Set-Alias -Name Update-DSDomainControllerCount -Value Set-DSDomainControllerCount
 Set-Alias -Name DS-UpdateNumberOfDomainControllers -Value Set-DSDomainControllerCount

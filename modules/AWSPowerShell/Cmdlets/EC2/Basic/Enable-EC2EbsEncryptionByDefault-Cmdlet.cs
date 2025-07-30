@@ -39,9 +39,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// you created each volume. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon
     /// EBS encryption</a> in the <i>Amazon EBS User Guide</i>.
     /// </para><para>
-    /// You can specify the default KMS key for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a>
-    /// or <a>ResetEbsDefaultKmsKeyId</a>.
-    /// </para><para>
     /// Enabling encryption by default has no effect on the encryption status of your existing
     /// volumes.
     /// </para><para>

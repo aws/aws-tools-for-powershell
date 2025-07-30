@@ -23,52 +23,39 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.DirectoryService;
+using Amazon.DirectoryService.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// <note><para>
-    /// This action is deprecated.
-    /// </para></note><para>
-    /// Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC platform.
-    /// The Elastic IP address must be allocated to your account for more than 24 hours, and
-    /// it must not be associated with an instance. After the Elastic IP address is moved,
-    /// it is no longer available for use in the EC2-Classic platform. You cannot move an
-    /// Elastic IP address that was originally allocated for use in the EC2-VPC platform to
-    /// the EC2-Classic platform.
+    /// Deletes a directory assessment and all associated data. This operation permanently
+    /// removes the assessment results, validation reports, and configuration information.
+    /// 
+    ///  
+    /// <para>
+    /// You cannot delete system-initiated assessments. You can delete customer-created assessments
+    /// even if they are in progress.
     /// </para>
     /// </summary>
-    [Cmdlet("Move", "EC2AddressToVpc", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.MoveAddressToVpcResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) MoveAddressToVpc API operation.", Operation = new[] {"MoveAddressToVpc"}, SelectReturnType = typeof(Amazon.EC2.Model.MoveAddressToVpcResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.MoveAddressToVpcResponse",
-        "This cmdlet returns an Amazon.EC2.Model.MoveAddressToVpcResponse object containing multiple properties."
+    [Cmdlet("Remove", "DSADAssessment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Directory Service DeleteADAssessment API operation.", Operation = new[] {"DeleteADAssessment"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.DeleteADAssessmentResponse))]
+    [AWSCmdletOutput("System.String or Amazon.DirectoryService.Model.DeleteADAssessmentResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.DirectoryService.Model.DeleteADAssessmentResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class MoveEC2AddressToVpcCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class RemoveDSADAssessmentCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DryRun
+        #region Parameter AssessmentId
         /// <summary>
         /// <para>
-        /// <para>Checks whether you have the required permissions for the action, without actually
-        /// making the request, and provides an error response. If you have the required permissions,
-        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? DryRun { get; set; }
-        #endregion
-        
-        #region Parameter PublicIp
-        /// <summary>
-        /// <para>
-        /// <para>The Elastic IP address.</para>
+        /// <para>The unique identifier of the directory assessment to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,18 +66,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PublicIp { get; set; }
+        public System.String AssessmentId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.MoveAddressToVpcResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.MoveAddressToVpcResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AssessmentId'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DirectoryService.Model.DeleteADAssessmentResponse).
+        /// Specifying the name of a property of type Amazon.DirectoryService.Model.DeleteADAssessmentResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "AssessmentId";
         #endregion
         
         #region Parameter Force
@@ -112,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PublicIp), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Move-EC2AddressToVpc (MoveAddressToVpc)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AssessmentId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DSADAssessment (DeleteADAssessment)"))
             {
                 return;
             }
@@ -125,15 +112,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.MoveAddressToVpcResponse, MoveEC2AddressToVpcCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DirectoryService.Model.DeleteADAssessmentResponse, RemoveDSADAssessmentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DryRun = this.DryRun;
-            context.PublicIp = this.PublicIp;
+            context.AssessmentId = this.AssessmentId;
             #if MODULAR
-            if (this.PublicIp == null && ParameterWasBound(nameof(this.PublicIp)))
+            if (this.AssessmentId == null && ParameterWasBound(nameof(this.AssessmentId)))
             {
-                WriteWarning("You are passing $null as a value for parameter PublicIp which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AssessmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -150,15 +136,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.MoveAddressToVpcRequest();
+            var request = new Amazon.DirectoryService.Model.DeleteADAssessmentRequest();
             
-            if (cmdletContext.DryRun != null)
+            if (cmdletContext.AssessmentId != null)
             {
-                request.DryRun = cmdletContext.DryRun.Value;
-            }
-            if (cmdletContext.PublicIp != null)
-            {
-                request.PublicIp = cmdletContext.PublicIp;
+                request.AssessmentId = cmdletContext.AssessmentId;
             }
             
             CmdletOutput output;
@@ -193,12 +175,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.MoveAddressToVpcResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.MoveAddressToVpcRequest request)
+        private Amazon.DirectoryService.Model.DeleteADAssessmentResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DeleteADAssessmentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "MoveAddressToVpc");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "DeleteADAssessment");
             try
             {
-                return client.MoveAddressToVpcAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteADAssessmentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -215,10 +197,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? DryRun { get; set; }
-            public System.String PublicIp { get; set; }
-            public System.Func<Amazon.EC2.Model.MoveAddressToVpcResponse, MoveEC2AddressToVpcCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String AssessmentId { get; set; }
+            public System.Func<Amazon.DirectoryService.Model.DeleteADAssessmentResponse, RemoveDSADAssessmentCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AssessmentId;
         }
         
     }

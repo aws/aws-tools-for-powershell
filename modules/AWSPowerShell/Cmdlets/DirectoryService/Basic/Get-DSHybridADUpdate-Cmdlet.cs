@@ -23,86 +23,64 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.DirectoryService;
+using Amazon.DirectoryService.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Describes your managed prefix lists and any Amazon Web Services-managed prefix lists.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves information about update activities for a hybrid directory. This operation
+    /// provides details about configuration changes, administrator account updates, and self-managed
+    /// instance settings (IDs and DNS IPs).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "EC2ManagedPrefixList")]
-    [OutputType("Amazon.EC2.Model.ManagedPrefixList")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeManagedPrefixLists API operation.", Operation = new[] {"DescribeManagedPrefixLists"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeManagedPrefixListsResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.ManagedPrefixList or Amazon.EC2.Model.DescribeManagedPrefixListsResponse",
-        "This cmdlet returns a collection of Amazon.EC2.Model.ManagedPrefixList objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeManagedPrefixListsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "DSHybridADUpdate")]
+    [OutputType("Amazon.DirectoryService.Model.HybridUpdateActivities")]
+    [AWSCmdlet("Calls the AWS Directory Service DescribeHybridADUpdate API operation.", Operation = new[] {"DescribeHybridADUpdate"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.DescribeHybridADUpdateResponse))]
+    [AWSCmdletOutput("Amazon.DirectoryService.Model.HybridUpdateActivities or Amazon.DirectoryService.Model.DescribeHybridADUpdateResponse",
+        "This cmdlet returns an Amazon.DirectoryService.Model.HybridUpdateActivities object.",
+        "The service call response (type Amazon.DirectoryService.Model.DescribeHybridADUpdateResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetEC2ManagedPrefixListCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetDSHybridADUpdateCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DryRun
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>Checks whether you have the required permissions for the action, without actually
-        /// making the request, and provides an error response. If you have the required permissions,
-        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// <para>The identifier of the hybrid directory for which to retrieve update information.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? DryRun { get; set; }
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String DirectoryId { get; set; }
         #endregion
         
-        #region Parameter Filter
+        #region Parameter UpdateType
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><c>owner-id</c> - The ID of the prefix list owner.</para></li><li><para><c>prefix-list-id</c> - The ID of the prefix list.</para></li><li><para><c>prefix-list-name</c> - The name of the prefix list.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// <para>The type of update activities to retrieve. Valid values include <c>SelfManagedInstances</c>
+        /// and <c>HybridAdministratorAccount</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Filters")]
-        public Amazon.EC2.Model.Filter[] Filter { get; set; }
-        #endregion
-        
-        #region Parameter PrefixListId
-        /// <summary>
-        /// <para>
-        /// <para>One or more prefix list IDs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("PrefixListIds")]
-        public System.String[] PrefixListId { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <c>nextToken</c> value.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
+        [AWSConstantClassSource("Amazon.DirectoryService.HybridUpdateType")]
+        public Amazon.DirectoryService.HybridUpdateType UpdateType { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next page of results.</para>
+        /// <para>The pagination token from a previous request to <a>DescribeHybridADUpdate</a>. Pass
+        /// null if this is the first request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -115,13 +93,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'PrefixLists'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DescribeManagedPrefixListsResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.DescribeManagedPrefixListsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'UpdateActivities'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DirectoryService.Model.DescribeHybridADUpdateResponse).
+        /// Specifying the name of a property of type Amazon.DirectoryService.Model.DescribeHybridADUpdateResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "PrefixLists";
+        public string Select { get; set; } = "UpdateActivities";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -150,20 +128,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeManagedPrefixListsResponse, GetEC2ManagedPrefixListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DirectoryService.Model.DescribeHybridADUpdateResponse, GetDSHybridADUpdateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DryRun = this.DryRun;
-            if (this.Filter != null)
+            context.DirectoryId = this.DirectoryId;
+            #if MODULAR
+            if (this.DirectoryId == null && ParameterWasBound(nameof(this.DirectoryId)))
             {
-                context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
+                WriteWarning("You are passing $null as a value for parameter DirectoryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
-            context.MaxResult = this.MaxResult;
+            #endif
             context.NextToken = this.NextToken;
-            if (this.PrefixListId != null)
-            {
-                context.PrefixListId = new List<System.String>(this.PrefixListId);
-            }
+            context.UpdateType = this.UpdateType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -180,23 +156,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.EC2.Model.DescribeManagedPrefixListsRequest();
+            var request = new Amazon.DirectoryService.Model.DescribeHybridADUpdateRequest();
             
-            if (cmdletContext.DryRun != null)
+            if (cmdletContext.DirectoryId != null)
             {
-                request.DryRun = cmdletContext.DryRun.Value;
+                request.DirectoryId = cmdletContext.DirectoryId;
             }
-            if (cmdletContext.Filter != null)
+            if (cmdletContext.UpdateType != null)
             {
-                request.Filters = cmdletContext.Filter;
-            }
-            if (cmdletContext.MaxResult != null)
-            {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.PrefixListId != null)
-            {
-                request.PrefixListIds = cmdletContext.PrefixListId;
+                request.UpdateType = cmdletContext.UpdateType;
             }
             
             // Initialize loop variant and commence piping
@@ -255,12 +223,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.DescribeManagedPrefixListsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeManagedPrefixListsRequest request)
+        private Amazon.DirectoryService.Model.DescribeHybridADUpdateResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DescribeHybridADUpdateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeManagedPrefixLists");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "DescribeHybridADUpdate");
             try
             {
-                return client.DescribeManagedPrefixListsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DescribeHybridADUpdateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -277,13 +245,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? DryRun { get; set; }
-            public List<Amazon.EC2.Model.Filter> Filter { get; set; }
-            public System.Int32? MaxResult { get; set; }
+            public System.String DirectoryId { get; set; }
             public System.String NextToken { get; set; }
-            public List<System.String> PrefixListId { get; set; }
-            public System.Func<Amazon.EC2.Model.DescribeManagedPrefixListsResponse, GetEC2ManagedPrefixListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.PrefixLists;
+            public Amazon.DirectoryService.HybridUpdateType UpdateType { get; set; }
+            public System.Func<Amazon.DirectoryService.Model.DescribeHybridADUpdateResponse, GetDSHybridADUpdateCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.UpdateActivities;
         }
         
     }

@@ -32,12 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Describes available Amazon Web Services services in a prefix list format, which includes
     /// the prefix list name and prefix list ID of the service and the IP address range for
-    /// the service.
-    /// 
-    ///  
-    /// <para>
-    /// We recommend that you use <a>DescribeManagedPrefixLists</a> instead.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// the service.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2PrefixList")]
     [OutputType("Amazon.EC2.Model.PrefixList")]

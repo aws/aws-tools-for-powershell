@@ -30,13 +30,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the IP address ranges that were specified in calls to <a>ProvisionByoipCidr</a>.
-    /// 
-    ///  
-    /// <para>
-    /// To describe the address pools that were created when you provisioned the address ranges,
-    /// use <a>DescribePublicIpv4Pools</a> or <a>DescribeIpv6Pools</a>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the IP address ranges that were provisioned for use with Amazon Web Services
+    /// resources through through bring your own IP addresses (BYOIP).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2ByoipCidr")]
     [OutputType("Amazon.EC2.Model.ByoipCidr")]

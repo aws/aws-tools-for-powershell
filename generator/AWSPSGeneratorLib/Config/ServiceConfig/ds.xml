@@ -23,7 +23,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddIpRoutes" Verb="Add" Noun="IpRoute" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyAlias="Add-DSIpRoutes" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AddIpRoutes" Verb="Add" Noun="IpRoute" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Add-DSIpRoutes">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -59,6 +59,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateHybridAD" OutputProperty="DirectoryId" Verb="New" Noun="HybridAD" AnonymousShouldProcessTarget="true" PipelineParameter="AssessmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateLogSubscription" Verb="New" Noun="LogSubscription" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -72,6 +76,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTrust" OutputProperty="TrustId" Verb="New" Noun="Trust" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteADAssessment" OutputProperty="AssessmentId" Verb="Remove" Noun="ADAssessment" ShouldProcessTarget="AssessmentId" PipelineParameter="AssessmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -103,6 +111,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeADAssessment" OutputProperty="*" Verb="Get" Noun="ADAssessment" PipelineParameter="AssessmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeCertificate" OutputProperty="Certificate" Verb="Get" Noun="Certificate" PipelineParameter="CertificateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -115,7 +127,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectories" OutputProperty="DirectoryDescriptions" Verb="Get" Noun="Directory" PipelineParameter="DirectoryIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDirectories" OutputProperty="DirectoryDescriptions" Verb="Get" Noun="Directory" PipelineParameter="DirectoryIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -123,7 +135,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDomainControllers" OutputProperty="DomainControllers" Verb="Get" Noun="DomainControllerList" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDomainControllers" OutputProperty="DomainControllers" Verb="Get" Noun="DomainControllerList" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -131,7 +143,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLDAPSSettings" OutputProperty="LDAPSSettingsInfo" Verb="Get" Noun="LDAPSSetting" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeHybridADUpdate" OutputProperty="UpdateActivities" Verb="Get" Noun="HybridADUpdate" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLDAPSSettings" OutputProperty="LDAPSSettingsInfo" Verb="Get" Noun="LDAPSSetting" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -143,15 +159,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSharedDirectories" OutputProperty="SharedDirectories" Verb="Get" Noun="SharedDirectory" PipelineParameter="OwnerDirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSharedDirectories" OutputProperty="SharedDirectories" Verb="Get" Noun="SharedDirectory" PipelineParameter="OwnerDirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="Snapshot" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="Snapshot" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTrusts" OutputProperty="Trusts" Verb="Get" Noun="Trust" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTrusts" OutputProperty="Trusts" Verb="Get" Noun="Trust" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -207,23 +223,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCertificates" OutputProperty="CertificatesInfo" Verb="Get" Noun="CertificateList" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListADAssessments" OutputProperty="Assessments" Verb="Get" Noun="ADAssessmentList" PipelineParameter="DirectoryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIpRoutes" OutputProperty="IpRoutesInfo" Verb="Get" Noun="IpRouteList" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-DSIpRoutes" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCertificates" OutputProperty="CertificatesInfo" Verb="Get" Noun="CertificateList" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLogSubscriptions" OutputProperty="LogSubscriptions" Verb="Get" Noun="LogSubscriptionList" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListIpRoutes" OutputProperty="IpRoutesInfo" Verb="Get" Noun="IpRouteList" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-DSIpRoutes">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSchemaExtensions" OutputProperty="SchemaExtensionsInfo" Verb="Get" Noun="SchemaExtension" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLogSubscriptions" OutputProperty="LogSubscriptions" Verb="Get" Noun="LogSubscriptionList" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSchemaExtensions" OutputProperty="SchemaExtensionsInfo" Verb="Get" Noun="SchemaExtension" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -239,7 +259,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveIpRoutes" Verb="Remove" Noun="IpRoute" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyAlias="Remove-DSIpRoutes" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RemoveIpRoutes" Verb="Remove" Noun="IpRoute" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Remove-DSIpRoutes">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -263,6 +283,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartADAssessment" OutputProperty="AssessmentId" Verb="Start" Noun="ADAssessment" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartSchemaExtension" OutputProperty="SchemaExtensionId" Verb="Start" Noun="SchemaExtension" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -276,6 +300,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDirectorySetup" Verb="Update" Noun="DirectorySetup" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateHybridAD" OutputProperty="*" Verb="Update" Noun="HybridAD" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

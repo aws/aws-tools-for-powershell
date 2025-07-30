@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.58.0",
+    "ProductVersion"    : "4.0.59.0",
     "CoreVersion"       : "4.0.0.18",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -40,7 +40,7 @@
             "InPreview"               : false
         },
         "CloudFront"     : {
-            "Version" : "4.0.1.1",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.17"
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "4.0.24.0",
+            "Version" : "4.0.25.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.17"
@@ -396,7 +396,7 @@
             "InPreview"               : false
         },
         "DirectoryService"          : {
-            "Version" : "4.0.0.16",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.17"
@@ -1316,7 +1316,7 @@
             "InPreview"               : false
         },
         "DocDB"                           : {
-            "Version" : "4.0.0.15",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.17"
@@ -1956,7 +1956,7 @@
             "InPreview"               : false
         },
         "IoTWireless"                     : {
-            "Version" : "4.0.1.1",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.17"
