@@ -458,6 +458,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEncryptionConfiguration" OutputProperty="*" Verb="Get" Noun="EncryptionConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeEndpoint" OutputProperty="EndpointAddress" Verb="Get" Noun="Endpoint" PipelineParameter="EndpointType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -594,7 +598,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLoggingOptions" OutputProperty="*" Verb="Get" Noun="LoggingOption" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-IOTLoggingOptions" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetLoggingOptions" OutputProperty="*" Verb="Get" Noun="LoggingOption" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-IOTLoggingOptions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -650,17 +654,17 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListActiveViolations" OutputProperty="ActiveViolations" Verb="Get" Noun="ActiveViolationList" PipelineParameter="SecurityProfileName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListActiveViolations" OutputProperty="ActiveViolations" Verb="Get" Noun="ActiveViolationList" PipelineParameter="SecurityProfileName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAttachedPolicies" OutputProperty="Policies" Verb="Get" Noun="AttachedPolicyList" PipelineParameter="Target" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAttachedPolicies" OutputProperty="Policies" Verb="Get" Noun="AttachedPolicyList" PipelineParameter="Target" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAuditFindings" OutputProperty="Findings" Verb="Get" Noun="AuditFindingList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAuditFindings" OutputProperty="Findings" Verb="Get" Noun="AuditFindingList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
@@ -677,7 +681,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAuditTasks" OutputProperty="Tasks" Verb="Get" Noun="TaskList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAuditTasks" OutputProperty="Tasks" Verb="Get" Noun="TaskList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params>
                 <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
                 <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
@@ -687,17 +691,17 @@
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAuthorizers" OutputProperty="Authorizers" Verb="Get" Noun="AuthorizerList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAuthorizers" OutputProperty="Authorizers" Verb="Get" Noun="AuthorizerList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBillingGroups" OutputProperty="BillingGroups" Verb="Get" Noun="BillingGroupList" PipelineParameter="NamePrefixFilter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBillingGroups" OutputProperty="BillingGroups" Verb="Get" Noun="BillingGroupList" PipelineParameter="NamePrefixFilter" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCACertificates" OutputProperty="Certificates" Verb="Get" Noun="CACertificateList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCACertificates" OutputProperty="Certificates" Verb="Get" Noun="CACertificateList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
@@ -706,12 +710,12 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCertificates" OutputProperty="Certificates" Verb="Get" Noun="CertificateList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCertificates" OutputProperty="Certificates" Verb="Get" Noun="CertificateList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCertificatesByCA" OutputProperty="Certificates" Verb="Get" Noun="CertificateListByCA" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCertificatesByCA" OutputProperty="Certificates" Verb="Get" Noun="CertificateListByCA" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
@@ -749,22 +753,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIndices" OutputProperty="IndexNames" Verb="Get" Noun="IndexList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListIndices" OutputProperty="IndexNames" Verb="Get" Noun="IndexList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobExecutionsForJob" OutputProperty="ExecutionSummaries" Verb="Get" Noun="JobExecutionsForJobList" PipelineParameter="JobId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListJobExecutionsForJob" OutputProperty="ExecutionSummaries" Verb="Get" Noun="JobExecutionsForJobList" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobExecutionsForThing" OutputProperty="ExecutionSummaries" Verb="Get" Noun="JobExecutionsForThingList" PipelineParameter="ThingName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListJobExecutionsForThing" OutputProperty="ExecutionSummaries" Verb="Get" Noun="JobExecutionsForThingList" PipelineParameter="ThingName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
@@ -785,12 +789,12 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOTAUpdates" OutputProperty="OtaUpdates" Verb="Get" Noun="OTAUpdateList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListOTAUpdates" OutputProperty="OtaUpdates" Verb="Get" Noun="OTAUpdateList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOutgoingCertificates" OutputProperty="OutgoingCertificates" Verb="Get" Noun="OutgoingCertificate" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListOutgoingCertificates" OutputProperty="OutgoingCertificates" Verb="Get" Noun="OutgoingCertificate" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
@@ -803,12 +807,12 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPolicies" OutputProperty="Policies" Verb="Get" Noun="PolicyList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPolicies" OutputProperty="Policies" Verb="Get" Noun="PolicyList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPolicyPrincipals" OutputProperty="Principals" Verb="Get" Noun="PolicyPrincipalList" PipelineParameter="PolicyName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPolicyPrincipals" OutputProperty="Principals" Verb="Get" Noun="PolicyPrincipalList" PipelineParameter="PolicyName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
@@ -818,12 +822,12 @@
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPrincipalPolicies" OutputProperty="Policies" Verb="Get" Noun="PrincipalPolicyList" PipelineParameter="Principal" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPrincipalPolicies" OutputProperty="Policies" Verb="Get" Noun="PrincipalPolicyList" PipelineParameter="Principal" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPrincipalThings" OutputProperty="Things" Verb="Get" Noun="PrincipalThingList" PipelineParameter="Principal" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPrincipalThings" OutputProperty="Things" Verb="Get" Noun="PrincipalThingList" PipelineParameter="Principal" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
@@ -846,7 +850,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRoleAliases" OutputProperty="RoleAliases" Verb="Get" Noun="RoleAliasList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListRoleAliases" OutputProperty="RoleAliases" Verb="Get" Noun="RoleAliasList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
@@ -855,22 +859,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListScheduledAudits" OutputProperty="ScheduledAudits" Verb="Get" Noun="ScheduledAuditList" PipelineParameter="NextToken" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListScheduledAudits" OutputProperty="ScheduledAudits" Verb="Get" Noun="ScheduledAuditList" PipelineParameter="NextToken" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSecurityProfiles" OutputProperty="SecurityProfileIdentifiers" Verb="Get" Noun="SecurityProfileList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSecurityProfiles" OutputProperty="SecurityProfileIdentifiers" Verb="Get" Noun="SecurityProfileList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSecurityProfilesForTarget" OutputProperty="SecurityProfileTargetMappings" Verb="Get" Noun="SecurityProfilesForTargetList" PipelineParameter="SecurityProfileTargetArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSecurityProfilesForTarget" OutputProperty="SecurityProfileTargetMappings" Verb="Get" Noun="SecurityProfilesForTargetList" PipelineParameter="SecurityProfileTargetArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreams" OutputProperty="Streams" Verb="Get" Noun="StreamList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStreams" OutputProperty="Streams" Verb="Get" Noun="StreamList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
@@ -880,22 +884,22 @@
             <AutoIterate Start="NextToken" Next="NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTargetsForPolicy" OutputProperty="Targets" Verb="Get" Noun="TargetsForPolicyList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTargetsForPolicy" OutputProperty="Targets" Verb="Get" Noun="TargetsForPolicyList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTargetsForSecurityProfile" OutputProperty="SecurityProfileTargets" Verb="Get" Noun="TargetsForSecurityProfileList" PipelineParameter="SecurityProfileName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTargetsForSecurityProfile" OutputProperty="SecurityProfileTargets" Verb="Get" Noun="TargetsForSecurityProfileList" PipelineParameter="SecurityProfileName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThingGroups" OutputProperty="ThingGroups" Verb="Get" Noun="ThingGroupList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListThingGroups" OutputProperty="ThingGroups" Verb="Get" Noun="ThingGroupList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThingGroupsForThing" OutputProperty="ThingGroups" Verb="Get" Noun="ThingGroupsForThingList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListThingGroupsForThing" OutputProperty="ThingGroups" Verb="Get" Noun="ThingGroupsForThingList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
@@ -908,50 +912,50 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThingRegistrationTaskReports" OutputProperty="ResourceLinks" Verb="Get" Noun="ThingRegistrationTaskReportList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListThingRegistrationTaskReports" OutputProperty="ResourceLinks" Verb="Get" Noun="ThingRegistrationTaskReportList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThingRegistrationTasks" OutputProperty="TaskIds" Verb="Get" Noun="ThingRegistrationTaskList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListThingRegistrationTasks" OutputProperty="TaskIds" Verb="Get" Noun="ThingRegistrationTaskList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThings" OutputProperty="Things" Verb="Get" Noun="ThingList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListThings" OutputProperty="Things" Verb="Get" Noun="ThingList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThingsInBillingGroup" OutputProperty="Things" Verb="Get" Noun="ThingsInBillingGroupList" PipelineParameter="BillingGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-            <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListThingsInThingGroup" OutputProperty="Things" Verb="Get" Noun="ThingsInThingGroupList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListThingsInBillingGroup" OutputProperty="Things" Verb="Get" Noun="ThingsInBillingGroupList" PipelineParameter="BillingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThingTypes" OutputProperty="ThingTypes" Verb="Get" Noun="ThingTypeList" PipelineParameter="ThingTypeName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListThingsInThingGroup" OutputProperty="Things" Verb="Get" Noun="ThingsInThingGroupList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTopicRuleDestinations" OutputProperty="DestinationSummaries" Verb="Get" Noun="TopicRuleDestinationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListThingTypes" OutputProperty="ThingTypes" Verb="Get" Noun="ThingTypeList" PipelineParameter="ThingTypeName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTopicRuleDestinations" OutputProperty="DestinationSummaries" Verb="Get" Noun="TopicRuleDestinationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTopicRules" OutputProperty="Rules" Verb="Get" Noun="TopicRuleList" PipelineParameter="Topic" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTopicRules" OutputProperty="Rules" Verb="Get" Noun="TopicRuleList" PipelineParameter="Topic" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListV2LoggingLevels" OutputProperty="LogTargetConfigurations" Verb="Get" Noun="V2LoggingLevelList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListV2LoggingLevels" OutputProperty="LogTargetConfigurations" Verb="Get" Noun="V2LoggingLevelList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListViolationEvents" OutputProperty="ViolationEvents" Verb="Get" Noun="ViolationEventList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListViolationEvents" OutputProperty="ViolationEvents" Verb="Get" Noun="ViolationEventList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params>
                 <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
                 <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
@@ -1014,7 +1018,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetLoggingOptions" Verb="Set" Noun="LoggingOption" ShouldProcessTarget="LoggingOptionsPayload_RoleArn" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Set-IOTLoggingOptions" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SetLoggingOptions" Verb="Set" Noun="LoggingOption" ShouldProcessTarget="LoggingOptionsPayload_RoleArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyAlias="Set-IOTLoggingOptions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1111,6 +1115,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDynamicThingGroup" OutputProperty="Version" Verb="Update" Noun="DynamicThingGroup" ShouldProcessTarget="ThingGroupName" PipelineParameter="ThingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEncryptionConfiguration" Verb="Update" Noun="EncryptionConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -223,6 +223,21 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.Boolean? PublicAccessBlockConfiguration_RestrictPublicBucket { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>An array of tags that you can apply to an access point. Tags are key-value pairs of
+        /// metadata used to control access to your access points. For more information about
+        /// tags, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Using
+        /// tags with Amazon S3</a>. For information about tagging access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#using-tags-for-abac">Using
+        /// tags for attribute-based access control (ABAC)</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.S3Control.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter VpcConfiguration_VpcId
         /// <summary>
         /// <para>
@@ -329,6 +344,10 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (this.Scope_Prefix != null)
             {
                 context.Scope_Prefix = new List<System.String>(this.Scope_Prefix);
+            }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.S3Control.Model.Tag>(this.Tag);
             }
             context.VpcConfiguration_VpcId = this.VpcConfiguration_VpcId;
             
@@ -441,6 +460,10 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             {
                 request.Scope = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
              // populate VpcConfiguration
             var requestVpcConfigurationIsNull = true;
@@ -531,6 +554,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             public System.Boolean? PublicAccessBlockConfiguration_RestrictPublicBucket { get; set; }
             public List<System.String> Scope_Permission { get; set; }
             public List<System.String> Scope_Prefix { get; set; }
+            public List<Amazon.S3Control.Model.Tag> Tag { get; set; }
             public System.String VpcConfiguration_VpcId { get; set; }
             public System.Func<Amazon.S3Control.Model.CreateAccessPointResponse, NewS3CAccessPointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AccessPointArn;

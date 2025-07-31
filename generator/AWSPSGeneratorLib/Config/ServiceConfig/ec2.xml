@@ -2936,7 +2936,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TerminateInstances" OutputProperty="TerminatingInstances" Verb="Remove" Noun="Instance" ShouldProcessTarget="InstanceIds" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UnassignIpv6Addresses" OutputProperty="*" Verb="Unregister" Noun="Ipv6AddressList" ShouldProcessTarget="NetworkInterfaceId" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false" LegacyV4Pagination="true">

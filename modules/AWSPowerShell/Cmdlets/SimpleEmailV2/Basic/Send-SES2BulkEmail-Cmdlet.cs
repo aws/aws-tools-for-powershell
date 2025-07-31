@@ -239,6 +239,17 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public System.String Template_TemplateName { get; set; }
         #endregion
         
+        #region Parameter TenantName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the tenant through which this bulk email will be sent.</para><note><para> The email sending operation will only succeed if all referenced resources (identities,
+        /// configuration sets, and templates) are associated with this tenant. </para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TenantName { get; set; }
+        #endregion
+        
         #region Parameter TemplateContent_Text
         /// <summary>
         /// <para>
@@ -331,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             {
                 context.ReplyToAddress = new List<System.String>(this.ReplyToAddress);
             }
+            context.TenantName = this.TenantName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -502,6 +514,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             {
                 request.ReplyToAddresses = cmdletContext.ReplyToAddress;
             }
+            if (cmdletContext.TenantName != null)
+            {
+                request.TenantName = cmdletContext.TenantName;
+            }
             
             CmdletOutput output;
             
@@ -580,6 +596,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             public System.String FromEmailAddress { get; set; }
             public System.String FromEmailAddressIdentityArn { get; set; }
             public List<System.String> ReplyToAddress { get; set; }
+            public System.String TenantName { get; set; }
             public System.Func<Amazon.SimpleEmailV2.Model.SendBulkEmailResponse, SendSES2BulkEmailCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.BulkEmailEntryResults;
         }

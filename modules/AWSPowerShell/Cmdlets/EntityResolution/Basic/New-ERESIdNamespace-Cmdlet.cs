@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     /// <summary>
     /// Creates an ID namespace object which will help customers provide metadata explaining
     /// their dataset and how to use it. Each ID namespace must have a unique name. To modify
-    /// an existing ID namespace, use the <c>UpdateIdNamespace</c> API.
+    /// an existing ID namespace, use the UpdateIdNamespace API.
     /// </summary>
     [Cmdlet("New", "ERESIdNamespace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EntityResolution.Model.CreateIdNamespaceResponse")]

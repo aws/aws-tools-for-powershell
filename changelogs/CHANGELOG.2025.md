@@ -1,4 +1,50 @@
-﻿### 4.1.868 (2025-07-30 21:09Z)
+﻿### 4.1.869 (2025-07-31 20:38Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1092.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Customer Profiles
+    * Modified cmdlet Merge-CPFProfile: added parameters FieldSourceProfileIds_EngagementPreference and FieldSourceProfileIds_ProfileType.
+    * Modified cmdlet New-CPFProfile: added parameters EngagementPreferences_Email, EngagementPreferences_Phone and ProfileType.
+    * Modified cmdlet Update-CPFProfile: added parameters EngagementPreferences_Email, EngagementPreferences_Phone and ProfileType.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Remove-EC2Instance: added parameter Enforce.
+  * Amazon EntityResolution
+    * Modified cmdlet New-ERESMatchingWorkflow: added parameter RuleConditionProperties_Rule.
+    * Modified cmdlet Update-ERESMatchingWorkflow: added parameter RuleConditionProperties_Rule.
+  * Amazon IoT
+    * Added cmdlet Get-IOTEncryptionConfiguration leveraging the DescribeEncryptionConfiguration service API.
+    * Added cmdlet Update-IOTEncryptionConfiguration leveraging the UpdateEncryptionConfiguration service API.
+  * Amazon OpenSearch Service
+    * Modified cmdlet New-OSDomain: added parameters IAMFederationOptions_Enabled, IAMFederationOptions_RolesKey and IAMFederationOptions_SubjectKey.
+    * Modified cmdlet Update-OSDomainConfig: added parameters IAMFederationOptions_Enabled, IAMFederationOptions_RolesKey and IAMFederationOptions_SubjectKey.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSDataSource: added parameters ImpalaParameters_Database, ImpalaParameters_Host, ImpalaParameters_Port and ImpalaParameters_SqlEndpointPath.
+    * Modified cmdlet Update-QSDataSource: added parameters ImpalaParameters_Database, ImpalaParameters_Host, ImpalaParameters_Port and ImpalaParameters_SqlEndpointPath.
+  * Amazon S3 Control
+    * Modified cmdlet New-S3CAccessPoint: added parameter Tag.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Added cmdlet Get-SES2ReputationEntity leveraging the GetReputationEntity service API.
+    * Added cmdlet Get-SES2ReputationEntityList leveraging the ListReputationEntities service API.
+    * Added cmdlet Get-SES2ResourceTenantList leveraging the ListResourceTenants service API.
+    * Added cmdlet Get-SES2Tenant leveraging the GetTenant service API.
+    * Added cmdlet Get-SES2TenantList leveraging the ListTenants service API.
+    * Added cmdlet Get-SES2TenantResourceList leveraging the ListTenantResources service API.
+    * Added cmdlet New-SES2Tenant leveraging the CreateTenant service API.
+    * Added cmdlet New-SES2TenantResourceAssociation leveraging the CreateTenantResourceAssociation service API.
+    * Added cmdlet Remove-SES2Tenant leveraging the DeleteTenant service API.
+    * Added cmdlet Remove-SES2TenantResourceAssociation leveraging the DeleteTenantResourceAssociation service API.
+    * Added cmdlet Update-SES2ReputationEntityCustomerManagedStatus leveraging the UpdateReputationEntityCustomerManagedStatus service API.
+    * Added cmdlet Update-SES2ReputationEntityPolicy leveraging the UpdateReputationEntityPolicy service API.
+    * Modified cmdlet Send-SES2BulkEmail: added parameter TenantName.
+    * Modified cmdlet Send-SES2Email: added parameter TenantName.
+  * Amazon WorkSpaces Web
+    * Added cmdlet Get-WSWSessionLogger leveraging the GetSessionLogger service API.
+    * Added cmdlet Get-WSWSessionLoggerList leveraging the ListSessionLoggers service API.
+    * Added cmdlet New-WSWSessionLogger leveraging the CreateSessionLogger service API.
+    * Added cmdlet Register-WSWSessionLogger leveraging the AssociateSessionLogger service API.
+    * Added cmdlet Remove-WSWSessionLogger leveraging the DeleteSessionLogger service API.
+    * Added cmdlet Unregister-WSWSessionLogger leveraging the DisassociateSessionLogger service API.
+    * Added cmdlet Update-WSWSessionLogger leveraging the UpdateSessionLogger service API.
+
+### 4.1.868 (2025-07-30 21:09Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1091.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Directory Service
     * Added cmdlet Get-DSADAssessment leveraging the DescribeADAssessment service API.

@@ -28,9 +28,13 @@ using Amazon.EntityResolution.Model;
 namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
-    /// Updates an existing <c>MatchingWorkflow</c>. This method is identical to <c>CreateMatchingWorkflow</c>,
-    /// except it uses an HTTP <c>PUT</c> request instead of a <c>POST</c> request, and the
-    /// <c>MatchingWorkflow</c> must already exist for the method to succeed.
+    /// Updates an existing matching workflow. The workflow must already exist for this operation
+    /// to succeed.
+    /// 
+    ///  <important><para>
+    /// For workflows where <c>resolutionType</c> is ML_MATCHING, incremental processing is
+    /// not supported. 
+    /// </para></important>
     /// </summary>
     [Cmdlet("Update", "ERESMatchingWorkflow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EntityResolution.Model.UpdateMatchingWorkflowResponse")]
@@ -46,14 +50,14 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter RuleBasedProperties_AttributeMatchingModel
         /// <summary>
         /// <para>
-        /// <para>The comparison type. You can either choose <c>ONE_TO_ONE</c> or <c>MANY_TO_MANY</c>
-        /// as the <c>attributeMatchingModel</c>. </para><para>If you choose <c>MANY_TO_MANY</c>, the system can match attributes across the sub-types
-        /// of an attribute type. For example, if the value of the <c>Email</c> field of Profile
-        /// A and the value of <c>BusinessEmail</c> field of Profile B matches, the two profiles
-        /// are matched on the <c>Email</c> attribute type. </para><para>If you choose <c>ONE_TO_ONE</c>, the system can only match attributes if the sub-types
+        /// <para>The comparison type. You can choose <c>ONE_TO_ONE</c> or <c>MANY_TO_MANY</c> as the
+        /// <c>attributeMatchingModel</c>. </para><para>If you choose <c>ONE_TO_ONE</c>, the system can only match attributes if the sub-types
         /// are an exact match. For example, for the <c>Email</c> attribute type, the system will
         /// only consider it a match if the value of the <c>Email</c> field of Profile A matches
-        /// the value of the <c>Email</c> field of Profile B.</para>
+        /// the value of the <c>Email</c> field of Profile B.</para><para>If you choose <c>MANY_TO_MANY</c>, the system can match attributes across the sub-types
+        /// of an attribute type. For example, if the value of the <c>Email</c> field of Profile
+        /// A and the value of <c>BusinessEmail</c> field of Profile B matches, the two profiles
+        /// are matched on the <c>Email</c> attribute type. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter IncrementalRunConfig_IncrementalRunType
         /// <summary>
         /// <para>
-        /// <para>The type of incremental run. It takes only one value: <c>IMMEDIATE</c>.</para>
+        /// <para>The type of incremental run. The only valid value is <c>IMMEDIATE</c>. This appears
+        /// as "Automatic" in the console.</para><important><para>For workflows where <c>resolutionType</c> is <c>ML_MATCHING</c>, incremental processing
+        /// is not supported. </para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter OutputSourceConfig
         /// <summary>
         /// <para>
-        /// <para>A list of <c>OutputSource</c> objects, each of which contains fields <c>OutputS3Path</c>,
-        /// <c>ApplyNormalization</c>, and <c>Output</c>.</para>
+        /// <para>A list of <c>OutputSource</c> objects, each of which contains fields <c>outputS3Path</c>,
+        /// <c>applyNormalization</c>, <c>KMSArn</c>, and <c>output</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -210,6 +216,18 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResolutionTechniques_RuleBasedProperties_Rules")]
         public Amazon.EntityResolution.Model.Rule[] RuleBasedProperties_Rule { get; set; }
+        #endregion
+        
+        #region Parameter RuleConditionProperties_Rule
+        /// <summary>
+        /// <para>
+        /// <para> A list of rule objects, each of which have fields <c>ruleName</c> and <c>condition</c>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResolutionTechniques_RuleConditionProperties_Rules")]
+        public Amazon.EntityResolution.Model.RuleCondition[] RuleConditionProperties_Rule { get; set; }
         #endregion
         
         #region Parameter WorkflowName
@@ -309,6 +327,10 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             {
                 context.RuleBasedProperties_Rule = new List<Amazon.EntityResolution.Model.Rule>(this.RuleBasedProperties_Rule);
             }
+            if (this.RuleConditionProperties_Rule != null)
+            {
+                context.RuleConditionProperties_Rule = new List<Amazon.EntityResolution.Model.RuleCondition>(this.RuleConditionProperties_Rule);
+            }
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -382,6 +404,31 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             if (requestResolutionTechniques_resolutionTechniques_ResolutionType != null)
             {
                 request.ResolutionTechniques.ResolutionType = requestResolutionTechniques_resolutionTechniques_ResolutionType;
+                requestResolutionTechniquesIsNull = false;
+            }
+            Amazon.EntityResolution.Model.RuleConditionProperties requestResolutionTechniques_resolutionTechniques_RuleConditionProperties = null;
+            
+             // populate RuleConditionProperties
+            var requestResolutionTechniques_resolutionTechniques_RuleConditionPropertiesIsNull = true;
+            requestResolutionTechniques_resolutionTechniques_RuleConditionProperties = new Amazon.EntityResolution.Model.RuleConditionProperties();
+            List<Amazon.EntityResolution.Model.RuleCondition> requestResolutionTechniques_resolutionTechniques_RuleConditionProperties_ruleConditionProperties_Rule = null;
+            if (cmdletContext.RuleConditionProperties_Rule != null)
+            {
+                requestResolutionTechniques_resolutionTechniques_RuleConditionProperties_ruleConditionProperties_Rule = cmdletContext.RuleConditionProperties_Rule;
+            }
+            if (requestResolutionTechniques_resolutionTechniques_RuleConditionProperties_ruleConditionProperties_Rule != null)
+            {
+                requestResolutionTechniques_resolutionTechniques_RuleConditionProperties.Rules = requestResolutionTechniques_resolutionTechniques_RuleConditionProperties_ruleConditionProperties_Rule;
+                requestResolutionTechniques_resolutionTechniques_RuleConditionPropertiesIsNull = false;
+            }
+             // determine if requestResolutionTechniques_resolutionTechniques_RuleConditionProperties should be set to null
+            if (requestResolutionTechniques_resolutionTechniques_RuleConditionPropertiesIsNull)
+            {
+                requestResolutionTechniques_resolutionTechniques_RuleConditionProperties = null;
+            }
+            if (requestResolutionTechniques_resolutionTechniques_RuleConditionProperties != null)
+            {
+                request.ResolutionTechniques.RuleConditionProperties = requestResolutionTechniques_resolutionTechniques_RuleConditionProperties;
                 requestResolutionTechniquesIsNull = false;
             }
             Amazon.EntityResolution.Model.ProviderProperties requestResolutionTechniques_resolutionTechniques_ProviderProperties = null;
@@ -574,6 +621,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             public Amazon.EntityResolution.AttributeMatchingModel RuleBasedProperties_AttributeMatchingModel { get; set; }
             public Amazon.EntityResolution.MatchPurpose RuleBasedProperties_MatchPurpose { get; set; }
             public List<Amazon.EntityResolution.Model.Rule> RuleBasedProperties_Rule { get; set; }
+            public List<Amazon.EntityResolution.Model.RuleCondition> RuleConditionProperties_Rule { get; set; }
             public System.String RoleArn { get; set; }
             public System.String WorkflowName { get; set; }
             public System.Func<Amazon.EntityResolution.Model.UpdateMatchingWorkflowResponse, UpdateERESMatchingWorkflowCmdlet, object> Select { get; set; } =

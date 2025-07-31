@@ -37,15 +37,35 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// </para><para>
     /// You can cancel the transfer until it is acknowledged by the recipient.
     /// </para><para>
-    /// No notification is sent to the transfer destination's account. It is up to the caller
+    /// No notification is sent to the transfer destination's account. It's up to the caller
     /// to notify the transfer target.
     /// </para><para>
-    /// The certificate being transferred must not be in the ACTIVE state. You can use the
-    /// <a>UpdateCertificate</a> action to deactivate it.
+    /// The certificate being transferred must not be in the <c>ACTIVE</c> state. You can
+    /// use the <a>UpdateCertificate</a> action to deactivate it.
     /// </para><para>
     /// The certificate must not have any policies attached to it. You can use the <a>DetachPolicy</a>
     /// action to detach them.
-    /// </para>
+    /// </para><para><b>Customer managed key behavior:</b> When you use a customer managed key to secure
+    /// your data and then transfer the key to a customer in a different account using the
+    /// <a>TransferCertificate</a> operation, the certificates will no longer be protected
+    /// by their customer managed key configuration. During the transfer process, certificates
+    /// are encrypted using IoT owned keys.
+    /// </para><para>
+    /// While a certificate is in the <b>PENDING_TRANSFER</b> state, it's always protected
+    /// by IoT owned keys, regardless of the customer managed key configuration of either
+    /// the source or destination account. 
+    /// </para><para>
+    /// Once the transfer is completed through <a>AcceptCertificateTransfer</a>, <a>RejectCertificateTransfer</a>,
+    /// or <a>CancelCertificateTransfer</a>, the certificate will be protected by the customer
+    /// managed key configuration of the account that owns the certificate after the transfer
+    /// operation:
+    /// </para><ul><li><para>
+    /// If the transfer is accepted: The certificate is protected by the destination account's
+    /// customer managed key configuration.
+    /// </para></li><li><para>
+    /// If the transfer is rejected or cancelled: The certificate is protected by the source
+    /// account's customer managed key configuration.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Request", "IOTCertificateTransfer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

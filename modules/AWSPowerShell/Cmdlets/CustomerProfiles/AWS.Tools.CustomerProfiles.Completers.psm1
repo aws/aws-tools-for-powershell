@@ -201,6 +201,16 @@ $CPF_Completers = {
             break
         }
 
+        # Amazon.CustomerProfiles.ProfileType
+        {
+            ($_ -eq "New-CPFProfile/ProfileType") -Or
+            ($_ -eq "Update-CPFProfile/ProfileType")
+        }
+        {
+            $v = "ACCOUNT_PROFILE","PROFILE"
+            break
+        }
+
         # Amazon.CustomerProfiles.RangeUnit
         "Get-CPFGetCalculatedAttributeForProfile/Range_Unit"
         {
@@ -281,6 +291,7 @@ $CPF_map = @{
     "LogicalOperator"=@("Search-CPFProfile")
     "MatchType"=@("Get-CPFSimilarProfile")
     "PartyType"=@("New-CPFProfile","Update-CPFProfile")
+    "ProfileType"=@("New-CPFProfile","Update-CPFProfile")
     "Range_Unit"=@("Get-CPFGetCalculatedAttributeForProfile","New-CPFCalculatedAttributeDefinition","Update-CPFCalculatedAttributeDefinition")
     "RuleBasedMatching_ConflictResolution_ConflictResolvingModel"=@("New-CPFDomain","Update-CPFDomain")
     "Scheduled_DataPullMode"=@("New-CPFIntegrationWorkflow","Write-CPFIntegration")

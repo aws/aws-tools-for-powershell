@@ -105,7 +105,7 @@ $INS2_Completers = {
             ($_ -eq "Get-INS2FindingAggregationList/TitleAggregation_ResourceType")
         }
         {
-            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_LAMBDA_FUNCTION"
+            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_LAMBDA_FUNCTION","CODE_REPOSITORY"
             break
         }
 

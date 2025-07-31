@@ -418,6 +418,16 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter EngagementPreferences_Email
+        /// <summary>
+        /// <para>
+        /// <para>A list of email-related contact preferences</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.CustomerProfiles.Model.ContactPreference[] EngagementPreferences_Email { get; set; }
+        #endregion
+        
         #region Parameter EmailAddress
         /// <summary>
         /// <para>
@@ -531,6 +541,16 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String PersonalEmailAddress { get; set; }
         #endregion
         
+        #region Parameter EngagementPreferences_Phone
+        /// <summary>
+        /// <para>
+        /// <para>A list of phone-related contact preferences</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.CustomerProfiles.Model.ContactPreference[] EngagementPreferences_Phone { get; set; }
+        #endregion
+        
         #region Parameter PhoneNumber
         /// <summary>
         /// <para>
@@ -580,6 +600,17 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ShippingAddress_PostalCode { get; set; }
+        #endregion
+        
+        #region Parameter ProfileType
+        /// <summary>
+        /// <para>
+        /// <para>The type of the profile.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CustomerProfiles.ProfileType")]
+        public Amazon.CustomerProfiles.ProfileType ProfileType { get; set; }
         #endregion
         
         #region Parameter Address_Province
@@ -766,6 +797,14 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             }
             #endif
             context.EmailAddress = this.EmailAddress;
+            if (this.EngagementPreferences_Email != null)
+            {
+                context.EngagementPreferences_Email = new List<Amazon.CustomerProfiles.Model.ContactPreference>(this.EngagementPreferences_Email);
+            }
+            if (this.EngagementPreferences_Phone != null)
+            {
+                context.EngagementPreferences_Phone = new List<Amazon.CustomerProfiles.Model.ContactPreference>(this.EngagementPreferences_Phone);
+            }
             context.FirstName = this.FirstName;
             context.Gender = this.Gender;
             context.GenderString = this.GenderString;
@@ -787,6 +826,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             context.PartyTypeString = this.PartyTypeString;
             context.PersonalEmailAddress = this.PersonalEmailAddress;
             context.PhoneNumber = this.PhoneNumber;
+            context.ProfileType = this.ProfileType;
             context.ShippingAddress_Address1 = this.ShippingAddress_Address1;
             context.ShippingAddress_Address2 = this.ShippingAddress_Address2;
             context.ShippingAddress_Address3 = this.ShippingAddress_Address3;
@@ -1067,6 +1107,35 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             {
                 request.EmailAddress = cmdletContext.EmailAddress;
             }
+            
+             // populate EngagementPreferences
+            var requestEngagementPreferencesIsNull = true;
+            request.EngagementPreferences = new Amazon.CustomerProfiles.Model.EngagementPreferences();
+            List<Amazon.CustomerProfiles.Model.ContactPreference> requestEngagementPreferences_engagementPreferences_Email = null;
+            if (cmdletContext.EngagementPreferences_Email != null)
+            {
+                requestEngagementPreferences_engagementPreferences_Email = cmdletContext.EngagementPreferences_Email;
+            }
+            if (requestEngagementPreferences_engagementPreferences_Email != null)
+            {
+                request.EngagementPreferences.Email = requestEngagementPreferences_engagementPreferences_Email;
+                requestEngagementPreferencesIsNull = false;
+            }
+            List<Amazon.CustomerProfiles.Model.ContactPreference> requestEngagementPreferences_engagementPreferences_Phone = null;
+            if (cmdletContext.EngagementPreferences_Phone != null)
+            {
+                requestEngagementPreferences_engagementPreferences_Phone = cmdletContext.EngagementPreferences_Phone;
+            }
+            if (requestEngagementPreferences_engagementPreferences_Phone != null)
+            {
+                request.EngagementPreferences.Phone = requestEngagementPreferences_engagementPreferences_Phone;
+                requestEngagementPreferencesIsNull = false;
+            }
+             // determine if request.EngagementPreferences should be set to null
+            if (requestEngagementPreferencesIsNull)
+            {
+                request.EngagementPreferences = null;
+            }
             if (cmdletContext.FirstName != null)
             {
                 request.FirstName = cmdletContext.FirstName;
@@ -1219,6 +1288,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (cmdletContext.PhoneNumber != null)
             {
                 request.PhoneNumber = cmdletContext.PhoneNumber;
+            }
+            if (cmdletContext.ProfileType != null)
+            {
+                request.ProfileType = cmdletContext.ProfileType;
             }
             
              // populate ShippingAddress
@@ -1419,6 +1492,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.String BusinessPhoneNumber { get; set; }
             public System.String DomainName { get; set; }
             public System.String EmailAddress { get; set; }
+            public List<Amazon.CustomerProfiles.Model.ContactPreference> EngagementPreferences_Email { get; set; }
+            public List<Amazon.CustomerProfiles.Model.ContactPreference> EngagementPreferences_Phone { get; set; }
             public System.String FirstName { get; set; }
             public Amazon.CustomerProfiles.Gender Gender { get; set; }
             public System.String GenderString { get; set; }
@@ -1440,6 +1515,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.String PartyTypeString { get; set; }
             public System.String PersonalEmailAddress { get; set; }
             public System.String PhoneNumber { get; set; }
+            public Amazon.CustomerProfiles.ProfileType ProfileType { get; set; }
             public System.String ShippingAddress_Address1 { get; set; }
             public System.String ShippingAddress_Address2 { get; set; }
             public System.String ShippingAddress_Address3 { get; set; }
