@@ -34,6 +34,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateSessionLogger" OutputProperty="*" Verb="Register" Noun="SessionLogger" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="SessionLoggerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateTrustStore" OutputProperty="*" Verb="Register" Noun="TrustStore" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -67,6 +71,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePortal" OutputProperty="*" Verb="New" Noun="Portal" ShouldProcessTarget="DisplayName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSessionLogger" OutputProperty="SessionLoggerArn" Verb="New" Noun="SessionLogger" ShouldProcessTarget="DisplayName" PipelineParameter="CustomerManagedKey" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -106,6 +114,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSessionLogger" Verb="Remove" Noun="SessionLogger" ShouldProcessTarget="SessionLoggerArn" PipelineParameter="SessionLoggerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteTrustStore" Verb="Remove" Noun="TrustStore" ShouldProcessTarget="TrustStoreArn" PipelineParameter="TrustStoreArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -131,6 +143,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateNetworkSettings" Verb="Unregister" Noun="NetworkSetting" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateSessionLogger" Verb="Unregister" Noun="SessionLogger" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -182,6 +198,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSessionLogger" OutputProperty="SessionLogger" Verb="Get" Noun="SessionLogger" PipelineParameter="SessionLoggerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTrustStore" OutputProperty="TrustStore" Verb="Get" Noun="TrustStore" PipelineParameter="TrustStoreArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -219,6 +239,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPortals" OutputProperty="Portals" Verb="Get" Noun="PortalList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSessionLoggers" OutputProperty="SessionLoggers" Verb="Get" Noun="SessionLoggerList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -275,6 +299,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePortal" OutputProperty="Portal" Verb="Update" Noun="Portal" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSessionLogger" OutputProperty="SessionLogger" Verb="Update" Noun="SessionLogger" ShouldProcessTarget="SessionLoggerArn" PipelineParameter="SessionLoggerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

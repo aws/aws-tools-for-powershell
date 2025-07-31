@@ -16291,6 +16291,8 @@ Set-Alias -Name Describe-IOTDimension -Value Get-IOTDimension
 Set-Alias -Name IOT-DescribeDimension -Value Get-IOTDimension
 Set-Alias -Name Describe-IOTDomainConfiguration -Value Get-IOTDomainConfiguration
 Set-Alias -Name IOT-DescribeDomainConfiguration -Value Get-IOTDomainConfiguration
+Set-Alias -Name Describe-IOTEncryptionConfiguration -Value Get-IOTEncryptionConfiguration
+Set-Alias -Name IOT-DescribeEncryptionConfiguration -Value Get-IOTEncryptionConfiguration
 Set-Alias -Name Describe-IOTEndpoint -Value Get-IOTEndpoint
 Set-Alias -Name IOT-DescribeEndpoint -Value Get-IOTEndpoint
 Set-Alias -Name Describe-IOTEventConfigurations -Value Get-IOTEventConfiguration
@@ -16608,6 +16610,7 @@ Set-Alias -Name IOT-UpdateCustomMetric -Value Update-IOTCustomMetric
 Set-Alias -Name IOT-UpdateDimension -Value Update-IOTDimension
 Set-Alias -Name IOT-UpdateDomainConfiguration -Value Update-IOTDomainConfiguration
 Set-Alias -Name IOT-UpdateDynamicThingGroup -Value Update-IOTDynamicThingGroup
+Set-Alias -Name IOT-UpdateEncryptionConfiguration -Value Update-IOTEncryptionConfiguration
 Set-Alias -Name Update-IOTEventConfigurations -Value Update-IOTEventConfiguration
 Set-Alias -Name IOT-UpdateEventConfigurations -Value Update-IOTEventConfiguration
 Set-Alias -Name IOT-UpdateFleetMetric -Value Update-IOTFleetMetric
@@ -29123,6 +29126,10 @@ Set-Alias -Name Create-SES2ImportJob -Value New-SES2ImportJob
 Set-Alias -Name SES2-CreateImportJob -Value New-SES2ImportJob
 Set-Alias -Name Create-SES2MultiRegionEndpoint -Value New-SES2MultiRegionEndpoint
 Set-Alias -Name SES2-CreateMultiRegionEndpoint -Value New-SES2MultiRegionEndpoint
+Set-Alias -Name Create-SES2Tenant -Value New-SES2Tenant
+Set-Alias -Name SES2-CreateTenant -Value New-SES2Tenant
+Set-Alias -Name Create-SES2TenantResourceAssociation -Value New-SES2TenantResourceAssociation
+Set-Alias -Name SES2-CreateTenantResourceAssociation -Value New-SES2TenantResourceAssociation
 Set-Alias -Name Delete-SES2ConfigurationSet -Value Remove-SES2ConfigurationSet
 Set-Alias -Name SES2-DeleteConfigurationSet -Value Remove-SES2ConfigurationSet
 Set-Alias -Name Delete-SES2ConfigurationSetEventDestination -Value Remove-SES2ConfigurationSetEventDestination
@@ -29145,6 +29152,10 @@ Set-Alias -Name Delete-SES2MultiRegionEndpoint -Value Remove-SES2MultiRegionEndp
 Set-Alias -Name SES2-DeleteMultiRegionEndpoint -Value Remove-SES2MultiRegionEndpoint
 Set-Alias -Name Delete-SES2SuppressedDestination -Value Remove-SES2SuppressedDestination
 Set-Alias -Name SES2-DeleteSuppressedDestination -Value Remove-SES2SuppressedDestination
+Set-Alias -Name Delete-SES2Tenant -Value Remove-SES2Tenant
+Set-Alias -Name SES2-DeleteTenant -Value Remove-SES2Tenant
+Set-Alias -Name Delete-SES2TenantResourceAssociation -Value Remove-SES2TenantResourceAssociation
+Set-Alias -Name SES2-DeleteTenantResourceAssociation -Value Remove-SES2TenantResourceAssociation
 Set-Alias -Name SES2-GetAccount -Value Get-SES2Account
 Set-Alias -Name Get-SES2BlacklistReports -Value Get-SES2BlacklistReport
 Set-Alias -Name SES2-GetBlacklistReports -Value Get-SES2BlacklistReport
@@ -29172,7 +29183,9 @@ Set-Alias -Name SES2-GetImportJob -Value Get-SES2ImportJob
 Set-Alias -Name Get-SES2MessageInsights -Value Get-SES2MessageInsight
 Set-Alias -Name SES2-GetMessageInsights -Value Get-SES2MessageInsight
 Set-Alias -Name SES2-GetMultiRegionEndpoint -Value Get-SES2MultiRegionEndpoint
+Set-Alias -Name SES2-GetReputationEntity -Value Get-SES2ReputationEntity
 Set-Alias -Name SES2-GetSuppressedDestination -Value Get-SES2SuppressedDestination
+Set-Alias -Name SES2-GetTenant -Value Get-SES2Tenant
 Set-Alias -Name List-SES2ConfigurationSets -Value Get-SES2ConfigurationSetList
 Set-Alias -Name List-SES2ConfigurationSetList -Value Get-SES2ConfigurationSetList
 Set-Alias -Name SES2-ListConfigurationSets -Value Get-SES2ConfigurationSetList
@@ -29212,10 +29225,22 @@ Set-Alias -Name SES2-ListMultiRegionEndpoints -Value Get-SES2MultiRegionEndpoint
 Set-Alias -Name List-SES2Recommendations -Value Get-SES2RecommendationList
 Set-Alias -Name List-SES2RecommendationList -Value Get-SES2RecommendationList
 Set-Alias -Name SES2-ListRecommendations -Value Get-SES2RecommendationList
+Set-Alias -Name List-SES2ReputationEntities -Value Get-SES2ReputationEntityList
+Set-Alias -Name List-SES2ReputationEntityList -Value Get-SES2ReputationEntityList
+Set-Alias -Name SES2-ListReputationEntities -Value Get-SES2ReputationEntityList
+Set-Alias -Name List-SES2ResourceTenants -Value Get-SES2ResourceTenantList
+Set-Alias -Name List-SES2ResourceTenantList -Value Get-SES2ResourceTenantList
+Set-Alias -Name SES2-ListResourceTenants -Value Get-SES2ResourceTenantList
 Set-Alias -Name List-SES2SuppressedDestinations -Value Get-SES2SuppressedDestinationList
 Set-Alias -Name List-SES2SuppressedDestinationList -Value Get-SES2SuppressedDestinationList
 Set-Alias -Name SES2-ListSuppressedDestinations -Value Get-SES2SuppressedDestinationList
 Set-Alias -Name SES2-ListTagsForResource -Value Get-SES2ResourceTag
+Set-Alias -Name List-SES2TenantResources -Value Get-SES2TenantResourceList
+Set-Alias -Name List-SES2TenantResourceList -Value Get-SES2TenantResourceList
+Set-Alias -Name SES2-ListTenantResources -Value Get-SES2TenantResourceList
+Set-Alias -Name List-SES2Tenants -Value Get-SES2TenantList
+Set-Alias -Name List-SES2TenantList -Value Get-SES2TenantList
+Set-Alias -Name SES2-ListTenants -Value Get-SES2TenantList
 Set-Alias -Name Put-SES2AccountDedicatedIpWarmupAttributes -Value Write-SES2AccountDedicatedIpWarmupAttribute
 Set-Alias -Name Put-SES2AccountDedicatedIpWarmupAttribute -Value Write-SES2AccountDedicatedIpWarmupAttribute
 Set-Alias -Name SES2-PutAccountDedicatedIpWarmupAttributes -Value Write-SES2AccountDedicatedIpWarmupAttribute
@@ -29291,6 +29316,8 @@ Set-Alias -Name SES2-UpdateContactList -Value Update-SES2ContactList
 Set-Alias -Name SES2-UpdateCustomVerificationEmailTemplate -Value Update-SES2CustomVerificationEmailTemplate
 Set-Alias -Name SES2-UpdateEmailIdentityPolicy -Value Update-SES2EmailIdentityPolicy
 Set-Alias -Name SES2-UpdateEmailTemplate -Value Update-SES2EmailTemplate
+Set-Alias -Name SES2-UpdateReputationEntityCustomerManagedStatus -Value Update-SES2ReputationEntityCustomerManagedStatus
+Set-Alias -Name SES2-UpdateReputationEntityPolicy -Value Update-SES2ReputationEntityPolicy
 Set-Alias -Name Associate-SHLDDRTLogBucket -Value Grant-SHLDDRTLogBucketAssociation
 Set-Alias -Name Associate-SHLDDRTLogBucketAssociation -Value Grant-SHLDDRTLogBucketAssociation
 Set-Alias -Name SHLD-AssociateDRTLogBucket -Value Grant-SHLDDRTLogBucketAssociation
@@ -32504,6 +32531,8 @@ Set-Alias -Name WSW-AssociateIpAccessSettings -Value Register-WSWIpAccessSetting
 Set-Alias -Name Associate-WSWNetworkSettings -Value Register-WSWNetworkSetting
 Set-Alias -Name Associate-WSWNetworkSetting -Value Register-WSWNetworkSetting
 Set-Alias -Name WSW-AssociateNetworkSettings -Value Register-WSWNetworkSetting
+Set-Alias -Name Associate-WSWSessionLogger -Value Register-WSWSessionLogger
+Set-Alias -Name WSW-AssociateSessionLogger -Value Register-WSWSessionLogger
 Set-Alias -Name Associate-WSWTrustStore -Value Register-WSWTrustStore
 Set-Alias -Name WSW-AssociateTrustStore -Value Register-WSWTrustStore
 Set-Alias -Name Associate-WSWUserAccessLoggingSettings -Value Register-WSWUserAccessLoggingSetting
@@ -32528,6 +32557,8 @@ Set-Alias -Name Create-WSWNetworkSetting -Value New-WSWNetworkSetting
 Set-Alias -Name WSW-CreateNetworkSettings -Value New-WSWNetworkSetting
 Set-Alias -Name Create-WSWPortal -Value New-WSWPortal
 Set-Alias -Name WSW-CreatePortal -Value New-WSWPortal
+Set-Alias -Name Create-WSWSessionLogger -Value New-WSWSessionLogger
+Set-Alias -Name WSW-CreateSessionLogger -Value New-WSWSessionLogger
 Set-Alias -Name Create-WSWTrustStore -Value New-WSWTrustStore
 Set-Alias -Name WSW-CreateTrustStore -Value New-WSWTrustStore
 Set-Alias -Name Create-WSWUserAccessLoggingSettings -Value New-WSWUserAccessLoggingSetting
@@ -32552,6 +32583,8 @@ Set-Alias -Name Delete-WSWNetworkSetting -Value Remove-WSWNetworkSetting
 Set-Alias -Name WSW-DeleteNetworkSettings -Value Remove-WSWNetworkSetting
 Set-Alias -Name Delete-WSWPortal -Value Remove-WSWPortal
 Set-Alias -Name WSW-DeletePortal -Value Remove-WSWPortal
+Set-Alias -Name Delete-WSWSessionLogger -Value Remove-WSWSessionLogger
+Set-Alias -Name WSW-DeleteSessionLogger -Value Remove-WSWSessionLogger
 Set-Alias -Name Delete-WSWTrustStore -Value Remove-WSWTrustStore
 Set-Alias -Name WSW-DeleteTrustStore -Value Remove-WSWTrustStore
 Set-Alias -Name Delete-WSWUserAccessLoggingSettings -Value Remove-WSWUserAccessLoggingSetting
@@ -32572,6 +32605,8 @@ Set-Alias -Name WSW-DisassociateIpAccessSettings -Value Unregister-WSWIpAccessSe
 Set-Alias -Name Disassociate-WSWNetworkSettings -Value Unregister-WSWNetworkSetting
 Set-Alias -Name Disassociate-WSWNetworkSetting -Value Unregister-WSWNetworkSetting
 Set-Alias -Name WSW-DisassociateNetworkSettings -Value Unregister-WSWNetworkSetting
+Set-Alias -Name Disassociate-WSWSessionLogger -Value Unregister-WSWSessionLogger
+Set-Alias -Name WSW-DisassociateSessionLogger -Value Unregister-WSWSessionLogger
 Set-Alias -Name Disassociate-WSWTrustStore -Value Unregister-WSWTrustStore
 Set-Alias -Name WSW-DisassociateTrustStore -Value Unregister-WSWTrustStore
 Set-Alias -Name Disassociate-WSWUserAccessLoggingSettings -Value Unregister-WSWUserAccessLoggingSetting
@@ -32594,6 +32629,7 @@ Set-Alias -Name WSW-GetNetworkSettings -Value Get-WSWNetworkSetting
 Set-Alias -Name WSW-GetPortal -Value Get-WSWPortal
 Set-Alias -Name WSW-GetPortalServiceProviderMetadata -Value Get-WSWPortalServiceProviderMetadata
 Set-Alias -Name WSW-GetSession -Value Get-WSWSession
+Set-Alias -Name WSW-GetSessionLogger -Value Get-WSWSessionLogger
 Set-Alias -Name WSW-GetTrustStore -Value Get-WSWTrustStore
 Set-Alias -Name WSW-GetTrustStoreCertificate -Value Get-WSWTrustStoreCertificate
 Set-Alias -Name Get-WSWUserAccessLoggingSettings -Value Get-WSWUserAccessLoggingSetting
@@ -32618,6 +32654,9 @@ Set-Alias -Name WSW-ListNetworkSettings -Value Get-WSWNetworkSettingList
 Set-Alias -Name List-WSWPortals -Value Get-WSWPortalList
 Set-Alias -Name List-WSWPortalList -Value Get-WSWPortalList
 Set-Alias -Name WSW-ListPortals -Value Get-WSWPortalList
+Set-Alias -Name List-WSWSessionLoggers -Value Get-WSWSessionLoggerList
+Set-Alias -Name List-WSWSessionLoggerList -Value Get-WSWSessionLoggerList
+Set-Alias -Name WSW-ListSessionLoggers -Value Get-WSWSessionLoggerList
 Set-Alias -Name List-WSWSessions -Value Get-WSWSessionList
 Set-Alias -Name List-WSWSessionList -Value Get-WSWSessionList
 Set-Alias -Name WSW-ListSessions -Value Get-WSWSessionList
@@ -32646,6 +32685,7 @@ Set-Alias -Name WSW-UpdateIpAccessSettings -Value Update-WSWIpAccessSetting
 Set-Alias -Name Update-WSWNetworkSettings -Value Update-WSWNetworkSetting
 Set-Alias -Name WSW-UpdateNetworkSettings -Value Update-WSWNetworkSetting
 Set-Alias -Name WSW-UpdatePortal -Value Update-WSWPortal
+Set-Alias -Name WSW-UpdateSessionLogger -Value Update-WSWSessionLogger
 Set-Alias -Name WSW-UpdateTrustStore -Value Update-WSWTrustStore
 Set-Alias -Name Update-WSWUserAccessLoggingSettings -Value Update-WSWUserAccessLoggingSetting
 Set-Alias -Name WSW-UpdateUserAccessLoggingSettings -Value Update-WSWUserAccessLoggingSetting

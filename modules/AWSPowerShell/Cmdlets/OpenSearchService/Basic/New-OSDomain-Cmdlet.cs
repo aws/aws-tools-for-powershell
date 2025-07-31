@@ -260,6 +260,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.Boolean? AdvancedSecurityOptions_Enabled { get; set; }
         #endregion
         
+        #region Parameter IAMFederationOptions_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>True to enable IAM federation authentication for a domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdvancedSecurityOptions_IAMFederationOptions_Enabled")]
+        public System.Boolean? IAMFederationOptions_Enabled { get; set; }
+        #endregion
+        
         #region Parameter JWTOptions_Enabled
         /// <summary>
         /// <para>
@@ -655,6 +666,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.String CognitoOptions_RoleArn { get; set; }
         #endregion
         
+        #region Parameter IAMFederationOptions_RolesKey
+        /// <summary>
+        /// <para>
+        /// <para>Element of the IAM federation assertion to use for backend roles. Default is <c>roles</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdvancedSecurityOptions_IAMFederationOptions_RolesKey")]
+        public System.String IAMFederationOptions_RolesKey { get; set; }
+        #endregion
+        
         #region Parameter JWTOptions_RolesKey
         /// <summary>
         /// <para>
@@ -716,6 +738,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AdvancedSecurityOptions_SAMLOptions_SessionTimeoutMinutes")]
         public System.Int32? SAMLOptions_SessionTimeoutMinute { get; set; }
+        #endregion
+        
+        #region Parameter IAMFederationOptions_SubjectKey
+        /// <summary>
+        /// <para>
+        /// <para>Element of the IAM federation assertion to use for the user name. Default is <c>sub</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdvancedSecurityOptions_IAMFederationOptions_SubjectKey")]
+        public System.String IAMFederationOptions_SubjectKey { get; set; }
         #endregion
         
         #region Parameter JWTOptions_SubjectKey
@@ -952,6 +985,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
             }
             context.AdvancedSecurityOptions_AnonymousAuthEnabled = this.AdvancedSecurityOptions_AnonymousAuthEnabled;
             context.AdvancedSecurityOptions_Enabled = this.AdvancedSecurityOptions_Enabled;
+            context.IAMFederationOptions_Enabled = this.IAMFederationOptions_Enabled;
+            context.IAMFederationOptions_RolesKey = this.IAMFederationOptions_RolesKey;
+            context.IAMFederationOptions_SubjectKey = this.IAMFederationOptions_SubjectKey;
             context.AdvancedSecurityOptions_InternalUserDatabaseEnabled = this.AdvancedSecurityOptions_InternalUserDatabaseEnabled;
             context.JWTOptions_Enabled = this.JWTOptions_Enabled;
             context.JWTOptions_PublicKey = this.JWTOptions_PublicKey;
@@ -1103,6 +1139,51 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (requestAdvancedSecurityOptions_advancedSecurityOptions_InternalUserDatabaseEnabled != null)
             {
                 request.AdvancedSecurityOptions.InternalUserDatabaseEnabled = requestAdvancedSecurityOptions_advancedSecurityOptions_InternalUserDatabaseEnabled.Value;
+                requestAdvancedSecurityOptionsIsNull = false;
+            }
+            Amazon.OpenSearchService.Model.IAMFederationOptionsInput requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptions = null;
+            
+             // populate IAMFederationOptions
+            var requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptionsIsNull = true;
+            requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptions = new Amazon.OpenSearchService.Model.IAMFederationOptionsInput();
+            System.Boolean? requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptions_iAMFederationOptions_Enabled = null;
+            if (cmdletContext.IAMFederationOptions_Enabled != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptions_iAMFederationOptions_Enabled = cmdletContext.IAMFederationOptions_Enabled.Value;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptions_iAMFederationOptions_Enabled != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptions.Enabled = requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptions_iAMFederationOptions_Enabled.Value;
+                requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptionsIsNull = false;
+            }
+            System.String requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptions_iAMFederationOptions_RolesKey = null;
+            if (cmdletContext.IAMFederationOptions_RolesKey != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptions_iAMFederationOptions_RolesKey = cmdletContext.IAMFederationOptions_RolesKey;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptions_iAMFederationOptions_RolesKey != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptions.RolesKey = requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptions_iAMFederationOptions_RolesKey;
+                requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptionsIsNull = false;
+            }
+            System.String requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptions_iAMFederationOptions_SubjectKey = null;
+            if (cmdletContext.IAMFederationOptions_SubjectKey != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptions_iAMFederationOptions_SubjectKey = cmdletContext.IAMFederationOptions_SubjectKey;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptions_iAMFederationOptions_SubjectKey != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptions.SubjectKey = requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptions_iAMFederationOptions_SubjectKey;
+                requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptionsIsNull = false;
+            }
+             // determine if requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptions should be set to null
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptionsIsNull)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptions = null;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptions != null)
+            {
+                request.AdvancedSecurityOptions.IAMFederationOptions = requestAdvancedSecurityOptions_advancedSecurityOptions_IAMFederationOptions;
                 requestAdvancedSecurityOptionsIsNull = false;
             }
             Amazon.OpenSearchService.Model.MasterUserOptions requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions = null;
@@ -2066,6 +2147,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public Dictionary<System.String, System.String> AdvancedOption { get; set; }
             public System.Boolean? AdvancedSecurityOptions_AnonymousAuthEnabled { get; set; }
             public System.Boolean? AdvancedSecurityOptions_Enabled { get; set; }
+            public System.Boolean? IAMFederationOptions_Enabled { get; set; }
+            public System.String IAMFederationOptions_RolesKey { get; set; }
+            public System.String IAMFederationOptions_SubjectKey { get; set; }
             public System.Boolean? AdvancedSecurityOptions_InternalUserDatabaseEnabled { get; set; }
             public System.Boolean? JWTOptions_Enabled { get; set; }
             public System.String JWTOptions_PublicKey { get; set; }

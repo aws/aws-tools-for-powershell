@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     /// <summary>
     /// Creates an <c>IdMappingWorkflow</c> object which stores the configuration of the data
     /// processing job to be run. Each <c>IdMappingWorkflow</c> must have a unique workflow
-    /// name. To modify an existing workflow, use the <c>UpdateIdMappingWorkflow</c> API.
+    /// name. To modify an existing workflow, use the UpdateIdMappingWorkflow API.
     /// </summary>
     [Cmdlet("New", "ERESIdMappingWorkflow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EntityResolution.Model.CreateIdMappingWorkflowResponse")]
@@ -50,13 +50,13 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         /// <summary>
         /// <para>
         /// <para>The comparison type. You can either choose <c>ONE_TO_ONE</c> or <c>MANY_TO_MANY</c>
-        /// as the <c>attributeMatchingModel</c>. </para><para>If you choose <c>MANY_TO_MANY</c>, the system can match attributes across the sub-types
-        /// of an attribute type. For example, if the value of the <c>Email</c> field of Profile
-        /// A matches the value of the <c>BusinessEmail</c> field of Profile B, the two profiles
-        /// are matched on the <c>Email</c> attribute type. </para><para>If you choose <c>ONE_TO_ONE</c>, the system can only match attributes if the sub-types
+        /// as the <c>attributeMatchingModel</c>. </para><para>If you choose <c>ONE_TO_ONE</c>, the system can only match attributes if the sub-types
         /// are an exact match. For example, for the <c>Email</c> attribute type, the system will
         /// only consider it a match if the value of the <c>Email</c> field of Profile A matches
-        /// the value of the <c>Email</c> field of Profile B.</para>
+        /// the value of the <c>Email</c> field of Profile B.</para><para>If you choose <c>MANY_TO_MANY</c>, the system can match attributes across the sub-types
+        /// of an attribute type. For example, if the value of the <c>Email</c> field of Profile
+        /// A matches the value of the <c>BusinessEmail</c> field of Profile B, the two profiles
+        /// are matched on the <c>Email</c> attribute type. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         /// <summary>
         /// <para>
         /// <para>A list of <c>IdMappingWorkflowOutputSource</c> objects, each of which contains fields
-        /// <c>OutputS3Path</c> and <c>Output</c>.</para><para />
+        /// <c>outputS3Path</c> and <c>KMSArn</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

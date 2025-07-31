@@ -306,6 +306,13 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.EncryptionType
+        "Update-IOTEncryptionConfiguration/EncryptionType"
+        {
+            $v = "AWS_OWNED_KMS_KEY","CUSTOMER_MANAGED_KMS_KEY"
+            break
+        }
+
         # Amazon.IoT.FleetMetricUnit
         {
             ($_ -eq "New-IOTFleetMetric/Unit") -Or
@@ -552,6 +559,7 @@ $IOT_map = @{
     "DynamoDB_HashKeyType"=@("New-IOTTopicRule","Set-IOTTopicRule")
     "DynamoDB_RangeKeyType"=@("New-IOTTopicRule","Set-IOTTopicRule")
     "EnableIoTLoggingParams_LogLevel"=@("New-IOTMitigationAction","Update-IOTMitigationAction")
+    "EncryptionType"=@("Update-IOTEncryptionConfiguration")
     "Frequency"=@("New-IOTScheduledAudit","Update-IOTScheduledAudit")
     "LoggingOptionsPayload_LogLevel"=@("Set-IOTLoggingOption")
     "LogLevel"=@("Set-IOTV2LoggingLevel")
@@ -738,6 +746,7 @@ $IOT_SelectMap = @{
                "Get-IOTDetectMitigationActionsTask",
                "Get-IOTDimension",
                "Get-IOTDomainConfiguration",
+               "Get-IOTEncryptionConfiguration",
                "Get-IOTEndpoint",
                "Get-IOTEventConfiguration",
                "Get-IOTFleetMetric",
@@ -888,6 +897,7 @@ $IOT_SelectMap = @{
                "Update-IOTDimension",
                "Update-IOTDomainConfiguration",
                "Update-IOTDynamicThingGroup",
+               "Update-IOTEncryptionConfiguration",
                "Update-IOTEventConfiguration",
                "Update-IOTFleetMetric",
                "Update-IOTIndexingConfiguration",

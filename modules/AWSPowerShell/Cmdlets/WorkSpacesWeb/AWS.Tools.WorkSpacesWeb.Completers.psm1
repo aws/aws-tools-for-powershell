@@ -110,6 +110,16 @@ $WSW_Completers = {
             break
         }
 
+        # Amazon.WorkSpacesWeb.FolderStructure
+        {
+            ($_ -eq "New-WSWSessionLogger/S3_FolderStructure") -Or
+            ($_ -eq "Update-WSWSessionLogger/S3_FolderStructure")
+        }
+        {
+            $v = "Flat","NestedByDate"
+            break
+        }
+
         # Amazon.WorkSpacesWeb.IdentityProviderType
         {
             ($_ -eq "New-WSWIdentityProvider/IdentityProviderType") -Or
@@ -127,6 +137,16 @@ $WSW_Completers = {
         }
         {
             $v = "standard.large","standard.regular","standard.xlarge"
+            break
+        }
+
+        # Amazon.WorkSpacesWeb.LogFileFormat
+        {
+            ($_ -eq "New-WSWSessionLogger/S3_LogFileFormat") -Or
+            ($_ -eq "Update-WSWSessionLogger/S3_LogFileFormat")
+        }
+        {
+            $v = "Json","JSONLines"
             break
         }
 
@@ -191,6 +211,8 @@ $WSW_map = @{
     "InstanceType"=@("New-WSWPortal","Update-WSWPortal")
     "PasteAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "PrintAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
+    "S3_FolderStructure"=@("New-WSWSessionLogger","Update-WSWSessionLogger")
+    "S3_LogFileFormat"=@("New-WSWSessionLogger","Update-WSWSessionLogger")
     "SortBy"=@("Get-WSWSessionList")
     "Status"=@("Get-WSWSessionList")
     "ToolbarConfiguration_MaxDisplayResolution"=@("New-WSWUserSetting","Update-WSWUserSetting")
@@ -253,6 +275,7 @@ $WSW_SelectMap = @{
                "Register-WSWDataProtectionSetting",
                "Register-WSWIpAccessSetting",
                "Register-WSWNetworkSetting",
+               "Register-WSWSessionLogger",
                "Register-WSWTrustStore",
                "Register-WSWUserAccessLoggingSetting",
                "Register-WSWUserSetting",
@@ -262,6 +285,7 @@ $WSW_SelectMap = @{
                "New-WSWIpAccessSetting",
                "New-WSWNetworkSetting",
                "New-WSWPortal",
+               "New-WSWSessionLogger",
                "New-WSWTrustStore",
                "New-WSWUserAccessLoggingSetting",
                "New-WSWUserSetting",
@@ -271,6 +295,7 @@ $WSW_SelectMap = @{
                "Remove-WSWIpAccessSetting",
                "Remove-WSWNetworkSetting",
                "Remove-WSWPortal",
+               "Remove-WSWSessionLogger",
                "Remove-WSWTrustStore",
                "Remove-WSWUserAccessLoggingSetting",
                "Remove-WSWUserSetting",
@@ -278,6 +303,7 @@ $WSW_SelectMap = @{
                "Unregister-WSWDataProtectionSetting",
                "Unregister-WSWIpAccessSetting",
                "Unregister-WSWNetworkSetting",
+               "Unregister-WSWSessionLogger",
                "Unregister-WSWTrustStore",
                "Unregister-WSWUserAccessLoggingSetting",
                "Unregister-WSWUserSetting",
@@ -290,6 +316,7 @@ $WSW_SelectMap = @{
                "Get-WSWPortal",
                "Get-WSWPortalServiceProviderMetadata",
                "Get-WSWSession",
+               "Get-WSWSessionLogger",
                "Get-WSWTrustStore",
                "Get-WSWTrustStoreCertificate",
                "Get-WSWUserAccessLoggingSetting",
@@ -300,6 +327,7 @@ $WSW_SelectMap = @{
                "Get-WSWIpAccessSettingList",
                "Get-WSWNetworkSettingList",
                "Get-WSWPortalList",
+               "Get-WSWSessionLoggerList",
                "Get-WSWSessionList",
                "Get-WSWResourceTag",
                "Get-WSWTrustStoreCertificateList",
@@ -314,6 +342,7 @@ $WSW_SelectMap = @{
                "Update-WSWIpAccessSetting",
                "Update-WSWNetworkSetting",
                "Update-WSWPortal",
+               "Update-WSWSessionLogger",
                "Update-WSWTrustStore",
                "Update-WSWUserAccessLoggingSetting",
                "Update-WSWUserSetting")

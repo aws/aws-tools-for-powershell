@@ -192,6 +192,17 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.ReputationEntityType
+        {
+            ($_ -eq "Get-SES2ReputationEntity/ReputationEntityType") -Or
+            ($_ -eq "Update-SES2ReputationEntityCustomerManagedStatus/ReputationEntityType") -Or
+            ($_ -eq "Update-SES2ReputationEntityPolicy/ReputationEntityType")
+        }
+        {
+            $v = "RESOURCE"
+            break
+        }
+
         # Amazon.SimpleEmailV2.ScalingMode
         {
             ($_ -eq "New-SES2DedicatedIpPool/ScalingMode") -Or
@@ -199,6 +210,13 @@ $SES2_Completers = {
         }
         {
             $v = "MANAGED","STANDARD"
+            break
+        }
+
+        # Amazon.SimpleEmailV2.SendingStatus
+        "Update-SES2ReputationEntityCustomerManagedStatus/SendingStatus"
+        {
+            $v = "DISABLED","ENABLED","REINSTATED"
             break
         }
 
@@ -262,7 +280,9 @@ $SES2_map = @{
     "MailType"=@("Write-SES2AccountDetail")
     "MetricsDataSource_Namespace"=@("New-SES2ExportJob")
     "Reason"=@("Write-SES2SuppressedDestination")
+    "ReputationEntityType"=@("Get-SES2ReputationEntity","Update-SES2ReputationEntityCustomerManagedStatus","Update-SES2ReputationEntityPolicy")
     "ScalingMode"=@("New-SES2DedicatedIpPool","Write-SES2DedicatedIpPoolScalingAttribute")
+    "SendingStatus"=@("Update-SES2ReputationEntityCustomerManagedStatus")
     "SigningAttributes_DomainSigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SigningAttributes_NextSigningKeyLength"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
@@ -337,6 +357,8 @@ $SES2_SelectMap = @{
                "New-SES2ExportJob",
                "New-SES2ImportJob",
                "New-SES2MultiRegionEndpoint",
+               "New-SES2Tenant",
+               "New-SES2TenantResourceAssociation",
                "Remove-SES2ConfigurationSet",
                "Remove-SES2ConfigurationSetEventDestination",
                "Remove-SES2Contact",
@@ -348,6 +370,8 @@ $SES2_SelectMap = @{
                "Remove-SES2EmailTemplate",
                "Remove-SES2MultiRegionEndpoint",
                "Remove-SES2SuppressedDestination",
+               "Remove-SES2Tenant",
+               "Remove-SES2TenantResourceAssociation",
                "Get-SES2Account",
                "Get-SES2BlacklistReport",
                "Get-SES2ConfigurationSet",
@@ -369,7 +393,9 @@ $SES2_SelectMap = @{
                "Get-SES2ImportJob",
                "Get-SES2MessageInsight",
                "Get-SES2MultiRegionEndpoint",
+               "Get-SES2ReputationEntity",
                "Get-SES2SuppressedDestination",
+               "Get-SES2Tenant",
                "Get-SES2ConfigurationSetList",
                "Get-SES2ContactListCollection",
                "Get-SES2ContactCollection",
@@ -383,8 +409,12 @@ $SES2_SelectMap = @{
                "Get-SES2ImportJobList",
                "Get-SES2MultiRegionEndpointList",
                "Get-SES2RecommendationList",
+               "Get-SES2ReputationEntityList",
+               "Get-SES2ResourceTenantList",
                "Get-SES2SuppressedDestinationList",
                "Get-SES2ResourceTag",
+               "Get-SES2TenantResourceList",
+               "Get-SES2TenantList",
                "Write-SES2AccountDedicatedIpWarmupAttribute",
                "Write-SES2AccountDetail",
                "Write-SES2AccountSendingAttribute",
@@ -418,7 +448,9 @@ $SES2_SelectMap = @{
                "Update-SES2ContactList",
                "Update-SES2CustomVerificationEmailTemplate",
                "Update-SES2EmailIdentityPolicy",
-               "Update-SES2EmailTemplate")
+               "Update-SES2EmailTemplate",
+               "Update-SES2ReputationEntityCustomerManagedStatus",
+               "Update-SES2ReputationEntityPolicy")
 }
 
 _awsArgumentCompleterRegistration $SES2_SelectCompleters $SES2_SelectMap

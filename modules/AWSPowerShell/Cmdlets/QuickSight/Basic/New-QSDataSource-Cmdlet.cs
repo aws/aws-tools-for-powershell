@@ -214,6 +214,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String AuroraPostgreSqlParameters_Database { get; set; }
         #endregion
         
+        #region Parameter ImpalaParameters_Database
+        /// <summary>
+        /// <para>
+        /// <para>The database of the Impala data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_ImpalaParameters_Database")]
+        public System.String ImpalaParameters_Database { get; set; }
+        #endregion
+        
         #region Parameter MariaDbParameters_Database
         /// <summary>
         /// <para>
@@ -520,6 +531,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String ExasolParameters_Host { get; set; }
         #endregion
         
+        #region Parameter ImpalaParameters_Host
+        /// <summary>
+        /// <para>
+        /// <para>The host name of the Impala data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_ImpalaParameters_Host")]
+        public System.String ImpalaParameters_Host { get; set; }
+        #endregion
+        
         #region Parameter MariaDbParameters_Host
         /// <summary>
         /// <para>
@@ -812,6 +834,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.Int32? ExasolParameters_Port { get; set; }
         #endregion
         
+        #region Parameter ImpalaParameters_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port of the Impala data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_ImpalaParameters_Port")]
+        public System.Int32? ImpalaParameters_Port { get; set; }
+        #endregion
+        
         #region Parameter MariaDbParameters_Port
         /// <summary>
         /// <para>
@@ -1056,6 +1089,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String DatabricksParameters_SqlEndpointPath { get; set; }
         #endregion
         
+        #region Parameter ImpalaParameters_SqlEndpointPath
+        /// <summary>
+        /// <para>
+        /// <para>The HTTP path of the Impala data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_ImpalaParameters_SqlEndpointPath")]
+        public System.String ImpalaParameters_SqlEndpointPath { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -1272,6 +1316,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.DatabricksParameters_SqlEndpointPath = this.DatabricksParameters_SqlEndpointPath;
             context.ExasolParameters_Host = this.ExasolParameters_Host;
             context.ExasolParameters_Port = this.ExasolParameters_Port;
+            context.ImpalaParameters_Database = this.ImpalaParameters_Database;
+            context.ImpalaParameters_Host = this.ImpalaParameters_Host;
+            context.ImpalaParameters_Port = this.ImpalaParameters_Port;
+            context.ImpalaParameters_SqlEndpointPath = this.ImpalaParameters_SqlEndpointPath;
             context.JiraParameters_SiteBaseUrl = this.JiraParameters_SiteBaseUrl;
             context.MariaDbParameters_Database = this.MariaDbParameters_Database;
             context.MariaDbParameters_Host = this.MariaDbParameters_Host;
@@ -2339,6 +2387,61 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.DataSourceParameters.TrinoParameters = requestDataSourceParameters_dataSourceParameters_TrinoParameters;
                 requestDataSourceParametersIsNull = false;
             }
+            Amazon.QuickSight.Model.ImpalaParameters requestDataSourceParameters_dataSourceParameters_ImpalaParameters = null;
+            
+             // populate ImpalaParameters
+            var requestDataSourceParameters_dataSourceParameters_ImpalaParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_ImpalaParameters = new Amazon.QuickSight.Model.ImpalaParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_ImpalaParameters_impalaParameters_Database = null;
+            if (cmdletContext.ImpalaParameters_Database != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_ImpalaParameters_impalaParameters_Database = cmdletContext.ImpalaParameters_Database;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_ImpalaParameters_impalaParameters_Database != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_ImpalaParameters.Database = requestDataSourceParameters_dataSourceParameters_ImpalaParameters_impalaParameters_Database;
+                requestDataSourceParameters_dataSourceParameters_ImpalaParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_ImpalaParameters_impalaParameters_Host = null;
+            if (cmdletContext.ImpalaParameters_Host != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_ImpalaParameters_impalaParameters_Host = cmdletContext.ImpalaParameters_Host;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_ImpalaParameters_impalaParameters_Host != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_ImpalaParameters.Host = requestDataSourceParameters_dataSourceParameters_ImpalaParameters_impalaParameters_Host;
+                requestDataSourceParameters_dataSourceParameters_ImpalaParametersIsNull = false;
+            }
+            System.Int32? requestDataSourceParameters_dataSourceParameters_ImpalaParameters_impalaParameters_Port = null;
+            if (cmdletContext.ImpalaParameters_Port != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_ImpalaParameters_impalaParameters_Port = cmdletContext.ImpalaParameters_Port.Value;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_ImpalaParameters_impalaParameters_Port != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_ImpalaParameters.Port = requestDataSourceParameters_dataSourceParameters_ImpalaParameters_impalaParameters_Port.Value;
+                requestDataSourceParameters_dataSourceParameters_ImpalaParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_ImpalaParameters_impalaParameters_SqlEndpointPath = null;
+            if (cmdletContext.ImpalaParameters_SqlEndpointPath != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_ImpalaParameters_impalaParameters_SqlEndpointPath = cmdletContext.ImpalaParameters_SqlEndpointPath;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_ImpalaParameters_impalaParameters_SqlEndpointPath != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_ImpalaParameters.SqlEndpointPath = requestDataSourceParameters_dataSourceParameters_ImpalaParameters_impalaParameters_SqlEndpointPath;
+                requestDataSourceParameters_dataSourceParameters_ImpalaParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_ImpalaParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_ImpalaParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_ImpalaParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_ImpalaParameters != null)
+            {
+                request.DataSourceParameters.ImpalaParameters = requestDataSourceParameters_dataSourceParameters_ImpalaParameters;
+                requestDataSourceParametersIsNull = false;
+            }
             Amazon.QuickSight.Model.OracleParameters requestDataSourceParameters_dataSourceParameters_OracleParameters = null;
             
              // populate OracleParameters
@@ -2953,6 +3056,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String DatabricksParameters_SqlEndpointPath { get; set; }
             public System.String ExasolParameters_Host { get; set; }
             public System.Int32? ExasolParameters_Port { get; set; }
+            public System.String ImpalaParameters_Database { get; set; }
+            public System.String ImpalaParameters_Host { get; set; }
+            public System.Int32? ImpalaParameters_Port { get; set; }
+            public System.String ImpalaParameters_SqlEndpointPath { get; set; }
             public System.String JiraParameters_SiteBaseUrl { get; set; }
             public System.String MariaDbParameters_Database { get; set; }
             public System.String MariaDbParameters_Host { get; set; }

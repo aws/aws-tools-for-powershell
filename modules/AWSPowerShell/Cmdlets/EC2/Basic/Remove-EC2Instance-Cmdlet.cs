@@ -118,6 +118,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? DryRun { get; set; }
         #endregion
         
+        #region Parameter Enforce
+        /// <summary>
+        /// <para>
+        /// <para>Forces the instances to terminate. The instance will first attempt a graceful shutdown,
+        /// which includes flushing file system caches and metadata. If the graceful shutdown
+        /// fails to complete within the timeout period, the instance shuts down forcibly without
+        /// flushing the file system caches and metadata.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Enforce { get; set; }
+        #endregion
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>
@@ -199,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DryRun = this.DryRun;
+            context.Enforce = this.Enforce;
             if (this.InstanceId != null)
             {
                 context.InstanceId = AmazonEC2Helper.InstanceParamToIDs(this.InstanceId);
@@ -224,6 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DryRun != null)
             {
                 request.DryRun = cmdletContext.DryRun.Value;
+            }
+            if (cmdletContext.Enforce != null)
+            {
+                request.Force = cmdletContext.Enforce.Value;
             }
             if (cmdletContext.InstanceId != null)
             {
@@ -289,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? DryRun { get; set; }
+            public System.Boolean? Enforce { get; set; }
             public List<System.String> InstanceId { get; set; }
             public System.Boolean? SkipOsShutdown { get; set; }
             public System.Func<Amazon.EC2.Model.TerminateInstancesResponse, RemoveEC2InstanceCmdlet, object> Select { get; set; } =

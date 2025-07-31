@@ -193,6 +193,17 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String FieldSourceProfileIds_EmailAddress { get; set; }
         #endregion
         
+        #region Parameter FieldSourceProfileIds_EngagementPreference
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for the engagement preferences field to be merged.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FieldSourceProfileIds_EngagementPreferences")]
+        public System.String FieldSourceProfileIds_EngagementPreference { get; set; }
+        #endregion
+        
         #region Parameter FieldSourceProfileIds_FirstName
         /// <summary>
         /// <para>
@@ -331,6 +342,16 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String[] ProfileIdsToBeMerged { get; set; }
         #endregion
         
+        #region Parameter FieldSourceProfileIds_ProfileType
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for the profile type field to be merged.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FieldSourceProfileIds_ProfileType { get; set; }
+        #endregion
+        
         #region Parameter FieldSourceProfileIds_ShippingAddress
         /// <summary>
         /// <para>
@@ -411,6 +432,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             context.FieldSourceProfileIds_BusinessName = this.FieldSourceProfileIds_BusinessName;
             context.FieldSourceProfileIds_BusinessPhoneNumber = this.FieldSourceProfileIds_BusinessPhoneNumber;
             context.FieldSourceProfileIds_EmailAddress = this.FieldSourceProfileIds_EmailAddress;
+            context.FieldSourceProfileIds_EngagementPreference = this.FieldSourceProfileIds_EngagementPreference;
             context.FieldSourceProfileIds_FirstName = this.FieldSourceProfileIds_FirstName;
             context.FieldSourceProfileIds_Gender = this.FieldSourceProfileIds_Gender;
             context.FieldSourceProfileIds_HomePhoneNumber = this.FieldSourceProfileIds_HomePhoneNumber;
@@ -421,6 +443,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             context.FieldSourceProfileIds_PartyType = this.FieldSourceProfileIds_PartyType;
             context.FieldSourceProfileIds_PersonalEmailAddress = this.FieldSourceProfileIds_PersonalEmailAddress;
             context.FieldSourceProfileIds_PhoneNumber = this.FieldSourceProfileIds_PhoneNumber;
+            context.FieldSourceProfileIds_ProfileType = this.FieldSourceProfileIds_ProfileType;
             context.FieldSourceProfileIds_ShippingAddress = this.FieldSourceProfileIds_ShippingAddress;
             context.MainProfileId = this.MainProfileId;
             #if MODULAR
@@ -563,6 +586,16 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 request.FieldSourceProfileIds.EmailAddress = requestFieldSourceProfileIds_fieldSourceProfileIds_EmailAddress;
                 requestFieldSourceProfileIdsIsNull = false;
             }
+            System.String requestFieldSourceProfileIds_fieldSourceProfileIds_EngagementPreference = null;
+            if (cmdletContext.FieldSourceProfileIds_EngagementPreference != null)
+            {
+                requestFieldSourceProfileIds_fieldSourceProfileIds_EngagementPreference = cmdletContext.FieldSourceProfileIds_EngagementPreference;
+            }
+            if (requestFieldSourceProfileIds_fieldSourceProfileIds_EngagementPreference != null)
+            {
+                request.FieldSourceProfileIds.EngagementPreferences = requestFieldSourceProfileIds_fieldSourceProfileIds_EngagementPreference;
+                requestFieldSourceProfileIdsIsNull = false;
+            }
             System.String requestFieldSourceProfileIds_fieldSourceProfileIds_FirstName = null;
             if (cmdletContext.FieldSourceProfileIds_FirstName != null)
             {
@@ -663,6 +696,16 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 request.FieldSourceProfileIds.PhoneNumber = requestFieldSourceProfileIds_fieldSourceProfileIds_PhoneNumber;
                 requestFieldSourceProfileIdsIsNull = false;
             }
+            System.String requestFieldSourceProfileIds_fieldSourceProfileIds_ProfileType = null;
+            if (cmdletContext.FieldSourceProfileIds_ProfileType != null)
+            {
+                requestFieldSourceProfileIds_fieldSourceProfileIds_ProfileType = cmdletContext.FieldSourceProfileIds_ProfileType;
+            }
+            if (requestFieldSourceProfileIds_fieldSourceProfileIds_ProfileType != null)
+            {
+                request.FieldSourceProfileIds.ProfileType = requestFieldSourceProfileIds_fieldSourceProfileIds_ProfileType;
+                requestFieldSourceProfileIdsIsNull = false;
+            }
             System.String requestFieldSourceProfileIds_fieldSourceProfileIds_ShippingAddress = null;
             if (cmdletContext.FieldSourceProfileIds_ShippingAddress != null)
             {
@@ -752,6 +795,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.String FieldSourceProfileIds_BusinessName { get; set; }
             public System.String FieldSourceProfileIds_BusinessPhoneNumber { get; set; }
             public System.String FieldSourceProfileIds_EmailAddress { get; set; }
+            public System.String FieldSourceProfileIds_EngagementPreference { get; set; }
             public System.String FieldSourceProfileIds_FirstName { get; set; }
             public System.String FieldSourceProfileIds_Gender { get; set; }
             public System.String FieldSourceProfileIds_HomePhoneNumber { get; set; }
@@ -762,6 +806,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.String FieldSourceProfileIds_PartyType { get; set; }
             public System.String FieldSourceProfileIds_PersonalEmailAddress { get; set; }
             public System.String FieldSourceProfileIds_PhoneNumber { get; set; }
+            public System.String FieldSourceProfileIds_ProfileType { get; set; }
             public System.String FieldSourceProfileIds_ShippingAddress { get; set; }
             public System.String MainProfileId { get; set; }
             public List<System.String> ProfileIdsToBeMerged { get; set; }

@@ -79,6 +79,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTenant" OutputProperty="*" Verb="New" Noun="Tenant" ShouldProcessTarget="TenantName" PipelineParameter="TenantName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTenantResourceAssociation" Verb="New" Noun="TenantResourceAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteConfigurationSet" Verb="Remove" Noun="ConfigurationSet" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -120,6 +128,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteSuppressedDestination" Verb="Remove" Noun="SuppressedDestination" ShouldProcessTarget="EmailAddress" PipelineParameter="EmailAddress" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTenant" Verb="Remove" Noun="Tenant" ShouldProcessTarget="TenantName" PipelineParameter="TenantName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTenantResourceAssociation" Verb="Remove" Noun="TenantResourceAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -207,7 +223,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetReputationEntity" OutputProperty="ReputationEntity" Verb="Get" Noun="ReputationEntity" PipelineParameter="ReputationEntityReference" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSuppressedDestination" OutputProperty="SuppressedDestination" Verb="Get" Noun="SuppressedDestination" PipelineParameter="EmailAddress" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTenant" OutputProperty="Tenant" Verb="Get" Noun="Tenant" PipelineParameter="TenantName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -263,11 +287,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListReputationEntities" OutputProperty="ReputationEntities" Verb="Get" Noun="ReputationEntityList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceTenants" OutputProperty="ResourceTenants" Verb="Get" Noun="ResourceTenantList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSuppressedDestinations" OutputProperty="SuppressedDestinationSummaries" Verb="Get" Noun="SuppressedDestinationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTenantResources" OutputProperty="TenantResources" Verb="Get" Noun="TenantResourceList" PipelineParameter="TenantName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTenants" OutputProperty="Tenants" Verb="Get" Noun="TenantList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -404,6 +444,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEmailTemplate" Verb="Update" Noun="EmailTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateReputationEntityCustomerManagedStatus" Verb="Update" Noun="ReputationEntityCustomerManagedStatus" ShouldProcessTarget="ReputationEntityReference" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateReputationEntityPolicy" Verb="Update" Noun="ReputationEntityPolicy" ShouldProcessTarget="ReputationEntityPolicy" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
