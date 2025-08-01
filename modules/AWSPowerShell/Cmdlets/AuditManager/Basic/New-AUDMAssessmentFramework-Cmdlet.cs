@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter ControlSet
         /// <summary>
         /// <para>
-        /// <para> The control sets that are associated with the framework. </para>
+        /// <para> The control sets that are associated with the framework. </para><note><para>The <c>Controls</c> object returns a partial response when called through Framework
+        /// APIs. For a complete <c>Controls</c> object, use <c>GetControl</c>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

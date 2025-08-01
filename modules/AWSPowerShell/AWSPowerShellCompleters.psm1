@@ -4594,6 +4594,153 @@ $PROM_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $PROM_SelectCompleters $PROM_SelectMap
+# Argument completions for service ARC - Region switch
+
+
+$ARC_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ARCRegionswitch.Approval
+        "Approve-ARCPlanExecutionStep/Approval"
+        {
+            $v = "approve","decline"
+            break
+        }
+
+        # Amazon.ARCRegionswitch.ExecutionAction
+        "Start-ARCPlanExecution/Action"
+        {
+            $v = "activate","deactivate"
+            break
+        }
+
+        # Amazon.ARCRegionswitch.ExecutionMode
+        "Start-ARCPlanExecution/Mode"
+        {
+            $v = "graceful","ungraceful"
+            break
+        }
+
+        # Amazon.ARCRegionswitch.ExecutionState
+        "Get-ARCPlanExecutionList/State"
+        {
+            $v = "canceled","completed","completedMonitoringApplicationHealth","completedWithExceptions","failed","inProgress","pausedByFailedStep","pausedByOperator","pending","pendingManualApproval","planExecutionTimedOut"
+            break
+        }
+
+        # Amazon.ARCRegionswitch.RecoveryApproach
+        "New-ARCPlan/RecoveryApproach"
+        {
+            $v = "activeActive","activePassive"
+            break
+        }
+
+        # Amazon.ARCRegionswitch.UpdatePlanExecutionAction
+        "Update-ARCPlanExecution/Action"
+        {
+            $v = "pause","resume","switchToGraceful","switchToUngraceful"
+            break
+        }
+
+        # Amazon.ARCRegionswitch.UpdatePlanExecutionStepAction
+        "Update-ARCPlanExecutionStep/ActionToTake"
+        {
+            $v = "skip","switchToUngraceful"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ARC_map = @{
+    "Action"=@("Start-ARCPlanExecution","Update-ARCPlanExecution")
+    "ActionToTake"=@("Update-ARCPlanExecutionStep")
+    "Approval"=@("Approve-ARCPlanExecutionStep")
+    "Mode"=@("Start-ARCPlanExecution")
+    "RecoveryApproach"=@("New-ARCPlan")
+    "State"=@("Get-ARCPlanExecutionList")
+}
+
+_awsArgumentCompleterRegistration $ARC_Completers $ARC_map
+
+$ARC_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.ARC.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ARC_SelectMap = @{
+    "Select"=@("Approve-ARCPlanExecutionStep",
+               "Stop-ARCPlanExecution",
+               "New-ARCPlan",
+               "Remove-ARCPlan",
+               "Get-ARCPlan",
+               "Get-ARCPlanEvaluationStatus",
+               "Get-ARCPlanExecution",
+               "Get-ARCPlanInRegion",
+               "Get-ARCPlanExecutionEventList",
+               "Get-ARCPlanExecutionList",
+               "Get-ARCPlanList",
+               "Get-ARCPlansInRegionList",
+               "Get-ARCRoute53HealthCheckList",
+               "Get-ARCResourceTag",
+               "Start-ARCPlanExecution",
+               "Add-ARCResourceTag",
+               "Remove-ARCResourceTag",
+               "Update-ARCPlan",
+               "Update-ARCPlanExecution",
+               "Update-ARCPlanExecutionStep")
+}
+
+_awsArgumentCompleterRegistration $ARC_SelectCompleters $ARC_SelectMap
 # Argument completions for service AWS ARC - Zonal Shift
 
 
@@ -46352,7 +46499,7 @@ $LS_Completers = {
             ($_ -eq "Copy-LSSnapshot/SourceRegion")
         }
         {
-            $v = "ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","ca-central-1","eu-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","us-east-1","us-east-2","us-west-1","us-west-2"
+            $v = "ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","ap-southeast-3","ca-central-1","eu-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","us-east-1","us-east-2","us-west-1","us-west-2"
             break
         }
 
@@ -55223,6 +55370,63 @@ _awsArgumentCompleterRegistration $CWOAM_SelectCompleters $CWOAM_SelectMap
 # Argument completions for service CloudWatch Observability Admin Service
 
 
+$CWOADMN_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ObservabilityAdmin.DestinationType
+        {
+            ($_ -eq "New-CWOADMNTelemetryRule/DestinationConfiguration_DestinationType") -Or
+            ($_ -eq "New-CWOADMNTelemetryRuleForOrganization/DestinationConfiguration_DestinationType") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRule/DestinationConfiguration_DestinationType") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/DestinationConfiguration_DestinationType")
+        }
+        {
+            $v = "cloud-watch-logs"
+            break
+        }
+
+        # Amazon.ObservabilityAdmin.ResourceType
+        {
+            ($_ -eq "New-CWOADMNTelemetryRule/Rule_ResourceType") -Or
+            ($_ -eq "New-CWOADMNTelemetryRuleForOrganization/Rule_ResourceType") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRule/Rule_ResourceType") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/Rule_ResourceType")
+        }
+        {
+            $v = "AWS::EC2::Instance","AWS::EC2::VPC","AWS::Lambda::Function"
+            break
+        }
+
+        # Amazon.ObservabilityAdmin.TelemetryType
+        {
+            ($_ -eq "New-CWOADMNTelemetryRule/Rule_TelemetryType") -Or
+            ($_ -eq "New-CWOADMNTelemetryRuleForOrganization/Rule_TelemetryType") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRule/Rule_TelemetryType") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/Rule_TelemetryType")
+        }
+        {
+            $v = "Logs","Metrics","Traces"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CWOADMN_map = @{
+    "DestinationConfiguration_DestinationType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
+    "Rule_ResourceType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
+    "Rule_TelemetryType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
+}
+
+_awsArgumentCompleterRegistration $CWOADMN_Completers $CWOADMN_map
+
 $CWOADMN_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -55271,14 +55475,27 @@ $CWOADMN_SelectCompleters = {
 }
 
 $CWOADMN_SelectMap = @{
-    "Select"=@("Get-CWOADMNTelemetryEvaluationStatus",
+    "Select"=@("New-CWOADMNTelemetryRule",
+               "New-CWOADMNTelemetryRuleForOrganization",
+               "Remove-CWOADMNTelemetryRule",
+               "Remove-CWOADMNTelemetryRuleForOrganization",
+               "Get-CWOADMNTelemetryEvaluationStatus",
                "Get-CWOADMNTelemetryEvaluationStatusForOrganization",
+               "Get-CWOADMNTelemetryRule",
+               "Get-CWOADMNTelemetryRuleForOrganization",
                "Get-CWOADMNResourceTelemetryList",
                "Get-CWOADMNResourceTelemetryForOrganizationList",
+               "Get-CWOADMNResourceTag",
+               "Get-CWOADMNTelemetryRuleList",
+               "Get-CWOADMNTelemetryRulesForOrganizationList",
                "Start-CWOADMNTelemetryEvaluation",
                "Start-CWOADMNTelemetryEvaluationForOrganization",
                "Stop-CWOADMNTelemetryEvaluation",
-               "Stop-CWOADMNTelemetryEvaluationForOrganization")
+               "Stop-CWOADMNTelemetryEvaluationForOrganization",
+               "Add-CWOADMNResourceTag",
+               "Remove-CWOADMNResourceTag",
+               "Update-CWOADMNTelemetryRule",
+               "Update-CWOADMNTelemetryRuleForOrganization")
 }
 
 _awsArgumentCompleterRegistration $CWOADMN_SelectCompleters $CWOADMN_SelectMap
@@ -58823,6 +59040,13 @@ $PCS_Completers = {
             break
         }
 
+        # Amazon.PCS.NetworkType
+        "New-PCSCluster/Networking_NetworkType"
+        {
+            $v = "IPV4","IPV6"
+            break
+        }
+
         # Amazon.PCS.PurchaseOption
         {
             ($_ -eq "New-PCSComputeNodeGroup/PurchaseOption") -Or
@@ -58867,6 +59091,7 @@ $PCS_Completers = {
 
 $PCS_map = @{
     "Accounting_Mode"=@("New-PCSCluster")
+    "Networking_NetworkType"=@("New-PCSCluster")
     "PurchaseOption"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
     "Scheduler_Type"=@("New-PCSCluster")
     "Size"=@("New-PCSCluster")

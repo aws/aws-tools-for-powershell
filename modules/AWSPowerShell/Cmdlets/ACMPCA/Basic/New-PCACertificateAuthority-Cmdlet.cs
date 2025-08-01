@@ -117,12 +117,13 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         #region Parameter KeyStorageSecurityStandard
         /// <summary>
         /// <para>
-        /// <para>Specifies a cryptographic key management compliance standard used for handling CA
-        /// keys.</para><para>Default: FIPS_140_2_LEVEL_3_OR_HIGHER</para><note><para>Some Amazon Web Services Regions do not support the default. When creating a CA in
-        /// these Regions, you must provide <c>FIPS_140_2_LEVEL_2_OR_HIGHER</c> as the argument
-        /// for <c>KeyStorageSecurityStandard</c>. Failure to do this results in an <c>InvalidArgsException</c>
-        /// with the message, "A certificate authority cannot be created in this region with the
-        /// specified security standard."</para><para>For information about security standard support in various Regions, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys">Storage
+        /// <para>Specifies a cryptographic key management compliance standard for handling and protecting
+        /// CA keys.</para><para>Default: FIPS_140_2_LEVEL_3_OR_HIGHER</para><note><para>Some Amazon Web Services Regions don't support the default value. When you create
+        /// a CA in these Regions, you must use <c>CCPC_LEVEL_1_OR_HIGHER</c> for the <c>KeyStorageSecurityStandard</c>
+        /// parameter. If you don't, the operation returns an <c>InvalidArgsException</c> with
+        /// this message: "A certificate authority cannot be created in this region with the specified
+        /// security standard."</para><para>For information about security standard support in different Amazon Web Services Regions,
+        /// see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys">Storage
         /// and security compliance of Amazon Web Services Private CA private keys</a>.</para></note>
         /// </para>
         /// </summary>

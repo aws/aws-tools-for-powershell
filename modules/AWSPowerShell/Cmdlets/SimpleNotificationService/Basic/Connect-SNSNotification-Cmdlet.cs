@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>The endpoint that you want to receive notifications. Endpoints vary by protocol:</para><ul><li><para>For the <c>http</c> protocol, the (public) endpoint is a URL beginning with <c>http://</c>.</para></li><li><para>For the <c>https</c> protocol, the (public) endpoint is a URL beginning with <c>https://</c>.</para></li><li><para>For the <c>email</c> protocol, the endpoint is an email address.</para></li><li><para>For the <c>email-json</c> protocol, the endpoint is an email address.</para></li><li><para>For the <c>sms</c> protocol, the endpoint is a phone number of an SMS-enabled device.</para></li><li><para>For the <c>sqs</c> protocol, the endpoint is the ARN of an Amazon SQS queue.</para></li><li><para>For the <c>application</c> protocol, the endpoint is the EndpointArn of a mobile app
-        /// and device.</para></li><li><para>For the <c>lambda</c> protocol, the endpoint is the ARN of an Lambda function.</para></li><li><para>For the <c>firehose</c> protocol, the endpoint is the ARN of an Amazon Kinesis Data
-        /// Firehose delivery stream.</para></li></ul>
+        /// and device.</para></li><li><para>For the <c>lambda</c> protocol, the endpoint is the ARN of an Lambda function.</para></li><li><para>For the <c>firehose</c> protocol, the endpoint is the ARN of an Amazon Data Firehose
+        /// delivery stream.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -96,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>The protocol that you want to use. Supported protocols include:</para><ul><li><para><c>http</c> – delivery of JSON-encoded message via HTTP POST</para></li><li><para><c>https</c> – delivery of JSON-encoded message via HTTPS POST</para></li><li><para><c>email</c> – delivery of message via SMTP</para></li><li><para><c>email-json</c> – delivery of JSON-encoded message via SMTP</para></li><li><para><c>sms</c> – delivery of message via SMS</para></li><li><para><c>sqs</c> – delivery of JSON-encoded message to an Amazon SQS queue</para></li><li><para><c>application</c> – delivery of JSON-encoded message to an EndpointArn for a mobile
-        /// app and device</para></li><li><para><c>lambda</c> – delivery of JSON-encoded message to an Lambda function</para></li><li><para><c>firehose</c> – delivery of JSON-encoded message to an Amazon Kinesis Data Firehose
-        /// delivery stream.</para></li></ul>
+        /// app and device</para></li><li><para><c>lambda</c> – delivery of JSON-encoded message to an Lambda function</para></li><li><para><c>firehose</c> – delivery of JSON-encoded message to an Amazon Data Firehose delivery
+        /// stream.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

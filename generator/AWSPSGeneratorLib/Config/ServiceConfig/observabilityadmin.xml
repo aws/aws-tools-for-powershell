@@ -19,6 +19,22 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateTelemetryRule" OutputProperty="RuleArn" Verb="New" Noun="TelemetryRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTelemetryRuleForOrganization" OutputProperty="RuleArn" Verb="New" Noun="TelemetryRuleForOrganization" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTelemetryRule" Verb="Remove" Noun="TelemetryRule" ShouldProcessTarget="RuleIdentifier" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTelemetryRuleForOrganization" Verb="Remove" Noun="TelemetryRuleForOrganization" ShouldProcessTarget="RuleIdentifier" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTelemetryEvaluationStatus" OutputProperty="*" Verb="Get" Noun="TelemetryEvaluationStatus" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -27,11 +43,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetTelemetryRule" OutputProperty="*" Verb="Get" Noun="TelemetryRule" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTelemetryRuleForOrganization" OutputProperty="*" Verb="Get" Noun="TelemetryRuleForOrganization" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListResourceTelemetry" OutputProperty="TelemetryConfigurations" Verb="Get" Noun="ResourceTelemetryList" PipelineParameter="ResourceIdentifierPrefix" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListResourceTelemetryForOrganization" OutputProperty="TelemetryConfigurations" Verb="Get" Noun="ResourceTelemetryForOrganizationList" PipelineParameter="ResourceIdentifierPrefix" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTelemetryRules" OutputProperty="TelemetryRuleSummaries" Verb="Get" Noun="TelemetryRuleList" PipelineParameter="RuleNamePrefix" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTelemetryRulesForOrganization" OutputProperty="TelemetryRuleSummaries" Verb="Get" Noun="TelemetryRulesForOrganizationList" PipelineParameter="RuleNamePrefix" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -48,6 +84,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopTelemetryEvaluationForOrganization" Verb="Stop" Noun="TelemetryEvaluationForOrganization" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTelemetryRule" OutputProperty="RuleArn" Verb="Update" Noun="TelemetryRule" ShouldProcessTarget="RuleIdentifier" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTelemetryRuleForOrganization" OutputProperty="RuleArn" Verb="Update" Noun="TelemetryRuleForOrganization" ShouldProcessTarget="RuleIdentifier" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

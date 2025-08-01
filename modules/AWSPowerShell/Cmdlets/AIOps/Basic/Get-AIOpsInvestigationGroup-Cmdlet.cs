@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>Specify either the name or the ARN of the investigation group that you want to view.</para>
+        /// <para>Specify either the name or the ARN of the investigation group that you want to view.
+        /// This is used to set the name of the investigation group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

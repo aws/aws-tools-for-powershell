@@ -28,7 +28,8 @@ using Amazon.ObservabilityAdmin.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOADMN
 {
     /// <summary>
-    /// This action begins offboarding the caller AWS account from the telemetry config feature.
+    /// This action begins offboarding the caller Amazon Web Services account from the telemetry
+    /// config feature.
     /// </summary>
     [Cmdlet("Stop", "CWOADMNTelemetryEvaluation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -1,0 +1,3 @@
+﻿# ARCRegionswitch
+
+Export-ModuleMember -Alias *

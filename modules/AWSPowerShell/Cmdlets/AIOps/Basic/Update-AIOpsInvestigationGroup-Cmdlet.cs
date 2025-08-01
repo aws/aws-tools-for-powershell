@@ -45,11 +45,11 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
         #region Parameter ChatbotNotificationChannel
         /// <summary>
         /// <para>
-        /// <para>Use this structure to integrate CloudWatch investigations with Amazon Q in chat applications.
+        /// <para>Use this structure to integrate CloudWatch investigations with chat applications.
         /// This structure is a string array. For the first string, specify the ARN of an Amazon
-        /// SNS topic. For the array of strings, specify the ARNs of one or more Amazon Q in chat
-        /// applications configurations that you want to associate with that topic. For more information
-        /// about these configuration ARNs, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html">Getting
+        /// SNS topic. For the array of strings, specify the ARNs of one or more chat applications
+        /// configurations that you want to associate with that topic. For more information about
+        /// these configuration ARNs, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html">Getting
         /// started with Amazon Q in chat applications</a> and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies">Resource
         /// type defined by Amazon Web Services Chatbot</a>.</para>
         /// </para>
@@ -115,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
         /// <para>Specify this field if you want to change the IAM role that CloudWatch investigations
         /// will use when it gathers investigation data. To do so, specify the ARN of the new
         /// role.</para><para>The permissions in this role determine which of your resources that CloudWatch investigations
-        /// will have access to during investigations.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-Security-Data">EHow
-        /// to control what data Amazon Q has access to during investigations</a>.</para>
+        /// will have access to during investigations.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-Security-Data">How
+        /// to control what data CloudWatch investigations has access to during investigations</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,14 +127,14 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
         /// <summary>
         /// <para>
         /// <para>Enter the existing custom tag keys for custom applications in your system. Resource
-        /// tags help Amazon Q narrow the search space when it is unable to discover definite
-        /// relationships between resources. For example, to discover that an Amazon ECS service
-        /// depends on an Amazon RDS database, Amazon Q can discover this relationship using data
-        /// sources such as X-Ray and CloudWatch Application Signals. However, if you haven't
-        /// deployed these features, Amazon Q will attempt to identify possible relationships.
-        /// Tag boundaries can be used to narrow the resources that will be discovered by Amazon
-        /// Q in these cases.</para><para>You don't need to enter tags created by myApplications or CloudFormation, because
-        /// Amazon Q can automatically detect those tags.</para>
+        /// tags help CloudWatch investigations narrow the search space when it is unable to discover
+        /// definite relationships between resources. For example, to discover that an Amazon
+        /// ECS service depends on an Amazon RDS database, CloudWatch investigations can discover
+        /// this relationship using data sources such as X-Ray and CloudWatch Application Signals.
+        /// However, if you haven't deployed these features, CloudWatch investigations will attempt
+        /// to identify possible relationships. Tag boundaries can be used to narrow the resources
+        /// that will be discovered by CloudWatch investigations in these cases.</para><para>You don't need to enter tags created by myApplications or CloudFormation, because
+        /// CloudWatch investigations can automatically detect those tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
         /// <summary>
         /// <para>
         /// <para>Displays whether investigation data is encrypted by a customer managed key or an Amazon
-        /// Web Services owned kay.</para>
+        /// Web Services owned key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

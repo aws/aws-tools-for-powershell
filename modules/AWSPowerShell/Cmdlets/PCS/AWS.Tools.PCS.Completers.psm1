@@ -87,6 +87,13 @@ $PCS_Completers = {
             break
         }
 
+        # Amazon.PCS.NetworkType
+        "New-PCSCluster/Networking_NetworkType"
+        {
+            $v = "IPV4","IPV6"
+            break
+        }
+
         # Amazon.PCS.PurchaseOption
         {
             ($_ -eq "New-PCSComputeNodeGroup/PurchaseOption") -Or
@@ -131,6 +138,7 @@ $PCS_Completers = {
 
 $PCS_map = @{
     "Accounting_Mode"=@("New-PCSCluster")
+    "Networking_NetworkType"=@("New-PCSCluster")
     "PurchaseOption"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
     "Scheduler_Type"=@("New-PCSCluster")
     "Size"=@("New-PCSCluster")

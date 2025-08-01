@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
 {
     /// <summary>
     /// This returns the onboarding status of the telemetry configuration feature for the
-    /// organization. It can only be called by a Management Account of an AWS Organization
-    /// or an assigned Delegated Admin Account of AWS CloudWatch telemetry config.
+    /// organization. It can only be called by a Management Account of an Amazon Web Services
+    /// Organization or an assigned Delegated Admin Account of Amazon CloudWatch telemetry
+    /// config.
     /// </summary>
     [Cmdlet("Get", "CWOADMNTelemetryEvaluationStatusForOrganization")]
     [OutputType("Amazon.ObservabilityAdmin.Model.GetTelemetryEvaluationStatusForOrganizationResponse")]
