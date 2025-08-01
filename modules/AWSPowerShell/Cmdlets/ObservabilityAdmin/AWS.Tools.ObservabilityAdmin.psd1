@@ -87,14 +87,27 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-CWOADMNResourceTag', 
+        'Get-CWOADMNResourceTag', 
         'Get-CWOADMNResourceTelemetryForOrganizationList', 
         'Get-CWOADMNResourceTelemetryList', 
         'Get-CWOADMNTelemetryEvaluationStatus', 
         'Get-CWOADMNTelemetryEvaluationStatusForOrganization', 
+        'Get-CWOADMNTelemetryRule', 
+        'Get-CWOADMNTelemetryRuleForOrganization', 
+        'Get-CWOADMNTelemetryRuleList', 
+        'Get-CWOADMNTelemetryRulesForOrganizationList', 
+        'New-CWOADMNTelemetryRule', 
+        'New-CWOADMNTelemetryRuleForOrganization', 
+        'Remove-CWOADMNResourceTag', 
+        'Remove-CWOADMNTelemetryRule', 
+        'Remove-CWOADMNTelemetryRuleForOrganization', 
         'Start-CWOADMNTelemetryEvaluation', 
         'Start-CWOADMNTelemetryEvaluationForOrganization', 
         'Stop-CWOADMNTelemetryEvaluation', 
-        'Stop-CWOADMNTelemetryEvaluationForOrganization')
+        'Stop-CWOADMNTelemetryEvaluationForOrganization', 
+        'Update-CWOADMNTelemetryRule', 
+        'Update-CWOADMNTelemetryRuleForOrganization')
 
     # Variables to export from this module
     VariablesToExport = '*'

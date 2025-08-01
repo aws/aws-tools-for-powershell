@@ -74,7 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// Amazon.ACMPCA.Model.GetPolicyRequest.ResourceArn
+        /// <para>The Amazon Resource Number (ARN) of the private CA that will have its policy retrieved.
+        /// You can find the CA's ARN by calling the ListCertificateAuthorities action. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

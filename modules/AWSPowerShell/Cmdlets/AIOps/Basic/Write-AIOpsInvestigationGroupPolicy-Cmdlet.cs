@@ -37,11 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
     /// If you create your investigation group with <c>CreateInvestigationGroup</c> and you
     /// want to enable CloudWatch alarms to create investigations and add events to investigations,
     /// you must use this operation to create a policy similar to this example.
-    /// </para><para><c>{ "Version": "2008-10-17", "Statement": [{ "Effect": "Allow", "Principal": { "Service":
-    /// "aiops.alarms.cloudwatch.amazonaws.com" }, "Action": ["aiops:CreateInvestigation",
-    /// "aiops:CreateInvestigationEvent"], "Resource": "*", "Condition": { "StringEquals":
-    /// { "aws:SourceAccount": "<i>account-id</i>" }, "ArnLike": { "aws:SourceArn": "arn:aws:cloudwatch:<i>region</i>:<i>account-id</i>:alarm:*"
-    /// } } }] }</c></para>
+    /// </para><para><c> { "Version": "2008-10-17", "Statement": [ { "Effect": "Allow", "Principal": {
+    /// "Service": "aiops.alarms.cloudwatch.amazonaws.com" }, "Action": [ "aiops:CreateInvestigation",
+    /// "aiops:CreateInvestigationEvent" ], "Resource": "*", "Condition": { "StringEquals":
+    /// { "aws:SourceAccount": "account-id" }, "ArnLike": { "aws:SourceArn": "arn:aws:cloudwatch:region:account-id:alarm:*"
+    /// } } } ] } </c></para>
     /// </summary>
     [Cmdlet("Write", "AIOpsInvestigationGroupPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

@@ -75,6 +75,63 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service CloudWatch Observability Admin Service
 
 
+$CWOADMN_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ObservabilityAdmin.DestinationType
+        {
+            ($_ -eq "New-CWOADMNTelemetryRule/DestinationConfiguration_DestinationType") -Or
+            ($_ -eq "New-CWOADMNTelemetryRuleForOrganization/DestinationConfiguration_DestinationType") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRule/DestinationConfiguration_DestinationType") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/DestinationConfiguration_DestinationType")
+        }
+        {
+            $v = "cloud-watch-logs"
+            break
+        }
+
+        # Amazon.ObservabilityAdmin.ResourceType
+        {
+            ($_ -eq "New-CWOADMNTelemetryRule/Rule_ResourceType") -Or
+            ($_ -eq "New-CWOADMNTelemetryRuleForOrganization/Rule_ResourceType") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRule/Rule_ResourceType") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/Rule_ResourceType")
+        }
+        {
+            $v = "AWS::EC2::Instance","AWS::EC2::VPC","AWS::Lambda::Function"
+            break
+        }
+
+        # Amazon.ObservabilityAdmin.TelemetryType
+        {
+            ($_ -eq "New-CWOADMNTelemetryRule/Rule_TelemetryType") -Or
+            ($_ -eq "New-CWOADMNTelemetryRuleForOrganization/Rule_TelemetryType") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRule/Rule_TelemetryType") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/Rule_TelemetryType")
+        }
+        {
+            $v = "Logs","Metrics","Traces"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CWOADMN_map = @{
+    "DestinationConfiguration_DestinationType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
+    "Rule_ResourceType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
+    "Rule_TelemetryType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
+}
+
+_awsArgumentCompleterRegistration $CWOADMN_Completers $CWOADMN_map
+
 $CWOADMN_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -123,14 +180,27 @@ $CWOADMN_SelectCompleters = {
 }
 
 $CWOADMN_SelectMap = @{
-    "Select"=@("Get-CWOADMNTelemetryEvaluationStatus",
+    "Select"=@("New-CWOADMNTelemetryRule",
+               "New-CWOADMNTelemetryRuleForOrganization",
+               "Remove-CWOADMNTelemetryRule",
+               "Remove-CWOADMNTelemetryRuleForOrganization",
+               "Get-CWOADMNTelemetryEvaluationStatus",
                "Get-CWOADMNTelemetryEvaluationStatusForOrganization",
+               "Get-CWOADMNTelemetryRule",
+               "Get-CWOADMNTelemetryRuleForOrganization",
                "Get-CWOADMNResourceTelemetryList",
                "Get-CWOADMNResourceTelemetryForOrganizationList",
+               "Get-CWOADMNResourceTag",
+               "Get-CWOADMNTelemetryRuleList",
+               "Get-CWOADMNTelemetryRulesForOrganizationList",
                "Start-CWOADMNTelemetryEvaluation",
                "Start-CWOADMNTelemetryEvaluationForOrganization",
                "Stop-CWOADMNTelemetryEvaluation",
-               "Stop-CWOADMNTelemetryEvaluationForOrganization")
+               "Stop-CWOADMNTelemetryEvaluationForOrganization",
+               "Add-CWOADMNResourceTag",
+               "Remove-CWOADMNResourceTag",
+               "Update-CWOADMNTelemetryRule",
+               "Update-CWOADMNTelemetryRuleForOrganization")
 }
 
 _awsArgumentCompleterRegistration $CWOADMN_SelectCompleters $CWOADMN_SelectMap

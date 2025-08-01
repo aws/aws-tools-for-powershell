@@ -30,8 +30,8 @@ using Amazon.ObservabilityAdmin.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOADMN
 {
     /// <summary>
-    /// Returns a list of telemetry configurations for AWS resources supported by telemetry
-    /// config. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/telemetry-config-cloudwatch.html">Auditing
+    /// Returns a list of telemetry configurations for Amazon Web Services resources supported
+    /// by telemetry config. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/telemetry-config-cloudwatch.html">Auditing
     /// CloudWatch telemetry configurations</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWOADMNResourceTelemetryList")]

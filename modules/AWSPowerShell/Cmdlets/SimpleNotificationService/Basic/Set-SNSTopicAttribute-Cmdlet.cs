@@ -55,8 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>A map of attributes with their corresponding values.</para><para>The following lists the names, descriptions, and values of the special request parameters
-        /// that the <c>SetTopicAttributes</c> action uses:</para><ul><li><para><c>ApplicationSuccessFeedbackRoleArn</c> – Indicates failed message delivery status
-        /// for an Amazon SNS topic that is subscribed to a platform application endpoint.</para></li><li><para><c>DeliveryPolicy</c> – The policy that defines how Amazon SNS retries failed deliveries
+        /// that the <c>SetTopicAttributes</c> action uses:</para><ul><li><para><c>DeliveryPolicy</c> – The policy that defines how Amazon SNS retries failed deliveries
         /// to HTTP/S endpoints.</para></li><li><para><c>DisplayName</c> – The display name to use for a topic with SMS subscriptions.</para></li><li><para><c>Policy</c> – The policy that defines who can access your topic. By default, only
         /// the topic owner can publish or subscribe to the topic.</para></li><li><para><c>TracingConfig</c> – Tracing mode of an Amazon SNS topic. By default <c>TracingConfig</c>
         /// is set to <c>PassThrough</c>, and the topic passes through the tracing header it receives
@@ -65,20 +64,17 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// tracing header is true. This is only supported on standard topics.</para></li><li><para>HTTP</para><ul><li><para><c>HTTPSuccessFeedbackRoleArn</c> – Indicates successful message delivery status
         /// for an Amazon SNS topic that is subscribed to an HTTP endpoint. </para></li><li><para><c>HTTPSuccessFeedbackSampleRate</c> – Indicates percentage of successful messages
         /// to sample for an Amazon SNS topic that is subscribed to an HTTP endpoint.</para></li><li><para><c>HTTPFailureFeedbackRoleArn</c> – Indicates failed message delivery status for
-        /// an Amazon SNS topic that is subscribed to an HTTP endpoint.</para></li></ul></li><li><para>Amazon Kinesis Data Firehose</para><ul><li><para><c>FirehoseSuccessFeedbackRoleArn</c> – Indicates successful message delivery status
-        /// for an Amazon SNS topic that is subscribed to an Amazon Kinesis Data Firehose endpoint.</para></li><li><para><c>FirehoseSuccessFeedbackSampleRate</c> – Indicates percentage of successful messages
-        /// to sample for an Amazon SNS topic that is subscribed to an Amazon Kinesis Data Firehose
-        /// endpoint.</para></li><li><para><c>FirehoseFailureFeedbackRoleArn</c> – Indicates failed message delivery status
-        /// for an Amazon SNS topic that is subscribed to an Amazon Kinesis Data Firehose endpoint.
-        /// </para></li></ul></li><li><para>Lambda</para><ul><li><para><c>LambdaSuccessFeedbackRoleArn</c> – Indicates successful message delivery status
+        /// an Amazon SNS topic that is subscribed to an HTTP endpoint.</para></li></ul></li><li><para>Amazon Data Firehose</para><ul><li><para><c>FirehoseSuccessFeedbackRoleArn</c> – Indicates successful message delivery status
+        /// for an Amazon SNS topic that is subscribed to an Amazon Data Firehose endpoint.</para></li><li><para><c>FirehoseSuccessFeedbackSampleRate</c> – Indicates percentage of successful messages
+        /// to sample for an Amazon SNS topic that is subscribed to an Amazon Data Firehose endpoint.</para></li><li><para><c>FirehoseFailureFeedbackRoleArn</c> – Indicates failed message delivery status
+        /// for an Amazon SNS topic that is subscribed to an Amazon Data Firehose endpoint. </para></li></ul></li><li><para>Lambda</para><ul><li><para><c>LambdaSuccessFeedbackRoleArn</c> – Indicates successful message delivery status
         /// for an Amazon SNS topic that is subscribed to an Lambda endpoint.</para></li><li><para><c>LambdaSuccessFeedbackSampleRate</c> – Indicates percentage of successful messages
         /// to sample for an Amazon SNS topic that is subscribed to an Lambda endpoint.</para></li><li><para><c>LambdaFailureFeedbackRoleArn</c> – Indicates failed message delivery status for
         /// an Amazon SNS topic that is subscribed to an Lambda endpoint. </para></li></ul></li><li><para>Platform application endpoint</para><ul><li><para><c>ApplicationSuccessFeedbackRoleArn</c> – Indicates successful message delivery
-        /// status for an Amazon SNS topic that is subscribed to an Amazon Web Services application
-        /// endpoint.</para></li><li><para><c>ApplicationSuccessFeedbackSampleRate</c> – Indicates percentage of successful
-        /// messages to sample for an Amazon SNS topic that is subscribed to an Amazon Web Services
-        /// application endpoint.</para></li><li><para><c>ApplicationFailureFeedbackRoleArn</c> – Indicates failed message delivery status
-        /// for an Amazon SNS topic that is subscribed to an Amazon Web Services application endpoint.</para></li></ul><note><para>In addition to being able to configure topic attributes for message delivery status
+        /// status for an Amazon SNS topic that is subscribed to an platform application endpoint.</para></li><li><para><c>ApplicationSuccessFeedbackSampleRate</c> – Indicates percentage of successful
+        /// messages to sample for an Amazon SNS topic that is subscribed to an platform application
+        /// endpoint.</para></li><li><para><c>ApplicationFailureFeedbackRoleArn</c> – Indicates failed message delivery status
+        /// for an Amazon SNS topic that is subscribed to an platform application endpoint.</para></li></ul><note><para>In addition to being able to configure topic attributes for message delivery status
         /// of notification messages sent to Amazon SNS application endpoints, you can also configure
         /// application attributes for the delivery status of push notification messages sent
         /// to push notification services.</para><para>For example, For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html">Using

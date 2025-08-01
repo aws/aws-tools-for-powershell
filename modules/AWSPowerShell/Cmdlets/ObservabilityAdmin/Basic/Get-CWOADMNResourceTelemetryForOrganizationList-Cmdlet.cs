@@ -30,8 +30,8 @@ using Amazon.ObservabilityAdmin.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOADMN
 {
     /// <summary>
-    /// Returns a list of telemetry configurations for AWS resources supported by telemetry
-    /// config in the organization.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of telemetry configurations for Amazon Web Services resources supported
+    /// by telemetry config in the organization.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWOADMNResourceTelemetryForOrganizationList")]
     [OutputType("Amazon.ObservabilityAdmin.Model.TelemetryConfiguration")]
@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         #region Parameter AccountIdentifier
         /// <summary>
         /// <para>
-        /// <para> A list of AWS account IDs used to filter the resources to those associated with the
-        /// specified accounts. </para><para />
+        /// <para> A list of Amazon Web Services accounts used to filter the resources to those associated
+        /// with the specified accounts. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

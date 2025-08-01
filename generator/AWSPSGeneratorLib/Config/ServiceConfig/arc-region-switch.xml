@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>arc-region-switch</C2jFilename>
+    <AssemblyName>ARCRegionswitch</AssemblyName>
+    <ServiceNounPrefix>ARC</ServiceNounPrefix>
+    <ServiceName>ARC - Region switch</ServiceName>
+    <ServiceClientInterface>IAmazonARCRegionswitch</ServiceClientInterface>
+    <ServiceClient>AmazonARCRegionswitchClient</ServiceClient>
+    <ServiceModuleGuid>85db5dfe-0283-46c0-a425-2d71d5231181</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="ApprovePlanExecutionStep" Verb="Approve" Noun="PlanExecutionStep" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelPlanExecution" Verb="Stop" Noun="PlanExecution" ShouldProcessTarget="PlanArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePlan" OutputProperty="Plan" Verb="New" Noun="Plan" ShouldProcessTarget="Name" PipelineParameter="ExecutionRole" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Regions" NewName="PlanRegions" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePlan" Verb="Remove" Noun="Plan" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPlan" OutputProperty="Plan" Verb="Get" Noun="Plan" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPlanEvaluationStatus" OutputProperty="*" Verb="Get" Noun="PlanEvaluationStatus" PipelineParameter="PlanArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPlanExecution" OutputProperty="*" Verb="Get" Noun="PlanExecution" PipelineParameter="ExecutionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPlanInRegion" OutputProperty="Plan" Verb="Get" Noun="PlanInRegion" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPlanExecutionEvents" OutputProperty="Items" Verb="Get" Noun="PlanExecutionEventList" PipelineParameter="ExecutionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPlanExecutions" OutputProperty="Items" Verb="Get" Noun="PlanExecutionList" PipelineParameter="PlanArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPlans" OutputProperty="Plans" Verb="Get" Noun="PlanList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPlansInRegion" OutputProperty="Plans" Verb="Get" Noun="PlansInRegionList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRoute53HealthChecks" OutputProperty="HealthChecks" Verb="Get" Noun="Route53HealthCheckList" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="ResourceTags" Verb="Get" Noun="ResourceTag" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartPlanExecution" OutputProperty="*" Verb="Start" Noun="PlanExecution" ShouldProcessTarget="PlanArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePlan" OutputProperty="Plan" Verb="Update" Noun="Plan" ShouldProcessTarget="Arn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePlanExecution" Verb="Update" Noun="PlanExecution" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePlanExecutionStep" Verb="Update" Noun="PlanExecutionStep" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

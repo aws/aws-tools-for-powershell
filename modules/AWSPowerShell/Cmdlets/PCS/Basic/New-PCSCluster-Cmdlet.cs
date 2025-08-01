@@ -100,6 +100,17 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         public Amazon.PCS.AccountingMode Accounting_Mode { get; set; }
         #endregion
         
+        #region Parameter Networking_NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address version the cluster uses. The default is <c>IPV4</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PCS.NetworkType")]
+        public Amazon.PCS.NetworkType Networking_NetworkType { get; set; }
+        #endregion
+        
         #region Parameter SlurmConfiguration_ScaleDownIdleTimeInSecond
         /// <summary>
         /// <para>
@@ -298,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
                 WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Networking_NetworkType = this.Networking_NetworkType;
             if (this.Networking_SecurityGroupId != null)
             {
                 context.Networking_SecurityGroupId = new List<System.String>(this.Networking_SecurityGroupId);
@@ -370,6 +382,16 @@ namespace Amazon.PowerShell.Cmdlets.PCS
              // populate Networking
             var requestNetworkingIsNull = true;
             request.Networking = new Amazon.PCS.Model.NetworkingRequest();
+            Amazon.PCS.NetworkType requestNetworking_networking_NetworkType = null;
+            if (cmdletContext.Networking_NetworkType != null)
+            {
+                requestNetworking_networking_NetworkType = cmdletContext.Networking_NetworkType;
+            }
+            if (requestNetworking_networking_NetworkType != null)
+            {
+                request.Networking.NetworkType = requestNetworking_networking_NetworkType;
+                requestNetworkingIsNull = false;
+            }
             List<System.String> requestNetworking_networking_SecurityGroupId = null;
             if (cmdletContext.Networking_SecurityGroupId != null)
             {
@@ -553,6 +575,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         {
             public System.String ClientToken { get; set; }
             public System.String ClusterName { get; set; }
+            public Amazon.PCS.NetworkType Networking_NetworkType { get; set; }
             public List<System.String> Networking_SecurityGroupId { get; set; }
             public List<System.String> Networking_SubnetId { get; set; }
             public Amazon.PCS.SchedulerType Scheduler_Type { get; set; }

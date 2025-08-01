@@ -59,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter ControlSet
         /// <summary>
         /// <para>
-        /// <para> The control sets that are associated with the framework. </para><para />
+        /// <para> The control sets that are associated with the framework. </para><note><para>The <c>Controls</c> object returns a partial response when called through Framework
+        /// APIs. For a complete <c>Controls</c> object, use <c>GetControl</c>.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

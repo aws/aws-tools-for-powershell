@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
         /// <summary>
         /// <para>
         /// <para>The ARN of the CloudWatch investigations resource that you want to view tags for.
-        /// You can use the <a href="https://docs.aws.amazon.com/operationalinvestigations/latest/AmazonQDeveloperOperationalInvestigationsAPIReference/API_ListInvestigationGroups.html">ListInvestigationGroups</a>
-        /// operation to find the ARNs of investigation groups.</para><para>The ARN format for an investigation group is <c>arn:aws:aiops:<i>Region</i>:<i>account-id</i>:investigation-group:<i>investigation-group-id</i></c>.</para>
+        /// You can use the <c>ListInvestigationGroups</c> operation to find the ARNs of investigation
+        /// groups.</para><para>The ARN format for an investigation group is <c>arn:aws:aiops:<i>Region</i>:<i>account-id</i>:investigation-group:<i>investigation-group-id</i></c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

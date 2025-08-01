@@ -56,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// </para></li><li><para>
     /// For GCM (Firebase Cloud Messaging) using token credentials, there is no <c>PlatformPrincipal</c>.
     /// The <c>PlatformCredential</c> is a JSON formatted private key file. When using the
-    /// Amazon Web Services CLI, the file must be in string format and special characters
-    /// must be ignored. To format the file correctly, Amazon SNS recommends using the following
-    /// command: <c>SERVICE_JSON=`jq @json &lt;&lt;&lt; cat service.json`</c>.
+    /// Amazon Web Services CLI or Amazon Web Services SDKs, the file must be in string format
+    /// and special characters must be ignored. To format the file correctly, Amazon SNS recommends
+    /// using the following command: <c>SERVICE_JSON=$(jq @json &lt; service.json)</c>.
     /// </para></li><li><para>
     /// For MPNS, <c>PlatformPrincipal</c> is <c>TLS certificate</c> and <c>PlatformCredential</c>
     /// is <c>private key</c>.

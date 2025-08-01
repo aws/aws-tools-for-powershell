@@ -1,4 +1,24 @@
-﻿### 5.0.23 (2025-07-31 20:41Z)
+﻿### 5.0.24 (2025-08-01 19:56Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.61.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon ARC - Region switch. Added cmdlets to support the service. Cmdlets for the service have the noun prefix ARC and can be listed using the command 'Get-AWSCmdletName -Service ARC'.
+  * Amazon CloudWatch Observability Admin Service
+    * Added cmdlet Add-CWOADMNResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-CWOADMNResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Get-CWOADMNTelemetryRule leveraging the GetTelemetryRule service API.
+    * Added cmdlet Get-CWOADMNTelemetryRuleForOrganization leveraging the GetTelemetryRuleForOrganization service API.
+    * Added cmdlet Get-CWOADMNTelemetryRuleList leveraging the ListTelemetryRules service API.
+    * Added cmdlet Get-CWOADMNTelemetryRulesForOrganizationList leveraging the ListTelemetryRulesForOrganization service API.
+    * Added cmdlet New-CWOADMNTelemetryRule leveraging the CreateTelemetryRule service API.
+    * Added cmdlet New-CWOADMNTelemetryRuleForOrganization leveraging the CreateTelemetryRuleForOrganization service API.
+    * Added cmdlet Remove-CWOADMNResourceTag leveraging the UntagResource service API.
+    * Added cmdlet Remove-CWOADMNTelemetryRule leveraging the DeleteTelemetryRule service API.
+    * Added cmdlet Remove-CWOADMNTelemetryRuleForOrganization leveraging the DeleteTelemetryRuleForOrganization service API.
+    * Added cmdlet Update-CWOADMNTelemetryRule leveraging the UpdateTelemetryRule service API.
+    * Added cmdlet Update-CWOADMNTelemetryRuleForOrganization leveraging the UpdateTelemetryRuleForOrganization service API.
+  * Amazon Parallel Computing Service
+    * Modified cmdlet New-PCSCluster: added parameter Networking_NetworkType.
+
+### 5.0.23 (2025-07-31 20:41Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.60.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Customer Profiles
     * Modified cmdlet Merge-CPFProfile: added parameters FieldSourceProfileIds_EngagementPreference and FieldSourceProfileIds_ProfileType.

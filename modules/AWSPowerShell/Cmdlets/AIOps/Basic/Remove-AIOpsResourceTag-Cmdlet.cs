@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.AIOps
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the resource that you want to remove the tags from.
-        /// You can use the <a href="https://docs.aws.amazon.com/operationalinvestigations/latest/AmazonQDeveloperOperationalInvestigationsAPIReference/API_ListInvestigationGroups.html">ListInvestigationGroups</a>
-        /// operation to find the ARNs of investigation groups.</para>
+        /// You can use the<c>ListInvestigationGroups</c> operation to find the ARNs of investigation
+        /// groups.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

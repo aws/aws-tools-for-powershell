@@ -30,7 +30,7 @@ using Amazon.ObservabilityAdmin.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOADMN
 {
     /// <summary>
-    /// This action begins onboarding onboarding the caller AWS account to the telemetry
+    /// This action begins onboarding the caller Amazon Web Services account to the telemetry
     /// config feature.
     /// </summary>
     [Cmdlet("Start", "CWOADMNTelemetryEvaluation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -37,11 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// message is delivered to the endpoint, so that the endpoint owner can easily resubscribe
     /// to the topic if the <c>Unsubscribe</c> request was unintended.
     /// 
-    ///  <note><para>
-    /// Amazon SQS queue subscriptions require authentication for deletion. Only the owner
-    /// of the subscription, or the owner of the topic can unsubscribe using the required
-    /// Amazon Web Services signature.
-    /// </para></note><para>
+    ///  
+    /// <para>
     /// This action is throttled at 100 transactions per second (TPS).
     /// </para>
     /// </summary>

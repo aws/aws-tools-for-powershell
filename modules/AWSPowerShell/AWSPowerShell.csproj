@@ -142,6 +142,9 @@
     <Reference Include="AWSSDK.AppTest">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AppTest.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ARCRegionswitch">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ARCRegionswitch.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ARCZonalShift">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ARCZonalShift.dll</HintPath>
     </Reference>
@@ -1377,6 +1380,9 @@
     </Reference>
     <Reference Include="AWSSDK.AppTest">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AppTest.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ARCRegionswitch">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ARCRegionswitch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ARCZonalShift">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ARCZonalShift.dll</HintPath>

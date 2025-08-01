@@ -141,12 +141,14 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter MessageGroupId
         /// <summary>
         /// <para>
-        /// <para>This parameter applies only to FIFO (first-in-first-out) topics. The <c>MessageGroupId</c>
-        /// can contain up to 128 alphanumeric characters <c>(a-z, A-Z, 0-9)</c> and punctuation
-        /// <c>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~)</c>.</para><para>The <c>MessageGroupId</c> is a tag that specifies that a message belongs to a specific
-        /// message group. Messages that belong to the same message group are processed in a FIFO
-        /// manner (however, messages in different message groups might be processed out of order).
-        /// Every message must include a <c>MessageGroupId</c>.</para>
+        /// <para>The <c>MessageGroupId</c> can contain up to 128 alphanumeric characters <c>(a-z, A-Z,
+        /// 0-9)</c> and punctuation <c>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~)</c>.</para><para> For FIFO topics: The <c>MessageGroupId</c> is a tag that specifies that a message
+        /// belongs to a specific message group. Messages that belong to the same message group
+        /// are processed in a FIFO manner (however, messages in different message groups might
+        /// be processed out of order). Every message must include a <c>MessageGroupId</c>. </para><para> For standard topics: The <c>MessageGroupId</c> is optional and is forwarded only
+        /// to Amazon SQS standard subscriptions to activate <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fair-queues.html">fair
+        /// queues</a>. The <c>MessageGroupId</c> is not used for, or sent to, any other endpoint
+        /// types. When provided, the same validation rules apply as for FIFO topics. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
