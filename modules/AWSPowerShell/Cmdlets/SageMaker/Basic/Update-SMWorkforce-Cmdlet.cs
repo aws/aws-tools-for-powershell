@@ -46,8 +46,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// outside the specified range are denied and get a <c>Not Found</c> error message on
     /// the worker portal.
     /// </para><para>
-    /// To restrict access to all the workers in public internet, add the <c>SourceIpConfig</c>
-    /// CIDR value as "10.0.0.0/16".
+    /// To restrict public internet access for all workers, configure the <c>SourceIpConfig</c>
+    /// CIDR value. For example, when using <c>SourceIpConfig</c> with an <c>IpAddressType</c>
+    /// of <c>IPv4</c>, you can restrict access to the IPv4 CIDR block "10.0.0.0/16". When
+    /// using an <c>IpAddressType</c> of <c>dualstack</c>, you can specify both the IPv4 and
+    /// IPv6 CIDR blocks, such as "10.0.0.0/16" for IPv4 only, "2001:db8:1234:1a00::/56" for
+    /// IPv6 only, or "10.0.0.0/16" and "2001:db8:1234:1a00::/56" for dual stack.
     /// </para><important><para>
     /// Amazon SageMaker does not support Source Ip restriction for worker portals in VPC.
     /// </para></important><para>

@@ -30,12 +30,12 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Lists events in a memory store based on specified criteria. We recommend using pagination
-    /// to ensure that the operation returns quickly and successfully.
+    /// Lists events in an AgentCore Memory resource based on specified criteria. We recommend
+    /// using pagination to ensure that the operation returns quickly and successfully.
     /// 
     ///  
     /// <para>
-    /// To use this operation, you must have the <c>genesismemory:ListEvents</c> permission.
+    /// To use this operation, you must have the <c>bedrock-agentcore:ListEvents</c> permission.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BACEventList")]
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter MemoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the memory store for which to list events.</para>
+        /// <para>The identifier of the AgentCore Memory resource for which to list events.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

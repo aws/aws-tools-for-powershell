@@ -30,63 +30,54 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Retrieves a paginated list of summaries of all asset models.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves a paginated list of asset models that have a specific interface asset model
+    /// applied to them.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "IOTSWAssetModelList")]
-    [OutputType("Amazon.IoTSiteWise.Model.AssetModelSummary")]
-    [AWSCmdlet("Calls the AWS IoT SiteWise ListAssetModels API operation.", Operation = new[] {"ListAssetModels"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.ListAssetModelsResponse))]
-    [AWSCmdletOutput("Amazon.IoTSiteWise.Model.AssetModelSummary or Amazon.IoTSiteWise.Model.ListAssetModelsResponse",
-        "This cmdlet returns a collection of Amazon.IoTSiteWise.Model.AssetModelSummary objects.",
-        "The service call response (type Amazon.IoTSiteWise.Model.ListAssetModelsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "IOTSWInterfaceRelationshipList")]
+    [OutputType("Amazon.IoTSiteWise.Model.InterfaceRelationshipSummary")]
+    [AWSCmdlet("Calls the AWS IoT SiteWise ListInterfaceRelationships API operation.", Operation = new[] {"ListInterfaceRelationships"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.ListInterfaceRelationshipsResponse))]
+    [AWSCmdletOutput("Amazon.IoTSiteWise.Model.InterfaceRelationshipSummary or Amazon.IoTSiteWise.Model.ListInterfaceRelationshipsResponse",
+        "This cmdlet returns a collection of Amazon.IoTSiteWise.Model.InterfaceRelationshipSummary objects.",
+        "The service call response (type Amazon.IoTSiteWise.Model.ListInterfaceRelationshipsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetIOTSWAssetModelListCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
+    public partial class GetIOTSWInterfaceRelationshipListCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AssetModelType
+        #region Parameter InterfaceAssetModelId
         /// <summary>
         /// <para>
-        /// <para>The type of asset model. If you don't provide an <c>assetModelTypes</c>, all types
-        /// of asset models are returned.</para><ul><li><para><b>ASSET_MODEL</b> – An asset model that you can use to create assets. Can't be included
-        /// as a component in another asset model.</para></li><li><para><b>COMPONENT_MODEL</b> – A reusable component that you can include in the composite
-        /// models of other asset models. You can't create assets directly from this type of asset
-        /// model. </para></li><li><para><b>INTERFACE</b> – An interface is a type of model that defines a standard structure
-        /// that can be applied to different asset models.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// <para>The ID of the interface asset model. This can be either the actual ID in UUID format,
+        /// or else externalId: followed by the external ID.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("AssetModelTypes")]
-        public System.String[] AssetModelType { get; set; }
-        #endregion
-        
-        #region Parameter AssetModelVersion
-        /// <summary>
-        /// <para>
-        /// <para>The version alias that specifies the latest or active version of the asset model.
-        /// The details are returned in the response. The default value is <c>LATEST</c>. See
-        /// <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/model-active-version.html">
-        /// Asset model versions</a> in the <i>IoT SiteWise User Guide</i>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AssetModelVersion { get; set; }
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String InterfaceAssetModelId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return for each paginated request.</para><para>Default: 50</para>
+        /// <para>The maximum number of results to return for each paginated request. Default: 50</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -105,13 +96,13 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AssetModelSummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTSiteWise.Model.ListAssetModelsResponse).
-        /// Specifying the name of a property of type Amazon.IoTSiteWise.Model.ListAssetModelsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'InterfaceRelationshipSummaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTSiteWise.Model.ListInterfaceRelationshipsResponse).
+        /// Specifying the name of a property of type Amazon.IoTSiteWise.Model.ListInterfaceRelationshipsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AssetModelSummaries";
+        public string Select { get; set; } = "InterfaceRelationshipSummaries";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -140,15 +131,26 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.ListAssetModelsResponse, GetIOTSWAssetModelListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.ListInterfaceRelationshipsResponse, GetIOTSWInterfaceRelationshipListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.AssetModelType != null)
+            context.InterfaceAssetModelId = this.InterfaceAssetModelId;
+            #if MODULAR
+            if (this.InterfaceAssetModelId == null && ParameterWasBound(nameof(this.InterfaceAssetModelId)))
             {
-                context.AssetModelType = new List<System.String>(this.AssetModelType);
+                WriteWarning("You are passing $null as a value for parameter InterfaceAssetModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
-            context.AssetModelVersion = this.AssetModelVersion;
+            #endif
             context.MaxResult = this.MaxResult;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
+            {
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
+                    " to the service to specify how many items should be returned by each service call.");
+            }
+            #endif
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -166,19 +168,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.IoTSiteWise.Model.ListAssetModelsRequest();
+            var request = new Amazon.IoTSiteWise.Model.ListInterfaceRelationshipsRequest();
             
-            if (cmdletContext.AssetModelType != null)
+            if (cmdletContext.InterfaceAssetModelId != null)
             {
-                request.AssetModelTypes = cmdletContext.AssetModelType;
-            }
-            if (cmdletContext.AssetModelVersion != null)
-            {
-                request.AssetModelVersion = cmdletContext.AssetModelVersion;
+                request.InterfaceAssetModelId = cmdletContext.InterfaceAssetModelId;
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
+                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
             
             // Initialize loop variant and commence piping
@@ -237,12 +235,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         #region AWS Service Operation Call
         
-        private Amazon.IoTSiteWise.Model.ListAssetModelsResponse CallAWSServiceOperation(IAmazonIoTSiteWise client, Amazon.IoTSiteWise.Model.ListAssetModelsRequest request)
+        private Amazon.IoTSiteWise.Model.ListInterfaceRelationshipsResponse CallAWSServiceOperation(IAmazonIoTSiteWise client, Amazon.IoTSiteWise.Model.ListInterfaceRelationshipsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT SiteWise", "ListAssetModels");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT SiteWise", "ListInterfaceRelationships");
             try
             {
-                return client.ListAssetModelsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListInterfaceRelationshipsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -259,12 +257,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> AssetModelType { get; set; }
-            public System.String AssetModelVersion { get; set; }
-            public System.Int32? MaxResult { get; set; }
+            public System.String InterfaceAssetModelId { get; set; }
+            public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.IoTSiteWise.Model.ListAssetModelsResponse, GetIOTSWAssetModelListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AssetModelSummaries;
+            public System.Func<Amazon.IoTSiteWise.Model.ListInterfaceRelationshipsResponse, GetIOTSWInterfaceRelationshipListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.InterfaceRelationshipSummaries;
         }
         
     }

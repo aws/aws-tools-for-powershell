@@ -30,12 +30,12 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Creates an event in a memory store. Events represent interactions or activities that
-    /// occur within a session and are associated with specific actors.
+    /// Creates an event in an AgentCore Memory resource. Events represent interactions or
+    /// activities that occur within a session and are associated with specific actors.
     /// 
     ///  
     /// <para>
-    /// To use this operation, you must have the <c>genesismemory:CreateEvent</c> permission.
+    /// To use this operation, you must have the <c>bedrock-agentcore:CreateEvent</c> permission.
     /// </para><para>
     /// This operation is subject to request rate limiting.
     /// </para>
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter MemoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the memory store in which to create the event.</para>
+        /// <para>The identifier of the AgentCore Memory resource in which to create the event.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

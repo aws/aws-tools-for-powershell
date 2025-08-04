@@ -15538,7 +15538,7 @@ $CCON_Completers = {
             ($_ -eq "Get-CCONConnectionList/ProviderTypeFilter")
         }
         {
-            $v = "Bitbucket","GitHub","GitHubEnterpriseServer","GitLab","GitLabSelfManaged"
+            $v = "AzureDevOps","Bitbucket","GitHub","GitHubEnterpriseServer","GitLab","GitLabSelfManaged"
             break
         }
 
@@ -41271,7 +41271,7 @@ $IOTSW_Completers = {
         # Amazon.IoTSiteWise.AssetModelType
         "New-IOTSWAssetModel/AssetModelType"
         {
-            $v = "ASSET_MODEL","COMPONENT_MODEL"
+            $v = "ASSET_MODEL","COMPONENT_MODEL","INTERFACE"
             break
         }
 
@@ -41615,6 +41615,7 @@ $IOTSW_SelectMap = @{
                "Remove-IOTSWAsset",
                "Remove-IOTSWAssetModel",
                "Remove-IOTSWAssetModelCompositeModel",
+               "Remove-IOTSWAssetModelInterfaceRelationship",
                "Remove-IOTSWComputationModel",
                "Remove-IOTSWDashboard",
                "Remove-IOTSWDataset",
@@ -41628,6 +41629,7 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWAssetCompositeModel",
                "Get-IOTSWAssetModel",
                "Get-IOTSWAssetModelCompositeModel",
+               "Get-IOTSWAssetModelInterfaceRelationship",
                "Get-IOTSWAssetProperty",
                "Get-IOTSWBulkImportJob",
                "Get-IOTSWComputationModel",
@@ -41670,11 +41672,13 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWDatasetList",
                "Get-IOTSWExecutionList",
                "Get-IOTSWGatewayList",
+               "Get-IOTSWInterfaceRelationshipList",
                "Get-IOTSWPortalList",
                "Get-IOTSWProjectAssetList",
                "Get-IOTSWProjectList",
                "Get-IOTSWResourceTag",
                "Get-IOTSWTimeSeriesList",
+               "Write-IOTSWAssetModelInterfaceRelationship",
                "Write-IOTSWDefaultEncryptionConfiguration",
                "Write-IOTSWLoggingOption",
                "Write-IOTSWStorageConfiguration",
@@ -70653,6 +70657,7 @@ $SM_SelectMap = @{
     "Select"=@("Add-SMAssociation",
                "Add-SMResourceTag",
                "Register-SMTrialComponent",
+               "Mount-SMClusterNodeVolume",
                "Set-SMDeleteClusterNode",
                "Get-SMDescribeModelPackage",
                "New-SMAction",
@@ -70844,6 +70849,7 @@ $SM_SelectMap = @{
                "Get-SMUserProfile",
                "Get-SMWorkforce",
                "Get-SMWorkteam",
+               "Dismount-SMClusterNodeVolume",
                "Disable-SMSagemakerServicecatalogPortfolio",
                "Unregister-SMTrialComponent",
                "Enable-SMSagemakerServicecatalogPortfolio",

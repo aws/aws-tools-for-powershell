@@ -83,7 +83,7 @@ $IOTSW_Completers = {
         # Amazon.IoTSiteWise.AssetModelType
         "New-IOTSWAssetModel/AssetModelType"
         {
-            $v = "ASSET_MODEL","COMPONENT_MODEL"
+            $v = "ASSET_MODEL","COMPONENT_MODEL","INTERFACE"
             break
         }
 
@@ -427,6 +427,7 @@ $IOTSW_SelectMap = @{
                "Remove-IOTSWAsset",
                "Remove-IOTSWAssetModel",
                "Remove-IOTSWAssetModelCompositeModel",
+               "Remove-IOTSWAssetModelInterfaceRelationship",
                "Remove-IOTSWComputationModel",
                "Remove-IOTSWDashboard",
                "Remove-IOTSWDataset",
@@ -440,6 +441,7 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWAssetCompositeModel",
                "Get-IOTSWAssetModel",
                "Get-IOTSWAssetModelCompositeModel",
+               "Get-IOTSWAssetModelInterfaceRelationship",
                "Get-IOTSWAssetProperty",
                "Get-IOTSWBulkImportJob",
                "Get-IOTSWComputationModel",
@@ -482,11 +484,13 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWDatasetList",
                "Get-IOTSWExecutionList",
                "Get-IOTSWGatewayList",
+               "Get-IOTSWInterfaceRelationshipList",
                "Get-IOTSWPortalList",
                "Get-IOTSWProjectAssetList",
                "Get-IOTSWProjectList",
                "Get-IOTSWResourceTag",
                "Get-IOTSWTimeSeriesList",
+               "Write-IOTSWAssetModelInterfaceRelationship",
                "Write-IOTSWDefaultEncryptionConfiguration",
                "Write-IOTSWLoggingOption",
                "Write-IOTSWStorageConfiguration",

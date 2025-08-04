@@ -30,13 +30,7 @@ using Amazon.Evs.Model;
 namespace Amazon.PowerShell.Cmdlets.EVS
 {
     /// <summary>
-    /// Deletes a host from an Amazon EVS environment.
-    /// 
-    ///  <note><para>
-    /// Before deleting a host, you must unassign and decommission the host from within the
-    /// SDDC Manager user interface. Not doing so could impact the availability of your virtual
-    /// machines or result in data loss.
-    /// </para></note>
+    /// Amazon.Evs.IAmazonEvs.DeleteEnvironmentHost
     /// </summary>
     [Cmdlet("Remove", "EVSEnvironmentHost", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Evs.Model.DeleteEnvironmentHostResponse")]

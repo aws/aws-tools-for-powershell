@@ -841,8 +841,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter UnifiedStudioSettings_SingleSignOnApplicationArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the application managed by SageMaker AI and SageMaker Unified Studio in
-        /// the Amazon Web Services IAM Identity Center.</para>
+        /// <para>The ARN of the Amazon DataZone application managed by Amazon SageMaker Unified Studio
+        /// in the Amazon Web Services IAM Identity Center.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

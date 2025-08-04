@@ -30,17 +30,7 @@ using Amazon.Evs.Model;
 namespace Amazon.PowerShell.Cmdlets.EVS
 {
     /// <summary>
-    /// Deletes an Amazon EVS environment.
-    /// 
-    ///  
-    /// <para>
-    /// Amazon EVS environments will only be enabled for deletion once the hosts are deleted.
-    /// You can delete hosts using the <c>DeleteEnvironmentHost</c> action.
-    /// </para><para>
-    /// Environment deletion also deletes the associated Amazon EVS VLAN subnets. Other associated
-    /// Amazon Web Services resources are not deleted. These resources may continue to incur
-    /// costs.
-    /// </para>
+    /// Amazon.Evs.IAmazonEvs.DeleteEnvironment
     /// </summary>
     [Cmdlet("Remove", "EVSEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Evs.Model.Environment")]

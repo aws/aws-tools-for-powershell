@@ -23,39 +23,41 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.BedrockAgentCore;
-using Amazon.BedrockAgentCore.Model;
+using Amazon.SageMaker;
+using Amazon.SageMaker.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.BAC
+namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Deletes a memory record from an AgentCore Memory resource. When you delete a memory
-    /// record, it is permanently removed.
+    /// Attaches your Amazon Elastic Block Store (Amazon EBS) volume to a node in your EKS-orchestrated
+    /// HyperPod cluster. 
     /// 
     ///  
     /// <para>
-    /// To use this operation, you must have the <c>bedrock-agentcore:DeleteMemoryRecord</c>
-    /// permission.
+    ///  This API works with the Amazon Elastic Block Store (Amazon EBS) Container Storage
+    /// Interface (CSI) driver to manage the lifecycle of persistent storage in your HyperPod
+    /// EKS clusters. 
     /// </para>
     /// </summary>
-    [Cmdlet("Remove", "BACMemoryRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer DeleteMemoryRecord API operation.", Operation = new[] {"DeleteMemoryRecord"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.DeleteMemoryRecordResponse))]
-    [AWSCmdletOutput("System.String or Amazon.BedrockAgentCore.Model.DeleteMemoryRecordResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.BedrockAgentCore.Model.DeleteMemoryRecordResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Mount", "SMClusterNodeVolume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.SageMaker.Model.AttachClusterNodeVolumeResponse")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service AttachClusterNodeVolume API operation.", Operation = new[] {"AttachClusterNodeVolume"}, SelectReturnType = typeof(Amazon.SageMaker.Model.AttachClusterNodeVolumeResponse))]
+    [AWSCmdletOutput("Amazon.SageMaker.Model.AttachClusterNodeVolumeResponse",
+        "This cmdlet returns an Amazon.SageMaker.Model.AttachClusterNodeVolumeResponse object containing multiple properties."
     )]
-    public partial class RemoveBACMemoryRecordCmdlet : AmazonBedrockAgentCoreClientCmdlet, IExecutor
+    public partial class MountSMClusterNodeVolumeCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter MemoryId
+        #region Parameter ClusterArn
         /// <summary>
         /// <para>
-        /// <para>The identifier of the AgentCore Memory resource from which to delete the memory record.</para>
+        /// <para> The Amazon Resource Name (ARN) of your SageMaker HyperPod cluster containing the
+        /// target node. Your cluster must use EKS as the orchestration and be in the <c>InService</c>
+        /// state. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,13 +68,15 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MemoryId { get; set; }
+        public System.String ClusterArn { get; set; }
         #endregion
         
-        #region Parameter MemoryRecordId
+        #region Parameter NodeId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the memory record to delete.</para>
+        /// <para> The unique identifier of the cluster node to which you want to attach the volume.
+        /// The node must belong to your specified HyperPod cluster and cannot be part of a Restricted
+        /// Instance Group (RIG). </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,18 +87,36 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MemoryRecordId { get; set; }
+        public System.String NodeId { get; set; }
+        #endregion
+        
+        #region Parameter VolumeId
+        /// <summary>
+        /// <para>
+        /// <para> The unique identifier of your EBS volume to attach. The volume must be in the <c>available</c>
+        /// state. </para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String VolumeId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'MemoryRecordId'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCore.Model.DeleteMemoryRecordResponse).
-        /// Specifying the name of a property of type Amazon.BedrockAgentCore.Model.DeleteMemoryRecordResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.AttachClusterNodeVolumeResponse).
+        /// Specifying the name of a property of type Amazon.SageMaker.Model.AttachClusterNodeVolumeResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "MemoryRecordId";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -116,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MemoryRecordId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BACMemoryRecord (DeleteMemoryRecord)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.VolumeId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Mount-SMClusterNodeVolume (AttachClusterNodeVolume)"))
             {
                 return;
             }
@@ -129,21 +151,28 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCore.Model.DeleteMemoryRecordResponse, RemoveBACMemoryRecordCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.AttachClusterNodeVolumeResponse, MountSMClusterNodeVolumeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.MemoryId = this.MemoryId;
+            context.ClusterArn = this.ClusterArn;
             #if MODULAR
-            if (this.MemoryId == null && ParameterWasBound(nameof(this.MemoryId)))
+            if (this.ClusterArn == null && ParameterWasBound(nameof(this.ClusterArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter MemoryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ClusterArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MemoryRecordId = this.MemoryRecordId;
+            context.NodeId = this.NodeId;
             #if MODULAR
-            if (this.MemoryRecordId == null && ParameterWasBound(nameof(this.MemoryRecordId)))
+            if (this.NodeId == null && ParameterWasBound(nameof(this.NodeId)))
             {
-                WriteWarning("You are passing $null as a value for parameter MemoryRecordId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter NodeId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.VolumeId = this.VolumeId;
+            #if MODULAR
+            if (this.VolumeId == null && ParameterWasBound(nameof(this.VolumeId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter VolumeId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -160,15 +189,19 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BedrockAgentCore.Model.DeleteMemoryRecordRequest();
+            var request = new Amazon.SageMaker.Model.AttachClusterNodeVolumeRequest();
             
-            if (cmdletContext.MemoryId != null)
+            if (cmdletContext.ClusterArn != null)
             {
-                request.MemoryId = cmdletContext.MemoryId;
+                request.ClusterArn = cmdletContext.ClusterArn;
             }
-            if (cmdletContext.MemoryRecordId != null)
+            if (cmdletContext.NodeId != null)
             {
-                request.MemoryRecordId = cmdletContext.MemoryRecordId;
+                request.NodeId = cmdletContext.NodeId;
+            }
+            if (cmdletContext.VolumeId != null)
+            {
+                request.VolumeId = cmdletContext.VolumeId;
             }
             
             CmdletOutput output;
@@ -203,12 +236,12 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgentCore.Model.DeleteMemoryRecordResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.DeleteMemoryRecordRequest request)
+        private Amazon.SageMaker.Model.AttachClusterNodeVolumeResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.AttachClusterNodeVolumeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "DeleteMemoryRecord");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "AttachClusterNodeVolume");
             try
             {
-                return client.DeleteMemoryRecordAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.AttachClusterNodeVolumeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -225,10 +258,11 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String MemoryId { get; set; }
-            public System.String MemoryRecordId { get; set; }
-            public System.Func<Amazon.BedrockAgentCore.Model.DeleteMemoryRecordResponse, RemoveBACMemoryRecordCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.MemoryRecordId;
+            public System.String ClusterArn { get; set; }
+            public System.String NodeId { get; set; }
+            public System.String VolumeId { get; set; }
+            public System.Func<Amazon.SageMaker.Model.AttachClusterNodeVolumeResponse, MountSMClusterNodeVolumeCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

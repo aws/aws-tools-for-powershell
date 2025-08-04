@@ -30,12 +30,12 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Lists sessions in a memory store based on specified criteria. We recommend using pagination
-    /// to ensure that the operation returns quickly and successfully.
+    /// Lists sessions in an AgentCore Memory resource based on specified criteria. We recommend
+    /// using pagination to ensure that the operation returns quickly and successfully.
     /// 
     ///  
     /// <para>
-    /// To use this operation, you must have the <c>genesismemory:ListSessions</c> permission.
+    /// To use this operation, you must have the <c>bedrock-agentcore:ListSessions</c> permission.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BACSessionList")]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter MemoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the memory store for which to list sessions.</para>
+        /// <para>The identifier of the AgentCore Memory resource for which to list sessions.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

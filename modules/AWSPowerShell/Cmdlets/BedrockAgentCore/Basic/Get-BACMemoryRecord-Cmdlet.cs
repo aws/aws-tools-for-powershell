@@ -30,11 +30,12 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Retrieves a specific memory record from a memory store.
+    /// Retrieves a specific memory record from an AgentCore Memory resource.
     /// 
     ///  
     /// <para>
-    /// To use this operation, you must have the <c>genesismemory:GetMemoryRecord</c> permission.
+    /// To use this operation, you must have the <c>bedrock-agentcore:GetMemoryRecord</c>
+    /// permission.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "BACMemoryRecord")]
@@ -53,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter MemoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the memory store containing the memory record.</para>
+        /// <para>The identifier of the AgentCore Memory resource containing the memory record.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

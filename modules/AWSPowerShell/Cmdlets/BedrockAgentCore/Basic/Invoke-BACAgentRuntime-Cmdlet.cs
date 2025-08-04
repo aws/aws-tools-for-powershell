@@ -30,19 +30,29 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Sends a request to an agent runtime in Amazon Bedrock and receives responses in real-time.
-    /// The agent processes the request using the configured foundation model and any associated
-    /// knowledge bases or action groups.
+    /// Sends a request to an agent or tool hosted in an Amazon Bedrock AgentCore Runtime
+    /// and receives responses in real-time. 
     /// 
     ///  
     /// <para>
-    /// To invoke an agent runtime, you must specify the agent runtime ARN and provide a payload
+    /// To invoke an agent you must specify the AgentCore Runtime ARN and provide a payload
     /// containing your request. You can optionally specify a qualifier to target a specific
-    /// version or alias of the agent.
+    /// version or endpoint of the agent.
     /// </para><para>
     /// This operation supports streaming responses, allowing you to receive partial responses
     /// as they become available. We recommend using pagination to ensure that the operation
     /// returns quickly and successfully when processing large responses.
+    /// </para><para>
+    /// For example code, see <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-invoke-agent.html">Invoke
+    /// an AgentCore Runtime agent</a>. 
+    /// </para><para>
+    /// If you're integrating your agent with OAuth, you can't use the Amazon Web Services
+    /// SDK to call <c>InvokeAgentRuntime</c>. Instead, make a HTTPS request to <c>InvokeAgentRuntime</c>.
+    /// For an example, see <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-oauth.html">Authenticate
+    /// and authorize with Inbound Auth and Outbound Auth</a>.
+    /// </para><para>
+    /// To use this operation, you must have the <c>bedrock-agentcore:InvokeAgentRuntime</c>
+    /// permission.
     /// </para>
     /// </summary>
     [Cmdlet("Invoke", "BACAgentRuntime", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -151,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter Qualifier
         /// <summary>
         /// <para>
-        /// <para>The qualifier to use for the agent runtime. This can be a version number or an alias
+        /// <para>The qualifier to use for the agent runtime. This can be a version number or an endpoint
         /// name that points to a specific version. If not specified, Amazon Bedrock uses the
         /// default version of the agent runtime.</para>
         /// </para>

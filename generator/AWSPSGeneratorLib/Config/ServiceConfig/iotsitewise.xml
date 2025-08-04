@@ -111,6 +111,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAssetModelInterfaceRelationship" OutputProperty="*" Verb="Remove" Noun="AssetModelInterfaceRelationship" ShouldProcessTarget="AssetModelId" PipelineParameter="AssetModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteComputationModel" OutputProperty="ComputationModelStatus" Verb="Remove" Noun="ComputationModel" ShouldProcessTarget="ComputationModelId" PipelineParameter="ComputationModelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -160,6 +164,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAssetModelCompositeModel" OutputProperty="*" Verb="Get" Noun="AssetModelCompositeModel" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAssetModelInterfaceRelationship" OutputProperty="*" Verb="Get" Noun="AssetModelInterfaceRelationship" PipelineParameter="AssetModelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -331,6 +339,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListInterfaceRelationships" OutputProperty="InterfaceRelationshipSummaries" Verb="Get" Noun="InterfaceRelationshipList" PipelineParameter="InterfaceAssetModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPortals" OutputProperty="PortalSummaries" Verb="Get" Noun="PortalList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -348,6 +360,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTimeSeries" OutputProperty="TimeSeriesSummaries" Verb="Get" Noun="TimeSeriesList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAssetModelInterfaceRelationship" OutputProperty="*" Verb="Write" Noun="AssetModelInterfaceRelationship" ShouldProcessTarget="AssetModelId" PipelineParameter="AssetModelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

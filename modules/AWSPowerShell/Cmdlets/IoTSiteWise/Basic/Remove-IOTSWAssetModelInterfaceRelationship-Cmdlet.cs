@@ -23,32 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Evs;
-using Amazon.Evs.Model;
+using Amazon.IoTSiteWise;
+using Amazon.IoTSiteWise.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.EVS
+namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Amazon.Evs.IAmazonEvs.UntagResource
+    /// Deletes an interface relationship between an asset model and an interface asset model.
     /// </summary>
-    [Cmdlet("Remove", "EVSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic VMware Service UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Evs.Model.UntagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.Evs.Model.UntagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Evs.Model.UntagResourceResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "IOTSWAssetModelInterfaceRelationship", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.IoTSiteWise.Model.DeleteAssetModelInterfaceRelationshipResponse")]
+    [AWSCmdlet("Calls the AWS IoT SiteWise DeleteAssetModelInterfaceRelationship API operation.", Operation = new[] {"DeleteAssetModelInterfaceRelationship"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.DeleteAssetModelInterfaceRelationshipResponse))]
+    [AWSCmdletOutput("Amazon.IoTSiteWise.Model.DeleteAssetModelInterfaceRelationshipResponse",
+        "This cmdlet returns an Amazon.IoTSiteWise.Model.DeleteAssetModelInterfaceRelationshipResponse object containing multiple properties."
     )]
-    public partial class RemoveEVSResourceTagCmdlet : AmazonEvsClientCmdlet, IExecutor
+    public partial class RemoveIOTSWAssetModelInterfaceRelationshipCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ResourceArn
+        #region Parameter AssetModelId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource to delete tags from.</para>
+        /// <para>The ID of the asset model. This can be either the actual ID in UUID format, or else
+        /// externalId: followed by the external ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,35 +59,43 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String AssetModelId { get; set; }
         #endregion
         
-        #region Parameter TagKey
+        #region Parameter InterfaceAssetModelId
         /// <summary>
         /// <para>
-        /// <para>The keys of the tags to delete.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// <para>The ID of the interface asset model. This can be either the actual ID in UUID format,
+        /// or else externalId: followed by the external ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
+        public System.String InterfaceAssetModelId { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique case-sensitive identifier that you can provide to ensure the idempotency
+        /// of the request. Don't reuse this client token if a new idempotent request is required.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Evs.Model.UntagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTSiteWise.Model.DeleteAssetModelInterfaceRelationshipResponse).
+        /// Specifying the name of a property of type Amazon.IoTSiteWise.Model.DeleteAssetModelInterfaceRelationshipResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EVSResourceTag (UntagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AssetModelId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IOTSWAssetModelInterfaceRelationship (DeleteAssetModelInterfaceRelationship)"))
             {
                 return;
             }
@@ -126,24 +134,22 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Evs.Model.UntagResourceResponse, RemoveEVSResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.DeleteAssetModelInterfaceRelationshipResponse, RemoveIOTSWAssetModelInterfaceRelationshipCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ResourceArn = this.ResourceArn;
+            context.AssetModelId = this.AssetModelId;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.AssetModelId == null && ParameterWasBound(nameof(this.AssetModelId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AssetModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.TagKey != null)
-            {
-                context.TagKey = new List<System.String>(this.TagKey);
-            }
+            context.ClientToken = this.ClientToken;
+            context.InterfaceAssetModelId = this.InterfaceAssetModelId;
             #if MODULAR
-            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
+            if (this.InterfaceAssetModelId == null && ParameterWasBound(nameof(this.InterfaceAssetModelId)))
             {
-                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InterfaceAssetModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -160,15 +166,19 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Evs.Model.UntagResourceRequest();
+            var request = new Amazon.IoTSiteWise.Model.DeleteAssetModelInterfaceRelationshipRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.AssetModelId != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.AssetModelId = cmdletContext.AssetModelId;
             }
-            if (cmdletContext.TagKey != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.TagKeys = cmdletContext.TagKey;
+                request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.InterfaceAssetModelId != null)
+            {
+                request.InterfaceAssetModelId = cmdletContext.InterfaceAssetModelId;
             }
             
             CmdletOutput output;
@@ -203,12 +213,12 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         
         #region AWS Service Operation Call
         
-        private Amazon.Evs.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonEvs client, Amazon.Evs.Model.UntagResourceRequest request)
+        private Amazon.IoTSiteWise.Model.DeleteAssetModelInterfaceRelationshipResponse CallAWSServiceOperation(IAmazonIoTSiteWise client, Amazon.IoTSiteWise.Model.DeleteAssetModelInterfaceRelationshipRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic VMware Service", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT SiteWise", "DeleteAssetModelInterfaceRelationship");
             try
             {
-                return client.UntagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteAssetModelInterfaceRelationshipAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -225,10 +235,11 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public List<System.String> TagKey { get; set; }
-            public System.Func<Amazon.Evs.Model.UntagResourceResponse, RemoveEVSResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String AssetModelId { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String InterfaceAssetModelId { get; set; }
+            public System.Func<Amazon.IoTSiteWise.Model.DeleteAssetModelInterfaceRelationshipResponse, RemoveIOTSWAssetModelInterfaceRelationshipCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }
