@@ -36,12 +36,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     /// 
     ///  
     /// <para>
-    /// You can create two types of asset models, <c>ASSET_MODEL</c> or <c>COMPONENT_MODEL</c>.
+    /// You can create three types of asset models, <c>ASSET_MODEL</c>, <c>COMPONENT_MODEL</c>,
+    /// or an <c>INTERFACE</c>.
     /// </para><ul><li><para><b>ASSET_MODEL</b> – (default) An asset model that you can use to create assets.
     /// Can't be included as a component in another asset model.
     /// </para></li><li><para><b>COMPONENT_MODEL</b> – A reusable component that you can include in the composite
     /// models of other asset models. You can't create assets directly from this type of asset
     /// model. 
+    /// </para></li><li><para><b>INTERFACE</b> – An interface is a type of model that defines a standard structure
+    /// that can be applied to different asset models.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "IOTSWAssetModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

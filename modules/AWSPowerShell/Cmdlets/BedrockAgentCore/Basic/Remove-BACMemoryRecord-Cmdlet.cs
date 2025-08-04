@@ -28,12 +28,13 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Deletes a memory record from a memory store. When you delete a memory record, it is
-    /// permanently removed.
+    /// Deletes a memory record from an AgentCore Memory resource. When you delete a memory
+    /// record, it is permanently removed.
     /// 
     ///  
     /// <para>
-    /// To use this operation, you must have the <c>genesismemory:DeleteMemoryRecord</c> permission.
+    /// To use this operation, you must have the <c>bedrock-agentcore:DeleteMemoryRecord</c>
+    /// permission.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "BACMemoryRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -51,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter MemoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the memory store from which to delete the memory record.</para>
+        /// <para>The identifier of the AgentCore Memory resource from which to delete the memory record.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

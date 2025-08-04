@@ -22,46 +22,39 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Evs;
-using Amazon.Evs.Model;
+using Amazon.SageMaker;
+using Amazon.SageMaker.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EVS
+namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Amazon.Evs.IAmazonEvs.DeleteEnvironmentHost
+    /// Detaches your Amazon Elastic Block Store (Amazon EBS) volume from a node in your
+    /// EKS-orchestrated SageMaker HyperPod cluster.
+    /// 
+    ///  
+    /// <para>
+    ///  This API works with the Amazon Elastic Block Store (Amazon EBS) Container Storage
+    /// Interface (CSI) driver to manage the lifecycle of persistent storage in your HyperPod
+    /// EKS clusters. 
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "EVSEnvironmentHost", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.Evs.Model.DeleteEnvironmentHostResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic VMware Service DeleteEnvironmentHost API operation.", Operation = new[] {"DeleteEnvironmentHost"}, SelectReturnType = typeof(Amazon.Evs.Model.DeleteEnvironmentHostResponse))]
-    [AWSCmdletOutput("Amazon.Evs.Model.DeleteEnvironmentHostResponse",
-        "This cmdlet returns an Amazon.Evs.Model.DeleteEnvironmentHostResponse object containing multiple properties."
+    [Cmdlet("Dismount", "SMClusterNodeVolume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.SageMaker.Model.DetachClusterNodeVolumeResponse")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service DetachClusterNodeVolume API operation.", Operation = new[] {"DetachClusterNodeVolume"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DetachClusterNodeVolumeResponse))]
+    [AWSCmdletOutput("Amazon.SageMaker.Model.DetachClusterNodeVolumeResponse",
+        "This cmdlet returns an Amazon.SageMaker.Model.DetachClusterNodeVolumeResponse object containing multiple properties."
     )]
-    public partial class RemoveEVSEnvironmentHostCmdlet : AmazonEvsClientCmdlet, IExecutor
+    public partial class DismountSMClusterNodeVolumeCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter EnvironmentId
+        #region Parameter ClusterArn
         /// <summary>
         /// <para>
-        /// <para>A unique ID for the host's environment.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EnvironmentId { get; set; }
-        #endregion
-        
-        #region Parameter HostName
-        /// <summary>
-        /// <para>
-        /// <para>The DNS hostname associated with the host to be deleted.</para>
+        /// <para> The Amazon Resource Name (ARN) of your SageMaker HyperPod cluster containing the
+        /// target node. Your cluster must use EKS as the orchestration and be in the <c>InService</c>
+        /// state. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,27 +65,50 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String HostName { get; set; }
+        public System.String ClusterArn { get; set; }
         #endregion
         
-        #region Parameter ClientToken
+        #region Parameter NodeId
         /// <summary>
         /// <para>
-        /// <para><note><para>This parameter is not used in Amazon EVS currently. If you supply input for this parameter,
-        /// it will have no effect.</para></note><para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the host deletion request. If you do not specify a client token, a randomly generated
-        /// token is used for the request to ensure idempotency.</para></para>
+        /// <para> The unique identifier of the cluster node from which you want to detach the volume.
+        /// </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String NodeId { get; set; }
+        #endregion
+        
+        #region Parameter VolumeId
+        /// <summary>
+        /// <para>
+        /// <para> The unique identifier of your EBS volume that you want to detach. Your volume must
+        /// be currently attached to the specified node. </para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String VolumeId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Evs.Model.DeleteEnvironmentHostResponse).
-        /// Specifying the name of a property of type Amazon.Evs.Model.DeleteEnvironmentHostResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.DetachClusterNodeVolumeResponse).
+        /// Specifying the name of a property of type Amazon.SageMaker.Model.DetachClusterNodeVolumeResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,10 +117,10 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the EnvironmentId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^EnvironmentId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the VolumeId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^VolumeId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EnvironmentId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^VolumeId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -124,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EnvironmentId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EVSEnvironmentHost (DeleteEnvironmentHost)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.VolumeId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Dismount-SMClusterNodeVolume (DetachClusterNodeVolume)"))
             {
                 return;
             }
@@ -138,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Evs.Model.DeleteEnvironmentHostResponse, RemoveEVSEnvironmentHostCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DetachClusterNodeVolumeResponse, DismountSMClusterNodeVolumeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -147,22 +163,28 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.EnvironmentId;
+                context.Select = (response, cmdlet) => this.VolumeId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientToken = this.ClientToken;
-            context.EnvironmentId = this.EnvironmentId;
+            context.ClusterArn = this.ClusterArn;
             #if MODULAR
-            if (this.EnvironmentId == null && ParameterWasBound(nameof(this.EnvironmentId)))
+            if (this.ClusterArn == null && ParameterWasBound(nameof(this.ClusterArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter EnvironmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ClusterArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.HostName = this.HostName;
+            context.NodeId = this.NodeId;
             #if MODULAR
-            if (this.HostName == null && ParameterWasBound(nameof(this.HostName)))
+            if (this.NodeId == null && ParameterWasBound(nameof(this.NodeId)))
             {
-                WriteWarning("You are passing $null as a value for parameter HostName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter NodeId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.VolumeId = this.VolumeId;
+            #if MODULAR
+            if (this.VolumeId == null && ParameterWasBound(nameof(this.VolumeId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter VolumeId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -179,19 +201,19 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Evs.Model.DeleteEnvironmentHostRequest();
+            var request = new Amazon.SageMaker.Model.DetachClusterNodeVolumeRequest();
             
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.ClusterArn != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
+                request.ClusterArn = cmdletContext.ClusterArn;
             }
-            if (cmdletContext.EnvironmentId != null)
+            if (cmdletContext.NodeId != null)
             {
-                request.EnvironmentId = cmdletContext.EnvironmentId;
+                request.NodeId = cmdletContext.NodeId;
             }
-            if (cmdletContext.HostName != null)
+            if (cmdletContext.VolumeId != null)
             {
-                request.HostName = cmdletContext.HostName;
+                request.VolumeId = cmdletContext.VolumeId;
             }
             
             CmdletOutput output;
@@ -226,15 +248,15 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         
         #region AWS Service Operation Call
         
-        private Amazon.Evs.Model.DeleteEnvironmentHostResponse CallAWSServiceOperation(IAmazonEvs client, Amazon.Evs.Model.DeleteEnvironmentHostRequest request)
+        private Amazon.SageMaker.Model.DetachClusterNodeVolumeResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DetachClusterNodeVolumeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic VMware Service", "DeleteEnvironmentHost");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DetachClusterNodeVolume");
             try
             {
                 #if DESKTOP
-                return client.DeleteEnvironmentHost(request);
+                return client.DetachClusterNodeVolume(request);
                 #elif CORECLR
-                return client.DeleteEnvironmentHostAsync(request).GetAwaiter().GetResult();
+                return client.DetachClusterNodeVolumeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -254,10 +276,10 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
-            public System.String EnvironmentId { get; set; }
-            public System.String HostName { get; set; }
-            public System.Func<Amazon.Evs.Model.DeleteEnvironmentHostResponse, RemoveEVSEnvironmentHostCmdlet, object> Select { get; set; } =
+            public System.String ClusterArn { get; set; }
+            public System.String NodeId { get; set; }
+            public System.String VolumeId { get; set; }
+            public System.Func<Amazon.SageMaker.Model.DetachClusterNodeVolumeResponse, DismountSMClusterNodeVolumeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

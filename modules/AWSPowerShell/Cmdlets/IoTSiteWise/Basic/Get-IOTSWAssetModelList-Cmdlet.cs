@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// of asset models are returned.</para><ul><li><para><b>ASSET_MODEL</b> – An asset model that you can use to create assets. Can't be included
         /// as a component in another asset model.</para></li><li><para><b>COMPONENT_MODEL</b> – A reusable component that you can include in the composite
         /// models of other asset models. You can't create assets directly from this type of asset
-        /// model. </para></li></ul>
+        /// model. </para></li><li><para><b>INTERFACE</b> – An interface is a type of model that defines a standard structure
+        /// that can be applied to different asset models.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

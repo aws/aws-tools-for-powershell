@@ -28,13 +28,13 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Searches for and retrieves memory records from a memory store based on specified search
-    /// criteria. We recommend using pagination to ensure that the operation returns quickly
-    /// and successfully.
+    /// Searches for and retrieves memory records from an AgentCore Memory resource based
+    /// on specified search criteria. We recommend using pagination to ensure that the operation
+    /// returns quickly and successfully.
     /// 
     ///  
     /// <para>
-    /// To use this operation, you must have the <c>genesismemory:RetrieveMemoryRecords</c>
+    /// To use this operation, you must have the <c>bedrock-agentcore:RetrieveMemoryRecords</c>
     /// permission.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter MemoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the memory store from which to retrieve memory records.</para>
+        /// <para>The identifier of the AgentCore Memory resource from which to retrieve memory records.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

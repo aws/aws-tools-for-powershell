@@ -16951,6 +16951,8 @@ Set-Alias -Name Delete-IOTSWAssetModel -Value Remove-IOTSWAssetModel
 Set-Alias -Name IOTSW-DeleteAssetModel -Value Remove-IOTSWAssetModel
 Set-Alias -Name Delete-IOTSWAssetModelCompositeModel -Value Remove-IOTSWAssetModelCompositeModel
 Set-Alias -Name IOTSW-DeleteAssetModelCompositeModel -Value Remove-IOTSWAssetModelCompositeModel
+Set-Alias -Name Delete-IOTSWAssetModelInterfaceRelationship -Value Remove-IOTSWAssetModelInterfaceRelationship
+Set-Alias -Name IOTSW-DeleteAssetModelInterfaceRelationship -Value Remove-IOTSWAssetModelInterfaceRelationship
 Set-Alias -Name Delete-IOTSWComputationModel -Value Remove-IOTSWComputationModel
 Set-Alias -Name IOTSW-DeleteComputationModel -Value Remove-IOTSWComputationModel
 Set-Alias -Name Delete-IOTSWDashboard -Value Remove-IOTSWDashboard
@@ -16977,6 +16979,8 @@ Set-Alias -Name Describe-IOTSWAssetModel -Value Get-IOTSWAssetModel
 Set-Alias -Name IOTSW-DescribeAssetModel -Value Get-IOTSWAssetModel
 Set-Alias -Name Describe-IOTSWAssetModelCompositeModel -Value Get-IOTSWAssetModelCompositeModel
 Set-Alias -Name IOTSW-DescribeAssetModelCompositeModel -Value Get-IOTSWAssetModelCompositeModel
+Set-Alias -Name Describe-IOTSWAssetModelInterfaceRelationship -Value Get-IOTSWAssetModelInterfaceRelationship
+Set-Alias -Name IOTSW-DescribeAssetModelInterfaceRelationship -Value Get-IOTSWAssetModelInterfaceRelationship
 Set-Alias -Name Describe-IOTSWAssetProperty -Value Get-IOTSWAssetProperty
 Set-Alias -Name IOTSW-DescribeAssetProperty -Value Get-IOTSWAssetProperty
 Set-Alias -Name Describe-IOTSWBulkImportJob -Value Get-IOTSWBulkImportJob
@@ -17078,6 +17082,9 @@ Set-Alias -Name IOTSW-ListExecutions -Value Get-IOTSWExecutionList
 Set-Alias -Name List-IOTSWGateways -Value Get-IOTSWGatewayList
 Set-Alias -Name List-IOTSWGatewayList -Value Get-IOTSWGatewayList
 Set-Alias -Name IOTSW-ListGateways -Value Get-IOTSWGatewayList
+Set-Alias -Name List-IOTSWInterfaceRelationships -Value Get-IOTSWInterfaceRelationshipList
+Set-Alias -Name List-IOTSWInterfaceRelationshipList -Value Get-IOTSWInterfaceRelationshipList
+Set-Alias -Name IOTSW-ListInterfaceRelationships -Value Get-IOTSWInterfaceRelationshipList
 Set-Alias -Name List-IOTSWPortals -Value Get-IOTSWPortalList
 Set-Alias -Name List-IOTSWPortalList -Value Get-IOTSWPortalList
 Set-Alias -Name IOTSW-ListPortals -Value Get-IOTSWPortalList
@@ -17091,6 +17098,8 @@ Set-Alias -Name IOTSW-ListTagsForResource -Value Get-IOTSWResourceTag
 Set-Alias -Name List-IOTSWTimeSeries -Value Get-IOTSWTimeSeriesList
 Set-Alias -Name List-IOTSWTimeSeriesList -Value Get-IOTSWTimeSeriesList
 Set-Alias -Name IOTSW-ListTimeSeries -Value Get-IOTSWTimeSeriesList
+Set-Alias -Name Put-IOTSWAssetModelInterfaceRelationship -Value Write-IOTSWAssetModelInterfaceRelationship
+Set-Alias -Name IOTSW-PutAssetModelInterfaceRelationship -Value Write-IOTSWAssetModelInterfaceRelationship
 Set-Alias -Name Put-IOTSWDefaultEncryptionConfiguration -Value Write-IOTSWDefaultEncryptionConfiguration
 Set-Alias -Name IOTSW-PutDefaultEncryptionConfiguration -Value Write-IOTSWDefaultEncryptionConfiguration
 Set-Alias -Name Put-IOTSWLoggingOptions -Value Write-IOTSWLoggingOption
@@ -27562,6 +27571,8 @@ Set-Alias -Name Add-SMTags -Value Add-SMResourceTag
 Set-Alias -Name SM-AddTags -Value Add-SMResourceTag
 Set-Alias -Name Associate-SMTrialComponent -Value Register-SMTrialComponent
 Set-Alias -Name SM-AssociateTrialComponent -Value Register-SMTrialComponent
+Set-Alias -Name Attach-SMClusterNodeVolume -Value Mount-SMClusterNodeVolume
+Set-Alias -Name SM-AttachClusterNodeVolume -Value Mount-SMClusterNodeVolume
 Set-Alias -Name Batch-SMDeleteClusterNodes -Value Set-SMDeleteClusterNode
 Set-Alias -Name Batch-SMDeleteClusterNode -Value Set-SMDeleteClusterNode
 Set-Alias -Name SM-BatchDeleteClusterNodes -Value Set-SMDeleteClusterNode
@@ -27948,6 +27959,8 @@ Set-Alias -Name Describe-SMWorkforce -Value Get-SMWorkforce
 Set-Alias -Name SM-DescribeWorkforce -Value Get-SMWorkforce
 Set-Alias -Name Describe-SMWorkteam -Value Get-SMWorkteam
 Set-Alias -Name SM-DescribeWorkteam -Value Get-SMWorkteam
+Set-Alias -Name Detach-SMClusterNodeVolume -Value Dismount-SMClusterNodeVolume
+Set-Alias -Name SM-DetachClusterNodeVolume -Value Dismount-SMClusterNodeVolume
 Set-Alias -Name SM-DisableSagemakerServicecatalogPortfolio -Value Disable-SMSagemakerServicecatalogPortfolio
 Set-Alias -Name Disassociate-SMTrialComponent -Value Unregister-SMTrialComponent
 Set-Alias -Name SM-DisassociateTrialComponent -Value Unregister-SMTrialComponent

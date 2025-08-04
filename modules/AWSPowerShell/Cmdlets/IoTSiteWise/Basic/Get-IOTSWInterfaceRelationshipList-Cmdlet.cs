@@ -22,86 +22,49 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.BedrockAgentCore;
-using Amazon.BedrockAgentCore.Model;
+using Amazon.IoTSiteWise;
+using Amazon.IoTSiteWise.Model;
 
-namespace Amazon.PowerShell.Cmdlets.BAC
+namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Lists memory records in an AgentCore Memory resource based on specified criteria.
-    /// We recommend using pagination to ensure that the operation returns quickly and successfully.
-    /// 
-    ///  
-    /// <para>
-    /// To use this operation, you must have the <c>bedrock-agentcore:ListMemoryRecords</c>
-    /// permission.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves a paginated list of asset models that have a specific interface asset model
+    /// applied to them.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "BACMemoryRecordList")]
-    [OutputType("Amazon.BedrockAgentCore.Model.MemoryRecordSummary")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer ListMemoryRecords API operation.", Operation = new[] {"ListMemoryRecords"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.ListMemoryRecordsResponse))]
-    [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.MemoryRecordSummary or Amazon.BedrockAgentCore.Model.ListMemoryRecordsResponse",
-        "This cmdlet returns a collection of Amazon.BedrockAgentCore.Model.MemoryRecordSummary objects.",
-        "The service call response (type Amazon.BedrockAgentCore.Model.ListMemoryRecordsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "IOTSWInterfaceRelationshipList")]
+    [OutputType("Amazon.IoTSiteWise.Model.InterfaceRelationshipSummary")]
+    [AWSCmdlet("Calls the AWS IoT SiteWise ListInterfaceRelationships API operation.", Operation = new[] {"ListInterfaceRelationships"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.ListInterfaceRelationshipsResponse))]
+    [AWSCmdletOutput("Amazon.IoTSiteWise.Model.InterfaceRelationshipSummary or Amazon.IoTSiteWise.Model.ListInterfaceRelationshipsResponse",
+        "This cmdlet returns a collection of Amazon.IoTSiteWise.Model.InterfaceRelationshipSummary objects.",
+        "The service call response (type Amazon.IoTSiteWise.Model.ListInterfaceRelationshipsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetBACMemoryRecordListCmdlet : AmazonBedrockAgentCoreClientCmdlet, IExecutor
+    public partial class GetIOTSWInterfaceRelationshipListCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter MemoryId
+        #region Parameter InterfaceAssetModelId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the AgentCore Memory resource for which to list memory records.</para>
+        /// <para>The ID of the interface asset model. This can be either the actual ID in UUID format,
+        /// or else externalId: followed by the external ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MemoryId { get; set; }
-        #endregion
-        
-        #region Parameter MemoryStrategyId
-        /// <summary>
-        /// <para>
-        /// <para>The memory strategy identifier to filter memory records by. If specified, only memory
-        /// records with this strategy ID are returned.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String MemoryStrategyId { get; set; }
-        #endregion
-        
-        #region Parameter Namespace
-        /// <summary>
-        /// <para>
-        /// <para>The namespace to filter memory records by. If specified, only memory records in this
-        /// namespace are returned.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Namespace { get; set; }
+        public System.String InterfaceAssetModelId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in a single call. Minimum value of 1, maximum
-        /// value of 100. Default is 20.</para>
+        /// <para>The maximum number of results to return for each paginated request. Default: 50</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,8 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results. Use the value returned in the previous response
-        /// in the next request to retrieve the next set of results.</para>
+        /// <para>The token to be used for the next set of paginated results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -126,13 +88,23 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'MemoryRecordSummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCore.Model.ListMemoryRecordsResponse).
-        /// Specifying the name of a property of type Amazon.BedrockAgentCore.Model.ListMemoryRecordsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'InterfaceRelationshipSummaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTSiteWise.Model.ListInterfaceRelationshipsResponse).
+        /// Specifying the name of a property of type Amazon.IoTSiteWise.Model.ListInterfaceRelationshipsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "MemoryRecordSummaries";
+        public string Select { get; set; } = "InterfaceRelationshipSummaries";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the InterfaceAssetModelId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^InterfaceAssetModelId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InterfaceAssetModelId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter NoAutoIteration
@@ -155,27 +127,29 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCore.Model.ListMemoryRecordsResponse, GetBACMemoryRecordListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.ListInterfaceRelationshipsResponse, GetIOTSWInterfaceRelationshipListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.InterfaceAssetModelId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.InterfaceAssetModelId = this.InterfaceAssetModelId;
+            #if MODULAR
+            if (this.InterfaceAssetModelId == null && ParameterWasBound(nameof(this.InterfaceAssetModelId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InterfaceAssetModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.MaxResult = this.MaxResult;
-            context.MemoryId = this.MemoryId;
-            #if MODULAR
-            if (this.MemoryId == null && ParameterWasBound(nameof(this.MemoryId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter MemoryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.MemoryStrategyId = this.MemoryStrategyId;
-            context.Namespace = this.Namespace;
-            #if MODULAR
-            if (this.Namespace == null && ParameterWasBound(nameof(this.Namespace)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Namespace which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -190,26 +164,20 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.BedrockAgentCore.Model.ListMemoryRecordsRequest();
+            var request = new Amazon.IoTSiteWise.Model.ListInterfaceRelationshipsRequest();
             
+            if (cmdletContext.InterfaceAssetModelId != null)
+            {
+                request.InterfaceAssetModelId = cmdletContext.InterfaceAssetModelId;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.MemoryId != null)
-            {
-                request.MemoryId = cmdletContext.MemoryId;
-            }
-            if (cmdletContext.MemoryStrategyId != null)
-            {
-                request.MemoryStrategyId = cmdletContext.MemoryStrategyId;
-            }
-            if (cmdletContext.Namespace != null)
-            {
-                request.Namespace = cmdletContext.Namespace;
             }
             
             // Initialize loop variant and commence piping
@@ -268,15 +236,15 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgentCore.Model.ListMemoryRecordsResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.ListMemoryRecordsRequest request)
+        private Amazon.IoTSiteWise.Model.ListInterfaceRelationshipsResponse CallAWSServiceOperation(IAmazonIoTSiteWise client, Amazon.IoTSiteWise.Model.ListInterfaceRelationshipsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "ListMemoryRecords");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT SiteWise", "ListInterfaceRelationships");
             try
             {
                 #if DESKTOP
-                return client.ListMemoryRecords(request);
+                return client.ListInterfaceRelationships(request);
                 #elif CORECLR
-                return client.ListMemoryRecordsAsync(request).GetAwaiter().GetResult();
+                return client.ListInterfaceRelationshipsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -296,13 +264,11 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String InterfaceAssetModelId { get; set; }
             public System.Int32? MaxResult { get; set; }
-            public System.String MemoryId { get; set; }
-            public System.String MemoryStrategyId { get; set; }
-            public System.String Namespace { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.BedrockAgentCore.Model.ListMemoryRecordsResponse, GetBACMemoryRecordListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.MemoryRecordSummaries;
+            public System.Func<Amazon.IoTSiteWise.Model.ListInterfaceRelationshipsResponse, GetIOTSWInterfaceRelationshipListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.InterfaceRelationshipSummaries;
         }
         
     }

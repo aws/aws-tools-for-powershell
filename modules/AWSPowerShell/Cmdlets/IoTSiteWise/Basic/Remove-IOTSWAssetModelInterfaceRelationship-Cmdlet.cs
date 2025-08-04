@@ -22,30 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Evs;
-using Amazon.Evs.Model;
+using Amazon.IoTSiteWise;
+using Amazon.IoTSiteWise.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EVS
+namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Amazon.Evs.IAmazonEvs.DeleteEnvironment
+    /// Deletes an interface relationship between an asset model and an interface asset model.
     /// </summary>
-    [Cmdlet("Remove", "EVSEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.Evs.Model.Environment")]
-    [AWSCmdlet("Calls the Amazon Elastic VMware Service DeleteEnvironment API operation.", Operation = new[] {"DeleteEnvironment"}, SelectReturnType = typeof(Amazon.Evs.Model.DeleteEnvironmentResponse))]
-    [AWSCmdletOutput("Amazon.Evs.Model.Environment or Amazon.Evs.Model.DeleteEnvironmentResponse",
-        "This cmdlet returns an Amazon.Evs.Model.Environment object.",
-        "The service call response (type Amazon.Evs.Model.DeleteEnvironmentResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "IOTSWAssetModelInterfaceRelationship", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.IoTSiteWise.Model.DeleteAssetModelInterfaceRelationshipResponse")]
+    [AWSCmdlet("Calls the AWS IoT SiteWise DeleteAssetModelInterfaceRelationship API operation.", Operation = new[] {"DeleteAssetModelInterfaceRelationship"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.DeleteAssetModelInterfaceRelationshipResponse))]
+    [AWSCmdletOutput("Amazon.IoTSiteWise.Model.DeleteAssetModelInterfaceRelationshipResponse",
+        "This cmdlet returns an Amazon.IoTSiteWise.Model.DeleteAssetModelInterfaceRelationshipResponse object containing multiple properties."
     )]
-    public partial class RemoveEVSEnvironmentCmdlet : AmazonEvsClientCmdlet, IExecutor
+    public partial class RemoveIOTSWAssetModelInterfaceRelationshipCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter EnvironmentId
+        #region Parameter AssetModelId
         /// <summary>
         /// <para>
-        /// <para>A unique ID associated with the environment to be deleted.</para>
+        /// <para>The ID of the asset model. This can be either the actual ID in UUID format, or else
+        /// externalId: followed by the external ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,16 +56,32 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EnvironmentId { get; set; }
+        public System.String AssetModelId { get; set; }
+        #endregion
+        
+        #region Parameter InterfaceAssetModelId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the interface asset model. This can be either the actual ID in UUID format,
+        /// or else externalId: followed by the external ID.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String InterfaceAssetModelId { get; set; }
         #endregion
         
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para><note><para>This parameter is not used in Amazon EVS currently. If you supply input for this parameter,
-        /// it will have no effect.</para></note><para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the environment deletion request. If you do not specify a client token, a randomly
-        /// generated token is used for the request to ensure idempotency.</para></para>
+        /// <para>A unique case-sensitive identifier that you can provide to ensure the idempotency
+        /// of the request. Don't reuse this client token if a new idempotent request is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,21 +90,21 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Environment'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Evs.Model.DeleteEnvironmentResponse).
-        /// Specifying the name of a property of type Amazon.Evs.Model.DeleteEnvironmentResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTSiteWise.Model.DeleteAssetModelInterfaceRelationshipResponse).
+        /// Specifying the name of a property of type Amazon.IoTSiteWise.Model.DeleteAssetModelInterfaceRelationshipResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Environment";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the EnvironmentId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^EnvironmentId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AssetModelId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AssetModelId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EnvironmentId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AssetModelId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -108,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EnvironmentId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EVSEnvironment (DeleteEnvironment)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AssetModelId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IOTSWAssetModelInterfaceRelationship (DeleteAssetModelInterfaceRelationship)"))
             {
                 return;
             }
@@ -122,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Evs.Model.DeleteEnvironmentResponse, RemoveEVSEnvironmentCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.DeleteAssetModelInterfaceRelationshipResponse, RemoveIOTSWAssetModelInterfaceRelationshipCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -131,15 +147,22 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.EnvironmentId;
+                context.Select = (response, cmdlet) => this.AssetModelId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientToken = this.ClientToken;
-            context.EnvironmentId = this.EnvironmentId;
+            context.AssetModelId = this.AssetModelId;
             #if MODULAR
-            if (this.EnvironmentId == null && ParameterWasBound(nameof(this.EnvironmentId)))
+            if (this.AssetModelId == null && ParameterWasBound(nameof(this.AssetModelId)))
             {
-                WriteWarning("You are passing $null as a value for parameter EnvironmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AssetModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ClientToken = this.ClientToken;
+            context.InterfaceAssetModelId = this.InterfaceAssetModelId;
+            #if MODULAR
+            if (this.InterfaceAssetModelId == null && ParameterWasBound(nameof(this.InterfaceAssetModelId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InterfaceAssetModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -156,15 +179,19 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Evs.Model.DeleteEnvironmentRequest();
+            var request = new Amazon.IoTSiteWise.Model.DeleteAssetModelInterfaceRelationshipRequest();
             
+            if (cmdletContext.AssetModelId != null)
+            {
+                request.AssetModelId = cmdletContext.AssetModelId;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.EnvironmentId != null)
+            if (cmdletContext.InterfaceAssetModelId != null)
             {
-                request.EnvironmentId = cmdletContext.EnvironmentId;
+                request.InterfaceAssetModelId = cmdletContext.InterfaceAssetModelId;
             }
             
             CmdletOutput output;
@@ -199,15 +226,15 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         
         #region AWS Service Operation Call
         
-        private Amazon.Evs.Model.DeleteEnvironmentResponse CallAWSServiceOperation(IAmazonEvs client, Amazon.Evs.Model.DeleteEnvironmentRequest request)
+        private Amazon.IoTSiteWise.Model.DeleteAssetModelInterfaceRelationshipResponse CallAWSServiceOperation(IAmazonIoTSiteWise client, Amazon.IoTSiteWise.Model.DeleteAssetModelInterfaceRelationshipRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic VMware Service", "DeleteEnvironment");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT SiteWise", "DeleteAssetModelInterfaceRelationship");
             try
             {
                 #if DESKTOP
-                return client.DeleteEnvironment(request);
+                return client.DeleteAssetModelInterfaceRelationship(request);
                 #elif CORECLR
-                return client.DeleteEnvironmentAsync(request).GetAwaiter().GetResult();
+                return client.DeleteAssetModelInterfaceRelationshipAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -227,10 +254,11 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AssetModelId { get; set; }
             public System.String ClientToken { get; set; }
-            public System.String EnvironmentId { get; set; }
-            public System.Func<Amazon.Evs.Model.DeleteEnvironmentResponse, RemoveEVSEnvironmentCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Environment;
+            public System.String InterfaceAssetModelId { get; set; }
+            public System.Func<Amazon.IoTSiteWise.Model.DeleteAssetModelInterfaceRelationshipResponse, RemoveIOTSWAssetModelInterfaceRelationshipCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

@@ -28,12 +28,12 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Lists all actors in a memory store. We recommend using pagination to ensure that the
-    /// operation returns quickly and successfully.
+    /// Lists all actors in an AgentCore Memory resource. We recommend using pagination to
+    /// ensure that the operation returns quickly and successfully.
     /// 
     ///  
     /// <para>
-    /// To use this operation, you must have the <c>genesismemory:ListActors</c> permission.
+    /// To use this operation, you must have the <c>bedrock-agentcore:ListActors</c> permission.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BACActorList")]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter MemoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the memory store for which to list actors.</para>
+        /// <para>The identifier of the AgentCore Memory resource for which to list actors.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

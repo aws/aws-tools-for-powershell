@@ -28,7 +28,7 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Reaturns the Oauth2Token of the provided resource
+    /// Returns the OAuth 2.0 token of the provided resource
     /// </summary>
     [Cmdlet("Get", "BACResourceOauth2Token")]
     [OutputType("Amazon.BedrockAgentCore.Model.GetResourceOauth2TokenResponse")]
@@ -130,16 +130,6 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String[] Scope { get; set; }
         #endregion
         
-        #region Parameter UserId
-        /// <summary>
-        /// <para>
-        /// <para>The user ID of the user you're retrieving the token on behalf of.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String UserId { get; set; }
-        #endregion
-        
         #region Parameter WorkloadIdentityToken
         /// <summary>
         /// <para>
@@ -217,7 +207,6 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 WriteWarning("You are passing $null as a value for parameter Scope which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.UserId = this.UserId;
             context.WorkloadIdentityToken = this.WorkloadIdentityToken;
             #if MODULAR
             if (this.WorkloadIdentityToken == null && ParameterWasBound(nameof(this.WorkloadIdentityToken)))
@@ -264,10 +253,6 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (cmdletContext.Scope != null)
             {
                 request.Scopes = cmdletContext.Scope;
-            }
-            if (cmdletContext.UserId != null)
-            {
-                request.UserId = cmdletContext.UserId;
             }
             if (cmdletContext.WorkloadIdentityToken != null)
             {
@@ -340,7 +325,6 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.String ResourceCredentialProviderName { get; set; }
             public System.String ResourceOauth2ReturnUrl { get; set; }
             public List<System.String> Scope { get; set; }
-            public System.String UserId { get; set; }
             public System.String WorkloadIdentityToken { get; set; }
             public System.Func<Amazon.BedrockAgentCore.Model.GetResourceOauth2TokenResponse, GetBACResourceOauth2TokenCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

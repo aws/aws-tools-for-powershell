@@ -1,4 +1,17 @@
-﻿### 4.1.870 (2025-08-01 20:08Z)
+﻿### 4.1.871 (2025-08-04 23:39Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1094.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * [Breaking Change] Modified cmdlet Get-BACResourceOauth2Token: removed parameter UserId.
+  * Amazon IoT SiteWise
+    * Added cmdlet Get-IOTSWAssetModelInterfaceRelationship leveraging the DescribeAssetModelInterfaceRelationship service API.
+    * Added cmdlet Get-IOTSWInterfaceRelationshipList leveraging the ListInterfaceRelationships service API.
+    * Added cmdlet Remove-IOTSWAssetModelInterfaceRelationship leveraging the DeleteAssetModelInterfaceRelationship service API.
+    * Added cmdlet Write-IOTSWAssetModelInterfaceRelationship leveraging the PutAssetModelInterfaceRelationship service API.
+  * Amazon SageMaker Service
+    * Added cmdlet Dismount-SMClusterNodeVolume leveraging the DetachClusterNodeVolume service API.
+    * Added cmdlet Mount-SMClusterNodeVolume leveraging the AttachClusterNodeVolume service API.
+
+### 4.1.870 (2025-08-01 20:08Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1093.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon ARC - Region switch. Added cmdlets to support the service. Cmdlets for the service have the noun prefix ARC and can be listed using the command 'Get-AWSCmdletName -Service ARC'.
   * Amazon CloudWatch Observability Admin Service

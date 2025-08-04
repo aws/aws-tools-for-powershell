@@ -28,7 +28,7 @@ using Amazon.Evs.Model;
 namespace Amazon.PowerShell.Cmdlets.EVS
 {
     /// <summary>
-    /// Deletes specified tags from an Amazon EVS resource.
+    /// Amazon.Evs.IAmazonEvs.UntagResource
     /// </summary>
     [Cmdlet("Remove", "EVSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

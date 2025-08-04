@@ -28,11 +28,11 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Retrieves information about a specific event in a memory store.
+    /// Retrieves information about a specific event in an AgentCore Memory resource.
     /// 
     ///  
     /// <para>
-    /// To use this operation, you must have the <c>genesismemory:GetEvent</c> permission.
+    /// To use this operation, you must have the <c>bedrock-agentcore:GetEvent</c> permission.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "BACEvent")]
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter MemoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the memory store containing the event.</para>
+        /// <para>The identifier of the AgentCore Memory resource containing the event.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.Evs.Model;
 namespace Amazon.PowerShell.Cmdlets.EVS
 {
     /// <summary>
-    /// Returns a description of the specified environment.
+    /// Amazon.Evs.IAmazonEvs.GetEnvironment
     /// </summary>
     [Cmdlet("Get", "EVSEnvironment")]
     [OutputType("Amazon.Evs.Model.Environment")]

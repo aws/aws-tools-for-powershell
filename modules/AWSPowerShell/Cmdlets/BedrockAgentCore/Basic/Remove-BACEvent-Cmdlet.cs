@@ -28,12 +28,12 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Deletes an event from a memory store. When you delete an event, it is permanently
-    /// removed.
+    /// Deletes an event from an AgentCore Memory resource. When you delete an event, it is
+    /// permanently removed.
     /// 
     ///  
     /// <para>
-    /// To use this operation, you must have the <c>genesismemory:DeleteEvent</c> permission.
+    /// To use this operation, you must have the <c>bedrock-agentcore:DeleteEvent</c> permission.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "BACEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter MemoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the memory store from which to delete the event.</para>
+        /// <para>The identifier of the AgentCore Memory resource from which to delete the event.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

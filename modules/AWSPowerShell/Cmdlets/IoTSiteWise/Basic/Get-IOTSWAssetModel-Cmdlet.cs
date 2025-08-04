@@ -28,7 +28,9 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Retrieves information about an asset model.
+    /// Retrieves information about an asset model. This includes details about the asset
+    /// model's properties, hierarchies, composite models, and any interface relationships
+    /// if the asset model implements interfaces.
     /// </summary>
     [Cmdlet("Get", "IOTSWAssetModel")]
     [OutputType("Amazon.IoTSiteWise.Model.DescribeAssetModelResponse")]
