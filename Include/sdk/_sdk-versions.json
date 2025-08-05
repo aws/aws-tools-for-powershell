@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.62.0",
+    "ProductVersion"    : "4.0.63.0",
     "CoreVersion"       : "4.0.0.20",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -146,7 +146,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "4.0.3.2",
+            "Version" : "4.0.3.3",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.20"
@@ -284,7 +284,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "4.0.4.5",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.20"
@@ -932,7 +932,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "4.0.15.0",
+            "Version" : "4.0.16.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.20"
@@ -1108,7 +1108,7 @@
             "InPreview"               : false
         },
         "EKS"                             : {
-            "Version" : "4.0.2.9",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.20"
@@ -2748,7 +2748,7 @@
             "InPreview"               : false
         },
         "BedrockRuntime"                      : {
-            "Version" : "4.0.2.2",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.20"
@@ -2756,7 +2756,7 @@
             "InPreview"               : false
         },
         "Bedrock"                             : {
-            "Version" : "4.0.8.2",
+            "Version" : "4.0.9.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.20"

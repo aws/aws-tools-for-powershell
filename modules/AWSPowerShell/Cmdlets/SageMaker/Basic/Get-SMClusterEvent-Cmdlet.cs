@@ -30,17 +30,18 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Retrieves information of a node (also called a <i>instance</i> interchangeably) of
-    /// a SageMaker HyperPod cluster.
+    /// Retrieves detailed information about a specific event for a given HyperPod cluster.
+    /// This functionality is only supported when the <c>NodeProvisioningMode</c> is set to
+    /// <c>Continuous</c>.
     /// </summary>
-    [Cmdlet("Get", "SMClusterNode")]
-    [OutputType("Amazon.SageMaker.Model.ClusterNodeDetails")]
-    [AWSCmdlet("Calls the Amazon SageMaker Service DescribeClusterNode API operation.", Operation = new[] {"DescribeClusterNode"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DescribeClusterNodeResponse))]
-    [AWSCmdletOutput("Amazon.SageMaker.Model.ClusterNodeDetails or Amazon.SageMaker.Model.DescribeClusterNodeResponse",
-        "This cmdlet returns an Amazon.SageMaker.Model.ClusterNodeDetails object.",
-        "The service call response (type Amazon.SageMaker.Model.DescribeClusterNodeResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "SMClusterEvent")]
+    [OutputType("Amazon.SageMaker.Model.ClusterEventDetail")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service DescribeClusterEvent API operation.", Operation = new[] {"DescribeClusterEvent"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DescribeClusterEventResponse))]
+    [AWSCmdletOutput("Amazon.SageMaker.Model.ClusterEventDetail or Amazon.SageMaker.Model.DescribeClusterEventResponse",
+        "This cmdlet returns an Amazon.SageMaker.Model.ClusterEventDetail object.",
+        "The service call response (type Amazon.SageMaker.Model.DescribeClusterEventResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetSMClusterNodeCmdlet : AmazonSageMakerClientCmdlet, IExecutor
+    public partial class GetSMClusterEventCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -49,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster
-        /// in which the node is.</para>
+        /// <para>The name or Amazon Resource Name (ARN) of the HyperPod cluster associated with the
+        /// event.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,37 +65,33 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ClusterName { get; set; }
         #endregion
         
-        #region Parameter NodeId
+        #region Parameter EventId
         /// <summary>
         /// <para>
-        /// <para>The ID of the SageMaker HyperPod cluster node.</para>
+        /// <para>The unique identifier (UUID) of the event to describe. This ID can be obtained from
+        /// the <c>ListClusterEvents</c> operation.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NodeId { get; set; }
-        #endregion
-        
-        #region Parameter NodeLogicalId
-        /// <summary>
-        /// <para>
-        /// <para>The logical identifier of the node to describe. You can specify either <c>NodeLogicalId</c>
-        /// or <c>InstanceId</c>, but not both. <c>NodeLogicalId</c> can be used to describe nodes
-        /// that are still being provisioned and don't yet have an <c>InstanceId</c> assigned.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NodeLogicalId { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String EventId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'NodeDetails'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.DescribeClusterNodeResponse).
-        /// Specifying the name of a property of type Amazon.SageMaker.Model.DescribeClusterNodeResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'EventDetails'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.DescribeClusterEventResponse).
+        /// Specifying the name of a property of type Amazon.SageMaker.Model.DescribeClusterEventResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "NodeDetails";
+        public string Select { get; set; } = "EventDetails";
         #endregion
         
         protected override void StopProcessing()
@@ -113,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DescribeClusterNodeResponse, GetSMClusterNodeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DescribeClusterEventResponse, GetSMClusterEventCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClusterName = this.ClusterName;
@@ -123,8 +120,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.NodeId = this.NodeId;
-            context.NodeLogicalId = this.NodeLogicalId;
+            context.EventId = this.EventId;
+            #if MODULAR
+            if (this.EventId == null && ParameterWasBound(nameof(this.EventId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter EventId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -139,19 +141,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SageMaker.Model.DescribeClusterNodeRequest();
+            var request = new Amazon.SageMaker.Model.DescribeClusterEventRequest();
             
             if (cmdletContext.ClusterName != null)
             {
                 request.ClusterName = cmdletContext.ClusterName;
             }
-            if (cmdletContext.NodeId != null)
+            if (cmdletContext.EventId != null)
             {
-                request.NodeId = cmdletContext.NodeId;
-            }
-            if (cmdletContext.NodeLogicalId != null)
-            {
-                request.NodeLogicalId = cmdletContext.NodeLogicalId;
+                request.EventId = cmdletContext.EventId;
             }
             
             CmdletOutput output;
@@ -186,12 +184,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region AWS Service Operation Call
         
-        private Amazon.SageMaker.Model.DescribeClusterNodeResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DescribeClusterNodeRequest request)
+        private Amazon.SageMaker.Model.DescribeClusterEventResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DescribeClusterEventRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DescribeClusterNode");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DescribeClusterEvent");
             try
             {
-                return client.DescribeClusterNodeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DescribeClusterEventAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -209,10 +207,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClusterName { get; set; }
-            public System.String NodeId { get; set; }
-            public System.String NodeLogicalId { get; set; }
-            public System.Func<Amazon.SageMaker.Model.DescribeClusterNodeResponse, GetSMClusterNodeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.NodeDetails;
+            public System.String EventId { get; set; }
+            public System.Func<Amazon.SageMaker.Model.DescribeClusterEventResponse, GetSMClusterEventCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.EventDetails;
         }
         
     }

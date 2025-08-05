@@ -93,6 +93,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.ClusterInstanceGroupSpecification[] InstanceGroup { get; set; }
         #endregion
         
+        #region Parameter NodeProvisioningMode
+        /// <summary>
+        /// <para>
+        /// <para>The mode for provisioning nodes in the cluster. You can specify the following modes:</para><ul><li><para><b>Continuous</b>: Scaling behavior that enables 1) concurrent operation execution
+        /// within instance groups, 2) continuous retry mechanisms for failed operations, 3) enhanced
+        /// customer visibility into cluster events through detailed event streams, 4) partial
+        /// provisioning capabilities. Your clusters and instance groups remain <c>InService</c>
+        /// while scaling. This mode is only supported for EKS orchestrated clusters.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ClusterNodeProvisioningMode")]
+        public Amazon.SageMaker.ClusterNodeProvisioningMode NodeProvisioningMode { get; set; }
+        #endregion
+        
         #region Parameter NodeRecovery
         /// <summary>
         /// <para>
@@ -232,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.InstanceGroup = new List<Amazon.SageMaker.Model.ClusterInstanceGroupSpecification>(this.InstanceGroup);
             }
+            context.NodeProvisioningMode = this.NodeProvisioningMode;
             context.NodeRecovery = this.NodeRecovery;
             context.Eks_ClusterArn = this.Eks_ClusterArn;
             if (this.RestrictedInstanceGroup != null)
@@ -273,6 +289,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.InstanceGroup != null)
             {
                 request.InstanceGroups = cmdletContext.InstanceGroup;
+            }
+            if (cmdletContext.NodeProvisioningMode != null)
+            {
+                request.NodeProvisioningMode = cmdletContext.NodeProvisioningMode;
             }
             if (cmdletContext.NodeRecovery != null)
             {
@@ -406,6 +426,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             public System.String ClusterName { get; set; }
             public List<Amazon.SageMaker.Model.ClusterInstanceGroupSpecification> InstanceGroup { get; set; }
+            public Amazon.SageMaker.ClusterNodeProvisioningMode NodeProvisioningMode { get; set; }
             public Amazon.SageMaker.ClusterNodeRecovery NodeRecovery { get; set; }
             public System.String Eks_ClusterArn { get; set; }
             public List<Amazon.SageMaker.Model.ClusterRestrictedInstanceGroupSpecification> RestrictedInstanceGroup { get; set; }

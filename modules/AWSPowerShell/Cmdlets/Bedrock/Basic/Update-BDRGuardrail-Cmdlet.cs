@@ -110,6 +110,17 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public System.String BlockedOutputsMessaging { get; set; }
         #endregion
         
+        #region Parameter AutomatedReasoningPolicyConfig_ConfidenceThreshold
+        /// <summary>
+        /// <para>
+        /// <para>The confidence threshold for triggering guardrail actions based on Automated Reasoning
+        /// policy violations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? AutomatedReasoningPolicyConfig_ConfidenceThreshold { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -234,6 +245,21 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public Amazon.Bedrock.Model.GuardrailPiiEntityConfig[] SensitiveInformationPolicyConfig_PiiEntitiesConfig { get; set; }
         #endregion
         
+        #region Parameter AutomatedReasoningPolicyConfig_Policy
+        /// <summary>
+        /// <para>
+        /// <para>The list of Automated Reasoning policy ARNs to include in the guardrail configuration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutomatedReasoningPolicyConfig_Policies")]
+        public System.String[] AutomatedReasoningPolicyConfig_Policy { get; set; }
+        #endregion
+        
         #region Parameter SensitiveInformationPolicyConfig_RegexesConfig
         /// <summary>
         /// <para>
@@ -352,6 +378,11 @@ namespace Amazon.PowerShell.Cmdlets.BDR
                 context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.UpdateGuardrailResponse, UpdateBDRGuardrailCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AutomatedReasoningPolicyConfig_ConfidenceThreshold = this.AutomatedReasoningPolicyConfig_ConfidenceThreshold;
+            if (this.AutomatedReasoningPolicyConfig_Policy != null)
+            {
+                context.AutomatedReasoningPolicyConfig_Policy = new List<System.String>(this.AutomatedReasoningPolicyConfig_Policy);
+            }
             context.BlockedInputMessaging = this.BlockedInputMessaging;
             #if MODULAR
             if (this.BlockedInputMessaging == null && ParameterWasBound(nameof(this.BlockedInputMessaging)))
@@ -429,6 +460,35 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             // create request
             var request = new Amazon.Bedrock.Model.UpdateGuardrailRequest();
             
+            
+             // populate AutomatedReasoningPolicyConfig
+            var requestAutomatedReasoningPolicyConfigIsNull = true;
+            request.AutomatedReasoningPolicyConfig = new Amazon.Bedrock.Model.GuardrailAutomatedReasoningPolicyConfig();
+            System.Double? requestAutomatedReasoningPolicyConfig_automatedReasoningPolicyConfig_ConfidenceThreshold = null;
+            if (cmdletContext.AutomatedReasoningPolicyConfig_ConfidenceThreshold != null)
+            {
+                requestAutomatedReasoningPolicyConfig_automatedReasoningPolicyConfig_ConfidenceThreshold = cmdletContext.AutomatedReasoningPolicyConfig_ConfidenceThreshold.Value;
+            }
+            if (requestAutomatedReasoningPolicyConfig_automatedReasoningPolicyConfig_ConfidenceThreshold != null)
+            {
+                request.AutomatedReasoningPolicyConfig.ConfidenceThreshold = requestAutomatedReasoningPolicyConfig_automatedReasoningPolicyConfig_ConfidenceThreshold.Value;
+                requestAutomatedReasoningPolicyConfigIsNull = false;
+            }
+            List<System.String> requestAutomatedReasoningPolicyConfig_automatedReasoningPolicyConfig_Policy = null;
+            if (cmdletContext.AutomatedReasoningPolicyConfig_Policy != null)
+            {
+                requestAutomatedReasoningPolicyConfig_automatedReasoningPolicyConfig_Policy = cmdletContext.AutomatedReasoningPolicyConfig_Policy;
+            }
+            if (requestAutomatedReasoningPolicyConfig_automatedReasoningPolicyConfig_Policy != null)
+            {
+                request.AutomatedReasoningPolicyConfig.Policies = requestAutomatedReasoningPolicyConfig_automatedReasoningPolicyConfig_Policy;
+                requestAutomatedReasoningPolicyConfigIsNull = false;
+            }
+             // determine if request.AutomatedReasoningPolicyConfig should be set to null
+            if (requestAutomatedReasoningPolicyConfigIsNull)
+            {
+                request.AutomatedReasoningPolicyConfig = null;
+            }
             if (cmdletContext.BlockedInputMessaging != null)
             {
                 request.BlockedInputMessaging = cmdletContext.BlockedInputMessaging;
@@ -692,6 +752,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Double? AutomatedReasoningPolicyConfig_ConfidenceThreshold { get; set; }
+            public List<System.String> AutomatedReasoningPolicyConfig_Policy { get; set; }
             public System.String BlockedInputMessaging { get; set; }
             public System.String BlockedOutputsMessaging { get; set; }
             public List<Amazon.Bedrock.Model.GuardrailContentFilterConfig> ContentPolicyConfig_FiltersConfig { get; set; }

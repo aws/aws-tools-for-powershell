@@ -23,6 +23,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelAutomatedReasoningPolicyBuildWorkflow" Verb="Stop" Noun="AutomatedReasoningPolicyBuildWorkflow" ShouldProcessTarget="BuildWorkflowId" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAutomatedReasoningPolicy" OutputProperty="*" Verb="New" Noun="AutomatedReasoningPolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAutomatedReasoningPolicyTestCase" OutputProperty="*" Verb="New" Noun="AutomatedReasoningPolicyTestCase" ShouldProcessTarget="PolicyArn" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAutomatedReasoningPolicyVersion" OutputProperty="*" Verb="New" Noun="AutomatedReasoningPolicyVersion" ShouldProcessTarget="PolicyArn" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCustomModel" OutputProperty="ModelArn" Verb="New" Noun="CustomModel" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -84,6 +100,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAutomatedReasoningPolicy" Verb="Remove" Noun="AutomatedReasoningPolicy" ShouldProcessTarget="PolicyArn" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAutomatedReasoningPolicyBuildWorkflow" Verb="Remove" Noun="AutomatedReasoningPolicyBuildWorkflow" ShouldProcessTarget="BuildWorkflowId" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAutomatedReasoningPolicyTestCase" Verb="Remove" Noun="AutomatedReasoningPolicyTestCase" ShouldProcessTarget="TestCaseId" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCustomModel" Verb="Remove" Noun="CustomModel" ShouldProcessTarget="ModelIdentifier" PipelineParameter="ModelIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -125,6 +153,38 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeregisterMarketplaceModelEndpoint" Verb="Unregister" Noun="MarketplaceModelEndpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExportAutomatedReasoningPolicyVersion" OutputProperty="PolicyDefinition" Verb="Export" Noun="AutomatedReasoningPolicyVersion" ShouldProcessTarget="PolicyArn" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAutomatedReasoningPolicy" OutputProperty="*" Verb="Get" Noun="AutomatedReasoningPolicy" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAutomatedReasoningPolicyAnnotations" OutputProperty="*" Verb="Get" Noun="AutomatedReasoningPolicyAnnotation" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAutomatedReasoningPolicyBuildWorkflow" OutputProperty="*" Verb="Get" Noun="AutomatedReasoningPolicyBuildWorkflow" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAutomatedReasoningPolicyBuildWorkflowResultAssets" OutputProperty="*" Verb="Get" Noun="AutomatedReasoningPolicyBuildWorkflowResultAsset" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAutomatedReasoningPolicyNextScenario" OutputProperty="*" Verb="Get" Noun="AutomatedReasoningPolicyNextScenario" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAutomatedReasoningPolicyTestCase" OutputProperty="*" Verb="Get" Noun="AutomatedReasoningPolicyTestCase" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAutomatedReasoningPolicyTestResult" OutputProperty="TestResult" Verb="Get" Noun="AutomatedReasoningPolicyTestResult" PipelineParameter="PolicyArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -193,6 +253,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetUseCaseForModelAccess" OutputProperty="FormData" Verb="Get" Noun="UseCaseForModelAccess" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAutomatedReasoningPolicies" OutputProperty="AutomatedReasoningPolicySummaries" Verb="Get" Noun="AutomatedReasoningPolicyList" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAutomatedReasoningPolicyBuildWorkflows" OutputProperty="AutomatedReasoningPolicyBuildWorkflowSummaries" Verb="Get" Noun="AutomatedReasoningPolicyBuildWorkflowList" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAutomatedReasoningPolicyTestCases" OutputProperty="*" Verb="Get" Noun="AutomatedReasoningPolicyTestCaseList" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAutomatedReasoningPolicyTestResults" OutputProperty="TestResults" Verb="Get" Noun="AutomatedReasoningPolicyTestResultList" PipelineParameter="PolicyArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -272,6 +348,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartAutomatedReasoningPolicyBuildWorkflow" OutputProperty="*" Verb="Start" Noun="AutomatedReasoningPolicyBuildWorkflow" ShouldProcessTarget="PolicyArn" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartAutomatedReasoningPolicyTestWorkflow" OutputProperty="PolicyArn" Verb="Start" Noun="AutomatedReasoningPolicyTestWorkflow" ShouldProcessTarget="BuildWorkflowId" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopEvaluationJob" Verb="Stop" Noun="EvaluationJob" ShouldProcessTarget="JobIdentifier" PipelineParameter="JobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -289,6 +373,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAutomatedReasoningPolicy" OutputProperty="*" Verb="Update" Noun="AutomatedReasoningPolicy" ShouldProcessTarget="PolicyArn" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAutomatedReasoningPolicyAnnotations" OutputProperty="*" Verb="Update" Noun="AutomatedReasoningPolicyAnnotation" ShouldProcessTarget="BuildWorkflowId" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAutomatedReasoningPolicyTestCase" OutputProperty="*" Verb="Update" Noun="AutomatedReasoningPolicyTestCase" ShouldProcessTarget="TestCaseId" PipelineParameter="PolicyArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

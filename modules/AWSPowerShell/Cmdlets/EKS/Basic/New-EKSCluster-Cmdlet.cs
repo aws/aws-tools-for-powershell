@@ -166,6 +166,18 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.String OutpostConfig_ControlPlaneInstanceType { get; set; }
         #endregion
         
+        #region Parameter DeletionProtection
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to enable deletion protection for the cluster. When enabled, the
+        /// cluster cannot be deleted unless deletion protection is first disabled. This helps
+        /// prevent accidental cluster deletion. Default value is <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeletionProtection { get; set; }
+        #endregion
+        
         #region Parameter ComputeConfig_Enabled
         /// <summary>
         /// <para>
@@ -534,6 +546,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 context.ComputeConfig_NodePool = new List<System.String>(this.ComputeConfig_NodePool);
             }
             context.ComputeConfig_NodeRoleArn = this.ComputeConfig_NodeRoleArn;
+            context.DeletionProtection = this.DeletionProtection;
             if (this.EncryptionConfig != null)
             {
                 context.EncryptionConfig = new List<Amazon.EKS.Model.EncryptionConfig>(this.EncryptionConfig);
@@ -683,6 +696,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (requestComputeConfigIsNull)
             {
                 request.ComputeConfig = null;
+            }
+            if (cmdletContext.DeletionProtection != null)
+            {
+                request.DeletionProtection = cmdletContext.DeletionProtection.Value;
             }
             if (cmdletContext.EncryptionConfig != null)
             {
@@ -998,6 +1015,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.Boolean? ComputeConfig_Enabled { get; set; }
             public List<System.String> ComputeConfig_NodePool { get; set; }
             public System.String ComputeConfig_NodeRoleArn { get; set; }
+            public System.Boolean? DeletionProtection { get; set; }
             public List<Amazon.EKS.Model.EncryptionConfig> EncryptionConfig { get; set; }
             public System.Boolean? ElasticLoadBalancing_Enabled { get; set; }
             public Amazon.EKS.IpFamily KubernetesNetworkConfig_IpFamily { get; set; }

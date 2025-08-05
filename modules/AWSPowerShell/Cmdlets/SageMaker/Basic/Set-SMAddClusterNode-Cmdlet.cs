@@ -30,28 +30,23 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Deletes specific nodes within a SageMaker HyperPod cluster. <c>BatchDeleteClusterNodes</c>
-    /// accepts a cluster name and a list of node IDs.
+    /// Adds nodes to a HyperPod cluster by incrementing the target count for one or more
+    /// instance groups. This operation returns a unique <c>NodeLogicalId</c> for each node
+    /// being added, which can be used to track the provisioning status of the node. This
+    /// API provides a safer alternative to <c>UpdateCluster</c> for scaling operations by
+    /// avoiding unintended configuration changes.
     /// 
-    ///  <important><ul><li><para>
-    /// To safeguard your work, back up your data to Amazon S3 or an FSx for Lustre file system
-    /// before invoking the API on a worker node group. This will help prevent any potential
-    /// data loss from the instance root volume. For more information about backup, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-operate-cli-command.html#sagemaker-hyperpod-operate-cli-command-update-cluster-software-backup">Use
-    /// the backup script provided by SageMaker HyperPod</a>. 
-    /// </para></li><li><para>
-    /// If you want to invoke this API on an existing cluster, you'll first need to patch
-    /// the cluster by running the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateClusterSoftware.html">UpdateClusterSoftware
-    /// API</a>. For more information about patching a cluster, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-operate-cli-command.html#sagemaker-hyperpod-operate-cli-command-update-cluster-software">Update
-    /// the SageMaker HyperPod platform software of a cluster</a>.
-    /// </para></li></ul></important>
+    ///  <note><para>
+    /// This API is only supported for clusters using <c>Continuous</c> as the <c>NodeProvisioningMode</c>.
+    /// </para></note>
     /// </summary>
-    [Cmdlet("Set", "SMDeleteClusterNode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.SageMaker.Model.BatchDeleteClusterNodesResponse")]
-    [AWSCmdlet("Calls the Amazon SageMaker Service BatchDeleteClusterNodes API operation.", Operation = new[] {"BatchDeleteClusterNodes"}, SelectReturnType = typeof(Amazon.SageMaker.Model.BatchDeleteClusterNodesResponse))]
-    [AWSCmdletOutput("Amazon.SageMaker.Model.BatchDeleteClusterNodesResponse",
-        "This cmdlet returns an Amazon.SageMaker.Model.BatchDeleteClusterNodesResponse object containing multiple properties."
+    [Cmdlet("Set", "SMAddClusterNode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.SageMaker.Model.BatchAddClusterNodesResponse")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service BatchAddClusterNodes API operation.", Operation = new[] {"BatchAddClusterNodes"}, SelectReturnType = typeof(Amazon.SageMaker.Model.BatchAddClusterNodesResponse))]
+    [AWSCmdletOutput("Amazon.SageMaker.Model.BatchAddClusterNodesResponse",
+        "This cmdlet returns an Amazon.SageMaker.Model.BatchAddClusterNodesResponse object containing multiple properties."
     )]
-    public partial class SetSMDeleteClusterNodeCmdlet : AmazonSageMakerClientCmdlet, IExecutor
+    public partial class SetSMAddClusterNodeCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -60,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The name of the SageMaker HyperPod cluster from which to delete the specified nodes.</para>
+        /// <para>The name of the HyperPod cluster to which you want to add nodes.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,45 +69,47 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ClusterName { get; set; }
         #endregion
         
-        #region Parameter NodeId
+        #region Parameter NodesToAdd
         /// <summary>
         /// <para>
-        /// <para>A list of node IDs to be deleted from the specified cluster.</para><note><ul><li><para>For SageMaker HyperPod clusters using the Slurm workload manager, you cannot remove
-        /// instances that are configured as Slurm controller nodes.</para></li><li><para>If you need to delete more than 99 instances, contact <a href="http://aws.amazon.com/contact-us/">Support</a>
-        /// for assistance.</para></li></ul></note><para />
+        /// <para>A list of instance groups and the number of nodes to add to each. You can specify
+        /// up to 5 instance groups in a single request, with a maximum of 50 nodes total across
+        /// all instance groups.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("NodeIds")]
-        public System.String[] NodeId { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public Amazon.SageMaker.Model.AddClusterNodeSpecification[] NodesToAdd { get; set; }
         #endregion
         
-        #region Parameter NodeLogicalId
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A list of <c>NodeLogicalIds</c> identifying the nodes to be deleted. You can specify
-        /// up to 50 <c>NodeLogicalIds</c>. You must specify either <c>NodeLogicalIds</c>, <c>InstanceIds</c>,
-        /// or both, with a combined maximum of 50 identifiers.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. This token is valid for 8 hours. If you retry the request with the same
+        /// client token within this timeframe and the same parameters, the API returns the same
+        /// set of <c>NodeLogicalIds</c> with their latest status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("NodeLogicalIds")]
-        public System.String[] NodeLogicalId { get; set; }
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.BatchDeleteClusterNodesResponse).
-        /// Specifying the name of a property of type Amazon.SageMaker.Model.BatchDeleteClusterNodesResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.BatchAddClusterNodesResponse).
+        /// Specifying the name of a property of type Amazon.SageMaker.Model.BatchAddClusterNodesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ClusterName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-SMDeleteClusterNode (BatchDeleteClusterNodes)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-SMAddClusterNode (BatchAddClusterNodes)"))
             {
                 return;
             }
@@ -151,9 +148,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.BatchDeleteClusterNodesResponse, SetSMDeleteClusterNodeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.BatchAddClusterNodesResponse, SetSMAddClusterNodeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ClientToken = this.ClientToken;
             context.ClusterName = this.ClusterName;
             #if MODULAR
             if (this.ClusterName == null && ParameterWasBound(nameof(this.ClusterName)))
@@ -161,14 +159,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.NodeId != null)
+            if (this.NodesToAdd != null)
             {
-                context.NodeId = new List<System.String>(this.NodeId);
+                context.NodesToAdd = new List<Amazon.SageMaker.Model.AddClusterNodeSpecification>(this.NodesToAdd);
             }
-            if (this.NodeLogicalId != null)
+            #if MODULAR
+            if (this.NodesToAdd == null && ParameterWasBound(nameof(this.NodesToAdd)))
             {
-                context.NodeLogicalId = new List<System.String>(this.NodeLogicalId);
+                WriteWarning("You are passing $null as a value for parameter NodesToAdd which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -183,19 +183,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SageMaker.Model.BatchDeleteClusterNodesRequest();
+            var request = new Amazon.SageMaker.Model.BatchAddClusterNodesRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.ClusterName != null)
             {
                 request.ClusterName = cmdletContext.ClusterName;
             }
-            if (cmdletContext.NodeId != null)
+            if (cmdletContext.NodesToAdd != null)
             {
-                request.NodeIds = cmdletContext.NodeId;
-            }
-            if (cmdletContext.NodeLogicalId != null)
-            {
-                request.NodeLogicalIds = cmdletContext.NodeLogicalId;
+                request.NodesToAdd = cmdletContext.NodesToAdd;
             }
             
             CmdletOutput output;
@@ -230,12 +230,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region AWS Service Operation Call
         
-        private Amazon.SageMaker.Model.BatchDeleteClusterNodesResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.BatchDeleteClusterNodesRequest request)
+        private Amazon.SageMaker.Model.BatchAddClusterNodesResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.BatchAddClusterNodesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "BatchDeleteClusterNodes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "BatchAddClusterNodes");
             try
             {
-                return client.BatchDeleteClusterNodesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.BatchAddClusterNodesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -252,10 +252,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public System.String ClusterName { get; set; }
-            public List<System.String> NodeId { get; set; }
-            public List<System.String> NodeLogicalId { get; set; }
-            public System.Func<Amazon.SageMaker.Model.BatchDeleteClusterNodesResponse, SetSMDeleteClusterNodeCmdlet, object> Select { get; set; } =
+            public List<Amazon.SageMaker.Model.AddClusterNodeSpecification> NodesToAdd { get; set; }
+            public System.Func<Amazon.SageMaker.Model.BatchAddClusterNodesResponse, SetSMAddClusterNodeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

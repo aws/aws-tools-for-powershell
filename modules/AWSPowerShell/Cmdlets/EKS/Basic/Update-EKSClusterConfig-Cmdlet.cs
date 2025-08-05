@@ -123,6 +123,18 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public Amazon.EKS.Model.LogSetup[] Logging_ClusterLogging { get; set; }
         #endregion
         
+        #region Parameter DeletionProtection
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable or disable deletion protection for the cluster. When enabled
+        /// (<c>true</c>), the cluster cannot be deleted until deletion protection is explicitly
+        /// disabled. When disabled (<c>false</c>), the cluster can be deleted normally.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeletionProtection { get; set; }
+        #endregion
+        
         #region Parameter ComputeConfig_Enabled
         /// <summary>
         /// <para>
@@ -383,6 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 context.ComputeConfig_NodePool = new List<System.String>(this.ComputeConfig_NodePool);
             }
             context.ComputeConfig_NodeRoleArn = this.ComputeConfig_NodeRoleArn;
+            context.DeletionProtection = this.DeletionProtection;
             context.ElasticLoadBalancing_Enabled = this.ElasticLoadBalancing_Enabled;
             context.KubernetesNetworkConfig_IpFamily = this.KubernetesNetworkConfig_IpFamily;
             context.KubernetesNetworkConfig_ServiceIpv4Cidr = this.KubernetesNetworkConfig_ServiceIpv4Cidr;
@@ -486,6 +499,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (requestComputeConfigIsNull)
             {
                 request.ComputeConfig = null;
+            }
+            if (cmdletContext.DeletionProtection != null)
+            {
+                request.DeletionProtection = cmdletContext.DeletionProtection.Value;
             }
             
              // populate KubernetesNetworkConfig
@@ -729,6 +746,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.Boolean? ComputeConfig_Enabled { get; set; }
             public List<System.String> ComputeConfig_NodePool { get; set; }
             public System.String ComputeConfig_NodeRoleArn { get; set; }
+            public System.Boolean? DeletionProtection { get; set; }
             public System.Boolean? ElasticLoadBalancing_Enabled { get; set; }
             public Amazon.EKS.IpFamily KubernetesNetworkConfig_IpFamily { get; set; }
             public System.String KubernetesNetworkConfig_ServiceIpv4Cidr { get; set; }

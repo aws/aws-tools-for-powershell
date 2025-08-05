@@ -1,4 +1,46 @@
-﻿### 5.0.25 (2025-08-04 23:47Z)
+﻿### 5.0.26 (2025-08-05 20:25Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.63.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock
+    * Added cmdlet Export-BDRAutomatedReasoningPolicyVersion leveraging the ExportAutomatedReasoningPolicyVersion service API.
+    * Added cmdlet Get-BDRAutomatedReasoningPolicy leveraging the GetAutomatedReasoningPolicy service API.
+    * Added cmdlet Get-BDRAutomatedReasoningPolicyAnnotation leveraging the GetAutomatedReasoningPolicyAnnotations service API.
+    * Added cmdlet Get-BDRAutomatedReasoningPolicyBuildWorkflow leveraging the GetAutomatedReasoningPolicyBuildWorkflow service API.
+    * Added cmdlet Get-BDRAutomatedReasoningPolicyBuildWorkflowList leveraging the ListAutomatedReasoningPolicyBuildWorkflows service API.
+    * Added cmdlet Get-BDRAutomatedReasoningPolicyBuildWorkflowResultAsset leveraging the GetAutomatedReasoningPolicyBuildWorkflowResultAssets service API.
+    * Added cmdlet Get-BDRAutomatedReasoningPolicyList leveraging the ListAutomatedReasoningPolicies service API.
+    * Added cmdlet Get-BDRAutomatedReasoningPolicyNextScenario leveraging the GetAutomatedReasoningPolicyNextScenario service API.
+    * Added cmdlet Get-BDRAutomatedReasoningPolicyTestCase leveraging the GetAutomatedReasoningPolicyTestCase service API.
+    * Added cmdlet Get-BDRAutomatedReasoningPolicyTestCaseList leveraging the ListAutomatedReasoningPolicyTestCases service API.
+    * Added cmdlet Get-BDRAutomatedReasoningPolicyTestResult leveraging the GetAutomatedReasoningPolicyTestResult service API.
+    * Added cmdlet Get-BDRAutomatedReasoningPolicyTestResultList leveraging the ListAutomatedReasoningPolicyTestResults service API.
+    * Added cmdlet New-BDRAutomatedReasoningPolicy leveraging the CreateAutomatedReasoningPolicy service API.
+    * Added cmdlet New-BDRAutomatedReasoningPolicyTestCase leveraging the CreateAutomatedReasoningPolicyTestCase service API.
+    * Added cmdlet New-BDRAutomatedReasoningPolicyVersion leveraging the CreateAutomatedReasoningPolicyVersion service API.
+    * Added cmdlet Remove-BDRAutomatedReasoningPolicy leveraging the DeleteAutomatedReasoningPolicy service API.
+    * Added cmdlet Remove-BDRAutomatedReasoningPolicyBuildWorkflow leveraging the DeleteAutomatedReasoningPolicyBuildWorkflow service API.
+    * Added cmdlet Remove-BDRAutomatedReasoningPolicyTestCase leveraging the DeleteAutomatedReasoningPolicyTestCase service API.
+    * Added cmdlet Start-BDRAutomatedReasoningPolicyBuildWorkflow leveraging the StartAutomatedReasoningPolicyBuildWorkflow service API.
+    * Added cmdlet Start-BDRAutomatedReasoningPolicyTestWorkflow leveraging the StartAutomatedReasoningPolicyTestWorkflow service API.
+    * Added cmdlet Stop-BDRAutomatedReasoningPolicyBuildWorkflow leveraging the CancelAutomatedReasoningPolicyBuildWorkflow service API.
+    * Added cmdlet Update-BDRAutomatedReasoningPolicy leveraging the UpdateAutomatedReasoningPolicy service API.
+    * Added cmdlet Update-BDRAutomatedReasoningPolicyAnnotation leveraging the UpdateAutomatedReasoningPolicyAnnotations service API.
+    * Added cmdlet Update-BDRAutomatedReasoningPolicyTestCase leveraging the UpdateAutomatedReasoningPolicyTestCase service API.
+    * Modified cmdlet New-BDRGuardrail: added parameters AutomatedReasoningPolicyConfig_ConfidenceThreshold and AutomatedReasoningPolicyConfig_Policy.
+    * Modified cmdlet Update-BDRGuardrail: added parameters AutomatedReasoningPolicyConfig_ConfidenceThreshold and AutomatedReasoningPolicyConfig_Policy.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet New-EKSCluster: added parameter DeletionProtection.
+    * Modified cmdlet Update-EKSClusterConfig: added parameter DeletionProtection.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMClusterEvent leveraging the DescribeClusterEvent service API.
+    * Added cmdlet Get-SMClusterEventList leveraging the ListClusterEvents service API.
+    * Added cmdlet Set-SMAddClusterNode leveraging the BatchAddClusterNodes service API.
+    * Modified cmdlet Get-SMClusterNode: added parameter NodeLogicalId.
+    * Modified cmdlet Get-SMClusterNodeList: added parameter IncludeNodeLogicalId.
+    * Modified cmdlet New-SMCluster: added parameter NodeProvisioningMode.
+    * Modified cmdlet Set-SMDeleteClusterNode: added parameter NodeLogicalId.
+    * Modified cmdlet Update-SMClusterSoftware: added parameter ImageId.
+
+### 5.0.25 (2025-08-04 23:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.62.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock AgentCore Data Plane Fronting Layer
     * [Breaking Change] Modified cmdlet Get-BACResourceOauth2Token: removed parameter UserId.
