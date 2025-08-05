@@ -79,6 +79,22 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ClusterName { get; set; }
         #endregion
         
+        #region Parameter ImageId
+        /// <summary>
+        /// <para>
+        /// <para>When configuring your HyperPod cluster, you can specify an image ID using one of the
+        /// following options:</para><ul><li><para><c>HyperPodPublicAmiId</c>: Use a HyperPod public AMI</para></li><li><para><c>CustomAmiId</c>: Use your custom AMI</para></li><li><para><c>default</c>: Use the default latest system image</para></li></ul><para>f you choose to use a custom AMI (<c>CustomAmiId</c>), ensure it meets the following
+        /// requirements:</para><ul><li><para>Encryption: The custom AMI must be unencrypted.</para></li><li><para>Ownership: The custom AMI must be owned by the same Amazon Web Services account that
+        /// is creating the HyperPod cluster.</para></li><li><para>Volume support: Only the primary AMI snapshot volume is supported; additional AMI
+        /// volumes are not supported.</para></li></ul><para>When updating the instance group's AMI through the <c>UpdateClusterSoftware</c> operation,
+        /// if an instance group uses a custom AMI, you must provide an <c>ImageId</c> or use
+        /// the default as input.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ImageId { get; set; }
+        #endregion
+        
         #region Parameter InstanceGroup
         /// <summary>
         /// <para>
@@ -226,6 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.RollbackMaximumBatchSize_Type = this.RollbackMaximumBatchSize_Type;
             context.RollbackMaximumBatchSize_Value = this.RollbackMaximumBatchSize_Value;
             context.DeploymentConfig_WaitIntervalInSecond = this.DeploymentConfig_WaitIntervalInSecond;
+            context.ImageId = this.ImageId;
             if (this.InstanceGroup != null)
             {
                 context.InstanceGroup = new List<Amazon.SageMaker.Model.UpdateClusterSoftwareInstanceGroupSpecification>(this.InstanceGroup);
@@ -364,6 +381,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.DeploymentConfig = null;
             }
+            if (cmdletContext.ImageId != null)
+            {
+                request.ImageId = cmdletContext.ImageId;
+            }
             if (cmdletContext.InstanceGroup != null)
             {
                 request.InstanceGroups = cmdletContext.InstanceGroup;
@@ -436,6 +457,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.NodeUnavailabilityType RollbackMaximumBatchSize_Type { get; set; }
             public System.Int32? RollbackMaximumBatchSize_Value { get; set; }
             public System.Int32? DeploymentConfig_WaitIntervalInSecond { get; set; }
+            public System.String ImageId { get; set; }
             public List<Amazon.SageMaker.Model.UpdateClusterSoftwareInstanceGroupSpecification> InstanceGroup { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateClusterSoftwareResponse, UpdateSMClusterSoftwareCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ClusterArn;

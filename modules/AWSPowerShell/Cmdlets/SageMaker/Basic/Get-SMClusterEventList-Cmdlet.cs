@@ -28,17 +28,18 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Retrieves the list of instances (also called <i>nodes</i> interchangeably) in a SageMaker
-    /// HyperPod cluster.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves a list of event summaries for a specified HyperPod cluster. The operation
+    /// supports filtering, sorting, and pagination of results. This functionality is only
+    /// supported when the <c>NodeProvisioningMode</c> is set to <c>Continuous</c>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "SMClusterNodeList")]
-    [OutputType("Amazon.SageMaker.Model.ClusterNodeSummary")]
-    [AWSCmdlet("Calls the Amazon SageMaker Service ListClusterNodes API operation.", Operation = new[] {"ListClusterNodes"}, SelectReturnType = typeof(Amazon.SageMaker.Model.ListClusterNodesResponse))]
-    [AWSCmdletOutput("Amazon.SageMaker.Model.ClusterNodeSummary or Amazon.SageMaker.Model.ListClusterNodesResponse",
-        "This cmdlet returns a collection of Amazon.SageMaker.Model.ClusterNodeSummary objects.",
-        "The service call response (type Amazon.SageMaker.Model.ListClusterNodesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "SMClusterEventList")]
+    [OutputType("Amazon.SageMaker.Model.ClusterEventSummary")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service ListClusterEvents API operation.", Operation = new[] {"ListClusterEvents"}, SelectReturnType = typeof(Amazon.SageMaker.Model.ListClusterEventsResponse))]
+    [AWSCmdletOutput("Amazon.SageMaker.Model.ClusterEventSummary or Amazon.SageMaker.Model.ListClusterEventsResponse",
+        "This cmdlet returns a collection of Amazon.SageMaker.Model.ClusterEventSummary objects.",
+        "The service call response (type Amazon.SageMaker.Model.ListClusterEventsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetSMClusterNodeListCmdlet : AmazonSageMakerClientCmdlet, IExecutor
+    public partial class GetSMClusterEventListCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -46,8 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster
-        /// in which you want to retrieve the list of nodes.</para>
+        /// <para>The name or Amazon Resource Name (ARN) of the HyperPod cluster for which to list events.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,73 +61,79 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ClusterName { get; set; }
         #endregion
         
-        #region Parameter CreationTimeAfter
+        #region Parameter EventTimeAfter
         /// <summary>
         /// <para>
-        /// <para>A filter that returns nodes in a SageMaker HyperPod cluster created after the specified
-        /// time. Timestamps are formatted according to the ISO 8601 standard. </para><para>Acceptable formats include:</para><ul><li><para><c>YYYY-MM-DDThh:mm:ss.sssTZD</c> (UTC), for example, <c>2014-10-01T20:30:00.000Z</c></para></li><li><para><c>YYYY-MM-DDThh:mm:ss.sssTZD</c> (with offset), for example, <c>2014-10-01T12:30:00.000-08:00</c></para></li><li><para><c>YYYY-MM-DD</c>, for example, <c>2014-10-01</c></para></li><li><para>Unix time in seconds, for example, <c>1412195400</c>. This is also referred to as
-        /// Unix Epoch time and represents the number of seconds since midnight, January 1, 1970
-        /// UTC.</para></li></ul><para>For more information about the timestamp format, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a>
-        /// in the <i>Amazon Web Services Command Line Interface User Guide</i>.</para>
+        /// <para>The start of the time range for filtering events. Only events that occurred after
+        /// this time are included in the results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? CreationTimeAfter { get; set; }
+        public System.DateTime? EventTimeAfter { get; set; }
         #endregion
         
-        #region Parameter CreationTimeBefore
+        #region Parameter EventTimeBefore
         /// <summary>
         /// <para>
-        /// <para>A filter that returns nodes in a SageMaker HyperPod cluster created before the specified
-        /// time. The acceptable formats are the same as the timestamp formats for <c>CreationTimeAfter</c>.
-        /// For more information about the timestamp format, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a>
-        /// in the <i>Amazon Web Services Command Line Interface User Guide</i>.</para>
+        /// <para>The end of the time range for filtering events. Only events that occurred before this
+        /// time are included in the results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? CreationTimeBefore { get; set; }
+        public System.DateTime? EventTimeBefore { get; set; }
         #endregion
         
-        #region Parameter IncludeNodeLogicalId
+        #region Parameter InstanceGroupName
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to include nodes that are still being provisioned in the response.
-        /// When set to true, the response includes all nodes regardless of their provisioning
-        /// status. When set to <c>False</c> (default), only nodes with assigned <c>InstanceIds</c>
+        /// <para>The name of the instance group to filter events. If specified, only events related
+        /// to this instance group are returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InstanceGroupName { get; set; }
+        #endregion
+        
+        #region Parameter NodeId
+        /// <summary>
+        /// <para>
+        /// <para>The EC2 instance ID to filter events. If specified, only events related to this instance
         /// are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("IncludeNodeLogicalIds")]
-        public System.Boolean? IncludeNodeLogicalId { get; set; }
+        public System.String NodeId { get; set; }
         #endregion
         
-        #region Parameter InstanceGroupNameContain
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>A filter that returns the instance groups whose name contain a specified string.</para>
+        /// <para>The type of resource for which to filter events. Valid values are <c>Cluster</c>,
+        /// <c>InstanceGroup</c>, or <c>Instance</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("InstanceGroupNameContains")]
-        public System.String InstanceGroupNameContain { get; set; }
+        [AWSConstantClassSource("Amazon.SageMaker.ClusterEventResourceType")]
+        public Amazon.SageMaker.ClusterEventResourceType ResourceType { get; set; }
         #endregion
         
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The field by which to sort results. The default value is <c>CREATION_TIME</c>.</para>
+        /// <para>The field to use for sorting the event list. Currently, the only supported value is
+        /// <c>EventTime</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.SageMaker.ClusterSortBy")]
-        public Amazon.SageMaker.ClusterSortBy SortBy { get; set; }
+        [AWSConstantClassSource("Amazon.SageMaker.EventSortBy")]
+        public Amazon.SageMaker.EventSortBy SortBy { get; set; }
         #endregion
         
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sort order for results. The default value is <c>Ascending</c>.</para>
+        /// <para>The order in which to sort the results. Valid values are <c>Ascending</c> or <c>Descending</c>
+        /// (the default is <c>Descending</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of nodes to return in the response.</para>
+        /// <para>The maximum number of events to return in the response. Valid range is 1 to 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,9 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the result of the previous <c>ListClusterNodes</c> request was truncated, the response
-        /// includes a <c>NextToken</c>. To retrieve the next set of cluster nodes, use the token
-        /// in the next request.</para>
+        /// <para>A token to retrieve the next set of results. This token is obtained from the output
+        /// of a previous <c>ListClusterEvents</c> call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -164,13 +169,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ClusterNodeSummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.ListClusterNodesResponse).
-        /// Specifying the name of a property of type Amazon.SageMaker.Model.ListClusterNodesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Events'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.ListClusterEventsResponse).
+        /// Specifying the name of a property of type Amazon.SageMaker.Model.ListClusterEventsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ClusterNodeSummaries";
+        public string Select { get; set; } = "Events";
         #endregion
         
         #region Parameter PassThru
@@ -206,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.ListClusterNodesResponse, GetSMClusterNodeListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.ListClusterEventsResponse, GetSMClusterEventListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -225,12 +230,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.CreationTimeAfter = this.CreationTimeAfter;
-            context.CreationTimeBefore = this.CreationTimeBefore;
-            context.IncludeNodeLogicalId = this.IncludeNodeLogicalId;
-            context.InstanceGroupNameContain = this.InstanceGroupNameContain;
+            context.EventTimeAfter = this.EventTimeAfter;
+            context.EventTimeBefore = this.EventTimeBefore;
+            context.InstanceGroupName = this.InstanceGroupName;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.NodeId = this.NodeId;
+            context.ResourceType = this.ResourceType;
             context.SortBy = this.SortBy;
             context.SortOrder = this.SortOrder;
             
@@ -251,31 +257,35 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.SageMaker.Model.ListClusterNodesRequest();
+            var request = new Amazon.SageMaker.Model.ListClusterEventsRequest();
             
             if (cmdletContext.ClusterName != null)
             {
                 request.ClusterName = cmdletContext.ClusterName;
             }
-            if (cmdletContext.CreationTimeAfter != null)
+            if (cmdletContext.EventTimeAfter != null)
             {
-                request.CreationTimeAfter = cmdletContext.CreationTimeAfter.Value;
+                request.EventTimeAfter = cmdletContext.EventTimeAfter.Value;
             }
-            if (cmdletContext.CreationTimeBefore != null)
+            if (cmdletContext.EventTimeBefore != null)
             {
-                request.CreationTimeBefore = cmdletContext.CreationTimeBefore.Value;
+                request.EventTimeBefore = cmdletContext.EventTimeBefore.Value;
             }
-            if (cmdletContext.IncludeNodeLogicalId != null)
+            if (cmdletContext.InstanceGroupName != null)
             {
-                request.IncludeNodeLogicalIds = cmdletContext.IncludeNodeLogicalId.Value;
-            }
-            if (cmdletContext.InstanceGroupNameContain != null)
-            {
-                request.InstanceGroupNameContains = cmdletContext.InstanceGroupNameContain;
+                request.InstanceGroupName = cmdletContext.InstanceGroupName;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.NodeId != null)
+            {
+                request.NodeId = cmdletContext.NodeId;
+            }
+            if (cmdletContext.ResourceType != null)
+            {
+                request.ResourceType = cmdletContext.ResourceType;
             }
             if (cmdletContext.SortBy != null)
             {
@@ -342,15 +352,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region AWS Service Operation Call
         
-        private Amazon.SageMaker.Model.ListClusterNodesResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.ListClusterNodesRequest request)
+        private Amazon.SageMaker.Model.ListClusterEventsResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.ListClusterEventsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "ListClusterNodes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "ListClusterEvents");
             try
             {
                 #if DESKTOP
-                return client.ListClusterNodes(request);
+                return client.ListClusterEvents(request);
                 #elif CORECLR
-                return client.ListClusterNodesAsync(request).GetAwaiter().GetResult();
+                return client.ListClusterEventsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -371,16 +381,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClusterName { get; set; }
-            public System.DateTime? CreationTimeAfter { get; set; }
-            public System.DateTime? CreationTimeBefore { get; set; }
-            public System.Boolean? IncludeNodeLogicalId { get; set; }
-            public System.String InstanceGroupNameContain { get; set; }
+            public System.DateTime? EventTimeAfter { get; set; }
+            public System.DateTime? EventTimeBefore { get; set; }
+            public System.String InstanceGroupName { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public Amazon.SageMaker.ClusterSortBy SortBy { get; set; }
+            public System.String NodeId { get; set; }
+            public Amazon.SageMaker.ClusterEventResourceType ResourceType { get; set; }
+            public Amazon.SageMaker.EventSortBy SortBy { get; set; }
             public Amazon.SageMaker.SortOrder SortOrder { get; set; }
-            public System.Func<Amazon.SageMaker.Model.ListClusterNodesResponse, GetSMClusterNodeListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ClusterNodeSummaries;
+            public System.Func<Amazon.SageMaker.Model.ListClusterEventsResponse, GetSMClusterEventListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Events;
         }
         
     }

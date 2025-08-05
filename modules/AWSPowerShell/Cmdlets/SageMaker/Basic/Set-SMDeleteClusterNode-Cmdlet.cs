@@ -84,6 +84,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] NodeId { get; set; }
         #endregion
         
+        #region Parameter NodeLogicalId
+        /// <summary>
+        /// <para>
+        /// <para>A list of <c>NodeLogicalIds</c> identifying the nodes to be deleted. You can specify
+        /// up to 50 <c>NodeLogicalIds</c>. You must specify either <c>NodeLogicalIds</c>, <c>InstanceIds</c>,
+        /// or both, with a combined maximum of 50 identifiers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NodeLogicalIds")]
+        public System.String[] NodeLogicalId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -157,6 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.NodeId = new List<System.String>(this.NodeId);
             }
+            if (this.NodeLogicalId != null)
+            {
+                context.NodeLogicalId = new List<System.String>(this.NodeLogicalId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -180,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.NodeId != null)
             {
                 request.NodeIds = cmdletContext.NodeId;
+            }
+            if (cmdletContext.NodeLogicalId != null)
+            {
+                request.NodeLogicalIds = cmdletContext.NodeLogicalId;
             }
             
             CmdletOutput output;
@@ -244,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             public System.String ClusterName { get; set; }
             public List<System.String> NodeId { get; set; }
+            public List<System.String> NodeLogicalId { get; set; }
             public System.Func<Amazon.SageMaker.Model.BatchDeleteClusterNodesResponse, SetSMDeleteClusterNodeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

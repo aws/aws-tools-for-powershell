@@ -90,6 +90,30 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.AutomatedReasoningCheckResult
+        {
+            ($_ -eq "New-BDRAutomatedReasoningPolicyTestCase/ExpectedAggregatedFindingsResult") -Or
+            ($_ -eq "Update-BDRAutomatedReasoningPolicyTestCase/ExpectedAggregatedFindingsResult")
+        }
+        {
+            $v = "IMPOSSIBLE","INVALID","NO_TRANSLATION","SATISFIABLE","TOO_COMPLEX","TRANSLATION_AMBIGUOUS","VALID"
+            break
+        }
+
+        # Amazon.Bedrock.AutomatedReasoningPolicyBuildResultAssetType
+        "Get-BDRAutomatedReasoningPolicyBuildWorkflowResultAsset/AssetType"
+        {
+            $v = "BUILD_LOG","POLICY_DEFINITION","QUALITY_REPORT"
+            break
+        }
+
+        # Amazon.Bedrock.AutomatedReasoningPolicyBuildWorkflowType
+        "Start-BDRAutomatedReasoningPolicyBuildWorkflow/BuildWorkflowType"
+        {
+            $v = "IMPORT_POLICY","INGEST_CONTENT","REFINE_POLICY"
+            break
+        }
+
         # Amazon.Bedrock.CommitmentDuration
         "New-BDRProvisionedModelThroughput/CommitmentDuration"
         {
@@ -288,12 +312,15 @@ $BDR_Completers = {
 $BDR_map = @{
     "ApplicationType"=@("New-BDREvaluationJob")
     "ApplicationTypeEqual"=@("Get-BDREvaluationJobList")
+    "AssetType"=@("Get-BDRAutomatedReasoningPolicyBuildWorkflowResultAsset")
+    "BuildWorkflowType"=@("Start-BDRAutomatedReasoningPolicyBuildWorkflow")
     "ByCustomizationType"=@("Get-BDRFoundationModelList")
     "ByInferenceType"=@("Get-BDRFoundationModelList")
     "ByOutputModality"=@("Get-BDRFoundationModelList")
     "CommitmentDuration"=@("New-BDRProvisionedModelThroughput")
     "ContentPolicyConfig_TierConfig_TierName"=@("New-BDRGuardrail","Update-BDRGuardrail")
     "CustomizationType"=@("New-BDRModelCustomizationJob")
+    "ExpectedAggregatedFindingsResult"=@("New-BDRAutomatedReasoningPolicyTestCase","Update-BDRAutomatedReasoningPolicyTestCase")
     "ModelStatus"=@("Get-BDRCustomModelList")
     "OfferType"=@("Get-BDRFoundationModelAgreementOfferList")
     "S3InputDataConfig_S3InputFormat"=@("New-BDRModelInvocationJob")
@@ -356,6 +383,10 @@ $BDR_SelectCompleters = {
 
 $BDR_SelectMap = @{
     "Select"=@("Set-BDRBatchDeleteEvaluationJob",
+               "Stop-BDRAutomatedReasoningPolicyBuildWorkflow",
+               "New-BDRAutomatedReasoningPolicy",
+               "New-BDRAutomatedReasoningPolicyTestCase",
+               "New-BDRAutomatedReasoningPolicyVersion",
                "New-BDRCustomModel",
                "New-BDRCustomModelDeployment",
                "New-BDREvaluationJob",
@@ -370,6 +401,9 @@ $BDR_SelectMap = @{
                "New-BDRModelInvocationJob",
                "New-BDRPromptRouter",
                "New-BDRProvisionedModelThroughput",
+               "Remove-BDRAutomatedReasoningPolicy",
+               "Remove-BDRAutomatedReasoningPolicyBuildWorkflow",
+               "Remove-BDRAutomatedReasoningPolicyTestCase",
                "Remove-BDRCustomModel",
                "Remove-BDRCustomModelDeployment",
                "Remove-BDRFoundationModelAgreement",
@@ -381,6 +415,14 @@ $BDR_SelectMap = @{
                "Remove-BDRPromptRouter",
                "Remove-BDRProvisionedModelThroughput",
                "Unregister-BDRMarketplaceModelEndpoint",
+               "Export-BDRAutomatedReasoningPolicyVersion",
+               "Get-BDRAutomatedReasoningPolicy",
+               "Get-BDRAutomatedReasoningPolicyAnnotation",
+               "Get-BDRAutomatedReasoningPolicyBuildWorkflow",
+               "Get-BDRAutomatedReasoningPolicyBuildWorkflowResultAsset",
+               "Get-BDRAutomatedReasoningPolicyNextScenario",
+               "Get-BDRAutomatedReasoningPolicyTestCase",
+               "Get-BDRAutomatedReasoningPolicyTestResult",
                "Get-BDRCustomModel",
                "Get-BDRCustomModelDeployment",
                "Get-BDREvaluationJob",
@@ -398,6 +440,10 @@ $BDR_SelectMap = @{
                "Get-BDRPromptRouter",
                "Get-BDRProvisionedModelThroughput",
                "Get-BDRUseCaseForModelAccess",
+               "Get-BDRAutomatedReasoningPolicyList",
+               "Get-BDRAutomatedReasoningPolicyBuildWorkflowList",
+               "Get-BDRAutomatedReasoningPolicyTestCaseList",
+               "Get-BDRAutomatedReasoningPolicyTestResultList",
                "Get-BDRCustomModelDeploymentList",
                "Get-BDRCustomModelList",
                "Get-BDREvaluationJobList",
@@ -417,11 +463,16 @@ $BDR_SelectMap = @{
                "Write-BDRModelInvocationLoggingConfiguration",
                "Write-BDRUseCaseForModelAccess",
                "Register-BDRMarketplaceModelEndpoint",
+               "Start-BDRAutomatedReasoningPolicyBuildWorkflow",
+               "Start-BDRAutomatedReasoningPolicyTestWorkflow",
                "Stop-BDREvaluationJob",
                "Stop-BDRModelCustomizationJob",
                "Stop-BDRModelInvocationJob",
                "Add-BDRResourceTag",
                "Remove-BDRResourceTag",
+               "Update-BDRAutomatedReasoningPolicy",
+               "Update-BDRAutomatedReasoningPolicyAnnotation",
+               "Update-BDRAutomatedReasoningPolicyTestCase",
                "Update-BDRGuardrail",
                "Update-BDRMarketplaceModelEndpoint",
                "Update-BDRProvisionedModelThroughput")
