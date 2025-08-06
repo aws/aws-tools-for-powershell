@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter EventBridgeConfiguration
         /// <summary>
         /// <para>
-        /// <para>Enables delivery of all bucket events to Amazon EventBridge.</para>
+        /// <para>Enables delivery of events to Amazon EventBridge.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
         /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <code>403 Forbidden</code> (access denied).</para>
+        /// <c>403 Forbidden</c> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,8 +139,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter LambdaFunctionConfiguration
         /// <summary>
         /// <para>
-        /// LambdaFunctionConfigurations are configuration for 
-        /// Amazon S3 events to be sent to an Amazon Lambda cloud function.
+        /// <para>Describes the Lambda functions to invoke and the events for which to invoke them.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,8 +154,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter QueueConfiguration
         /// <summary>
         /// <para>
-        /// QueueConfigurations are configuration for Amazon S3 
-        /// events to be sent to Amazon SQS queues.
+        /// <para>The Amazon Simple Queue Service queues to publish messages to and the events for which
+        /// to publish messages.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,7 +170,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter SkipDestinationValidation
         /// <summary>
         /// <para>
-        /// <para>Skips validation of Amazon SQS, Amazon SNS, and Lambda destinations</para>
+        /// <para>Skips validation of Amazon SQS, Amazon SNS, and Lambda destinations. True or false
+        /// value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,8 +181,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter TopicConfiguration
         /// <summary>
         /// <para>
-        /// TopicConfigurations are configuration for Amazon S3 
-        /// events to be sent to Amazon SNS topics.
+        /// <para>The topic to which notifications are sent and the events for which notifications are
+        /// generated.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,23 +239,23 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.Select = CreateSelectDelegate<Amazon.S3.Model.PutBucketNotificationResponse, WriteS3BucketNotificationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.BucketName = this.BucketName;
             context.ChecksumAlgorithm = this.ChecksumAlgorithm;
-            if (this.TopicConfiguration != null)
+            context.BucketName = this.BucketName;
+            context.EventBridgeConfiguration = this.EventBridgeConfiguration;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
+            if (this.LambdaFunctionConfiguration != null)
             {
-                context.TopicConfiguration = new List<Amazon.S3.Model.TopicConfiguration>(this.TopicConfiguration);
+                context.LambdaFunctionConfiguration = new List<Amazon.S3.Model.LambdaFunctionConfiguration>(this.LambdaFunctionConfiguration);
             }
             if (this.QueueConfiguration != null)
             {
                 context.QueueConfiguration = new List<Amazon.S3.Model.QueueConfiguration>(this.QueueConfiguration);
             }
-            if (this.LambdaFunctionConfiguration != null)
-            {
-                context.LambdaFunctionConfiguration = new List<Amazon.S3.Model.LambdaFunctionConfiguration>(this.LambdaFunctionConfiguration);
-            }
-            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             context.SkipDestinationValidation = this.SkipDestinationValidation;
-            context.EventBridgeConfiguration = this.EventBridgeConfiguration;
+            if (this.TopicConfiguration != null)
+            {
+                context.TopicConfiguration = new List<Amazon.S3.Model.TopicConfiguration>(this.TopicConfiguration);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -260,37 +272,37 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // create request
             var request = new Amazon.S3.Model.PutBucketNotificationRequest();
             
-            if (cmdletContext.BucketName != null)
-            {
-                request.BucketName = cmdletContext.BucketName;
-            }
             if (cmdletContext.ChecksumAlgorithm != null)
             {
                 request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
             }
-            if (cmdletContext.TopicConfiguration != null)
+            if (cmdletContext.BucketName != null)
             {
-                request.TopicConfigurations = cmdletContext.TopicConfiguration;
+                request.BucketName = cmdletContext.BucketName;
             }
-            if (cmdletContext.QueueConfiguration != null)
+            if (cmdletContext.EventBridgeConfiguration != null)
             {
-                request.QueueConfigurations = cmdletContext.QueueConfiguration;
-            }
-            if (cmdletContext.LambdaFunctionConfiguration != null)
-            {
-                request.LambdaFunctionConfigurations = cmdletContext.LambdaFunctionConfiguration;
+                request.EventBridgeConfiguration = cmdletContext.EventBridgeConfiguration;
             }
             if (cmdletContext.ExpectedBucketOwner != null)
             {
                 request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
+            if (cmdletContext.LambdaFunctionConfiguration != null)
+            {
+                request.LambdaFunctionConfigurations = cmdletContext.LambdaFunctionConfiguration;
+            }
+            if (cmdletContext.QueueConfiguration != null)
+            {
+                request.QueueConfigurations = cmdletContext.QueueConfiguration;
+            }
             if (cmdletContext.SkipDestinationValidation != null)
             {
                 request.SkipDestinationValidation = cmdletContext.SkipDestinationValidation.Value;
             }
-            if (cmdletContext.EventBridgeConfiguration != null)
+            if (cmdletContext.TopicConfiguration != null)
             {
-                request.EventBridgeConfiguration = cmdletContext.EventBridgeConfiguration;
+                request.TopicConfigurations = cmdletContext.TopicConfiguration;
             }
             
             CmdletOutput output;
@@ -347,14 +359,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String BucketName { get; set; }
             public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
-            public List<Amazon.S3.Model.TopicConfiguration> TopicConfiguration { get; set; }
-            public List<Amazon.S3.Model.QueueConfiguration> QueueConfiguration { get; set; }
-            public List<Amazon.S3.Model.LambdaFunctionConfiguration> LambdaFunctionConfiguration { get; set; }
-            public System.String ExpectedBucketOwner { get; set; }
-            public System.Boolean? SkipDestinationValidation { get; set; }
+            public System.String BucketName { get; set; }
             public Amazon.S3.Model.EventBridgeConfiguration EventBridgeConfiguration { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
+            public List<Amazon.S3.Model.LambdaFunctionConfiguration> LambdaFunctionConfiguration { get; set; }
+            public List<Amazon.S3.Model.QueueConfiguration> QueueConfiguration { get; set; }
+            public System.Boolean? SkipDestinationValidation { get; set; }
+            public List<Amazon.S3.Model.TopicConfiguration> TopicConfiguration { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketNotificationResponse, WriteS3BucketNotificationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

@@ -23,79 +23,74 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.S3;
-using Amazon.S3.Model;
+using Amazon.OpenSearchServerless;
+using Amazon.OpenSearchServerless.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.S3
+namespace Amazon.PowerShell.Cmdlets.OSS
 {
     /// <summary>
-    /// <note><para>
-    /// This operation is not supported for directory buckets.
-    /// </para></note><para>
-    /// Deletes the <c>cors</c> configuration information set for the bucket.
-    /// </para><para>
-    /// To use this operation, you must have permission to perform the <c>s3:PutBucketCORS</c>
-    /// action. The bucket owner has this permission by default and can grant this permission
-    /// to others. 
-    /// </para><para>
-    /// For information about <c>cors</c>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling
-    /// Cross-Origin Resource Sharing</a> in the <i>Amazon S3 User Guide</i>.
-    /// </para><para><b>Related Resources</b></para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketCors.html">PutBucketCors</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html">RESTOPTIONSobject</a></para></li></ul>
+    /// Retrieves information about an index in an OpenSearch Serverless collection, including
+    /// its schema definition. The index might be configured to conduct automatic semantic
+    /// enrichment ingestion and search. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html#serverless-semantic-enrichment">About
+    /// automatic semantic enrichment</a>.
     /// </summary>
-    [Cmdlet("Remove", "S3CORSConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) DeleteCORSConfiguration API operation.", Operation = new[] {"DeleteCORSConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteCORSConfigurationResponse))]
-    [AWSCmdletOutput("None or Amazon.S3.Model.DeleteCORSConfigurationResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3.Model.DeleteCORSConfigurationResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Get", "OSSIndex")]
+    [OutputType("Amazon.Runtime.Documents.Document")]
+    [AWSCmdlet("Calls the OpenSearch Serverless GetIndex API operation.", Operation = new[] {"GetIndex"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.GetIndexResponse))]
+    [AWSCmdletOutput("Amazon.Runtime.Documents.Document or Amazon.OpenSearchServerless.Model.GetIndexResponse",
+        "This cmdlet returns an Amazon.Runtime.Documents.Document object.",
+        "The service call response (type Amazon.OpenSearchServerless.Model.GetIndexResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class RemoveS3CORSConfigurationCmdlet : AmazonS3ClientCmdlet, IExecutor
+    public partial class GetOSSIndexCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter BucketName
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>Specifies the bucket whose <c>cors</c> configuration is being deleted.</para>
+        /// <para>The unique identifier of the collection containing the index.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String BucketName { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Id { get; set; }
         #endregion
         
-        #region Parameter ExpectedBucketOwner
+        #region Parameter IndexName
         /// <summary>
         /// <para>
-        /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
-        /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <c>403 Forbidden</c> (access denied).</para>
+        /// <para>The name of the index to retrieve information about.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ExpectedBucketOwner { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String IndexName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3.Model.DeleteCORSConfigurationResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'IndexSchema'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpenSearchServerless.Model.GetIndexResponse).
+        /// Specifying the name of a property of type Amazon.OpenSearchServerless.Model.GetIndexResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
+        public string Select { get; set; } = "IndexSchema";
         #endregion
         
         protected override void StopProcessing()
@@ -107,12 +102,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.BucketName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-S3CORSConfiguration (DeleteCORSConfiguration)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -120,11 +109,23 @@ namespace Amazon.PowerShell.Cmdlets.S3
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.S3.Model.DeleteCORSConfigurationResponse, RemoveS3CORSConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.OpenSearchServerless.Model.GetIndexResponse, GetOSSIndexCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.BucketName = this.BucketName;
-            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
+            context.Id = this.Id;
+            #if MODULAR
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.IndexName = this.IndexName;
+            #if MODULAR
+            if (this.IndexName == null && ParameterWasBound(nameof(this.IndexName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter IndexName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -139,15 +140,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.S3.Model.DeleteCORSConfigurationRequest();
+            var request = new Amazon.OpenSearchServerless.Model.GetIndexRequest();
             
-            if (cmdletContext.BucketName != null)
+            if (cmdletContext.Id != null)
             {
-                request.BucketName = cmdletContext.BucketName;
+                request.Id = cmdletContext.Id;
             }
-            if (cmdletContext.ExpectedBucketOwner != null)
+            if (cmdletContext.IndexName != null)
             {
-                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+                request.IndexName = cmdletContext.IndexName;
             }
             
             CmdletOutput output;
@@ -182,12 +183,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #region AWS Service Operation Call
         
-        private Amazon.S3.Model.DeleteCORSConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteCORSConfigurationRequest request)
+        private Amazon.OpenSearchServerless.Model.GetIndexResponse CallAWSServiceOperation(IAmazonOpenSearchServerless client, Amazon.OpenSearchServerless.Model.GetIndexRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "DeleteCORSConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "OpenSearch Serverless", "GetIndex");
             try
             {
-                return client.DeleteCORSConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetIndexAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -204,10 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String BucketName { get; set; }
-            public System.String ExpectedBucketOwner { get; set; }
-            public System.Func<Amazon.S3.Model.DeleteCORSConfigurationResponse, RemoveS3CORSConfigurationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String Id { get; set; }
+            public System.String IndexName { get; set; }
+            public System.Func<Amazon.OpenSearchServerless.Model.GetIndexResponse, GetOSSIndexCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.IndexSchema;
         }
         
     }

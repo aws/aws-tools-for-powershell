@@ -134,7 +134,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ChecksumAlgorithm
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Indicates the algorithm used to create the checksum for the request when you use the
+        /// SDK. This header will not provide any additional functionality if you don't use the
+        /// SDK. When you send this header, there must be a corresponding <c>x-amz-checksum</c>
+        /// or <c>x-amz-trailer</c> header sent. Otherwise, Amazon S3 fails the request with the
+        /// HTTP status code <c>400 Bad Request</c>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>If you provide an individual checksum, Amazon S3 ignores any provided <c>ChecksumAlgorithm</c>
+        /// parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,7 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
         /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <c>403 Forbidden</c> (access denied).</para>
+        /// <c>403 Forbidden</c> (access denied).</para><note><para>This parameter applies to general purpose buckets only. It is not supported for directory
+        /// bucket lifecycle configurations.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,7 +164,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Configuration_Rule
         /// <summary>
         /// <para>
-        /// These rules defined the lifecycle configuration.
+        /// <para>A lifecycle rule for individual objects in an Amazon S3 bucket.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,7 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter TransitionDefaultMinimumObjectSize
         /// <summary>
         /// <para>
-        /// <para>Indicates which default minimum object size behavior is applied to the lifecycle configuration.</para><ul><li><para><c>all_storage_classes_128K</c> - Objects smaller than 128 KB will not transition
+        /// <para>Indicates which default minimum object size behavior is applied to the lifecycle configuration.</para><note><para>This parameter applies to general purpose buckets only. It is not supported for directory
+        /// bucket lifecycle configurations.</para></note><ul><li><para><c>all_storage_classes_128K</c> - Objects smaller than 128 KB will not transition
         /// to any storage class by default. </para></li><li><para><c>varies_by_storage_class</c> - Objects smaller than 128 KB will transition to Glacier
         /// Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other
         /// storage classes will prevent transitions smaller than 128 KB. </para></li></ul><para>To customize the minimum object size for any transition you can add a filter that

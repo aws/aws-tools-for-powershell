@@ -22746,6 +22746,8 @@ Set-Alias -Name Create-OSSAccessPolicy -Value New-OSSAccessPolicy
 Set-Alias -Name OSS-CreateAccessPolicy -Value New-OSSAccessPolicy
 Set-Alias -Name Create-OSSCollection -Value New-OSSCollection
 Set-Alias -Name OSS-CreateCollection -Value New-OSSCollection
+Set-Alias -Name Create-OSSIndex -Value New-OSSIndex
+Set-Alias -Name OSS-CreateIndex -Value New-OSSIndex
 Set-Alias -Name Create-OSSLifecyclePolicy -Value New-OSSLifecyclePolicy
 Set-Alias -Name OSS-CreateLifecyclePolicy -Value New-OSSLifecyclePolicy
 Set-Alias -Name Create-OSSSecurityConfig -Value New-OSSSecurityConfig
@@ -22758,6 +22760,8 @@ Set-Alias -Name Delete-OSSAccessPolicy -Value Remove-OSSAccessPolicy
 Set-Alias -Name OSS-DeleteAccessPolicy -Value Remove-OSSAccessPolicy
 Set-Alias -Name Delete-OSSCollection -Value Remove-OSSCollection
 Set-Alias -Name OSS-DeleteCollection -Value Remove-OSSCollection
+Set-Alias -Name Delete-OSSIndex -Value Remove-OSSIndex
+Set-Alias -Name OSS-DeleteIndex -Value Remove-OSSIndex
 Set-Alias -Name Delete-OSSLifecyclePolicy -Value Remove-OSSLifecyclePolicy
 Set-Alias -Name OSS-DeleteLifecyclePolicy -Value Remove-OSSLifecyclePolicy
 Set-Alias -Name Delete-OSSSecurityConfig -Value Remove-OSSSecurityConfig
@@ -22769,6 +22773,7 @@ Set-Alias -Name OSS-DeleteVpcEndpoint -Value Remove-OSSVpcEndpoint
 Set-Alias -Name OSS-GetAccessPolicy -Value Get-OSSAccessPolicy
 Set-Alias -Name Get-OSSAccountSettings -Value Get-OSSAccountSetting
 Set-Alias -Name OSS-GetAccountSettings -Value Get-OSSAccountSetting
+Set-Alias -Name OSS-GetIndex -Value Get-OSSIndex
 Set-Alias -Name Get-OSSPoliciesStats -Value Get-OSSPoliciesStat
 Set-Alias -Name OSS-GetPoliciesStats -Value Get-OSSPoliciesStat
 Set-Alias -Name OSS-GetSecurityConfig -Value Get-OSSSecurityConfig
@@ -22798,6 +22803,7 @@ Set-Alias -Name OSS-UpdateAccessPolicy -Value Update-OSSAccessPolicy
 Set-Alias -Name Update-OSSAccountSettings -Value Update-OSSAccountSetting
 Set-Alias -Name OSS-UpdateAccountSettings -Value Update-OSSAccountSetting
 Set-Alias -Name OSS-UpdateCollection -Value Update-OSSCollection
+Set-Alias -Name OSS-UpdateIndex -Value Update-OSSIndex
 Set-Alias -Name OSS-UpdateLifecyclePolicy -Value Update-OSSLifecyclePolicy
 Set-Alias -Name OSS-UpdateSecurityConfig -Value Update-OSSSecurityConfig
 Set-Alias -Name OSS-UpdateSecurityPolicy -Value Update-OSSSecurityPolicy
@@ -24524,6 +24530,7 @@ Set-Alias -Name QBUS-GetChatControlsConfiguration -Value Get-QBUSChatControlsCon
 Set-Alias -Name QBUS-GetChatResponseConfiguration -Value Get-QBUSChatResponseConfiguration
 Set-Alias -Name QBUS-GetDataAccessor -Value Get-QBUSDataAccessor
 Set-Alias -Name QBUS-GetDataSource -Value Get-QBUSDataSource
+Set-Alias -Name QBUS-GetDocumentContent -Value Get-QBUSDocumentContent
 Set-Alias -Name QBUS-GetGroup -Value Get-QBUSGroup
 Set-Alias -Name QBUS-GetIndex -Value Get-QBUSIndex
 Set-Alias -Name QBUS-GetMedia -Value Get-QBUSMedia

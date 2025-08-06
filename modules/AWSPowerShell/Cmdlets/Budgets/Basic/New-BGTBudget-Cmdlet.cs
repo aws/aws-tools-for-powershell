@@ -125,6 +125,20 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         public Amazon.Budgets.AutoAdjustType AutoAdjustData_AutoAdjustType { get; set; }
         #endregion
         
+        #region Parameter Budget_BillingViewArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The
+        /// ARN is used to specify which particular billing view you want to interact with or
+        /// retrieve information from when making API calls related to Amazon Web Services Billing
+        /// and Cost Management features. The BillingViewArn can be retrieved by calling the ListBillingViews
+        /// API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Budget_BillingViewArn { get; set; }
+        #endregion
+        
         #region Parameter HistoricalOptions_BudgetAdjustmentPeriod
         /// <summary>
         /// <para>
@@ -309,6 +323,17 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         public System.DateTime? AutoAdjustData_LastAutoAdjustTime { get; set; }
         #endregion
         
+        #region Parameter HealthStatus_LastUpdatedTime
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Budget_HealthStatus_LastUpdatedTime")]
+        public System.DateTime? HealthStatus_LastUpdatedTime { get; set; }
+        #endregion
+        
         #region Parameter Budget_LastUpdatedTime
         /// <summary>
         /// <para>
@@ -430,6 +455,32 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Budget_TimePeriod_Start")]
         public System.DateTime? TimePeriod_Start { get; set; }
+        #endregion
+        
+        #region Parameter HealthStatus_Status
+        /// <summary>
+        /// <para>
+        /// <para>The current status of the billing view resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Budget_HealthStatus_Status")]
+        [AWSConstantClassSource("Amazon.Budgets.HealthStatusValue")]
+        public Amazon.Budgets.HealthStatusValue HealthStatus_Status { get; set; }
+        #endregion
+        
+        #region Parameter HealthStatus_StatusReason
+        /// <summary>
+        /// <para>
+        /// <para>The reason for the current status.</para><ul><li><para><c>BILLING_VIEW_NO_ACCESS</c>: The billing view resource does not grant <c>billing:GetBillingViewData</c>
+        /// permission to this account.</para></li><li><para><c>BILLING_VIEW_UNHEALTHY</c>: The billing view associated with the budget is unhealthy.</para></li><li><para><c>FILTER_INVALID</c>: The filter contains reference to an account you do not have
+        /// access to.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Budget_HealthStatus_StatusReason")]
+        [AWSConstantClassSource("Amazon.Budgets.HealthStatusReason")]
+        public Amazon.Budgets.HealthStatusReason HealthStatus_StatusReason { get; set; }
         #endregion
         
         #region Parameter Budget_TimeUnit
@@ -582,6 +633,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             context.HistoricalOptions_BudgetAdjustmentPeriod = this.HistoricalOptions_BudgetAdjustmentPeriod;
             context.HistoricalOptions_LookBackAvailablePeriod = this.HistoricalOptions_LookBackAvailablePeriod;
             context.AutoAdjustData_LastAutoAdjustTime = this.AutoAdjustData_LastAutoAdjustTime;
+            context.Budget_BillingViewArn = this.Budget_BillingViewArn;
             context.BudgetLimit_Amount = this.BudgetLimit_Amount;
             context.BudgetLimit_Unit = this.BudgetLimit_Unit;
             context.Budget_BudgetName = this.Budget_BudgetName;
@@ -636,6 +688,9 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             context.CostTypes_UseAmortized = this.CostTypes_UseAmortized;
             context.CostTypes_UseBlended = this.CostTypes_UseBlended;
             context.Budget_FilterExpression = this.Budget_FilterExpression;
+            context.HealthStatus_LastUpdatedTime = this.HealthStatus_LastUpdatedTime;
+            context.HealthStatus_Status = this.HealthStatus_Status;
+            context.HealthStatus_StatusReason = this.HealthStatus_StatusReason;
             context.Budget_LastUpdatedTime = this.Budget_LastUpdatedTime;
             if (this.Budget_Metric != null)
             {
@@ -690,6 +745,16 @@ namespace Amazon.PowerShell.Cmdlets.BGT
              // populate Budget
             var requestBudgetIsNull = true;
             request.Budget = new Amazon.Budgets.Model.Budget();
+            System.String requestBudget_budget_BillingViewArn = null;
+            if (cmdletContext.Budget_BillingViewArn != null)
+            {
+                requestBudget_budget_BillingViewArn = cmdletContext.Budget_BillingViewArn;
+            }
+            if (requestBudget_budget_BillingViewArn != null)
+            {
+                request.Budget.BillingViewArn = requestBudget_budget_BillingViewArn;
+                requestBudgetIsNull = false;
+            }
             System.String requestBudget_budget_BudgetName = null;
             if (cmdletContext.Budget_BudgetName != null)
             {
@@ -997,6 +1062,51 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                 request.Budget.AutoAdjustData = requestBudget_budget_AutoAdjustData;
                 requestBudgetIsNull = false;
             }
+            Amazon.Budgets.Model.HealthStatus requestBudget_budget_HealthStatus = null;
+            
+             // populate HealthStatus
+            var requestBudget_budget_HealthStatusIsNull = true;
+            requestBudget_budget_HealthStatus = new Amazon.Budgets.Model.HealthStatus();
+            System.DateTime? requestBudget_budget_HealthStatus_healthStatus_LastUpdatedTime = null;
+            if (cmdletContext.HealthStatus_LastUpdatedTime != null)
+            {
+                requestBudget_budget_HealthStatus_healthStatus_LastUpdatedTime = cmdletContext.HealthStatus_LastUpdatedTime.Value;
+            }
+            if (requestBudget_budget_HealthStatus_healthStatus_LastUpdatedTime != null)
+            {
+                requestBudget_budget_HealthStatus.LastUpdatedTime = requestBudget_budget_HealthStatus_healthStatus_LastUpdatedTime.Value;
+                requestBudget_budget_HealthStatusIsNull = false;
+            }
+            Amazon.Budgets.HealthStatusValue requestBudget_budget_HealthStatus_healthStatus_Status = null;
+            if (cmdletContext.HealthStatus_Status != null)
+            {
+                requestBudget_budget_HealthStatus_healthStatus_Status = cmdletContext.HealthStatus_Status;
+            }
+            if (requestBudget_budget_HealthStatus_healthStatus_Status != null)
+            {
+                requestBudget_budget_HealthStatus.Status = requestBudget_budget_HealthStatus_healthStatus_Status;
+                requestBudget_budget_HealthStatusIsNull = false;
+            }
+            Amazon.Budgets.HealthStatusReason requestBudget_budget_HealthStatus_healthStatus_StatusReason = null;
+            if (cmdletContext.HealthStatus_StatusReason != null)
+            {
+                requestBudget_budget_HealthStatus_healthStatus_StatusReason = cmdletContext.HealthStatus_StatusReason;
+            }
+            if (requestBudget_budget_HealthStatus_healthStatus_StatusReason != null)
+            {
+                requestBudget_budget_HealthStatus.StatusReason = requestBudget_budget_HealthStatus_healthStatus_StatusReason;
+                requestBudget_budget_HealthStatusIsNull = false;
+            }
+             // determine if requestBudget_budget_HealthStatus should be set to null
+            if (requestBudget_budget_HealthStatusIsNull)
+            {
+                requestBudget_budget_HealthStatus = null;
+            }
+            if (requestBudget_budget_HealthStatus != null)
+            {
+                request.Budget.HealthStatus = requestBudget_budget_HealthStatus;
+                requestBudgetIsNull = false;
+            }
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             Amazon.Budgets.Model.CostTypes requestBudget_budget_CostTypes = null;
             
@@ -1197,6 +1307,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             public System.Int32? HistoricalOptions_BudgetAdjustmentPeriod { get; set; }
             public System.Int32? HistoricalOptions_LookBackAvailablePeriod { get; set; }
             public System.DateTime? AutoAdjustData_LastAutoAdjustTime { get; set; }
+            public System.String Budget_BillingViewArn { get; set; }
             public System.Decimal? BudgetLimit_Amount { get; set; }
             public System.String BudgetLimit_Unit { get; set; }
             public System.String Budget_BudgetName { get; set; }
@@ -1219,6 +1330,9 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             public System.Boolean? CostTypes_UseAmortized { get; set; }
             public System.Boolean? CostTypes_UseBlended { get; set; }
             public Amazon.Budgets.Model.Expression Budget_FilterExpression { get; set; }
+            public System.DateTime? HealthStatus_LastUpdatedTime { get; set; }
+            public Amazon.Budgets.HealthStatusValue HealthStatus_Status { get; set; }
+            public Amazon.Budgets.HealthStatusReason HealthStatus_StatusReason { get; set; }
             public System.DateTime? Budget_LastUpdatedTime { get; set; }
             public List<System.String> Budget_Metric { get; set; }
             public Dictionary<System.String, Amazon.Budgets.Model.Spend> Budget_PlannedBudgetLimit { get; set; }

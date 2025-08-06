@@ -307,35 +307,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? EbsOptimized { get; set; }
         #endregion
         
-        #region Parameter ElasticGpuSpecification
-        /// <summary>
-        /// <para>
-        /// <para>An elastic GPU to associate with the instance.</para><note><para>Amazon Elastic Graphics reached end of life on January 8, 2024.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public Amazon.EC2.Model.ElasticGpuSpecification[] ElasticGpuSpecification { get; set; }
-        #endregion
-        
-        #region Parameter ElasticInferenceAccelerator
-        /// <summary>
-        /// <para>
-        /// <para>An elastic inference accelerator to associate with the instance.</para><note><para>Amazon Elastic Inference is no longer available.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ElasticInferenceAccelerators")]
-        public Amazon.EC2.Model.ElasticInferenceAccelerator[] ElasticInferenceAccelerator { get; set; }
-        #endregion
-        
         #region Parameter EnclaveOptions_Enabled
         /// <summary>
         /// <para>
@@ -864,6 +835,39 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String ClientToken { get; set; }
         #endregion
         
+        #region Parameter ElasticGpuSpecification
+        /// <summary>
+        /// <para>
+        /// <para>An elastic GPU to associate with the instance.</para><note><para>Amazon Elastic Graphics reached end of life on January 8, 2024.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Specifying Elastic Graphics accelerators is no longer supported on the RunInstances API.")]
+        public Amazon.EC2.Model.ElasticGpuSpecification[] ElasticGpuSpecification { get; set; }
+        #endregion
+        
+        #region Parameter ElasticInferenceAccelerator
+        /// <summary>
+        /// <para>
+        /// <para>An elastic inference accelerator to associate with the instance.</para><note><para>Amazon Elastic Inference is no longer available.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Specifying Elastic Inference accelerators is no longer supported on the RunInstances API.")]
+        [Alias("ElasticInferenceAccelerators")]
+        public Amazon.EC2.Model.ElasticInferenceAccelerator[] ElasticInferenceAccelerator { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Reservation'.
@@ -925,14 +929,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.DisableApiTermination = this.DisableApiTermination;
             context.DryRun = this.DryRun;
             context.EbsOptimized = this.EbsOptimized;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.ElasticGpuSpecification != null)
             {
                 context.ElasticGpuSpecification = new List<Amazon.EC2.Model.ElasticGpuSpecification>(this.ElasticGpuSpecification);
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.ElasticInferenceAccelerator != null)
             {
                 context.ElasticInferenceAccelerator = new List<Amazon.EC2.Model.ElasticInferenceAccelerator>(this.ElasticInferenceAccelerator);
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EnablePrimaryIpv6 = this.EnablePrimaryIpv6;
             context.EnclaveOptions_Enabled = this.EnclaveOptions_Enabled;
             context.HibernationOptions_Configured = this.HibernationOptions_Configured;
@@ -1140,14 +1148,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.EbsOptimized = cmdletContext.EbsOptimized.Value;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ElasticGpuSpecification != null)
             {
                 request.ElasticGpuSpecification = cmdletContext.ElasticGpuSpecification;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ElasticInferenceAccelerator != null)
             {
                 request.ElasticInferenceAccelerators = cmdletContext.ElasticInferenceAccelerator;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.EnablePrimaryIpv6 != null)
             {
                 request.EnablePrimaryIpv6 = cmdletContext.EnablePrimaryIpv6.Value;
@@ -1624,7 +1636,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? DisableApiTermination { get; set; }
             public System.Boolean? DryRun { get; set; }
             public System.Boolean? EbsOptimized { get; set; }
+            [System.ObsoleteAttribute]
             public List<Amazon.EC2.Model.ElasticGpuSpecification> ElasticGpuSpecification { get; set; }
+            [System.ObsoleteAttribute]
             public List<Amazon.EC2.Model.ElasticInferenceAccelerator> ElasticInferenceAccelerator { get; set; }
             public System.Boolean? EnablePrimaryIpv6 { get; set; }
             public System.Boolean? EnclaveOptions_Enabled { get; set; }

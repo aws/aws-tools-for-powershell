@@ -9606,6 +9606,26 @@ $BGT_Completers = {
             break
         }
 
+        # Amazon.Budgets.HealthStatusReason
+        {
+            ($_ -eq "New-BGTBudget/HealthStatus_StatusReason") -Or
+            ($_ -eq "Update-BGTBudget/HealthStatus_StatusReason")
+        }
+        {
+            $v = "BILLING_VIEW_NO_ACCESS","BILLING_VIEW_UNHEALTHY","FILTER_INVALID"
+            break
+        }
+
+        # Amazon.Budgets.HealthStatusValue
+        {
+            ($_ -eq "New-BGTBudget/HealthStatus_Status") -Or
+            ($_ -eq "Update-BGTBudget/HealthStatus_Status")
+        }
+        {
+            $v = "HEALTHY","UNHEALTHY"
+            break
+        }
+
         # Amazon.Budgets.NotificationState
         {
             ($_ -eq "Update-BGTNotification/NewNotification_NotificationState") -Or
@@ -9696,6 +9716,8 @@ $BGT_map = @{
     "Budget_BudgetType"=@("New-BGTBudget")
     "Budget_TimeUnit"=@("New-BGTBudget")
     "ExecutionType"=@("Invoke-BGTBudgetAction")
+    "HealthStatus_Status"=@("New-BGTBudget","Update-BGTBudget")
+    "HealthStatus_StatusReason"=@("New-BGTBudget","Update-BGTBudget")
     "NewBudget_BudgetType"=@("Update-BGTBudget")
     "NewBudget_TimeUnit"=@("Update-BGTBudget")
     "NewNotification_ComparisonOperator"=@("Update-BGTNotification")
@@ -56660,18 +56682,21 @@ $OSS_SelectMap = @{
                "Get-OSSGetVpcEndpoint",
                "New-OSSAccessPolicy",
                "New-OSSCollection",
+               "New-OSSIndex",
                "New-OSSLifecyclePolicy",
                "New-OSSSecurityConfig",
                "New-OSSSecurityPolicy",
                "New-OSSVpcEndpoint",
                "Remove-OSSAccessPolicy",
                "Remove-OSSCollection",
+               "Remove-OSSIndex",
                "Remove-OSSLifecyclePolicy",
                "Remove-OSSSecurityConfig",
                "Remove-OSSSecurityPolicy",
                "Remove-OSSVpcEndpoint",
                "Get-OSSAccessPolicy",
                "Get-OSSAccountSetting",
+               "Get-OSSIndex",
                "Get-OSSPoliciesStat",
                "Get-OSSSecurityConfig",
                "Get-OSSSecurityPolicy",
@@ -56687,6 +56712,7 @@ $OSS_SelectMap = @{
                "Update-OSSAccessPolicy",
                "Update-OSSAccountSetting",
                "Update-OSSCollection",
+               "Update-OSSIndex",
                "Update-OSSLifecyclePolicy",
                "Update-OSSSecurityConfig",
                "Update-OSSSecurityPolicy",
@@ -61512,6 +61538,13 @@ $QBUS_Completers = {
             break
         }
 
+        # Amazon.QBusiness.OutputFormat
+        "Get-QBUSDocumentContent/OutputFormat"
+        {
+            $v = "RAW"
+            break
+        }
+
         # Amazon.QBusiness.PersonalizationControlMode
         {
             ($_ -eq "New-QBUSApplication/PersonalizationConfiguration_PersonalizationControlMode") -Or
@@ -61619,6 +61652,7 @@ $QBUS_map = @{
     "MessageUsefulness_Reason"=@("Write-QBUSFeedback")
     "MessageUsefulness_Usefulness"=@("Write-QBUSFeedback")
     "OrchestrationConfiguration_Control"=@("Update-QBUSChatControlsConfiguration")
+    "OutputFormat"=@("Get-QBUSDocumentContent")
     "PersonalizationConfiguration_PersonalizationControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
     "PluginType"=@("Get-QBUSPluginTypeActionList")
     "QAppsConfiguration_QAppsControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
@@ -61716,6 +61750,7 @@ $QBUS_SelectMap = @{
                "Get-QBUSChatResponseConfiguration",
                "Get-QBUSDataAccessor",
                "Get-QBUSDataSource",
+               "Get-QBUSDocumentContent",
                "Get-QBUSGroup",
                "Get-QBUSIndex",
                "Get-QBUSMedia",

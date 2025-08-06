@@ -178,6 +178,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDocumentContent" OutputProperty="*" Verb="Get" Noun="DocumentContent" PipelineParameter="DocumentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetGroup" OutputProperty="*" Verb="Get" Noun="Group" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

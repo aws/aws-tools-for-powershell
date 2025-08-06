@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of lifecycle policy.</para>
+        /// <para> The type of lifecycle policy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
