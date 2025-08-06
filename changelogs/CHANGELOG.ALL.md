@@ -1,4 +1,17 @@
-﻿### 4.1.872 (2025-08-05 20:29Z)
+﻿### 4.1.873 (2025-08-06 20:28Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1096.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Budgets
+    * Modified cmdlet New-BGTBudget: added parameters Budget_BillingViewArn, HealthStatus_LastUpdatedTime, HealthStatus_Status and HealthStatus_StatusReason.
+    * Modified cmdlet Update-BGTBudget: added parameters HealthStatus_LastUpdatedTime, HealthStatus_Status, HealthStatus_StatusReason and NewBudget_BillingViewArn.
+  * Amazon OpenSearch Serverless
+    * Added cmdlet Get-OSSIndex leveraging the GetIndex service API.
+    * Added cmdlet New-OSSIndex leveraging the CreateIndex service API.
+    * Added cmdlet Remove-OSSIndex leveraging the DeleteIndex service API.
+    * Added cmdlet Update-OSSIndex leveraging the UpdateIndex service API.
+  * Amazon QBusiness
+    * Added cmdlet Get-QBUSDocumentContent leveraging the GetDocumentContent service API.
+
+### 4.1.872 (2025-08-05 20:29Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1095.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock
     * Added cmdlet Export-BDRAutomatedReasoningPolicyVersion leveraging the ExportAutomatedReasoningPolicyVersion service API.

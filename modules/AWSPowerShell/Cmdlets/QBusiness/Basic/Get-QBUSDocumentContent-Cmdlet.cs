@@ -28,27 +28,18 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Subscribes an IAM Identity Center user or a group to a pricing tier for an Amazon
-    /// Q Business application.
-    /// 
-    ///  
-    /// <para>
-    /// Amazon Q Business offers two subscription tiers: <c>Q_LITE</c> and <c>Q_BUSINESS</c>.
-    /// Subscription tier determines feature access for the user. For more information on
-    /// subscriptions and pricing tiers, see <a href="https://aws.amazon.com/q/business/pricing/">Amazon
-    /// Q Business pricing</a>.
-    /// </para><note><para>
-    /// For an example IAM role policy for assigning subscriptions, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/setting-up.html#permissions">Set
-    /// up required permissions</a> in the Amazon Q Business User Guide.
-    /// </para></note>
+    /// Retrieves the content of a document that was ingested into Amazon Q Business. This
+    /// API validates user authorization against document ACLs before returning a pre-signed
+    /// URL for secure document access. You can download or view source documents referenced
+    /// in chat responses through the URL.
     /// </summary>
-    [Cmdlet("New", "QBUSSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.QBusiness.Model.CreateSubscriptionResponse")]
-    [AWSCmdlet("Calls the Amazon QBusiness CreateSubscription API operation.", Operation = new[] {"CreateSubscription"}, SelectReturnType = typeof(Amazon.QBusiness.Model.CreateSubscriptionResponse))]
-    [AWSCmdletOutput("Amazon.QBusiness.Model.CreateSubscriptionResponse",
-        "This cmdlet returns an Amazon.QBusiness.Model.CreateSubscriptionResponse object containing multiple properties."
+    [Cmdlet("Get", "QBUSDocumentContent")]
+    [OutputType("Amazon.QBusiness.Model.GetDocumentContentResponse")]
+    [AWSCmdlet("Calls the Amazon QBusiness GetDocumentContent API operation.", Operation = new[] {"GetDocumentContent"}, SelectReturnType = typeof(Amazon.QBusiness.Model.GetDocumentContentResponse))]
+    [AWSCmdletOutput("Amazon.QBusiness.Model.GetDocumentContentResponse",
+        "This cmdlet returns an Amazon.QBusiness.Model.GetDocumentContentResponse object containing multiple properties."
     )]
-    public partial class NewQBUSSubscriptionCmdlet : AmazonQBusinessClientCmdlet, IExecutor
+    public partial class GetQBUSDocumentContentCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -56,8 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q Business application the subscription should be added
-        /// to.</para>
+        /// <para>The unique identifier of the Amazon Q Business application containing the document.
+        /// This ensures the request is scoped to the correct application environment and its
+        /// associated security policies.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,75 +63,83 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public System.String ApplicationId { get; set; }
         #endregion
         
-        #region Parameter Principal_Group
+        #region Parameter DataSourceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of a group in the IAM Identity Center instance connected to the Amazon
-        /// Q Business application.</para>
+        /// <para>The identifier of the data source from which the document was ingested. This field
+        /// is not present if the document is ingested by directly calling the BatchPutDocument
+        /// API. If the document is from a file-upload data source, the datasource will be "uploaded-docs-file-stat-datasourceid".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Principal_Group { get; set; }
+        public System.String DataSourceId { get; set; }
         #endregion
         
-        #region Parameter Type
+        #region Parameter DocumentId
         /// <summary>
         /// <para>
-        /// <para>The type of Amazon Q Business subscription you want to create.</para>
+        /// <para>The unique identifier of the document that is indexed via BatchPutDocument API or
+        /// file-upload or connector sync. It is also found in chat or chatSync response.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String DocumentId { get; set; }
+        #endregion
+        
+        #region Parameter IndexId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the index where documents are indexed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.QBusiness.SubscriptionType")]
-        public Amazon.QBusiness.SubscriptionType Type { get; set; }
+        public System.String IndexId { get; set; }
         #endregion
         
-        #region Parameter Principal_User
+        #region Parameter OutputFormat
         /// <summary>
         /// <para>
-        /// <para>The identifier of a user in the IAM Identity Center instance connected to the Amazon
-        /// Q Business application.</para>
+        /// <para>Raw document outputFormat.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Principal_User { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A token that you provide to identify the request to create a subscription for your
-        /// Amazon Q Business application.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        [AWSConstantClassSource("Amazon.QBusiness.OutputFormat")]
+        public Amazon.QBusiness.OutputFormat OutputFormat { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QBusiness.Model.CreateSubscriptionResponse).
-        /// Specifying the name of a property of type Amazon.QBusiness.Model.CreateSubscriptionResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QBusiness.Model.GetDocumentContentResponse).
+        /// Specifying the name of a property of type Amazon.QBusiness.Model.GetDocumentContentResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
         #endregion
         
-        #region Parameter Force
+        #region Parameter PassThru
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
+        /// Changes the cmdlet behavior to return the value passed to the DocumentId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DocumentId' instead. This parameter will be removed in a future version.
         /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DocumentId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -147,22 +147,26 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ApplicationId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-QBUSSubscription (CreateSubscription)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.QBusiness.Model.CreateSubscriptionResponse, NewQBUSSubscriptionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QBusiness.Model.GetDocumentContentResponse, GetQBUSDocumentContentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.DocumentId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ApplicationId = this.ApplicationId;
             #if MODULAR
             if (this.ApplicationId == null && ParameterWasBound(nameof(this.ApplicationId)))
@@ -170,16 +174,22 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
                 WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ClientToken = this.ClientToken;
-            context.Principal_Group = this.Principal_Group;
-            context.Principal_User = this.Principal_User;
-            context.Type = this.Type;
+            context.DataSourceId = this.DataSourceId;
+            context.DocumentId = this.DocumentId;
             #if MODULAR
-            if (this.Type == null && ParameterWasBound(nameof(this.Type)))
+            if (this.DocumentId == null && ParameterWasBound(nameof(this.DocumentId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DocumentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IndexId = this.IndexId;
+            #if MODULAR
+            if (this.IndexId == null && ParameterWasBound(nameof(this.IndexId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter IndexId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.OutputFormat = this.OutputFormat;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -194,48 +204,27 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.QBusiness.Model.CreateSubscriptionRequest();
+            var request = new Amazon.QBusiness.Model.GetDocumentContentRequest();
             
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
             }
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.DataSourceId != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
+                request.DataSourceId = cmdletContext.DataSourceId;
             }
-            
-             // populate Principal
-            var requestPrincipalIsNull = true;
-            request.Principal = new Amazon.QBusiness.Model.SubscriptionPrincipal();
-            System.String requestPrincipal_principal_Group = null;
-            if (cmdletContext.Principal_Group != null)
+            if (cmdletContext.DocumentId != null)
             {
-                requestPrincipal_principal_Group = cmdletContext.Principal_Group;
+                request.DocumentId = cmdletContext.DocumentId;
             }
-            if (requestPrincipal_principal_Group != null)
+            if (cmdletContext.IndexId != null)
             {
-                request.Principal.Group = requestPrincipal_principal_Group;
-                requestPrincipalIsNull = false;
+                request.IndexId = cmdletContext.IndexId;
             }
-            System.String requestPrincipal_principal_User = null;
-            if (cmdletContext.Principal_User != null)
+            if (cmdletContext.OutputFormat != null)
             {
-                requestPrincipal_principal_User = cmdletContext.Principal_User;
-            }
-            if (requestPrincipal_principal_User != null)
-            {
-                request.Principal.User = requestPrincipal_principal_User;
-                requestPrincipalIsNull = false;
-            }
-             // determine if request.Principal should be set to null
-            if (requestPrincipalIsNull)
-            {
-                request.Principal = null;
-            }
-            if (cmdletContext.Type != null)
-            {
-                request.Type = cmdletContext.Type;
+                request.OutputFormat = cmdletContext.OutputFormat;
             }
             
             CmdletOutput output;
@@ -270,15 +259,15 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         
         #region AWS Service Operation Call
         
-        private Amazon.QBusiness.Model.CreateSubscriptionResponse CallAWSServiceOperation(IAmazonQBusiness client, Amazon.QBusiness.Model.CreateSubscriptionRequest request)
+        private Amazon.QBusiness.Model.GetDocumentContentResponse CallAWSServiceOperation(IAmazonQBusiness client, Amazon.QBusiness.Model.GetDocumentContentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QBusiness", "CreateSubscription");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QBusiness", "GetDocumentContent");
             try
             {
                 #if DESKTOP
-                return client.CreateSubscription(request);
+                return client.GetDocumentContent(request);
                 #elif CORECLR
-                return client.CreateSubscriptionAsync(request).GetAwaiter().GetResult();
+                return client.GetDocumentContentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -299,11 +288,11 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationId { get; set; }
-            public System.String ClientToken { get; set; }
-            public System.String Principal_Group { get; set; }
-            public System.String Principal_User { get; set; }
-            public Amazon.QBusiness.SubscriptionType Type { get; set; }
-            public System.Func<Amazon.QBusiness.Model.CreateSubscriptionResponse, NewQBUSSubscriptionCmdlet, object> Select { get; set; } =
+            public System.String DataSourceId { get; set; }
+            public System.String DocumentId { get; set; }
+            public System.String IndexId { get; set; }
+            public Amazon.QBusiness.OutputFormat OutputFormat { get; set; }
+            public System.Func<Amazon.QBusiness.Model.GetDocumentContentResponse, GetQBUSDocumentContentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

@@ -150,6 +150,26 @@ $BGT_Completers = {
             break
         }
 
+        # Amazon.Budgets.HealthStatusReason
+        {
+            ($_ -eq "New-BGTBudget/HealthStatus_StatusReason") -Or
+            ($_ -eq "Update-BGTBudget/HealthStatus_StatusReason")
+        }
+        {
+            $v = "BILLING_VIEW_NO_ACCESS","BILLING_VIEW_UNHEALTHY","FILTER_INVALID"
+            break
+        }
+
+        # Amazon.Budgets.HealthStatusValue
+        {
+            ($_ -eq "New-BGTBudget/HealthStatus_Status") -Or
+            ($_ -eq "Update-BGTBudget/HealthStatus_Status")
+        }
+        {
+            $v = "HEALTHY","UNHEALTHY"
+            break
+        }
+
         # Amazon.Budgets.NotificationState
         {
             ($_ -eq "Update-BGTNotification/NewNotification_NotificationState") -Or
@@ -240,6 +260,8 @@ $BGT_map = @{
     "Budget_BudgetType"=@("New-BGTBudget")
     "Budget_TimeUnit"=@("New-BGTBudget")
     "ExecutionType"=@("Invoke-BGTBudgetAction")
+    "HealthStatus_Status"=@("New-BGTBudget","Update-BGTBudget")
+    "HealthStatus_StatusReason"=@("New-BGTBudget","Update-BGTBudget")
     "NewBudget_BudgetType"=@("Update-BGTBudget")
     "NewBudget_TimeUnit"=@("Update-BGTBudget")
     "NewNotification_ComparisonOperator"=@("Update-BGTNotification")

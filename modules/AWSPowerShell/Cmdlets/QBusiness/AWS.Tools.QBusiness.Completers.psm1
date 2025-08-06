@@ -219,6 +219,13 @@ $QBUS_Completers = {
             break
         }
 
+        # Amazon.QBusiness.OutputFormat
+        "Get-QBUSDocumentContent/OutputFormat"
+        {
+            $v = "RAW"
+            break
+        }
+
         # Amazon.QBusiness.PersonalizationControlMode
         {
             ($_ -eq "New-QBUSApplication/PersonalizationConfiguration_PersonalizationControlMode") -Or
@@ -326,6 +333,7 @@ $QBUS_map = @{
     "MessageUsefulness_Reason"=@("Write-QBUSFeedback")
     "MessageUsefulness_Usefulness"=@("Write-QBUSFeedback")
     "OrchestrationConfiguration_Control"=@("Update-QBUSChatControlsConfiguration")
+    "OutputFormat"=@("Get-QBUSDocumentContent")
     "PersonalizationConfiguration_PersonalizationControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
     "PluginType"=@("Get-QBUSPluginTypeActionList")
     "QAppsConfiguration_QAppsControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
@@ -423,6 +431,7 @@ $QBUS_SelectMap = @{
                "Get-QBUSChatResponseConfiguration",
                "Get-QBUSDataAccessor",
                "Get-QBUSDataSource",
+               "Get-QBUSDocumentContent",
                "Get-QBUSGroup",
                "Get-QBUSIndex",
                "Get-QBUSMedia",

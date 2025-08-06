@@ -28,96 +28,108 @@ using Amazon.OpenSearchServerless.Model;
 namespace Amazon.PowerShell.Cmdlets.OSS
 {
     /// <summary>
-    /// Returns information about configured OpenSearch Serverless security policies.
+    /// Creates an index within an OpenSearch Serverless collection. Unlike other OpenSearch
+    /// indexes, indexes created by this API are automatically configured to conduct automatic
+    /// semantic enrichment ingestion and search. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html#serverless-semantic-enrichment">About
+    /// automatic semantic enrichment</a> in the <i>OpenSearch User Guide</i>.
     /// </summary>
-    [Cmdlet("Get", "OSSSecurityPolicyList")]
-    [OutputType("Amazon.OpenSearchServerless.Model.SecurityPolicySummary")]
-    [AWSCmdlet("Calls the OpenSearch Serverless ListSecurityPolicies API operation.", Operation = new[] {"ListSecurityPolicies"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.ListSecurityPoliciesResponse))]
-    [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.SecurityPolicySummary or Amazon.OpenSearchServerless.Model.ListSecurityPoliciesResponse",
-        "This cmdlet returns a collection of Amazon.OpenSearchServerless.Model.SecurityPolicySummary objects.",
-        "The service call response (type Amazon.OpenSearchServerless.Model.ListSecurityPoliciesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("New", "OSSIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the OpenSearch Serverless CreateIndex API operation.", Operation = new[] {"CreateIndex"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.CreateIndexResponse))]
+    [AWSCmdletOutput("None or Amazon.OpenSearchServerless.Model.CreateIndexResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.OpenSearchServerless.Model.CreateIndexResponse) be returned by specifying '-Select *'."
     )]
-    public partial class GetOSSSecurityPolicyListCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
+    public partial class NewOSSIndexCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Resource
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>Resource filters (can be collection or indexes) that policies can apply to. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String[] Resource { get; set; }
-        #endregion
-        
-        #region Parameter Type
-        /// <summary>
-        /// <para>
-        /// <para>The type of policy.</para>
+        /// <para>The unique identifier of the collection in which to create the index.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.OpenSearchServerless.SecurityPolicyType")]
-        public Amazon.OpenSearchServerless.SecurityPolicyType Type { get; set; }
+        public System.String Id { get; set; }
         #endregion
         
-        #region Parameter MaxResult
+        #region Parameter IndexName
         /// <summary>
         /// <para>
-        /// <para>An optional parameter that specifies the maximum number of results to return. You
-        /// can use <c>nextToken</c> to get the next page of results. The default is 20.</para>
+        /// <para>The name of the index to create. Index names must be lowercase and can't begin with
+        /// underscores (_) or hyphens (-).</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String IndexName { get; set; }
+        #endregion
+        
+        #region Parameter IndexSchema
+        /// <summary>
+        /// <para>
+        /// <para>The JSON schema definition for the index, including field mappings and settings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>If your initial <c>ListSecurityPolicies</c> operation returns a <c>nextToken</c>,
-        /// you can include the returned <c>nextToken</c> in subsequent <c>ListSecurityPolicies</c>
-        /// operations, which returns results in the next page.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        public System.Management.Automation.PSObject IndexSchema { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'SecurityPolicySummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpenSearchServerless.Model.ListSecurityPoliciesResponse).
-        /// Specifying the name of a property of type Amazon.OpenSearchServerless.Model.ListSecurityPoliciesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpenSearchServerless.Model.CreateIndexResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "SecurityPolicySummaries";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Type parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Type' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Type' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.IndexName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-OSSIndex (CreateIndex)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -127,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.OpenSearchServerless.Model.ListSecurityPoliciesResponse, GetOSSSecurityPolicyListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.OpenSearchServerless.Model.CreateIndexResponse, NewOSSIndexCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -136,22 +148,24 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Type;
+                context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
-            if (this.Resource != null)
-            {
-                context.Resource = new List<System.String>(this.Resource);
-            }
-            context.Type = this.Type;
+            context.Id = this.Id;
             #if MODULAR
-            if (this.Type == null && ParameterWasBound(nameof(this.Type)))
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
             {
-                WriteWarning("You are passing $null as a value for parameter Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IndexName = this.IndexName;
+            #if MODULAR
+            if (this.IndexName == null && ParameterWasBound(nameof(this.IndexName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter IndexName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.IndexSchema = this.IndexSchema;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -166,23 +180,19 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.OpenSearchServerless.Model.ListSecurityPoliciesRequest();
+            var request = new Amazon.OpenSearchServerless.Model.CreateIndexRequest();
             
-            if (cmdletContext.MaxResult != null)
+            if (cmdletContext.Id != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
+                request.Id = cmdletContext.Id;
             }
-            if (cmdletContext.NextToken != null)
+            if (cmdletContext.IndexName != null)
             {
-                request.NextToken = cmdletContext.NextToken;
+                request.IndexName = cmdletContext.IndexName;
             }
-            if (cmdletContext.Resource != null)
+            if (cmdletContext.IndexSchema != null)
             {
-                request.Resource = cmdletContext.Resource;
-            }
-            if (cmdletContext.Type != null)
-            {
-                request.Type = cmdletContext.Type;
+                request.IndexSchema = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.IndexSchema);
             }
             
             CmdletOutput output;
@@ -217,15 +227,15 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         
         #region AWS Service Operation Call
         
-        private Amazon.OpenSearchServerless.Model.ListSecurityPoliciesResponse CallAWSServiceOperation(IAmazonOpenSearchServerless client, Amazon.OpenSearchServerless.Model.ListSecurityPoliciesRequest request)
+        private Amazon.OpenSearchServerless.Model.CreateIndexResponse CallAWSServiceOperation(IAmazonOpenSearchServerless client, Amazon.OpenSearchServerless.Model.CreateIndexRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "OpenSearch Serverless", "ListSecurityPolicies");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "OpenSearch Serverless", "CreateIndex");
             try
             {
                 #if DESKTOP
-                return client.ListSecurityPolicies(request);
+                return client.CreateIndex(request);
                 #elif CORECLR
-                return client.ListSecurityPoliciesAsync(request).GetAwaiter().GetResult();
+                return client.CreateIndexAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -245,12 +255,11 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
-            public List<System.String> Resource { get; set; }
-            public Amazon.OpenSearchServerless.SecurityPolicyType Type { get; set; }
-            public System.Func<Amazon.OpenSearchServerless.Model.ListSecurityPoliciesResponse, GetOSSSecurityPolicyListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.SecurityPolicySummaries;
+            public System.String Id { get; set; }
+            public System.String IndexName { get; set; }
+            public System.Management.Automation.PSObject IndexSchema { get; set; }
+            public System.Func<Amazon.OpenSearchServerless.Model.CreateIndexResponse, NewOSSIndexCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }
