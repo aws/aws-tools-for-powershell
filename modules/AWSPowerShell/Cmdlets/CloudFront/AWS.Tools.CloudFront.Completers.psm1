@@ -251,7 +251,7 @@ $CF_Completers = {
             ($_ -eq "Update-CFDistribution/ViewerCertificate_MinimumProtocolVersion")
         }
         {
-            $v = "SSLv3","TLSv1","TLSv1.1_2016","TLSv1.2_2018","TLSv1.2_2019","TLSv1.2_2021","TLSv1_2016"
+            $v = "SSLv3","TLSv1","TLSv1.1_2016","TLSv1.2_2018","TLSv1.2_2019","TLSv1.2_2021","TLSv1.3_2025","TLSv1_2016"
             break
         }
 

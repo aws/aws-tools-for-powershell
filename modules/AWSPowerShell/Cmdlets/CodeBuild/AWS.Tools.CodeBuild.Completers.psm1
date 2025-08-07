@@ -302,6 +302,16 @@ $CB_Completers = {
             break
         }
 
+        # Amazon.CodeBuild.PullRequestBuildCommentApproval
+        {
+            ($_ -eq "New-CBWebhook/PullRequestBuildPolicy_RequiresCommentApproval") -Or
+            ($_ -eq "Update-CBWebhook/PullRequestBuildPolicy_RequiresCommentApproval")
+        }
+        {
+            $v = "ALL_PULL_REQUESTS","DISABLED","FORK_PULL_REQUESTS"
+            break
+        }
+
         # Amazon.CodeBuild.ReportCodeCoverageSortByType
         "Get-CBCodeCoverage/SortBy"
         {
@@ -498,6 +508,7 @@ $CB_map = @{
     "OverflowBehavior"=@("New-CBFleet","Update-CBFleet")
     "ProjectVisibility"=@("Update-CBProjectVisibility")
     "ProxyConfiguration_DefaultBehavior"=@("New-CBFleet","Update-CBFleet")
+    "PullRequestBuildPolicy_RequiresCommentApproval"=@("New-CBWebhook","Update-CBWebhook")
     "RegistryCredential_CredentialProvider"=@("New-CBProject","Update-CBProject")
     "RegistryCredentialOverride_CredentialProvider"=@("Start-CBBatch","Start-CBBuild")
     "RetryType"=@("Redo-CBBatch")

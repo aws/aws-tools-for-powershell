@@ -54,6 +54,21 @@ namespace Amazon.PowerShell.Cmdlets.CB
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter PullRequestBuildPolicy_ApproverRole
+        /// <summary>
+        /// <para>
+        /// <para>List of repository roles that have approval privileges for pull request builds when
+        /// comment approval is required. Only users with these roles can provide valid comment
+        /// approvals. If a pull request contributor is one of these roles, their pull request
+        /// builds will trigger automatically. This field is only applicable when <c>requiresCommentApproval</c>
+        /// is not <i>DISABLED</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PullRequestBuildPolicy_ApproverRoles")]
+        public System.String[] PullRequestBuildPolicy_ApproverRole { get; set; }
+        #endregion
+        
         #region Parameter BranchFilter
         /// <summary>
         /// <para>
@@ -148,6 +163,21 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String ProjectName { get; set; }
         #endregion
         
+        #region Parameter PullRequestBuildPolicy_RequiresCommentApproval
+        /// <summary>
+        /// <para>
+        /// <para>Specifies when comment-based approval is required before triggering a build on pull
+        /// requests. This setting determines whether builds run automatically or require explicit
+        /// approval through comments.</para><ul><li><para><i>DISABLED</i>: Builds trigger automatically without requiring comment approval</para></li><li><para><i>ALL_PULL_REQUESTS</i>: All pull requests require comment approval before builds
+        /// execute (unless contributor is one of the approver roles)</para></li><li><para><i>FORK_PULL_REQUESTS</i>: Only pull requests from forked repositories require comment
+        /// approval (unless contributor is one of the approver roles)</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CodeBuild.PullRequestBuildCommentApproval")]
+        public Amazon.CodeBuild.PullRequestBuildCommentApproval PullRequestBuildPolicy_RequiresCommentApproval { get; set; }
+        #endregion
+        
         #region Parameter ScopeConfiguration_Scope
         /// <summary>
         /// <para>
@@ -239,6 +269,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 WriteWarning("You are passing $null as a value for parameter ProjectName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.PullRequestBuildPolicy_ApproverRole != null)
+            {
+                context.PullRequestBuildPolicy_ApproverRole = new List<System.String>(this.PullRequestBuildPolicy_ApproverRole);
+            }
+            context.PullRequestBuildPolicy_RequiresCommentApproval = this.PullRequestBuildPolicy_RequiresCommentApproval;
             context.ScopeConfiguration_Domain = this.ScopeConfiguration_Domain;
             context.ScopeConfiguration_Name = this.ScopeConfiguration_Name;
             context.ScopeConfiguration_Scope = this.ScopeConfiguration_Scope;
@@ -277,6 +312,35 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (cmdletContext.ProjectName != null)
             {
                 request.ProjectName = cmdletContext.ProjectName;
+            }
+            
+             // populate PullRequestBuildPolicy
+            var requestPullRequestBuildPolicyIsNull = true;
+            request.PullRequestBuildPolicy = new Amazon.CodeBuild.Model.PullRequestBuildPolicy();
+            List<System.String> requestPullRequestBuildPolicy_pullRequestBuildPolicy_ApproverRole = null;
+            if (cmdletContext.PullRequestBuildPolicy_ApproverRole != null)
+            {
+                requestPullRequestBuildPolicy_pullRequestBuildPolicy_ApproverRole = cmdletContext.PullRequestBuildPolicy_ApproverRole;
+            }
+            if (requestPullRequestBuildPolicy_pullRequestBuildPolicy_ApproverRole != null)
+            {
+                request.PullRequestBuildPolicy.ApproverRoles = requestPullRequestBuildPolicy_pullRequestBuildPolicy_ApproverRole;
+                requestPullRequestBuildPolicyIsNull = false;
+            }
+            Amazon.CodeBuild.PullRequestBuildCommentApproval requestPullRequestBuildPolicy_pullRequestBuildPolicy_RequiresCommentApproval = null;
+            if (cmdletContext.PullRequestBuildPolicy_RequiresCommentApproval != null)
+            {
+                requestPullRequestBuildPolicy_pullRequestBuildPolicy_RequiresCommentApproval = cmdletContext.PullRequestBuildPolicy_RequiresCommentApproval;
+            }
+            if (requestPullRequestBuildPolicy_pullRequestBuildPolicy_RequiresCommentApproval != null)
+            {
+                request.PullRequestBuildPolicy.RequiresCommentApproval = requestPullRequestBuildPolicy_pullRequestBuildPolicy_RequiresCommentApproval;
+                requestPullRequestBuildPolicyIsNull = false;
+            }
+             // determine if request.PullRequestBuildPolicy should be set to null
+            if (requestPullRequestBuildPolicyIsNull)
+            {
+                request.PullRequestBuildPolicy = null;
             }
             
              // populate ScopeConfiguration
@@ -383,6 +447,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public List<List<Amazon.CodeBuild.Model.WebhookFilter>> FilterGroup { get; set; }
             public System.Boolean? ManualCreation { get; set; }
             public System.String ProjectName { get; set; }
+            public List<System.String> PullRequestBuildPolicy_ApproverRole { get; set; }
+            public Amazon.CodeBuild.PullRequestBuildCommentApproval PullRequestBuildPolicy_RequiresCommentApproval { get; set; }
             public System.String ScopeConfiguration_Domain { get; set; }
             public System.String ScopeConfiguration_Name { get; set; }
             public Amazon.CodeBuild.WebhookScopeType ScopeConfiguration_Scope { get; set; }

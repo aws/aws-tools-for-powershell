@@ -136,9 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <summary>
         /// <para>
         /// <para>Length of time (in seconds) that Amazon GameLift Streams should wait for a client
-        /// to connect to the stream session. This time span starts when the stream session reaches
-        /// <c>ACTIVE</c> status. If no client connects before the timeout, Amazon GameLift Streams
-        /// stops the stream session with status of <c>TERMINATED</c>. Default value is 120.</para>
+        /// to connect or reconnect to the stream session. This time span starts when the stream
+        /// session reaches <c>ACTIVE</c> status. If no client connects before the timeout, Amazon
+        /// GameLift Streams stops the stream session with status of <c>TERMINATED</c>. Default
+        /// value is 120.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

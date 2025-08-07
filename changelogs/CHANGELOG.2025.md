@@ -1,4 +1,15 @@
-﻿### 4.1.873 (2025-08-06 20:28Z)
+﻿### 4.1.874 (2025-08-07 20:03Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1097.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CodeBuild
+    * Modified cmdlet New-CBWebhook: added parameters PullRequestBuildPolicy_ApproverRole and PullRequestBuildPolicy_RequiresCommentApproval.
+    * Modified cmdlet Update-CBWebhook: added parameters PullRequestBuildPolicy_ApproverRole and PullRequestBuildPolicy_RequiresCommentApproval.
+  * Amazon Glue
+    * Modified cmdlet New-GLUECatalog: added parameters IcebergOptimizationProperties_Compaction, IcebergOptimizationProperties_OrphanFileDeletion, IcebergOptimizationProperties_Retention and IcebergOptimizationProperties_RoleArn.
+    * Modified cmdlet New-GLUETableOptimizer: added parameters IcebergConfiguration_DeleteFileThreshold, IcebergConfiguration_MinInputFile, TableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_RunRateInHours and TableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_RunRateInHours.
+    * Modified cmdlet Update-GLUECatalog: added parameters IcebergOptimizationProperties_Compaction, IcebergOptimizationProperties_OrphanFileDeletion, IcebergOptimizationProperties_Retention and IcebergOptimizationProperties_RoleArn.
+    * Modified cmdlet Update-GLUETableOptimizer: added parameters IcebergConfiguration_DeleteFileThreshold, IcebergConfiguration_MinInputFile, TableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_RunRateInHours and TableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_RunRateInHours.
+
+### 4.1.873 (2025-08-06 20:28Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1096.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Budgets
     * Modified cmdlet New-BGTBudget: added parameters Budget_BillingViewArn, HealthStatus_LastUpdatedTime, HealthStatus_Status and HealthStatus_StatusReason.

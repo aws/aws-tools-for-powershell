@@ -13229,7 +13229,7 @@ $CF_Completers = {
             ($_ -eq "Update-CFDistribution/ViewerCertificate_MinimumProtocolVersion")
         }
         {
-            $v = "SSLv3","TLSv1","TLSv1.1_2016","TLSv1.2_2018","TLSv1.2_2019","TLSv1.2_2021","TLSv1_2016"
+            $v = "SSLv3","TLSv1","TLSv1.1_2016","TLSv1.2_2018","TLSv1.2_2019","TLSv1.2_2021","TLSv1.3_2025","TLSv1_2016"
             break
         }
 
@@ -14868,6 +14868,16 @@ $CB_Completers = {
             break
         }
 
+        # Amazon.CodeBuild.PullRequestBuildCommentApproval
+        {
+            ($_ -eq "New-CBWebhook/PullRequestBuildPolicy_RequiresCommentApproval") -Or
+            ($_ -eq "Update-CBWebhook/PullRequestBuildPolicy_RequiresCommentApproval")
+        }
+        {
+            $v = "ALL_PULL_REQUESTS","DISABLED","FORK_PULL_REQUESTS"
+            break
+        }
+
         # Amazon.CodeBuild.ReportCodeCoverageSortByType
         "Get-CBCodeCoverage/SortBy"
         {
@@ -15064,6 +15074,7 @@ $CB_map = @{
     "OverflowBehavior"=@("New-CBFleet","Update-CBFleet")
     "ProjectVisibility"=@("Update-CBProjectVisibility")
     "ProxyConfiguration_DefaultBehavior"=@("New-CBFleet","Update-CBFleet")
+    "PullRequestBuildPolicy_RequiresCommentApproval"=@("New-CBWebhook","Update-CBWebhook")
     "RegistryCredential_CredentialProvider"=@("New-CBProject","Update-CBProject")
     "RegistryCredentialOverride_CredentialProvider"=@("Start-CBBatch","Start-CBBuild")
     "RetryType"=@("Redo-CBBatch")

@@ -208,7 +208,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTableOptimizer" Verb="New" Noun="TableOptimizer" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_RunRateInHours" NewName="TableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_RunRateInHours" />
+                <Param Name="TableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_RunRateInHours" NewName="TableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_RunRateInHours" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTrigger" OutputProperty="Name" Verb="New" Noun="Trigger" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -395,7 +398,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetClassifiers" OutputProperty="Classifiers" Verb="Get" Noun="ClassifierList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetClassifiers" OutputProperty="Classifiers" Verb="Get" Noun="ClassifierList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -423,7 +426,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConnections" OutputProperty="ConnectionList" Verb="Get" Noun="ConnectionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetConnections" OutputProperty="ConnectionList" Verb="Get" Noun="ConnectionList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -431,11 +434,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCrawlerMetrics" OutputProperty="CrawlerMetricsList" Verb="Get" Noun="CrawlerMetricList" PipelineParameter="CrawlerNameList" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetCrawlerMetrics" OutputProperty="CrawlerMetricsList" Verb="Get" Noun="CrawlerMetricList" PipelineParameter="CrawlerNameList" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCrawlers" OutputProperty="Crawlers" Verb="Get" Noun="CrawlerList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetCrawlers" OutputProperty="Crawlers" Verb="Get" Noun="CrawlerList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -447,7 +450,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDatabases" OutputProperty="DatabaseList" Verb="Get" Noun="DatabaseList" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDatabases" OutputProperty="DatabaseList" Verb="Get" Noun="DatabaseList" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -487,7 +490,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDevEndpoints" OutputProperty="DevEndpoints" Verb="Get" Noun="DevEndpointList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetDevEndpoints" OutputProperty="DevEndpoints" Verb="Get" Noun="DevEndpointList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -515,11 +518,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJobRuns" OutputProperty="JobRuns" Verb="Get" Noun="JobRunList" PipelineParameter="JobName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetJobRuns" OutputProperty="JobRuns" Verb="Get" Noun="JobRunList" PipelineParameter="JobName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -531,7 +534,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMLTaskRuns" OutputProperty="TaskRuns" Verb="Get" Noun="MLTaskRunList" PipelineParameter="TransformId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMLTaskRuns" OutputProperty="TaskRuns" Verb="Get" Noun="MLTaskRunList" PipelineParameter="TransformId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -539,7 +542,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMLTransforms" OutputProperty="Transforms" Verb="Get" Noun="MLTransformList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMLTransforms" OutputProperty="Transforms" Verb="Get" Noun="MLTransformList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -551,7 +554,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPartitions" OutputProperty="Partitions" Verb="Get" Noun="PartitionList" PipelineParameter="TableName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetPartitions" OutputProperty="Partitions" Verb="Get" Noun="PartitionList" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -591,7 +594,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSecurityConfigurations" OutputProperty="SecurityConfigurations" Verb="Get" Noun="SecurityConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetSecurityConfigurations" OutputProperty="SecurityConfigurations" Verb="Get" Noun="SecurityConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -611,7 +614,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTables" OutputProperty="TableList" Verb="Get" Noun="TableList" PipelineParameter="DatabaseName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTables" OutputProperty="TableList" Verb="Get" Noun="TableList" PipelineParameter="DatabaseName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -619,7 +622,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTableVersions" OutputProperty="TableVersions" Verb="Get" Noun="TableVersionList" PipelineParameter="TableName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTableVersions" OutputProperty="TableVersions" Verb="Get" Noun="TableVersionList" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -631,7 +634,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTriggers" OutputProperty="Triggers" Verb="Get" Noun="TriggerList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetTriggers" OutputProperty="Triggers" Verb="Get" Noun="TriggerList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -661,7 +664,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUserDefinedFunctions" OutputProperty="UserDefinedFunctions" Verb="Get" Noun="UserDefinedFunctionList" PipelineParameter="DatabaseName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetUserDefinedFunctions" OutputProperty="UserDefinedFunctions" Verb="Get" Noun="UserDefinedFunctionList" PipelineParameter="DatabaseName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -677,7 +680,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWorkflowRuns" OutputProperty="Runs" Verb="Get" Noun="WorkflowRunList" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetWorkflowRuns" OutputProperty="Runs" Verb="Get" Noun="WorkflowRunList" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -697,7 +700,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCrawlers" OutputProperty="CrawlerNames" Verb="Get" Noun="CrawlerNameList" PipelineParameter="Tags" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListCrawlers" OutputProperty="CrawlerNames" Verb="Get" Noun="CrawlerNameList" PipelineParameter="Tags" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -733,7 +736,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDevEndpoints" OutputProperty="DevEndpointNames" Verb="Get" Noun="DevEndpointNameList" PipelineParameter="Tags" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDevEndpoints" OutputProperty="DevEndpointNames" Verb="Get" Noun="DevEndpointNameList" PipelineParameter="Tags" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -741,7 +744,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" OutputProperty="JobNames" Verb="Get" Noun="JobNameList" PipelineParameter="Tags" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListJobs" OutputProperty="JobNames" Verb="Get" Noun="JobNameList" PipelineParameter="Tags" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -773,7 +776,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTriggers" OutputProperty="TriggerNames" Verb="Get" Noun="TriggerNameList" PipelineParameter="DependentJobName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTriggers" OutputProperty="TriggerNames" Verb="Get" Noun="TriggerNameList" PipelineParameter="DependentJobName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -781,7 +784,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkflows" OutputProperty="Workflows" Verb="Get" Noun="WorkflowList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListWorkflows" OutputProperty="Workflows" Verb="Get" Noun="WorkflowList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -833,7 +836,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchTables" OutputProperty="TableList" Verb="Find" Noun="Table" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="SearchTables" OutputProperty="TableList" Verb="Find" Noun="Table" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1024,7 +1027,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTableOptimizer" Verb="Update" Noun="TableOptimizer" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="TableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_RunRateInHours" NewName="TableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_RunRateInHours" />
+                <Param Name="TableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_RunRateInHours" NewName="TableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_RunRateInHours" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTrigger" OutputProperty="Trigger" Verb="Update" Noun="Trigger" ShouldProcessTarget="Name" PipelineParameter="TriggerUpdate" NoPipelineParameter="false" LegacyV4Pagination="true">

@@ -94,6 +94,18 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String DataLakeAccessProperties_CatalogType { get; set; }
         #endregion
         
+        #region Parameter IcebergOptimizationProperties_Compaction
+        /// <summary>
+        /// <para>
+        /// <para>A map of key-value pairs that specify configuration parameters for Iceberg table compaction
+        /// operations, which optimize the layout of data files to improve query performance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CatalogInput_CatalogProperties_IcebergOptimizationProperties_Compaction")]
+        public System.Collections.Hashtable IcebergOptimizationProperties_Compaction { get; set; }
+        #endregion
+        
         #region Parameter FederatedCatalog_ConnectionName
         /// <summary>
         /// <para>
@@ -214,6 +226,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String DataLakeAccessProperties_KmsKey { get; set; }
         #endregion
         
+        #region Parameter IcebergOptimizationProperties_OrphanFileDeletion
+        /// <summary>
+        /// <para>
+        /// <para>A map of key-value pairs that specify configuration parameters for Iceberg orphan
+        /// file deletion operations, which identify and remove files that are no longer referenced
+        /// by the table metadata.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CatalogInput_CatalogProperties_IcebergOptimizationProperties_OrphanFileDeletion")]
+        public System.Collections.Hashtable IcebergOptimizationProperties_OrphanFileDeletion { get; set; }
+        #endregion
+        
         #region Parameter CatalogInput_Parameter
         /// <summary>
         /// <para>
@@ -223,6 +248,30 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("CatalogInput_Parameters")]
         public System.Collections.Hashtable CatalogInput_Parameter { get; set; }
+        #endregion
+        
+        #region Parameter IcebergOptimizationProperties_Retention
+        /// <summary>
+        /// <para>
+        /// <para>A map of key-value pairs that specify configuration parameters for Iceberg table retention
+        /// operations, which manage the lifecycle of table snapshots to control storage costs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CatalogInput_CatalogProperties_IcebergOptimizationProperties_Retention")]
+        public System.Collections.Hashtable IcebergOptimizationProperties_Retention { get; set; }
+        #endregion
+        
+        #region Parameter IcebergOptimizationProperties_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role that will be assumed to perform Iceberg
+        /// table optimization operations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CatalogInput_CatalogProperties_IcebergOptimizationProperties_RoleArn")]
+        public System.String IcebergOptimizationProperties_RoleArn { get; set; }
         #endregion
         
         #region Parameter Select
@@ -306,6 +355,31 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             context.DataLakeAccessProperties_DataLakeAccess = this.DataLakeAccessProperties_DataLakeAccess;
             context.DataLakeAccessProperties_DataTransferRole = this.DataLakeAccessProperties_DataTransferRole;
             context.DataLakeAccessProperties_KmsKey = this.DataLakeAccessProperties_KmsKey;
+            if (this.IcebergOptimizationProperties_Compaction != null)
+            {
+                context.IcebergOptimizationProperties_Compaction = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.IcebergOptimizationProperties_Compaction.Keys)
+                {
+                    context.IcebergOptimizationProperties_Compaction.Add((String)hashKey, (System.String)(this.IcebergOptimizationProperties_Compaction[hashKey]));
+                }
+            }
+            if (this.IcebergOptimizationProperties_OrphanFileDeletion != null)
+            {
+                context.IcebergOptimizationProperties_OrphanFileDeletion = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.IcebergOptimizationProperties_OrphanFileDeletion.Keys)
+                {
+                    context.IcebergOptimizationProperties_OrphanFileDeletion.Add((String)hashKey, (System.String)(this.IcebergOptimizationProperties_OrphanFileDeletion[hashKey]));
+                }
+            }
+            if (this.IcebergOptimizationProperties_Retention != null)
+            {
+                context.IcebergOptimizationProperties_Retention = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.IcebergOptimizationProperties_Retention.Keys)
+                {
+                    context.IcebergOptimizationProperties_Retention.Add((String)hashKey, (System.String)(this.IcebergOptimizationProperties_Retention[hashKey]));
+                }
+            }
+            context.IcebergOptimizationProperties_RoleArn = this.IcebergOptimizationProperties_RoleArn;
             if (this.CatalogInput_CreateDatabaseDefaultPermission != null)
             {
                 context.CatalogInput_CreateDatabaseDefaultPermission = new List<Amazon.Glue.Model.PrincipalPermissions>(this.CatalogInput_CreateDatabaseDefaultPermission);
@@ -496,6 +570,61 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 requestCatalogInput_catalogInput_CatalogProperties.DataLakeAccessProperties = requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_DataLakeAccessProperties;
                 requestCatalogInput_catalogInput_CatalogPropertiesIsNull = false;
             }
+            Amazon.Glue.Model.IcebergOptimizationProperties requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties = null;
+            
+             // populate IcebergOptimizationProperties
+            var requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationPropertiesIsNull = true;
+            requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties = new Amazon.Glue.Model.IcebergOptimizationProperties();
+            Dictionary<System.String, System.String> requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties_icebergOptimizationProperties_Compaction = null;
+            if (cmdletContext.IcebergOptimizationProperties_Compaction != null)
+            {
+                requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties_icebergOptimizationProperties_Compaction = cmdletContext.IcebergOptimizationProperties_Compaction;
+            }
+            if (requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties_icebergOptimizationProperties_Compaction != null)
+            {
+                requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties.Compaction = requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties_icebergOptimizationProperties_Compaction;
+                requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationPropertiesIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties_icebergOptimizationProperties_OrphanFileDeletion = null;
+            if (cmdletContext.IcebergOptimizationProperties_OrphanFileDeletion != null)
+            {
+                requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties_icebergOptimizationProperties_OrphanFileDeletion = cmdletContext.IcebergOptimizationProperties_OrphanFileDeletion;
+            }
+            if (requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties_icebergOptimizationProperties_OrphanFileDeletion != null)
+            {
+                requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties.OrphanFileDeletion = requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties_icebergOptimizationProperties_OrphanFileDeletion;
+                requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationPropertiesIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties_icebergOptimizationProperties_Retention = null;
+            if (cmdletContext.IcebergOptimizationProperties_Retention != null)
+            {
+                requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties_icebergOptimizationProperties_Retention = cmdletContext.IcebergOptimizationProperties_Retention;
+            }
+            if (requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties_icebergOptimizationProperties_Retention != null)
+            {
+                requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties.Retention = requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties_icebergOptimizationProperties_Retention;
+                requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationPropertiesIsNull = false;
+            }
+            System.String requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties_icebergOptimizationProperties_RoleArn = null;
+            if (cmdletContext.IcebergOptimizationProperties_RoleArn != null)
+            {
+                requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties_icebergOptimizationProperties_RoleArn = cmdletContext.IcebergOptimizationProperties_RoleArn;
+            }
+            if (requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties_icebergOptimizationProperties_RoleArn != null)
+            {
+                requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties.RoleArn = requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties_icebergOptimizationProperties_RoleArn;
+                requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationPropertiesIsNull = false;
+            }
+             // determine if requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties should be set to null
+            if (requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationPropertiesIsNull)
+            {
+                requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties = null;
+            }
+            if (requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties != null)
+            {
+                requestCatalogInput_catalogInput_CatalogProperties.IcebergOptimizationProperties = requestCatalogInput_catalogInput_CatalogProperties_catalogInput_CatalogProperties_IcebergOptimizationProperties;
+                requestCatalogInput_catalogInput_CatalogPropertiesIsNull = false;
+            }
              // determine if requestCatalogInput_catalogInput_CatalogProperties should be set to null
             if (requestCatalogInput_catalogInput_CatalogPropertiesIsNull)
             {
@@ -624,6 +753,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.Boolean? DataLakeAccessProperties_DataLakeAccess { get; set; }
             public System.String DataLakeAccessProperties_DataTransferRole { get; set; }
             public System.String DataLakeAccessProperties_KmsKey { get; set; }
+            public Dictionary<System.String, System.String> IcebergOptimizationProperties_Compaction { get; set; }
+            public Dictionary<System.String, System.String> IcebergOptimizationProperties_OrphanFileDeletion { get; set; }
+            public Dictionary<System.String, System.String> IcebergOptimizationProperties_Retention { get; set; }
+            public System.String IcebergOptimizationProperties_RoleArn { get; set; }
             public List<Amazon.Glue.Model.PrincipalPermissions> CatalogInput_CreateDatabaseDefaultPermission { get; set; }
             public List<Amazon.Glue.Model.PrincipalPermissions> CatalogInput_CreateTableDefaultPermission { get; set; }
             public System.String CatalogInput_Description { get; set; }
