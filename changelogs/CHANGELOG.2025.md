@@ -1,4 +1,15 @@
-﻿### 5.0.27 (2025-08-06 20:15Z)
+﻿### 5.0.28 (2025-08-07 20:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.65.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CodeBuild
+    * Modified cmdlet New-CBWebhook: added parameters PullRequestBuildPolicy_ApproverRole and PullRequestBuildPolicy_RequiresCommentApproval.
+    * Modified cmdlet Update-CBWebhook: added parameters PullRequestBuildPolicy_ApproverRole and PullRequestBuildPolicy_RequiresCommentApproval.
+  * Amazon Glue
+    * Modified cmdlet New-GLUECatalog: added parameters IcebergOptimizationProperties_Compaction, IcebergOptimizationProperties_OrphanFileDeletion, IcebergOptimizationProperties_Retention and IcebergOptimizationProperties_RoleArn.
+    * Modified cmdlet New-GLUETableOptimizer: added parameters IcebergConfiguration_DeleteFileThreshold, IcebergConfiguration_MinInputFile, TableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_RunRateInHours and TableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_RunRateInHours.
+    * Modified cmdlet Update-GLUECatalog: added parameters IcebergOptimizationProperties_Compaction, IcebergOptimizationProperties_OrphanFileDeletion, IcebergOptimizationProperties_Retention and IcebergOptimizationProperties_RoleArn.
+    * Modified cmdlet Update-GLUETableOptimizer: added parameters IcebergConfiguration_DeleteFileThreshold, IcebergConfiguration_MinInputFile, TableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_RunRateInHours and TableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_RunRateInHours.
+
+### 5.0.27 (2025-08-06 20:15Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.64.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Budgets
     * Modified cmdlet New-BGTBudget: added parameters Budget_BillingViewArn, HealthStatus_LastUpdatedTime, HealthStatus_Status and HealthStatus_StatusReason.

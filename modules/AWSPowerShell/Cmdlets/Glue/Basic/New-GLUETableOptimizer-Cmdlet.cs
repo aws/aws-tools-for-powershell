@@ -91,6 +91,21 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String DatabaseName { get; set; }
         #endregion
         
+        #region Parameter IcebergConfiguration_DeleteFileThreshold
+        /// <summary>
+        /// <para>
+        /// <para>The minimum number of deletes that must be present in a data file to make it eligible
+        /// for compaction. This parameter helps optimize compaction by focusing on files that
+        /// contain a significant number of delete operations, which can improve query performance
+        /// by removing deleted records. If an input is not provided, the default value 1 will
+        /// be used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration_DeleteFileThreshold")]
+        public System.Int32? IcebergConfiguration_DeleteFileThreshold { get; set; }
+        #endregion
+        
         #region Parameter TableOptimizerConfiguration_Enabled
         /// <summary>
         /// <para>
@@ -122,6 +137,20 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_Location")]
         public System.String IcebergConfiguration_Location { get; set; }
+        #endregion
+        
+        #region Parameter IcebergConfiguration_MinInputFile
+        /// <summary>
+        /// <para>
+        /// <para>The minimum number of data files that must be present in a partition before compaction
+        /// will actually compact files. This parameter helps control when compaction is triggered,
+        /// preventing unnecessary compaction operations on partitions with few files. If an input
+        /// is not provided, the default value 100 will be used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration_MinInputFiles")]
+        public System.Int32? IcebergConfiguration_MinInputFile { get; set; }
         #endregion
         
         #region Parameter IcebergConfiguration_NumberOfSnapshotsToRetain
@@ -158,6 +187,32 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TableOptimizerConfiguration_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter TableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_RunRateInHours
+        /// <summary>
+        /// <para>
+        /// <para>The interval in hours between orphan file deletion job runs. This parameter controls
+        /// how frequently the orphan file deletion optimizer will run to clean up orphan files.
+        /// The value must be between 3 and 168 hours (7 days). If an input is not provided, the
+        /// default value 24 will be used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? TableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_RunRateInHours { get; set; }
+        #endregion
+        
+        #region Parameter TableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_RunRateInHours
+        /// <summary>
+        /// <para>
+        /// <para>The interval in hours between retention job runs. This parameter controls how frequently
+        /// the retention optimizer will run to clean up expired snapshots. The value must be
+        /// between 3 and 168 hours (7 days). If an input is not provided, the default value 24
+        /// will be used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? TableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_RunRateInHours { get; set; }
         #endregion
         
         #region Parameter IcebergConfiguration_SnapshotRetentionPeriodInDay
@@ -296,12 +351,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 WriteWarning("You are passing $null as a value for parameter TableName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IcebergConfiguration_DeleteFileThreshold = this.IcebergConfiguration_DeleteFileThreshold;
+            context.IcebergConfiguration_MinInputFile = this.IcebergConfiguration_MinInputFile;
             context.IcebergConfiguration_Strategy = this.IcebergConfiguration_Strategy;
             context.TableOptimizerConfiguration_Enabled = this.TableOptimizerConfiguration_Enabled;
             context.IcebergConfiguration_Location = this.IcebergConfiguration_Location;
             context.IcebergConfiguration_OrphanFileRetentionPeriodInDay = this.IcebergConfiguration_OrphanFileRetentionPeriodInDay;
+            context.TableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_RunRateInHours = this.TableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_RunRateInHours;
             context.IcebergConfiguration_CleanExpiredFile = this.IcebergConfiguration_CleanExpiredFile;
             context.IcebergConfiguration_NumberOfSnapshotsToRetain = this.IcebergConfiguration_NumberOfSnapshotsToRetain;
+            context.TableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_RunRateInHours = this.TableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_RunRateInHours;
             context.IcebergConfiguration_SnapshotRetentionPeriodInDay = this.IcebergConfiguration_SnapshotRetentionPeriodInDay;
             context.TableOptimizerConfiguration_RoleArn = this.TableOptimizerConfiguration_RoleArn;
             context.VpcConfiguration_GlueConnectionName = this.VpcConfiguration_GlueConnectionName;
@@ -374,6 +433,26 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
              // populate IcebergConfiguration
             var requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfigurationIsNull = true;
             requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration = new Amazon.Glue.Model.IcebergCompactionConfiguration();
+            System.Int32? requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration_icebergConfiguration_DeleteFileThreshold = null;
+            if (cmdletContext.IcebergConfiguration_DeleteFileThreshold != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration_icebergConfiguration_DeleteFileThreshold = cmdletContext.IcebergConfiguration_DeleteFileThreshold.Value;
+            }
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration_icebergConfiguration_DeleteFileThreshold != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration.DeleteFileThreshold = requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration_icebergConfiguration_DeleteFileThreshold.Value;
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfigurationIsNull = false;
+            }
+            System.Int32? requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration_icebergConfiguration_MinInputFile = null;
+            if (cmdletContext.IcebergConfiguration_MinInputFile != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration_icebergConfiguration_MinInputFile = cmdletContext.IcebergConfiguration_MinInputFile.Value;
+            }
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration_icebergConfiguration_MinInputFile != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration.MinInputFiles = requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration_icebergConfiguration_MinInputFile.Value;
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfigurationIsNull = false;
+            }
             Amazon.Glue.CompactionStrategy requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration_tableOptimizerConfiguration_CompactionConfiguration_IcebergConfiguration_icebergConfiguration_Strategy = null;
             if (cmdletContext.IcebergConfiguration_Strategy != null)
             {
@@ -434,6 +513,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration.OrphanFileRetentionPeriodInDays = requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_icebergConfiguration_OrphanFileRetentionPeriodInDay.Value;
                 requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfigurationIsNull = false;
             }
+            System.Int32? requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_RunRateInHours = null;
+            if (cmdletContext.TableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_RunRateInHours != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_RunRateInHours = cmdletContext.TableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_RunRateInHours.Value;
+            }
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_RunRateInHours != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration.RunRateInHours = requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_RunRateInHours.Value;
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfigurationIsNull = false;
+            }
              // determine if requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration should be set to null
             if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfigurationIsNull)
             {
@@ -482,6 +571,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_icebergConfiguration_NumberOfSnapshotsToRetain != null)
             {
                 requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration.NumberOfSnapshotsToRetain = requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_icebergConfiguration_NumberOfSnapshotsToRetain.Value;
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfigurationIsNull = false;
+            }
+            System.Int32? requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_RunRateInHours = null;
+            if (cmdletContext.TableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_RunRateInHours != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_RunRateInHours = cmdletContext.TableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_RunRateInHours.Value;
+            }
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_RunRateInHours != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration.RunRateInHours = requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_RunRateInHours.Value;
                 requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfigurationIsNull = false;
             }
             System.Int32? requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_icebergConfiguration_SnapshotRetentionPeriodInDay = null;
@@ -606,12 +705,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String CatalogId { get; set; }
             public System.String DatabaseName { get; set; }
             public System.String TableName { get; set; }
+            public System.Int32? IcebergConfiguration_DeleteFileThreshold { get; set; }
+            public System.Int32? IcebergConfiguration_MinInputFile { get; set; }
             public Amazon.Glue.CompactionStrategy IcebergConfiguration_Strategy { get; set; }
             public System.Boolean? TableOptimizerConfiguration_Enabled { get; set; }
             public System.String IcebergConfiguration_Location { get; set; }
             public System.Int32? IcebergConfiguration_OrphanFileRetentionPeriodInDay { get; set; }
+            public System.Int32? TableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_RunRateInHours { get; set; }
             public System.Boolean? IcebergConfiguration_CleanExpiredFile { get; set; }
             public System.Int32? IcebergConfiguration_NumberOfSnapshotsToRetain { get; set; }
+            public System.Int32? TableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_RunRateInHours { get; set; }
             public System.Int32? IcebergConfiguration_SnapshotRetentionPeriodInDay { get; set; }
             public System.String TableOptimizerConfiguration_RoleArn { get; set; }
             public System.String VpcConfiguration_GlueConnectionName { get; set; }
