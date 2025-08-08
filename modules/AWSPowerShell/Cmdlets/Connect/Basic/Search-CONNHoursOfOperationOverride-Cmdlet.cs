@@ -196,8 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return per page. Valid Range: Minimum value of 1.
-        /// Maximum value of 100.</para>
+        /// <para>The maximum number of results to return per page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -209,8 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The token for the next set of results. Use the value returned in the previous response
-        /// in the next request to retrieve the next set of results. Length Constraints: Minimum
-        /// length of 1. Maximum length of 2500.</para>
+        /// in the next request to retrieve the next set of results. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

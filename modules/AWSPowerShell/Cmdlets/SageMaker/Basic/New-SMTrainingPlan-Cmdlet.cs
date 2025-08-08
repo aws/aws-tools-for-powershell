@@ -79,6 +79,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter SpareInstanceCountPerUltraServer
+        /// <summary>
+        /// <para>
+        /// <para>Number of spare instances to reserve per UltraServer for enhanced resiliency. Default
+        /// is 1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? SpareInstanceCountPerUltraServer { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -186,6 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = (response, cmdlet) => this.TrainingPlanOfferingId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.SpareInstanceCountPerUltraServer = this.SpareInstanceCountPerUltraServer;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
@@ -220,6 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.CreateTrainingPlanRequest();
             
+            if (cmdletContext.SpareInstanceCountPerUltraServer != null)
+            {
+                request.SpareInstanceCountPerUltraServer = cmdletContext.SpareInstanceCountPerUltraServer.Value;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -293,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? SpareInstanceCountPerUltraServer { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.String TrainingPlanName { get; set; }
             public System.String TrainingPlanOfferingId { get; set; }

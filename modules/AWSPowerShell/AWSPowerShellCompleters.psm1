@@ -18782,7 +18782,10 @@ $CONN_Completers = {
 
         # Amazon.Connect.HierarchyGroupMatchType
         {
+            ($_ -eq "Search-CONNAgentStatus/HierarchyGroupCondition_HierarchyGroupMatchType") -Or
             ($_ -eq "Search-CONNUser/HierarchyGroupCondition_HierarchyGroupMatchType") -Or
+            ($_ -eq "Search-CONNUserHierarchyGroup/HierarchyGroupCondition_HierarchyGroupMatchType") -Or
+            ($_ -eq "Search-CONNUserHierarchyGroup/SearchFilter_HierarchyGroupCondition_HierarchyGroupMatchType") -Or
             ($_ -eq "Search-CONNUser/SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType") -Or
             ($_ -eq "Search-CONNUser/SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType")
         }
@@ -19154,7 +19157,7 @@ $CONN_map = @{
     "Event_Type"=@("Send-CONNChatIntegrationEvent")
     "EventSourceName"=@("Get-CONNRuleList")
     "FileUseCaseType"=@("Start-CONNAttachedFileUpload")
-    "HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
+    "HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNAgentStatus","Search-CONNUser","Search-CONNUserHierarchyGroup")
     "IdentityManagementType"=@("New-CONNInstance")
     "InitiateAs"=@("New-CONNContact")
     "InitiationMethod"=@("New-CONNContact")
@@ -19180,6 +19183,7 @@ $CONN_map = @{
     "SearchCriteria_StateCondition"=@("Search-CONNContactFlow","Search-CONNContactFlowModule")
     "SearchCriteria_StatusCondition"=@("Search-CONNContactFlow","Search-CONNContactFlowModule")
     "SearchCriteria_TypeCondition"=@("Search-CONNContactFlow")
+    "SearchFilter_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUserHierarchyGroup")
     "SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "Sort_FieldName"=@("Search-CONNContact")
@@ -19377,6 +19381,7 @@ $CONN_SelectMap = @{
                "Write-CONNUserContact",
                "Get-CONNAttachedFile",
                "Get-CONNContactAttribute",
+               "Get-CONNContactMetric",
                "Get-CONNCurrentMetricData",
                "Get-CONNCurrentUserData",
                "Get-CONNEffectiveHoursOfOperation",
@@ -69608,7 +69613,7 @@ $SM_Completers = {
         # Amazon.SageMaker.ReservedCapacityInstanceType
         "Search-SMTrainingPlanOffering/InstanceType"
         {
-            $v = "ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.trn1.32xlarge","ml.trn2.48xlarge"
+            $v = "ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.p6e-gb200.36xlarge","ml.trn1.32xlarge","ml.trn2.48xlarge"
             break
         }
 
@@ -70017,7 +70022,7 @@ $SM_Completers = {
         # Amazon.SageMaker.TrainingInstanceType
         "New-SMHyperParameterTuningJob/HyperParameterTuningResourceConfig_InstanceType"
         {
-            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.16xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.8xlarge","ml.r5d.large","ml.r5d.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","ml.trn2.48xlarge"
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.p6e-gb200.36xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.16xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.8xlarge","ml.r5d.large","ml.r5d.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","ml.trn2.48xlarge"
             break
         }
 
@@ -70497,6 +70502,7 @@ $SM_SelectMap = @{
                "Get-SMPipelineExecution",
                "Get-SMProcessingJob",
                "Get-SMProject",
+               "Get-SMReservedCapacity",
                "Get-SMSpace",
                "Get-SMStudioLifecycleConfig",
                "Get-SMSubscribedWorkteam",
@@ -70599,6 +70605,7 @@ $SM_SelectMap = @{
                "Get-SMTransformJobList",
                "Get-SMTrialComponentList",
                "Get-SMTrialList",
+               "Get-SMUltraServersByReservedCapacityList",
                "Get-SMUserProfileList",
                "Get-SMWorkforceList",
                "Get-SMWorkteamList",

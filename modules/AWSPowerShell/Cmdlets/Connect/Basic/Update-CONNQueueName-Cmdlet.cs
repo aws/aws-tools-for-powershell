@@ -28,13 +28,8 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// This API is in preview release for Amazon Connect and is subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Updates the name and description of a queue. At least <c>Name</c> or <c>Description</c>
     /// must be provided.
-    /// </para>
     /// </summary>
     [Cmdlet("Update", "CONNQueueName", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

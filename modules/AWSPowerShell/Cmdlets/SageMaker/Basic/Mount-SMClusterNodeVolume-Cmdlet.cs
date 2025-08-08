@@ -28,8 +28,8 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Attaches your Amazon Elastic Block Store (Amazon EBS) volume to a node in your EKS-orchestrated
-    /// HyperPod cluster. 
+    /// Attaches your Amazon Elastic Block Store (Amazon EBS) volume to a node in your EKS
+    /// orchestrated HyperPod cluster. 
     /// 
     ///  
     /// <para>

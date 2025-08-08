@@ -127,6 +127,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CONNContactFlowModule', 
         'Get-CONNContactFlowModuleList', 
         'Get-CONNContactFlowVersionList', 
+        'Get-CONNContactMetric', 
         'Get-CONNContactReferenceList', 
         'Get-CONNCurrentMetricData', 
         'Get-CONNCurrentUserData', 

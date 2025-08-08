@@ -7007,6 +7007,8 @@ Set-Alias -Name CONN-DismissUserContact -Value Write-CONNUserContact
 Set-Alias -Name CONN-GetAttachedFile -Value Get-CONNAttachedFile
 Set-Alias -Name Get-CONNContactAttributes -Value Get-CONNContactAttribute
 Set-Alias -Name CONN-GetContactAttributes -Value Get-CONNContactAttribute
+Set-Alias -Name Get-CONNContactMetrics -Value Get-CONNContactMetric
+Set-Alias -Name CONN-GetContactMetrics -Value Get-CONNContactMetric
 Set-Alias -Name CONN-GetCurrentMetricData -Value Get-CONNCurrentMetricData
 Set-Alias -Name CONN-GetCurrentUserData -Value Get-CONNCurrentUserData
 Set-Alias -Name Get-CONNEffectiveHoursOfOperations -Value Get-CONNEffectiveHoursOfOperation
@@ -27991,6 +27993,8 @@ Set-Alias -Name Describe-SMProcessingJob -Value Get-SMProcessingJob
 Set-Alias -Name SM-DescribeProcessingJob -Value Get-SMProcessingJob
 Set-Alias -Name Describe-SMProject -Value Get-SMProject
 Set-Alias -Name SM-DescribeProject -Value Get-SMProject
+Set-Alias -Name Describe-SMReservedCapacity -Value Get-SMReservedCapacity
+Set-Alias -Name SM-DescribeReservedCapacity -Value Get-SMReservedCapacity
 Set-Alias -Name Describe-SMSpace -Value Get-SMSpace
 Set-Alias -Name SM-DescribeSpace -Value Get-SMSpace
 Set-Alias -Name Describe-SMStudioLifecycleConfig -Value Get-SMStudioLifecycleConfig
@@ -28266,6 +28270,9 @@ Set-Alias -Name SM-ListTrialComponents -Value Get-SMTrialComponentList
 Set-Alias -Name List-SMTrials -Value Get-SMTrialList
 Set-Alias -Name List-SMTrialList -Value Get-SMTrialList
 Set-Alias -Name SM-ListTrials -Value Get-SMTrialList
+Set-Alias -Name List-SMUltraServersByReservedCapacity -Value Get-SMUltraServersByReservedCapacityList
+Set-Alias -Name List-SMUltraServersByReservedCapacityList -Value Get-SMUltraServersByReservedCapacityList
+Set-Alias -Name SM-ListUltraServersByReservedCapacity -Value Get-SMUltraServersByReservedCapacityList
 Set-Alias -Name List-SMUserProfiles -Value Get-SMUserProfileList
 Set-Alias -Name List-SMUserProfileList -Value Get-SMUserProfileList
 Set-Alias -Name SM-ListUserProfiles -Value Get-SMUserProfileList

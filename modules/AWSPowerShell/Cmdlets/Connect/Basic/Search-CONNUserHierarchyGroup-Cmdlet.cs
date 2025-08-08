@@ -80,6 +80,30 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String StringCondition_FieldName { get; set; }
         #endregion
         
+        #region Parameter HierarchyGroupCondition_HierarchyGroupMatchType
+        /// <summary>
+        /// <para>
+        /// <para>The type of hierarchy group match.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchCriteria_HierarchyGroupCondition_HierarchyGroupMatchType")]
+        [AWSConstantClassSource("Amazon.Connect.HierarchyGroupMatchType")]
+        public Amazon.Connect.HierarchyGroupMatchType HierarchyGroupCondition_HierarchyGroupMatchType { get; set; }
+        #endregion
+        
+        #region Parameter SearchFilter_HierarchyGroupCondition_HierarchyGroupMatchType
+        /// <summary>
+        /// <para>
+        /// <para>The type of hierarchy group match.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchFilter_AttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType","SF_HierarchyGroupCondition_HierarchyGroupMatchType")]
+        [AWSConstantClassSource("Amazon.Connect.HierarchyGroupMatchType")]
+        public Amazon.Connect.HierarchyGroupMatchType SearchFilter_HierarchyGroupCondition_HierarchyGroupMatchType { get; set; }
+        #endregion
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>
@@ -153,6 +177,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String SearchFilter_AttributeFilter_TagCondition_TagValue { get; set; }
         #endregion
         
+        #region Parameter HierarchyGroupCondition_Value
+        /// <summary>
+        /// <para>
+        /// <para>The value in the hierarchy group condition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchCriteria_HierarchyGroupCondition_Value")]
+        public System.String HierarchyGroupCondition_Value { get; set; }
+        #endregion
+        
         #region Parameter StringCondition_Value
         /// <summary>
         /// <para>
@@ -162,6 +197,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SearchCriteria_StringCondition_Value")]
         public System.String StringCondition_Value { get; set; }
+        #endregion
+        
+        #region Parameter SearchFilter_HierarchyGroupCondition_Value
+        /// <summary>
+        /// <para>
+        /// <para>The value in the hierarchy group condition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchFilter_AttributeFilter_AndCondition_HierarchyGroupCondition_Value","SF_HierarchyGroupCondition_Value")]
+        public System.String SearchFilter_HierarchyGroupCondition_Value { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -275,6 +321,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 context.SearchCriteria_AndCondition = new List<Amazon.Connect.Model.UserHierarchyGroupSearchCriteria>(this.SearchCriteria_AndCondition);
             }
+            context.HierarchyGroupCondition_HierarchyGroupMatchType = this.HierarchyGroupCondition_HierarchyGroupMatchType;
+            context.HierarchyGroupCondition_Value = this.HierarchyGroupCondition_Value;
             if (this.SearchCriteria_OrCondition != null)
             {
                 context.SearchCriteria_OrCondition = new List<Amazon.Connect.Model.UserHierarchyGroupSearchCriteria>(this.SearchCriteria_OrCondition);
@@ -282,6 +330,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             context.StringCondition_ComparisonType = this.StringCondition_ComparisonType;
             context.StringCondition_FieldName = this.StringCondition_FieldName;
             context.StringCondition_Value = this.StringCondition_Value;
+            context.SearchFilter_HierarchyGroupCondition_HierarchyGroupMatchType = this.SearchFilter_HierarchyGroupCondition_HierarchyGroupMatchType;
+            context.SearchFilter_HierarchyGroupCondition_Value = this.SearchFilter_HierarchyGroupCondition_Value;
             if (this.AndCondition_TagCondition != null)
             {
                 context.AndCondition_TagCondition = new List<Amazon.Connect.Model.TagCondition>(this.AndCondition_TagCondition);
@@ -342,6 +392,41 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestSearchCriteria_searchCriteria_OrCondition != null)
             {
                 request.SearchCriteria.OrConditions = requestSearchCriteria_searchCriteria_OrCondition;
+                requestSearchCriteriaIsNull = false;
+            }
+            Amazon.Connect.Model.HierarchyGroupCondition requestSearchCriteria_searchCriteria_HierarchyGroupCondition = null;
+            
+             // populate HierarchyGroupCondition
+            var requestSearchCriteria_searchCriteria_HierarchyGroupConditionIsNull = true;
+            requestSearchCriteria_searchCriteria_HierarchyGroupCondition = new Amazon.Connect.Model.HierarchyGroupCondition();
+            Amazon.Connect.HierarchyGroupMatchType requestSearchCriteria_searchCriteria_HierarchyGroupCondition_hierarchyGroupCondition_HierarchyGroupMatchType = null;
+            if (cmdletContext.HierarchyGroupCondition_HierarchyGroupMatchType != null)
+            {
+                requestSearchCriteria_searchCriteria_HierarchyGroupCondition_hierarchyGroupCondition_HierarchyGroupMatchType = cmdletContext.HierarchyGroupCondition_HierarchyGroupMatchType;
+            }
+            if (requestSearchCriteria_searchCriteria_HierarchyGroupCondition_hierarchyGroupCondition_HierarchyGroupMatchType != null)
+            {
+                requestSearchCriteria_searchCriteria_HierarchyGroupCondition.HierarchyGroupMatchType = requestSearchCriteria_searchCriteria_HierarchyGroupCondition_hierarchyGroupCondition_HierarchyGroupMatchType;
+                requestSearchCriteria_searchCriteria_HierarchyGroupConditionIsNull = false;
+            }
+            System.String requestSearchCriteria_searchCriteria_HierarchyGroupCondition_hierarchyGroupCondition_Value = null;
+            if (cmdletContext.HierarchyGroupCondition_Value != null)
+            {
+                requestSearchCriteria_searchCriteria_HierarchyGroupCondition_hierarchyGroupCondition_Value = cmdletContext.HierarchyGroupCondition_Value;
+            }
+            if (requestSearchCriteria_searchCriteria_HierarchyGroupCondition_hierarchyGroupCondition_Value != null)
+            {
+                requestSearchCriteria_searchCriteria_HierarchyGroupCondition.Value = requestSearchCriteria_searchCriteria_HierarchyGroupCondition_hierarchyGroupCondition_Value;
+                requestSearchCriteria_searchCriteria_HierarchyGroupConditionIsNull = false;
+            }
+             // determine if requestSearchCriteria_searchCriteria_HierarchyGroupCondition should be set to null
+            if (requestSearchCriteria_searchCriteria_HierarchyGroupConditionIsNull)
+            {
+                requestSearchCriteria_searchCriteria_HierarchyGroupCondition = null;
+            }
+            if (requestSearchCriteria_searchCriteria_HierarchyGroupCondition != null)
+            {
+                request.SearchCriteria.HierarchyGroupCondition = requestSearchCriteria_searchCriteria_HierarchyGroupCondition;
                 requestSearchCriteriaIsNull = false;
             }
             Amazon.Connect.Model.StringCondition requestSearchCriteria_searchCriteria_StringCondition = null;
@@ -426,6 +511,41 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition_andCondition_TagCondition != null)
             {
                 requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition.TagConditions = requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition_andCondition_TagCondition;
+                requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndConditionIsNull = false;
+            }
+            Amazon.Connect.Model.HierarchyGroupCondition requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition_searchFilter_AttributeFilter_AndCondition_HierarchyGroupCondition = null;
+            
+             // populate HierarchyGroupCondition
+            var requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition_searchFilter_AttributeFilter_AndCondition_HierarchyGroupConditionIsNull = true;
+            requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition_searchFilter_AttributeFilter_AndCondition_HierarchyGroupCondition = new Amazon.Connect.Model.HierarchyGroupCondition();
+            Amazon.Connect.HierarchyGroupMatchType requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition_searchFilter_AttributeFilter_AndCondition_HierarchyGroupCondition_searchFilter_HierarchyGroupCondition_HierarchyGroupMatchType = null;
+            if (cmdletContext.SearchFilter_HierarchyGroupCondition_HierarchyGroupMatchType != null)
+            {
+                requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition_searchFilter_AttributeFilter_AndCondition_HierarchyGroupCondition_searchFilter_HierarchyGroupCondition_HierarchyGroupMatchType = cmdletContext.SearchFilter_HierarchyGroupCondition_HierarchyGroupMatchType;
+            }
+            if (requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition_searchFilter_AttributeFilter_AndCondition_HierarchyGroupCondition_searchFilter_HierarchyGroupCondition_HierarchyGroupMatchType != null)
+            {
+                requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition_searchFilter_AttributeFilter_AndCondition_HierarchyGroupCondition.HierarchyGroupMatchType = requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition_searchFilter_AttributeFilter_AndCondition_HierarchyGroupCondition_searchFilter_HierarchyGroupCondition_HierarchyGroupMatchType;
+                requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition_searchFilter_AttributeFilter_AndCondition_HierarchyGroupConditionIsNull = false;
+            }
+            System.String requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition_searchFilter_AttributeFilter_AndCondition_HierarchyGroupCondition_searchFilter_HierarchyGroupCondition_Value = null;
+            if (cmdletContext.SearchFilter_HierarchyGroupCondition_Value != null)
+            {
+                requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition_searchFilter_AttributeFilter_AndCondition_HierarchyGroupCondition_searchFilter_HierarchyGroupCondition_Value = cmdletContext.SearchFilter_HierarchyGroupCondition_Value;
+            }
+            if (requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition_searchFilter_AttributeFilter_AndCondition_HierarchyGroupCondition_searchFilter_HierarchyGroupCondition_Value != null)
+            {
+                requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition_searchFilter_AttributeFilter_AndCondition_HierarchyGroupCondition.Value = requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition_searchFilter_AttributeFilter_AndCondition_HierarchyGroupCondition_searchFilter_HierarchyGroupCondition_Value;
+                requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition_searchFilter_AttributeFilter_AndCondition_HierarchyGroupConditionIsNull = false;
+            }
+             // determine if requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition_searchFilter_AttributeFilter_AndCondition_HierarchyGroupCondition should be set to null
+            if (requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition_searchFilter_AttributeFilter_AndCondition_HierarchyGroupConditionIsNull)
+            {
+                requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition_searchFilter_AttributeFilter_AndCondition_HierarchyGroupCondition = null;
+            }
+            if (requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition_searchFilter_AttributeFilter_AndCondition_HierarchyGroupCondition != null)
+            {
+                requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition.HierarchyGroupCondition = requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition_searchFilter_AttributeFilter_AndCondition_HierarchyGroupCondition;
                 requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndConditionIsNull = false;
             }
              // determine if requestSearchFilter_searchFilter_AttributeFilter_searchFilter_AttributeFilter_AndCondition should be set to null
@@ -577,10 +697,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public List<Amazon.Connect.Model.UserHierarchyGroupSearchCriteria> SearchCriteria_AndCondition { get; set; }
+            public Amazon.Connect.HierarchyGroupMatchType HierarchyGroupCondition_HierarchyGroupMatchType { get; set; }
+            public System.String HierarchyGroupCondition_Value { get; set; }
             public List<Amazon.Connect.Model.UserHierarchyGroupSearchCriteria> SearchCriteria_OrCondition { get; set; }
             public Amazon.Connect.StringComparisonType StringCondition_ComparisonType { get; set; }
             public System.String StringCondition_FieldName { get; set; }
             public System.String StringCondition_Value { get; set; }
+            public Amazon.Connect.HierarchyGroupMatchType SearchFilter_HierarchyGroupCondition_HierarchyGroupMatchType { get; set; }
+            public System.String SearchFilter_HierarchyGroupCondition_Value { get; set; }
             public List<Amazon.Connect.Model.TagCondition> AndCondition_TagCondition { get; set; }
             public List<Amazon.Connect.Model.CommonAttributeAndCondition> AttributeFilter_OrCondition { get; set; }
             public System.String SearchFilter_AttributeFilter_TagCondition_TagKey { get; set; }

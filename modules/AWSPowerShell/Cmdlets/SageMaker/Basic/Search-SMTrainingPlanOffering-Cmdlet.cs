@@ -141,6 +141,26 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] TargetResource { get; set; }
         #endregion
         
+        #region Parameter UltraServerCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of UltraServers to search for.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? UltraServerCount { get; set; }
+        #endregion
+        
+        #region Parameter UltraServerType
+        /// <summary>
+        /// <para>
+        /// <para>The type of UltraServer to search for, such as ml.u-p6e-gb200x72.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UltraServerType { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'TrainingPlanOfferings'.
@@ -204,6 +224,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter TargetResource which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.UltraServerCount = this.UltraServerCount;
+            context.UltraServerType = this.UltraServerType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -243,6 +265,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.TargetResource != null)
             {
                 request.TargetResources = cmdletContext.TargetResource;
+            }
+            if (cmdletContext.UltraServerCount != null)
+            {
+                request.UltraServerCount = cmdletContext.UltraServerCount.Value;
+            }
+            if (cmdletContext.UltraServerType != null)
+            {
+                request.UltraServerType = cmdletContext.UltraServerType;
             }
             
             CmdletOutput output;
@@ -311,6 +341,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.ReservedCapacityInstanceType InstanceType { get; set; }
             public System.DateTime? StartTimeAfter { get; set; }
             public List<System.String> TargetResource { get; set; }
+            public System.Int32? UltraServerCount { get; set; }
+            public System.String UltraServerType { get; set; }
             public System.Func<Amazon.SageMaker.Model.SearchTrainingPlanOfferingsResponse, SearchSMTrainingPlanOfferingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TrainingPlanOfferings;
         }

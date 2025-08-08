@@ -28,44 +28,32 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Creates an agent status for the specified Amazon Connect instance.
+    /// Gets the real-time metrics of the specified contact.
+    /// 
+    ///  
+    /// <para><b>Use cases</b></para><para>
+    /// Following are common uses cases for this API:
+    /// </para><ul><li><para>
+    /// You can use this API to retrieve the position of the contact in the queue.
+    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon
+    /// Connect endpoints and quotas</a>.
+    /// </para>
     /// </summary>
-    [Cmdlet("New", "CONNAgentStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Connect.Model.CreateAgentStatusResponse")]
-    [AWSCmdlet("Calls the Amazon Connect Service CreateAgentStatus API operation.", Operation = new[] {"CreateAgentStatus"}, SelectReturnType = typeof(Amazon.Connect.Model.CreateAgentStatusResponse))]
-    [AWSCmdletOutput("Amazon.Connect.Model.CreateAgentStatusResponse",
-        "This cmdlet returns an Amazon.Connect.Model.CreateAgentStatusResponse object containing multiple properties."
+    [Cmdlet("Get", "CONNContactMetric")]
+    [OutputType("Amazon.Connect.Model.GetContactMetricsResponse")]
+    [AWSCmdlet("Calls the Amazon Connect Service GetContactMetrics API operation.", Operation = new[] {"GetContactMetrics"}, SelectReturnType = typeof(Amazon.Connect.Model.GetContactMetricsResponse))]
+    [AWSCmdletOutput("Amazon.Connect.Model.GetContactMetricsResponse",
+        "This cmdlet returns an Amazon.Connect.Model.GetContactMetricsResponse object containing multiple properties."
     )]
-    public partial class NewCONNAgentStatusCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class GetCONNContactMetricCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Description
+        #region Parameter ContactId
         /// <summary>
         /// <para>
-        /// <para>The description of the status.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
-        
-        #region Parameter DisplayOrder
-        /// <summary>
-        /// <para>
-        /// <para>The display order of the status.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? DisplayOrder { get; set; }
-        #endregion
-        
-        #region Parameter InstanceId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// <para>The identifier of the contact in this instance of Amazon Connect. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,13 +64,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        public System.String ContactId { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The name of the status.</para>
+        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,43 +82,32 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
+        public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter State
+        #region Parameter Metric
         /// <summary>
         /// <para>
-        /// <para>The state of the status.</para>
+        /// <para>A list of contact-level metrics to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.Connect.AgentStatusState")]
-        public Amazon.Connect.AgentStatusState State { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>The tags used to organize, track, or control access for this resource. For example,
-        /// { "Tags": {"key1":"value1", "key2":"value2"} }.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        [Alias("Metrics")]
+        public Amazon.Connect.Model.ContactMetricInfo[] Metric { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.CreateAgentStatusResponse).
-        /// Specifying the name of a property of type Amazon.Connect.Model.CreateAgentStatusResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.GetContactMetricsResponse).
+        /// Specifying the name of a property of type Amazon.Connect.Model.GetContactMetricsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,34 +116,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ContactId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ContactId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ContactId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CONNAgentStatus (CreateAgentStatus)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -175,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.CreateAgentStatusResponse, NewCONNAgentStatusCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.GetContactMetricsResponse, GetCONNContactMetricCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -184,11 +146,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.InstanceId;
+                context.Select = (response, cmdlet) => this.ContactId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Description = this.Description;
-            context.DisplayOrder = this.DisplayOrder;
+            context.ContactId = this.ContactId;
+            #if MODULAR
+            if (this.ContactId == null && ParameterWasBound(nameof(this.ContactId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ContactId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -196,28 +163,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Name = this.Name;
-            #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.Metric != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Metric = new List<Amazon.Connect.Model.ContactMetricInfo>(this.Metric);
+            }
+            #if MODULAR
+            if (this.Metric == null && ParameterWasBound(nameof(this.Metric)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Metric which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.State = this.State;
-            #if MODULAR
-            if (this.State == null && ParameterWasBound(nameof(this.State)))
-            {
-                WriteWarning("You are passing $null as a value for parameter State which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
-                }
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -232,31 +187,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.CreateAgentStatusRequest();
+            var request = new Amazon.Connect.Model.GetContactMetricsRequest();
             
-            if (cmdletContext.Description != null)
+            if (cmdletContext.ContactId != null)
             {
-                request.Description = cmdletContext.Description;
-            }
-            if (cmdletContext.DisplayOrder != null)
-            {
-                request.DisplayOrder = cmdletContext.DisplayOrder.Value;
+                request.ContactId = cmdletContext.ContactId;
             }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.Metric != null)
             {
-                request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.State != null)
-            {
-                request.State = cmdletContext.State;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.Metrics = cmdletContext.Metric;
             }
             
             CmdletOutput output;
@@ -291,15 +234,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.CreateAgentStatusResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.CreateAgentStatusRequest request)
+        private Amazon.Connect.Model.GetContactMetricsResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.GetContactMetricsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "CreateAgentStatus");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "GetContactMetrics");
             try
             {
                 #if DESKTOP
-                return client.CreateAgentStatus(request);
+                return client.GetContactMetrics(request);
                 #elif CORECLR
-                return client.CreateAgentStatusAsync(request).GetAwaiter().GetResult();
+                return client.GetContactMetricsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -319,13 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Description { get; set; }
-            public System.Int32? DisplayOrder { get; set; }
+            public System.String ContactId { get; set; }
             public System.String InstanceId { get; set; }
-            public System.String Name { get; set; }
-            public Amazon.Connect.AgentStatusState State { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.Connect.Model.CreateAgentStatusResponse, NewCONNAgentStatusCmdlet, object> Select { get; set; } =
+            public List<Amazon.Connect.Model.ContactMetricInfo> Metric { get; set; }
+            public System.Func<Amazon.Connect.Model.GetContactMetricsResponse, GetCONNContactMetricCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

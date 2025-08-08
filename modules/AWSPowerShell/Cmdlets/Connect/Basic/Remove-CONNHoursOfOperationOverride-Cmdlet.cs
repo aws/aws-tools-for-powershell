@@ -28,7 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Deletes an hours of operation override in an Amazon Connect hours of operation resource
+    /// Deletes an hours of operation override in an Amazon Connect hours of operation resource.
     /// </summary>
     [Cmdlet("Remove", "CONNHoursOfOperationOverride", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

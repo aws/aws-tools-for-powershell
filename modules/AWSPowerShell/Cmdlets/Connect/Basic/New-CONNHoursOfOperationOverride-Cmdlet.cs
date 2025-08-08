@@ -28,7 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Creates an hours of operation override in an Amazon Connect hours of operation resource
+    /// Creates an hours of operation override in an Amazon Connect hours of operation resource.
     /// </summary>
     [Cmdlet("New", "CONNHoursOfOperationOverride", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter EffectiveFrom
         /// <summary>
         /// <para>
-        /// <para>The date from when the hours of operation override would be effective.</para>
+        /// <para>The date from when the hours of operation override is effective.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter EffectiveTill
         /// <summary>
         /// <para>
-        /// <para>The date until when the hours of operation override would be effective.</para>
+        /// <para>The date until when the hours of operation override is effective.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

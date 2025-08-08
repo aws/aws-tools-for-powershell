@@ -22,48 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.SageMaker;
+using Amazon.SageMaker.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Describes an agent status.
+    /// Retrieves details about a reserved capacity.
     /// </summary>
-    [Cmdlet("Get", "CONNAgentStatus")]
-    [OutputType("Amazon.Connect.Model.AgentStatus")]
-    [AWSCmdlet("Calls the Amazon Connect Service DescribeAgentStatus API operation.", Operation = new[] {"DescribeAgentStatus"}, SelectReturnType = typeof(Amazon.Connect.Model.DescribeAgentStatusResponse))]
-    [AWSCmdletOutput("Amazon.Connect.Model.AgentStatus or Amazon.Connect.Model.DescribeAgentStatusResponse",
-        "This cmdlet returns an Amazon.Connect.Model.AgentStatus object.",
-        "The service call response (type Amazon.Connect.Model.DescribeAgentStatusResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "SMReservedCapacity")]
+    [OutputType("Amazon.SageMaker.Model.DescribeReservedCapacityResponse")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service DescribeReservedCapacity API operation.", Operation = new[] {"DescribeReservedCapacity"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DescribeReservedCapacityResponse))]
+    [AWSCmdletOutput("Amazon.SageMaker.Model.DescribeReservedCapacityResponse",
+        "This cmdlet returns an Amazon.SageMaker.Model.DescribeReservedCapacityResponse object containing multiple properties."
     )]
-    public partial class GetCONNAgentStatusCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class GetSMReservedCapacityCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AgentStatusId
+        #region Parameter ReservedCapacityArn
         /// <summary>
         /// <para>
-        /// <para>The identifier for the agent status.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AgentStatusId { get; set; }
-        #endregion
-        
-        #region Parameter InstanceId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// <para>ARN of the reserved capacity to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,26 +55,26 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        public System.String ReservedCapacityArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AgentStatus'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.DescribeAgentStatusResponse).
-        /// Specifying the name of a property of type Amazon.Connect.Model.DescribeAgentStatusResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.DescribeReservedCapacityResponse).
+        /// Specifying the name of a property of type Amazon.SageMaker.Model.DescribeReservedCapacityResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AgentStatus";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ReservedCapacityArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ReservedCapacityArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ReservedCapacityArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -111,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.DescribeAgentStatusResponse, GetCONNAgentStatusCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DescribeReservedCapacityResponse, GetSMReservedCapacityCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -120,21 +101,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.InstanceId;
+                context.Select = (response, cmdlet) => this.ReservedCapacityArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AgentStatusId = this.AgentStatusId;
+            context.ReservedCapacityArn = this.ReservedCapacityArn;
             #if MODULAR
-            if (this.AgentStatusId == null && ParameterWasBound(nameof(this.AgentStatusId)))
+            if (this.ReservedCapacityArn == null && ParameterWasBound(nameof(this.ReservedCapacityArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter AgentStatusId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.InstanceId = this.InstanceId;
-            #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ReservedCapacityArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -151,15 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.DescribeAgentStatusRequest();
+            var request = new Amazon.SageMaker.Model.DescribeReservedCapacityRequest();
             
-            if (cmdletContext.AgentStatusId != null)
+            if (cmdletContext.ReservedCapacityArn != null)
             {
-                request.AgentStatusId = cmdletContext.AgentStatusId;
-            }
-            if (cmdletContext.InstanceId != null)
-            {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.ReservedCapacityArn = cmdletContext.ReservedCapacityArn;
             }
             
             CmdletOutput output;
@@ -194,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.DescribeAgentStatusResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.DescribeAgentStatusRequest request)
+        private Amazon.SageMaker.Model.DescribeReservedCapacityResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DescribeReservedCapacityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "DescribeAgentStatus");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DescribeReservedCapacity");
             try
             {
                 #if DESKTOP
-                return client.DescribeAgentStatus(request);
+                return client.DescribeReservedCapacity(request);
                 #elif CORECLR
-                return client.DescribeAgentStatusAsync(request).GetAwaiter().GetResult();
+                return client.DescribeReservedCapacityAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -222,10 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AgentStatusId { get; set; }
-            public System.String InstanceId { get; set; }
-            public System.Func<Amazon.Connect.Model.DescribeAgentStatusResponse, GetCONNAgentStatusCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AgentStatus;
+            public System.String ReservedCapacityArn { get; set; }
+            public System.Func<Amazon.SageMaker.Model.DescribeReservedCapacityResponse, GetSMReservedCapacityCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }
