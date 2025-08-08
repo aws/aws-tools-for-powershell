@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Detaches your Amazon Elastic Block Store (Amazon EBS) volume from a node in your
-    /// EKS-orchestrated SageMaker HyperPod cluster.
+    /// EKS orchestrated SageMaker HyperPod cluster.
     /// 
     ///  
     /// <para>

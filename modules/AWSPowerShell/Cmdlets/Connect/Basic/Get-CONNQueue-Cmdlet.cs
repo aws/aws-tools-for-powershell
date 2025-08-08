@@ -30,12 +30,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// This API is in preview release for Amazon Connect and is subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Describes the specified queue.
-    /// </para>
     /// </summary>
     [Cmdlet("Get", "CONNQueue")]
     [OutputType("Amazon.Connect.Model.Queue")]

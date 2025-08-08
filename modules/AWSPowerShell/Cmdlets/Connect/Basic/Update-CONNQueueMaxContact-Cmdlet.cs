@@ -30,13 +30,8 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// This API is in preview release for Amazon Connect and is subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Updates the maximum number of contacts allowed in a queue before it is considered
     /// full.
-    /// </para>
     /// </summary>
     [Cmdlet("Update", "CONNQueueMaxContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

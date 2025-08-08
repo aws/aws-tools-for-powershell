@@ -30,12 +30,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// This API is in preview release for Amazon Connect and is subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Creates an agent status for the specified Amazon Connect instance.
-    /// </para>
     /// </summary>
     [Cmdlet("New", "CONNAgentStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.CreateAgentStatusResponse")]

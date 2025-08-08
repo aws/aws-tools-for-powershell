@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.65.0",
+    "ProductVersion"    : "4.0.66.0",
     "CoreVersion"       : "4.0.0.21",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -476,7 +476,7 @@
             "InPreview"               : false
         },
         "IotData"                         : {
-            "Version" : "4.0.0.17",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.21"
@@ -932,7 +932,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "4.0.16.1",
+            "Version" : "4.0.17.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.21"
@@ -1028,7 +1028,7 @@
             "InPreview"               : false
         },
         "TranscribeService"               : {
-            "Version" : "4.0.2.6",
+            "Version" : "4.0.2.7",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.21"
@@ -1044,7 +1044,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "4.0.4.6",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.21"
@@ -2268,7 +2268,7 @@
             "InPreview"               : false
         },
         "Inspector2"                          : {
-            "Version" : "4.0.3.2",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.21"
@@ -3012,7 +3012,7 @@
             "InPreview"               : false
         },
         "ApplicationSignals"                  : {
-            "Version" : "4.0.0.17",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.21"
@@ -3116,7 +3116,7 @@
             "InPreview"               : false
         },
         "Billing"                             : {
-            "Version" : "4.0.0.17",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.21"
@@ -3124,7 +3124,7 @@
             "InPreview"               : false
         },
         "PartnerCentralSelling"               : {
-            "Version" : "4.0.1.13",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.21"
@@ -3140,7 +3140,7 @@
             "InPreview"               : false
         },
         "Notifications"                       : {
-            "Version" : "4.0.0.17",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.21"
@@ -3148,7 +3148,7 @@
             "InPreview"               : false
         },
         "NotificationsContacts"               : {
-            "Version" : "4.0.0.17",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.21"
@@ -3156,7 +3156,7 @@
             "InPreview"               : false
         },
         "BCMPricingCalculator"                : {
-            "Version" : "4.0.2.12",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.21"
@@ -3172,7 +3172,7 @@
             "InPreview"               : false
         },
         "SecurityIR"                          : {
-            "Version" : "4.0.1.13",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.21"
@@ -3180,7 +3180,7 @@
             "InPreview"               : false
         },
         "Invoicing"                           : {
-            "Version" : "4.0.1.12",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.21"
@@ -3188,7 +3188,7 @@
             "InPreview"               : false
         },
         "NetworkFlowMonitor"                  : {
-            "Version" : "4.0.2.3",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.21"
@@ -3204,7 +3204,7 @@
             "InPreview"               : false
         },
         "DSQL"                                : {
-            "Version" : "4.0.3.13",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.21"
@@ -3228,7 +3228,7 @@
             "InPreview"               : false
         },
         "BackupSearch"                        : {
-            "Version" : "4.0.0.17",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.21"
@@ -3236,7 +3236,7 @@
             "InPreview"               : false
         },
         "IoTManagedIntegrations"              : {
-            "Version" : "4.0.1.6",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.21"
@@ -3244,7 +3244,7 @@
             "InPreview"               : false
         },
         "GameLiftStreams"                     : {
-            "Version" : "4.0.0.18",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.21"
@@ -3268,7 +3268,7 @@
             "InPreview"               : false
         },
         "MPA"                                 : {
-            "Version" : "4.0.0.8",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.21"
@@ -3284,7 +3284,7 @@
             "InPreview"               : false
         },
         "WorkspacesInstances"                 : {
-            "Version" : "4.0.0.6",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.21"
@@ -3292,7 +3292,7 @@
             "InPreview"               : false
         },
         "KeyspacesStreams"                    : {
-            "Version" : "4.0.0.7",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.21"
@@ -3308,7 +3308,7 @@
             "InPreview"               : false
         },
         "S3Vectors"                           : {
-            "Version" : "4.0.0.3",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.21"

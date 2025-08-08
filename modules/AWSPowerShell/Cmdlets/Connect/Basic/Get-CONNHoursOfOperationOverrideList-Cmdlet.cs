@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter HoursOfOperationId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the hours of operation</para>
+        /// <para>The identifier for the hours of operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,8 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return per page. The default MaxResult size is 100.
-        /// Valid Range: Minimum value of 1. Maximum value of 1000.</para>
+        /// <para>The maximum number of results to return per page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

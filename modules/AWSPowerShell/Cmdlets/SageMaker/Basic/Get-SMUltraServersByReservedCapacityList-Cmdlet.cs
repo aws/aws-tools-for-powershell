@@ -23,48 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.SageMaker;
+using Amazon.SageMaker.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Lists agent statuses.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all UltraServers that are part of a specified reserved capacity.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CONNAgentStatusList")]
-    [OutputType("Amazon.Connect.Model.AgentStatusSummary")]
-    [AWSCmdlet("Calls the Amazon Connect Service ListAgentStatuses API operation.", Operation = new[] {"ListAgentStatuses"}, SelectReturnType = typeof(Amazon.Connect.Model.ListAgentStatusesResponse))]
-    [AWSCmdletOutput("Amazon.Connect.Model.AgentStatusSummary or Amazon.Connect.Model.ListAgentStatusesResponse",
-        "This cmdlet returns a collection of Amazon.Connect.Model.AgentStatusSummary objects.",
-        "The service call response (type Amazon.Connect.Model.ListAgentStatusesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "SMUltraServersByReservedCapacityList")]
+    [OutputType("Amazon.SageMaker.Model.UltraServer")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service ListUltraServersByReservedCapacity API operation.", Operation = new[] {"ListUltraServersByReservedCapacity"}, SelectReturnType = typeof(Amazon.SageMaker.Model.ListUltraServersByReservedCapacityResponse))]
+    [AWSCmdletOutput("Amazon.SageMaker.Model.UltraServer or Amazon.SageMaker.Model.ListUltraServersByReservedCapacityResponse",
+        "This cmdlet returns a collection of Amazon.SageMaker.Model.UltraServer objects.",
+        "The service call response (type Amazon.SageMaker.Model.ListUltraServersByReservedCapacityResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetCONNAgentStatusListCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class GetSMUltraServersByReservedCapacityListCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AgentStatusType
+        #region Parameter ReservedCapacityArn
         /// <summary>
         /// <para>
-        /// <para>Available agent status types.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("AgentStatusTypes")]
-        public System.String[] AgentStatusType { get; set; }
-        #endregion
-        
-        #region Parameter InstanceId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// <para>The ARN of the reserved capacity to list UltraServers for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,25 +59,31 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        public System.String ReservedCapacityArn { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return per page.</para>
+        /// <para>The maximum number of UltraServers to return in the response. The default value is
+        /// 10.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results. Use the value returned in the previous response
-        /// in the next request to retrieve the next set of results.</para>
+        /// <para>If the previous response was truncated, you receive this token. Use it in your next
+        /// request to receive the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -106,13 +96,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AgentStatusSummaryList'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.ListAgentStatusesResponse).
-        /// Specifying the name of a property of type Amazon.Connect.Model.ListAgentStatusesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'UltraServers'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.ListUltraServersByReservedCapacityResponse).
+        /// Specifying the name of a property of type Amazon.SageMaker.Model.ListUltraServersByReservedCapacityResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AgentStatusSummaryList";
+        public string Select { get; set; } = "UltraServers";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -141,22 +131,27 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.ListAgentStatusesResponse, GetCONNAgentStatusListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.ListUltraServersByReservedCapacityResponse, GetSMUltraServersByReservedCapacityListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.AgentStatusType != null)
+            context.MaxResult = this.MaxResult;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
             {
-                context.AgentStatusType = new List<System.String>(this.AgentStatusType);
-            }
-            context.InstanceId = this.InstanceId;
-            #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
+                    " to the service to specify how many items should be returned by each service call.");
             }
             #endif
-            context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.ReservedCapacityArn = this.ReservedCapacityArn;
+            #if MODULAR
+            if (this.ReservedCapacityArn == null && ParameterWasBound(nameof(this.ReservedCapacityArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ReservedCapacityArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -173,19 +168,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Connect.Model.ListAgentStatusesRequest();
+            var request = new Amazon.SageMaker.Model.ListUltraServersByReservedCapacityRequest();
             
-            if (cmdletContext.AgentStatusType != null)
-            {
-                request.AgentStatusTypes = cmdletContext.AgentStatusType;
-            }
-            if (cmdletContext.InstanceId != null)
-            {
-                request.InstanceId = cmdletContext.InstanceId;
-            }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
+                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.ReservedCapacityArn != null)
+            {
+                request.ReservedCapacityArn = cmdletContext.ReservedCapacityArn;
             }
             
             // Initialize loop variant and commence piping
@@ -244,12 +235,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.ListAgentStatusesResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.ListAgentStatusesRequest request)
+        private Amazon.SageMaker.Model.ListUltraServersByReservedCapacityResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.ListUltraServersByReservedCapacityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "ListAgentStatuses");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "ListUltraServersByReservedCapacity");
             try
             {
-                return client.ListAgentStatusesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListUltraServersByReservedCapacityAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -266,12 +257,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> AgentStatusType { get; set; }
-            public System.String InstanceId { get; set; }
-            public System.Int32? MaxResult { get; set; }
+            public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.Connect.Model.ListAgentStatusesResponse, GetCONNAgentStatusListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AgentStatusSummaryList;
+            public System.String ReservedCapacityArn { get; set; }
+            public System.Func<Amazon.SageMaker.Model.ListUltraServersByReservedCapacityResponse, GetSMUltraServersByReservedCapacityListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.UltraServers;
         }
         
     }

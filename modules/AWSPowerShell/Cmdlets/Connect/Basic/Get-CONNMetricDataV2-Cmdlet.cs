@@ -42,7 +42,27 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// For a description of the historical metrics that are supported by <c>GetMetricDataV2</c>
     /// and <c>GetMetricData</c>, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics
     /// definitions</a> in the <i>Amazon Connect Administrator Guide</i>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><note><para>
+    /// When you make a successful API request, you can expect the following metric values
+    /// in the response:
+    /// </para><ol><li><para><b>Metric value is null</b>: The calculation cannot be performed due to divide by
+    /// zero or insufficient data
+    /// </para></li><li><para><b>Metric value is a number (including 0) of defined type</b>: The number provided
+    /// is the calculation result
+    /// </para></li><li><para><b>MetricResult list is empty</b>: The request cannot find any data in the system
+    /// </para></li></ol><para>
+    /// The following guidelines can help you work with the API:
+    /// </para><ul><li><para>
+    /// Each dimension in the metric response must contain a value
+    /// </para></li><li><para>
+    /// Each item in MetricResult must include all requested metrics
+    /// </para></li><li><para>
+    /// If the response is slow due to large result sets, try these approaches:
+    /// </para><ul><li><para>
+    /// Narrow the time range of your request
+    /// </para></li><li><para>
+    /// Add filters to reduce the amount of data returned
+    /// </para></li></ul></li></ul></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CONNMetricDataV2")]
     [OutputType("Amazon.Connect.Model.MetricResultV2")]
@@ -220,14 +240,23 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// contacts per case</a></para></dd><dt>AVG_CASE_RESOLUTION_TIME</dt><dd><para>Unit: Seconds</para><para>Required filter key: CASE_TEMPLATE_ARN</para><para>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-case-resolution-time">Average
         /// case resolution time</a></para></dd><dt>AVG_CONTACT_DURATION</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
         /// Feature, contact/segmentAttributes/connect:Subtype, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-contact-duration">Average
-        /// contact duration</a></para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>AVG_CONVERSATION_DURATION</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
+        /// contact duration</a></para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>AVG_CONTACT_FIRST_RESPONSE_TIME_AGENT</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype,
+        /// Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile,
+        /// Queue, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#agent-average-contact-first-response-wait-time">Agent
+        /// average contact first response wait time</a></para></dd><dt>AVG_CONVERSATION_CLOSE_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype,
+        /// Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile,
+        /// Queue, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-conversation-close-time">Average
+        /// conversation close time</a></para></dd><dt>AVG_CONVERSATION_DURATION</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
         /// Feature, contact/segmentAttributes/connect:Subtype, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-conversation-duration">Average
         /// conversation duration</a></para></dd><dt>AVG_DIALS_PER_MINUTE</dt><dd><para>This metric is available only for outbound campaigns that use the agent assisted voice
         /// and automated voice delivery modes.</para><para>Unit: Count</para><para>Valid groupings and filters: Agent, Campaign, Queue, Routing Profile</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-dials-per-minute">Average
         /// dials per minute</a></para></dd><dt>AVG_EVALUATION_SCORE</dt><dd><para>Unit: Percent</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form ID,
         /// Evaluation Section ID, Evaluation Question ID, Evaluation Source, Form Version, Queue,
         /// Routing Profile</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-evaluation-score">Average
-        /// evaluation score</a></para></dd><dt>AVG_FLOW_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow
+        /// evaluation score</a></para></dd><dt>AVG_FIRST_RESPONSE_TIME_AGENT</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype,
+        /// Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile,
+        /// Queue, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-agent-first-response-time">Average
+        /// agent first response time</a></para></dd><dt>AVG_FLOW_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow
         /// type, Flows module resource ID, Flows next resource ID, Flows next resource queue
         /// ID, Flows outcome type, Flows resource ID, Initiation method, Resource published timestamp</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-flow-time">Average
         /// flow time</a></para></dd><dt>AVG_GREETING_TIME_AGENT</dt><dd><para>This metric is available only for contacts analyzed by Contact Lens conversational
@@ -251,12 +280,36 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// agent interruptions</a></para></dd><dt>AVG_INTERRUPTION_TIME_AGENT</dt><dd><para>This metric is available only for contacts analyzed by Contact Lens conversational
         /// analytics.</para><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
         /// contact/segmentAttributes/connect:Subtype, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-agent-interruption-time">Average
-        /// agent interruption time</a></para></dd><dt>AVG_NON_TALK_TIME</dt><dd><para>This metric is available only for contacts analyzed by Contact Lens conversational
+        /// agent interruption time</a></para></dd><dt>AVG_MESSAGE_LENGTH_AGENT</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype,
+        /// Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile,
+        /// Queue, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-agent-message-length">Average
+        /// agent message length</a></para></dd><dt>AVG_MESSAGE_LENGTH_CUSTOMER</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype,
+        /// Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile,
+        /// Queue, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-customer-message-length">Average
+        /// customer message length</a></para></dd><dt>AVG_MESSAGES</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype,
+        /// Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile,
+        /// Queue, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-messages">Average
+        /// messages</a></para></dd><dt>AVG_MESSAGES_AGENT</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype,
+        /// Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile,
+        /// Queue, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-agent-messages">Average
+        /// agent messages</a></para></dd><dt>AVG_MESSAGES_BOT</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype,
+        /// Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile,
+        /// Queue, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-bot-messages">Average
+        /// bot messages</a></para></dd><dt>AVG_MESSAGES_CUSTOMER</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype,
+        /// Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile,
+        /// Queue, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-customer-messages">Average
+        /// customer messages</a></para></dd><dt>AVG_NON_TALK_TIME</dt><dd><para>This metric is available only for contacts analyzed by Contact Lens conversational
         /// analytics.</para><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
         /// contact/segmentAttributes/connect:Subtype, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-non-talk-time">Average
         /// non-talk time</a></para></dd><dt>AVG_QUEUE_ANSWER_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype,
         /// Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-queue-answer-time">Average
-        /// queue answer time</a></para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>AVG_RESOLUTION_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype,
+        /// queue answer time</a></para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>AVG_RESPONSE_TIME_AGENT</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype,
+        /// Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile,
+        /// Queue, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-response-time-agent">Average
+        /// agent response time</a></para></dd><dt>AVG_RESPONSE_TIME_CUSTOMER</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype,
+        /// Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile,
+        /// Queue, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-customer-time-agent">Average
+        /// customer response time</a></para></dd><dt>AVG_RESOLUTION_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype,
         /// Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-resolution-time">Average
         /// resolution time</a></para></dd><dt>AVG_TALK_TIME</dt><dd><para>This metric is available only for contacts analyzed by Contact Lens conversational
         /// analytics.</para><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
@@ -330,7 +383,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// transferred out by agent</a></para></dd><dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
         /// contact/segmentAttributes/connect:Subtype, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-transferred-out-queue">Contacts
         /// transferred out queue</a></para></dd><dt>CURRENT_CASES</dt><dd><para>Unit: Count</para><para>Required filter key: CASE_TEMPLATE_ARN</para><para>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#current-cases">Current
-        /// cases</a></para></dd><dt>DELIVERY_ATTEMPTS</dt><dd><para>This metric is available only for outbound campaigns.</para><para>Unit: Count</para><para>Valid metric filter key: <c>ANSWERING_MACHINE_DETECTION_STATUS</c>, <c>CAMPAIGN_DELIVERY_EVENT_TYPE</c>,
+        /// cases</a></para></dd><dt>CONVERSATIONS_ABANDONED</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype,
+        /// Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile,
+        /// Queue, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#conversations-abandoned">Conversations
+        /// abandoned</a></para></dd><dt>DELIVERY_ATTEMPTS</dt><dd><para>This metric is available only for outbound campaigns.</para><para>Unit: Count</para><para>Valid metric filter key: <c>ANSWERING_MACHINE_DETECTION_STATUS</c>, <c>CAMPAIGN_DELIVERY_EVENT_TYPE</c>,
         /// <c>DISCONNECT_REASON</c></para><para>Valid groupings and filters: Agent, Answering Machine Detection Status, Campaign,
         /// Campaign Delivery EventType, Channel, contact/segmentAttributes/connect:Subtype, Disconnect
         /// Reason, Queue, Routing Profile</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#delivery-attempts">Delivery

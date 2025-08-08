@@ -1,4 +1,16 @@
-﻿### 5.0.28 (2025-08-07 20:04Z)
+﻿### 5.0.29 (2025-08-08 20:15Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.66.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNContactMetric leveraging the GetContactMetrics service API.
+    * Modified cmdlet Search-CONNAgentStatus: added parameters HierarchyGroupCondition_HierarchyGroupMatchType and HierarchyGroupCondition_Value.
+    * Modified cmdlet Search-CONNUserHierarchyGroup: added parameters HierarchyGroupCondition_HierarchyGroupMatchType, HierarchyGroupCondition_Value, SearchFilter_HierarchyGroupCondition_HierarchyGroupMatchType and SearchFilter_HierarchyGroupCondition_Value.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMReservedCapacity leveraging the DescribeReservedCapacity service API.
+    * Added cmdlet Get-SMUltraServersByReservedCapacityList leveraging the ListUltraServersByReservedCapacity service API.
+    * Modified cmdlet New-SMTrainingPlan: added parameter SpareInstanceCountPerUltraServer.
+    * Modified cmdlet Search-SMTrainingPlanOffering: added parameters UltraServerCount and UltraServerType.
+
+### 5.0.28 (2025-08-07 20:04Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.65.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CodeBuild
     * Modified cmdlet New-CBWebhook: added parameters PullRequestBuildPolicy_ApproverRole and PullRequestBuildPolicy_RequiresCommentApproval.

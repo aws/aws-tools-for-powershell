@@ -36,7 +36,27 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <para>
     /// For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics
     /// definitions</a> in the <i>Amazon Connect Administrator Guide</i>.
-    /// </para><br/><br/>In the AWS.Tools.Connect module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><note><para>
+    /// When you make a successful API request, you can expect the following metric values
+    /// in the response:
+    /// </para><ol><li><para><b>Metric value is null</b>: The calculation cannot be performed due to divide by
+    /// zero or insufficient data
+    /// </para></li><li><para><b>Metric value is a number (including 0) of defined type</b>: The number provided
+    /// is the calculation result
+    /// </para></li><li><para><b>MetricResult list is empty</b>: The request cannot find any data in the system
+    /// </para></li></ol><para>
+    /// The following guidelines can help you work with the API:
+    /// </para><ul><li><para>
+    /// Each dimension in the metric response must contain a value
+    /// </para></li><li><para>
+    /// Each item in MetricResult must include all requested metrics
+    /// </para></li><li><para>
+    /// If the response is slow due to large result sets, try these approaches:
+    /// </para><ul><li><para>
+    /// Narrow the time range of your request
+    /// </para></li><li><para>
+    /// Add filters to reduce the amount of data returned
+    /// </para></li></ul></li></ul></note><br/><br/>In the AWS.Tools.Connect module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CONNCurrentMetricData")]
     [OutputType("Amazon.Connect.Model.GetCurrentMetricDataResponse")]

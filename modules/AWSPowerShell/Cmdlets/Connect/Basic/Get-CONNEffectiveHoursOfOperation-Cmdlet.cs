@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter FromDate
         /// <summary>
         /// <para>
-        /// <para>The Date from when the hours of operation are listed.</para>
+        /// <para>The date from when the hours of operation are listed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ToDate
         /// <summary>
         /// <para>
-        /// <para>The Date until when the hours of operation are listed.</para>
+        /// <para>The date until when the hours of operation are listed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

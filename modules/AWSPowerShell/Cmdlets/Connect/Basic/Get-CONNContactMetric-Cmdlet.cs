@@ -30,59 +30,51 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Deletes an hours of operation override in an Amazon Connect hours of operation resource.
+    /// Gets the real-time metrics of the specified contact.
+    /// 
+    ///  
+    /// <para><b>Use cases</b></para><para>
+    /// Following are common uses cases for this API:
+    /// </para><ul><li><para>
+    /// You can use this API to retrieve the position of the contact in the queue.
+    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon
+    /// Connect endpoints and quotas</a>.
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "CONNHoursOfOperationOverride", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Service DeleteHoursOfOperationOverride API operation.", Operation = new[] {"DeleteHoursOfOperationOverride"}, SelectReturnType = typeof(Amazon.Connect.Model.DeleteHoursOfOperationOverrideResponse))]
-    [AWSCmdletOutput("None or Amazon.Connect.Model.DeleteHoursOfOperationOverrideResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DeleteHoursOfOperationOverrideResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Get", "CONNContactMetric")]
+    [OutputType("Amazon.Connect.Model.GetContactMetricsResponse")]
+    [AWSCmdlet("Calls the Amazon Connect Service GetContactMetrics API operation.", Operation = new[] {"GetContactMetrics"}, SelectReturnType = typeof(Amazon.Connect.Model.GetContactMetricsResponse))]
+    [AWSCmdletOutput("Amazon.Connect.Model.GetContactMetricsResponse",
+        "This cmdlet returns an Amazon.Connect.Model.GetContactMetricsResponse object containing multiple properties."
     )]
-    public partial class RemoveCONNHoursOfOperationOverrideCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class GetCONNContactMetricCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter HoursOfOperationId
+        #region Parameter ContactId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the hours of operation.</para>
+        /// <para>The identifier of the contact in this instance of Amazon Connect. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String HoursOfOperationId { get; set; }
-        #endregion
-        
-        #region Parameter HoursOfOperationOverrideId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier for the hours of operation override.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String HoursOfOperationOverrideId { get; set; }
+        public System.String ContactId { get; set; }
         #endregion
         
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance.</para>
+        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,24 +88,37 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String InstanceId { get; set; }
         #endregion
         
+        #region Parameter Metric
+        /// <summary>
+        /// <para>
+        /// <para>A list of contact-level metrics to retrieve.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("Metrics")]
+        public Amazon.Connect.Model.ContactMetricInfo[] Metric { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.DeleteHoursOfOperationOverrideResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.GetContactMetricsResponse).
+        /// Specifying the name of a property of type Amazon.Connect.Model.GetContactMetricsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -125,12 +130,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.HoursOfOperationOverrideId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CONNHoursOfOperationOverride (DeleteHoursOfOperationOverride)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -138,21 +137,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.DeleteHoursOfOperationOverrideResponse, RemoveCONNHoursOfOperationOverrideCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.GetContactMetricsResponse, GetCONNContactMetricCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.HoursOfOperationId = this.HoursOfOperationId;
+            context.ContactId = this.ContactId;
             #if MODULAR
-            if (this.HoursOfOperationId == null && ParameterWasBound(nameof(this.HoursOfOperationId)))
+            if (this.ContactId == null && ParameterWasBound(nameof(this.ContactId)))
             {
-                WriteWarning("You are passing $null as a value for parameter HoursOfOperationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.HoursOfOperationOverrideId = this.HoursOfOperationOverrideId;
-            #if MODULAR
-            if (this.HoursOfOperationOverrideId == null && ParameterWasBound(nameof(this.HoursOfOperationOverrideId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter HoursOfOperationOverrideId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ContactId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.InstanceId = this.InstanceId;
@@ -160,6 +152,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.Metric != null)
+            {
+                context.Metric = new List<Amazon.Connect.Model.ContactMetricInfo>(this.Metric);
+            }
+            #if MODULAR
+            if (this.Metric == null && ParameterWasBound(nameof(this.Metric)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Metric which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -176,19 +178,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.DeleteHoursOfOperationOverrideRequest();
+            var request = new Amazon.Connect.Model.GetContactMetricsRequest();
             
-            if (cmdletContext.HoursOfOperationId != null)
+            if (cmdletContext.ContactId != null)
             {
-                request.HoursOfOperationId = cmdletContext.HoursOfOperationId;
-            }
-            if (cmdletContext.HoursOfOperationOverrideId != null)
-            {
-                request.HoursOfOperationOverrideId = cmdletContext.HoursOfOperationOverrideId;
+                request.ContactId = cmdletContext.ContactId;
             }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.Metric != null)
+            {
+                request.Metrics = cmdletContext.Metric;
             }
             
             CmdletOutput output;
@@ -223,12 +225,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.DeleteHoursOfOperationOverrideResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.DeleteHoursOfOperationOverrideRequest request)
+        private Amazon.Connect.Model.GetContactMetricsResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.GetContactMetricsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "DeleteHoursOfOperationOverride");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "GetContactMetrics");
             try
             {
-                return client.DeleteHoursOfOperationOverrideAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetContactMetricsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -245,11 +247,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String HoursOfOperationId { get; set; }
-            public System.String HoursOfOperationOverrideId { get; set; }
+            public System.String ContactId { get; set; }
             public System.String InstanceId { get; set; }
-            public System.Func<Amazon.Connect.Model.DeleteHoursOfOperationOverrideResponse, RemoveCONNHoursOfOperationOverrideCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public List<Amazon.Connect.Model.ContactMetricInfo> Metric { get; set; }
+            public System.Func<Amazon.Connect.Model.GetContactMetricsResponse, GetCONNContactMetricCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }
