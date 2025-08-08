@@ -18,7 +18,7 @@
         <RootPath Condition="'$(RootPath)'==''">$(MSBuildProjectDirectory)/..</RootPath>
 
         <!-- the relative location (to the project file) of the generator executable -->
-        <GeneratorPath>$(RootPath)/generator/AWSPSGenerator/bin/$(Configuration)/netcoreapp3.1</GeneratorPath>
+        <GeneratorPath>$(RootPath)/generator/AWSPSGenerator/bin/$(Configuration)/net8.0</GeneratorPath>
         <Generator>AWSPSGenerator.dll</Generator>
 
         <!-- expected location of SDK assemblies to be consumed by generator; these should have been fetched via
@@ -463,7 +463,7 @@
     <Target Name="draft-release-notes" Condition="$(DraftReleaseNotes)">
         <Exec Command="dotnet restore --disable-parallel ../solutions/ReleaseNotesGenerator.sln"/>
         <Exec Command="dotnet build -c Release --no-incremental --no-restore -p:UseSharedCompilation=false ../solutions/ReleaseNotesGenerator.sln"/>
-        <Exec Condition="'$(PreviousVersionPath)'==''" Command="dotnet $(MSBuildProjectDirectory)/../generator/ReleaseNotesGenerator/bin/Release/netcoreapp3.1/ReleaseNotesGenerator.dll -na $(NetCoreDeploymentArtifacts)/AWSPowerShell.NetCore.dll -mn AWSPowerShell.NetCore -df ../PSGalleryDownloads/ -an AWSPowerShell.NetCore.dll -vf ../Include/sdk/_sdk-versions.json -of ../ReleaseNotesDraft.txt -bc ../BreakingChangesLookup.xml -or ../overrides.xml" />
-        <Exec Condition="'$(PreviousVersionPath)'!=''" Command="dotnet $(MSBuildProjectDirectory)/../generator/ReleaseNotesGenerator/bin/Release/netcoreapp3.1/ReleaseNotesGenerator.dll -na $(NetCoreDeploymentArtifacts)/AWSPowerShell.NetCore.dll -oa $(PreviousVersionPath) -vf ../Include/sdk/_sdk-versions.json -of ../ReleaseNotesDraft.txt -bc ../BreakingChangesLookup.xml -or ../overrides.xml"/>
+        <Exec Condition="'$(PreviousVersionPath)'==''" Command="dotnet $(MSBuildProjectDirectory)/../generator/ReleaseNotesGenerator/bin/Release/net8.0/ReleaseNotesGenerator.dll -na $(NetCoreDeploymentArtifacts)/AWSPowerShell.NetCore.dll -mn AWSPowerShell.NetCore -df ../PSGalleryDownloads/ -an AWSPowerShell.NetCore.dll -vf ../Include/sdk/_sdk-versions.json -of ../ReleaseNotesDraft.txt -bc ../BreakingChangesLookup.xml -or ../overrides.xml" />
+        <Exec Condition="'$(PreviousVersionPath)'!=''" Command="dotnet $(MSBuildProjectDirectory)/../generator/ReleaseNotesGenerator/bin/Release/net8.0/ReleaseNotesGenerator.dll -na $(NetCoreDeploymentArtifacts)/AWSPowerShell.NetCore.dll -oa $(PreviousVersionPath) -vf ../Include/sdk/_sdk-versions.json -of ../ReleaseNotesDraft.txt -bc ../BreakingChangesLookup.xml -or ../overrides.xml"/>
     </Target>
 </Project>
