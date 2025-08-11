@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><c>availability-zone</c> - The Availability Zone of the instance.</para></li><li><para><c>event.code</c> - The code for the scheduled event (<c>instance-reboot</c> | <c>system-reboot</c>
+        /// <para>The filters.</para><ul><li><para><c>availability-zone</c> - The Availability Zone of the instance.</para></li><li><para><c>availability-zone-id</c> - The ID of the Availability Zone of the instance.</para></li><li><para><c>event.code</c> - The code for the scheduled event (<c>instance-reboot</c> | <c>system-reboot</c>
         /// | <c>system-maintenance</c> | <c>instance-retirement</c> | <c>instance-stop</c>).</para></li><li><para><c>event.description</c> - A description of the event.</para></li><li><para><c>event.instance-event-id</c> - The ID of the event whose date and time you are
         /// modifying.</para></li><li><para><c>event.not-after</c> - The latest end time for the scheduled event (for example,
         /// <c>2014-09-15T17:15:20.000Z</c>).</para></li><li><para><c>event.not-before</c> - The earliest start time for the scheduled event (for example,

@@ -28,7 +28,23 @@ using Amazon.Evs.Model;
 namespace Amazon.PowerShell.Cmdlets.EVS
 {
     /// <summary>
-    /// Amazon.Evs.IAmazonEvs.CreateEnvironmentHost
+    /// Creates an ESXi host and adds it to an Amazon EVS environment. Amazon EVS supports
+    /// 4-16 hosts per environment.
+    /// 
+    ///  
+    /// <para>
+    /// This action can only be used after the Amazon EVS environment is deployed.
+    /// </para><para>
+    /// You can use the <c>dedicatedHostId</c> parameter to specify an Amazon EC2 Dedicated
+    /// Host for ESXi host creation.
+    /// </para><para>
+    ///  You can use the <c>placementGroupId</c> parameter to specify a cluster or partition
+    /// placement group to launch EC2 instances into.
+    /// </para><note><para>
+    /// You cannot use the <c>dedicatedHostId</c> and <c>placementGroupId</c> parameters together
+    /// in the same <c>CreateEnvironmentHost</c> action. This results in a <c>ValidationException</c>
+    /// response.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "EVSEnvironmentHost", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Evs.Model.CreateEnvironmentHostResponse")]

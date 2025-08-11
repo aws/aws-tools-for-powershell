@@ -199,6 +199,13 @@ $SSOADMN_Completers = {
             break
         }
 
+        # Amazon.SSOAdmin.UserBackgroundSessionApplicationStatus
+        "Write-SSOADMNApplicationSessionConfiguration/UserBackgroundSessionApplicationStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
 
     }
 
@@ -219,6 +226,7 @@ $SSOADMN_map = @{
     "Status"=@("New-SSOADMNApplication","Update-SSOADMNApplication")
     "TargetType"=@("Add-SSOADMNPermissionSetProvision","New-SSOADMNAccountAssignment","Remove-SSOADMNAccountAssignment")
     "TrustedTokenIssuerType"=@("New-SSOADMNTrustedTokenIssuer")
+    "UserBackgroundSessionApplicationStatus"=@("Write-SSOADMNApplicationSessionConfiguration")
 }
 
 _awsArgumentCompleterRegistration $SSOADMN_Completers $SSOADMN_map
@@ -308,6 +316,7 @@ $SSOADMN_SelectMap = @{
                "Get-SSOADMNApplicationAssignmentConfiguration",
                "Get-SSOADMNApplicationAuthenticationMethod",
                "Get-SSOADMNApplicationGrant",
+               "Get-SSOADMNApplicationSessionConfiguration",
                "Get-SSOADMNInlinePolicyForPermissionSet",
                "Get-SSOADMNPermissionsBoundaryForPermissionSet",
                "Get-SSOADMNAccountAssignmentCreationStatusList",
@@ -335,6 +344,7 @@ $SSOADMN_SelectMap = @{
                "Write-SSOADMNApplicationAssignmentConfiguration",
                "Write-SSOADMNApplicationAuthenticationMethod",
                "Write-SSOADMNApplicationGrant",
+               "Write-SSOADMNApplicationSessionConfiguration",
                "Write-SSOADMNInlinePolicyToPermissionSet",
                "Write-SSOADMNPermissionsBoundaryToPermissionSet",
                "Add-SSOADMNResourceTag",

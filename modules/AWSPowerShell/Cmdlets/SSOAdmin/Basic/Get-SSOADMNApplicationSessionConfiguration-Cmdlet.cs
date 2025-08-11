@@ -22,40 +22,39 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Evs;
-using Amazon.Evs.Model;
+using Amazon.SSOAdmin;
+using Amazon.SSOAdmin.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EVS
+namespace Amazon.PowerShell.Cmdlets.SSOADMN
 {
     /// <summary>
-    /// Deletes an Amazon EVS environment.
+    /// Retrieves the session configuration for an application in IAM Identity Center.
     /// 
     ///  
     /// <para>
-    /// Amazon EVS environments will only be enabled for deletion once the hosts are deleted.
-    /// You can delete hosts using the <c>DeleteEnvironmentHost</c> action.
-    /// </para><para>
-    /// Environment deletion also deletes the associated Amazon EVS VLAN subnets and Amazon
-    /// Web Services Secrets Manager secrets that Amazon EVS created. Amazon Web Services
-    /// resources that you create are not deleted. These resources may continue to incur costs.
+    /// The session configuration determines how users can access an application. This includes
+    /// whether user background sessions are enabled. User background sessions allow users
+    /// to start a job on a supported Amazon Web Services managed application without having
+    /// to remain signed in to an active session while the job runs.
     /// </para>
     /// </summary>
-    [Cmdlet("Remove", "EVSEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.Evs.Model.Environment")]
-    [AWSCmdlet("Calls the Amazon Elastic VMware Service DeleteEnvironment API operation.", Operation = new[] {"DeleteEnvironment"}, SelectReturnType = typeof(Amazon.Evs.Model.DeleteEnvironmentResponse))]
-    [AWSCmdletOutput("Amazon.Evs.Model.Environment or Amazon.Evs.Model.DeleteEnvironmentResponse",
-        "This cmdlet returns an Amazon.Evs.Model.Environment object.",
-        "The service call response (type Amazon.Evs.Model.DeleteEnvironmentResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "SSOADMNApplicationSessionConfiguration")]
+    [OutputType("Amazon.SSOAdmin.UserBackgroundSessionApplicationStatus")]
+    [AWSCmdlet("Calls the AWS Single Sign-On Admin GetApplicationSessionConfiguration API operation.", Operation = new[] {"GetApplicationSessionConfiguration"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.GetApplicationSessionConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.SSOAdmin.UserBackgroundSessionApplicationStatus or Amazon.SSOAdmin.Model.GetApplicationSessionConfigurationResponse",
+        "This cmdlet returns an Amazon.SSOAdmin.UserBackgroundSessionApplicationStatus object.",
+        "The service call response (type Amazon.SSOAdmin.Model.GetApplicationSessionConfigurationResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class RemoveEVSEnvironmentCmdlet : AmazonEvsClientCmdlet, IExecutor
+    public partial class GetSSOADMNApplicationSessionConfigurationCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter EnvironmentId
+        #region Parameter ApplicationArn
         /// <summary>
         /// <para>
-        /// <para>A unique ID associated with the environment to be deleted.</para>
+        /// <para>The Amazon Resource Name (ARN) of the application for which to retrieve the session
+        /// configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,63 +65,34 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EnvironmentId { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para><note><para>This parameter is not used in Amazon EVS currently. If you supply input for this parameter,
-        /// it will have no effect.</para></note><para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the environment deletion request. If you do not specify a client token, a randomly
-        /// generated token is used for the request to ensure idempotency.</para></para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        public System.String ApplicationArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Environment'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Evs.Model.DeleteEnvironmentResponse).
-        /// Specifying the name of a property of type Amazon.Evs.Model.DeleteEnvironmentResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'UserBackgroundSessionApplicationStatus'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SSOAdmin.Model.GetApplicationSessionConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.SSOAdmin.Model.GetApplicationSessionConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Environment";
+        public string Select { get; set; } = "UserBackgroundSessionApplicationStatus";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the EnvironmentId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^EnvironmentId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ApplicationArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ApplicationArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EnvironmentId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ApplicationArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EnvironmentId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EVSEnvironment (DeleteEnvironment)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -132,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Evs.Model.DeleteEnvironmentResponse, RemoveEVSEnvironmentCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SSOAdmin.Model.GetApplicationSessionConfigurationResponse, GetSSOADMNApplicationSessionConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -141,15 +111,14 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.EnvironmentId;
+                context.Select = (response, cmdlet) => this.ApplicationArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientToken = this.ClientToken;
-            context.EnvironmentId = this.EnvironmentId;
+            context.ApplicationArn = this.ApplicationArn;
             #if MODULAR
-            if (this.EnvironmentId == null && ParameterWasBound(nameof(this.EnvironmentId)))
+            if (this.ApplicationArn == null && ParameterWasBound(nameof(this.ApplicationArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter EnvironmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ApplicationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -166,15 +135,11 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Evs.Model.DeleteEnvironmentRequest();
+            var request = new Amazon.SSOAdmin.Model.GetApplicationSessionConfigurationRequest();
             
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.ApplicationArn != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
-            if (cmdletContext.EnvironmentId != null)
-            {
-                request.EnvironmentId = cmdletContext.EnvironmentId;
+                request.ApplicationArn = cmdletContext.ApplicationArn;
             }
             
             CmdletOutput output;
@@ -209,15 +174,15 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         
         #region AWS Service Operation Call
         
-        private Amazon.Evs.Model.DeleteEnvironmentResponse CallAWSServiceOperation(IAmazonEvs client, Amazon.Evs.Model.DeleteEnvironmentRequest request)
+        private Amazon.SSOAdmin.Model.GetApplicationSessionConfigurationResponse CallAWSServiceOperation(IAmazonSSOAdmin client, Amazon.SSOAdmin.Model.GetApplicationSessionConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic VMware Service", "DeleteEnvironment");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Single Sign-On Admin", "GetApplicationSessionConfiguration");
             try
             {
                 #if DESKTOP
-                return client.DeleteEnvironment(request);
+                return client.GetApplicationSessionConfiguration(request);
                 #elif CORECLR
-                return client.DeleteEnvironmentAsync(request).GetAwaiter().GetResult();
+                return client.GetApplicationSessionConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -237,10 +202,9 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
-            public System.String EnvironmentId { get; set; }
-            public System.Func<Amazon.Evs.Model.DeleteEnvironmentResponse, RemoveEVSEnvironmentCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Environment;
+            public System.String ApplicationArn { get; set; }
+            public System.Func<Amazon.SSOAdmin.Model.GetApplicationSessionConfigurationResponse, GetSSOADMNApplicationSessionConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.UserBackgroundSessionApplicationStatus;
         }
         
     }

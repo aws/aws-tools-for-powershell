@@ -264,20 +264,6 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                     context.GeofenceProperty.Add((String)hashKey, (System.String)(this.GeofenceProperty[hashKey]));
                 }
             }
-            if (this.Geometry_Polygon != null)
-            {
-                context.Geometry_Polygon = new List<List<List<System.Double>>>();
-                foreach (var innerList in this.Geometry_Polygon)
-                {
-                    var innerListCopy = new List<List<System.Double>>();
-                    context.Geometry_Polygon.Add(innerListCopy);
-                    foreach (var innermostList in innerList)
-                    {
-                        var innermostListCopy = new List<System.Double>(innermostList);
-                        innerListCopy.Add(innermostListCopy);
-                    }
-                }
-            }
             if (this.Circle_Center != null)
             {
                 context.Circle_Center = new List<System.Double>(this.Circle_Center);
@@ -300,6 +286,20 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                             var innermostListCopy = new List<System.Double>(innermostList);
                             secondInnerListCopy.Add(innermostListCopy);
                         }
+                    }
+                }
+            }
+            if (this.Geometry_Polygon != null)
+            {
+                context.Geometry_Polygon = new List<List<List<System.Double>>>();
+                foreach (var innerList in this.Geometry_Polygon)
+                {
+                    var innerListCopy = new List<List<System.Double>>();
+                    context.Geometry_Polygon.Add(innerListCopy);
+                    foreach (var innermostList in innerList)
+                    {
+                        var innermostListCopy = new List<System.Double>(innermostList);
+                        innerListCopy.Add(innermostListCopy);
                     }
                 }
             }
@@ -339,16 +339,6 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                  // populate Geometry
                 var requestGeometryIsNull = true;
                 request.Geometry = new Amazon.LocationService.Model.GeofenceGeometry();
-                List<List<List<System.Double>>> requestGeometry_geometry_Polygon = null;
-                if (cmdletContext.Geometry_Polygon != null)
-                {
-                    requestGeometry_geometry_Polygon = cmdletContext.Geometry_Polygon;
-                }
-                if (requestGeometry_geometry_Polygon != null)
-                {
-                    request.Geometry.Polygon = requestGeometry_geometry_Polygon;
-                    requestGeometryIsNull = false;
-                }
                 System.IO.MemoryStream requestGeometry_geometry_Geobuf = null;
                 if (cmdletContext.Geometry_Geobuf != null)
                 {
@@ -368,6 +358,16 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 if (requestGeometry_geometry_MultiPolygon != null)
                 {
                     request.Geometry.MultiPolygon = requestGeometry_geometry_MultiPolygon;
+                    requestGeometryIsNull = false;
+                }
+                List<List<List<System.Double>>> requestGeometry_geometry_Polygon = null;
+                if (cmdletContext.Geometry_Polygon != null)
+                {
+                    requestGeometry_geometry_Polygon = cmdletContext.Geometry_Polygon;
+                }
+                if (requestGeometry_geometry_Polygon != null)
+                {
+                    request.Geometry.Polygon = requestGeometry_geometry_Polygon;
                     requestGeometryIsNull = false;
                 }
                 Amazon.LocationService.Model.Circle requestGeometry_geometry_Circle = null;
@@ -482,11 +482,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             public System.String CollectionName { get; set; }
             public System.String GeofenceId { get; set; }
             public Dictionary<System.String, System.String> GeofenceProperty { get; set; }
-            public List<List<List<System.Double>>> Geometry_Polygon { get; set; }
             public List<System.Double> Circle_Center { get; set; }
             public System.Double? Circle_Radius { get; set; }
             public byte[] Geometry_Geobuf { get; set; }
             public List<List<List<List<System.Double>>>> Geometry_MultiPolygon { get; set; }
+            public List<List<List<System.Double>>> Geometry_Polygon { get; set; }
             public System.Func<Amazon.LocationService.Model.PutGeofenceResponse, SetLOCGeofenceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

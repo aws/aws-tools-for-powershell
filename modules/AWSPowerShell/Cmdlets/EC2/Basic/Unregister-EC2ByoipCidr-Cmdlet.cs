@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// Before you can release an address range, you must stop advertising it and you must
-    /// not have any IP addresses allocated from its address range.
+    /// Before you can release an address range, you must stop advertising it using <a>WithdrawByoipCidr</a>
+    /// and you must not have any IP addresses allocated from its address range.
     /// </para>
     /// </summary>
     [Cmdlet("Unregister", "EC2ByoipCidr", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

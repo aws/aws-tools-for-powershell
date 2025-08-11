@@ -113,6 +113,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SSOADMNApplicationList', 
         'Get-SSOADMNApplicationProvider', 
         'Get-SSOADMNApplicationProviderList', 
+        'Get-SSOADMNApplicationSessionConfiguration', 
         'Get-SSOADMNCustomerManagedPolicyReferencesInPermissionSetList', 
         'Get-SSOADMNInlinePolicyForPermissionSet', 
         'Get-SSOADMNInstance', 
@@ -159,6 +160,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-SSOADMNApplicationAssignmentConfiguration', 
         'Write-SSOADMNApplicationAuthenticationMethod', 
         'Write-SSOADMNApplicationGrant', 
+        'Write-SSOADMNApplicationSessionConfiguration', 
         'Write-SSOADMNInlinePolicyToPermissionSet', 
         'Write-SSOADMNPermissionsBoundaryToPermissionSet')
 

@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para>
     /// It can take a few minutes before traffic to the specified addresses starts routing
     /// to Amazon Web Services because of BGP propagation delays.
+    /// </para><para>
+    /// To stop advertising the BYOIP CIDR, use <a>WithdrawByoipCidr</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "EC2ByoipCidrAdvertisement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

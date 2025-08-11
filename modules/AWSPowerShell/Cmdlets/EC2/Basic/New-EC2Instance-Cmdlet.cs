@@ -142,13 +142,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone of the instance.</para><para>If not specified, an Availability Zone will be automatically chosen for you based
-        /// on the load balancing criteria for the Region.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
+        /// <para>The Availability Zone of the instance.</para><para>Either <c>AvailabilityZone</c> or <c>AvailabilityZoneId</c> can be specified, but
+        /// not both. If neither is specified, Amazon EC2 automatically selects an Availability
+        /// Zone based on the load balancing criteria for the Region.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AvailabilityZone")]
         public System.String Placement_AvailabilityZone { get; set; }
+        #endregion
+        
+        #region Parameter Placement_AvailabilityZoneId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Availability Zone of the instance.</para><para>Either <c>AvailabilityZone</c> or <c>AvailabilityZoneId</c> can be specified, but
+        /// not both. If neither is specified, Amazon EC2 automatically selects an Availability
+        /// Zone based on the load balancing criteria for the Region.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Placement_AvailabilityZoneId { get; set; }
         #endregion
         
         #region Parameter NetworkPerformanceOptions_BandwidthWeighting
@@ -967,6 +980,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Operator_Principal = this.Operator_Principal;
             context.Placement_Affinity = this.Placement_Affinity;
             context.Placement_AvailabilityZone = this.Placement_AvailabilityZone;
+            context.Placement_AvailabilityZoneId = this.Placement_AvailabilityZoneId;
             context.Placement_GroupId = this.Placement_GroupId;
             context.Placement_GroupName = this.Placement_GroupName;
             context.Placement_HostId = this.Placement_HostId;
@@ -1389,6 +1403,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.Placement.AvailabilityZone = requestPlacement_placement_AvailabilityZone;
                 requestPlacementIsNull = false;
             }
+            System.String requestPlacement_placement_AvailabilityZoneId = null;
+            if (cmdletContext.Placement_AvailabilityZoneId != null)
+            {
+                requestPlacement_placement_AvailabilityZoneId = cmdletContext.Placement_AvailabilityZoneId;
+            }
+            if (requestPlacement_placement_AvailabilityZoneId != null)
+            {
+                request.Placement.AvailabilityZoneId = requestPlacement_placement_AvailabilityZoneId;
+                requestPlacementIsNull = false;
+            }
             System.String requestPlacement_placement_GroupId = null;
             if (cmdletContext.Placement_GroupId != null)
             {
@@ -1636,6 +1660,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String Operator_Principal { get; set; }
             public System.String Placement_Affinity { get; set; }
             public System.String Placement_AvailabilityZone { get; set; }
+            public System.String Placement_AvailabilityZoneId { get; set; }
             public System.String Placement_GroupId { get; set; }
             public System.String Placement_GroupName { get; set; }
             public System.String Placement_HostId { get; set; }

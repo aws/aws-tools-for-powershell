@@ -28,7 +28,7 @@ using Amazon.Evs.Model;
 namespace Amazon.PowerShell.Cmdlets.EVS
 {
     /// <summary>
-    /// Amazon.Evs.IAmazonEvs.ListTagsForResource
+    /// Lists the tags for an Amazon EVS resource.
     /// </summary>
     [Cmdlet("Get", "EVSResourceTag")]
     [OutputType("System.String")]

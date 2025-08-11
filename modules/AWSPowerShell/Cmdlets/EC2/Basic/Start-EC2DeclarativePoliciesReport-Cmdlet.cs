@@ -40,8 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Web Services Organization).
     /// </para><para>
     /// The report is saved to your specified S3 bucket, using the following path structure
-    /// (with the capitalized placeholders representing your specific values):
-    /// </para><para><c>s3://AMZN-S3-DEMO-BUCKET/YOUR-OPTIONAL-S3-PREFIX/ec2_TARGETID_REPORTID_YYYYMMDDTHHMMZ.csv</c></para><para><b>Prerequisites for generating a report</b></para><ul><li><para>
+    /// (with the <i>italicized placeholders</i> representing your specific values):
+    /// </para><para><c>s3://<i>amzn-s3-demo-bucket</i>/<i>your-optional-s3-prefix</i>/ec2_<i>targetId</i>_<i>reportId</i>_<i>yyyyMMdd</i>T<i>hhmm</i>Z.csv</c></para><para><b>Prerequisites for generating a report</b></para><ul><li><para>
     /// The <c>StartDeclarativePoliciesReport</c> API can only be called by the management
     /// account or delegated administrators for the organization.
     /// </para></li><li><para>

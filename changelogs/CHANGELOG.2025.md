@@ -1,4 +1,18 @@
-﻿### 4.1.875 (2025-08-08 20:43Z)
+﻿### 4.1.876 (2025-08-11 20:27Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1099.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * [Breaking Change] Modified cmdlet Search-CONNAgentStatus: removed parameters HierarchyGroupCondition_HierarchyGroupMatchType and HierarchyGroupCondition_Value.
+    * [Breaking Change] Modified cmdlet Search-CONNUserHierarchyGroup: removed parameters HierarchyGroupCondition_HierarchyGroupMatchType, HierarchyGroupCondition_Value, SearchFilter_HierarchyGroupCondition_HierarchyGroupMatchType and SearchFilter_HierarchyGroupCondition_Value.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2Instance: added parameter Placement_AvailabilityZoneId.
+    * Modified cmdlet Get-EC2SpotPriceHistory: added parameter AvailabilityZoneId.
+    * Modified cmdlet New-EC2DefaultSubnet: added parameter AvailabilityZoneId.
+    * Modified cmdlet New-EC2Volume: added parameter AvailabilityZoneId.
+  * Amazon Single Sign-On Admin
+    * Added cmdlet Get-SSOADMNApplicationSessionConfiguration leveraging the GetApplicationSessionConfiguration service API.
+    * Added cmdlet Write-SSOADMNApplicationSessionConfiguration leveraging the PutApplicationSessionConfiguration service API.
+
+### 4.1.875 (2025-08-08 20:43Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1098.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Get-CONNContactMetric leveraging the GetContactMetrics service API.
