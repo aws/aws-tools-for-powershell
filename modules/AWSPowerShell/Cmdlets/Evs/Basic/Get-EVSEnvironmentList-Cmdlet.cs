@@ -30,7 +30,8 @@ using Amazon.Evs.Model;
 namespace Amazon.PowerShell.Cmdlets.EVS
 {
     /// <summary>
-    /// Amazon.Evs.IAmazonEvs.ListEnvironments<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the Amazon EVS environments in your Amazon Web Services account in the specified
+    /// Amazon Web Services Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EVSEnvironmentList")]
     [OutputType("Amazon.Evs.Model.EnvironmentSummary")]

@@ -167,6 +167,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetApplicationSessionConfiguration" OutputProperty="UserBackgroundSessionApplicationStatus" Verb="Get" Noun="ApplicationSessionConfiguration" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetInlinePolicyForPermissionSet" OutputProperty="InlinePolicy" Verb="Get" Noun="InlinePolicyForPermissionSet" PipelineParameter="PermissionSetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -272,6 +276,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutApplicationGrant" Verb="Write" Noun="ApplicationGrant" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutApplicationSessionConfiguration" Verb="Write" Noun="ApplicationSessionConfiguration" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

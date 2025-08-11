@@ -167,8 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// the <c>Invoke</c> API operation. Invocation results are available when the payload
         /// is complete. The maximum payload size is 6 MB.</para></li><li><para><c>RESPONSE_STREAM</c> – Your function streams payload results as they become available.
         /// Lambda invokes your function using the <c>InvokeWithResponseStream</c> API operation.
-        /// The maximum response payload size is 20 MB, however, you can <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">request
-        /// a quota increase</a>.</para></li></ul>
+        /// The maximum response payload size is 200 MB.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

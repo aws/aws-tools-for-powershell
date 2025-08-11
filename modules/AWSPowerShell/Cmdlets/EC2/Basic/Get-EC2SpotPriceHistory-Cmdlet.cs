@@ -56,11 +56,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>Filters the results by the specified Availability Zone.</para>
+        /// <para>Filters the results by the specified Availability Zone.</para><para>Either <c>AvailabilityZone</c> or <c>AvailabilityZoneId</c> can be specified, but
+        /// not both</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AvailabilityZone { get; set; }
+        #endregion
+        
+        #region Parameter AvailabilityZoneId
+        /// <summary>
+        /// <para>
+        /// <para>Filters the results by the specified ID of the Availability Zone.</para><para>Either <c>AvailabilityZone</c> or <c>AvailabilityZoneId</c> can be specified, but
+        /// not both</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AvailabilityZoneId { get; set; }
         #endregion
         
         #region Parameter DryRun
@@ -89,7 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><c>availability-zone</c> - The Availability Zone for which prices should be returned.</para></li><li><para><c>instance-type</c> - The type of instance (for example, <c>m3.medium</c>).</para></li><li><para><c>product-description</c> - The product description for the Spot price (<c>Linux/UNIX</c>
+        /// <para>The filters.</para><ul><li><para><c>availability-zone</c> - The Availability Zone for which prices should be returned.</para></li><li><para><c>availability-zone-id</c> - The ID of the Availability Zone for which prices should
+        /// be returned.</para></li><li><para><c>instance-type</c> - The type of instance (for example, <c>m3.medium</c>).</para></li><li><para><c>product-description</c> - The product description for the Spot price (<c>Linux/UNIX</c>
         /// | <c>Red Hat Enterprise Linux</c> | <c>SUSE Linux</c> | <c>Windows</c> | <c>Linux/UNIX
         /// (Amazon VPC)</c> | <c>Red Hat Enterprise Linux (Amazon VPC)</c> | <c>SUSE Linux (Amazon
         /// VPC)</c> | <c>Windows (Amazon VPC)</c>).</para></li><li><para><c>spot-price</c> - The Spot price. The value must match exactly (or use wildcards;
@@ -222,6 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AvailabilityZone = this.AvailabilityZone;
+            context.AvailabilityZoneId = this.AvailabilityZoneId;
             context.DryRun = this.DryRun;
             context.EndTime = this.EndTime;
             if (this.Filter != null)
@@ -270,6 +284,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.AvailabilityZoneId != null)
+            {
+                request.AvailabilityZoneId = cmdletContext.AvailabilityZoneId;
             }
             if (cmdletContext.DryRun != null)
             {
@@ -357,6 +375,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.AvailabilityZoneId != null)
+            {
+                request.AvailabilityZoneId = cmdletContext.AvailabilityZoneId;
             }
             if (cmdletContext.DryRun != null)
             {
@@ -489,6 +511,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AvailabilityZone { get; set; }
+            public System.String AvailabilityZoneId { get; set; }
             public System.Boolean? DryRun { get; set; }
             public System.DateTime? EndTime { get; set; }
             public List<Amazon.EC2.Model.Filter> Filter { get; set; }

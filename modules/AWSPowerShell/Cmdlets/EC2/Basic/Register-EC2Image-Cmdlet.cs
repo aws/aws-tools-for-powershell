@@ -36,8 +36,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// an AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-instance-store.html">Create
     /// an instance-store backed AMI</a> in the <i>Amazon EC2 User Guide</i>.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI
+    /// in a single request, so you don't have to register the AMI yourself. We recommend
+    /// that you always use <a>CreateImage</a> unless you have a specific reason to use RegisterImage.
+    /// </para></note><para>
     /// If needed, you can deregister an AMI at any time. Any modifications you make to an
     /// AMI backed by an instance store volume invalidates its registration. If you make changes
     /// to an image, deregister the previous image and register the new image.
@@ -64,13 +67,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <c>PlatformDetails</c> field on the new AMI. If the field is empty or doesn't match
     /// the expected operating system code (for example, Windows, RedHat, SUSE, or SQL), the
     /// AMI creation was unsuccessful, and you should discard the AMI and instead create the
-    /// AMI from an instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#how-to-create-ebs-ami">Create
+    /// AMI from an instance using <a>CreateImage</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#how-to-create-ebs-ami">Create
     /// an AMI from an instance </a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><para>
     /// If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched
     /// from an AMI with a billing product code, make sure that the Reserved Instance has
     /// the matching billing product code. If you purchase a Reserved Instance without the
-    /// matching billing product code, the Reserved Instance is not applied to the On-Demand
+    /// matching billing product code, the Reserved Instance will not be applied to the On-Demand
     /// Instance. For information about how to obtain the platform details and billing information
     /// of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understand
     /// AMI billing information</a> in the <i>Amazon EC2 User Guide</i>.

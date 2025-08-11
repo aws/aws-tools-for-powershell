@@ -30,7 +30,7 @@ using Amazon.Evs.Model;
 namespace Amazon.PowerShell.Cmdlets.EVS
 {
     /// <summary>
-    /// Amazon.Evs.IAmazonEvs.ListEnvironmentVlans<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists environment VLANs that are associated with the specified environment.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EVSEnvironmentVlanList")]
     [OutputType("Amazon.Evs.Model.Vlan")]

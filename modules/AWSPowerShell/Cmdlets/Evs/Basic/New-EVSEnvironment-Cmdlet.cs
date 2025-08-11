@@ -30,7 +30,21 @@ using Amazon.Evs.Model;
 namespace Amazon.PowerShell.Cmdlets.EVS
 {
     /// <summary>
-    /// Amazon.Evs.IAmazonEvs.CreateEnvironment
+    /// Creates an Amazon EVS environment that runs VCF software, such as SDDC Manager, NSX
+    /// Manager, and vCenter Server.
+    /// 
+    ///  
+    /// <para>
+    /// During environment creation, Amazon EVS performs validations on DNS settings, provisions
+    /// VLAN subnets and hosts, and deploys the supplied version of VCF.
+    /// </para><para>
+    /// It can take several hours to create an environment. After the deployment completes,
+    /// you can configure VCF in the vSphere user interface according to your needs.
+    /// </para><note><para>
+    /// You cannot use the <c>dedicatedHostId</c> and <c>placementGroupId</c> parameters together
+    /// in the same <c>CreateEnvironment</c> action. This results in a <c>ValidationException</c>
+    /// response.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "EVSEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Evs.Model.Environment")]

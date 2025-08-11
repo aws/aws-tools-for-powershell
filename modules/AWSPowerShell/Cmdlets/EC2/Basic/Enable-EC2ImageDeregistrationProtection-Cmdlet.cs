@@ -35,7 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// To allow the AMI to be deregistered, you must first disable deregistration protection.
+    /// To allow the AMI to be deregistered, you must first disable deregistration protection
+    /// using <a>DisableImageDeregistrationProtection</a>.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deregistration-protection.html">Protect
     /// an Amazon EC2 AMI from deregistration</a> in the <i>Amazon EC2 User Guide</i>.

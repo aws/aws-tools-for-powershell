@@ -87,7 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// SSD, <c>st1</c> for Throughput Optimized HDD, <c>sc1</c> for Cold HDD, or <c>standard</c>
         /// for Magnetic.</para></li><li><para><c>launch.group-id</c> - The ID of the security group for the instance.</para></li><li><para><c>launch.group-name</c> - The name of the security group for the instance.</para></li><li><para><c>launch.image-id</c> - The ID of the AMI.</para></li><li><para><c>launch.instance-type</c> - The type of instance (for example, <c>m3.medium</c>).</para></li><li><para><c>launch.kernel-id</c> - The kernel ID.</para></li><li><para><c>launch.key-name</c> - The name of the key pair the instance launched with.</para></li><li><para><c>launch.monitoring-enabled</c> - Whether detailed monitoring is enabled for the
         /// Spot Instance.</para></li><li><para><c>launch.ramdisk-id</c> - The RAM disk ID.</para></li><li><para><c>launched-availability-zone</c> - The Availability Zone in which the request is
-        /// launched.</para></li><li><para><c>network-interface.addresses.primary</c> - Indicates whether the IP address is
+        /// launched.</para></li><li><para><c>launched-availability-zone-id</c> - The ID of the Availability Zone in which the
+        /// request is launched.</para></li><li><para><c>network-interface.addresses.primary</c> - Indicates whether the IP address is
         /// the primary private IP address.</para></li><li><para><c>network-interface.delete-on-termination</c> - Indicates whether the network interface
         /// is deleted when the instance is terminated.</para></li><li><para><c>network-interface.description</c> - A description of the network interface.</para></li><li><para><c>network-interface.device-index</c> - The index of the device for the network interface
         /// attachment on the instance.</para></li><li><para><c>network-interface.group-id</c> - The ID of the security group associated with

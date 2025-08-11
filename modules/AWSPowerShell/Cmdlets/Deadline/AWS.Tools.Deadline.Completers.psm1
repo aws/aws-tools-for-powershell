@@ -145,7 +145,7 @@ $ADC_Completers = {
             ($_ -eq "Update-ADCFleet/InstanceMarketOptions_Type")
         }
         {
-            $v = "on-demand","spot"
+            $v = "on-demand","spot","wait-and-save"
             break
         }
 
@@ -162,7 +162,7 @@ $ADC_Completers = {
         # Amazon.Deadline.FleetStatus
         "Get-ADCFleetList/Status"
         {
-            $v = "ACTIVE","CREATE_FAILED","CREATE_IN_PROGRESS","UPDATE_FAILED","UPDATE_IN_PROGRESS"
+            $v = "ACTIVE","CREATE_FAILED","CREATE_IN_PROGRESS","SUSPENDED","UPDATE_FAILED","UPDATE_IN_PROGRESS"
             break
         }
 

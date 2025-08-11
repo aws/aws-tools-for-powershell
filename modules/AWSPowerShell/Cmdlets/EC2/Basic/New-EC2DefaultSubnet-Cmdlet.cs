@@ -51,18 +51,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone in which to create the default subnet.</para>
+        /// <para>The Availability Zone in which to create the default subnet.</para><para>Either <c>AvailabilityZone</c> or <c>AvailabilityZoneId</c> must be specified, but
+        /// not both.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AvailabilityZone { get; set; }
+        #endregion
+        
+        #region Parameter AvailabilityZoneId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Availability Zone.</para><para>Either <c>AvailabilityZone</c> or <c>AvailabilityZoneId</c> must be specified, but
+        /// not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AvailabilityZoneId { get; set; }
         #endregion
         
         #region Parameter DryRun
@@ -136,12 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AvailabilityZone = this.AvailabilityZone;
-            #if MODULAR
-            if (this.AvailabilityZone == null && ParameterWasBound(nameof(this.AvailabilityZone)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AvailabilityZone which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.AvailabilityZoneId = this.AvailabilityZoneId;
             context.DryRun = this.DryRun;
             context.Ipv6Native = this.Ipv6Native;
             
@@ -163,6 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.AvailabilityZoneId != null)
+            {
+                request.AvailabilityZoneId = cmdletContext.AvailabilityZoneId;
             }
             if (cmdletContext.DryRun != null)
             {
@@ -228,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AvailabilityZone { get; set; }
+            public System.String AvailabilityZoneId { get; set; }
             public System.Boolean? DryRun { get; set; }
             public System.Boolean? Ipv6Native { get; set; }
             public System.Func<Amazon.EC2.Model.CreateDefaultSubnetResponse, NewEC2DefaultSubnetCmdlet, object> Select { get; set; } =

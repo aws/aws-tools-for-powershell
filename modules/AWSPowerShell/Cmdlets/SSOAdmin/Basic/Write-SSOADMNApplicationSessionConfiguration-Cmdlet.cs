@@ -23,41 +23,41 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.SSOAdmin;
+using Amazon.SSOAdmin.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.SSOADMN
 {
     /// <summary>
-    /// Releases the specified address range that you provisioned for use with your Amazon
-    /// Web Services resources through bring your own IP addresses (BYOIP) and deletes the
-    /// corresponding address pool.
+    /// Updates the session configuration for an application in IAM Identity Center.
     /// 
     ///  
     /// <para>
-    /// Before you can release an address range, you must stop advertising it using <a>WithdrawByoipCidr</a>
-    /// and you must not have any IP addresses allocated from its address range.
+    /// The session configuration determines how users can access an application. This includes
+    /// whether user background sessions are enabled. User background sessions allow users
+    /// to start a job on a supported Amazon Web Services managed application without having
+    /// to remain signed in to an active session while the job runs.
     /// </para>
     /// </summary>
-    [Cmdlet("Unregister", "EC2ByoipCidr", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.ByoipCidr")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeprovisionByoipCidr API operation.", Operation = new[] {"DeprovisionByoipCidr"}, SelectReturnType = typeof(Amazon.EC2.Model.DeprovisionByoipCidrResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.ByoipCidr or Amazon.EC2.Model.DeprovisionByoipCidrResponse",
-        "This cmdlet returns an Amazon.EC2.Model.ByoipCidr object.",
-        "The service call response (type Amazon.EC2.Model.DeprovisionByoipCidrResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Write", "SSOADMNApplicationSessionConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Single Sign-On Admin PutApplicationSessionConfiguration API operation.", Operation = new[] {"PutApplicationSessionConfiguration"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.PutApplicationSessionConfigurationResponse))]
+    [AWSCmdletOutput("None or Amazon.SSOAdmin.Model.PutApplicationSessionConfigurationResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.SSOAdmin.Model.PutApplicationSessionConfigurationResponse) be returned by specifying '-Select *'."
     )]
-    public partial class UnregisterEC2ByoipCidrCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class WriteSSOADMNApplicationSessionConfigurationCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Cidr
+        #region Parameter ApplicationArn
         /// <summary>
         /// <para>
-        /// <para>The address range, in CIDR notation. The prefix must be the same prefix that you specified
-        /// when you provisioned the address range.</para>
+        /// <para>The Amazon Resource Name (ARN) of the application for which to update the session
+        /// configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,30 +68,28 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Cidr { get; set; }
+        public System.String ApplicationArn { get; set; }
         #endregion
         
-        #region Parameter DryRun
+        #region Parameter UserBackgroundSessionApplicationStatus
         /// <summary>
         /// <para>
-        /// <para>Checks whether you have the required permissions for the action, without actually
-        /// making the request, and provides an error response. If you have the required permissions,
-        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// <para>The status of user background sessions for the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? DryRun { get; set; }
+        [AWSConstantClassSource("Amazon.SSOAdmin.UserBackgroundSessionApplicationStatus")]
+        public Amazon.SSOAdmin.UserBackgroundSessionApplicationStatus UserBackgroundSessionApplicationStatus { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ByoipCidr'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DeprovisionByoipCidrResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.DeprovisionByoipCidrResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SSOAdmin.Model.PutApplicationSessionConfigurationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ByoipCidr";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -113,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Cidr), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unregister-EC2ByoipCidr (DeprovisionByoipCidr)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ApplicationArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-SSOADMNApplicationSessionConfiguration (PutApplicationSessionConfiguration)"))
             {
                 return;
             }
@@ -126,17 +124,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DeprovisionByoipCidrResponse, UnregisterEC2ByoipCidrCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SSOAdmin.Model.PutApplicationSessionConfigurationResponse, WriteSSOADMNApplicationSessionConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Cidr = this.Cidr;
+            context.ApplicationArn = this.ApplicationArn;
             #if MODULAR
-            if (this.Cidr == null && ParameterWasBound(nameof(this.Cidr)))
+            if (this.ApplicationArn == null && ParameterWasBound(nameof(this.ApplicationArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter Cidr which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ApplicationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.DryRun = this.DryRun;
+            context.UserBackgroundSessionApplicationStatus = this.UserBackgroundSessionApplicationStatus;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -151,15 +149,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.DeprovisionByoipCidrRequest();
+            var request = new Amazon.SSOAdmin.Model.PutApplicationSessionConfigurationRequest();
             
-            if (cmdletContext.Cidr != null)
+            if (cmdletContext.ApplicationArn != null)
             {
-                request.Cidr = cmdletContext.Cidr;
+                request.ApplicationArn = cmdletContext.ApplicationArn;
             }
-            if (cmdletContext.DryRun != null)
+            if (cmdletContext.UserBackgroundSessionApplicationStatus != null)
             {
-                request.DryRun = cmdletContext.DryRun.Value;
+                request.UserBackgroundSessionApplicationStatus = cmdletContext.UserBackgroundSessionApplicationStatus;
             }
             
             CmdletOutput output;
@@ -194,12 +192,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.DeprovisionByoipCidrResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeprovisionByoipCidrRequest request)
+        private Amazon.SSOAdmin.Model.PutApplicationSessionConfigurationResponse CallAWSServiceOperation(IAmazonSSOAdmin client, Amazon.SSOAdmin.Model.PutApplicationSessionConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeprovisionByoipCidr");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Single Sign-On Admin", "PutApplicationSessionConfiguration");
             try
             {
-                return client.DeprovisionByoipCidrAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.PutApplicationSessionConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -216,10 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Cidr { get; set; }
-            public System.Boolean? DryRun { get; set; }
-            public System.Func<Amazon.EC2.Model.DeprovisionByoipCidrResponse, UnregisterEC2ByoipCidrCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ByoipCidr;
+            public System.String ApplicationArn { get; set; }
+            public Amazon.SSOAdmin.UserBackgroundSessionApplicationStatus UserBackgroundSessionApplicationStatus { get; set; }
+            public System.Func<Amazon.SSOAdmin.Model.PutApplicationSessionConfigurationResponse, WriteSSOADMNApplicationSessionConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

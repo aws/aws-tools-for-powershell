@@ -30401,6 +30401,7 @@ Set-Alias -Name SSOADMN-GetApplicationAccessScope -Value Get-SSOADMNApplicationA
 Set-Alias -Name SSOADMN-GetApplicationAssignmentConfiguration -Value Get-SSOADMNApplicationAssignmentConfiguration
 Set-Alias -Name SSOADMN-GetApplicationAuthenticationMethod -Value Get-SSOADMNApplicationAuthenticationMethod
 Set-Alias -Name SSOADMN-GetApplicationGrant -Value Get-SSOADMNApplicationGrant
+Set-Alias -Name SSOADMN-GetApplicationSessionConfiguration -Value Get-SSOADMNApplicationSessionConfiguration
 Set-Alias -Name SSOADMN-GetInlinePolicyForPermissionSet -Value Get-SSOADMNInlinePolicyForPermissionSet
 Set-Alias -Name SSOADMN-GetPermissionsBoundaryForPermissionSet -Value Get-SSOADMNPermissionsBoundaryForPermissionSet
 Set-Alias -Name List-SSOADMNAccountAssignmentCreationStatus -Value Get-SSOADMNAccountAssignmentCreationStatusList
@@ -30472,6 +30473,8 @@ Set-Alias -Name Put-SSOADMNApplicationAuthenticationMethod -Value Write-SSOADMNA
 Set-Alias -Name SSOADMN-PutApplicationAuthenticationMethod -Value Write-SSOADMNApplicationAuthenticationMethod
 Set-Alias -Name Put-SSOADMNApplicationGrant -Value Write-SSOADMNApplicationGrant
 Set-Alias -Name SSOADMN-PutApplicationGrant -Value Write-SSOADMNApplicationGrant
+Set-Alias -Name Put-SSOADMNApplicationSessionConfiguration -Value Write-SSOADMNApplicationSessionConfiguration
+Set-Alias -Name SSOADMN-PutApplicationSessionConfiguration -Value Write-SSOADMNApplicationSessionConfiguration
 Set-Alias -Name Put-SSOADMNInlinePolicyToPermissionSet -Value Write-SSOADMNInlinePolicyToPermissionSet
 Set-Alias -Name SSOADMN-PutInlinePolicyToPermissionSet -Value Write-SSOADMNInlinePolicyToPermissionSet
 Set-Alias -Name Put-SSOADMNPermissionsBoundaryToPermissionSet -Value Write-SSOADMNPermissionsBoundaryToPermissionSet

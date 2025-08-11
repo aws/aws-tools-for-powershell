@@ -18837,10 +18837,7 @@ $CONN_Completers = {
 
         # Amazon.Connect.HierarchyGroupMatchType
         {
-            ($_ -eq "Search-CONNAgentStatus/HierarchyGroupCondition_HierarchyGroupMatchType") -Or
             ($_ -eq "Search-CONNUser/HierarchyGroupCondition_HierarchyGroupMatchType") -Or
-            ($_ -eq "Search-CONNUserHierarchyGroup/HierarchyGroupCondition_HierarchyGroupMatchType") -Or
-            ($_ -eq "Search-CONNUserHierarchyGroup/SearchFilter_HierarchyGroupCondition_HierarchyGroupMatchType") -Or
             ($_ -eq "Search-CONNUser/SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType") -Or
             ($_ -eq "Search-CONNUser/SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType")
         }
@@ -19212,7 +19209,7 @@ $CONN_map = @{
     "Event_Type"=@("Send-CONNChatIntegrationEvent")
     "EventSourceName"=@("Get-CONNRuleList")
     "FileUseCaseType"=@("Start-CONNAttachedFileUpload")
-    "HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNAgentStatus","Search-CONNUser","Search-CONNUserHierarchyGroup")
+    "HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "IdentityManagementType"=@("New-CONNInstance")
     "InitiateAs"=@("New-CONNContact")
     "InitiationMethod"=@("New-CONNContact")
@@ -19238,7 +19235,6 @@ $CONN_map = @{
     "SearchCriteria_StateCondition"=@("Search-CONNContactFlow","Search-CONNContactFlowModule")
     "SearchCriteria_StatusCondition"=@("Search-CONNContactFlow","Search-CONNContactFlowModule")
     "SearchCriteria_TypeCondition"=@("Search-CONNContactFlow")
-    "SearchFilter_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUserHierarchyGroup")
     "SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "Sort_FieldName"=@("Search-CONNContact")
@@ -22652,7 +22648,7 @@ $ADC_Completers = {
             ($_ -eq "Update-ADCFleet/InstanceMarketOptions_Type")
         }
         {
-            $v = "on-demand","spot"
+            $v = "on-demand","spot","wait-and-save"
             break
         }
 
@@ -22669,7 +22665,7 @@ $ADC_Completers = {
         # Amazon.Deadline.FleetStatus
         "Get-ADCFleetList/Status"
         {
-            $v = "ACTIVE","CREATE_FAILED","CREATE_IN_PROGRESS","UPDATE_FAILED","UPDATE_IN_PROGRESS"
+            $v = "ACTIVE","CREATE_FAILED","CREATE_IN_PROGRESS","SUSPENDED","UPDATE_FAILED","UPDATE_IN_PROGRESS"
             break
         }
 
@@ -75453,6 +75449,13 @@ $SSOADMN_Completers = {
             break
         }
 
+        # Amazon.SSOAdmin.UserBackgroundSessionApplicationStatus
+        "Write-SSOADMNApplicationSessionConfiguration/UserBackgroundSessionApplicationStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
 
     }
 
@@ -75473,6 +75476,7 @@ $SSOADMN_map = @{
     "Status"=@("New-SSOADMNApplication","Update-SSOADMNApplication")
     "TargetType"=@("Add-SSOADMNPermissionSetProvision","New-SSOADMNAccountAssignment","Remove-SSOADMNAccountAssignment")
     "TrustedTokenIssuerType"=@("New-SSOADMNTrustedTokenIssuer")
+    "UserBackgroundSessionApplicationStatus"=@("Write-SSOADMNApplicationSessionConfiguration")
 }
 
 _awsArgumentCompleterRegistration $SSOADMN_Completers $SSOADMN_map
@@ -75562,6 +75566,7 @@ $SSOADMN_SelectMap = @{
                "Get-SSOADMNApplicationAssignmentConfiguration",
                "Get-SSOADMNApplicationAuthenticationMethod",
                "Get-SSOADMNApplicationGrant",
+               "Get-SSOADMNApplicationSessionConfiguration",
                "Get-SSOADMNInlinePolicyForPermissionSet",
                "Get-SSOADMNPermissionsBoundaryForPermissionSet",
                "Get-SSOADMNAccountAssignmentCreationStatusList",
@@ -75589,6 +75594,7 @@ $SSOADMN_SelectMap = @{
                "Write-SSOADMNApplicationAssignmentConfiguration",
                "Write-SSOADMNApplicationAuthenticationMethod",
                "Write-SSOADMNApplicationGrant",
+               "Write-SSOADMNApplicationSessionConfiguration",
                "Write-SSOADMNInlinePolicyToPermissionSet",
                "Write-SSOADMNPermissionsBoundaryToPermissionSet",
                "Add-SSOADMNResourceTag",

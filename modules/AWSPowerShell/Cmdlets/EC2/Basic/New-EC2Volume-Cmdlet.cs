@@ -66,18 +66,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The ID of the Availability Zone in which to create the volume. For example, <c>us-east-1a</c>.</para>
+        /// <para>The ID of the Availability Zone in which to create the volume. For example, <c>us-east-1a</c>.</para><para>Either <c>AvailabilityZone</c> or <c>AvailabilityZoneId</c> must be specified, but
+        /// not both.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AvailabilityZone { get; set; }
+        #endregion
+        
+        #region Parameter AvailabilityZoneId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Availability Zone in which to create the volume. For example, <c>use1-az1</c>.</para><para>Either <c>AvailabilityZone</c> or <c>AvailabilityZoneId</c> must be specified, but
+        /// not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AvailabilityZoneId { get; set; }
         #endregion
         
         #region Parameter DryRun
@@ -316,12 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AvailabilityZone = this.AvailabilityZone;
-            #if MODULAR
-            if (this.AvailabilityZone == null && ParameterWasBound(nameof(this.AvailabilityZone)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AvailabilityZone which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.AvailabilityZoneId = this.AvailabilityZoneId;
             context.ClientToken = this.ClientToken;
             context.DryRun = this.DryRun;
             context.Encrypted = this.Encrypted;
@@ -358,6 +358,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.AvailabilityZoneId != null)
+            {
+                request.AvailabilityZoneId = cmdletContext.AvailabilityZoneId;
             }
             if (cmdletContext.ClientToken != null)
             {
@@ -486,6 +490,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AvailabilityZone { get; set; }
+            public System.String AvailabilityZoneId { get; set; }
             public System.String ClientToken { get; set; }
             public System.Boolean? DryRun { get; set; }
             public System.Boolean? Encrypted { get; set; }

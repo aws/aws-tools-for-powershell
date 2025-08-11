@@ -23,32 +23,41 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Evs;
-using Amazon.Evs.Model;
+using Amazon.SSOAdmin;
+using Amazon.SSOAdmin.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.EVS
+namespace Amazon.PowerShell.Cmdlets.SSOADMN
 {
     /// <summary>
-    /// Lists the tags for an Amazon EVS resource.
+    /// Retrieves the session configuration for an application in IAM Identity Center.
+    /// 
+    ///  
+    /// <para>
+    /// The session configuration determines how users can access an application. This includes
+    /// whether user background sessions are enabled. User background sessions allow users
+    /// to start a job on a supported Amazon Web Services managed application without having
+    /// to remain signed in to an active session while the job runs.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "EVSResourceTag")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic VMware Service ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Evs.Model.ListTagsForResourceResponse))]
-    [AWSCmdletOutput("System.String or Amazon.Evs.Model.ListTagsForResourceResponse",
-        "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Evs.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "SSOADMNApplicationSessionConfiguration")]
+    [OutputType("Amazon.SSOAdmin.UserBackgroundSessionApplicationStatus")]
+    [AWSCmdlet("Calls the AWS Single Sign-On Admin GetApplicationSessionConfiguration API operation.", Operation = new[] {"GetApplicationSessionConfiguration"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.GetApplicationSessionConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.SSOAdmin.UserBackgroundSessionApplicationStatus or Amazon.SSOAdmin.Model.GetApplicationSessionConfigurationResponse",
+        "This cmdlet returns an Amazon.SSOAdmin.UserBackgroundSessionApplicationStatus object.",
+        "The service call response (type Amazon.SSOAdmin.Model.GetApplicationSessionConfigurationResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetEVSResourceTagCmdlet : AmazonEvsClientCmdlet, IExecutor
+    public partial class GetSSOADMNApplicationSessionConfigurationCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ResourceArn
+        #region Parameter ApplicationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that identifies the resource to list tags for.</para>
+        /// <para>The Amazon Resource Name (ARN) of the application for which to retrieve the session
+        /// configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,18 +68,18 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String ApplicationArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Evs.Model.ListTagsForResourceResponse).
-        /// Specifying the name of a property of type Amazon.Evs.Model.ListTagsForResourceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'UserBackgroundSessionApplicationStatus'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SSOAdmin.Model.GetApplicationSessionConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.SSOAdmin.Model.GetApplicationSessionConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Tags";
+        public string Select { get; set; } = "UserBackgroundSessionApplicationStatus";
         #endregion
         
         protected override void StopProcessing()
@@ -89,14 +98,14 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Evs.Model.ListTagsForResourceResponse, GetEVSResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SSOAdmin.Model.GetApplicationSessionConfigurationResponse, GetSSOADMNApplicationSessionConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ResourceArn = this.ResourceArn;
+            context.ApplicationArn = this.ApplicationArn;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.ApplicationArn == null && ParameterWasBound(nameof(this.ApplicationArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ApplicationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -113,11 +122,11 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Evs.Model.ListTagsForResourceRequest();
+            var request = new Amazon.SSOAdmin.Model.GetApplicationSessionConfigurationRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.ApplicationArn != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.ApplicationArn = cmdletContext.ApplicationArn;
             }
             
             CmdletOutput output;
@@ -152,12 +161,12 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         
         #region AWS Service Operation Call
         
-        private Amazon.Evs.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonEvs client, Amazon.Evs.Model.ListTagsForResourceRequest request)
+        private Amazon.SSOAdmin.Model.GetApplicationSessionConfigurationResponse CallAWSServiceOperation(IAmazonSSOAdmin client, Amazon.SSOAdmin.Model.GetApplicationSessionConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic VMware Service", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Single Sign-On Admin", "GetApplicationSessionConfiguration");
             try
             {
-                return client.ListTagsForResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetApplicationSessionConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -174,9 +183,9 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public System.Func<Amazon.Evs.Model.ListTagsForResourceResponse, GetEVSResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Tags;
+            public System.String ApplicationArn { get; set; }
+            public System.Func<Amazon.SSOAdmin.Model.GetApplicationSessionConfigurationResponse, GetSSOADMNApplicationSessionConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.UserBackgroundSessionApplicationStatus;
         }
         
     }

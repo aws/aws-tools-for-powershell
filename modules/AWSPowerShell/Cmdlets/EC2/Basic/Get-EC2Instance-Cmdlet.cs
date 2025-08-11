@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The filters.</para><ul><li><para><c>affinity</c> - The affinity setting for an instance running on a Dedicated Host
-        /// (<c>default</c> | <c>host</c>).</para></li><li><para><c>architecture</c> - The instance architecture (<c>i386</c> | <c>x86_64</c> | <c>arm64</c>).</para></li><li><para><c>availability-zone</c> - The Availability Zone of the instance.</para></li><li><para><c>block-device-mapping.attach-time</c> - The attach time for an EBS volume mapped
+        /// (<c>default</c> | <c>host</c>).</para></li><li><para><c>architecture</c> - The instance architecture (<c>i386</c> | <c>x86_64</c> | <c>arm64</c>).</para></li><li><para><c>availability-zone</c> - The Availability Zone of the instance.</para></li><li><para><c>availability-zone-id</c> - The ID of the Availability Zone of the instance.</para></li><li><para><c>block-device-mapping.attach-time</c> - The attach time for an EBS volume mapped
         /// to the instance, for example, <c>2022-09-15T17:15:20.000Z</c>.</para></li><li><para><c>block-device-mapping.delete-on-termination</c> - A Boolean that indicates whether
         /// the EBS volume is deleted on instance termination.</para></li><li><para><c>block-device-mapping.device-name</c> - The device name specified in the block
         /// device mapping (for example, <c>/dev/sdh</c> or <c>xvdh</c>).</para></li><li><para><c>block-device-mapping.status</c> - The status for the EBS volume (<c>attaching</c>

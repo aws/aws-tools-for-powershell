@@ -48,8 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// results, with the <c>imageAllowed</c> field set to <c>true</c> for each image. In
     /// <c>audit-mode</c>, the <c>imageAllowed</c> field is set to <c>true</c> for images
     /// that meet the account's Allowed AMIs criteria, and <c>false</c> for images that don't
-    /// meet the criteria. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html">Allowed
-    /// AMIs</a>.
+    /// meet the criteria. For more information, see <a>EnableAllowedImagesSettings</a>.
     /// </para><para>
     /// The Amazon EC2 API follows an eventual consistency model. This means that the result
     /// of an API command you run that creates or modifies resources might not be immediately
