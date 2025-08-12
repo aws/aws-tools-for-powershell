@@ -33,11 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// [Default VPC] Releasing an Elastic IP address automatically disassociates it from
-    /// any instance that it's associated with. To disassociate an Elastic IP address without
-    /// releasing it, use <a>DisassociateAddress</a>.
+    /// any instance that it's associated with. Alternatively, you can disassociate an Elastic
+    /// IP address without releasing it.
     /// </para><para>
-    /// [Nondefault VPC] You must use <a>DisassociateAddress</a> to disassociate the Elastic
-    /// IP address before you can release it. Otherwise, Amazon EC2 returns an error (<c>InvalidIPAddress.InUse</c>).
+    /// [Nondefault VPC] You must disassociate the Elastic IP address before you can release
+    /// it. Otherwise, Amazon EC2 returns an error (<c>InvalidIPAddress.InUse</c>).
     /// </para><para>
     /// After releasing an Elastic IP address, it is released to the IP address pool. Be sure
     /// to update your DNS records and any servers or devices that communicate with the address.
@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Web Services account.
     /// </para><para>
     /// After you release an Elastic IP address, you might be able to recover it. For more
-    /// information, see <a>AllocateAddress</a>.
+    /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing-eips-releasing.html">Release
+    /// an Elastic IP address</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "EC2Address", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

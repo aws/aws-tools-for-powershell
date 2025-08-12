@@ -742,6 +742,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.FeatureStatus AmazonQSettings_Status { get; set; }
         #endregion
         
+        #region Parameter TrustedIdentityPropagationSettings_Status
+        /// <summary>
+        /// <para>
+        /// <para>The status of Trusted Identity Propagation (TIP) at the SageMaker domain level. </para><para>When disabled, standard IAM role-based access is used. </para><para>When enabled:</para><ul><li><para>User identities from IAM Identity Center are propagated through the application to
+        /// TIP enabled Amazon Web Services services.</para></li><li><para>New applications or existing applications that are automatically patched, will use
+        /// the domain level configuration.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettingsForUpdate_TrustedIdentityPropagationSettings_Status")]
+        [AWSConstantClassSource("Amazon.SageMaker.FeatureStatus")]
+        public Amazon.SageMaker.FeatureStatus TrustedIdentityPropagationSettings_Status { get; set; }
+        #endregion
+        
         #region Parameter UnifiedStudioSettings_StudioWebPortalAccess
         /// <summary>
         /// <para>
@@ -965,6 +979,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.DomainSettingsForUpdate_SecurityGroupId = new List<System.String>(this.DomainSettingsForUpdate_SecurityGroupId);
             }
+            context.TrustedIdentityPropagationSettings_Status = this.TrustedIdentityPropagationSettings_Status;
             context.UnifiedStudioSettings_DomainAccountId = this.UnifiedStudioSettings_DomainAccountId;
             context.UnifiedStudioSettings_DomainId = this.UnifiedStudioSettings_DomainId;
             context.UnifiedStudioSettings_DomainRegion = this.UnifiedStudioSettings_DomainRegion;
@@ -1583,6 +1598,31 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.DomainSettingsForUpdate.SecurityGroupIds = requestDomainSettingsForUpdate_domainSettingsForUpdate_SecurityGroupId;
                 requestDomainSettingsForUpdateIsNull = false;
             }
+            Amazon.SageMaker.Model.TrustedIdentityPropagationSettings requestDomainSettingsForUpdate_domainSettingsForUpdate_TrustedIdentityPropagationSettings = null;
+            
+             // populate TrustedIdentityPropagationSettings
+            var requestDomainSettingsForUpdate_domainSettingsForUpdate_TrustedIdentityPropagationSettingsIsNull = true;
+            requestDomainSettingsForUpdate_domainSettingsForUpdate_TrustedIdentityPropagationSettings = new Amazon.SageMaker.Model.TrustedIdentityPropagationSettings();
+            Amazon.SageMaker.FeatureStatus requestDomainSettingsForUpdate_domainSettingsForUpdate_TrustedIdentityPropagationSettings_trustedIdentityPropagationSettings_Status = null;
+            if (cmdletContext.TrustedIdentityPropagationSettings_Status != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_TrustedIdentityPropagationSettings_trustedIdentityPropagationSettings_Status = cmdletContext.TrustedIdentityPropagationSettings_Status;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_TrustedIdentityPropagationSettings_trustedIdentityPropagationSettings_Status != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_TrustedIdentityPropagationSettings.Status = requestDomainSettingsForUpdate_domainSettingsForUpdate_TrustedIdentityPropagationSettings_trustedIdentityPropagationSettings_Status;
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_TrustedIdentityPropagationSettingsIsNull = false;
+            }
+             // determine if requestDomainSettingsForUpdate_domainSettingsForUpdate_TrustedIdentityPropagationSettings should be set to null
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_TrustedIdentityPropagationSettingsIsNull)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_TrustedIdentityPropagationSettings = null;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_TrustedIdentityPropagationSettings != null)
+            {
+                request.DomainSettingsForUpdate.TrustedIdentityPropagationSettings = requestDomainSettingsForUpdate_domainSettingsForUpdate_TrustedIdentityPropagationSettings;
+                requestDomainSettingsForUpdateIsNull = false;
+            }
             Amazon.SageMaker.Model.AmazonQSettings requestDomainSettingsForUpdate_domainSettingsForUpdate_AmazonQSettings = null;
             
              // populate AmazonQSettings
@@ -1986,6 +2026,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String RStudioServerProDomainSettingsForUpdate_RStudioConnectUrl { get; set; }
             public System.String RStudioServerProDomainSettingsForUpdate_RStudioPackageManagerUrl { get; set; }
             public List<System.String> DomainSettingsForUpdate_SecurityGroupId { get; set; }
+            public Amazon.SageMaker.FeatureStatus TrustedIdentityPropagationSettings_Status { get; set; }
             public System.String UnifiedStudioSettings_DomainAccountId { get; set; }
             public System.String UnifiedStudioSettings_DomainId { get; set; }
             public System.String UnifiedStudioSettings_DomainRegion { get; set; }

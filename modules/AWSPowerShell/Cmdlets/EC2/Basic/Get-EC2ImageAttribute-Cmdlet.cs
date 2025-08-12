@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The AMI attribute.</para><para><b>Note</b>: The <c>blockDeviceMapping</c> attribute is deprecated. Using this attribute
         /// returns the <c>Client.AuthFailure</c> error. To get information about the block device
-        /// mappings for an AMI, use the <a>DescribeImages</a> action.</para>
+        /// mappings for an AMI, describe the image instead.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
