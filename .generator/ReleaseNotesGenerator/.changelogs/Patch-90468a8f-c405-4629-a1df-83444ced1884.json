@@ -1,4 +1,0 @@
-{
-  "Type": "Patch",
-  "Description": "Added support for new build config NoResetToNullForRequiredParameter which could be used to prevent resetting initialized required parameter to null when no child properties are set."
-}

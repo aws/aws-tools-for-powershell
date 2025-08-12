@@ -245,18 +245,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #endregion
 
-        #region Parameter ExpectedBucketOwner
-        /// <summary>
-        /// <para>
-        /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
-        /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <code>403 Forbidden</code> (access denied).</para>
-        /// </para>
-        /// </summary>
-        [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_FromContent)]
-        public System.String ExpectedBucketOwner { get; set; }
-        #endregion
-
         #region Shared Params
 
         #region Parameter ContentType 
@@ -274,6 +262,56 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ContentType { get; set; }
+        #endregion
+
+        #region Parameter DisableDefaultChecksumValidation
+        /// <summary>
+        /// <para><b>WARNING: Setting DisableDefaultChecksumValidation to true disables the default data 
+        /// integrity check on upload requests.</b></para>
+        /// <para>When true, checksum verification will not be used in upload requests. This may increase upload 
+        /// performance under high CPU loads. Setting DisableDefaultChecksumValidation sets the deprecated property
+        /// DisableMD5Stream to the same value. The default value is false.</para>
+        /// <para>Checksums, SigV4 payload signing, and HTTPS each provide some data integrity 
+        /// verification. If DisableDefaultChecksumValidation is true and DisablePayloadSigning is true, then the 
+        /// possibility of data corruption is completely dependent on HTTPS being the only remaining 
+        /// source of data integrity verification.</para>
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true)]
+        public bool? DisableDefaultChecksumValidation { get; set; }
+        #endregion
+
+        #region Parameter DisablePayloadSigning
+        /// <summary>
+        /// <para><b>WARNING: Setting DisablePayloadSigning to true disables the SigV4 payload signing 
+        /// data integrity check on this request.</b></para>  
+        /// <para>If using SigV4, the DisablePayloadSigning flag controls if the payload should be 
+        /// signed on a request by request basis. By default this flag is null which will use the 
+        /// default client behavior. The default client behavior is to sign the payload. When 
+        /// DisablePayloadSigning is true, the request will be signed with an UNSIGNED-PAYLOAD value. 
+        /// Setting DisablePayloadSigning to true requires that the request is sent over a HTTPS 
+        /// connection.</para>
+        /// <para>Under certain circumstances, such as uploading to S3 while using MD5 hashing, it may 
+        /// be desireable to use UNSIGNED-PAYLOAD to decrease signing CPU usage. This flag only applies 
+        /// to Amazon S3 PutObject and UploadPart requests.</para>
+        /// <para>MD5Stream, SigV4 payload signing, and HTTPS each provide some data integrity 
+        /// verification. If DisableMD5Stream is true and DisablePayloadSigning is true, then the 
+        /// possibility of data corruption is completely dependant on HTTPS being the only remaining 
+        /// source of data integrity verification.</para>
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true)]
+        public bool? DisablePayloadSigning { get; set; }
+        #endregion
+
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
+        /// not match the actual owner of the bucket, the request fails with the HTTP status code
+        /// <code>403 Forbidden</code> (access denied).</para>
+        /// </para>
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
         #endregion
 
         #region Parameter StorageClass
@@ -446,6 +484,55 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public long? MpuObjectSize { get; set; }
         #endregion
 
+        #region Parameter ObjectLockLegalHoldStatus
+        /// <summary>
+        /// <para>
+        /// Specifies whether a legal hold will be applied to this object. For more information
+        /// about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object
+        /// Lock</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// This functionality is not supported for directory buckets.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.ObjectLockLegalHoldStatus")]
+        public Amazon.S3.ObjectLockLegalHoldStatus ObjectLockLegalHoldStatus { get; set; }
+        #endregion
+
+        #region Parameter ObjectLockMode
+        /// <summary>
+        /// <para>
+        /// The Object Lock mode that you want to apply to this object.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// This functionality is not supported for directory buckets.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.ObjectLockMode")]
+        public Amazon.S3.ObjectLockMode ObjectLockMode { get; set; }
+        #endregion
+
+        #region Parameter ObjectLockRetainUntilDate
+        /// <summary>
+        /// <para>
+        /// The date and time when you want this object's Object Lock to expire.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// This functionality is not supported for directory buckets.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true)]
+        public DateTime? ObjectLockRetainUntilDate { get; set; }
+        #endregion
+
         #region Parameter RequestPayer
         /// <summary>
         /// <para>
@@ -453,7 +540,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// Bucket owners need not specify this parameter in their requests.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.S3.RequestPayer")]
         public Amazon.S3.RequestPayer RequestPayer { get; set; }
         #endregion
@@ -487,6 +574,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public FileSize PartSize { get; set; }
         #endregion
 
+        #endregion
+
+        #region Parameter IfMatch
+        /// <summary>
+        /// <para>Uploads the object only if the ETag (entity tag) value provided during the WRITE operation matches the ETag of the object in S3. If the ETag values do not match, the operation returns a <code>412 Precondition Failed</code> error.</para>
+        /// <para>If a conflicting operation occurs during the upload S3 returns a <code>409 ConditionalRequestConflict</code> response. On a 409 failure you should fetch the object's ETag and retry the upload.</para>
+        /// <para>Expects the ETag value as a string.</para>
+        /// <para>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>, or <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/conditional-requests.html">Conditional requests</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IfMatch { get; set; }
         #endregion
 
         #region Parameter IfNoneMatch
@@ -647,6 +745,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.MpuObjectSize = mpuObjectSize;
             }
 
+            context.DisableDefaultChecksumValidation = this.DisableDefaultChecksumValidation;
+            context.DisablePayloadSigning = this.DisablePayloadSigning;
+            context.ObjectLockLegalHoldStatus = this.ObjectLockLegalHoldStatus;
+            context.ObjectLockMode = this.ObjectLockMode;
+            context.ObjectLockRetainUntilDate = this.ObjectLockRetainUntilDate;
+
             if (this.PartSize != null)
             {
                 if (this.PartSize.FileSizeInBytes < MinPartSize || this.PartSize.FileSizeInBytes > MaxPartSize)
@@ -654,6 +758,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
                 context.PartSize = this.PartSize.FileSizeInBytes;
             }
+
+            if (!string.IsNullOrEmpty(this.IfMatch))
+                context.IfMatch = this.IfMatch;
 
             if (!string.IsNullOrEmpty(this.IfNoneMatch))
                 context.IfNoneMatch = this.IfNoneMatch;
@@ -725,10 +832,35 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.TagSet = new List<Tag>(cmdletContext.TagSet);
             if (cmdletContext.ChecksumAlgorithm != null)
                 request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
+
+            if (cmdletContext.DisableDefaultChecksumValidation != null)
+                request.DisableDefaultChecksumValidation = cmdletContext.DisableDefaultChecksumValidation;
+
+            if (cmdletContext.DisablePayloadSigning != null)
+                request.DisablePayloadSigning = cmdletContext.DisablePayloadSigning;
+
+            if (!string.IsNullOrEmpty(cmdletContext.IfMatch))
+                request.IfMatch = cmdletContext.IfMatch;
             if (!string.IsNullOrEmpty(cmdletContext.IfNoneMatch))
                 request.IfNoneMatch = cmdletContext.IfNoneMatch;
             if (cmdletContext.ExpectedBucketOwner != null)
                 request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+
+            if (cmdletContext.ObjectLockLegalHoldStatus != null)
+            {
+                request.ObjectLockLegalHoldStatus = cmdletContext.ObjectLockLegalHoldStatus;
+            }
+
+            if (cmdletContext.ObjectLockMode != null)
+            {
+                request.ObjectLockMode = cmdletContext.ObjectLockMode;
+            }
+
+            if (cmdletContext.ObjectLockRetainUntilDate != null)
+            {
+                request.ObjectLockRetainUntilDate = cmdletContext.ObjectLockRetainUntilDate;
+            }
+
             if (cmdletContext.RequestPayer != null)
             {
                 request.RequestPayer = cmdletContext.RequestPayer;
@@ -824,8 +956,32 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     request.MpuObjectSize = mpuObjectSize;
                 }
 
+                if (cmdletContext.DisableDefaultChecksumValidation != null)
+                    request.DisableDefaultChecksumValidation = cmdletContext.DisableDefaultChecksumValidation;
+
+                if (cmdletContext.DisablePayloadSigning != null)
+                    request.DisablePayloadSigning = cmdletContext.DisablePayloadSigning;
+
+                if (!string.IsNullOrEmpty(cmdletContext.IfMatch))
+                    request.IfMatch = cmdletContext.IfMatch;
+
                 if (!string.IsNullOrEmpty(cmdletContext.IfNoneMatch))
                     request.IfNoneMatch = cmdletContext.IfNoneMatch;
+
+                if (cmdletContext.ObjectLockLegalHoldStatus != null)
+                {
+                    request.ObjectLockLegalHoldStatus = cmdletContext.ObjectLockLegalHoldStatus;
+                }
+
+                if (cmdletContext.ObjectLockMode != null)
+                {
+                    request.ObjectLockMode = cmdletContext.ObjectLockMode;
+                }
+
+                if (cmdletContext.ObjectLockRetainUntilDate != null)
+                {
+                    request.ObjectLockRetainUntilDate = cmdletContext.ObjectLockRetainUntilDate.Value;
+                }
 
                 if (cmdletContext.PartSize != null)
                     request.PartSize = cmdletContext.PartSize.Value;
@@ -896,6 +1052,27 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ChecksumAlgorithm != null)
             {
                 request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
+            }
+
+            if (cmdletContext.DisableDefaultChecksumValidation != null)
+                request.DisableDefaultChecksumValidation = cmdletContext.DisableDefaultChecksumValidation;
+
+            if (cmdletContext.DisablePayloadSigning != null)
+                request.DisablePayloadSigning = cmdletContext.DisablePayloadSigning.Value;
+
+            if (cmdletContext.ObjectLockLegalHoldStatus != null)
+            {
+                request.ObjectLockLegalHoldStatus = cmdletContext.ObjectLockLegalHoldStatus;
+            }
+
+            if (cmdletContext.ObjectLockMode != null)
+            {
+                request.ObjectLockMode = cmdletContext.ObjectLockMode;
+            }
+
+            if (cmdletContext.ObjectLockRetainUntilDate != null)
+            {
+                request.ObjectLockRetainUntilDate = cmdletContext.ObjectLockRetainUntilDate.Value;
             }
 
             if (cmdletContext.RequestPayer != null)
@@ -983,8 +1160,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             public int? ConcurrentServiceRequests { get; set; }
 
+            public bool? DisableDefaultChecksumValidation { get; set; }
+            public bool? DisablePayloadSigning { get; set; }
+
+            public ObjectLockLegalHoldStatus ObjectLockLegalHoldStatus { get; set; }
+            public ObjectLockMode ObjectLockMode { get; set; }
+            public DateTime? ObjectLockRetainUntilDate { get; set; }
+
             public long? PartSize { get; set; }
 
+            public String IfMatch { get; set; }
             public String IfNoneMatch { get; set; }
 
             public RequestPayer RequestPayer { get; set; }

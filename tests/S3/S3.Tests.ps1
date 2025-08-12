@@ -40,10 +40,14 @@ Describe -Tag "Smoke" "S3" {
         BeforeAll {
             $script:bucketName = "pstest-" + [DateTime]::Now.ToFileTime()
             New-S3Bucket -BucketName $script:bucketName
+
+            $void = New-Item -Path temp -Type directory -Force
+            "sample text" | Out-File -FilePath "temp\test.txt" -Force
         }
 
         AfterAll {
             $script:bucketName | Remove-S3Bucket -Force -DeleteBucketContent
+            $void = Remove-Item -Path "temp" -Recurse -Force
         }        
 
         It "Can write objects with SSE" {
@@ -67,9 +71,18 @@ Describe -Tag "Smoke" "S3" {
             } | Should -Throw
         }
 
-        It "Can verify bucket ownership during write operations" {
-            $accountId = (Get-S3Bucket -BucketName $script:bucketName).Owner.ID
+        It "Can verify bucket ownership for content during write operations" {
+            $accountId = (Get-STSCallerIdentity).Account
             Write-S3Object -BucketName $script:bucketName -Key "ownership-test.txt" -ExpectedBucketOwner $accountId -Content "testing bucket ownership verification"
+        }
+
+        It "Can verify bucket ownership for file during write operations" {
+            $accountId = (Get-STSCallerIdentity).Account
+            Write-S3Object -BucketName $script:bucketName -Key "ownership-test.txt" -ExpectedBucketOwner $accountId -File "temp\test.txt"
+        }
+
+        It "Can write objects with DisablePayloadSigning" {
+            Write-S3Object -BucketName $script:bucketName -Key foo-disaplepalyloadsigning.txt -Content "this is a test" -DisablePayloadSigning $true
         }
     }
 
