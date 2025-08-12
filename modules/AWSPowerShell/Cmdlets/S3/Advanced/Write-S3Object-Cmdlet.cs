@@ -254,7 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <code>403 Forbidden</code> (access denied).</para>
         /// </para>
         /// </summary>
-        [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_FromContent)]
+        [Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ExpectedBucketOwner { get; set; }
         #endregion
 
