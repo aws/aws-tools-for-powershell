@@ -243,9 +243,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// for the key/value pair formed with the label that a worker assigns to the object.
         /// The <c>LabelAttributeName</c> must meet the following requirements.</para><ul><li><para>The name can't end with "-metadata". </para></li><li><para>If you are using one of the following <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in
         /// task types</a>, the attribute name <i>must</i> end with "-ref". If the task type you
-        /// are using is not listed below, the attribute name <i>must not</i> end with "-ref".</para><ul><li><para>Image semantic segmentation (<c>SemanticSegmentation)</c>, and adjustment (<c>AdjustmentSemanticSegmentation</c>)
-        /// and verification (<c>VerificationSemanticSegmentation</c>) labeling jobs for this
-        /// task type.</para></li><li><para>Video frame object detection (<c>VideoObjectDetection</c>), and adjustment and verification
+        /// are using is not listed below, the attribute name <i>must not</i> end with "-ref".</para><ul><li><para>Verification (<c>VerificationSemanticSegmentation</c>) labeling jobs for this task
+        /// type.</para></li><li><para>Video frame object detection (<c>VideoObjectDetection</c>), and adjustment and verification
         /// (<c>AdjustmentVideoObjectDetection</c>) labeling jobs for this task type.</para></li><li><para>Video frame object tracking (<c>VideoObjectTracking</c>), and adjustment and verification
         /// (<c>AdjustmentVideoObjectTracking</c>) labeling jobs for this task type.</para></li><li><para>3D point cloud semantic segmentation (<c>3DPointCloudSemanticSegmentation</c>), and
         /// adjustment and verification (<c>Adjustment3DPointCloudSemanticSegmentation</c>) labeling

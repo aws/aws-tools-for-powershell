@@ -23054,6 +23054,9 @@ Set-Alias -Name ORG-ListAccounts -Value Get-ORGAccountList
 Set-Alias -Name List-ORGAccountsForParent -Value Get-ORGAccountForParent
 Set-Alias -Name List-ORGAccountForParent -Value Get-ORGAccountForParent
 Set-Alias -Name ORG-ListAccountsForParent -Value Get-ORGAccountForParent
+Set-Alias -Name List-ORGAccountsWithInvalidEffectivePolicy -Value Get-ORGAccountsWithInvalidEffectivePolicyList
+Set-Alias -Name List-ORGAccountsWithInvalidEffectivePolicyList -Value Get-ORGAccountsWithInvalidEffectivePolicyList
+Set-Alias -Name ORG-ListAccountsWithInvalidEffectivePolicy -Value Get-ORGAccountsWithInvalidEffectivePolicyList
 Set-Alias -Name List-ORGAWSServiceAccessForOrganization -Value Get-ORGAWSServiceAccessForOrganization
 Set-Alias -Name ORG-ListAWSServiceAccessForOrganization -Value Get-ORGAWSServiceAccessForOrganization
 Set-Alias -Name List-ORGChildren -Value Get-ORGChild
@@ -23068,6 +23071,9 @@ Set-Alias -Name ORG-ListDelegatedAdministrators -Value Get-ORGDelegatedAdministr
 Set-Alias -Name List-ORGDelegatedServicesForAccount -Value Get-ORGDelegatedServicesForAccountList
 Set-Alias -Name List-ORGDelegatedServicesForAccountList -Value Get-ORGDelegatedServicesForAccountList
 Set-Alias -Name ORG-ListDelegatedServicesForAccount -Value Get-ORGDelegatedServicesForAccountList
+Set-Alias -Name List-ORGEffectivePolicyValidationErrors -Value Get-ORGEffectivePolicyValidationErrorList
+Set-Alias -Name List-ORGEffectivePolicyValidationErrorList -Value Get-ORGEffectivePolicyValidationErrorList
+Set-Alias -Name ORG-ListEffectivePolicyValidationErrors -Value Get-ORGEffectivePolicyValidationErrorList
 Set-Alias -Name List-ORGHandshakesForAccount -Value Get-ORGAccountHandshakeList
 Set-Alias -Name List-ORGAccountHandshakeList -Value Get-ORGAccountHandshakeList
 Set-Alias -Name ORG-ListHandshakesForAccount -Value Get-ORGAccountHandshakeList

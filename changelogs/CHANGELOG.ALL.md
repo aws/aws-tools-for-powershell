@@ -1,4 +1,17 @@
-﻿### 5.0.30 (2025-08-11 20:11Z)
+﻿### 5.0.31 (2025-08-12 21:35Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.68.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet Register-EC2RouteTable: added parameter PublicIpv4Pool.
+  * Amazon Organizations
+    * Added cmdlet Get-ORGAccountsWithInvalidEffectivePolicyList leveraging the ListAccountsWithInvalidEffectivePolicy service API.
+    * Added cmdlet Get-ORGEffectivePolicyValidationErrorList leveraging the ListEffectivePolicyValidationErrors service API.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMDomain: added parameter TrustedIdentityPropagationSettings_Status.
+    * Modified cmdlet Update-SMDomain: added parameter TrustedIdentityPropagationSettings_Status.
+  * Amazon Transcribe Service
+    * Modified cmdlet Start-TRSMedicalScribeJob: added parameter PatientContext_Pronoun.
+
+### 5.0.30 (2025-08-11 20:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.67.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * [Breaking Change] Modified cmdlet Search-CONNAgentStatus: removed parameters HierarchyGroupCondition_HierarchyGroupMatchType and HierarchyGroupCondition_Value.

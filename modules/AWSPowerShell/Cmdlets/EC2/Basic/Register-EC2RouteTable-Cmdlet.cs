@@ -77,6 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String GatewayId { get; set; }
         #endregion
         
+        #region Parameter PublicIpv4Pool
+        /// <summary>
+        /// <para>
+        /// <para>The ID of a public IPv4 pool. A public IPv4 pool is a pool of IPv4 addresses that
+        /// you've brought to Amazon Web Services with BYOIP.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PublicIpv4Pool { get; set; }
+        #endregion
+        
         #region Parameter RouteTableId
         /// <summary>
         /// <para>
@@ -152,6 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             context.DryRun = this.DryRun;
             context.GatewayId = this.GatewayId;
+            context.PublicIpv4Pool = this.PublicIpv4Pool;
             context.RouteTableId = this.RouteTableId;
             #if MODULAR
             if (this.RouteTableId == null && ParameterWasBound(nameof(this.RouteTableId)))
@@ -183,6 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.GatewayId != null)
             {
                 request.GatewayId = cmdletContext.GatewayId;
+            }
+            if (cmdletContext.PublicIpv4Pool != null)
+            {
+                request.PublicIpv4Pool = cmdletContext.PublicIpv4Pool;
             }
             if (cmdletContext.RouteTableId != null)
             {
@@ -249,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Boolean? DryRun { get; set; }
             public System.String GatewayId { get; set; }
+            public System.String PublicIpv4Pool { get; set; }
             public System.String RouteTableId { get; set; }
             public System.String SubnetId { get; set; }
             public System.Func<Amazon.EC2.Model.AssociateRouteTableResponse, RegisterEC2RouteTableCmdlet, object> Select { get; set; } =

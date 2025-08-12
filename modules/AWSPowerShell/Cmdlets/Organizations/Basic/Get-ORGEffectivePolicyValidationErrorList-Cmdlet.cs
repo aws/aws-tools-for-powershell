@@ -23,53 +23,87 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.Organizations;
+using Amazon.Organizations.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Describes the IP address ranges that were provisioned for use with Amazon Web Services
-    /// resources through through bring your own IP addresses (BYOIP).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all the validation errors on an <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_effective.html">effective
+    /// policy</a> for a specified account and policy type.
+    /// 
+    ///  
+    /// <para>
+    /// This operation can be called only from the organization's management account or by
+    /// a member account that is a delegated administrator.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "EC2ByoipCidr")]
-    [OutputType("Amazon.EC2.Model.ByoipCidr")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeByoipCidrs API operation.", Operation = new[] {"DescribeByoipCidrs"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeByoipCidrsResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.ByoipCidr or Amazon.EC2.Model.DescribeByoipCidrsResponse",
-        "This cmdlet returns a collection of Amazon.EC2.Model.ByoipCidr objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeByoipCidrsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "ORGEffectivePolicyValidationErrorList")]
+    [OutputType("Amazon.Organizations.Model.ListEffectivePolicyValidationErrorsResponse")]
+    [AWSCmdlet("Calls the AWS Organizations ListEffectivePolicyValidationErrors API operation.", Operation = new[] {"ListEffectivePolicyValidationErrors"}, SelectReturnType = typeof(Amazon.Organizations.Model.ListEffectivePolicyValidationErrorsResponse))]
+    [AWSCmdletOutput("Amazon.Organizations.Model.ListEffectivePolicyValidationErrorsResponse",
+        "This cmdlet returns an Amazon.Organizations.Model.ListEffectivePolicyValidationErrorsResponse object containing multiple properties."
     )]
-    public partial class GetEC2ByoipCidrCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetORGEffectivePolicyValidationErrorListCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DryRun
+        #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>Checks whether you have the required permissions for the action, without actually
-        /// making the request, and provides an error response. If you have the required permissions,
-        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// <para>The ID of the account that you want details about. Specifying an organization root
+        /// or organizational unit (OU) as the target is not supported.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String AccountId { get; set; }
+        #endregion
+        
+        #region Parameter PolicyType
+        /// <summary>
+        /// <para>
+        /// <para>The type of policy that you want information about. You can specify one of the following
+        /// values:</para><ul><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative.html">DECLARATIVE_POLICY_EC2</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_chatbot.html">CHATBOT_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a></para></li></ul>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? DryRun { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.Organizations.EffectivePolicyType")]
+        public Amazon.Organizations.EffectivePolicyType PolicyType { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <c>nextToken</c> value.</para>
+        /// <para>The total number of results that you want included on each page of the response. If
+        /// you do not include this parameter, it defaults to a value that is specific to the
+        /// operation. If additional items exist beyond the maximum you specify, the <c>NextToken</c>
+        /// response element is present and has a value (is not null). Include that value as the
+        /// <c>NextToken</c> request parameter in the next call to the operation to get the next
+        /// part of the results. Note that Organizations might return fewer results than the maximum
+        /// even when there are more results available. You should check <c>NextToken</c> after
+        /// every operation to ensure that you receive all of the results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
         /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
         /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
         /// </para>
-        /// <para>If a value for this parameter is not specified the cmdlet will use a default value of '<b>100</b>'.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("MaxItems","MaxResults")]
@@ -79,7 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next page of results.</para>
+        /// <para>The parameter for receiving additional results if you receive a <c>NextToken</c> response
+        /// in a previous request. A <c>NextToken</c> response indicates that more output is available.
+        /// Set this parameter to the value of the previous call's <c>NextToken</c> response to
+        /// indicate where the output should continue from.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -92,13 +129,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ByoipCidrs'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DescribeByoipCidrsResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.DescribeByoipCidrsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Organizations.Model.ListEffectivePolicyValidationErrorsResponse).
+        /// Specifying the name of a property of type Amazon.Organizations.Model.ListEffectivePolicyValidationErrorsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ByoipCidrs";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -127,24 +164,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeByoipCidrsResponse, GetEC2ByoipCidrCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Organizations.Model.ListEffectivePolicyValidationErrorsResponse, GetORGEffectivePolicyValidationErrorListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DryRun = this.DryRun;
+            context.AccountId = this.AccountId;
+            #if MODULAR
+            if (this.AccountId == null && ParameterWasBound(nameof(this.AccountId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.MaxResult = this.MaxResult;
-            #if MODULAR
-            if (!ParameterWasBound(nameof(this.MaxResult)))
-            {
-                WriteVerbose("MaxResult parameter unset, using default value of '100'");
-                context.MaxResult = 100;
-            }
-            #endif
-            #if MODULAR
-            if (this.MaxResult == null && ParameterWasBound(nameof(this.MaxResult)))
-            {
-                WriteWarning("You are passing $null as a value for parameter MaxResult which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
             {
@@ -155,6 +185,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.NextToken = this.NextToken;
+            context.PolicyType = this.PolicyType;
+            #if MODULAR
+            if (this.PolicyType == null && ParameterWasBound(nameof(this.PolicyType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter PolicyType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -165,22 +202,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region IExecutor Members
         
-        #if MODULAR
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.EC2.Model.DescribeByoipCidrsRequest();
+            var request = new Amazon.Organizations.Model.ListEffectivePolicyValidationErrorsRequest();
             
-            if (cmdletContext.DryRun != null)
+            if (cmdletContext.AccountId != null)
             {
-                request.DryRun = cmdletContext.DryRun.Value;
+                request.AccountId = cmdletContext.AccountId;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.PolicyType != null)
+            {
+                request.PolicyType = cmdletContext.PolicyType;
             }
             
             // Initialize loop variant and commence piping
@@ -229,103 +269,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             return null;
         }
-        #else
-        public object Execute(ExecutorContext context)
-        {
-            var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
-            
-            // create request and set iteration invariants
-            var request = new Amazon.EC2.Model.DescribeByoipCidrsRequest();
-            if (cmdletContext.DryRun != null)
-            {
-                request.DryRun = cmdletContext.DryRun.Value;
-            }
-            
-            // Initialize loop variants and commence piping
-            System.String _nextToken = null;
-            int? _emitLimit = null;
-            int _retrievedSoFar = 0;
-            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
-            {
-                _nextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.MaxResult.HasValue)
-            {
-                // The service has a maximum page size of 100. If the user has
-                // asked for more items than page max, and there is no page size
-                // configured, we rely on the service ignoring the set maximum
-                // and giving us 100 items back. If a page size is set, that will
-                // be used to configure the pagination.
-                // We'll make further calls to satisfy the user's request.
-                _emitLimit = cmdletContext.MaxResult;
-            }
-            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
-            
-            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            do
-            {
-                request.NextToken = _nextToken;
-                if (_emitLimit.HasValue)
-                {
-                    int correctPageSize = Math.Min(100, _emitLimit.Value);
-                    request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
-                }
-                else if (!ParameterWasBound(nameof(this.MaxResult)))
-                {
-                    request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(100);
-                }
-                
-                CmdletOutput output;
-                
-                try
-                {
-                    
-                    var response = CallAWSServiceOperation(client, request);
-                    object pipelineOutput = null;
-                    if (!useParameterSelect)
-                    {
-                        pipelineOutput = cmdletContext.Select(response, this);
-                    }
-                    output = new CmdletOutput
-                    {
-                        PipelineOutput = pipelineOutput,
-                        ServiceResponse = response
-                    };
-                    int _receivedThisCall = response.ByoipCidrs?.Count ?? 0;
-                    
-                    _nextToken = response.NextToken;
-                    _retrievedSoFar += _receivedThisCall;
-                    if (_emitLimit.HasValue)
-                    {
-                        _emitLimit -= _receivedThisCall;
-                    }
-                }
-                catch (Exception e)
-                {
-                    if (_retrievedSoFar == 0 || !_emitLimit.HasValue)
-                    {
-                        output = new CmdletOutput { ErrorResponse = e };
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-                
-                ProcessOutput(output);
-            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken) && (!_emitLimit.HasValue || _emitLimit.Value >= 1));
-            
-            
-            if (useParameterSelect)
-            {
-                WriteObject(cmdletContext.Select(null, this));
-            }
-            
-            
-            return null;
-        }
-        #endif
         
         public ExecutorContext CreateContext()
         {
@@ -336,12 +279,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.DescribeByoipCidrsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeByoipCidrsRequest request)
+        private Amazon.Organizations.Model.ListEffectivePolicyValidationErrorsResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.ListEffectivePolicyValidationErrorsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeByoipCidrs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "ListEffectivePolicyValidationErrors");
             try
             {
-                return client.DescribeByoipCidrsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListEffectivePolicyValidationErrorsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -358,11 +301,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? DryRun { get; set; }
+            public System.String AccountId { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.EC2.Model.DescribeByoipCidrsResponse, GetEC2ByoipCidrCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ByoipCidrs;
+            public Amazon.Organizations.EffectivePolicyType PolicyType { get; set; }
+            public System.Func<Amazon.Organizations.Model.ListEffectivePolicyValidationErrorsResponse, GetORGEffectivePolicyValidationErrorListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

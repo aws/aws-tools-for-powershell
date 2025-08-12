@@ -57062,7 +57062,11 @@ $ORG_Completers = {
         }
 
         # Amazon.Organizations.EffectivePolicyType
-        "Get-ORGEffectivePolicy/PolicyType"
+        {
+            ($_ -eq "Get-ORGAccountsWithInvalidEffectivePolicyList/PolicyType") -Or
+            ($_ -eq "Get-ORGEffectivePolicy/PolicyType") -Or
+            ($_ -eq "Get-ORGEffectivePolicyValidationErrorList/PolicyType")
+        }
         {
             $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","SECURITYHUB_POLICY","TAG_POLICY"
             break
@@ -57119,7 +57123,7 @@ $ORG_map = @{
     "Filter"=@("Get-ORGPolicyForTarget","Get-ORGPolicyList")
     "Filter_ActionType"=@("Get-ORGAccountHandshakeList","Get-ORGOrganizationHandshakeList")
     "IamUserAccessToBilling"=@("New-ORGAccount","New-ORGGovCloudAccount")
-    "PolicyType"=@("Disable-ORGPolicyType","Enable-ORGPolicyType","Get-ORGEffectivePolicy")
+    "PolicyType"=@("Disable-ORGPolicyType","Enable-ORGPolicyType","Get-ORGAccountsWithInvalidEffectivePolicyList","Get-ORGEffectivePolicy","Get-ORGEffectivePolicyValidationErrorList")
     "Target_Type"=@("New-ORGAccountInvitation")
     "Type"=@("New-ORGPolicy")
 }
@@ -57207,11 +57211,13 @@ $ORG_SelectMap = @{
                "Remove-ORGOrganizationAssociation",
                "Get-ORGAccountList",
                "Get-ORGAccountForParent",
+               "Get-ORGAccountsWithInvalidEffectivePolicyList",
                "Get-ORGAWSServiceAccessForOrganization",
                "Get-ORGChild",
                "Get-ORGAccountCreationStatusList",
                "Get-ORGDelegatedAdministratorList",
                "Get-ORGDelegatedServicesForAccountList",
+               "Get-ORGEffectivePolicyValidationErrorList",
                "Get-ORGAccountHandshakeList",
                "Get-ORGOrganizationHandshakeList",
                "Get-ORGOrganizationalUnitList",
@@ -69395,6 +69401,8 @@ $SM_Completers = {
             ($_ -eq "Update-SMSpace/SpaceSettings_RemoteAccess") -Or
             ($_ -eq "New-SMSpace/SpaceSettings_SpaceManagedResource") -Or
             ($_ -eq "Update-SMSpace/SpaceSettings_SpaceManagedResource") -Or
+            ($_ -eq "New-SMDomain/TrustedIdentityPropagationSettings_Status") -Or
+            ($_ -eq "Update-SMDomain/TrustedIdentityPropagationSettings_Status") -Or
             ($_ -eq "New-SMDomain/UnifiedStudioSettings_StudioWebPortalAccess") -Or
             ($_ -eq "Update-SMDomain/UnifiedStudioSettings_StudioWebPortalAccess")
         }
@@ -70717,6 +70725,7 @@ $SM_map = @{
     "TransformInput_SplitType"=@("New-SMTransformJob")
     "TransformOutput_AssembleWith"=@("New-SMTransformJob")
     "TransformResources_InstanceType"=@("New-SMTransformJob")
+    "TrustedIdentityPropagationSettings_Status"=@("New-SMDomain","Update-SMDomain")
     "TtlDuration_Unit"=@("New-SMFeatureGroup","Update-SMFeatureGroup")
     "TuningObjective_Type"=@("New-SMHyperParameterTuningJob")
     "Type"=@("Get-SMInferenceExperimentList","New-SMInferenceExperiment","New-SMPartnerApp")
@@ -77881,6 +77890,13 @@ $TRS_Completers = {
             break
         }
 
+        # Amazon.TranscribeService.Pronouns
+        "Start-TRSMedicalScribeJob/PatientContext_Pronoun"
+        {
+            $v = "HE_HIM","SHE_HER","THEY_THEM"
+            break
+        }
+
         # Amazon.TranscribeService.RedactionOutput
         {
             ($_ -eq "Start-TRSCallAnalyticsJob/ContentRedaction_RedactionOutput") -Or
@@ -77963,6 +77979,7 @@ $TRS_map = @{
     "InputType"=@("New-TRSCallAnalyticsCategory","Update-TRSCallAnalyticsCategory")
     "LanguageCode"=@("New-TRSLanguageModel","New-TRSMedicalVocabulary","New-TRSVocabulary","New-TRSVocabularyFilter","Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob","Update-TRSMedicalVocabulary","Update-TRSVocabulary")
     "MediaFormat"=@("Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob")
+    "PatientContext_Pronoun"=@("Start-TRSMedicalScribeJob")
     "Settings_VocabularyFilterMethod"=@("Start-TRSCallAnalyticsJob","Start-TRSMedicalScribeJob","Start-TRSTranscriptionJob")
     "Specialty"=@("Start-TRSMedicalTranscriptionJob")
     "StateEqual"=@("Get-TRSMedicalVocabularyList","Get-TRSVocabularyList")

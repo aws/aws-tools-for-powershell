@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// volume size, you must first change the volume size of the source instance.</para></li><li><para>You can't modify the encryption status of existing volumes or snapshots. To create
         /// an AMI with volumes or snapshots that have a different encryption status (for example,
         /// where the source volume and snapshots are unencrypted, and you want to create an AMI
-        /// with encrypted volumes or snapshots), use the <a>CopyImage</a> action.</para></li><li><para>The only option that can be changed for existing mappings or snapshots is <c>DeleteOnTermination</c>.</para></li></ul><para />
+        /// with encrypted volumes or snapshots), copy the image instead.</para></li><li><para>The only option that can be changed for existing mappings or snapshots is <c>DeleteOnTermination</c>.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

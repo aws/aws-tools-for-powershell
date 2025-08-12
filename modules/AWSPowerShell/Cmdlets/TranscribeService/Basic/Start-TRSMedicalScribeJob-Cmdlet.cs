@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// </para></li><li><para><c>MedicalScribeJobName</c>: A custom name you create for your MedicalScribe job
     /// that is unique within your Amazon Web Services account.
     /// </para></li><li><para><c>OutputBucketName</c>: The Amazon S3 bucket where you want your output files stored.
-    /// </para></li><li><para><c>Settings</c>: A <c>MedicalScribeSettings</c> obect that must set exactly one of
-    /// <c>ShowSpeakerLabels</c> or <c>ChannelIdentification</c> to true. If <c>ShowSpeakerLabels</c>
+    /// </para></li><li><para><c>Settings</c>: A <c>MedicalScribeSettings</c> object that must set exactly one
+    /// of <c>ShowSpeakerLabels</c> or <c>ChannelIdentification</c> to true. If <c>ShowSpeakerLabels</c>
     /// is true, <c>MaxSpeakerLabels</c> must also be set. 
     /// </para></li><li><para><c>ChannelDefinitions</c>: A <c>MedicalScribeChannelDefinitions</c> array should
     /// be set if and only if the <c>ChannelIdentification</c> value of <c>Settings</c> is
@@ -236,17 +236,28 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter OutputEncryptionKMSKeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a KMS key that you want to use to encrypt your Medical
-        /// Scribe output.</para><para>KMS key ARNs have the format <c>arn:partition:kms:region:account:key/key-id</c>. For
-        /// example: <c>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">
-        /// KMS key ARNs</a>.</para><para>If you do not specify an encryption key, your output is encrypted with the default
-        /// Amazon S3 key (SSE-S3).</para><para>Note that the role making the request and the role specified in the <c>DataAccessRoleArn</c>
-        /// request parameter (if present) must have permission to use the specified KMS key.</para>
+        /// <para>The KMS key you want to use to encrypt your Medical Scribe output.</para><para>If using a key located in the <b>current</b> Amazon Web Services account, you can
+        /// specify your KMS key in one of four ways:</para><ol><li><para>Use the KMS key ID itself. For example, <c>1234abcd-12ab-34cd-56ef-1234567890ab</c>.</para></li><li><para>Use an alias for the KMS key ID. For example, <c>alias/ExampleAlias</c>.</para></li><li><para>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <c>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</c>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <c>arn:aws:kms:region:account-ID:alias/ExampleAlias</c>.</para></li></ol><para>If using a key located in a <b>different</b> Amazon Web Services account than the
+        /// current Amazon Web Services account, you can specify your KMS key in one of two ways:</para><ol><li><para>Use the ARN for the KMS key ID. For example, <c>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</c>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <c>arn:aws:kms:region:account-ID:alias/ExampleAlias</c>.</para></li></ol><para>If you do not specify an encryption key, your output is encrypted with the default
+        /// Amazon S3 key (SSE-S3).</para><para>Note that the role specified in the <c>DataAccessRoleArn</c> request parameter must
+        /// have permission to use the specified KMS key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OutputEncryptionKMSKeyId { get; set; }
+        #endregion
+        
+        #region Parameter PatientContext_Pronoun
+        /// <summary>
+        /// <para>
+        /// <para>The patient's preferred pronouns that the user wants to provide as a context for clinical
+        /// note generation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MedicalScribeContext_PatientContext_Pronouns")]
+        [AWSConstantClassSource("Amazon.TranscribeService.Pronouns")]
+        public Amazon.TranscribeService.Pronouns PatientContext_Pronoun { get; set; }
         #endregion
         
         #region Parameter Media_RedactedMediaFileUri
@@ -278,7 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Adds one or more custom tags, each in the form of a key:value pair, to the Medica
+        /// <para>Adds one or more custom tags, each in the form of a key:value pair, to the Medical
         /// Scribe job.</para><para>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
         /// resources</a>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
@@ -393,6 +404,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             }
             context.Media_MediaFileUri = this.Media_MediaFileUri;
             context.Media_RedactedMediaFileUri = this.Media_RedactedMediaFileUri;
+            context.PatientContext_Pronoun = this.PatientContext_Pronoun;
             context.MedicalScribeJobName = this.MedicalScribeJobName;
             #if MODULAR
             if (this.MedicalScribeJobName == null && ParameterWasBound(nameof(this.MedicalScribeJobName)))
@@ -475,6 +487,40 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (requestMediaIsNull)
             {
                 request.Media = null;
+            }
+            
+             // populate MedicalScribeContext
+            var requestMedicalScribeContextIsNull = true;
+            request.MedicalScribeContext = new Amazon.TranscribeService.Model.MedicalScribeContext();
+            Amazon.TranscribeService.Model.MedicalScribePatientContext requestMedicalScribeContext_medicalScribeContext_PatientContext = null;
+            
+             // populate PatientContext
+            var requestMedicalScribeContext_medicalScribeContext_PatientContextIsNull = true;
+            requestMedicalScribeContext_medicalScribeContext_PatientContext = new Amazon.TranscribeService.Model.MedicalScribePatientContext();
+            Amazon.TranscribeService.Pronouns requestMedicalScribeContext_medicalScribeContext_PatientContext_patientContext_Pronoun = null;
+            if (cmdletContext.PatientContext_Pronoun != null)
+            {
+                requestMedicalScribeContext_medicalScribeContext_PatientContext_patientContext_Pronoun = cmdletContext.PatientContext_Pronoun;
+            }
+            if (requestMedicalScribeContext_medicalScribeContext_PatientContext_patientContext_Pronoun != null)
+            {
+                requestMedicalScribeContext_medicalScribeContext_PatientContext.Pronouns = requestMedicalScribeContext_medicalScribeContext_PatientContext_patientContext_Pronoun;
+                requestMedicalScribeContext_medicalScribeContext_PatientContextIsNull = false;
+            }
+             // determine if requestMedicalScribeContext_medicalScribeContext_PatientContext should be set to null
+            if (requestMedicalScribeContext_medicalScribeContext_PatientContextIsNull)
+            {
+                requestMedicalScribeContext_medicalScribeContext_PatientContext = null;
+            }
+            if (requestMedicalScribeContext_medicalScribeContext_PatientContext != null)
+            {
+                request.MedicalScribeContext.PatientContext = requestMedicalScribeContext_medicalScribeContext_PatientContext;
+                requestMedicalScribeContextIsNull = false;
+            }
+             // determine if request.MedicalScribeContext should be set to null
+            if (requestMedicalScribeContextIsNull)
+            {
+                request.MedicalScribeContext = null;
             }
             if (cmdletContext.MedicalScribeJobName != null)
             {
@@ -646,6 +692,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             public Dictionary<System.String, System.String> KMSEncryptionContext { get; set; }
             public System.String Media_MediaFileUri { get; set; }
             public System.String Media_RedactedMediaFileUri { get; set; }
+            public Amazon.TranscribeService.Pronouns PatientContext_Pronoun { get; set; }
             public System.String MedicalScribeJobName { get; set; }
             public System.String OutputBucketName { get; set; }
             public System.String OutputEncryptionKMSKeyId { get; set; }

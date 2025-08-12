@@ -164,6 +164,13 @@ $TRS_Completers = {
             break
         }
 
+        # Amazon.TranscribeService.Pronouns
+        "Start-TRSMedicalScribeJob/PatientContext_Pronoun"
+        {
+            $v = "HE_HIM","SHE_HER","THEY_THEM"
+            break
+        }
+
         # Amazon.TranscribeService.RedactionOutput
         {
             ($_ -eq "Start-TRSCallAnalyticsJob/ContentRedaction_RedactionOutput") -Or
@@ -246,6 +253,7 @@ $TRS_map = @{
     "InputType"=@("New-TRSCallAnalyticsCategory","Update-TRSCallAnalyticsCategory")
     "LanguageCode"=@("New-TRSLanguageModel","New-TRSMedicalVocabulary","New-TRSVocabulary","New-TRSVocabularyFilter","Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob","Update-TRSMedicalVocabulary","Update-TRSVocabulary")
     "MediaFormat"=@("Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob")
+    "PatientContext_Pronoun"=@("Start-TRSMedicalScribeJob")
     "Settings_VocabularyFilterMethod"=@("Start-TRSCallAnalyticsJob","Start-TRSMedicalScribeJob","Start-TRSTranscriptionJob")
     "Specialty"=@("Start-TRSMedicalTranscriptionJob")
     "StateEqual"=@("Get-TRSMedicalVocabularyList","Get-TRSVocabularyList")
